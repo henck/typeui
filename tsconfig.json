@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es5",        // Target ECMAScript 5
+    "module": "commonjs",   // Module code generation
+    "declaration": true,    // Generate .d.ts file
+    "outDir": "./dist",     // Output directory
+    "strict": true
+  }
+}

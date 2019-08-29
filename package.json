@@ -1,0 +1,24 @@
+{
+  "name": "typeui",
+  "version": "0.0.1",
+  "description": "TypeUI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henck/typeui.git"
+  },
+  "author": "Alexander van Oostenrijk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/henck/typeui/issues"
+  },
+  "homepage": "https://github.com/henck/typeui#readme",
+  "devDependencies": {
+    "typescript": "^3.6.2"
+  }
+}
