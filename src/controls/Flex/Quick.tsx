@@ -27,8 +27,6 @@ const QuickStyled = styled(QuickBase)`
 `;
 
 class Quick extends React.Component<IQuickProps, {}> {
-  public static displayName = "Flex.Quick";
-  
   render() {
     let p = this.props;
     return (

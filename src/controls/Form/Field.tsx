@@ -361,8 +361,6 @@ const FieldStyled = styled(FieldBase)`
 `;
 
 class Field extends React.Component<IProps, {}> {
-  public static displayName = "Form.Field";
-  
   render() {
     let p = this.props;
     return (

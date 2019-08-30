@@ -45,8 +45,6 @@ const UncontrolledStyled = styled(UncontrolledBase)`
 `;
 
 class Uncontrolled extends React.Component<IProps, {}> {
-  public static displayName = "Form.Uncontrolled";
-  
   render() {
     let p = this.props;
     return (

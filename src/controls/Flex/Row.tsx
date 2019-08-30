@@ -5,6 +5,7 @@ import styled from '../../styles/Theme';
 interface IRowProps {
   className?: string;
   children?: React.ReactNode;
+  /** Stackable means... */
   stackable?: boolean;
   divided?: boolean;
   compact?: boolean;
@@ -12,10 +13,6 @@ interface IRowProps {
 }
 
 class RowBase extends React.Component<IRowProps, {}> {
-  constructor(props: IRowProps) {
-    super(props);
-  }
-
   render() {
     let p = this.props;
     return (
@@ -47,8 +44,6 @@ const RowStyled = styled(RowBase)`
 `;
 
 class Row extends React.Component<IRowProps, {}> {
-  public static displayName = "Flex.Row";
-  
   render() {
     let p = this.props;
     return (

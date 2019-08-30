@@ -38,8 +38,6 @@ const GroupStyled = styled(GroupBase)`
 `;
 
 class Group extends React.Component<IGroupProps, {}> {
-  public static displayName = "Form.Group";
-  
   render() {
     let p = this.props;
     return (

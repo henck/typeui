@@ -17,7 +17,7 @@ class BoxBase extends React.Component<IBoxProps, {}> {
   }
 }
 
-const Box = styled(BoxBase)`
+const BoxStyled = styled(BoxBase)`
   display: block;
   padding: 30px;
   text-align: center;
@@ -26,6 +26,13 @@ const Box = styled(BoxBase)`
   ${p => p.color && css`background: ${p.color};`}
 `;
 
-Box.displayName = "Box";
+class Box extends React.Component<IBoxProps, {}> {
+  render() {
+    let p = this.props;
+    return (
+      <BoxStyled {...p}/>
+    )
+  }  
+}
 
 export { Box };

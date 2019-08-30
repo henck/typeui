@@ -11,7 +11,6 @@ interface IColumnProps {
 }
 
 class Column extends React.Component<IColumnProps, {}> {
-  public static displayName = "Dropdown.Column";
 }
 
 export { Column };

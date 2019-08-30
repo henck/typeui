@@ -4,7 +4,7 @@ import { boolean } from '@storybook/addon-knobs/react';
 import { Form } from '../../';
 
 storiesOf('Controls/Form', module)
-  .addDecorator(withInfo({...withInfoSettings, propTablesExclude: []}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Form.Field, Form.Uncontrolled], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

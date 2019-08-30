@@ -63,4 +63,10 @@ class Flex extends React.Component<IFlexProps, {}> {
   }
 }
 
+(Flex.Row as any).displayName = "Flex.Row";
+(Flex.Column as any).displayName = "Flex.Column";
+(Flex.Divider as any).displayName = "Flex.Divider";
+(Flex.Quick as any).displayName = "Flex.Quick";
+(Flex.Columns as any).displayName = "Flex.Columns";
+
 export { Flex };

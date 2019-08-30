@@ -110,5 +110,7 @@ class Dropdown extends React.Component<IDropdownProps, {}> {
   }  
 }
 
+(Dropdown.Column as any).displayName = "Dropdown.Column";
+
 
 export { IDropdownProps, Dropdown };

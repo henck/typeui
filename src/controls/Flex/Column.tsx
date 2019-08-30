@@ -39,8 +39,6 @@ const ColumnStyled = styled(ColumnBase)`
 `;
 
 class Column extends React.Component<IColumnProps, {}> {
-  public static displayName = "Flex.Column";
-  
   render() {
     let p = this.props;
     return (

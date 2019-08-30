@@ -74,8 +74,6 @@ const DividerStyled = styled(DividerBase)`
 `;
 
 class Divider extends React.Component<IDividerProps, {}> {
-  public static displayName = "Flex.Divider";
-  
   render() {
     let p = this.props;
     return (

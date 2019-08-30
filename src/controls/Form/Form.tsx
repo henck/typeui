@@ -128,4 +128,8 @@ class Form extends React.Component<IProps, IState> {
   }
 }
 
+(Form.Field as any).displayName = "Form.Field";
+(Form.Group as any).displayName = "Form.Group";
+(Form.Uncontrolled as any).displayName = "Form.Uncontrolled";
+
 export { Form };
