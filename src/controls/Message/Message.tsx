@@ -134,4 +134,7 @@ class Message extends React.Component<IMessageProps, {}> {
   }
 }
 
+(Message.Header as any).displayName = "Message.Header";
+(Message.Content as any).displayName = "Message.Content";
+
 export { Message, TMessageType };

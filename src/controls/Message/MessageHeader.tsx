@@ -21,8 +21,6 @@ const MessageHeaderStyled = styled(MessageHeaderBase)`
 `;
 
 class MessageHeader extends React.Component<IMessageHeaderProps, {}> {
-  public static displayName = "Message.Header";
-  
   render() {
     let p = this.props;
     return (

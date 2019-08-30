@@ -6,7 +6,6 @@ interface IMessageContentProps {
 }
 
 class MessageContent extends React.Component<IMessageContentProps, {}> {
-  public static displayName = 'Message.Content';
   render() {
     let p = this.props;
     return (
