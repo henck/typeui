@@ -1,6 +1,6 @@
 {
   "name": "@independent-software/typeui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TypeUI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,6 +10,9 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o docs"
   },
+  "files": [
+    "/dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/henck/typeui.git"
