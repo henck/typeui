@@ -101,6 +101,4 @@ const AccordionBody = styled(AccordionBodyBase)`
   `}  
 `;
 
-AccordionBody.displayName = "Accordion.Body";
-
 export { AccordionBody };

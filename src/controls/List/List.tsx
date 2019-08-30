@@ -103,7 +103,6 @@ const ListStyled = styled(ListBase)`
 // This way, we can add static class members.
 // 
 class List extends React.Component<IListProps, {}> {
-  public static displayName = "List";
   public static Item = ListItem;
   public static Icon = ListIcon;
   public static Content = ListContent;
@@ -117,5 +116,11 @@ class List extends React.Component<IListProps, {}> {
     )
   }
 }
+
+(List.Content as any).displayName = "List.Content";
+(List.Description as any).displayName = "List.Description";
+(List.Header as any).displayName = "List.Header";
+(List.Icon as any).displayName = "List.Icon";
+(List.Item as any).displayName = "List.Item";
 
 export { List };

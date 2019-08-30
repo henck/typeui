@@ -41,8 +41,6 @@ const AccordionTabStyled = styled(AccordionTabBase)`
 `;
 
 class AccordionTab extends React.Component<IAccordionTabProps, {}> {
-  public static displayName = "Accordion.Tab";
-  
   render() {
     let p = this.props;
     return (

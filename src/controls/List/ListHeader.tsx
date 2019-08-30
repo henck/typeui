@@ -26,8 +26,6 @@ const ListHeaderStyled = styled(ListHeaderBase)`
 `;
 
 class ListHeader extends React.Component<IListHeaderProps, {}> {
-  public static displayName = "List.Header";
-  
   render() {
     let p = this.props;
     return (

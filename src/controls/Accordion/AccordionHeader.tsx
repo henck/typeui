@@ -84,6 +84,4 @@ const AccordionHeader = styled(AccordionHeaderBase)`
   }
 `;
 
-AccordionHeader.displayName = "Accordion.Header";
-
 export { AccordionHeader };

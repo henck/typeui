@@ -16,23 +16,21 @@ storiesOf('Controls/Button', module)
   .addWithJSX(
     'Properties',
   () => (
-  <div>
-    <Button      
-      primary={boolean('primary', false)}
-      secondary={boolean('secondary', false)}
-      positive={boolean('positive', false)}
-      negative={boolean('negative', false)}
-      color={text('color', '')}
-      compact={boolean('compact', false)}
-      fluid={boolean('fluid', false)}
-      icon={boolean('icon', false)}
-      basic={boolean('basic', false)}
-      disabled={boolean('disabled', false)}
-      circular={boolean('circular', false)}
-      size={(text('size', '') as Size)}
-      float={(text('float', '') as Float)}
-      onClick={() => console.log('Button clicked.')}>
-      {text("Label", "Button")}
-    </Button>
-  </div>
+  <Button      
+    primary={boolean('primary', false)}
+    secondary={boolean('secondary', false)}
+    positive={boolean('positive', false)}
+    negative={boolean('negative', false)}
+    color={text('color', '')}
+    compact={boolean('compact', false)}
+    fluid={boolean('fluid', false)}
+    icon={boolean('icon', false)}
+    basic={boolean('basic', false)}
+    disabled={boolean('disabled', false)}
+    circular={boolean('circular', false)}
+    size={(text('size', '') as Size)}
+    float={(text('float', '') as Float)}
+    onClick={() => console.log('Button clicked.')}>
+    {text("Label", "Button")}
+  </Button>
   ));  

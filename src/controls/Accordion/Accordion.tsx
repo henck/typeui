@@ -102,4 +102,6 @@ class Accordion extends React.Component<IAccordionProps, {}> {
   }
 }
 
+(Accordion.Tab as any).displayName = "Accordion.Tab";
+
 export { Accordion, AccordionTab };

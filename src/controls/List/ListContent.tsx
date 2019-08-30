@@ -47,8 +47,6 @@ const ListContentStyled = styled(ListContentBase)`
 `;
 
 class ListContent extends React.Component<IListContentProps, {}> {
-  public static displayName = "List.Content";
-  
   render() {
     let p = this.props;
     return (

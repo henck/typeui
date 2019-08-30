@@ -10,7 +10,7 @@ storiesOf('Controls/Accordion', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All accordion properties.
+    All Accordion properties.
     `
   })
   .addWithJSX(

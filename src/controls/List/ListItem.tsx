@@ -143,8 +143,6 @@ const ListItemStyled = styled(ListItemBase)`
 `;
 
 class ListItem extends React.Component<IListItemProps, {}> {
-  public static displayName = "List.Item";
-  
   render() {
     let p = this.props;
     return (
