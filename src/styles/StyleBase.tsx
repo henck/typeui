@@ -14,8 +14,12 @@ p {
   margin: 0 0 4px 0;
 }
 
-b {
+b, strong {
   font-weight: 500;
+}
+
+i, em {
+  font-style: italic;
 }
 
 code {

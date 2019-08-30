@@ -9,6 +9,10 @@ import { StyleReset } from '../styles/StyleReset';
 import { StyleBase } from '../styles/StyleBase';
 import { theme }  from '../styles/Theme';
 
+import * as ReactMarkdown from 'react-markdown';
+
+import { Table } from '../controls/Table'
+
 type TPropDefinitions = Array<{
   property: string, // The name of the prop
   propType: Object | string, // The prop type. TODO: info about what this object is...
@@ -23,30 +27,30 @@ const TableComponent = ({ propDefinitions }:any ) => {
     ({ property, propType, required, description, defaultValue }) => {
       return (
         <tr key={property}>
-          <td style={{padding: '2px 20px 2px 0', fontFamily: 'courier'}}>
-            {property}
+          <td>
+            <code>{property}</code>
             {required ? <span style={{color:'red'}}>*</span> : null}
           </td>
-          <td style={{padding: '2px 20px 2px 0', color: '#666'}}>{(propType as any).name}</td>
-          <td style={{padding: '2px 20px 2px 0'}}>{defaultValue}</td>
-          <td style={{padding: '2px 20px 2px 0'}}>{description}</td>
+          <td style={{color: '#666'}}>{(propType as any).name}</td>
+          <td>{defaultValue}</td>
+          <td style={{lineHeight: '1.4em'}}><ReactMarkdown source={description}/></td>
         </tr>
       );
     }
   );
 
   return (
-    <table>
+    <Table>
       <thead>
         <tr>
-          <th style={{textTransform: 'uppercase', textAlign: 'left', fontWeight: 500, padding: '2px 20px 2px 0', fontSize: '90%'}}>name</th>
-          <th style={{textTransform: 'uppercase', textAlign: 'left', fontWeight: 500, padding: '2px 20px 2px 0', fontSize: '90%'}}>type</th>
-          <th style={{textTransform: 'uppercase', textAlign: 'left', fontWeight: 500, padding: '2px 20px 2px 0', fontSize: '90%'}}>default</th>
-          <th style={{textTransform: 'uppercase', textAlign: 'left', fontWeight: 500, padding: '2px 20px 2px 0', fontSize: '90%'}}>description</th>
+          <th style={{width:'15%'}}>Name</th>
+          <th style={{width:'15%'}}>Type</th>
+          <th style={{width:'15%'}}>Default</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody>{props}</tbody>
-    </table>
+    </Table>
   );
 };
 
