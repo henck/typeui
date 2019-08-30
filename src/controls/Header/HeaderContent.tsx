@@ -21,8 +21,6 @@ const HeaderContentStyled = styled(HeaderContentBase)`
 `
 
 export class HeaderContent extends React.Component<IHeaderContentProps> {
-  public static displayName = "HeaderContent";
-
   render() {
     let p = this.props;
     return (

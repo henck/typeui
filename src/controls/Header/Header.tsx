@@ -221,3 +221,5 @@ export class Header extends React.Component<IHeaderProps, {}> {
   }
 }
 
+(Header.Subheader as any).displayName = "Header.Subheader";
+(Header.Content as any).displayName = "Header.Content";

@@ -5,7 +5,7 @@ import { Header } from '../../';
 import { Float, HorizontalAlignment } from '../../Types';
 
 storiesOf('Controls/Header', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Header.Subheader, Header.Content], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

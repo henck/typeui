@@ -21,8 +21,6 @@ const SubheaderStyled = styled(SubheaderBase)`
 `
 
 export class Subheader extends React.Component<ISubheaderProps, {}> {
-  public static displayName = "Subheader";
-
   render() {
     let p = this.props;
     return (
