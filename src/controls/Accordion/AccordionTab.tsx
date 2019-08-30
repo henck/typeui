@@ -40,7 +40,7 @@ const AccordionTabStyled = styled(AccordionTabBase)`
   `}
 `;
 
-export class AccordionTab extends React.Component<IAccordionTabProps, {}> {
+class AccordionTab extends React.Component<IAccordionTabProps, {}> {
   public static displayName = "Accordion.Tab";
   
   render() {
@@ -51,3 +51,4 @@ export class AccordionTab extends React.Component<IAccordionTabProps, {}> {
   }  
 }
 
+export { AccordionTab };
