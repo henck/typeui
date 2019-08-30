@@ -156,4 +156,6 @@ class Tabs extends React.PureComponent<ITabsProps, {}> {
   }
 }
 
+(Tabs.Pane as any).displayName = "Tabs.Pane";
+
 export { Tabs };

@@ -29,8 +29,6 @@ const PaneStyled = styled(PaneBase)`
 `
 
 class Pane extends React.Component<IPaneProps, {}> {
-  public static displayName = "Tabs.Pane";
-  
   render() {
     let p = this.props;
     return (
