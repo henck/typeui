@@ -10,4 +10,5 @@ export * from './Number'
 export * from './Ripple'
 export * from './Segment'
 export * from './Table'
+export * from './Tabs'
 
