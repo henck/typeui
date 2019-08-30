@@ -9,4 +9,5 @@ export * from './Message'
 export * from './Number'
 export * from './Ripple'
 export * from './Segment'
+export * from './Table'
 
