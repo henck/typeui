@@ -67,7 +67,7 @@ const DemoPanel = styled(DemoPanelBase)`
 `
 
 storiesOf('Controls/Panel', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel, Panel.Header, Panel.Content, Panel.Footer], propTablesExclude: [DemoPanel, DemoPanelBase]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
