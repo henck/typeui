@@ -1,6 +1,7 @@
 export * from './controls/Accordion'
 export * from './controls/Box'
 export * from './controls/Divider'
+export * from './controls/Flex'
 export * from './controls/Header'
 export * from './controls/Icon'
 export * from './controls/Image'
