@@ -57,4 +57,4 @@ class ListContent extends React.Component<IListContentProps, {}> {
   }  
 }
 
-export { ListContent }
+export { ListContent };

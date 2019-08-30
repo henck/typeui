@@ -36,4 +36,4 @@ class ListHeader extends React.Component<IListHeaderProps, {}> {
   }  
 }
 
-export { ListHeader }
+export { ListHeader };

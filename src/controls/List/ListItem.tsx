@@ -153,4 +153,4 @@ class ListItem extends React.Component<IListItemProps, {}> {
   }  
 }
 
-export { ListItem }
+export { ListItem };
