@@ -26,4 +26,4 @@ export * from './Ripple'
 export * from './Segment'
 export * from './Table'
 export * from './Tabs'
-
+export * from './Textarea'
