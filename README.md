@@ -8,5 +8,9 @@ yarn add typeui
 bower install typeui --save
 ```
 
+## Documentation
+
+Storybook available as [GitHub pages](https://henck.github.io/typeui/).
+
 
 
