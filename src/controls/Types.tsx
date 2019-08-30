@@ -9,6 +9,8 @@ type HorizontalAlignment = 'left' | 'center' | 'right';
 
 type VerticalAlignment = 'top' | 'center' | 'bottom';
 
+type TDir = 'asc' | 'desc';
+
 type Float = 'left' | 'right';
 
 type HorizontalDirection = 'left' | 'right';
@@ -36,4 +38,4 @@ type ListStyleType =
    
 type CheckboxType = 'check' | 'toggle' | 'slider' | 'circle';
 
-export { Size, HorizontalAlignment, VerticalAlignment, Float,  HorizontalDirection, VerticalDirection, Direction, ListStyleType, ValidityReason, CheckboxType };
+export { Size, HorizontalAlignment, VerticalAlignment, Float,  HorizontalDirection, VerticalDirection, Direction, ListStyleType, ValidityReason, CheckboxType, TDir };
