@@ -15,6 +15,7 @@ import { Label } from '../Label';
 
 interface IInputProps {
   className?: string;
+  children?: any;
   /** Input name */
   name?: string;
   /** Input value */
