@@ -1,3 +1,2 @@
-export function upcase(str: string): string {
-  return str.toUpperCase();
-}
+export * from './controls/Header'
+export * from './controls/Icon'
