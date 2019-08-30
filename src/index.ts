@@ -1,6 +1,7 @@
 export * from './controls/Accordion'
 export * from './controls/Box'
 export * from './controls/Button'
+export * from './controls/Card'
 export * from './controls/Checkbox'
 export * from './controls/Divider'
 export * from './controls/Flex'
