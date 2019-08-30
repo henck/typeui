@@ -1,5 +1,5 @@
 {
-  "name": "typeui",
+  "name": "@independent-software/typeui",
   "version": "0.0.1",
   "description": "TypeUI",
   "main": "dist/index.js",
@@ -18,7 +18,18 @@
     "url": "https://github.com/henck/typeui/issues"
   },
   "homepage": "https://github.com/henck/typeui#readme",
+  "dependencies": {
+    "awesome-debounce-promise": "^2.1.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-transition-group": "^4.2.2",
+    "styled-components": "^4.3.2"
+  },
   "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-transition-group": "^4.2.2",
+    "@types/styled-components": "^4.1.18",
     "typescript": "^3.6.2"
-  }
+  }  
 }
