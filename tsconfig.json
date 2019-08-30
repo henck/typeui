@@ -8,9 +8,9 @@
     "jsx": "react",              // Support JSX in .tsx files
     "noImplicitAny": true,       // Raise error on expressions and declarations with an implied any type
     "noImplicitReturns": true,   // Raise error when not all code paths in function return a value.
-    "removeComments": true,      // Remove all comments except copy-right header comments beginning with /*!
+    "removeComments": true,      // Remove all comments except copyright header comments beginning with /*!
     "preserveConstEnums": true,  // Do not erase const enum declarations in generated code.
-    "lib": ["es6"]
+    "lib": ["es2015", "dom"]
   },
   "include": [
     "src/**/*"
