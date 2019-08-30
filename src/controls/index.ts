@@ -1,6 +1,7 @@
 export * from './Accordion'
 export * from './Box'
 export * from './Button'
+export * from './Checkbox'
 export * from './Divider'
 export * from './Flex'
 export * from './Header'
