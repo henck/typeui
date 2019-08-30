@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "module": "commonJS",
+    "target": "es5",
+    "lib": ["es6"],
+    "sourceMap": true,
+    "allowJs": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "../",
+    "outDir": "../build",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+  },
+  "include": [
+    "../src/**/*"
+  ],
+  "exclude": [
+    "../node_modules/**",
+    "build",
+    "dist",
+    "scripts",
+    "storybook-static",
+    "svg"
+  ]
+}

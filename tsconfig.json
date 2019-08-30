@@ -11,13 +11,13 @@
     "removeComments": true,      // Remove all comments except copy-right header comments beginning with /*!
     "preserveConstEnums": true,  // Do not erase const enum declarations in generated code.
     "lib": ["es6"]
-    //"strict": true
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "src/**/*.s.tsx"
+    "src/**/*.s.tsx",
+    "StorybookBase.tsx"
   ]
 }

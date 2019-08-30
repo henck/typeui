@@ -1,7 +1,7 @@
 import { nameToHex } from './nameToHex';
 import { HslColor } from './HslColor';
 
-class RgbColor {
+export class RgbColor {
   red: number;
   blue: number;
   green: number;
@@ -204,5 +204,3 @@ class RgbColor {
     return this.reduceHexValue(hex);
   }
 }
-
-export { RgbColor };

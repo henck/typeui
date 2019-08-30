@@ -6,7 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build-storybook": "build-storybook -c .storybook"
   },
   "repository": {
     "type": "git",
@@ -26,10 +28,28 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@storybook/addon-actions": "^5.1.11",
+    "@storybook/addon-info": "^5.1.11",
+    "@storybook/addon-knobs": "^5.1.11",
+    "@storybook/addon-options": "^5.1.11",
+    "@storybook/components": "^5.1.11",
+    "@storybook/react": "^5.1.11",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-transition-group": "^4.2.2",
+    "@types/storybook-addon-jsx": "^5.4.3",
+    "@types/storybook__addon-actions": "^3.4.3",
+    "@types/storybook__addon-info": "^4.1.2",
+    "@types/storybook__addon-knobs": "^5.0.3",
+    "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.18",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "react-docgen-typescript-loader": "^3.1.1",
+    "storybook-addon-jsx": "^7.1.5",
+    "svg-spritemap-webpack-plugin": "^3.4.0",
+    "ts-loader": "^6.0.4",
     "typescript": "^3.6.2"
-  }  
+  }
 }

@@ -1,4 +1,4 @@
-import { theme } from './Theme';
+import { theme } from './Theme'
 import { css, createGlobalStyle, GlobalStyleComponent, DefaultTheme } from 'styled-components'
 
 const base = css`
@@ -38,8 +38,8 @@ pre {
   padding: 8px 16px;
   overflow-x: hidden;
 }
-`
+`;
 
 export const StyleBase = createGlobalStyle`
   ${base}
-`
+`;
