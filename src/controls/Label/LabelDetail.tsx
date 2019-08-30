@@ -26,8 +26,6 @@ const LabelDetailStyled = styled(LabelDetailBase)`
 `;
 
 class LabelDetail extends React.Component<ILabelDetailProps, {}> {
-  public static displayName = "Label.Detail";
-  
   render() {
     let p = this.props;
     return (

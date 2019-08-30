@@ -5,7 +5,7 @@ import { Label } from '../../';
 import { Direction, Size } from '../../Types';
 
 storiesOf('Controls/Label', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Label.Group, Label.Detail], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

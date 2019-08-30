@@ -44,8 +44,6 @@ const LabelGroupStyled = styled(LabelGroupBase)`
 `;
 
 class LabelGroup extends React.Component<ILabelGroupProps, {}> {
-  public static displayName = "Label.Group";
-  
   render() {
     let p = this.props;
     return (
