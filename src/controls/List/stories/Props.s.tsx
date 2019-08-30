@@ -34,6 +34,18 @@ storiesOf('Controls/List', module)
         <List.Description>{text('Description text', 'All-around cool guy', 'List.Description')}</List.Description>
       </List.Content>      
     </List.Item>
+    <List.Item>
+      <List.Content>
+        <List.Header>Wayne Scott</List.Header>
+        <List.Description>Graphics Artist</List.Description>
+      </List.Content>      
+    </List.Item>    
+    <List.Item>
+      <List.Content>
+        <List.Header>Terry Spencer</List.Header>
+        <List.Description>Developer</List.Description>
+      </List.Content>      
+    </List.Item>    
   </List>
   ));  
 
