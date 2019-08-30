@@ -45,8 +45,6 @@ const ImageGroupStyled = styled(ImageGroupBase)`
 `;
 
 class ImageGroup extends React.Component<IImageGroupProps, {}> {
-  public static displayName = "Image.Group";
-  
   render() {
     let p = this.props;
     return (

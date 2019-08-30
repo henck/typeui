@@ -174,4 +174,6 @@ class Image extends React.Component<IImageProps, {}> {
   }  
 }
 
+(Image.Group as any).displayName = "Image.Group";
+
 export { Image, IImageProps, ImageStyled };
