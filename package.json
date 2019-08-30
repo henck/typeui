@@ -1,7 +1,8 @@
 {
   "name": "@independent-software/typeui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "TypeUI",
+  "keywords": ["react","styled-components","ui"],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
