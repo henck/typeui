@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Placeholder } from '../../';
 
 storiesOf('Controls/Placeholder', module)
-  .addDecorator(withInfo({...withInfoSettings, propTablesExclude: [ Placeholder.Header, Placeholder.Paragraph, Placeholder.Line ]}))
+  .addDecorator(withInfo({...withInfoSettings, propTablesExclude: [ ]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

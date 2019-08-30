@@ -74,4 +74,10 @@ class Placeholder extends React.Component<IPlaceholderProps, {}> {
   }
 }
 
+(Placeholder.Paragraph as any).displayName = "Placeholder.Paragraph";
+(Placeholder.Image as any).displayName = "Placeholder.Image";
+(Placeholder.Header as any).displayName = "Placeholder.Header";
+(Placeholder.Line as any).displayName = "Placeholder.Line";
+
+
 export { Placeholder };

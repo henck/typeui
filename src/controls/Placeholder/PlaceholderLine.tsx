@@ -71,7 +71,6 @@ const PlaceholderLineStyled = styled(PlaceholderLineBase).attrs(p => ({
 //
 class PlaceholderLine extends React.Component<IPlaceholderLineProps, {}> {
   private length: TLineLength;
-  public static displayName = 'Placeholder.Line';
 
   constructor(props: IPlaceholderLineProps) {
     super(props);

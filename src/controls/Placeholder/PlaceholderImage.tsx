@@ -24,8 +24,6 @@ const PlaceholderImageStyled = styled(PlaceholderImageBase)`
 `;
 
 class PlaceholderImage extends React.Component<IPlaceholderImageProps, {}> {
-  public static displayName = "Placeholder.Image";
-  
   render() {
     let p = this.props;
     return (

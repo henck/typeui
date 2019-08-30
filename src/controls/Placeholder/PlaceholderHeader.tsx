@@ -53,8 +53,6 @@ const PlaceholderHeaderStyled = styled(PlaceholderHeaderBase)`
 `;
 
 class PlaceholderHeader extends React.Component<IPlaceholderHeaderProps, {}> {
-  public static displayName = "Placeholder.Header";
-  
   render() {
     let p = this.props;
     return (

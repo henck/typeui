@@ -38,8 +38,6 @@ const PlaceholderParagraphStyled = styled(PlaceholderParagraphBase)`
 `;
 
 class PlaceholderParagraph extends React.Component<IPlaceholderParagraphProps, {}> {
-  public static displayName = "Placeholder.Paragraph";
-  
   render() {
     let p = this.props;
     return (
