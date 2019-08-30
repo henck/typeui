@@ -17,6 +17,7 @@
   ],
   "exclude": [
     "node_modules",
+    "docs",
     "src/**/*.s.tsx",
     "StorybookBase.tsx"
   ]
