@@ -5,11 +5,10 @@ import styled from '../../styles/Theme';
 interface IRowProps {
   className?: string;
   children?: React.ReactNode;
-  /** Stackable means... */
-  stackable?: boolean;
-  divided?: boolean;
-  compact?: boolean;
-  gutter?: number;
+  stackable?: boolean; // (Not public) Passed by parent Flex
+  divided?: boolean;   // (Not public) Passed by parent Flex
+  compact?: boolean;   // (Not public) Passed by parent Flex
+  gutter?: number;     // (Not public) Passed by parent Flex
 }
 
 class RowBase extends React.Component<IRowProps, {}> {

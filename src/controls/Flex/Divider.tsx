@@ -5,7 +5,7 @@ import styled from '../../styles/Theme';
 interface IDividerProps {
   className?: string;
   children?: React.ReactNode;
-  stackable?: boolean; // Provided by Flex component.
+  stackable?: boolean; //`(Not public) Passed by Flex parent component.
 }
 
 /**

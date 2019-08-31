@@ -9,7 +9,7 @@ storiesOf('Flex', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All flex properties.
+    All \`Flex\` properties.
 
     Note that to obtain a grid-like flex, it's necessary to set \`width\` on columns.
     Without it, columns will not flex.

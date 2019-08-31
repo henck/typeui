@@ -7,8 +7,8 @@ interface IColumnProps {
   children?: React.ReactNode;
   /** Column relative weight, for cell growth. If not specified, cell doesn't flex. */
   width?: number;
-  stackable?: boolean; // Passed by parent Flex
-  gutter?: number;     // Passed by parent Flex
+  stackable?: boolean; // (Not public) Passed by parent Flex
+  gutter?: number;     // (Not public) Passed by parent Flex
 }
 
 class ColumnBase extends React.Component<IColumnProps, {}> {
