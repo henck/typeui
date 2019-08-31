@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { color, select, text, boolean } from '@storybook/addon-knobs/react';
 import { Header } from '../../';
 import { Float, HorizontalAlignment } from '../../Types';
+import { HeaderSize } from '../Header';
 
 storiesOf('Header', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Header.Subheader, Header.Content], propTablesExclude: []}))
@@ -18,17 +19,17 @@ storiesOf('Header', module)
   () => (
   <div>
     <Header      
-      size={(text('size', 'h1') as any)}
-      relative={boolean('relative', false)}
-      disabled={boolean('disabled', false)}
-      float={(text('float', '')as Float)}
-      block={boolean('block', false)}
-      attached={boolean('attached', false)}
-      align={text('align', '') as HorizontalAlignment}
-      color={text('color', '')}
-      dividing={boolean('dividing', false)}
-      icon={boolean('icon', false)}>
-      Header text
+      size={(select('size', ['h1', 'h2', 'h3', 'h4', 'h5'], 'h1', 'Types') as HeaderSize)}
+      relative={boolean('relative', false, 'Types')}
+      disabled={boolean('disabled', false, 'States')}
+      float={(select('float', ['', 'left', 'right'], '', 'Variations') as Float)}
+      block={boolean('block', false, 'Variations')}
+      attached={boolean('attached', false, 'Groups')}
+      align={select('align', ['', 'left', 'center', 'right'], '', 'Variations') as HorizontalAlignment}
+      color={color('color', '', 'Variations')}
+      dividing={boolean('dividing', false, 'Variations')}
+      icon={boolean('icon', false, 'Types')}>
+      {text('Label', 'Header text', 'Content')}
     </Header>
   </div>
   ));  

@@ -63,23 +63,25 @@ export interface IHeaderProps {
   className?: string;
   children?: React.ReactNode;
   onClick?: () => void;
-  /** Header size: one of `h1` through `h6` */
+  /** Header size: one of `h1` through `h6`. */
   size: HeaderSize;
-  /** By default, header sizes are absolute and use rem units. When relative sizes are selected, 'em' units are used and the header size is relative to the container's font-size. */
+  /** By default, header sizes are absolute and use rem units. When 
+   *  relative sizes are selected, 'em' units are used and the header size 
+   *  is relative to the container's font-size. */
   relative?: boolean;
   /** Have header show as inactive. */
   disabled?: boolean;
-  /** Float */
+  /** A Header can float to the `left` or to the `right`. */
   float?: Float;
   /** Draw block around header */
   block?: boolean;
   /** Attached to 'top', 'bottom' or nothing (both). */
   attached?: boolean | VerticalDirection;  
-  /** Align content. By default 'left'. */
+  /** Align content to `left`, `center` or `right`. By default `left`. */
   align?: HorizontalAlignment;    
-  /** Header color */
+  /** Header color, e.g. `skyblue`. */
   color?: string;
-  /** A dividing header has a bottom border */
+  /** A dividing header has a bottom border. */
   dividing?: boolean;
   /** Emphasize icon in header */
   icon?: boolean;

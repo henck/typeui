@@ -8,7 +8,7 @@ storiesOf('Header/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    Header text content can have \`align\` of \`left\`, \`center\` or \`right\`.
+    Header text content can have an \`align\` of \`left\`, \`center\` or \`right\`.
     `
   })
   .addWithJSX(

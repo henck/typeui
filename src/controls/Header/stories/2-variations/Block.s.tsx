@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { boolean, select } from '@storybook/addon-knobs/react';
 import { Header } from '../../../';
+import { HeaderSize } from '../../Header';
 
 storiesOf('Header/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -15,6 +17,10 @@ storiesOf('Header/Variations', module)
     'Block',
   () => (
   <div>
-    <Header size="h1" block>Block header</Header>
+    <Header
+      size={(select('size', ['h1', 'h2', 'h3', 'h4', 'h5'], 'h1', 'Types') as HeaderSize)}
+      block={boolean('block', true, 'Variations')}>
+        Block header
+      </Header>
   </div>
   ));  
