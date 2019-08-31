@@ -12,7 +12,7 @@ interface IAccordionProps {
   /** A styled accordion adds basic formatting. */
   styled?: boolean;
   /** 
-   * A multiple accordion can have multiple panels open at the same time. 
+   * If set, the accordion can have multiple panels open at the same time. 
    * By default, an accordion only allows a single panel open at any time.
    */
   multiple?: boolean;

@@ -5,8 +5,9 @@ import styled from '../../styles/Theme';
 interface IAccordionBodyProps {
   className?: string;
   children?: React.ReactNode;
+  /* (Not public) Is parent tab currently active? */
   active?: boolean;
-  /** A styled accordion adds basic formatting. */
+  /* (Not public) A styled accordion adds basic formatting. */
   styled?: boolean;    
 }
 
