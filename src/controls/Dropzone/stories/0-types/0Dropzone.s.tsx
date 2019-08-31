@@ -9,7 +9,7 @@ storiesOf('Dropzone/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A Dropzone accepts files, either by dragging them into the zone or by clicking the
+    A \`Dropzone\` accepts files, either by dragging them into the zone or by clicking the
     zone and selection files. Multiple files may be dragged or selected at the same
     time. 
 
