@@ -11,13 +11,13 @@ import { ListDescription } from './ListDescription';
 interface IListProps {
   className?: string;
   children?: React.ReactNode;
-  /** Icon and content alignment. By default `top` */
+  /** Icon and content alignment: `top`, `center` or `bottom`. By default `top` */
   align?: VerticalAlignment;  
   /** Shows division lines between list items. */
   divided?: boolean;
-  /** Mark items with a bullet. */
+  /** Marks items with a bullet. */
   bulleted?: boolean;
-  /** Mark items with a number. */
+  /** Marks items with a number. */
   ordered?: boolean;
   /** Optional bullet style (HTML values, e.g. `square`). This only has effect on `bulleted` lists.*/
   type?: ListStyleType;

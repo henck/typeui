@@ -4,16 +4,17 @@ import { CSSTransition } from 'react-transition-group';
 import { Content } from './Content';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { IconPanel } from './IconPanel';
 
 interface IPanelProps {
   children?: React.ReactNode;
-  /** Is the panel currently open? */
+  /** Is the Panel currently open? */
   open?: boolean;
-  /** This callback is called when the user closes the panel. The caller is supposed to close the panel. */
-  onClose?: any;  
-  /** Does panel have a fixed width? */
+  /** This callback is called when the user closes the Panel. The caller is supposed to close the Panel. */
+  onClose?: () => void;  
+  /** Default Panel has a width of 200px, but this can be overridden. */
   width?: number;
-  /** Does panel have internal padding? */
+  /** Does Panel have internal padding? There is no padding by default to allow content to fill the Panel completely. */
   padded?: boolean;  
 }
 
@@ -27,6 +28,7 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
   public static Header = Header;
   public static Content = Content;
   public static Footer = Footer;
+  public static Icon = IconPanel;
 
   private panelElement: HTMLDivElement;
 
@@ -76,5 +78,6 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
 (Panel.Header as any).displayName = "Panel.Header";
 (Panel.Content as any).displayName = "Panel.Content";
 (Panel.Footer as any).displayName = "Panel.Footer";
+(Panel.Icon as any).displayName = "Panel.IconPanel";
 
 export { Panel };

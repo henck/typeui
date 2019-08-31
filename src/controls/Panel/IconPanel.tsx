@@ -19,10 +19,8 @@ interface IState {
 }
 
 class IconPanel extends React.Component<IIconPanelProps, IState> {
-
   constructor(props: IIconPanelProps) {
     super(props);
-
     this.state = {
       open: false
     }

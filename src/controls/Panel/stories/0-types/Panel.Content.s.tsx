@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styled from '../../../styles/Theme';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { Panel, Button } from '../../';
+import styled from '../../../../styles/Theme';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { Panel, Button } from '../../../';
 
 interface IDemoPanelState {
   open: boolean;
@@ -45,31 +45,37 @@ class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState>
     return (
       <div style={{position: 'relative', display: 'inline-block'}}>
         <Button onClick={this.handleClick}>Open panel</Button>
-        <Panel padded open={this.state.open} onClose={this.handleClose}>
-          <p>This is some panel text.</p>
-          <div>
+        <Panel open={this.state.open} onClose={this.handleClose}>
+          <Panel.Header>
+            Header
+          </Panel.Header>
+          <Panel.Content>
+            <p>This is some panel text.</p>
+          </Panel.Content>
+          <Panel.Footer>
             <Button secondary onClick={this.handleClose}>Close</Button>
-          </div>
+          </Panel.Footer>
         </Panel>      
       </div>
     )
   }
 }
 
-storiesOf('Panel', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel], propTablesExclude: [DemoPanel]}))
+storiesOf('Panel/Types', module)
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel.Header, Panel.Content, Panel.Footer], propTablesExclude: [DemoPanel]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All panel properties.
+    The standard \`Panel\` has no padding. Padding can be added, or you can use the \`Panel.Header\`, 
+    \`Panel.Content\` and \`Panel.Footer\` components. These add padding, and different background colors.
 
-    Note that a panel determines its position from the position of its direct parent.
-    The parent therefore **must** have \`position: relative\`.
+    The components also take care of applying rounded borders to their content so as not to interfere with
+    the Panel's own rounded borders.
     `
   })
   .addWithJSX(
-    'Properties',
+    'Panel.Header, Panel.Content, Panel.Footer',
   () => (
   <DemoPanel/>
   ));  

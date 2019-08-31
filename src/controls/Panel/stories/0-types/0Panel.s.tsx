@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styled from '../../../styles/Theme';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { Panel, Button } from '../../';
+import styled from '../../../../styles/Theme';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { Panel, Button } from '../../../';
 
 interface IDemoPanelState {
   open: boolean;
@@ -43,7 +43,7 @@ class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState>
   render() {
     let p = this.props;
     return (
-      <div style={{position: 'relative', display: 'inline-block'}}>
+      <div style={{position: 'relative', display: 'inline-block', margin: '500px 500px'}}>
         <Button onClick={this.handleClick}>Open panel</Button>
         <Panel padded open={this.state.open} onClose={this.handleClose}>
           <p>This is some panel text.</p>
@@ -56,20 +56,24 @@ class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState>
   }
 }
 
-storiesOf('Panel', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel], propTablesExclude: [DemoPanel]}))
+storiesOf('Panel/Types', module)
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel, Panel.Header, Panel.Content, Panel.Footer], propTablesExclude: [DemoPanel]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All panel properties.
+    A standard \`Panel\`.
 
     Note that a panel determines its position from the position of its direct parent.
     The parent therefore **must** have \`position: relative\`.
+    
+    Extra spacing was given to this story in order to illustrate how a panel will
+    appear above or below, or left or right, of its parent based on the screen 
+    location.
     `
   })
   .addWithJSX(
-    'Properties',
+    'Panel',
   () => (
   <DemoPanel/>
   ));  
