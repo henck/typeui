@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Message } from '../../';
 import { HorizontalAlignment } from '../../Types';
 
-storiesOf('Controls/Message', module)
+storiesOf('Message', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Message.Content, Message.Header], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

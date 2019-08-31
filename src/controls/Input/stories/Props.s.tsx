@@ -5,7 +5,7 @@ import { Input } from '../../';
 import { Float } from '../../Types';
 import { IconType } from '../../Icon';
 
-storiesOf('Controls/Input', module)
+storiesOf('Input', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Divider } from '../../';
 
-storiesOf('Controls/Divider', module)
+storiesOf('Divider', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

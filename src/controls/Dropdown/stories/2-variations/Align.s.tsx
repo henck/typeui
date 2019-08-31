@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { Dropdown } from '../../../';
 import { boolean } from '@storybook/addon-knobs';
 
-storiesOf('Controls/Dropdown/Variations', module)
+storiesOf('Dropdown/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

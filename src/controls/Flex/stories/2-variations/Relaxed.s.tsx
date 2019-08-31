@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { boolean } from '@storybook/addon-knobs/react';
 import { Flex, Box } from '../../../';
 
-storiesOf('Controls/Flex/Variations', module)
+storiesOf('Flex/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

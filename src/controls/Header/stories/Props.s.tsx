@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Header } from '../../';
 import { Float, HorizontalAlignment } from '../../Types';
 
-storiesOf('Controls/Header', module)
+storiesOf('Header', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Header.Subheader, Header.Content], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

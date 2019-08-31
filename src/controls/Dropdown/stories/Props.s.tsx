@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Dropdown } from '../../';
 
-storiesOf('Controls/Dropdown', module)
+storiesOf('Dropdown', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

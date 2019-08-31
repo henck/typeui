@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { Dropzone } from '../../../';
 
-storiesOf('Controls/Dropzone/Types', module)
+storiesOf('Dropzone/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

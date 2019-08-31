@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Message } from '../../../';
 
-storiesOf('Controls/Message/Variations', module)
+storiesOf('Message/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

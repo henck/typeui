@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { number } from '@storybook/addon-knobs/react';
 import { Textarea } from '../../../';
 
-storiesOf('Controls/Textarea/Types', module)
+storiesOf('Textarea/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

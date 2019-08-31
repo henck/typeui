@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { color, text, boolean } from '@storybook/addon-knobs/react';
 import { Label, Divider, Image } from '../../../';
 
-storiesOf('Controls/Label/Variations', module)
+storiesOf('Label/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

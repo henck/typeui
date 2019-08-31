@@ -2,7 +2,7 @@ import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { Placeholder, Flex, Segment, Divider } from '../../../';
 
-storiesOf('Controls/Placeholder/Types', module)
+storiesOf('Placeholder/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

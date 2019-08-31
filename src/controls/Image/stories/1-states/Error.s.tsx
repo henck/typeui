@@ -5,7 +5,7 @@ import { Image, Label, Icon } from '../../../';
 import { Size } from '../../../Types';
 import { IconType } from '../../../Icon';
 
-storiesOf('Controls/Image/States', module)
+storiesOf('Image/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

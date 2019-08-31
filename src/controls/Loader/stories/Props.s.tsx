@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { text, number } from '@storybook/addon-knobs/react';
 import { Loader } from '../Loader';
 
-storiesOf('Controls/Loader', module)
+storiesOf('Loader', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

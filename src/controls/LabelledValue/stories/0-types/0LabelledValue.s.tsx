@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { text, number } from '@storybook/addon-knobs/react';
 import { LabelledValue } from '../..';
 
-storiesOf('Controls/LabelledValue/Types', module)
+storiesOf('LabelledValue/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { boolean, number } from '@storybook/addon-knobs/react';
 import { Accordion } from '../../../';
 
-storiesOf('Controls/Accordion/Types', module)
+storiesOf('Accordion/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { boolean } from '@storybook/addon-knobs/react';
 import { Tabs, Segment } from '../../';
 
-storiesOf('Controls/Tabs', module)
+storiesOf('Tabs', module)
   .addDecorator(withInfo({...withInfoSettings, propTablesExclude: [ Segment ]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

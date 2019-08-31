@@ -4,7 +4,7 @@ import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { List } from '../../';
 import { VerticalAlignment, ListStyleType } from '../../Types';
 
-storiesOf('Controls/List', module)
+storiesOf('List', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Segment } from '../../';
 import { HorizontalAlignment } from '../../Types';
 
-storiesOf('Controls/Segment', module)
+storiesOf('Segment', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

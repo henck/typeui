@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { boolean } from '@storybook/addon-knobs/react';
 import { Tabs, Segment } from '../../../';
 
-storiesOf('Controls/Tabs/Variations', module)
+storiesOf('Tabs/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

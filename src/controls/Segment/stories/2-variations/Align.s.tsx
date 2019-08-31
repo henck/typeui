@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { Segment } from '../../../';
 import { text } from '@storybook/addon-knobs';
 
-storiesOf('Controls/Segment/Variations', module)
+storiesOf('Segment/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

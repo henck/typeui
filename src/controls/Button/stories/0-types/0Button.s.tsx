@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { Button } from '../../../';
 import { text } from '@storybook/addon-knobs';
 
-storiesOf('Controls/Button/Types', module)
+storiesOf('Button/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

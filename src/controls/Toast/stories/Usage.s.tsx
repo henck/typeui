@@ -5,7 +5,7 @@ import { Button } from '../../Button';
 import { ToastService } from '..';
 import { ToastContainer } from '../ToastContainer';
 
-storiesOf('Controls/Toast', module)
+storiesOf('Toast', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -4,7 +4,7 @@ import { color, select, text, boolean } from '@storybook/addon-knobs/react';
 import { Size, Float } from '../../Types';
 import { Button } from '../../';
 
-storiesOf('Controls/Button', module)
+storiesOf('Button', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Button.Group, Button.Or], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
@@ -30,7 +30,7 @@ storiesOf('Controls/Button', module)
     circular={boolean('circular', false, 'Variations')}
     size={select('size', ['', 'mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive'], '', 'Variations') as Size}
     float={select('float', ['', 'left', 'right'], '', 'Variations') as Float}
-    onClick={() => console.log('Button clicked.', 'State')}>
+    onClick={() => alert('Button clicked.')}>
     {text("Label", "Button", 'Content')}
   </Button>
   ));  

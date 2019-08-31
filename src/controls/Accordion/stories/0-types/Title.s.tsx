@@ -4,7 +4,7 @@ import { boolean, number } from '@storybook/addon-knobs/react';
 import { Accordion, Icon } from '../../../';
 import { Flex } from '../../../';
 
-storiesOf('Controls/Accordion/Types', module)
+storiesOf('Accordion/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

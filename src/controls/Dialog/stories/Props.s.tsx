@@ -54,7 +54,7 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
   }
 }
 
-storiesOf('Controls/Dialog', module)
+storiesOf('Dialog', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

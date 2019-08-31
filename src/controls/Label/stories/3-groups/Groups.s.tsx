@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { color, boolean } from '@storybook/addon-knobs/react';
 import { Label, Divider } from '../../../';
 
-storiesOf('Controls/Label/Groups', module)
+storiesOf('Label/Groups', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

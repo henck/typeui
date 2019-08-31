@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Placeholder } from '../../';
 
-storiesOf('Controls/Placeholder', module)
+storiesOf('Placeholder', module)
   .addDecorator(withInfo({...withInfoSettings, propTablesExclude: [ ]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

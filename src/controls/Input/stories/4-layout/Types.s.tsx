@@ -5,7 +5,7 @@ import { Input, Header } from '../../../';
 import { Divider } from '../../../Divider';
 import { Dropdown } from '../../../Dropdown';
 
-storiesOf('Controls/Input/Layout', module)
+storiesOf('Input/Layout', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

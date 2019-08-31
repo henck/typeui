@@ -5,7 +5,7 @@ import { Message, Icon } from '../../../';
 import { IconType } from '../../../Icon';
 import { Size } from '../../../Types';
 
-storiesOf('Controls/Message/Types', module)
+storiesOf('Message/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

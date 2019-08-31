@@ -66,7 +66,7 @@ const DemoPanel = styled(DemoPanelBase)`
   margin: 500px 500px;
 `
 
-storiesOf('Controls/Panel', module)
+storiesOf('Panel', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Panel, Panel.Header, Panel.Content, Panel.Footer], propTablesExclude: [DemoPanel, DemoPanelBase]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

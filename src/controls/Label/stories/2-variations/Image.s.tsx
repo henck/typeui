@@ -4,7 +4,7 @@ import { text , boolean, select } from '@storybook/addon-knobs/react';
 import { Label, Divider, Image } from '../../../';
 import { Size } from '../../../Types';
 
-storiesOf('Controls/Label/Variations', module)
+storiesOf('Label/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

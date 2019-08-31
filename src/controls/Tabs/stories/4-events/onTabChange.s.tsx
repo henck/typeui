@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { Tabs, Segment } from '../../../';
 import { action } from '@storybook/addon-actions';
 
-storiesOf('Controls/Tabs/Events', module)
+storiesOf('Tabs/Events', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

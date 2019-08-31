@@ -5,7 +5,7 @@ import { Icon } from '../../';
 import { Size, Float } from '../../Types';
 import { IconType } from '../IconType';
 
-storiesOf('Controls/Icon', module)
+storiesOf('Icon', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

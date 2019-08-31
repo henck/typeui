@@ -4,7 +4,7 @@ import { text } from '@storybook/addon-knobs/react';
 import { Image } from '../../../';
 import { Size } from '../../../Types';
 
-storiesOf('Controls/Image/Types', module)
+storiesOf('Image/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

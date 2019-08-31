@@ -35,7 +35,7 @@ class MultipleDropdown extends React.Component<{}, IState> {
   }
 }
 
-storiesOf('Controls/Dropdown/Types', module)
+storiesOf('Dropdown/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -4,7 +4,7 @@ import { boolean, text, select } from '@storybook/addon-knobs/react';
 import { Gravatar } from '../../';
 import { Size } from '../../Types';
 
-storiesOf('Controls/Gravatar', module)
+storiesOf('Gravatar', module)
   .addDecorator(withInfo({...withInfoSettings, propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

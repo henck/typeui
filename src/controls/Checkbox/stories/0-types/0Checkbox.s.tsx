@@ -4,7 +4,7 @@ import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { Checkbox } from '../../../';
 import { CheckboxType } from '../../../Types';
 
-storiesOf('Controls/Checkbox/Types', module)
+storiesOf('Checkbox/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { Form } from '../../../';
 import { Input } from '../../../Input';
 
-storiesOf('Controls/Form/Types', module)
+storiesOf('Form/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

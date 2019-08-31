@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Image, Divider } from '../../../';
 import { Size } from '../../../Types';
 
-storiesOf('Controls/Image/Variations', module)
+storiesOf('Image/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
