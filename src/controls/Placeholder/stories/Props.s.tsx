@@ -4,12 +4,12 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Placeholder } from '../../';
 
 storiesOf('Placeholder', module)
-  .addDecorator(withInfo({...withInfoSettings, propTablesExclude: [ ]}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [ Placeholder, Placeholder.Header, Placeholder.Image, Placeholder.Paragraph, Placeholder.Line ]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All placeholder properties.
+    All \`Placeholder\` properties.
     `
   })
   .addWithJSX(
