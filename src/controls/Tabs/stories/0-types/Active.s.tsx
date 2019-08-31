@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { boolean, number } from '@storybook/addon-knobs/react';
-import { Tabs, Segment, Icon, Label, Flex } from '../../../';
+import { Tabs } from '../../../';
 
 storiesOf('Tabs/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -22,20 +22,14 @@ storiesOf('Tabs/Types', module)
       underlined={boolean('underlined', false)}
       active={number('active', 1)}>
       <Tabs.Pane label="One">
-        <Segment>
-          <p>Content for first tab.</p>
-          <p>Additional line of content.</p>
-        </Segment>
+        <p>Content for first tab.</p>
+        <p>Additional line of content.</p>
       </Tabs.Pane>
       <Tabs.Pane label="Two">
-        <Segment>
-          Content for second tab.
-        </Segment>
+        Content for second tab.
       </Tabs.Pane>
       <Tabs.Pane label="Three">
-        <Segment>
-          Content for third tab.
-        </Segment>
+        Content for third tab.
       </Tabs.Pane>
     </Tabs>
   </div>

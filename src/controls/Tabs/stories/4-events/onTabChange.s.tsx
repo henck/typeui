@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Tabs, Segment } from '../../../';
+import { Tabs } from '../../../';
 import { action } from '@storybook/addon-actions';
 
 storiesOf('Tabs/Events', module)
@@ -9,9 +9,7 @@ storiesOf('Tabs/Events', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    The initially active tab can be set with the \`active\` property. It is 0-based.
-
-    If \`active\` is omitted, then the initially active tab is tab 0.
+    A tab change can be detected by listening to the \`onTabChange\` event.
     `
   })
   .addWithJSX(
@@ -20,20 +18,14 @@ storiesOf('Tabs/Events', module)
   <div>
     <Tabs onTabChange={action('onTabChange')}>
       <Tabs.Pane label="One">
-        <Segment>
-          <p>Content for first tab.</p>
-          <p>Additional line of content.</p>
-        </Segment>
+        <p>Content for first tab.</p>
+        <p>Additional line of content.</p>
       </Tabs.Pane>
       <Tabs.Pane label="Two">
-        <Segment>
-          Content for second tab.
-        </Segment>
+        Content for second tab.
       </Tabs.Pane>
       <Tabs.Pane label="Three">
-        <Segment>
-          Content for third tab.
-        </Segment>
+        Content for third tab.
       </Tabs.Pane>
     </Tabs>
   </div>
