@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { color } from '@storybook/addon-knobs/react';
 import { Button } from '../../../';
 
 storiesOf('Button/Variations', module)
@@ -14,7 +15,7 @@ storiesOf('Button/Variations', module)
   .addWithJSX(
     'Color', () => (
     <div>
-      <Button color="orange">Orange</Button>
+      <Button color={color('color', 'orange', 'Variations')}>Orange</Button>
       <Button color="brown">Brown</Button>
     </div>
   ));  

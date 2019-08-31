@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
 import { color, select, text, boolean } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 import { Size, Float } from '../../Types';
 import { Button } from '../../';
 
@@ -10,7 +11,8 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All button properties.
+    By default, \`Button\` controls have an ink ripple effect, which can be disabled. Buttons can be grouped
+    in a \`Button.Group\` or presented as options using \`Button.Or\`.
     `
   })
   .addWithJSX(
@@ -30,7 +32,8 @@ storiesOf('Button', module)
     circular={boolean('circular', false, 'Variations')}
     size={select('size', ['', 'mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive'], '', 'Variations') as Size}
     float={select('float', ['', 'left', 'right'], '', 'Variations') as Float}
-    onClick={() => alert('Button clicked.')}>
+    noripple={boolean('noripple', false, 'Variations')}
+    onClick={action('Button clicked.')}>
     {text("Label", "Button", 'Content')}
   </Button>
   ));  

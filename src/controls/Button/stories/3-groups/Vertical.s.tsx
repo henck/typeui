@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Icon, Button } from '../../../';
+import { Button } from '../../../';
 
 storiesOf('Button/Groups', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -8,7 +8,7 @@ storiesOf('Button/Groups', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    Buttons can be grouped vertically using \`Button.Group\`, \`vertical\`.
+    Buttons can be grouped vertically using \`Button.Group\`, with attribute \`vertical\`.
     `
   })
   .addWithJSX(

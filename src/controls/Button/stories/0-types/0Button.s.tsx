@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Button } from '../../../';
+import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
+import { Button } from '../../../';
 
 storiesOf('Button/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -9,16 +10,14 @@ storiesOf('Button/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A standard button has no bold text.
+    A standard \`Button\` has no bold text.
     `
   })
   .addWithJSX(
     'Standard Button',
   () => (
-  <div>
-    <Button      
-      onClick={() => console.log('Button clicked.')}>
-      {text("Label", "Button")}
-    </Button>
-  </div>
+  <Button      
+    onClick={action('Button clicked.')}>
+    {text("Label", "Button")}
+  </Button>
   ));  

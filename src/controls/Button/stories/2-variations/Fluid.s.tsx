@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { boolean } from '@storybook/addon-knobs/react';
 import { Button } from '../../../';
 
 storiesOf('Button/Variations', module)
@@ -13,5 +14,5 @@ storiesOf('Button/Variations', module)
   })
   .addWithJSX(
     'Fluid', () => (
-    <Button fluid>Button</Button>
+    <Button fluid={boolean('fluid', true, 'Variations')}>Button</Button>
   ));  

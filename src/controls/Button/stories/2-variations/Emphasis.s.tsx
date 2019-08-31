@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { action } from '@storybook/addon-actions';
 import { Button } from '../../../';
 
 storiesOf('Button/Variations', module)
@@ -14,7 +15,7 @@ storiesOf('Button/Variations', module)
   .addWithJSX(
     'Emphasis', () => (
     <div>
-      <Button primary>Primary</Button>
-      <Button secondary>Secondary</Button>
+      <Button primary onClick={action('First button clicked.')}>Primary</Button>
+      <Button secondary onClick={action('Second button clicked.')}>Secondary</Button>
     </div>
   ));  

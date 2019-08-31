@@ -8,7 +8,7 @@ storiesOf('Button/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A Label can be \`attached\` to a button, either \`attached=left\` or \`attached=right\`.
+    A \`Label\` can be \`attached\` to a button, either \`attached=left\` or \`attached=right\`.
     `
   })
   .addWithJSX(

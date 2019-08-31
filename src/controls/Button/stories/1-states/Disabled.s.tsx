@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { action } from '@storybook/addon-actions';
 import { Button, Label, Dropdown } from '../../../';
 
 storiesOf('Button/States', module)
@@ -8,16 +9,16 @@ storiesOf('Button/States', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`disabled\` button cannot be interacted with.
+    A \`disabled\` button cannot be interacted with. \`onClick\` event handlers registered on it will not fire.
     `
   })
   .addWithJSX(
     'Disabled',
   () => (
     <div>                   
-      <Button disabled onClick={() => { alert('This will not fire.');}}>Button</Button>
-      <Button color="crimson" disabled onClick={() => { alert('This will not fire.');}}>Button</Button>
-      <Button color="darkcyan" disabled onClick={() => { alert('This will not fire.');}}>
+      <Button disabled onClick={action('This will not fire.')}>Button</Button>
+      <Button color="crimson" disabled onClick={action('This will not fire.')}>Button</Button>
+      <Button color="darkcyan" disabled onClick={action('This will not fire.')}>
         <Label attached="right">
           <Dropdown 
             placeholder="Select TLD" 

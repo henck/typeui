@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Icon, Button } from '../../../';
+import { boolean } from '@storybook/addon-knobs/react';
+import { Button } from '../../../';
 
 storiesOf('Button/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -14,7 +15,5 @@ storiesOf('Button/Variations', module)
   })
   .addWithJSX(
     'Noripple', () => (
-    <div>
-      <Button noripple>Button</Button>
-    </div>
+    <Button noripple={boolean('noripple', true, 'Variations')}>Button</Button>
   ));  

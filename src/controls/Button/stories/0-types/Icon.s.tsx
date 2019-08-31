@@ -8,8 +8,8 @@ storiesOf('Button/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A button can have an \`<Icon>\` inside it. The icon will be 80% opaque, and 100% opaque when the button is hovered. 
-    If the icon attribute is specified, then the button will have no padding. The icon itself can have its own attributes.
+    A \`Button\` can have an \`<Icon>\` inside it. The icon will be 80% opaque, and 100% opaque when the button is hovered. 
+    If the \`icon\` attribute is specified, then the button will have no padding. The icon itself can have its own attributes.
 
     The icon color will automatically adjust to the button's color.
     `
