@@ -3,19 +3,17 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 import { darken } from '../../helper/darken';
 import { lighten } from '../../helper/lighten';
+import { scaleSize } from '../../helper/SizeHelper';
 import { Size, Float } from '../Types';
 import { ButtonOr } from './ButtonOr';
 import { ButtonGroup } from './ButtonGroup';
-import { Icon } from '../Icon/';
-import { scaleSize } from '../../helper/SizeHelper';
-import { Ripple } from '../Ripple/Ripple';
-import { Label } from '../Label';
+import { Icon, Label, Ripple } from '../../';
 
 interface IButtonProps {
   className?: string;
-  /** (Not public) True when button is in a Button.Group. */
+  /* (Not public) True when button is in a Button.Group; styling will need to know this. */
   grouped?: boolean;
-  /** onClick event is passed on the button's HTML element. */
+  /** Optional event handler for `onClick` event. The corresponding listener is set on the button's HTML element. */
   onClick?: any;
   /** Emphasis: make this button stand out using the primary theme color. */
   primary?: boolean;
@@ -35,11 +33,11 @@ interface IButtonProps {
   fluid?: boolean;
   /** Remove button padding, for icon-only buttons. */
   icon?: boolean;
-  /** Basic buttons have a subtle appearance. */
+  /** Basic buttons have a subtler appearance. */
   basic?: boolean;
   /** Disabled buttons cannot be pressed. */
   disabled?: boolean;
-  /** Floating to the `left` or `right`. */
+  /** Optional; causes button to float to the `left` or `right`. */
   float?: Float;
   /** Make button circular. This works only with icon buttons. */
   circular?: boolean;
