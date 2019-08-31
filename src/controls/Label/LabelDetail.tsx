@@ -1,11 +1,6 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 
-/**
- * A LabelDetail is a small detail (usually with a number in it) 
- * that floats on the top-right corner of a label.
- */
-
 interface ILabelDetailProps {
   className?: string;
   children?: React.ReactNode;

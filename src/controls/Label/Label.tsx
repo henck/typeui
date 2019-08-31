@@ -14,23 +14,23 @@ import { IconStyled } from '../Icon/Icon';
 interface ILabelProps {
   className?: string;
   children?: React.ReactNode;
-  /** onClick events are passed through to the label's HTML element */
+  /** onClick events are passed through to the Label's HTML element */
   onClick?: () => void;
-  /** Add border, do not use background */
+  /** A `basic` Label adds a border and does not have a background. */
   basic?: boolean;
-  /** Label background color */
+  /** Label background color, e.g. `skyblue`. */
   color?: string;
-  /** Label content may be passed as attribute */
+  /** Label content may be passed as attribute. */
   content?: React.ReactNode;
-  /** A floating label floats over the top-right corner of its parent. */
+  /** A floating Label floats over the top-right corner of its parent. */
   floating?: boolean;
-  /** Point to other content. Default direction is "left" */
+  /** Point to other content to the `left`, `top`, `right` or `bottom`. Default direction is `left` */
   pointing?: boolean | Direction;
-  /** Label size. */
+  /** Label size, one of `mini`, `tiny`, `small`, `medium`, `large`, `big`, `huge` and `massive`. */
   size?: Size;
-  /** Label appears as a tag */
+  /** If set, Label appears as a tag. */
   tag?: boolean;
-  /** Determine if label is attached to anything, left or right. */
+  /** Determine if Label is attached to anything, `left` or `right`. */
   attached?: Float;
 }
 

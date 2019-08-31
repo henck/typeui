@@ -6,15 +6,15 @@ interface ILabelGroupProps {
   className?: string;
   children?: React.ReactNode;
   onClick?: () => void;
-  /** Add border, do not use background */
+  /** `basic` Labels add a border and do not have a background. */
   basic?: boolean;
-  /** Label background color */
+  /** Labels' background color, e.g. `skyblue`. */
   color?: string;
-  /** Point to other content. Default direction is "left" */
+  /** Labels point to other content to the `left`, `top`, `right` or `bottom`. Default direction is `left` */
   pointing?: Direction;
-  /** Label size. */
+  /** Size of Labels, one of `mini`, `tiny`, `small`, `medium`, `large`, `big`, `huge` and `massive`. */
   size?: Size;
-  /** Label appears as a tag */
+  /** If set, Labels appear as tags. */
   tag?: boolean;
 }
 
