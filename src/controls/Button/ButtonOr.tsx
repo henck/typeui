@@ -46,8 +46,6 @@ const ButtonOrStyled = styled(ButtonOrBase)`
 `
 
 class ButtonOr extends React.Component<IButtonOrProps, {}> {
-  public static displayName = "Button.Or";
-  
   render() {
     let p = this.props;
     return (

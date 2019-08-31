@@ -273,5 +273,7 @@ class Button extends React.PureComponent<IButtonProps, {}> {
   }  
 }
 
+(Button.Group as any).displayName = "Button.Group";
+(Button.Or as any).displayName = "Button.Or";
 
 export { Button, IButtonProps };

@@ -14,13 +14,13 @@ interface IButtonGroupProps {
   vertical?: boolean;
   /** Sets size for buttons in group: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
   size?: Size;
-  /** Sets color for all buttons, e.g. `#aa3311`. */
+  /** Sets color for all buttons in group, e.g. `#aa3311`. */
   color?: string;
-  /** Gives all buttons reduced padding. */
+  /** Gives all buttons in group reduced padding. */
   compact?: boolean;
-  /** Basic buttons are less pronounced. */
+  /** Sets all buttons in group to be basic buttons, which are less pronounced. */
   basic?: boolean;
-  /** Icon buttons have no margin, to center icon. */
+  /** Sets all buttons in group to be icon buttons that have no margin, to center icons. */
   icon?: boolean;
 }
 
@@ -95,8 +95,6 @@ const ButtonGroupStyled = styled(ButtonGroupBase)`
 `
 
 class ButtonGroup extends React.Component<IButtonGroupProps, {}> {
-  public static displayName = "Button.Group";
-  
   render() {
     let p = this.props;
     return (
