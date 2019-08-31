@@ -5,10 +5,14 @@ import { Dialog } from './Dialog';
 import { List } from '../List';
 
 interface IErrorDialogProps {
+  /** Is the Dialog currently open? */
   open?: boolean;
+  /** Axios response object. */
   error: any;
-  onClose?: () => void;
-  onRetry?: () => void;
+  /** Function to call when user selects the 'OK' option. */
+  onClose: () => void;
+  /** Function to call when user selects the 'Retry' option. */
+  onRetry: () => void;
 }
 
 const Field = styled('span')`

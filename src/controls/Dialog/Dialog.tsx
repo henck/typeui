@@ -1,16 +1,17 @@
 import * as React from 'react';
+import { CSSTransition } from 'react-transition-group';
 import { DialogBackground } from './DialogBackground';
 import { DialogWindow } from './DialogWindow';
 import { DialogHeader } from './DialogHeader';
 import { DialogContent } from './DialogContent';
 import { DialogFooter } from './DialogFooter';
+import { AlertDialog } from './AlertDialog';
 import { ConfirmDialog } from './ConfirmDialog';
 import { XhrDialog } from './XhrDialog';
-import { CSSTransition } from 'react-transition-group';
 
 interface IDialogProps {
   children?: React.ReactNode;
-  /** Is the dialog currently open? */
+  /** Is the Dialog currently open? */
   open?: boolean;
   /** This callback is called when the user closes the dialog window. */
   onClose?: () => void;
@@ -23,6 +24,7 @@ class Dialog extends React.Component<IDialogProps, {}> {
   public static Header = DialogHeader;
   public static Content = DialogContent;
   public static Footer = DialogFooter;
+  public static Alert = AlertDialog;
   public static Confirm = ConfirmDialog;
   public static Xhr = XhrDialog;  
 
@@ -66,6 +68,13 @@ class Dialog extends React.Component<IDialogProps, {}> {
     );
   }
 }
+
+(Dialog.Header as any).displayName = "Dialog.Header";
+(Dialog.Content as any).displayName = "Dialog.Content";
+(Dialog.Footer as any).displayName = "Dialog.Footer";
+(Dialog.Alert as any).displayName = "Dialog.Alert";
+(Dialog.Confirm as any).displayName = "Dialog.Confirm";
+(Dialog.Xhr as any).displayName = "Dialog.Xhr";
 
 export { Dialog };
 

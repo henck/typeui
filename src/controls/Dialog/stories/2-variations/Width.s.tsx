@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { Dialog, Button } from '../../';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { Button } from '../../../Button';
+import { Dialog } from '../../Dialog';
 
 interface IDemoDialogState {
   open: boolean;
@@ -35,7 +36,7 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
     return (
       <React.Fragment>
         <Button onClick={this.handleClick}>Open dialog</Button>
-        <Dialog open={this.state.open} onClose={this.handleClose}>
+        <Dialog width={1024} open={this.state.open} onClose={this.handleClose}>
           <Dialog.Header>Delete all items</Dialog.Header>
           <Dialog.Content>You are about to permanently delete all items. Are you sure you wish to continue?</Dialog.Content>
           <Dialog.Footer>
@@ -48,23 +49,17 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
   }
 }
 
-storiesOf('Dialog', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Dialog, Dialog.Header, Dialog.Content, Dialog.Footer], propTablesExclude: [DemoDialog]}))
+storiesOf('Dialog/Variations', module)
+  .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`Dialog\` is an overlay window that is triggered when the Dialog's \`open\` attribute is set 
-    to \`true\`. The calling code is responsible for setting \`open\` to \`false\` when the Dialog
-    should close.
-
-    The \`Dialog\` also calls \`onClose\` when the user clicks outside the Dialog.
+    A Dialog has a default width in pixels, but the \`width\` attribute can be used to override that.
     `
   })
   .addWithJSX(
-    'Properties',
+    'Width',
   () => (
-  <DemoDialog/>
+    <DemoDialog/>
   ));  
-
-  
