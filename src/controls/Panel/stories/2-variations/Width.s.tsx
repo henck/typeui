@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styled from '../../../styles/Theme';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { Panel, Button } from '../../';
+import styled from '../../../../styles/Theme';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { Panel, Button } from '../../../';
 
 interface IDemoPanelState {
   open: boolean;
@@ -45,7 +45,7 @@ class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState>
     return (
       <div style={{position: 'relative', display: 'inline-block'}}>
         <Button onClick={this.handleClick}>Open panel</Button>
-        <Panel padded open={this.state.open} onClose={this.handleClose}>
+        <Panel padded width={800} open={this.state.open} onClose={this.handleClose}>
           <p>This is some panel text.</p>
           <div>
             <Button secondary onClick={this.handleClose}>Close</Button>
@@ -56,20 +56,17 @@ class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState>
   }
 }
 
-storiesOf('Panel', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel], propTablesExclude: [DemoPanel]}))
+storiesOf('Panel/Variations', module)
+  .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All \`Panel\` properties.
-
-    Note that a panel determines its position from the position of its direct parent.
-    The parent therefore **must** have \`position: relative\`.
+    A \`Panel\` has a width of 200px by default. This \`width\` can be overridden.
     `
   })
   .addWithJSX(
-    'Properties',
+    'Width',
   () => (
   <DemoPanel/>
   ));  

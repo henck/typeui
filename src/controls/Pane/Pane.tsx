@@ -2,17 +2,18 @@ import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 import { Icon } from '../Icon';
+import { IconPane } from './IconPane';
 
 interface IPaneProps {
   className?: string;
   children?: React.ReactNode;
   /** Is the Pane currently open? */
   open: boolean;
-  /** This callback is called when the panel requests to close. */
+  /** This callback is called when the Pane requests to close. */
   onClose: () => void;
-  /** A padded pane adds padding to its content. */
+  /** A padded Pane adds padding to its content. */
   padded?: boolean;
-  /** Override default panel width of 400 pixels. */
+  /** Override default Pane width of 400 pixels. */
   width?: number;
 }
 
@@ -84,6 +85,7 @@ const PaneStyled = styled(PaneBase)`
 
 class Pane extends React.Component<IPaneProps, {}> {
   public static displayName = 'Pane';
+  public static Icon = IconPane;
 
   render() {
     return (
@@ -91,5 +93,7 @@ class Pane extends React.Component<IPaneProps, {}> {
     );
   }
 }
+
+(Pane.Icon as any).displayName = "Pane.Icon";
 
 export { Pane };

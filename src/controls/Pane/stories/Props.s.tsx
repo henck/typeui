@@ -1,13 +1,14 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { Panel, Button } from '../../';
+import { Pane } from '../../';
+import { Button } from '../../Button';
 
-interface IDemoPanelState {
+interface IDemoPaneState {
   open: boolean;
 }
 
-class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState> {
+class DemoPane extends React.Component<{ className?: string }, IDemoPaneState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -30,48 +31,35 @@ class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState>
     this.setState({ open: false });
   }
 
-  handleYes = () => {
-    this.setState({ open: false });
-    alert('Clicked Yes.');
-  }
-
-  handleNo = () => {
-    this.setState({ open: false });
-    alert('Clicked No.');
-  }
-
   render() {
-    let p = this.props;
     return (
       <div style={{position: 'relative', display: 'inline-block'}}>
-        <Button onClick={this.handleClick}>Open panel</Button>
-        <Panel padded open={this.state.open} onClose={this.handleClose}>
-          <p>This is some panel text.</p>
-          <div>
-            <Button secondary onClick={this.handleClose}>Close</Button>
-          </div>
-        </Panel>      
+        <Button onClick={this.handleClick}>Open pane</Button>
+        <Pane padded open={this.state.open} onClose={this.handleClose}>
+          <p>This is some pane text.</p>
+        </Pane>      
       </div>
     )
   }
 }
 
-storiesOf('Panel', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel], propTablesExclude: [DemoPanel]}))
+storiesOf('Pane', module)
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Pane], propTablesExclude: [DemoPane]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All \`Panel\` properties.
+    All \`Pane\` properties.
 
-    Note that a panel determines its position from the position of its direct parent.
-    The parent therefore **must** have \`position: relative\`.
+    A \`Pane\` slides in from the right side of the viewport when its \`open\` property is set to
+    \`true\`. An \`onClose\` event is triggered when the user clicks outside of the pane or when 
+    the user clicks the close (cross) icon.
     `
   })
   .addWithJSX(
     'Properties',
   () => (
-  <DemoPanel/>
+  <DemoPane/>
   ));  
 
   

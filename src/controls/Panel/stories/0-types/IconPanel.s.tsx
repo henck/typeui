@@ -19,7 +19,7 @@ storiesOf('Panel/Types', module)
     'Panel.Icon',
   () => (
     <div style={{position: 'relative'}}>
-      <Panel.Icon padded icon="download">
+      <Panel.Icon padded icon="layers">
         <p>This is some panel text.</p>
       </Panel.Icon>
     </div>

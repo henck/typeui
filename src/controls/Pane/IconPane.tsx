@@ -7,6 +7,7 @@ import { Pane } from '.';
 interface IIconPaneProps {
   className?: string;
   children?: React.ReactNode;
+  /** Pane activation icon. */
   icon: IconType;
   /** A padded pane adds padding to its content. */
   padded?: boolean;
