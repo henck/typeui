@@ -51,7 +51,7 @@ class ToastBase extends React.Component<IToastProps, {}> {
   }
 }
 
-const Toast = styled(ToastBase)`
+const ToastStyled = styled(ToastBase)`
   display: flex;
   align-items: flex-start;
   align-items: center;
@@ -88,5 +88,14 @@ const Toast = styled(ToastBase)`
                 transform ${p => p.theme.transition.duration*3}s ease-in-out;
   }  
 `;
+
+class Toast extends React.Component<IToastProps, {}> {
+  render() {
+    let p = this.props;
+    return (
+      <ToastStyled {...p}/>
+    );
+  }
+}
 
 export { Toast };

@@ -77,12 +77,21 @@ class ToastContainerBase extends React.Component<IToastContainerProps, IToastCon
   }
 }
 
-const ToastContainer = styled(ToastContainerBase)`
+const ToastContainerStyled = styled(ToastContainerBase)`
   /* Toasts are placed in the bottom-left corner. */
   position: absolute;
   z-index: 9999;
   left: 20px;
   bottom: 20px;
 `
+
+class ToastContainer extends React.Component<IToastContainerProps, {}> {
+  render() {
+    let p = this.props;
+    return (
+      <ToastContainerStyled {...p}/>
+    );
+  }
+}
 
 export { ToastContainer };
