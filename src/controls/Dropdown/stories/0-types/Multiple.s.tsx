@@ -17,7 +17,7 @@ class MultipleDropdown extends React.Component<{}, IState> {
     super(props);
     this.state = {
       domains: [
-        {id: 1, name: '.com domain'}, {id: 2, name:'.net domain'}, {id: 3, name:'.org domain'}
+        {id: 1, name: '.com domain'}
       ]
     }
   }
@@ -28,7 +28,7 @@ class MultipleDropdown extends React.Component<{}, IState> {
 
   render() {
     return (
-      <Dropdown name="domains" placeholder="Select domain" value={this.state.domains} multiple label={(item:any) => item.name} data={[{id: 1, name: '.com domain'}, {id: 2, name:'.net domain'}, {id: 3, name:'.org domain'}]} onChange={this.handleChange}>
+      <Dropdown fluid name="domains" placeholder="Select domain" value={this.state.domains} multiple label={(item:any) => item.name} data={[{id: 1, name: '.com domain'}, {id: 2, name:'.net domain'}, {id: 3, name:'.org domain'}]} onChange={this.handleChange}>
         <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
       </Dropdown>
     );
@@ -41,7 +41,7 @@ storiesOf('Dropdown/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-      A dropdown can allow \`multiple\` selection.
+      A dropdown can allow \`multiple\` selection. Items can be removed from the selection set by clicking them.
     `
   })
   .addWithJSX(

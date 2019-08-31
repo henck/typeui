@@ -9,7 +9,10 @@ storiesOf('Dropdown', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All dropdown properties.
+    A \`Dropdown\` is a replacement for \`<select\`>. It opens upwards or downwards depending on its
+    position in the viewport. Its selection and dropdown items are formatted using a formatting
+    function. A \`Dropdown\` can also take a search callback, which tells provides its subscriber
+    with a search query in order to provide the Dropdown with new items.
     `
   })
   .addWithJSX(

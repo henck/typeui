@@ -6,7 +6,7 @@ interface IColumnProps {
   children: (item:any) => void;
   /** Column weight. Defaults to 1. */
   weight?: number;
-  /** Text alignment. Defaults to `left`. */
+  /** Text alignment to the \`left\` or \`right\`. Defaults to `left`. */
   align?: Float;
 }
 

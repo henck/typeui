@@ -22,7 +22,7 @@ interface IDropdownProps {
    *  The value is an object, not an ID!
    */
   value?: any; 
-  /** Fluid makes Dropdown occupy all horizontal space available to it. */
+  /** A fluid Dropdown occupies all horizontal space available to it. */
   fluid?: boolean;
   /** An inline Dropdown has no border. Useful for menu items. */
   inline?: boolean;
