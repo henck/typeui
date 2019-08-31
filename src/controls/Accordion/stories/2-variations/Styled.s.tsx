@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { boolean } from '@storybook/addon-knobs/react';
+import { select, boolean } from '@storybook/addon-knobs/react';
 import { Flex, Icon, Accordion } from '../../../';
+import { Float } from '../../../Types'
 
 storiesOf('Accordion/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -15,7 +16,10 @@ storiesOf('Accordion/Variations', module)
   .addWithJSX(
     'Styled',
   () => (
-  <Accordion styled={boolean('styled', true)} multiple={boolean('multiple', false)}>
+    <Accordion 
+    styled={boolean('styled', true, 'Variations')} 
+    multiple={boolean('multiple', false, 'Type')}
+    align={select('align', ['', 'left', 'right'], '', 'Variations') as Float}>
     <Accordion.Tab title={<Flex.Quick><Icon name="code"/> What is a dog?</Flex.Quick>}>
       <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
     </Accordion.Tab>

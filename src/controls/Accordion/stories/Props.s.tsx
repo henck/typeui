@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { text, boolean } from '@storybook/addon-knobs/react';
-import { Size, Float } from '../../Types';
+import { select, boolean } from '@storybook/addon-knobs/react';
+import { Float } from '../../Types';
 import { Accordion } from '../../';
 
 storiesOf('Accordion', module)
@@ -10,14 +10,19 @@ storiesOf('Accordion', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All Accordion properties.
+    An \`Accordion\` is used to group content in panes that can be expanded individually. 
+    By default, an Accordion only allows one pane to be open at any time. A \`multiple\` Accordion allows
+    users to expand multiple panes. 
     `
   })
   .addWithJSX(
     'Properties',
   () => (
   <div>
-    <Accordion styled={boolean('styled', true)} multiple={boolean('multiple', true)}>
+    <Accordion
+      styled={boolean('styled', false, 'Variations')} 
+      multiple={boolean('multiple', false, 'Type')}
+      align={select('align', ['', 'left', 'right'], '', 'Variations') as Float}>
       <Accordion.Tab title="One">
         <p>Content of first tab.</p>
         <Accordion styled>

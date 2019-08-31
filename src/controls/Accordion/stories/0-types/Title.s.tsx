@@ -1,8 +1,9 @@
-import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { boolean, number } from '@storybook/addon-knobs/react';
-import { Accordion, Icon } from '../../../';
-import { Flex } from '../../../';
+import * as React from 'react'
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase'
+import { select, boolean } from '@storybook/addon-knobs/react'
+import { Accordion, Icon } from '../../../'
+import { Flex } from '../../../'
+import { Float } from '../../../Types'
 
 storiesOf('Accordion/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -10,13 +11,16 @@ storiesOf('Accordion/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    The \`title\` attribute can be any JSX, so it's possible to include an icon in the title (or anything else).
+    The \`title\` attribute of an \`Accordion.Tab\` can be any JSX, so it's possible to include an icon in the title (or anything else).
     `
   })
   .addWithJSX(
     'Title',
   () => (
-  <Accordion styled={boolean('styled', false)} multiple={boolean('multiple', false)}>
+  <Accordion 
+  styled={boolean('styled', false, 'Variations')} 
+  multiple={boolean('multiple', false, 'Type')}
+  align={select('align', ['', 'left', 'right'], '', 'Variations') as Float}>
     <Accordion.Tab title={<Flex.Quick><Icon name="code"/> What is a dog?</Flex.Quick>}>
       <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
     </Accordion.Tab>
