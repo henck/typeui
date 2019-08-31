@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { Image } from '../../../';
 import { Size } from '../../../Types';
 
@@ -17,7 +17,7 @@ storiesOf('Image/Groups', module)
     'Group',
   () => (
   <Image.Group 
-    size={text('size', 'small', 'Group') as Size}
+    size={select('size', ['', 'mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive'], 'medium', 'Group') as Size}
     bordered={boolean('bordered', false, 'Group')}
     rounded={boolean('rounded', true, 'Group')}
     circular={boolean('circular', false, 'Group')}>

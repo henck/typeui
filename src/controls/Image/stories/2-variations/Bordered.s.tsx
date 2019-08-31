@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { Image } from '../../../';
 import { Size } from '../../../Types';
 
@@ -17,7 +17,7 @@ storiesOf('Image/Variations', module)
     'Bordered',
   () => (
     <Image 
-      size={text('size', 'medium') as Size}
-      bordered={boolean('bordered', true)}
-      src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/white-image.png')}/>
+      size={select('size', ['', 'mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive'], 'medium', 'Variations') as Size}
+      bordered={boolean('bordered', true, 'Variations')}
+      src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/white-image.png', 'Types')}/>
   ));  

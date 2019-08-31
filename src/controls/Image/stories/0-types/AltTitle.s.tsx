@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { text } from '@storybook/addon-knobs/react';
+import { select, text } from '@storybook/addon-knobs/react';
 import { Image } from '../../../';
 import { Size } from '../../../Types';
 
@@ -17,8 +17,8 @@ storiesOf('Image/Types', module)
     'Alt and Title',
   () => (
     <Image 
-      size={text('size', 'medium') as Size}
-      title={text('title', 'A wireframe')}
-      alt={text('title', 'A wireframe')}
-      src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png')}/>
+      size={select('size', ['', 'mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive'], 'medium', 'Variations') as Size}
+      title={text('title', 'A wireframe', 'Types')}
+      alt={text('title', 'A wireframe', 'Types')}
+      src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png', 'Types')}/>
   ));  

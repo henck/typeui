@@ -16,6 +16,6 @@ storiesOf('Image/Variations', module)
     'Fluid',
   () => (
     <Image 
-      fluid={boolean('fluid', true)}
-      src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png')}/>
+      fluid={boolean('fluid', true, 'Variations')}
+      src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png', 'Types')}/>
   ));  

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { Image } from '../../';
 import { Float, Size, VerticalAlignment } from '../../Types';
 
@@ -17,20 +17,20 @@ storiesOf('Image', module)
     'Properties',
   () => (
   <Image  
-    src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png')}    
-    title={text('title', 'image title')}
-    alt={text('alt', 'image alt text')}
-    disabled={boolean('disabled', false)}
-    hidden={boolean('hidden', false)}
-    size={text('size', '') as Size}
-    bordered={boolean('bordered', false)}
-    rounded={boolean('rounded', false)}
-    circular={boolean('circular', false)}
-    avatar={boolean('avatar', false)}
-    inline={boolean('inline', false)}
-    spaced={boolean('spaced', false)}
-    float={text('float', '') as Float}
-    align={text('align', '') as VerticalAlignment}>
+    src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png', 'Types')}    
+    title={text('title', 'image title', 'Types')}
+    alt={text('alt', 'image alt text', 'Types')}
+    disabled={boolean('disabled', false, 'States')}
+    hidden={boolean('hidden', false, 'States')}
+    size={select('size', ['', 'mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive'], '', 'Variations') as Size}
+    bordered={boolean('bordered', false, 'Variations')}
+    rounded={boolean('rounded', false, 'Variations')}
+    circular={boolean('circular', false, 'Variations')}
+    avatar={boolean('avatar', false, 'Variations')}
+    inline={boolean('inline', false, 'Variations')}
+    spaced={select('spaced', ['', 'left', 'right', 'true'], '', 'Variations') as (Float|boolean)}
+    float={select('float', ['', 'left', 'right'], '', 'Variations') as Float}
+    align={select('align', ['', 'top', 'center', 'bottom'], '', 'Variations') as VerticalAlignment}>
     {text('error', 'Error text')}
   </Image>
   ));  

@@ -18,5 +18,5 @@ storiesOf('Image/Types', module)
     'Image',
   () => (
   <Image 
-    src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png')}/>
+    src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png', 'Types')}/>
   ));  

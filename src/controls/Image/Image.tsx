@@ -11,27 +11,27 @@ interface IImageProps {
   children?: React.ReactNode;
   /** onClick events are passed through to the list item's HTML element */
   onClick?: any;
-  /** Image source URL */
+  /** Image source URL. */
   src?: string;
-  /** Sets image size: mini, tiny, small, medium (default), large, big, huge or massive. */
+  /** Sets image size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
   size?: Size;  
-  /** Add border */
+  /** Add border. */
   bordered?: boolean;
-  /** Round image corners */
+  /** Round image corners. */
   rounded?: boolean;
-  /** Cicular image (works only for square images) */
+  /** Cicular image (ellipical for non-square images). */
   circular?: boolean;
   /** A fluid image takes up the width of its container. */
   fluid?: boolean;
   /** An avatar image appears inline and circular.  */
   avatar?: boolean;
-  /** Set as centered content block */
+  /** Set as centered content block. */
   centered?: boolean;
-  /** Make image inline */
+  /** Make image inline. */
   inline?: boolean;
-  /** Extra space between inline image and text, either both or 'left' or 'right'. Implies inline. */
+  /** Extra space between inline image and text, either both or `left` or `right`. Implies inline. */
   spaced?: boolean | Float;
-  /** An image can float left or right. */
+  /** An image can float `left` or `right`. */
   float?: Float;
   /** Alt text. */
   alt?: string;
@@ -41,7 +41,7 @@ interface IImageProps {
   hidden?: boolean;
   /** Disable the image. */
   disabled?: boolean;
-  /** Vertical alignment (by default: 'center') */
+  /** Vertical alignment `top`, `center` or `bottom` (by default `center`) */
   align?: VerticalAlignment;
 }
 

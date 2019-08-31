@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { Image, Label, Icon } from '../../../';
 import { Size } from '../../../Types';
 import { IconType } from '../../../Icon';
@@ -22,12 +22,12 @@ storiesOf('Image/States', module)
     'Error',
   () => (
     <Image 
-      size={text('size', 'medium', 'Image') as Size}
-      circular={boolean('circular', false, 'Image')}
-      src={text('src', "http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png-does-not-exist", 'Image')}>
+    size={select('size', ['', 'mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive'], 'medium', 'Variations') as Size}
+      circular={boolean('circular', false, 'Variations')}
+      src={text('src', "http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png-does-not-exist", 'Types')}>
       <Label>
         <Icon name={text('name', 'code', 'Icon') as IconType}/>
-        {text('Content', 'Loading error', 'Image')}
+        {text('Content', 'Loading error', 'Content')}
       </Label>
     </Image>
   ));  

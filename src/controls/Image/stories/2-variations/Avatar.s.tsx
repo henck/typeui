@@ -18,8 +18,8 @@ storiesOf('Image/Variations', module)
     <p>
       Hello
       <Image 
-      avatar={boolean('avatar', true)}
-      src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/square-image.png')}/>
+      avatar={boolean('avatar', true, 'Variations')}
+      src={text('src', 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/square-image.png', 'Types')}/>
       world!
     </p>
   ));  
