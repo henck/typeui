@@ -10,7 +10,7 @@ storiesOf('Checkbox/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A standard checkbox.
+    A standard \`Checkbox\`.
     `
   })
   .addWithJSX(

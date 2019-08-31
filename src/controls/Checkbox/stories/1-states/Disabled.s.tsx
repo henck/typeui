@@ -10,7 +10,7 @@ storiesOf('Checkbox/States', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`disabled\` checkbox cannot be interacted with.
+    A \`disabled\` \`Checkbox\` cannot be interacted with.
     `
   })
   .addWithJSX(

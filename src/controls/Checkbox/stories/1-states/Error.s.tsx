@@ -10,7 +10,7 @@ storiesOf('Checkbox/States', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A checkbox can be in an \`error\` state.
+    A \`Checkbox\` can be in an \`error\` state.
     `
   })
   .addWithJSX(

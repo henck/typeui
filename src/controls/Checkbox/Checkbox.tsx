@@ -20,7 +20,7 @@ interface ICheckboxProps {
   type?: CheckboxType; 
   /** A disabled checkbox cannot be interacted with. */
   disabled?: boolean;
-  /** Show an error state. */
+  /** If set, show an error state. */
   error?: boolean;
 
   // Events

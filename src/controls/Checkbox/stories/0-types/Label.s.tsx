@@ -10,7 +10,7 @@ storiesOf('Checkbox/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A checkbox can (usually) have a \`label\`. This is not the same as a \`Form.Field\` 
+    A \`Checkbox\` can (usually) have a \`label\`. This is not the same as a \`Form.Field\` 
     label. The label is clickable and toggles the checkbox.
     `
   })

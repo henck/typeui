@@ -10,7 +10,7 @@ storiesOf('Checkbox', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All checkbox properties.
+    All \`Checkbox\` properties.
     `
   })
   .addWithJSX(
