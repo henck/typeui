@@ -15,11 +15,16 @@ module.exports = ({config}) => {
       }, {
         loader: require.resolve('react-docgen-typescript-loader'),
         options: {
-          skipPropsWithName: ["className", "children"]
+          // Do not document the following properties:
+          skipPropsWithName: ["className", "children"],
+          // Skip properties without documentation, which
+          // allows us to hide some props from the documentation.
+          skipPropsWithoutDoc: true
         }
       }  
     ]
   });
+  // Produce a spritemap.svg file:
   config.plugins.push(new SVGSpritemapPlugin('svg/**/*.svg', {
     sprite: {
       prefix: false
