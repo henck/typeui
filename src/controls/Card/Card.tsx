@@ -8,9 +8,9 @@ import { Meta } from './Meta';
 interface ICardProps {
   className?: string;
   children?: React.ReactNode;
-  /* A fluid card occupies all width available to it. */
+  /** A fluid card occupies all width available to it. */
   fluid?: boolean;
-  /* A card can be clickable. */
+  /** A card can be clickable. If an event handler is set, then the card will respond to mouse hover. */
   onClick?: () => void;
 }
 
@@ -67,5 +67,9 @@ class Card extends React.Component<ICardProps, {}> {
     );
   }
 }
+
+(Card.Header as any).displayName = "Card.Header";
+(Card.Meta as any).displayName = "Card.Meta";
+(Card.Content as any).displayName = "Card.Content";
 
 export { Card };

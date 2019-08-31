@@ -6,7 +6,7 @@ import { HorizontalAlignment } from '../Types';
 interface IHeaderProps {
   className?: string;
   children?: React.ReactNode;
-  /** Optional text alignment (defaults to left-aligned). */
+  /** Optional text alignment to `left`, `center` or `right` (default is `left`). */
   align?: HorizontalAlignment;
 }
 
