@@ -13,7 +13,10 @@ module.exports = ({config}) => {
           configFileName: './.storybook/tsconfig.json'
         }
       }, {
-        loader: require.resolve('react-docgen-typescript-loader')
+        loader: require.resolve('react-docgen-typescript-loader'),
+        options: {
+          skipPropsWithName: ["className", "children"]
+        }
       }  
     ]
   });
