@@ -4,7 +4,7 @@ import { Form } from '../../../';
 import { Input } from '../../../Input';
 
 storiesOf('Form/Types', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: false}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Form.Uncontrolled], propTablesExclude: [Form]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

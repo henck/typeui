@@ -50,7 +50,7 @@ interface IProps {
   value: any;
   /** Hint to be shown when there is no error. */
   hint?: React.ReactNode;
-  /** If true, error message have more contrast (for dark backgrounds) */
+  /** If true, error messages have more contrast (for dark backgrounds) */
   contrast?: boolean;  
   /** Control to show in field */
   control: React.ReactNode;
