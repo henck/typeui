@@ -9,6 +9,7 @@ import { Icon } from './../Icon/';
 import { ImageStyled } from './../Image/';
 import { LabelGroup } from './LabelGroup';
 import { LabelDetail } from './LabelDetail';
+import { IconStyled } from '../Icon/Icon';
 
 interface ILabelProps {
   className?: string;
@@ -101,7 +102,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
   }
 
   /* Align icon (if present) with text. */
-  ${Icon} {
+  ${IconStyled} {
     display: inline-block;
     vertical-align: top;
     margin: 0 0.2em;

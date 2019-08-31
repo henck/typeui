@@ -19,22 +19,22 @@ storiesOf('Icon/Variations', module)
     'Size',
   () => (
   <div>
-    <Icon name="exchange" size="mini"/>
-    <Icon name="exchange" size="tiny"/>
-    <Icon name="exchange" size="small"/>
-    <Icon name="exchange"/>
-    <Icon name="exchange" size="large"/>
-    <Icon name="exchange" size="big"/>
-    <Icon name="exchange" size="huge"/>
-    <Icon name="exchange" size="massive"/>
+    <Icon padded name="envelope" size="mini"/>
+    <Icon padded name="envelope" size="tiny"/>
+    <Icon padded name="envelope" size="small"/>
+    <Icon padded name="envelope"/>
+    <Icon padded name="envelope" size="large"/>
+    <Icon padded name="envelope" size="big"/>
+    <Icon padded name="envelope" size="huge"/>
+    <Icon padded name="envelope" size="massive"/>
     <Divider hidden/>
-    <Icon name="exchange" circular size="mini"/>
-    <Icon name="exchange" circular size="tiny"/>
-    <Icon name="exchange" circular size="small"/>
-    <Icon name="exchange" circular/>
-    <Icon name="exchange" circular size="large"/>
-    <Icon name="exchange" circular size="big"/>
-    <Icon name="exchange" circular size="huge"/>
-    <Icon name="exchange" circular size="massive"/>                
+    <Icon padded name="bullhorn" circular size="mini"/>
+    <Icon padded name="bullhorn" circular size="tiny"/>
+    <Icon padded name="bullhorn" circular size="small"/>
+    <Icon padded name="bullhorn" circular/>
+    <Icon padded name="bullhorn" circular size="large"/>
+    <Icon padded name="bullhorn" circular size="big"/>
+    <Icon padded name="bullhorn" circular size="huge"/>
+    <Icon padded name="bullhorn" circular size="massive"/>                
   </div>
   ));  

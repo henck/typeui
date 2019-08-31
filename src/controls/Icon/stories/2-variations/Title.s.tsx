@@ -15,6 +15,6 @@ storiesOf('Icon/Variations', module)
     'Title',
   () => (
   <div>
-    <Icon name="at" title="My title"/>
+    <Icon name="bullhorn" title="My title"/>
   </div>
   ));  

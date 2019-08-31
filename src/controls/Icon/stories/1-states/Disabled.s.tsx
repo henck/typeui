@@ -14,5 +14,5 @@ storiesOf('Icon/States', module)
   .addWithJSX(
     'Disabled',
   () => (
-  <Icon name="exchange" disabled/>
+  <Icon name="bullhorn" disabled/>
   ));  

@@ -14,5 +14,5 @@ storiesOf('Icon/Types', module)
   .addWithJSX(
     'Icon',
   () => (
-  <Icon name="exchange"/>
+  <Icon name="bullhorn"/>
   ));  

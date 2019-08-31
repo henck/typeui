@@ -15,7 +15,7 @@ storiesOf('Icon/Variations', module)
     'Mirrored',
   () => (
   <div>
-    <Icon name="at"/>
-    <Icon name="at" mirrored/>
+    <Icon padded name="bullhorn"/>
+    <Icon padded name="bullhorn" mirrored/>
   </div>
   ));  

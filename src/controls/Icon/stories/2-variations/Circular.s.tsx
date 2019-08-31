@@ -15,9 +15,9 @@ storiesOf('Icon/Variations', module)
     'Circular',
   () => (
   <div>
-    <Icon name="at" circular/>
-    <Icon name="at" color="teal" circular/>
-    <Icon name="at" inverted circular/>
-    <Icon name="at" color="teal" inverted circular/>
+    <Icon padded name="at" circular/>
+    <Icon padded name="bullhorn" color="teal" circular/>
+    <Icon padded name="chevron-double" inverted circular/>
+    <Icon padded name="file-excel" color="teal" inverted circular/>
   </div>
   ));  

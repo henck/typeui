@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 import { Icon } from '../Icon';
+import { IconStyled } from '../Icon/Icon';
 
 interface IProps {
   className?: string;
@@ -68,7 +69,7 @@ const LabelledValueStyled = styled(LabelledValueBase)`
     `}
   } 
 
-  ${Icon} {
+  ${IconStyled} {
     position: absolute;
     right: 6px;
     top: 2px;

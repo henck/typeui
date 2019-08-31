@@ -15,7 +15,7 @@ storiesOf('Icon/Variations', module)
     'Float',
   () => (
   <Segment>
-    <Icon name="exchange" float="left"/>
-    <Icon name="exchange" float="right"/>
+    <Icon padded name="bullhorn" float="left"/>
+    <Icon padded name="bullhorn" float="right"/>
   </Segment>
   ));  

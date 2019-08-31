@@ -15,9 +15,9 @@ storiesOf('Icon/Variations', module)
     'Bordered',
   () => (
   <div>
-    <Icon name="at" bordered/>
-    <Icon name="at" color="teal" bordered/>
-    <Icon name="at" inverted bordered/>
-    <Icon name="at" color="teal" inverted bordered/>     
+    <Icon padded name="bullhorn" bordered/>
+    <Icon padded name="id-card" color="teal" bordered/>
+    <Icon padded name="lock" inverted bordered/>
+    <Icon padded name="plus" color="teal" inverted bordered/>     
   </div>
   ));  

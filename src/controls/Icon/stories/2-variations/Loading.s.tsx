@@ -15,8 +15,8 @@ storiesOf('Icon/Variations', module)
     'Loading',
   () => (
   <div>
-    <Icon name="at" loading/>
-    <Icon name="at" bordered loading/>
-    <Icon name="at" circular inverted loading/>
+    <Icon padded name="bullhorn" loading/>
+    <Icon padded name="envelope" bordered loading/>
+    <Icon padded name="download" circular inverted loading/>
   </div>
   ));  

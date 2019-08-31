@@ -15,18 +15,18 @@ storiesOf('Icon/Variations', module)
     'Color',
   () => (
   <div>
-    <Icon name="at" color='red'/>
-    <Icon name="at" color='orange'/>
-    <Icon name="at" color='yellow'/>
-    <Icon name="at" color='olive'/>
-    <Icon name="at" color='green'/>
-    <Icon name="at" color='teal'/>
-    <Icon name="at" color='blue'/>
-    <Icon name="at" color='violet'/>
-    <Icon name="at" color='purple'/>
-    <Icon name="at" color='pink'/>
-    <Icon name="at" color='brown'/>
-    <Icon name="at" color='grey'/>
-    <Icon name="at" color='black'/>
+    <Icon padded name="bullhorn" color='red'/>
+    <Icon padded name="at" color='orange'/>
+    <Icon padded name="id-card" color='yellow'/>
+    <Icon padded name="chevron-double" color='olive'/>
+    <Icon padded name="envelope" color='green'/>
+    <Icon padded name="file-excel" color='teal'/>
+    <Icon padded name="download" color='blue'/>
+    <Icon padded name="edit" color='violet'/>
+    <Icon padded name="code" color='purple'/>
+    <Icon padded name="circle" color='pink'/>
+    <Icon padded name="layers" color='brown'/>
+    <Icon padded name="trash" color='grey'/>
+    <Icon padded name="tools" color='black'/>
   </div>
   ));  

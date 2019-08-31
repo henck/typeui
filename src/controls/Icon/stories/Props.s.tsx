@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { text, boolean, number } from '@storybook/addon-knobs/react';
+import { color, select, text, boolean, number } from '@storybook/addon-knobs/react';
 import { Icon } from '../../';
 import { Size, Float } from '../../Types';
 import { IconType } from '../IconType';
@@ -11,24 +11,24 @@ storiesOf('Icon', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All icon properties.
+    All \`Icon\` properties.
     `
   })
   .addWithJSX(
     'Properties',
   () => (
   <Icon      
-    name={text('name', 'code') as IconType}
-    disabled={boolean('disabled', false)}
-    size={(text('size', '') as Size)}
-    float={(text('float', '') as Float)}
-    flipped={boolean('flipped', false)}
-    mirrored={boolean('mirrored', false)}
+    name={text('name', 'bullhorn', 'Types') as IconType}
+    disabled={boolean('disabled', false, 'States')}
+    size={select('size', ['', 'mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge', 'massive'], '', 'Variations') as Size}
+    float={select('float', ['', 'left', 'right'], '', 'Variations') as Float}
+    flipped={boolean('flipped', false, 'Variations')}
+    mirrored={boolean('mirrored', false, 'Variations')}
     rotated={number('rotated', 0)}
-    color={text('color', '')}
-    circular={boolean('circular', false)}
-    bordered={boolean('bordered', false)}
-    cornered={boolean('cornered', false)}
-    loading={boolean('loading', false)}
-    inverted={boolean('inverted', false)}/>
+    color={color('color', '', 'Variations')}
+    circular={boolean('circular', false, 'Variations')}
+    bordered={boolean('bordered', false, 'Variations')}
+    cornered={boolean('cornered', false, 'Variations')}
+    loading={boolean('loading', false, 'Variations')}
+    inverted={boolean('inverted', false, 'Variations')}/>
   ));  

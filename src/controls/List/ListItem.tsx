@@ -5,6 +5,7 @@ import { VerticalAlignment } from '../Types';
 import { Icon } from '../../controls/Icon/';
 import { ImageStyled } from '../../controls/Image/';
 import { List } from './List';
+import { IconStyled } from '../Icon/Icon';
 
 interface IListItemProps {
   className?: string;
@@ -134,7 +135,7 @@ const ListItemStyled = styled(ListItemBase)`
       align-items: flex-start;
       /* Icons and images get a slight top margin, otherwise they're just not quite in line
        * with the content when align="top". */
-      ${Icon} { margin-top: 4px; }      
+      ${IconStyled} { margin-top: 4px; }      
       ${ImageStyled} { margin-top: 4px; }      
     `}
     ${p => p.align === 'center' && css`align-items: center;`}

@@ -15,9 +15,9 @@ storiesOf('Icon/Variations', module)
     'Cornered',
   () => (
   <div>
-    <Icon name="at" cornered/>
-    <Icon name="at" color="teal" cornered/>
-    <Icon name="at" inverted cornered/>
-    <Icon name="at" color="teal" inverted cornered/>            
+    <Icon padded name="bullhorn" cornered/>
+    <Icon padded name="envelope" color="teal" cornered/>
+    <Icon padded name="exchange" inverted cornered/>
+    <Icon padded name="zoom-extents" color="teal" inverted cornered/>            
   </div>
   ));  

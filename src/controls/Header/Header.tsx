@@ -2,10 +2,10 @@ import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 import { Float, VerticalDirection, HorizontalAlignment } from '../Types';
-import { Icon } from '../../controls/Icon/';
 import { Subheader } from './Subheader';
 import { HeaderContent } from './HeaderContent';
 import { modularScale, Ratio } from '../../helper/SizeHelper';
+import { IconStyled } from '../Icon/Icon';
 
 /**
  * The <Header> component offers sizes h1..h6. The size ratio is determined using the
@@ -204,7 +204,7 @@ const HeaderStyled = styled(HeaderBase)`
   ${p => p.icon && css`
     flex-direction: column;
     justify-content: center;
-    ${Icon} {
+    ${IconStyled} {
       font-size: 250%;
     }
   `}

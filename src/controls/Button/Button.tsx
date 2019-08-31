@@ -8,6 +8,7 @@ import { Size, Float } from '../Types';
 import { ButtonOr } from './ButtonOr';
 import { ButtonGroup } from './ButtonGroup';
 import { Icon, Label, Ripple } from '../../';
+import { IconStyled } from '../Icon/Icon';
 
 interface IButtonProps {
   className?: string;
@@ -141,7 +142,7 @@ const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
   `}
 
   /* Icon */
-  ${Icon} {
+  ${IconStyled} {
     /* Icons on basic, uncolored buttons are dark. */
     ${p => p.basic && p.finalColor(p) === p.theme.normalColor && css`
       fill: ${darken(0.5, p.finalColor(p))};
@@ -179,7 +180,7 @@ const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
           color: ${lighten(0.2, p.theme.fontColor)}; border-color: ${lighten(0.6, p.theme.fontColor)};
         `}      
       `}
-      ${Icon} {
+      ${IconStyled} {
         opacity: 1.0;
       }
     }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { action } from '@storybook/addon-actions';
 import { Icon } from '../../../';
 
 storiesOf('Icon/States', module)
@@ -15,8 +16,8 @@ storiesOf('Icon/States', module)
     'onClick',
   () => (
   <div>
-    <Icon name="at" onClick={() => alert('clicked')}/>
-    <Icon name="at" bordered onClick={() => alert('clicked')}/>
-    <Icon name="at" circular inverted onClick={() => alert('clicked')}/>
+    <Icon padded name="at" onClick={action('Icon clicked')}/>
+    <Icon padded name="at" bordered onClick={action('Icon clicked')}/>
+    <Icon padded name="at" circular inverted onClick={action('Icon clicked')}/>
   </div>
   ));  

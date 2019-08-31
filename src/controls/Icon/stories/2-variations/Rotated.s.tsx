@@ -15,9 +15,10 @@ storiesOf('Icon/Variations', module)
     'Rotated',
   () => (
   <div>
-    <Icon name="at"/>
-    <Icon name="at" rotated={90}/>
-    <Icon name="at" rotated={180}/>
-    <Icon name="at" rotated={270}/>         
+    <Icon padded name="bullhorn"/>
+    <Icon padded name="bullhorn" rotated={90}/>
+    <Icon padded name="bullhorn" rotated={180}/>
+    <Icon padded name="bullhorn" rotated={270}/>         
+    <Icon padded name="bullhorn" rotated={45}/>         
   </div>
   ));  

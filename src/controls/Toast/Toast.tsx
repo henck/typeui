@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 import { Icon } from '../Icon';
+import { IconStyled } from '../Icon/Icon';
 
 interface IToastProps {
   className?: string;
@@ -61,7 +62,7 @@ const Toast = styled(ToastBase)`
   margin-top: 8px;
   cursor: pointer;
 
-  & > ${Icon} {
+  & > ${IconStyled} {
     margin-right: 10px;
   }
 

@@ -6,6 +6,7 @@ import { MessageHeader } from './MessageHeader';
 import { MessageContent } from './MessageContent';
 import { Icon } from '../../controls/Icon/';
 import { VerticalDirection, HorizontalAlignment } from '../Types';
+import { IconStyled } from '../Icon/Icon';
 
 type TMessageType = 'info' | 'warning' | 'success' | 'error';
 
@@ -91,7 +92,7 @@ const MessageStyled = styled(MessageBase).attrs(p => ({
     /* If "icon" is present, then apply flex formatting. */
     ${p.icon && css`
       display: ${p.compact && css`inline-flex`}${!p.compact && css`flex`};
-      ${Icon} {
+      ${IconStyled} {
         /* Icon color = border color */
         fill: ${p.colorSet.color};
         flex: 0;

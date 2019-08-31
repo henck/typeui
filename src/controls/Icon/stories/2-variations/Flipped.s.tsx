@@ -15,7 +15,7 @@ storiesOf('Icon/Variations', module)
     'Flipped',
   () => (
   <div>
-    <Icon name="at"/>
-    <Icon name="at" flipped/>
+    <Icon padded name="bullhorn"/>
+    <Icon padded name="bullhorn" flipped/>
   </div>
   ));  

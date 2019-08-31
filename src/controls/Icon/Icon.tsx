@@ -6,37 +6,40 @@ import { lighten } from '../../helper/lighten';
 import { scaleSize } from '../../helper/SizeHelper';
 import { Size, Float } from '../Types';
 
-export interface IIconProps {
+interface IIconProps {
   className?: string;
-  onClick?: any;
-  /** Name of sprite to use, e.g. 'caret-down' */
+  /** An icon can have an `onClick` handler. */
+  onClick?: () => void;
+  /** Name of sprite from SVG spritesheet to use, e.g. 'caret-down' */
   name: IconType;
   /** Optional icon popup title. */
   title?: string;
   /** Disabled icons have a lighter color. */
   disabled?: boolean;
-  /** Icon size */
+  /** Icon size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
   size?: Size;
-  /** Flip icon vertically */
+  /** Flip icon vertically. */
   flipped?: boolean;
-  /** Mirror icon horizontally */
+  /** Mirror icon horizontally. */
   mirrored?: boolean;
-  /** Rotate icon by degrees. */
+  /** Rotate icon by degrees, e.g. `90` for a quarter rotation to the right. */
   rotated?: number;
-  /** Icon color */
+  /** Icon color, e.g. `skyblue`. */
   color?: string;
-  /** Add circular border */
+  /** Add circular border. */
   circular?: boolean;
   /** Invert the icon's colors. */
   inverted?: boolean;
-  /** Add square border */
+  /** Add square border. */
   bordered?: boolean;
-  /** Add rounded border */
+  /** Add rounded border. */
   cornered?: boolean;
-  /** Add a rotation animation */
+  /** Add a rotation animation. */
   loading?: boolean;
-  /** Floating */
+  /** Floating to the \`left\` or \`right\`. */
   float?: Float;
+  /** Adds spacing around the icon. */
+  padded?: boolean;
 }
 
 export class IconBase extends React.Component<IIconProps, {}> {
@@ -56,12 +59,15 @@ const rotate = keyframes`
   to   { transform: rotate(360deg); }
 `;
 
-export const Icon = styled(IconBase).attrs(p => ({
+const IconStyled = styled(IconBase).attrs(p => ({
   hasBorder: (p.circular || p.bordered || p.cornered),
   hasBackground: (p.circular || p.bordered || p.cornered) && p.inverted,
   emSize: scaleSize(p.size ? p.size : 'medium', 1, p.theme.scale.icon)
 }))`
   shape-rendering: geometricPrecision;
+  
+  /* Spacing around icon. */
+  ${p => p.padded && css`margin: 2px;`}
 
   /* Clickable icons have a hover animation. */
   ${p => p.onClick && css`cursor: pointer;`}
@@ -121,4 +127,13 @@ export const Icon = styled(IconBase).attrs(p => ({
   `}
 `;
 
-Icon.displayName = "Icon";
+class Icon extends React.Component<IIconProps, {}> {
+  render() {
+    let p = this.props;
+    return (
+      <IconStyled {...p}></IconStyled>
+    );
+  }
+}
+
+export { Icon, IconStyled, IIconProps };

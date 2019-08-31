@@ -12,6 +12,7 @@ import { Selector as ColorSelector } from './Color/Selector';
 import { Clear } from './Clear';
 import { CSSTransition } from 'react-transition-group';
 import { Label } from '../Label';
+import { IconStyled } from '../Icon/Icon';
 
 interface IInputProps {
   className?: string;
@@ -182,7 +183,7 @@ const InputInner = styled(InputInnerBase)`
   ${p => p.fluid && css`width: 100%;`}
 
   /* Icon */
-  ${Icon} {
+  ${IconStyled} {
     position: absolute;
     z-index: 15;
     ${p => !p.iconPosition && css`left: 18px;`}
@@ -193,7 +194,7 @@ const InputInner = styled(InputInnerBase)`
     transition: opacity ${p => p.theme.transition.duration}s ease;
     opacity: 0.5;
   }
-  input:focus ~ ${Icon} {
+  input:focus ~ ${IconStyled} {
     opacity: 1;
   }    
 
