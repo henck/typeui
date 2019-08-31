@@ -5,7 +5,7 @@ import styled from '../../styles/Theme';
 
 interface IButtonOrProps {
   className?: string;
-  /** Sets button size: mini, tiny, small, medium (default), large, big, huge or massive. */
+  /** Sets button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
   size?: Size;  
 }
 

@@ -10,15 +10,15 @@ interface ICheckboxProps {
   name?: string;
   /** Radio value */
   value?: any;  
-  /** Checkbox checked? */
+  /** Is the Checkbox currently checked? */
   checked?: boolean;  
   /** Checkbox label. Appears to the right of the box. */
   label?: string;
   /** Is this a radio? */
   radio?: boolean;
-  /** Checkbox visual style. Default is 'check'. */
+  /** Checkbox visual style: `check`, `toggle`, `slider` or `circle`. Default is `check`. */
   type?: CheckboxType; 
-  /** A disabled checkbox cannot be interactive with. */
+  /** A disabled checkbox cannot be interacted with. */
   disabled?: boolean;
   /** Show an error state. */
   error?: boolean;

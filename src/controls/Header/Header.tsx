@@ -63,9 +63,9 @@ export interface IHeaderProps {
   className?: string;
   children?: React.ReactNode;
   onClick?: () => void;
-  /** Header size: one of 'h1' through 'h6' */
+  /** Header size: one of `h1` through `h6` */
   size: HeaderSize;
-  /** By default, header sizes are absolute and use 'rem' units. Whenrelative sizes are selected, 'em' units are used and the header size is relative to the container's font-size. */
+  /** By default, header sizes are absolute and use rem units. When relative sizes are selected, 'em' units are used and the header size is relative to the container's font-size. */
   relative?: boolean;
   /** Have header show as inactive. */
   disabled?: boolean;

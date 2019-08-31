@@ -12,11 +12,11 @@ interface IFlexProps {
   /** A stackable flex stacks when screen gets small. */
   stackable?: boolean;
   /** A divided Flex shows a *horizontal* dividing line between rows, in the gutter. 
-   *  Use a <Divider/> for a vertical dividing line. */
+   *  Use a `<Divider/>` for a vertical dividing line. */
   divided?: boolean;
   /** A compact Flex has no VERTICAL gutter. */
   compact?: boolean;
-  /** A relaxed Flex has twice the gutter width, a "very" relaxed Flex has 4 times gutter width. */
+  /** A `relaxed` Flex has twice the gutter width, and a `very relaxed` Flex has 4 times gutter width. */
   relaxed?: 'very' | boolean;
 }
 

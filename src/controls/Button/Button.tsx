@@ -25,11 +25,11 @@ interface IButtonProps {
   positive?: boolean;
   /** Variation: make this button hint toward a negative consequence. */
   negative?: boolean;
-  /** Set custom color for button, e.g. "skyblue" or "#ffff00". */
+  /** Set custom color for button, e.g. `skyblue` or `#ffff00`. */
   color?: string;
   /** Reduce button padding. */
   compact?: boolean;
-  /** Set button size: mini, tiny, small, medium (default), large, big, huge or massive. */
+  /** Set button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
   size?: Size;
   /** Make button fill the width of its container. */
   fluid?: boolean;
@@ -39,11 +39,11 @@ interface IButtonProps {
   basic?: boolean;
   /** Disabled buttons cannot be pressed. */
   disabled?: boolean;
-  /** Floating to the left or right */
+  /** Floating to the `left` or `right`. */
   float?: Float;
   /** Make button circular. This works only with icon buttons. */
   circular?: boolean;
-  /** If set, disables button ripple effect. This is necessary for buttons that change their style on user interaction.*/
+  /** If set, disables button ripple effect. This is necessary for buttons that change their style on user interaction. */
   noripple?: boolean;
 }
 

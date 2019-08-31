@@ -11,23 +11,23 @@ import { ListDescription } from './ListDescription';
 interface IListProps {
   className?: string;
   children?: React.ReactNode;
-  /* Icon and content alignment. By default 'top' */
+  /** Icon and content alignment. By default `top` */
   align?: VerticalAlignment;  
-  /** Shows divisions between list items. */
+  /** Shows division lines between list items. */
   divided?: boolean;
   /** Mark items with a bullet. */
   bulleted?: boolean;
   /** Mark items with a number. */
   ordered?: boolean;
-  /** Optional bullet style. */
+  /** Optional bullet style (HTML values, e.g. `square`). This only has effect on `bulleted` lists.*/
   type?: ListStyleType;
-  /** Make items appear horizontally */
+  /** Make items appear horizontally. */
   horizontal?: boolean;
   /** Display selection rectangle on hover. */
   selection?: boolean;
-  /** Increase negative space around items. Optionally 'very' */
+  /** Increase negative space around items. Optionally `very`. */
   relaxed?: 'very' | boolean;
-  /** Animate list items on hover */
+  /** Animate list items on hover. */
   animated?: boolean;
 }
 

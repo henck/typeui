@@ -7,7 +7,7 @@ import { Float } from '../Types';
 interface IAccordionProps {
   className?: string;
   children?: React.ReactNode;
-  /** Array of panel *indices* that are active (open) by default (0-based) */
+  /** Array of panel indices that are active (open) by default (0-based) */
   active?: number[];  
   /** A styled accordion adds basic formatting. */
   styled?: boolean;

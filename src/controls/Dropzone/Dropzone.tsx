@@ -6,6 +6,7 @@ import { Dropbox } from './Dropbox';
 interface IDropzoneProps {
   className?: string;
   children?: React.ReactNode;
+  /** Callback to call when files are dropped in the Dropzone. */
   onAddFiles: (files: File[]) => void;
 }
 

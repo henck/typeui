@@ -14,7 +14,7 @@ interface IDialogProps {
   open?: boolean;
   /** This callback is called when the user closes the dialog window. */
   onClose?: () => void;
-  /** Override standard dialog width of 600 pixels */
+  /** Override standard dialog width of 600 pixels. */
   width?: number;
 }
 

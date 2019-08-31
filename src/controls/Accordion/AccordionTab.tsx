@@ -12,9 +12,11 @@ interface IAccordionTabProps {
   title: React.ReactNode;
   /** A styled accordion adds basic formatting. */
   styled?: boolean;
+  /** Is this tab currently active? */
   active?: boolean;
+  /** Optional click event callback. */
   onClick?: () => void;
-  /** Align caret icon to left or right. */
+  /** Align caret icon to `left` or `right`. Defaults to `left`. */
   align?: Float;  
 }
 

@@ -8,7 +8,7 @@ interface IGravatarProps {
   className?: string;
   /** Email address to use for Gravatar. If not specified, shows default unknown user image. */
   email?: string;
-  /** Gravatar image size. If not specified, uses 'avatar' */
+  /** Gravatar image size. If not specified, uses `avatar`. */
   size?: Size;
   /** onClick handler, if any. */
   onClick?: () => void;

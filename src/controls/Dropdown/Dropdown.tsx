@@ -26,12 +26,12 @@ interface IDropdownProps {
   fluid?: boolean;
   /** An inline Dropdown has no border. Useful for menu items. */
   inline?: boolean;
-  /** Dropdown is in an error state */
+  /** If set, Dropdown is in an error state. */
   error?: boolean;
-  /** Allow multiple selection? */
+  /** If set, allow multiple selection. */
   multiple?: boolean;
   /** If true, the search query is reset when dropdown is opened 
-   *  (This only applies to dropdowns with an onSearch callback.)
+   *  (This only applies to dropdowns with an `onSearch` callback.)
    */
   resetOnOpen?: boolean;
 

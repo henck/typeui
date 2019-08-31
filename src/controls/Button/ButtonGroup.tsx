@@ -12,9 +12,9 @@ interface IButtonGroupProps {
   children?: React.ReactNode;
   /** Aligns buttons in a vertical list. Default is horizontal. */
   vertical?: boolean;
-  /** Sets size for buttons in group: mini, tiny, small, medium (default), large, big, huge or massive. */
+  /** Sets size for buttons in group: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
   size?: Size;
-  /** Sets color for all buttons, e.g. "#aa3311" */
+  /** Sets color for all buttons, e.g. `#aa3311`. */
   color?: string;
   /** Gives all buttons reduced padding. */
   compact?: boolean;

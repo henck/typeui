@@ -6,9 +6,9 @@ import { VerticalAlignment } from '../Types';
 interface IListContentProps {
   className?: string;
   children?: React.ReactNode;
-  /** onClick events are passed through to the list item's HTML element */
+  /** onClick events are passed through to the list item's HTML element. */
   onClick?: () => void;
-  /** Align content item vertically (default: 'top'). */
+  /** Align content item vertically (defaults to `top`). */
   align?: VerticalAlignment;
 }
 
