@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { boolean } from '@storybook/addon-knobs/react';
 import { Divider } from '../../../';
 
 storiesOf('Divider/Variations', module)
@@ -8,7 +9,7 @@ storiesOf('Divider/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`hidden\` divider divides content without creating a dividing line.
+    A \`hidden\` \`Divider\` divides content without creating a dividing line.
     `
   })
   .addWithJSX(
@@ -16,7 +17,11 @@ storiesOf('Divider/Variations', module)
   () => (
   <div>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-    <Divider hidden></Divider>
+    <Divider
+      hidden={boolean('hidden', true, 'Variations')} 
+      fitted={boolean('fitted', false, 'Variations')} 
+      section={boolean('section', false, 'Variations')} 
+    />
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
   </div>
   ));  

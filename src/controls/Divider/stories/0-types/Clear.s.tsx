@@ -8,7 +8,7 @@ storiesOf('Divider/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A divider always clears floating content above it.
+    A \`Divider\` always clears floating content above it.
     `
   })
   .addWithJSX(

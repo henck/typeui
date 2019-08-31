@@ -7,9 +7,9 @@ interface IDividerProps {
   children?: React.ReactNode;
   /** A fitted Divider has no space above or below it. */
   fitted?: boolean;
-  /** A hidden divider divides content without a dividing line. */
+  /** A hidden Divider divides content without a dividing line. */
   hidden?: boolean;
-  /** A section divider creates more margin between block of content. */
+  /** A section Divider creates more margin between blocks of content. */
   section?: boolean;
 }
 

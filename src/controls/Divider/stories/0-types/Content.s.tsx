@@ -8,7 +8,7 @@ storiesOf('Divider/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A divider can have some content.
+    A \`Divider\` can have some content.
     `
   })
   .addWithJSX(

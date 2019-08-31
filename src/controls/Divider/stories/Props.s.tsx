@@ -9,7 +9,8 @@ storiesOf('Divider', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All divider properties.
+    A \`Divider\` is used to separate blocks of contents vertically. Dividers can be invisible or contain
+    a horizontal line. Dividers can also contain content.
     `
   })
   .addWithJSX(
