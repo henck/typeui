@@ -15,21 +15,21 @@ interface ISegmentProps {
   tall?: boolean;
   /** Segment will have a disorganized pile of two pages lying below it if true. */
   piled?: boolean;
-  /** Align content. By default 'left'. */
+  /** Align content to `left`, `center` or `right`. By default `left`. */
   align?: HorizontalAlignment;
-  /** Floating. */
+  /** Segment can float to the `left` or `right`. */
   float?: Float;
-  /** Decrease segment's emphasis */
+  /** Decrease segment's emphasis. */
   secondary?: boolean;
-  /** Seriously decrease segment's emphasis */
+  /** Seriously decrease segment's emphasis. */
   tertiary?: boolean;
-  /** Increase segment padding (optionally "very") */
+  /** Increase segment padding (optionally `very`). */
   padded?: 'very' | boolean;
   /** Only take up as much space as necessary. */
   compact?: boolean;
   /** A disabled segment is light in color. */
   disabled?: boolean;
-  /** Attached to 'top', 'bottom' or nothing (both). */
+  /** Attached to `top`, `bottom` or nothing (both). */
   attached?: boolean | VerticalDirection;
 }
 

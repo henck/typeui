@@ -9,7 +9,7 @@ storiesOf('Segment/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    Segment text content can \`align\` to the \`left\`, \`center\` or \`right\`.
+    \`Segment\` text content can \`align\` to the \`left\`, \`center\` or \`right\`.
     `
   })
   .addWithJSX(

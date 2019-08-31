@@ -9,7 +9,7 @@ storiesOf('Segment/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A Segment can be \`padded\`, optionally to \`padded="very"\`.
+    A \`Segment\` can be \`padded\`, optionally to \`padded="very"\`.
     `
   })
   .addWithJSX(

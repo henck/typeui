@@ -9,7 +9,7 @@ storiesOf('Segment/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`compact\` segment only takes up as much space as necessary.
+    A \`compact\` \`Segment\` only takes up as much space as necessary.
     `
   })
   .addWithJSX(

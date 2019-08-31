@@ -9,7 +9,7 @@ storiesOf('Segment/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`piled\` segment looks like a pile of pages. It handles negative z-indices by adding a parent element to set the stacking order.
+    A \`piled\` \`Segment\` looks like a pile of pages. It handles negative z-indices by adding a parent element to set the stacking order.
     `
   })
   .addWithJSX(

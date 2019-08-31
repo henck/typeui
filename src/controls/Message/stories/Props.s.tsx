@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { Message } from '../../';
 import { HorizontalAlignment } from '../../Types';
 
@@ -10,7 +10,7 @@ storiesOf('Message', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    All message properties.
+    All \`Message\` properties.
     `
   })
   .addWithJSX(
@@ -23,7 +23,7 @@ storiesOf('Message', module)
       type={text('tpye', '') as any}
       color={text('color', '')}
       raised={boolean('raised', false)}
-      align={text('align', '') as HorizontalAlignment}>
+      align={select('align', ['', 'left', 'center', 'right'], '', 'Variations') as HorizontalAlignment}>
       {text('label', "Message text")}
     </Message>
   </div>

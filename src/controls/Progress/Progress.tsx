@@ -5,6 +5,7 @@ import styled from '../../styles/Theme';
 interface IProgressProps {
   className?: string;
   children?: React.ReactNode;
+  /** Progress value (in range 0..100) */
   value: number;
 }
 
@@ -19,7 +20,7 @@ class ProgressBase extends React.Component<IProgressProps, {}> {
   }
 }
 
-const Progress = styled(ProgressBase)`
+const ProgressStyled = styled(ProgressBase)`
   position: relative; 
   box-sizing: border-box;
   width: 100%;
@@ -34,5 +35,14 @@ const Progress = styled(ProgressBase)`
     border-radius: ${p => p.theme.radius}px;
   }
 `
+
+class Progress extends React.Component<IProgressProps, {}> {
+  render() {
+    let p = this.props;
+    return (
+      <ProgressStyled {...p}/>
+    )
+  }  
+}
 
 export { Progress };

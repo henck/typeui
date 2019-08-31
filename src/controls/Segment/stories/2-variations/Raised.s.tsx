@@ -9,7 +9,7 @@ storiesOf('Segment/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A segment may be formatted to be \`raised\` above the page.
+    A \`Segment\` may be formatted to be \`raised\` above the page.
     `
   })
   .addWithJSX(

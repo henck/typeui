@@ -9,7 +9,7 @@ storiesOf('Segment/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A simple segment
+    A simple segment.
     `
   })
   .addWithJSX(

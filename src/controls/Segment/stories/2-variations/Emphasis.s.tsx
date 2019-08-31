@@ -9,7 +9,7 @@ storiesOf('Segment/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A Segment can be formatted to appear less noticeable using \`secondary\` or \`tertiary\`.
+    A \`Segment\` can be formatted to appear less noticeable using \`secondary\` or \`tertiary\`.
     `
   })
   .addWithJSX(

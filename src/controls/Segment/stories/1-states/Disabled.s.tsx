@@ -9,7 +9,7 @@ storiesOf('Segment/States', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A Segment may show that its content is \`disabled\`.
+    A \`Segment\` may show that its content is \`disabled\`.
     `
   })
   .addWithJSX(

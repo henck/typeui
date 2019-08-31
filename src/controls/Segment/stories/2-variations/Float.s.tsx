@@ -9,7 +9,7 @@ storiesOf('Segment/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A segment can \`float\` to \`left\` or \`right\`. Note that segments themselves are self-clearing (there is no \`clearing\` attribute).
+    A \`Segment\` can \`float\` to \`left\` or \`right\`. Note that segments themselves are self-clearing (there is no \`clearing\` attribute).
     `
   })
   .addWithJSX(

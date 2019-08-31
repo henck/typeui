@@ -9,7 +9,7 @@ storiesOf('Segment/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`stacked segment\` shows that it contains multiple pages. It can also be \`tall stacked\`.
+    A \`stacked\` \`Segment\` shows that it contains multiple pages. It can also be \`tall stacked\`.
     `
   })
   .addWithJSX(
