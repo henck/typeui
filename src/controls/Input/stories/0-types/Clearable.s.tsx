@@ -9,7 +9,7 @@ storiesOf('Input/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`clearable\` input presents a clickable icon that clears the input's contents.
+    A \`clearable\` input presents a clickable icon that clears the input's contents. The Input must be a controlled component for this to work.
     `
   })
   .addWithJSX(

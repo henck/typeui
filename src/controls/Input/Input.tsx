@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
-import { lighten } from '../../helper/lighten';
 import { Icon, IIconProps, IconType } from '../Icon/';
 import { Float } from '../Types';
 import { StandardInput } from './StandardInput';
@@ -17,32 +16,33 @@ import { IconStyled } from '../Icon/Icon';
 interface IInputProps {
   className?: string;
   children?: any;
-  /** Input name */
+  /** Input name. */
   name?: string;
-  /** Input value */
+  /** Input value. */
   value?: any;
-  /** Input type */
+  /** Input type. */
   type: 'date' | 'text' | 'password' | 'color';
-  /** Placeholder to show when the field is empty. */
+  /** Placeholder to show when the Input is empty. */
   placeholder?: string;
-  /** Mark input as disabled. */
+  /** Marks input as disabled. */
   disabled?: boolean;
-  /** Remove input border. */
+  /** Removes input border. */
   transparent?: boolean;
-  /** Input takes up all available horizontal space. */
+  /** A fluid Input takes up all available horizontal space available to it. */
   fluid?: boolean;
-  /** An input can shown an error state. */
+  /** An input can show an error state. */
   error?: boolean;
-  /** Icon props (optional) */
+  /** Icon props (optional). */
   icon?: IconType | IIconProps;
-  /** Icon position */
+  /** Icon position. */
   iconPosition?: Float;
-  /** If set, input's value can be cleared. */
+  /** If set, Input's value can be cleared. */
   clearable?: boolean;  
   
   // Events
-  /** Listeners are notified whenever the user interacts with the input. */
+  /** Listeners are notified whenever the user interacts with the Input. */
   onChange?: (value: any) => void;
+  /** Listeners ar enotified when the Input receives focus. */
   onFocus?: () => void;
 }
 
@@ -254,7 +254,7 @@ class InputBase extends React.Component<IInputProps, {}> {
   }
 }
 
-const Input = styled(InputBase)`
+const InputStyled = styled(InputBase)`
   position:    relative;
   display:     inline-flex;
   align-items: stretch;
@@ -262,6 +262,13 @@ const Input = styled(InputBase)`
   ${p => p.fluid && css`width: 100%;`}
 `
 
-Input.displayName = "Input";
+class Input extends React.Component<IInputProps, {}> {
+  render() {
+    let p = this.props;
+    return (
+      <InputStyled {...p}/>
+    );
+  }
+}
 
 export { Input, IInputProps };
