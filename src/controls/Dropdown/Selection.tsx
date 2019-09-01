@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled, { theme } from '../../styles/Theme';
+import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 import { lighten } from '../../helper/lighten';
 

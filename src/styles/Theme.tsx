@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as styledComponents from "styled-components";
 import { Ratio, modularScale } from "../helper/SizeHelper";
-import { Size } from "../controls/Types";
 
 const {
   default: styled,
@@ -69,7 +68,7 @@ export interface IThemeInterface {
   readonly mediumScreen:    number; // px
 }
 
-export const theme: IThemeInterface = {
+const Theme: IThemeInterface = {
   // Default font
   fontSize:        16,
   fontColor:       "rgba(0, 0, 0, 0.77)",
@@ -108,7 +107,6 @@ export const theme: IThemeInterface = {
   // Boxes
   radius:          4,
   
-  
   darken: 0.05,
   gutter: 0.5,
   smallScreen: 576,
@@ -116,4 +114,4 @@ export const theme: IThemeInterface = {
 };
 
 export default styled;
-export { styled, css, createGlobalStyle, keyframes, ThemeProvider };
+export { Theme, styled, css, createGlobalStyle, keyframes, ThemeProvider };

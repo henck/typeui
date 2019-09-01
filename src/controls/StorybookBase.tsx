@@ -5,9 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { ThemeProvider } from 'styled-components';
-import { StyleReset } from '../styles/StyleReset';
-import { StyleBase } from '../styles/StyleBase';
-import { theme }  from '../styles/Theme';
+import { StyleReset, StyleBase, Theme } from '../styles';
 
 import * as ReactMarkdown from 'react-markdown';
 
@@ -105,7 +103,7 @@ const withStyledComponents = (story: any) => (
     <div>
       <StyleReset/>
       <StyleBase/>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Theme}>
         {(story as any)()}
       </ThemeProvider>
     </div>
