@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from "../../styles/Theme";
+
+// Types 
 import { Size } from './../Types';
+
+// Other controls
 import { IButtonProps } from './Button';
 
 // Information on how to refer to parent component (or to child component):

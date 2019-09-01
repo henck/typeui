@@ -1,14 +1,19 @@
 import * as React from 'react';
 import { css } from 'styled-components';
+import styled from '../../styles/Theme';
+
+// Types
+import { Size, Direction, Float } from '../Types';
+
+// Helpers
 import { darken } from '../../helper/darken';
 import { lighten } from '../../helper/lighten';
 import { modularScale, scaleSize } from '../../helper/SizeHelper';
-import styled from '../../styles/Theme';
-import { Size, Direction, Float } from '../Types';
-import { Icon } from './../Icon/';
-import { ImageStyled } from './../Image/';
+
+// Other controls
 import { LabelGroup } from './LabelGroup';
 import { LabelDetail } from './LabelDetail';
+import { ImageStyled } from '../Image/Image';
 import { IconStyled } from '../Icon/Icon';
 
 interface ILabelProps {

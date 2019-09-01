@@ -1,13 +1,20 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
+
+// Types
+import { Size, Float } from '../Types';
+
+// Helpers
 import { darken } from '../../helper/darken';
 import { lighten } from '../../helper/lighten';
 import { scaleSize } from '../../helper/SizeHelper';
-import { Size, Float } from '../Types';
+
+// Other controls
 import { ButtonOr } from './ButtonOr';
 import { ButtonGroup } from './ButtonGroup';
-import { Icon, Label, Ripple } from '../../';
+import { Label } from '../Label';
+import { Ripple } from '../Ripple';
 import { IconStyled } from '../Icon/Icon';
 
 interface IButtonProps {

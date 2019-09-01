@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { css } from 'styled-components';
-import { Size } from './../Types';
 import styled from '../../styles/Theme';
+
+// Types
+import { Size } from '../Types';
 
 interface IButtonOrProps {
   className?: string;
