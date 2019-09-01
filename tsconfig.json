@@ -3,7 +3,9 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "target": "es5",             // Target ECMAScript 5
-    "module": "es6",             // Module code generation
+    "module": "es2015",          // Module code generation
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,    
     "declaration": true,         // Generate corresponding .d.ts file
     "outDir": "./dist",          // Output directory
     "jsx": "react",              // Support JSX in .tsx files
