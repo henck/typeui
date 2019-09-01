@@ -14,8 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "build-storybook": "build-storybook -c .storybook -o docs",
-    "prepublishOnly": "copy ./package.json dist && copy ../README.md ."
+    "build-storybook": "build-storybook -c .storybook -o docs"
   },
   "files": [
     "/dist"
