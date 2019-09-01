@@ -4,5 +4,4 @@ rem to remove the /dist prefix.
 copy package.json dist
 copy README.md dist
 node node_modules\replace-in-file\bin\cli.js /dist/g "" dist/package.json --isRegex
-npm version patch
-npm publish dist
+
