@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
     "target": "es5",             // Target ECMAScript 5
-    "module": "commonJS",        // Module code generation
+    "module": "es6",             // Module code generation
     "declaration": true,         // Generate corresponding .d.ts file
     "outDir": "./dist",          // Output directory
     "jsx": "react",              // Support JSX in .tsx files
