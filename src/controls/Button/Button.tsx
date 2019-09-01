@@ -13,8 +13,8 @@ import { scaleSize } from '../../helper/SizeHelper';
 // Other controls
 import { ButtonOr } from './ButtonOr';
 import { ButtonGroup } from './ButtonGroup';
-import { Label } from '../Label';
-import { Ripple } from '../Ripple';
+import { Label } from '../Label/Label';
+import { Ripple } from '../Ripple/Ripple';
 import { IconStyled } from '../Icon/Icon';
 
 interface IButtonProps {

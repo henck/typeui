@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
+
+// Types
 import { VerticalAlignment } from '../Types';
 
 interface IQuickProps {

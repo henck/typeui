@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
+
+// Types
 import { VerticalAlignment } from '../Types';
 
 interface IListContentProps {

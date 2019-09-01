@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
-import { Icon, IconType } from '../Icon';
-import { Pane } from '.';
+
+// Other controls
+import { Icon } from '../Icon/Icon';
+import { IconType } from '../Icon/IconType';
+import { Pane } from './Pane';
 
 interface IIconPaneProps {
   className?: string;

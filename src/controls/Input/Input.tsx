@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
-import { Icon, IIconProps, IconType } from '../Icon/';
+import { CSSTransition } from 'react-transition-group';
+
+// Types
 import { Float } from '../Types';
+
+// Other controls
 import { StandardInput } from './StandardInput';
 import { InputBox as DateInputBox } from './Date/InputBox';
 import { Selector as DateSelector } from './Date/Selector';
 import { InputBox as ColorInputBox } from './Color/InputBox';
 import { Selector as ColorSelector } from './Color/Selector';
 import { Clear } from './Clear';
-import { CSSTransition } from 'react-transition-group';
-import { Label } from '../Label';
+import { Label } from '../Label/Label';
+import { Icon, IIconProps, IconType } from '../Icon/';
 import { IconStyled } from '../Icon/Icon';
 
 interface IInputProps {

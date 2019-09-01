@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
+
+// Other controls
 import { Swatch } from './Swatch';
 import { ISwatch } from './Swatch';
 

@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+// Types
 import { Float } from '../Types';
 
 interface IColumnProps {

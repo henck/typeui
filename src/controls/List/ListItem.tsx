@@ -1,9 +1,12 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
+
+// Types
 import { VerticalAlignment } from '../Types';
-import { Icon } from '../../controls/Icon/';
-import { ImageStyled } from '../../controls/Image/';
+
+// Other controls
+import { ImageStyled } from '../Image/Image';
 import { List } from './List';
 import { IconStyled } from '../Icon/Icon';
 

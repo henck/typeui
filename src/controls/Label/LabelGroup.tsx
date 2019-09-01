@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
+
+// Types
 import { Size, Direction } from './../Types';
 
 interface ILabelGroupProps {

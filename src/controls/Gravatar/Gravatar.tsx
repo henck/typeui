@@ -1,8 +1,15 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
-import { md5 } from '../../helper/md5';
-import { Image } from '../Image';
+
+// Types
 import { Size } from '../Types';
+
+// Helpers
+import { md5 } from '../../helper/md5';
+
+// Other controls
+import { Image } from '../Image/Image';
+
 
 interface IGravatarProps {
   className?: string;

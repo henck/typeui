@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
+
+// Other controls
 import { Pane } from './Pane';
 import { Panes } from './Panes';
 import { TabBar } from './TabBar';

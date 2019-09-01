@@ -1,8 +1,12 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
-import { HarmonyElement } from './HarmonyElement';
+
+// Helpers
 import { RgbColor } from '../../../helper/RgbColor';
 import { HslColor } from '../../../helper/HslColor';
+
+// Other controls
+import { HarmonyElement } from './HarmonyElement';
 
 interface IHarmonyBoxProps {
   className?: string;

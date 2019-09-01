@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
+
+// Helpers
 import { lighten } from '../../helper/lighten';
 
 interface ISelectorProps {

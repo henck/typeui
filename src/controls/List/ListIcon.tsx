@@ -1,7 +1,9 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
-import { Icon, IIconProps } from '../Icon';
+
+// Other controls
+import { Icon, IIconProps } from '../Icon/Icon';
 
 class ListIcon extends React.Component<IIconProps, {}> {
   render() {

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
+
+// Other controls
 import { Content } from './Content';
 import { Header } from './Header';
 import { Meta } from './Meta';

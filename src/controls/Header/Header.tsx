@@ -1,10 +1,16 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
+
+// Types
 import { Float, VerticalDirection, HorizontalAlignment } from '../Types';
+
+// Helpers
+import { modularScale, Ratio } from '../../helper/SizeHelper';
+
+// Other controls
 import { Subheader } from './Subheader';
 import { HeaderContent } from './HeaderContent';
-import { modularScale, Ratio } from '../../helper/SizeHelper';
 import { IconStyled } from '../Icon/Icon';
 
 /**

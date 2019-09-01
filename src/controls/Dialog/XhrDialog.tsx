@@ -1,8 +1,11 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
-import { Button, Message, Header } from '../../controls';
+
+// Other controls
 import { Dialog } from './Dialog';
-import { List } from '../List';
+import { Button } from '../Button/Button';
+import { Header } from '../Header/Header';
+import { List } from '../List/List';
 
 interface IErrorDialogProps {
   /** Is the Dialog currently open? */

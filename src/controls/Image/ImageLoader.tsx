@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { keyframes, css } from 'styled-components';
+
+// Types
 import { Size } from '../Types';
 
 interface IImageLoaderProps {

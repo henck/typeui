@@ -1,9 +1,14 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 import { css } from 'styled-components';
-import { lighten } from '../../../helper/lighten';
-import { IInputProps } from '../Input';
 import { format } from 'date-fns';
+
+// Helpers
+import { lighten } from '../../../helper/lighten';
+
+// Other controls
+import { IInputProps } from '../Input';
+
 
 interface IDateInputProps {
   focused?: boolean;

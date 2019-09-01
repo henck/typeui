@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
+
+// Helpers
 import { lighten } from '../../helper/lighten';
 
 interface IErrorProps {

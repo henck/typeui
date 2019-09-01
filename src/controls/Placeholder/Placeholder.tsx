@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { keyframes, css } from 'styled-components';
+
+// Other controls
 import { PlaceholderParagraph } from './PlaceholderParagraph';
 import { PlaceholderImage } from './PlaceholderImage';
 import { PlaceholderHeader } from './PlaceholderHeader';

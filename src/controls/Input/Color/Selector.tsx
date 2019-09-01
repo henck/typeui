@@ -1,17 +1,21 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 import { css } from 'styled-components';
+
+// Helpers
 import { RgbColor } from '../../../helper/RgbColor';
 import { HslColor } from '../../../helper/HslColor';
 import { lighten } from '../../../helper/lighten';
+
+// Other controls
 import { HueBox } from './HueBox';
 import { ColorBox } from './ColorBox';
 import { InfoBox } from './InfoBox';
 import { SwatchBox } from './SwatchBox';
 import { ISwatch } from './Swatch';
 import { HarmonyBox } from './HarmonyBox';
-import { Tabs } from '../../Tabs';
-import { Button } from '../../Button';
+import { Tabs } from '../../Tabs/Tabs';
+import { Button } from '../../Button/Button';
 
 interface ISelectorProps {
   className?: string;

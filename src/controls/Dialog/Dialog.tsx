@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
+
+// Other controls
 import { DialogBackground } from './DialogBackground';
 import { DialogWindow } from './DialogWindow';
 import { DialogHeader } from './DialogHeader';

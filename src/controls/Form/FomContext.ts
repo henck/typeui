@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Field } from './Field';
 
 interface IFormContext {
   onChange: (name: string, value: any, forceupdate: boolean) => void;

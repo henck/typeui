@@ -1,16 +1,20 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
+
+// Types
+import { TDir } from '../Types';
+
+// Other controls
 import { Body, Row, Table, TableInner } from './Styles';
 import { DataColumn } from './DataColumn';
 import { Head } from './Head';
 import { Header } from './Header';
 import { Cell } from './Cell';
 import { Counter } from './Counter';
-import { TDir } from '../Types';
-import { Message } from '../Message';
-import { Button } from '../Button';
-import { Ripple } from '../Ripple/Ripple';
 import { Slider } from './Slider';
+import { Message } from '../Message/Message';
+import { Button } from '../Button/Button';
+import { Ripple } from '../Ripple/Ripple';
 
 interface IDataTableProps {
   className?: string;

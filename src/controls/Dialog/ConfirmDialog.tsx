@@ -1,6 +1,7 @@
 import * as React from 'react';
-import styled from '../../styles/Theme';
-import { Button } from '../../controls';
+
+// Other controls
+import { Button } from '../Button/Button';
 import { Dialog } from './Dialog';
 
 interface IConfirmDialogProps {

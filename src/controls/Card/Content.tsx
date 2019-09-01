@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
+
+// Types
 import { HorizontalAlignment } from '../Types';
 
 interface IContentProps {

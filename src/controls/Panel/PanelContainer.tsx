@@ -1,6 +1,7 @@
 import * as React from 'react';
+
+// Other controls
 import { PanelBody } from './PanelBody';
-import { CSSTransition } from 'react-transition-group';
 
 interface IPanelContainerProps {
   className?: string;

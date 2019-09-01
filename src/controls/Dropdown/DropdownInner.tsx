@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
-import { Input } from '../../controls/';
+
+// Other controls
 import { Column } from './Column';
 import { Cell } from './Cell';
 import { Row } from './Row';
@@ -9,6 +10,7 @@ import { Body } from './Body';
 import { IDropdownProps } from './Dropdown';
 import { Selector } from './Selector';
 import { Selection } from './Selection';
+import { Input } from '../Input/Input';
 
 interface IDropdownState {
   /** Is dropdown currently open? */

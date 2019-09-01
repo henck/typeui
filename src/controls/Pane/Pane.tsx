@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
-import { Icon } from '../Icon';
+
+// Other controls
+import { Icon } from '../Icon/Icon';
 import { IconPane } from './IconPane';
 
 interface IPaneProps {

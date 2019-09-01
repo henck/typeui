@@ -1,7 +1,9 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
-import { Icon } from '../Icon';
+
+// Other controls
+import { Icon } from '../Icon/Icon';
 import { IconStyled } from '../Icon/Icon';
 
 interface IToastProps {

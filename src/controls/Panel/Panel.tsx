@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { PanelContainer } from './PanelContainer';
 import { CSSTransition } from 'react-transition-group';
+
+// Other controls
+import { PanelContainer } from './PanelContainer';
 import { Content } from './Content';
 import { Header } from './Header';
 import { Footer } from './Footer';

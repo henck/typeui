@@ -1,7 +1,11 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
+
+// Types
 import { Size, Float, VerticalAlignment } from '../Types';
+
+// Other controls
 import { Img } from './Img';
 import { ImageGroup } from './ImageGroup';
 import { ImageLoader } from './ImageLoader';

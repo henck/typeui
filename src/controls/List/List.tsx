@@ -1,7 +1,11 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
+
+// Types
 import { VerticalAlignment, ListStyleType } from '../Types';
+
+// Other controls
 import { ListItem } from './ListItem';
 import { ListIcon } from './ListIcon';
 import { ListContent } from './ListContent';

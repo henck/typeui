@@ -1,10 +1,15 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { keyframes, css, StyledComponentBase } from 'styled-components';
-import { IconType } from './IconType';
+
+// Types
+import { Size, Float } from '../Types';
+
+// Helpers
 import { lighten } from '../../helper/lighten';
 import { scaleSize } from '../../helper/SizeHelper';
-import { Size, Float } from '../Types';
+
+import { IconType } from './IconType';
 
 interface IIconProps {
   className?: string;

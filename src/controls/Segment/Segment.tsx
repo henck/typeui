@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
-import { darken } from '../../helper/darken';
+
+// Types
 import { HorizontalAlignment, Float, VerticalDirection } from '../Types';
+
+// Helpers
+import { darken } from '../../helper/darken';
 
 interface ISegmentProps {
   className?: string;

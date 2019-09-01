@@ -1,11 +1,16 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
+
+// Types
+import { VerticalDirection, HorizontalAlignment } from '../Types';
+
+// Helpers
 import { lighten } from '../../helper/lighten';
+
+// Other controls
 import { MessageHeader } from './MessageHeader';
 import { MessageContent } from './MessageContent';
-import { Icon } from '../../controls/Icon/';
-import { VerticalDirection, HorizontalAlignment } from '../Types';
 import { IconStyled } from '../Icon/Icon';
 
 type TMessageType = 'info' | 'warning' | 'success' | 'error';

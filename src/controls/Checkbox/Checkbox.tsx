@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
+
+// Helpers
 import { darken } from '../../helper/darken';
+
+// Types
 import { CheckboxType } from '../Types';
 
 interface ICheckboxProps {

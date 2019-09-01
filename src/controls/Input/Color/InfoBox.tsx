@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
+
+// Helpers
 import { RgbColor } from '../../../helper/RgbColor';
 import { HslColor } from '../../../helper/HslColor';
 

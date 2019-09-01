@@ -1,10 +1,15 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 import { css } from 'styled-components';
-import { lighten } from '../../../helper/lighten';
-import { Button } from '../../Button';
-import { Day } from './Day';
 import { parse, format } from 'date-fns';
+
+// Helpers
+import { lighten } from '../../../helper/lighten';
+
+// Other controls
+import { Button } from '../../Button/Button';
+import { Day } from './Day';
+
 
 interface ISelectorProps {
   className?: string;

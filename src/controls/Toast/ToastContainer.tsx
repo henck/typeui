@@ -1,9 +1,11 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
+// Other controls
 import { Toast } from './Toast';
 import { ToastService, IToastSubscriber } from './ToastService';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 interface IToastContainerProps {
   className?: string;

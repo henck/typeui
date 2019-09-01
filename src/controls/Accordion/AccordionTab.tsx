@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
+
+// Types
+import { Float } from '../Types';
+
+// Other controls
 import { AccordionHeader } from './AccordionHeader';
 import { AccordionBody } from './AccordionBody';
-import { Float } from '../Types';
 
 interface IAccordionTabProps {
   className?: string;
