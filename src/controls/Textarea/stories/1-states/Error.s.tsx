@@ -18,6 +18,6 @@ storiesOf('Controls/Textarea/States', module)
   <Textarea 
     name="value"
     disabled={boolean('disabled', false)}
-    error={boolean('disabled', true)}
+    error={boolean('error', true)}
     placeholder={text('placeholder', 'Enter value...')}/>
   ));  
