@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { select, color, text, boolean } from '@storybook/addon-knobs/react';
-import { Label, Input, Divider, Image } from '../../../';
 import { Direction } from '../../../Types';
+import { Label } from '../../../Label'
+import { Divider } from '../../../Divider'
+import { Input } from '../../../Input'
 
 storiesOf('Label/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

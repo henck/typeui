@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
 import { color, text, boolean } from '@storybook/addon-knobs/react';
-import { Label } from '../../';
 import { Direction, Size } from '../../Types';
+import { Label } from '../../Label'
 
 storiesOf('Label', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Label.Group, Label.Detail], propTablesExclude: []}))

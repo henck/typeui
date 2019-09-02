@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { text, number } from '@storybook/addon-knobs/react';
 import { Button } from '../../Button';
-import { ToastService } from '..';
+import { ToastService } from '../ToastService';
 import { ToastContainer } from '../ToastContainer';
 import { Toast } from '../Toast';
 

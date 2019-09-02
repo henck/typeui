@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { select, boolean } from '@storybook/addon-knobs/react';
-import { Flex, Icon, Accordion } from '../../../';
 import { Float } from '../../../Types'
+import { Accordion } from '../../../Accordion';
+import { Flex } from '../../../Flex';
+import { Icon } from '../../../Icon';
 
 storiesOf('Accordion/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

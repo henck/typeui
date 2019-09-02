@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { boolean, select } from '@storybook/addon-knobs/react';
-import { Header } from '../../../';
+import { Header } from '../../../Header';
 import { HeaderSize } from '../../Header';
 
 storiesOf('Header/States', module)

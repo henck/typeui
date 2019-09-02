@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
-import { Gravatar } from '../../';
 import { Size } from '../../Types';
+import { Gravatar } from '../../Gravatar'
 
 storiesOf('Gravatar', module)
   .addDecorator(withInfo({...withInfoSettings, propTablesExclude: []}))

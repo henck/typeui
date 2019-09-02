@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Icon, Segment } from '../../../';
+import { Icon } from '../../../Icon'
+import { Segment } from '../../../Segment'
 
 storiesOf('Icon/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

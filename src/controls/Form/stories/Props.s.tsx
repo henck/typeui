@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
 import { boolean } from '@storybook/addon-knobs/react';
-import { Form } from '../../';
+import { Form } from '../../Form';
 
 storiesOf('Form', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Form.Field, Form.Uncontrolled], propTablesExclude: []}))

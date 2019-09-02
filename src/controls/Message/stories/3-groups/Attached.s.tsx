@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { text, boolean } from '@storybook/addon-knobs/react';
-import { Message, Segment, Icon, Divider } from '../../../';
+import { Message } from '../../../Message'
+import { Icon } from '../../../Icon'
+import { Segment } from '../../../Segment'
+import { Divider } from '../../../Divider'
 
 storiesOf('Message/Groups', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

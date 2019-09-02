@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Divider, Header, Icon} from '../../../';
+import { Divider } from '../../../Divider'
+import { Header } from '../../../Header'
+import { Icon } from '../../../Icon'
+
 
 storiesOf('Divider/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

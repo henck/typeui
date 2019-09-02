@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { select, text, boolean } from '@storybook/addon-knobs/react';
-import { Checkbox } from '../../../';
-import { CheckboxType } from '../../../Types';
+import * as React from 'react'
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase'
+import { select, text, boolean } from '@storybook/addon-knobs/react'
+import { CheckboxType } from '../../../Types'
+import { Checkbox } from '../../../Checkbox'
 
 storiesOf('Checkbox/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

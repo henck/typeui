@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Placeholder } from '../../../';
+import { Placeholder } from '../../../Placeholder'
 
 storiesOf('Placeholder/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { select, text, boolean } from '@storybook/addon-knobs/react';
-import { Image, Label, Icon } from '../../../';
 import { Size } from '../../../Types';
 import { IconType } from '../../../Icon';
+import { Image } from '../../../Image'
+import { Label } from '../../../Label'
+import { Icon } from '../../../Icon'
 
 storiesOf('Image/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

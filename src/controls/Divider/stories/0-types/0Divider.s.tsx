@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { boolean } from '@storybook/addon-knobs/react';
-import { Divider, Segment, Input, Label, Button, Icon } from '../../../';
+import { Divider } from '../../../Divider'
+import { Segment } from '../../../Segment'
+import { Input } from '../../../Input'
+import { Label } from '../../../Label'
+import { Button } from '../../../Button'
+import { Icon } from '../../../Icon'
 
 storiesOf('Divider/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

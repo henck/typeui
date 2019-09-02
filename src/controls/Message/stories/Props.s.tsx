@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
 import { select, text, boolean } from '@storybook/addon-knobs/react';
-import { Message } from '../../';
 import { HorizontalAlignment } from '../../Types';
+import { Message } from '../../Message'
 
 storiesOf('Message', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Message.Content, Message.Header], propTablesExclude: []}))

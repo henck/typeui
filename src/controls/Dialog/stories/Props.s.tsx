@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
-import { Dialog, Button } from '../../';
+import { Dialog } from '../../Dialog';
+import { Button } from '../../Button'
 
 interface IDemoDialogState {
   open: boolean;

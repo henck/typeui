@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Form } from '../../../';
+import { Form } from '../../../Form';
 import { Input } from '../../../Input';
 
 storiesOf('Form/Types', module)

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { select, text, boolean } from '@storybook/addon-knobs/react';
-import { Input } from '../../../';
+import { Input } from '../../../Input'
 import { IconType } from '../../../Icon';
 
 storiesOf('Input/Variations', module)

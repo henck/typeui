@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { number } from '@storybook/addon-knobs/react';
-import { Textarea } from '../../../';
+import { Textarea } from '../../../Textarea'
 
 storiesOf('Textarea/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

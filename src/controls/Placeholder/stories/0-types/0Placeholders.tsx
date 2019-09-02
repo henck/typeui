@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Placeholder, Flex, Segment, Divider } from '../../../';
+import { Placeholder } from '../../../Placeholder'
+import { Flex } from '../../../Flex'
+import { Segment } from '../../../Segment'
+import { Divider } from '../../../Divider'
 
 storiesOf('Placeholder/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

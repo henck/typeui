@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '../../../../styles/Theme';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Pane } from '../../';
+import { Pane } from '../../../Pane';
 import { Button } from '../../../Button';
 
 interface IDemoPaneState {

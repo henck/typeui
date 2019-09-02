@@ -2,7 +2,7 @@ import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
 import { boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
-import { Card } from '../../';
+import { Card } from '../../Card';
 
 storiesOf('Card', module)
   .addDecorator(withInfo(withInfoSettings))

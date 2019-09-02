@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Label, Dropdown } from '../../../';
+import { Dropdown } from '../../../Dropdown';
+import { Label } from '../../../Label';
 
 storiesOf('Dropdown/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

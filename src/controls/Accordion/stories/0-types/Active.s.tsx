@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { select, boolean, number } from '@storybook/addon-knobs/react';
-import { Accordion } from '../../../';
+import { select, boolean } from '@storybook/addon-knobs/react';
+import { Accordion } from '../../../Accordion';
 import { Float } from '../../../Types'
 
 storiesOf('Accordion/Types', module)

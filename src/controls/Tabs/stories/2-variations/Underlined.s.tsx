@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { boolean } from '@storybook/addon-knobs/react';
-import { Tabs, Segment } from '../../../';
+import { Tabs } from '../../../Tabs'
+import { Segment } from '../../../Segment'
 
 storiesOf('Tabs/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

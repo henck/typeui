@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { select, text } from '@storybook/addon-knobs/react';
-import { Image } from '../../../';
+import { Image } from '../../../Image'
 import { Size } from '../../../Types';
 
 storiesOf('Image/Types', module)

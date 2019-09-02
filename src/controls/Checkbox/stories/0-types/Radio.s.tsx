@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Checkbox } from '../../../';
+import * as React from 'react'
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase'
+import { Checkbox } from '../../../Checkbox'
 
 storiesOf('Checkbox/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

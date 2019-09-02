@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Tabs } from '../../../';
 import { action } from '@storybook/addon-actions';
+import { Tabs } from '../../../Tabs'
 
 storiesOf('Tabs/Events', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

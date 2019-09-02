@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '../../../../styles/Theme';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Panel } from '../../';
+import { Panel } from '../../../Panel';
 
 storiesOf('Panel/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [], propTablesExclude: []}))

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { action } from '@storybook/addon-actions';
-import { Button, Label, Dropdown } from '../../../';
+import { Button } from '../../../Button';
+import { Label } from '../../../Label';
+import { Dropdown } from '../../../Dropdown';
 
 storiesOf('Button/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

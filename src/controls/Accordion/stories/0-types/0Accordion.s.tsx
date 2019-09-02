@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { boolean, select, number } from '@storybook/addon-knobs/react';
-import { Accordion } from '../../../';
+import { boolean, select } from '@storybook/addon-knobs/react';
+import { Accordion } from '../../../Accordion';
 import { Float } from '../../../Types'
 
 storiesOf('Accordion/Types', module)
@@ -10,7 +10,7 @@ storiesOf('Accordion/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A standard accordion.
+    A standard \`Accordion\`.
     `
   })
   .addWithJSX(

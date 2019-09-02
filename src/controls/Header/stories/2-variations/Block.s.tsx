@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { boolean, select } from '@storybook/addon-knobs/react';
-import { Header } from '../../../';
 import { HeaderSize } from '../../Header';
+import { Header } from '../../../Header'
 
 storiesOf('Header/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

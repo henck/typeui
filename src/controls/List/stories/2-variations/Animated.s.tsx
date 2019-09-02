@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { List, Image } from '../../../';
+import { List } from '../../../List'
+import { Image } from '../../../Image'
 
 storiesOf('List/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

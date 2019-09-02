@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Flex, Box } from '../../../';
+import { Flex } from '../../../Flex'
+import { Box } from '../../../Box'
 
 storiesOf('Flex/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

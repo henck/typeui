@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { text } from '@storybook/addon-knobs/react';
-import { Input } from '../../../';
+import { Input } from '../../../Input'
 
 storiesOf('Input/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

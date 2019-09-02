@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { Header } from '../../../';
+import { Header } from '../../../Header'
 
 storiesOf('Header/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
