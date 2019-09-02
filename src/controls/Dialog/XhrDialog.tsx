@@ -14,8 +14,8 @@ interface IErrorDialogProps {
   error: any;
   /** Function to call when user selects the 'OK' option. */
   onClose: () => void;
-  /** Function to call when user selects the 'Retry' option. */
-  onRetry: () => void;
+  /** Function to call when user selects the 'Retry' option. If not provided, retry option will not be available. */
+  onRetry?: () => void;
 }
 
 const Field = styled('span')`
