@@ -1,20 +1,19 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { number, boolean } from '@storybook/addon-knobs/react';
-import { Progress } from '../../Progress'
+import { Progress } from '../../../Progress'
 
-storiesOf('Controls/Progress', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Progress], propTablesExclude: []}))
+storiesOf('Controls/Progress/Variations', module)
+  .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    The \`Progress\` component shows a progress bar, filled to a percentage equal to \`value\`. The
-    bar always stretches to fill all horizontal space available to it.
+    A \`numbered\` \`Progress\` shows a percentage value.
     `
   })
   .addWithJSX(
-    'Properties',
+    'Numbered',
   () => (
   <Progress 
     value={number('value', 50, { range: true, min: 0, max: 100, step: 1 }, 'Types')} 
@@ -22,6 +21,6 @@ storiesOf('Controls/Progress', module)
     background={boolean('background', false, 'Variations')}  
     bordered={boolean('bordered', false, 'Variations')}  
     raised={boolean('raised', false, 'Variations')}  
-    numbered={boolean('numbered', false, 'Variations')}  
+    numbered={boolean('numbered', true, 'Variations')}  
   />
   ));  
