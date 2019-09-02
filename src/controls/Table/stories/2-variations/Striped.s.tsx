@@ -1,22 +1,21 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { select, boolean } from '@storybook/addon-knobs/react';
-import { Table } from '../../Table';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
+import { boolean } from '@storybook/addon-knobs/react';
+import { Table } from '../../../Table';
 
-storiesOf('Controls/Table', module)
-  .addDecorator(withInfo(withInfoSettings))
+storiesOf('Controls/Table/Variations', module)
+  .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`Table\` adds some standard styling to Table elements. Ordinary \`th\` 
-    and \`td\` elements are used inside.
+    A \`striped\` \`Table\` adds row striping.
     `
   })
   .addWithJSX(
-    'Properties',
+    'Striped',
   () => (
-  <Table striped={boolean('striped', false, 'Variations')}>
+  <Table striped={boolean('striped', true, 'Variations')}>
     <thead>
       <tr>
         <th>Column One</th>

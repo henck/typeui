@@ -2,12 +2,14 @@ import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
-interface IProps {
+interface ITableProps {
   className?: string;
   children?: React.ReactNode;
+  /** If set, adds row striping. */
+  striped?: boolean;
 }
 
-class TableBase extends React.Component<IProps, {}> {
+class TableBase extends React.Component<ITableProps, {}> {
   render() {
     let p = this.props;
     return (
@@ -16,7 +18,7 @@ class TableBase extends React.Component<IProps, {}> {
   }
 }
 
-const Table = styled(TableBase)`
+const TableStyled = styled(TableBase)`
   width: 100%;
   border-collapse: separate;
   table-layout:fixed; /* Required for overflow-hidden to work in <td> */
@@ -64,9 +66,19 @@ const Table = styled(TableBase)`
     padding: 6px 8px 6px 8px;
   }
 
-  tr:nth-child(2n) td {
-    background-color: #f7f7f7;
-  }
+  ${p => p.striped && css`
+    tr:nth-child(2n) td {
+      background-color: #f7f7f7;
+    }
+  `}
 `
+
+class Table extends React.PureComponent<ITableProps, {}> {
+  render() {
+    return (
+      <TableStyled {...this.props}/>
+    );
+  }
+}
 
 export { Table };
