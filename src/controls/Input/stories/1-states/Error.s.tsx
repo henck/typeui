@@ -2,6 +2,7 @@ import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Input } from '../../../Input'
+import { Form } from '../../../Form'
 
 storiesOf('Controls/Input/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))

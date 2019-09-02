@@ -2,6 +2,7 @@ import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { text } from '@storybook/addon-knobs/react';
 import { Input } from '../../../Input'
+import { Form } from '../../../Form'
 
 storiesOf('Controls/Input/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -15,7 +16,11 @@ storiesOf('Controls/Input/Types', module)
   .addWithJSX(
     'Clearable',
   () => (
-  <div>
-    <Input type="text" value="test" clearable/>
-  </div>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="search"
+      value={null}
+      control={<Input type="text" clearable/>}
+    />
+  </Form>
   ));  

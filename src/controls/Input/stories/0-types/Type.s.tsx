@@ -3,6 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { text } from '@storybook/addon-knobs/react';
 import { Input } from '../../../Input'
 import { Header } from '../../../Header'
+import { Form } from '../../../Form'
 
 storiesOf('Controls/Input/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -17,14 +18,26 @@ storiesOf('Controls/Input/Types', module)
   .addWithJSX(
     'Type',
   () => (
-  <div>
-    <Header size="h4">Text</Header>
-    <Input name="text" type="text"/>
-    <Header size="h4">Password</Header>
-    <Input name="password" type="password"/>
-    <Header size="h4">Date</Header>
-    <Input name="date" type="date"/>
-    <Header size="h4">Color</Header>
-    <Input name="color" type="color"/>
-  </div>
+    <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+      <Header size="h4">Text</Header>
+      <Form.Field
+        name="search"
+        value={null}
+        control={<Input type="text"/>}/>
+      <Header size="h4">Password</Header>
+      <Form.Field
+        name="password"
+        value={null}
+        control={<Input type="password"/>}/>
+      <Header size="h4">Date</Header>
+      <Form.Field
+        name="date"
+        value={null}
+        control={<Input type="date"/>}/>
+      <Header size="h4">Color</Header>
+      <Form.Field
+        name="color"
+        value={null}
+        control={<Input type="color"/>}/>
+    </Form>
   ));  

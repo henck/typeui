@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { select, text, boolean } from '@storybook/addon-knobs/react';
+import { Float } from '../../../Types';
 import { Input } from '../../../Input'
 import { IconType } from '../../../Icon';
+import { Form } from '../../../Form';
 
 storiesOf('Controls/Input/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -16,8 +18,15 @@ storiesOf('Controls/Input/Variations', module)
   .addWithJSX(
     'Icon position',
   () => (
-  <Input 
-    name="code"
-    type="text" 
-    placeholder={text('placeholder', 'Code...', 'Input')}/>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="code"
+      value={null}
+      control={    
+        <Input 
+          type="text" 
+          icon={text('icon', 'bullhorn', 'Variations') as IconType}
+          iconPosition={select('iconPosition', ['', 'left', 'right'], 'right', 'Variations') as Float}
+          placeholder={text('placeholder', 'Code...', 'Input')}/>}/>
+  </Form>
   ));  

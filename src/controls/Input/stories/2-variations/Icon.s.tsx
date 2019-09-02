@@ -3,7 +3,8 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Input } from '../../../Input'
 import { Icon } from '../../../Icon'
-import { Divider } from '../../../Divider'
+import { Flex } from '../../../Flex'
+import { Form } from '../../../Form'
 
 storiesOf('Controls/Input/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -17,47 +18,62 @@ storiesOf('Controls/Input/Variations', module)
   .addWithJSX(
     'Icon',
   () => (
-  <div>
-    <Input 
-      name="code"
-      type="text" 
-      icon="code"
-      placeholder="Icon name"/>
-    <Divider hidden/>
-    <Input 
-      name="code"
-      type="text" 
-      icon={{name: 'code', circular: true, inverted: true, color: 'grey'}}
-      placeholder="Icon props">
-      <Icon name="code"/>
-    </Input>
-    <Divider hidden/>
-    <Input 
-      name="code"
-      type="text" 
-      placeholder="Icon element">
-      <Icon name="code"/>
-    </Input>    
-    <Divider hidden/>
-    <Input 
-      name="code"
-      type="text" 
-      placeholder="Icon element w/ props">
-      <Icon 
-        name="code" circular inverted color="grey"/>
-    </Input>    
-    <Divider hidden/>    
-    <Input 
-      name="code"
-      type="date" 
-      icon="code"
-      placeholder="Date"/>    
-    <Divider hidden/>    
-    <Input 
-      name="code"
-      type="color" 
-      icon="code"
-      placeholder="Color"/>    
-    
-  </div>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Flex.Columns count={2}>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="text" 
+            icon="code"
+            placeholder="Icon name"/>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="text" 
+            icon={{name: 'code', circular: true, inverted: true, color: 'grey'}}
+            placeholder="Icon props">
+            <Icon name="code"/>
+          </Input>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="text" 
+            placeholder="Icon element">
+            <Icon name="code"/>
+          </Input>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="text" 
+            fluid
+            placeholder="Icon element w/ props">
+            <Icon 
+              name="code" circular inverted color="grey"/>
+          </Input>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="date" 
+            icon="code"
+            placeholder="Date"/>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="color" 
+            icon="code"
+            placeholder="Color"/>}/>
+    </Flex.Columns>
+  </Form>
   ));  
