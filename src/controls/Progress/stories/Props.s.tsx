@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { number, text, boolean } from '@storybook/addon-knobs/react';
 import { Progress } from '../../Progress'
 
 storiesOf('Controls/Progress', module)
@@ -17,6 +17,6 @@ storiesOf('Controls/Progress', module)
     'Properties',
   () => (
   <div>
-    <Progress value={50} />
+    <Progress value={number('value', 50, { range: true, min: 0, max: 100, step: 1 }, 'Types')} />
   </div>
   ));  

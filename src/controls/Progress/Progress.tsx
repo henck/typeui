@@ -30,6 +30,7 @@ const ProgressStyled = styled(ProgressBase)`
   &>div {
     box-sizing: border-box;
     width: ${p => p.value + '%'};
+    transition: width ${p => p.theme.transition.duration * 2}s;
     height: 100%;
     background: ${p => p.theme.primaryColor};
     border-radius: ${p => p.theme.radius}px;
