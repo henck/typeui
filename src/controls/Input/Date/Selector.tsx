@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 import { css } from 'styled-components';
-import { parse, format } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 
 // Helpers
 import { lighten } from '../../../helper/lighten';
@@ -42,7 +42,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
     // If no value is specified, use today's date.
     this.state = {
-      date: this.props.value ? parse(this.props.value, 'YYYY-MM-DD', new Date()) : new Date(Date.now())
+      date: this.props.value ? parseISO(this.props.value) : new Date(Date.now())
     };
   }
 
@@ -66,7 +66,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
   private handleDayClick(date: Date, e: React.MouseEvent) {
     e.stopPropagation();
-    this.props.onSelect(format(date, 'YYYY-MM-DD'));
+    this.props.onSelect(format(date, 'yyyy-MM-dd'));
   }
 
   render() {

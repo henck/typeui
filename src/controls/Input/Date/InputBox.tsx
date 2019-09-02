@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 import { css } from 'styled-components';
-import { format } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 
 // Helpers
 import { lighten } from '../../../helper/lighten';
@@ -17,10 +17,9 @@ interface IDateInputProps {
 class InputBoxBase extends React.Component<IInputProps & IDateInputProps, {}> {
   render() {
     let p = this.props;
-
     return (
       <div className={p.className}>
-        {p.value && format(p.value, 'ddd, D MMM YYYY')}
+        {p.value && format(parseISO(p.value), 'PPPP')}
         {!p.value && p.placeholder}
       </div>
     );
