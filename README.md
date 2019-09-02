@@ -17,37 +17,43 @@ Storybook available as [GitHub pages](https://henck.github.io/typeui/).
 
 This package has a built-in theme, which must be passed on to any controls your app uses. You can derive new themes from the default theme. The required imports are:
 
-    import * as React from 'react'
-    import * as ReactDOM from 'react-dom'
-    import { ThemeProvider } from 'styled-components'
-    import { Button } from '@independent-software/typeui/controls/Button'
-    import { StyleReset } from '@independent-software/typeui/styles/StyleReset'
-    import { StyleBase } from '@independent-software/typeui/styles/StyleBase'
-    import { Theme } from '@independent-software/typeui/styles/Theme'
+```jsx
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import { ThemeProvider } from 'styled-components'
+import { Button } from '@independent-software/typeui/controls/Button'
+import { StyleReset } from '@independent-software/typeui/styles/StyleReset'
+import { StyleBase } from '@independent-software/typeui/styles/StyleBase'
+import { Theme } from '@independent-software/typeui/styles/Theme'
+```
 
 This React app uses a single component `Button`:
 
-    ReactDOM.render(
-      (<React.Fragment>
-        <ThemeProvider theme={Theme}>
-          <Button>Click me!</Button>
-        </ThemeProvider>
-      </React.Fragment>),
-      document.getElementById('root')
-    ); 
+```jsx
+ReactDOM.render(
+  (<React.Fragment>
+    <ThemeProvider theme={Theme}>
+      <Button>Click me!</Button>
+    </ThemeProvider>
+  </React.Fragment>),
+  document.getElementById('root')
+); 
+```
 
 Optionally, you can use the component `<StyleReset/>` to perform a global CSS reset, if your app is not already doing this. In addition, `<StyleBase>` sets up some optional base styles:
 
-    ReactDOM.render(
-      (<React.Fragment>
-        <StyleReset/>
-        <StyleBase/>
-        <ThemeProvider theme={Theme}>
-          <Button>Click me!</Button>
-        </ThemeProvider>
-      </React.Fragment>),
-      document.getElementById('root')
-    ); 
+```jsx
+ReactDOM.render(
+  (<React.Fragment>
+    <StyleReset/>
+    <StyleBase/>
+    <ThemeProvider theme={Theme}>
+      <Button>Click me!</Button>
+    </ThemeProvider>
+  </React.Fragment>),
+  document.getElementById('root')
+);
+```
 
 This project was built in TypeScript and comes with TypeScript type definitions, so it's not necessary to install these separately.
 
@@ -59,17 +65,23 @@ The ES2015 `import` statements in this package are structured in a way that prom
 
 This `import` statement will only import the `Button` component:
 
-    import { Button } from '@independent-software/typeui/controls/button'
+```jsx
+import { Button } from '@independent-software/typeui/controls/button'
+```
 
 whereas this `import` statement will import all controls:
 
-    import { Button } from '@independent-software/typeui'
+```jsx
+import { Button } from '@independent-software/typeui'
+```
 
 For tree shaking to work, be sure to set the following in your Webpack config file:
 
-    optimization: {
-      usedExports: true
-    }
+```json
+optimization: {
+  usedExports: true
+}
+```
 
 as well as `mode: 'production'`.
 
