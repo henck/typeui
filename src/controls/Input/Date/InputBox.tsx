@@ -19,7 +19,7 @@ class InputBoxBase extends React.Component<IInputProps & IDateInputProps, {}> {
     let p = this.props;
     return (
       <div className={p.className}>
-        {p.value && format(parseISO(p.value), 'PPPP')}
+        {p.value && format(parseISO(p.value), p.dateformat ? p.dateformat : 'dd-MM-yyyy')}
         {!p.value && p.placeholder}
       </div>
     );
@@ -38,6 +38,11 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   height: 38px;
   line-height: 38px;
   padding: 0 14px;
+
+  /* Text overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   /* Padding for icon, if there is one: */
   ${p => p.icon && css`

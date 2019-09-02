@@ -42,6 +42,8 @@ interface IInputProps {
   iconPosition?: Float;
   /** If set, Input's value can be cleared. */
   clearable?: boolean;  
+  /** If set, dates (in inputs of type `date`) are shown in this format (refer to date-fns/format for format options). */
+  dateformat?: string;
   
   // Events
   /** Listeners are notified whenever the user interacts with the Input. */
