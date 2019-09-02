@@ -185,7 +185,7 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
 const InputInner = styled(InputInnerBase)`
   position: relative;
   display: inline-block;
-  ${p => !p.fluid && css`width: 160px;`}
+  ${p => !p.fluid && css`width: 250px;`}
   ${p => p.fluid && css`width: 100%;`}
 
   /* Icon */
