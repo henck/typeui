@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { select, text } from '@storybook/addon-knobs/react';
 import { Size } from '../../../Types';
 import { action } from '@storybook/addon-actions';
 import { Image } from '../../../Image'
 
-storiesOf('Image/States', module)
+storiesOf('Controls/Image/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

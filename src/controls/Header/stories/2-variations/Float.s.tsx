@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { Header } from '../../../Header'
 import { Segment } from '../../../Segment'
 
-storiesOf('Header/Variations', module)
+storiesOf('Controls/Header/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

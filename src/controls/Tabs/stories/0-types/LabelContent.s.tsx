@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { boolean } from '@storybook/addon-knobs/react';
 import { Tabs } from '../../../Tabs'
 import { Icon } from '../../../Icon'
 import { Label } from '../../../Label'
 import { Flex } from '../../../Flex'
 
-storiesOf('Tabs/Types', module)
+storiesOf('Controls/Tabs/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

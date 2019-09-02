@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { select, text, boolean } from '@storybook/addon-knobs/react';
 import { Size } from '../../../Types';
 import { IconType } from '../../../Icon';
@@ -7,7 +7,7 @@ import { Image } from '../../../Image'
 import { Label } from '../../../Label'
 import { Icon } from '../../../Icon'
 
-storiesOf('Image/States', module)
+storiesOf('Controls/Image/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

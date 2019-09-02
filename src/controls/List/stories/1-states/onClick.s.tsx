@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { text } from '@storybook/addon-knobs/react';
 import { List } from '../../../List'
 import { Icon } from '../../../Icon'
 
-storiesOf('List/States', module)
+storiesOf('Controls/List/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

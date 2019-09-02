@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Message } from '../../../Message'
 
-storiesOf('Message/States', module)
+storiesOf('Controls/Message/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

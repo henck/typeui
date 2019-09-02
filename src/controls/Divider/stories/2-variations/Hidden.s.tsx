@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { boolean } from '@storybook/addon-knobs/react';
 import { Divider } from '../../../Divider'
 
-storiesOf('Divider/Variations', module)
+storiesOf('Controls/Divider/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

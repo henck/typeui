@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { color, text , boolean, select } from '@storybook/addon-knobs/react';
 import { Direction } from '../../../Types';
 import { Label } from '../../../Label'
 import { Divider } from '../../../Divider'
 import { Image } from '../../../Image'
 
-storiesOf('Label/States', module)
+storiesOf('Controls/Label/States', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

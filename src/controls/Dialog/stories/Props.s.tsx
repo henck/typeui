@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { Dialog } from '../../Dialog';
 import { Button } from '../../Button'
 
@@ -49,7 +49,7 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
   }
 }
 
-storiesOf('Dialog', module)
+storiesOf('Controls/Dialog', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Dialog, Dialog.Header, Dialog.Content, Dialog.Footer], propTablesExclude: [DemoDialog]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

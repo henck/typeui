@@ -5,11 +5,11 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import { ThemeProvider } from 'styled-components';
-import { StyleReset, StyleBase, Theme } from '../styles';
+import { StyleReset, StyleBase, Theme } from './styles';
 
 import * as ReactMarkdown from 'react-markdown';
 
-import { Table } from '../controls/Table'
+import { Table } from './controls/Table/Table'
 
 type TPropDefinitions = Array<{
   property: string, // The name of the prop

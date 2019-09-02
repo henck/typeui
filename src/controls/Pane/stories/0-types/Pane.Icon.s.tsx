@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from '../../../../styles/Theme';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { Pane } from '../../../Pane';
 
-storiesOf('Pane/Types', module)
+storiesOf('Controls/Pane/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [ Pane.Icon ]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

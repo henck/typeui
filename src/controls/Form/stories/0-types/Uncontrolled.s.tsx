@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { Form } from '../../../Form';
 import { Input } from '../../../Input';
 
-storiesOf('Form/Types', module)
+storiesOf('Controls/Form/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Form.Uncontrolled], propTablesExclude: [Form]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

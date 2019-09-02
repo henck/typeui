@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { boolean } from '@storybook/addon-knobs/react';
 import { Flex } from '../../Flex'
 import { Box } from '../../Box'
 
-storiesOf('Flex', module)
+storiesOf('Controls/Flex', module)
   .addDecorator(withInfo({...withInfoSettings, propTablesExclude: [Box]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

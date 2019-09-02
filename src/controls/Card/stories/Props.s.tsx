@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 import { Card } from '../../Card';
 
-storiesOf('Card', module)
+storiesOf('Controls/Card', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

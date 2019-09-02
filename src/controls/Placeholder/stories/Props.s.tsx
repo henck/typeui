@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Placeholder } from '../../Placeholder'
 
-storiesOf('Placeholder', module)
+storiesOf('Controls/Placeholder', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [ Placeholder, Placeholder.Header, Placeholder.Image, Placeholder.Paragraph, Placeholder.Line ]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

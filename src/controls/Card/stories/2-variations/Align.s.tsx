@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { boolean, select } from '@storybook/addon-knobs';
 import { HorizontalAlignment } from '../../../Types';
 import { Card } from '../../../Card';
 
-storiesOf('Card/Variations', module)
+storiesOf('Controls/Card/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

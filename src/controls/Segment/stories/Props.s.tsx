@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { select, boolean } from '@storybook/addon-knobs/react';
 import { HorizontalAlignment } from '../../Types';
 import { Segment } from '../../Segment'
 
-storiesOf('Segment', module)
+storiesOf('Controls/Segment', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

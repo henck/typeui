@@ -6,7 +6,7 @@ import { Accordion } from '../../../Accordion'
 import { Icon } from '../../../Icon'
 import { Flex } from '../../../Flex'
 
-storiesOf('Accordion/Types', module)
+storiesOf('Controls/Accordion/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { color, text, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 import { Button } from '../../../Button';
 
-storiesOf('Button/Types', module)
+storiesOf('Controls/Button/Types', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

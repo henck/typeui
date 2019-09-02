@@ -5,9 +5,7 @@ interface INumberProps {
   children?: React.ReactNode;
   /** Value to format. */
   value: number | string;
-  /**
-   * Number of fractional digits. Default 2.
-   */
+  /** Number of fractional digits. Default 2. */
   decimals?: number;
 }
 

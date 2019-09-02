@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { Button } from '../../Button';
 import { ToastService } from '../ToastService';
 import { ToastContainer } from '../ToastContainer';
 import { Toast } from '../Toast';
 
-storiesOf('Toast', module)
+storiesOf('Controls/Toast', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [ToastContainer, Toast], propTablesExclude: [Button]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

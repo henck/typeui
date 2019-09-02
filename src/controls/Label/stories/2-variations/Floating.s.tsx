@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { color, boolean } from '@storybook/addon-knobs/react';
 import { Label } from '../../../Label'
 import { Segment } from '../../../Segment'
 
-storiesOf('Label/Variations', module)
+storiesOf('Controls/Label/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { color, select, text, boolean, number } from '@storybook/addon-knobs/react';
 import { Icon } from '../../Icon'
 import { Size, Float } from '../../Types';
 import { IconType } from '../IconType';
 
-storiesOf('Icon', module)
+storiesOf('Controls/Icon', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

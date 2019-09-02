@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { Dropdown } from '../../../Dropdown'
 import { Label } from '../../../Label'
 import { Divider } from '../../../Divider'
 
-storiesOf('Dropdown/Groups', module)
+storiesOf('Controls/Dropdown/Groups', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

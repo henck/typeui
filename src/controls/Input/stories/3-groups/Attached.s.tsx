@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { text } from '@storybook/addon-knobs/react';
 import { Input } from '../../../Input'
 import { Icon } from '../../../Icon'
@@ -7,7 +7,7 @@ import { Label } from '../../../Label'
 import { Dropdown } from '../../../Dropdown'
 import { Divider } from '../../../Divider'
 
-storiesOf('Input/Groups', module)
+storiesOf('Controls/Input/Groups', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

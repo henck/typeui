@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
 import { text, boolean } from '@storybook/addon-knobs/react';
 import { Message } from '../../../Message'
 import { Icon } from '../../../Icon'
 import { Segment } from '../../../Segment'
 import { Divider } from '../../../Divider'
 
-storiesOf('Message/Groups', module)
+storiesOf('Controls/Message/Groups', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { select, boolean } from '@storybook/addon-knobs/react';
 import { Float } from '../../Types';
 import { Accordion } from '../../Accordion';
 
-storiesOf('Accordion', module)
+storiesOf('Controls/Accordion', module)
   .addDecorator(withInfo(withInfoSettings))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)

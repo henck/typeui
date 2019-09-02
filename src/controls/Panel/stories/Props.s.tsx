@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase';
 import { Panel } from '../../Panel';
 import { Button } from '../../Button';
 
@@ -57,7 +57,7 @@ class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState>
   }
 }
 
-storiesOf('Panel', module)
+storiesOf('Controls/Panel', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: [Panel], propTablesExclude: [DemoPanel]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
