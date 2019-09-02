@@ -15,7 +15,7 @@ addDecorator(
 setAddon(JSXAddon);
 
 // automatically import all files ending in *.s.js
-const req = require.context('../src/controls', true, /.s.tsx$/);
+const req = require.context('../src', true, /.s.tsx$/);
 function loadStories() {
   //require('./WelcomeStory');
   // Load stories, files sorted alphabetically.

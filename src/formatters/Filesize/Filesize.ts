@@ -35,4 +35,4 @@ class Filesize extends React.Component<IFilesizeProps, {}> {
   }
 }
 
-export { Filesize }
+export { Filesize };
