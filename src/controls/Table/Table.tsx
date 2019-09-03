@@ -21,35 +21,56 @@ class TableBase extends React.Component<ITableProps, {}> {
 const TableStyled = styled(TableBase)`
   width: 100%;
   border-collapse: separate;
-  table-layout:fixed; /* Required for overflow-hidden to work in <td> */
+  table-layout: fixed; /* Required for overflow-hidden to work in <td> */
+  border-bottom-left-radius: ${p => p.theme.radius}px;
+  border-bottom-right-radius: ${p => p.theme.radius}px;
+  box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;
+
+  th, td {
+    padding: 6px 8px 6px 8px;
+    text-align: left;
+  }  
 
   th {
-    text-align: left;
     font-weight: 500;
     font-size: 12px;
     border-top: solid 1px ${p => p.theme.normalColor};
     border-bottom: solid 1px ${p => p.theme.normalColor};
     background: #f7f7f7;
+    &:first-child {
+      border-top-left-radius: ${p => p.theme.radius}px;
+      border-left: solid 1px ${p => p.theme.normalColor};
+    }
+    &:last-child {
+      border-top-right-radius: ${p => p.theme.radius}px;
+      border-right: solid 1px ${p => p.theme.normalColor};
+    }
   }
 
-  th:first-child {
-    border-top-left-radius: ${p => p.theme.radius}px;
-    border-left: solid 1px ${p => p.theme.normalColor};
-  }
-
-  th:last-child {
-    border-top-right-radius: ${p => p.theme.radius}px;
-    border-right: solid 1px ${p => p.theme.normalColor};
-  }
-
+  /* Leftmost <td>'s have a left border */
   td:first-child {
     border-left: solid 1px ${p => p.theme.normalColor};
   }
 
+  /* Rightmost <td>'s have a right border */
   td:last-child {
     border-right: solid 1px ${p => p.theme.normalColor};
   }  
 
+  /* If there is no <thead>, then the first row has a border and rounded corners: */
+  tbody:not(:nth-child(2)) tr:first-child {
+    td {
+      border-top: solid 1px ${p => p.theme.normalColor};
+    }
+    td:first-child {
+      border-top-left-radius: ${p => p.theme.radius}px;
+    }
+    td:last-child {
+      border-top-right-radius: ${p => p.theme.radius}px;
+    }
+  }
+
+  /* Add border and rounding to last row */
   tr:last-child {
     td {
       border-bottom: solid 1px ${p => p.theme.normalColor};
@@ -60,10 +81,6 @@ const TableStyled = styled(TableBase)`
     td:last-child {
       border-bottom-right-radius: ${p => p.theme.radius}px;
     }
-  }
-
-  th, td {
-    padding: 6px 8px 6px 8px;
   }
 
   ${p => p.striped && css`
