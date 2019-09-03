@@ -16,7 +16,7 @@ interface IProgressProps {
   /** A raised Progress has a drop shadow. */
   raised?: boolean;
   /** If set, a percentage number is shown on the Progress bar. */
-  numbered: boolean;
+  numbered?: boolean;
 }
 
 class ProgressBase extends React.Component<IProgressProps, {}> {
