@@ -21,15 +21,14 @@ This package has a built-in theme, which must be passed on to any controls your 
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { ThemeProvider } from 'styled-components'
-import { Button } from '@independent-software/typeui/controls/Button'
-import { StyleReset } from '@independent-software/typeui/styles/StyleReset'
-import { StyleBase } from '@independent-software/typeui/styles/StyleBase'
 import { Theme } from '@independent-software/typeui/styles/Theme'
 ```
 
 This React app uses a single component `Button`:
 
 ```jsx
+import { Button } from '@independent-software/typeui/controls/Button'
+
 ReactDOM.render(
   (<React.Fragment>
     <ThemeProvider theme={Theme}>
@@ -43,6 +42,10 @@ ReactDOM.render(
 Optionally, you can use the component `<StyleReset/>` to perform a global CSS reset, if your app is not already doing this. In addition, `<StyleBase>` sets up some optional base styles:
 
 ```jsx
+import { StyleReset } from '@independent-software/typeui/styles/StyleReset'
+import { StyleBase } from '@independent-software/typeui/styles/StyleBase'
+import { Button } from '@independent-software/typeui/controls/Button'
+
 ReactDOM.render(
   (<React.Fragment>
     <StyleReset/>
