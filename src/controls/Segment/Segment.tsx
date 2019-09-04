@@ -29,6 +29,8 @@ interface ISegmentProps {
   tertiary?: boolean;
   /** Increase segment padding (optionally `very`). */
   padded?: 'very' | boolean;
+  /** Decrease segment padding. */
+  tight?: boolean;
   /** Only take up as much space as necessary. */
   compact?: boolean;
   /** A disabled segment is light in color. */
@@ -133,6 +135,7 @@ const SegmentStyled = styled(SegmentBase)`
     /* Padded */
     ${p => p.padded && p.padded !== 'very' && css`padding: 21px;`}
     ${p => p.padded && p.padded === 'very' && css`padding: 42px;`}
+    ${p => p.tight && css`padding: 4px 14px;`}
 
     /* Disabled */
     ${p => p.disabled && css`opacity: 0.45;`}
