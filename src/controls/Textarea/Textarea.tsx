@@ -14,14 +14,14 @@ import { lighten } from '../../helper/lighten';
 interface ITextareaProps {
   className?: string;
   /** Textarea name. */
-  name: string;
+  name?: string;
   /** Textarea value. */
   value?: any;
-  /** Placeholder to show when the field is empty. */
+  /** Placeholder to show when the Textarea is empty. */
   placeholder?: string;  
-  /** Mark textarea as disabled. */
+  /** Mark Textarea as disabled. */
   disabled?: boolean;
-  /** Remove input border. */
+  /** Removes Textarea border. */
   transparent?: boolean;
   /** Textarea takes up all available horizontal space. */
   fluid?: boolean;
@@ -29,11 +29,11 @@ interface ITextareaProps {
   rows?: number;
   /** Minimum height in pixels. */
   minHeight?: number;
-  /** Is textarea in an error state? */
+  /** Is the Textarea in an error state? */
   error?: boolean;
 
   // Events
-  /** Listeners are notified whenever the user interacts with the input. */
+  /** Listeners are notified whenever the user interacts with the Textarea. */
   onChange?: (value: any) => void;
 }
 
@@ -51,7 +51,7 @@ class TextareaBase extends React.Component<ITextareaProps, {}> {
     return (
       <textarea className={this.props.className}
         name={p.name} 
-        value={p.value} 
+        value={p.value == null ? '' : p.value}  
         placeholder={p.placeholder} 
         disabled={p.disabled}
         rows={p.rows}
