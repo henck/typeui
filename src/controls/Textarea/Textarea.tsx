@@ -31,6 +31,8 @@ interface ITextareaProps {
   minHeight?: number;
   /** Is the Textarea in an error state? */
   error?: boolean;
+  /** If set, Textarea will use a monospaced font. */
+  monospaced?: boolean;
 
   // Events
   /** Listeners are notified whenever the user interacts with the Textarea. */
@@ -90,6 +92,9 @@ const TextareaStyled = styled(TextareaBase).attrs(p => ({
   outline:          0;
   background-color: #fff;
   padding:          9.5px 14px;
+
+  /* Monospaced font */
+  ${p => p.monospaced && css`font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;`}
 
   /* Define colors for placeholder text. */
   &::placeholder {
