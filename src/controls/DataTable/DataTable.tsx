@@ -39,12 +39,14 @@ interface IDataTableProps {
   onClick?: (item:any) => void;
   /** This callback is called when the table sets a new order. */
   onOrder: (order: string, dir?: TDir) => void;
-  /** Element to show when there is no data. */
+  /** Element to show when there is no data. The DataTable has a default "no data" message. */
   nodata?: React.ReactNode;
   /** Currently loading? If true, an amination appears. */
   loading?: boolean;
-  /** Show error state? */
+  /** Show error state? This will offer a default error message and a "Retry" button. */
   error?: boolean;
+  /** If set, this message replaces the default error message. */
+  errorMessage?: React.ReactNode;
 }
 
 interface IDataTableState {
@@ -245,7 +247,8 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
                 <div style={{padding: '25px'}}>
                   <Message type="error">
                     <Message.Header>Error</Message.Header>
-                    An error occurred loading data.
+                    {p.errorMessage && p.errorMessage}
+                    {!p.errorMessage && "An error occurred loading data."}
                     <div style={{ textAlign: 'right' }}>
                       <Button onClick={this.handleRetry}>Retry</Button>
                     </div>
