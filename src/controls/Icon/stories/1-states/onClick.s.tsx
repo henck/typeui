@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase.s';
 import { action } from '@storybook/addon-actions';
 import { Icon } from '../../../Icon'
 

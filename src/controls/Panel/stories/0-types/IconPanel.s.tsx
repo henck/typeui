@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '../../../../styles/Theme';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase.s';
 import { Panel } from '../../../Panel';
 
 storiesOf('Controls/Panel/Types', module)

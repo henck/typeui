@@ -19,7 +19,6 @@
     "src/**/*"
   ],
   "exclude": [
-    "src/StorybookBase.tsx",
     "node_modules",
     "docs",
     "src/**/*.s.tsx"

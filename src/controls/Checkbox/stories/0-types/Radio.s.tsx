@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase'
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase.s'
 import { Checkbox } from '../../../Checkbox'
 
 storiesOf('Controls/Checkbox/Types', module)

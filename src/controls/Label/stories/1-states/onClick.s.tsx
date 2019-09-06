@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase';
+import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase.s';
 import { color, text , boolean, select } from '@storybook/addon-knobs/react';
 import { Direction } from '../../../Types';
 import { Label } from '../../../Label'
