@@ -18,6 +18,6 @@ storiesOf('Formatters/Number', module)
     'Properties',
   () => (
   <div>
-    <Number value={number('value', 50000)} />
+    <Number value={number('value', 50000)} decimals={number('decimals', 2)}/>
   </div>
   ));  

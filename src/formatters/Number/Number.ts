@@ -3,9 +3,9 @@ import * as React from 'react';
 interface INumberProps {
   className?: string;
   children?: React.ReactNode;
-  /** Value to format. */
+  /** Value to format. This can be a string or a number. */
   value: number | string;
-  /** Number of fractional digits. Default 2. */
+  /** Number of fractional digits. Defaults to `2`. */
   decimals?: number;
 }
 
@@ -18,13 +18,14 @@ class Number extends React.Component<INumberProps, {}> {
     // Make sure value is a number.
     let val = (typeof p.value === 'string') ? parseFloat(p.value) : p.value;
 
-    // Fix number of decimals.
-    let str = val.toFixed(p.decimals == null || p.decimals == undefined ? 2 : p.decimals);
+    // Get number of requested fraction digits:
+    let decimals = p.decimals == null || p.decimals == undefined ? 2 : p.decimals;
 
-    // Add thousand separators.
-    str = str.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-    return str;
+    // Format number with requested fraction digits:
+    return val.toLocaleString(undefined, { 
+      useGrouping: true, 
+      minimumFractionDigits: decimals, 
+      maximumFractionDigits: decimals });
   }
 }
 
