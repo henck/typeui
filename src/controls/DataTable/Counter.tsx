@@ -43,21 +43,26 @@ const Counter = styled(CounterBase)`
     font-weight: 500;
   }
   opacity: 1;
+  transform: scale(1);
 
   /* CSSTransition classes */
   &.fade-enter {
     opacity: 0;
+    transform: scale(0.5);
   }
   &.fade-enter-active {
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transform: scale(1);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
   &.fade-exit {
     opacity: 1;
+    transform: scale(1);
   }
   &.fade-exit-active {
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }    
 `
 
