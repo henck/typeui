@@ -305,4 +305,6 @@ class DataTable extends React.Component<IDataTableProps, {}> {
   }
 }
 
+(DataTable.Column as any).displayName = "DataTable.Column";
+
 export { DataTable };
