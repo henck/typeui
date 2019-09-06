@@ -42,6 +42,23 @@ const Counter = styled(CounterBase)`
   & > span {
     font-weight: 500;
   }
+  opacity: 1;
+
+  /* CSSTransition classes */
+  &.fade-enter {
+    opacity: 0;
+  }
+  &.fade-enter-active {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  &.fade-exit {
+    opacity: 1;
+  }
+  &.fade-exit-active {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }    
 `
 
 export { Counter };

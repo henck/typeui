@@ -15,6 +15,7 @@ import { Slider } from './Slider';
 import { Message } from '../Message/Message';
 import { Button } from '../Button/Button';
 import { Ripple } from '../Ripple/Ripple';
+import { CSSTransition } from 'react-transition-group';
 
 interface IDataTableProps {
   className?: string;
@@ -24,18 +25,19 @@ interface IDataTableProps {
    * to render item fields in each column.
    */
   data: any[];
-  /** Current DataTable order */
+  /** Current DataTable order field name, e.g. `name`. */
   order?: string;
+  /** Current DataTable order direction (`asc` or `desc`). */
   dir?: TDir;
-  /** Vertical offset (in pixels) to scroll to after update. */
+  /** Optional vertical offset (in pixels) to scroll to after update. */
   scrollTop?: number;
-  /** Callback that receives scroll offset on each scroll. */
-  onScroll?: (scrollTop:number) => void;
+  /** Callback that receives scroll offset in pixels when a scroll operations ends. */
+  onScroll?: (scrollTop: number) => void;
   /** This callback is called when the table needs to fetch more items. */
   onFetch: (offset: number, count: number) => void;
   /** This callback is called when an item is clicked. */
   onClick?: (item:any) => void;
-  /** This callback is called when the table sets a new query order. */
+  /** This callback is called when the table sets a new order. */
   onOrder: (order: string, dir?: TDir) => void;
   /** Element to show when there is no data. */
   nodata?: React.ReactNode;
@@ -46,12 +48,11 @@ interface IDataTableProps {
 }
 
 interface IDataTableState {
-  // Is filter element currently shown?
-  filterOpen: boolean,
   // 1-based index of first row in viewport
   first: number,
   // 1-based index of last row in viewport
   last: number;
+  showCounter: boolean;
 }
 
 const ITEM_HEIGHT = 57;
@@ -65,9 +66,9 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
   constructor(props: IDataTableProps) {
     super(props);
     this.state = {
-      filterOpen: false,
       first: 0,
-      last: 0
+      last: 0,
+      showCounter: true
     };
   }
 
@@ -83,7 +84,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
 
   // If a scrollTop (in pixels) was given, then scroll the DataTable to that position.
   componentDidUpdate() {
-    this.bodyElement.scrollTop = this.props.scrollTop;
+    if(this.props.scrollTop) this.bodyElement.scrollTop = this.props.scrollTop;
   }
 
   fetchData = (scrollTop: number, height: number) => {
@@ -120,8 +121,8 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
   }
 
   private handleScroll = () => {
-    // There is no end-scroll event. Instead, we use a timer to determine
-    // when scrolling really stops.
+    // There is no end-scroll event. Instead, we use a timer to 
+    // determine when scrolling really stops.
     window.clearTimeout(this.isScrolling);
     this.isScrolling = window.setTimeout(() => {
       this.handleEndScroll();
@@ -135,7 +136,6 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
     if(this.props.onScroll) this.props.onScroll(this.bodyElement.scrollTop);
     this.fetchData(this.bodyElement.scrollTop, this.bodyElement.clientHeight);
   }
-
 
   private handleRetry = () => {
     if(this.fetch) this.fetch();
@@ -176,7 +176,60 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
     }
     return rows;
   }
-  
+
+  /* This method is used to determine the absolute position on the page of any element, 
+   * taking containment relationships and page scrolling into account. */
+  getPosition(el: HTMLElement) {
+    var xPosition = 0;
+    var yPosition = 0;
+   
+    while (el) {
+      if (el.tagName == "BODY") {
+        // deal with browser quirks with body/window/document and page scroll
+        var xScrollPos = el.scrollLeft || document.documentElement.scrollLeft;
+        var yScrollPos = el.scrollTop || document.documentElement.scrollTop;
+   
+        xPosition += (el.offsetLeft - xScrollPos + el.clientLeft);
+        yPosition += (el.offsetTop - yScrollPos + el.clientTop);
+      } else {
+        xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+        yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
+      }
+   
+      el = el.offsetParent as HTMLElement;
+    }
+    return {
+      x: xPosition,
+      y: yPosition
+    };
+  }  
+
+  /*
+   * When the mouse moves over the table body, calculate its position relative
+   * to the bottom of the list. If it's at least two rows above the end of the
+   * list, show the counter. Otherwise hide the counter.
+   */
+  handleMouseMove = (e:React.MouseEvent) => {
+    let bodyY = this.getPosition(this.bodyElement).y;
+    let limit = bodyY + this.bodyElement.clientHeight + this.bodyElement.scrollTop - ITEM_HEIGHT * 2;
+    if(e.clientY >= limit && this.state.showCounter) {
+      this.setState({showCounter: false});
+    }
+    if(e.clientY < limit && !this.state.showCounter) { 
+      this.setState({showCounter: true});
+    }
+  }
+
+  /*
+   * When the mouse leaves the table, show the counter if it's not 
+   * currently visible.
+   */
+  handleMouseLeave = () => {
+    if(!this.state.showCounter) {
+      this.setState({ showCounter: true });
+    }
+  }
+ 
   render() {
     let p = this.props;
 
@@ -187,7 +240,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
             <Head loading={p.loading}>
               {this.getHeaders()}
             </Head>
-            <Body ref={(el:any) => this.bodyElement = el} onScroll={this.handleScroll}>
+            <Body ref={(el:any) => this.bodyElement = el} onScroll={this.handleScroll} onMouseMove={(e: React.MouseEvent) => { this.handleMouseMove(e); }} onMouseLeave={this.handleMouseLeave}>
               {p.error && 
                 <div style={{padding: '25px'}}>
                   <Message type="error">
@@ -214,7 +267,9 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
                 }
                 </React.Fragment>}
             </Body>
-            {p.data.length > 0 && <Counter count={p.data.length} first={this.state.first} last={this.state.last}/>}
+            <CSSTransition in={p.data.length > 0 && this.state.showCounter} timeout={500} unmountOnExit classNames="fade">
+              <Counter count={p.data.length} first={this.state.first} last={this.state.last}/>
+            </CSSTransition>
           </TableInner>
         </Table>
       </div>
