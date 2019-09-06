@@ -2,7 +2,8 @@ import { Theme } from './Theme'
 import { css, createGlobalStyle, GlobalStyleComponent, DefaultTheme } from 'styled-components'
 
 const base = css`
-  @import url(https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i&subset=latin);
+  @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,400i,500,500i&subset=latin);
+  
   body {
     font-family: Roboto, sans-serif;
     color: ${Theme.fontColor};
