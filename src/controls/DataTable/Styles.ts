@@ -5,7 +5,7 @@ const Body = styled('div')`
   overflow-y: scroll;
 `;
 
-const Row = styled('div')`
+/* const Row = styled('div')`
   position: absolute;
   display: flex;
   width: 100%;
@@ -18,7 +18,7 @@ const Row = styled('div')`
   &:hover {
     background-color: #f9f9f9;
   }
-`;
+`; */
 
 const Table = styled('div')`
   position: relative;
@@ -35,4 +35,4 @@ const TableInner = styled('div')`
   bottom: 0;  
 `
 
-export { Body, Row, Table, TableInner };
+export { Body, Table, TableInner };

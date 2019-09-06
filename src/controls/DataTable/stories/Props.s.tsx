@@ -41,7 +41,6 @@ storiesOf('Controls/DataTable', module)
         { name: "Ralph", age: 22, sport: "Volleyball"},
       ]} 
       onFetch={(offset: number, count: number) => {}} 
-      onClick={(item: any) => {}} 
       onOrder={(order: string, dir?: TDir) => {}} 
       order="name" 
       dir="asc">

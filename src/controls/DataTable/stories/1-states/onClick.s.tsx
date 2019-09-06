@@ -18,7 +18,8 @@ storiesOf('Controls/DataTable/States', module)
   .addParameters({
     info: `
     A \`DataTable\` takes an \`onClick\` event handler. When a row is clicked,
-    the onClick event is is fired with the row's data item/
+    the onClick event is is fired with the row's data item. Clickable rows also
+    give visual feedback.
     `
   })
   .addWithJSX(

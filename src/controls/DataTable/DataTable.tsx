@@ -5,7 +5,7 @@ import styled from '../../styles/Theme';
 import { TDir } from '../Types';
 
 // Other controls
-import { Body, Row, Table, TableInner } from './Styles';
+import { Body, Table, TableInner } from './Styles';
 import { DataColumn } from './DataColumn';
 import { Head } from './Head';
 import { Header } from './Header';
@@ -16,6 +16,7 @@ import { Message } from '../Message/Message';
 import { Button } from '../Button/Button';
 import { Ripple } from '../Ripple/Ripple';
 import { CSSTransition } from 'react-transition-group';
+import { Row } from './Row';
 
 interface IDataTableProps {
   className?: string;
@@ -171,13 +172,13 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
       // Do not render empty rows:
       if(!row) continue;
       // Render row:
-      rows.push(<Ripple type={Row} key={i} style={{top: (i * ITEM_HEIGHT) + 'px'}} onClick={() => this.handleClick(row)}>{
+      rows.push(<Row key={i} top={i * ITEM_HEIGHT} onClick={this.props.onClick ? () => this.handleClick(row) : null}>{
         React.Children.map(this.props.children, (child:DataColumn) => {
           // Is the column removed? This can happen for conditionally-rendered columns.
           if(!child) return null;
           return <Cell item={row} grid={this.props.grid} align={child.props.align} weight={child.props.weight}>{child.props.children}</Cell>
         })
-      }</Ripple>);
+      }</Row>);
     }
     return rows;
   }
