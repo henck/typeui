@@ -13,6 +13,8 @@ interface ICellProps {
   weight?: number;
   /** Text alignment. Defaults to 'left'. */
   align?: Float;
+  /** Show vertical grid lines? */
+  grid?: boolean;
 }
 
 class CellBase extends React.Component<ICellProps, {}> {
@@ -45,6 +47,12 @@ const Cell = styled(CellBase)`
 
   padding: 16px 12px;
   height: 56px;
+
+  /* Vertical gridlines */
+  ${p => p.grid && css`
+  &:not(:first-child) {
+    border-left: solid 1px ${p => p.theme.normalColor};
+  }`}
   
   /* Text is truncated with an ellipsis. */
   white-space: nowrap;

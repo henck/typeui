@@ -47,6 +47,8 @@ interface IDataTableProps {
   error?: boolean;
   /** If set, this message replaces the default error message. */
   errorMessage?: React.ReactNode;
+  /** if set, DatTable shows vertical grid lines. */
+  grid?: boolean;
 }
 
 interface IDataTableState {
@@ -173,7 +175,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
         React.Children.map(this.props.children, (child:DataColumn) => {
           // Is the column removed? This can happen for conditionally-rendered columns.
           if(!child) return null;
-          return <Cell item={row} align={child.props.align} weight={child.props.weight}>{child.props.children}</Cell>
+          return <Cell item={row} grid={this.props.grid} align={child.props.align} weight={child.props.weight}>{child.props.children}</Cell>
         })
       }</Ripple>);
     }
