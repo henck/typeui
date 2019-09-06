@@ -18,6 +18,8 @@ type IconType =
   | 'edit'
   | 'envelope'
   | 'exchange'
+  | 'eye'
+  | 'eye-slash'
   | 'file-csv'
   | 'file-download'
   | 'file-excel'
