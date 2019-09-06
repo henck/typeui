@@ -13,8 +13,8 @@ interface IHeadProps {
 // https://stackoverflow.com/a/49278385/1266190
 const HeadInner = styled('div')`
   display: flex;
-  margin-right: -50px;
-  padding-right: 50px;
+  margin-right: -999px;
+  padding-right: 999px;
   overflow-y: scroll;
 `
 
