@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
+import { Number } from '../../formatters/Number';
 
 interface ICounterProps {
   className?: string;
@@ -21,7 +22,7 @@ class CounterBase extends React.Component<ICounterProps, {}> {
     let p = this.props;
     return (
       <div className={p.className}>
-        <span>{p.first}</span>-<span>{Math.min(p.last, p.count)}</span> of <span>{p.count}</span> {p.count == 1 && 'record'}{p.count != 1 && 'records'}
+        <span>{p.first}</span>-<span><Number value={Math.min(p.last, p.count)} decimals={0}/></span> of <span><Number value={p.count} decimals={0}/></span> {p.count == 1 && 'record'}{p.count != 1 && 'records'}
       </div>
     );
   }
