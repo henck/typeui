@@ -34,11 +34,11 @@ interface IDataTableProps {
   /** Callback that receives scroll offset in pixels when a scroll operations ends. */
   onScroll?: (scrollTop: number) => void;
   /** This callback is called when the table needs to fetch more items. */
-  onFetch: (offset: number, count: number) => void;
+  onFetch?: (offset: number, count: number) => void;
   /** This callback is called when an item is clicked. */
   onClick?: (item:any) => void;
   /** This callback is called when the table sets a new order. */
-  onOrder: (order: string, dir?: TDir) => void;
+  onOrder?: (order: string, dir?: TDir) => void;
   /** Element to show when there is no data. The DataTable has a default "no data" message. */
   nodata?: React.ReactNode;
   /** Currently loading? If true, an amination appears. */
@@ -54,6 +54,7 @@ interface IDataTableState {
   first: number,
   // 1-based index of last row in viewport
   last: number;
+  // Is the records counter currently visible?
   showCounter: boolean;
 }
 
@@ -80,7 +81,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
     let scrollTop = this.props.scrollTop ? this.props.scrollTop : 0;
     let height = this.bodyElement.clientHeight;
     // If height is 0, then the table is invisible. Just fetch the first 25 rows.
-    if(height == 0) height = 57 * 25;
+    if(height == 0) height = ITEM_HEIGHT * 25;
     this.fetchData(scrollTop, height);
   }
 
@@ -91,9 +92,9 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
 
   fetchData = (scrollTop: number, height: number) => {
     // Find index of first (partially) visible row.
-    let first = Math.floor(scrollTop / 57);
+    let first = Math.floor(scrollTop / ITEM_HEIGHT);
     // Find index of last (partially) visible row.
-    let last = Math.floor((scrollTop + height - 1) / 57);
+    let last = Math.floor((scrollTop + height - 1) / ITEM_HEIGHT);
     // Are there any empty records in the range?
     let isEmpty = false;
     for(let i = first; i <= last; i++) {
@@ -102,7 +103,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
     // If there are empty spots, request the records for this segment.
     // In fact, fetch 20 records before and after as well, to minimize 
     // requests on small scrolls.
-    if(isEmpty) {
+    if(isEmpty && this.props.onFetch) {
       let firstToFetch = Math.max(0, first - 20);
       let lastToFetch = last + 20;
       this.fetch = this.props.onFetch.bind(this, firstToFetch, lastToFetch - firstToFetch + 1);
@@ -148,7 +149,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
       // Is the column removed? This can happen for conditionally-rendered columns.
       if(!child) return null;
       // Is this column orderable? 
-      let orderable = !!child.props.order;
+      let orderable = !!child.props.order && !!this.props.onOrder;
       // Is this column currently sorted?
       let ordered = child.props.order === this.props.order;
       return <Header align={child.props.align} weight={child.props.weight} orderable={orderable} ordered={ordered} dir={this.props.dir} defaultDir={child.props.dir} onClick={orderable ? () => this.props.onOrder(child.props.order, child.props.dir) : null}>{child.props.label}</Header>
@@ -249,9 +250,10 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
                     <Message.Header>Error</Message.Header>
                     {p.errorMessage && p.errorMessage}
                     {!p.errorMessage && "An error occurred loading data."}
+                    {p.onFetch && 
                     <div style={{ textAlign: 'right' }}>
                       <Button onClick={this.handleRetry}>Retry</Button>
-                    </div>
+                    </div>}
                   </Message>
                 </div>
               }
