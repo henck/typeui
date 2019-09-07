@@ -137,7 +137,7 @@ const HeaderStyled = styled(HeaderBase)`
   display: flex;
   align-items: center;
 
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: ${p => getFontSize(p.size, p.relative, p.theme.headerBase, p.theme.scaleRatio)};
   line-height: ${p => getLineHeight(p.size, p.relative, p.theme.headerBase, p.theme.scaleRatio, p.theme.heightRatio)};
 
