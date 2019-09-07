@@ -24,8 +24,8 @@ interface IInputProps {
   name?: string;
   /** Input value. */
   value?: any;
-  /** Input type. */
-  type: 'date' | 'text' | 'password' | 'color';
+  /** Input type, `text`, `password`, `date` or `color`. Defaults to `text`. */
+  type?: 'date' | 'text' | 'password' | 'color';
   /** Placeholder to show when the Input is empty. */
   placeholder?: string;
   /** Marks input as disabled. */
