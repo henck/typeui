@@ -59,6 +59,9 @@ const Cell = styled(CellBase)`
   overflow-x: hidden;
   text-overflow: ellipsis;
 
+  /* Hide vertical overflow. */
+  overflow-y: hidden;
+
   margin-right: 30px;
   &:not(:last-child) {
     margin-right: 26px;
