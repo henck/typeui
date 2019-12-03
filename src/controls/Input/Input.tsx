@@ -177,7 +177,7 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
           </CSSTransition>
         </React.Fragment>}      
       {icon}
-      {p.clearable && p.value && <Clear onClick={this.handleClear}></Clear>}
+      {p.clearable && p.value !== null && <Clear onClick={this.handleClear}></Clear>}
     </div>)
   }
 }
