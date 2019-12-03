@@ -29,6 +29,9 @@ class AccordionBodyBase extends React.Component<IAccordionBodyProps, IState> {
   // This is done in two steps: 
   // - First, height is set to 0.
   // - Then, repeatedly, height is increased until it reaches scrollHeight.
+  // - At the end, height is set to auto and overflow to visible. This is
+  //   to allow the AccordionBody to adjust its size when content is added to
+  //   it or removed from it.
   expand = () => {
     requestAnimationFrame(() => {
       this.bodyElement.style.height = "0px";
@@ -40,6 +43,9 @@ class AccordionBodyBase extends React.Component<IAccordionBodyProps, IState> {
       this.bodyElement.style.height = Math.min(this.bodyElement.scrollHeight, this.bodyElement.clientHeight + 30) + 'px';
       if(this.bodyElement.clientHeight < this.bodyElement.scrollHeight) {
         this.expandMore();
+      } else {
+        this.bodyElement.style.height = "auto"; 
+        this.bodyElement.style.overflowY = "visible";
       }
     });    
   }
@@ -51,6 +57,7 @@ class AccordionBodyBase extends React.Component<IAccordionBodyProps, IState> {
   collapse = () => {
     requestAnimationFrame(() => {
       this.bodyElement.style.height = this.bodyElement.scrollHeight + "px";
+      this.bodyElement.style.overflowY = "hidden";
       this.collapseMore();
     });
   }
