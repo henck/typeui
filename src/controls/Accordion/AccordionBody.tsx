@@ -9,6 +9,8 @@ interface IAccordionBodyProps {
   active?: boolean;
   /* (Not public) A styled accordion adds basic formatting. */
   styled?: boolean;    
+  /* (Not public) If set, there will be no sliding animations. */
+  noanimate?: boolean;  
 }
 
 interface IState {
@@ -33,10 +35,15 @@ class AccordionBodyBase extends React.Component<IAccordionBodyProps, IState> {
   //   to allow the AccordionBody to adjust its size when content is added to
   //   it or removed from it.
   expand = () => {
-    requestAnimationFrame(() => {
-      this.bodyElement.style.height = "0px";
-      this.expandMore();
-    });
+    if(this.props.noanimate) {
+      this.bodyElement.style.height = "auto"; 
+      this.bodyElement.style.overflowY = "visible";
+    } else {
+      requestAnimationFrame(() => {
+        this.bodyElement.style.height = "0px";
+        this.expandMore();
+      });
+    }
   }
   expandMore = () => {
     requestAnimationFrame(() => {
@@ -55,11 +62,16 @@ class AccordionBodyBase extends React.Component<IAccordionBodyProps, IState> {
   // - First, height is set to scrollHeight.
   // - Then, repeatedly, height is descreased until it reaches 0.
   collapse = () => {
-    requestAnimationFrame(() => {
-      this.bodyElement.style.height = this.bodyElement.scrollHeight + "px";
+    if(this.props.noanimate) {
+      this.bodyElement.style.height = "0px";
       this.bodyElement.style.overflowY = "hidden";
-      this.collapseMore();
-    });
+    } else {
+      requestAnimationFrame(() => {
+        this.bodyElement.style.height = this.bodyElement.scrollHeight + "px";
+        this.bodyElement.style.overflowY = "hidden";
+        this.collapseMore();
+      });
+    }
   }
   collapseMore = () => {
     requestAnimationFrame(() => {

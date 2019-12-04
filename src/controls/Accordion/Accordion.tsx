@@ -23,6 +23,8 @@ interface IAccordionProps {
   multiple?: boolean;
   /** Align caret icon to `left` or `right` (defaults to `left`).*/
   align?: Float;
+  /** If set, there will be no sliding animations. */
+  noanimate?: boolean;
 }
 
 interface IAccordionState {
@@ -71,6 +73,7 @@ class AccordionBase extends React.Component<IAccordionProps, IAccordionState> {
         active: this.state.indices.indexOf(i) != -1,
         styled: this.props.styled,
         align: this.props.align,
+        noanimate: this.props.noanimate,
         onClick: () => this.handleClick(i)
       })
     });    

@@ -24,6 +24,8 @@ interface IAccordionTabProps {
   onClick?: () => void;
   /* (Not public) Align caret icon to `left` or `right`. Defaults to `left`. */
   align?: Float;  
+  /* (Not public) If set, there will be no sliding animations. */
+  noanimate?: boolean;
 }
 
 class AccordionTabBase extends React.Component<IAccordionTabProps, {}> {
@@ -32,7 +34,7 @@ class AccordionTabBase extends React.Component<IAccordionTabProps, {}> {
     return (
       <div className={p.className}>
         <AccordionHeader styled={p.styled} align={p.align} active={p.active} onClick={this.props.onClick}>{p.title}</AccordionHeader>
-        <AccordionBody styled={p.styled} active={p.active}>{p.children}</AccordionBody>
+        <AccordionBody styled={p.styled} active={p.active} noanimate={p.noanimate}>{p.children}</AccordionBody>
       </div>
     );
   }
