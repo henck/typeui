@@ -14,6 +14,8 @@ interface IAccordionTabProps {
   children?: React.ReactNode;
   /** Tab title. Can be JSX. */
   title: React.ReactNode;
+  /** If true, tab is hidden. */
+  hidden?: boolean;
   /* (Not public) A styled accordion adds basic formatting. */
   styled?: boolean;
   /* (Not public) Is this tab currently active? */
@@ -50,7 +52,7 @@ class AccordionTab extends React.Component<IAccordionTabProps, {}> {
   render() {
     let p = this.props;
     return (
-      <AccordionTabStyled {...p}/>
+      p.hidden ? null : <AccordionTabStyled {...p}/>
     )
   }  
 }

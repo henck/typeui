@@ -264,7 +264,7 @@ const InputStyled = styled(InputBase)`
   position:    relative;
   display:     inline-flex;
   align-items: stretch;
-  min-width:   160px;
+  min-width:   40px;
   ${p => p.fluid && css`width: 100%;`}
 `
 
