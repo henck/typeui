@@ -54,6 +54,12 @@ const Selector = styled(SelectorBase)`
   cursor:          pointer;
   background:      #fff;
 
+  /* Disabled */
+  ${p => p.disabled && css`
+    opacity: 0.5;
+    cursor: auto;
+  `}  
+
   &>span {
     display: block;
     width: 100%;
