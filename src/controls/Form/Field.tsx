@@ -50,6 +50,8 @@ interface IProps {
   name: string;
   /** Field value. Required. */
   value: any;
+  /** Disabled is passed on to control */
+  disabled?: boolean;
   /** Hint to be shown when there is no error. */
   hint?: React.ReactNode;
   /** If true, error messages have more contrast (for dark backgrounds) */
@@ -138,6 +140,7 @@ class FieldBase extends React.Component<IProps, IState> {
       return true;
     }
     if(nextProps.control != this.props.control) return true;
+    if(nextProps.disabled != this.props.disabled) return true;
     if(nextState.value != this.state.value) return true;
     if(nextState.validation != this.state.validation) return true;
     return false;
@@ -323,7 +326,8 @@ class FieldBase extends React.Component<IProps, IState> {
       onChange: this.handleChange,
       value: this.state.value,
       checked: this.state.value,
-      error: hasError
+      error: hasError,
+      disabled: this.props.disabled
     });
   }
 
