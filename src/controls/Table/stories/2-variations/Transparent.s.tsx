@@ -9,14 +9,16 @@ storiesOf('Controls/Table/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`Table\` without a \`<thead>\` adds a rounded border to the first row. Note that
-    for the styling to work, a \`<tbody>\` element is required.
+    A \`transparent\` \`Table\` has no border.
     `
   })
   .addWithJSX(
-    'Headerless',
+    'Transparent',
   () => (
-  <Table striped={boolean('striped', true, 'Variations')}>
+  <Table 
+    transparent={boolean('transparent', true, 'Variations')}
+    striped={boolean('striped', false, 'Variations')}
+  >
     <tbody>
       <tr>
         <td>Value One</td>

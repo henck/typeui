@@ -10,7 +10,8 @@ storiesOf('Controls/Table', module)
   .addParameters({
     info: `
     A \`Table\` adds some standard styling to Table elements. Ordinary \`th\` 
-    and \`td\` elements are used inside.
+    and \`td\` elements are used inside. You must use \`thead\` and \`tbody\` for the
+    styling to work correctly.
     `
   })
   .addWithJSX(
