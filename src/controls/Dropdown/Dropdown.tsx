@@ -26,6 +26,8 @@ interface IDropdownProps {
    *  The value is an object, not an ID!
    */
   value?: any; 
+  /** Marks input as disabled. */
+  disabled?: boolean;
   /** A fluid Dropdown occupies all horizontal space available to it. */
   fluid?: boolean;
   /** An inline Dropdown has no border. Useful for menu items. */

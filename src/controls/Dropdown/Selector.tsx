@@ -10,6 +10,8 @@ interface ISelectorProps {
   children?: React.ReactNode;
   onClick: any;
   onClear?: any;
+  /** Dropdown currently disabled? */
+  disabled?: boolean;
   /** Is the Dropdown currently open? */
   open: boolean;
   /** A Dropbox can open upwards, which affects its styles. */
@@ -113,6 +115,8 @@ const Selector = styled(SelectorBase)`
   /* Caret icon is only shown when there is an onClear callback. */
   & > svg:nth-of-type(1) {
     display: ${p => p.onClear ? 'none' : 'block'};
+    transition: fill ${p => p.theme.transition.duration*3}s ease-in-out;
+    fill: ${p => (p.error && !p.open) ? p.theme.errorColor.color : (p.disabled ? '#888' : '#000')};
   }
   /* Clear icon is only shown when there is an onClear callback. */
   & > svg:nth-of-type(2) {

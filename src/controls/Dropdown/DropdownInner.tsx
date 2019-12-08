@@ -85,6 +85,8 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
   // The selector was clicked, open the Dropdown, or close
   // it if it was open.
   private handleSelectorClicked = () => {
+    // Disabled input cannot be clicked.
+    if(this.props.disabled) return;
     if(this.state.open) {
       this.close();
     } else {
@@ -210,6 +212,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
         <Selector 
           open={this.state.open} 
           error={this.props.error}
+          disabled={this.props.disabled}
           upwards={this.state.upwards}
           inline={p.inline} 
           multiple={p.multiple}
