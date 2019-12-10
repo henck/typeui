@@ -18,6 +18,7 @@ storiesOf('Controls/Accordion/States', module)
   () => (
   <Accordion 
     styled={boolean('styled', true, 'Variations')} 
+    raised={boolean('raised', false, 'Variations')} 
     multiple={boolean('multiple', false, 'Type')}
     align={select('align', ['', 'left', 'right'], 'left', 'Variations') as Float}>
     <Accordion.Tab title="What is a dog?">

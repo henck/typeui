@@ -20,6 +20,7 @@ storiesOf('Controls/Accordion/Types', module)
   () => (
   <Accordion 
   styled={boolean('styled', false, 'Variations')} 
+  raised={boolean('raised', false, 'Variations')} 
   multiple={boolean('multiple', false, 'Type')}
   align={select('align', ['', 'left', 'right'], '', 'Variations') as Float}>
     <Accordion.Tab title={<Flex.Quick><Icon name="code"/> What is a dog?</Flex.Quick>}>

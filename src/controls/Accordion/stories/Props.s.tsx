@@ -21,6 +21,7 @@ storiesOf('Controls/Accordion', module)
   <div>
     <Accordion
       styled={boolean('styled', false, 'Variations')} 
+      raised={boolean('raised', false, 'Variations')} 
       multiple={boolean('multiple', false, 'Type')}
       align={select('align', ['', 'left', 'right'], '', 'Variations') as Float}>
       <Accordion.Tab title="One">

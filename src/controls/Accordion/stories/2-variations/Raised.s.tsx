@@ -3,6 +3,8 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { select, boolean } from '@storybook/addon-knobs/react';
 import { Float } from '../../../Types'
 import { Accordion } from '../../../Accordion';
+import { Flex } from '../../../Flex';
+import { Icon } from '../../../Icon';
 
 storiesOf('Controls/Accordion/Variations', module)
   .addDecorator(withInfo({...withInfoSettings, propTables: false}))
@@ -10,19 +12,18 @@ storiesOf('Controls/Accordion/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    The accordion's sliding animation can be turned off with \`noanimate\`.
+    A \`raised\` accordion (with \`styled\` set) gets an extra-deep drop shadow.
     `
   })
   .addWithJSX(
-    'Noanimate',
+    'Raised',
   () => (
-  <Accordion 
+    <Accordion 
     styled={boolean('styled', true, 'Variations')} 
-    raised={boolean('raised', false, 'Variations')} 
+    raised={boolean('raised', true, 'Variations')} 
     multiple={boolean('multiple', false, 'Type')}
-    align={select('align', ['', 'left', 'right'], 'left', 'Variations') as Float}
-    noanimate={boolean('noanimate', true, 'Variations')}>
-    <Accordion.Tab title="What is a dog?">
+    align={select('align', ['', 'left', 'right'], '', 'Variations') as Float}>
+    <Accordion.Tab title={<Flex.Quick><Icon name="code"/> What is a dog?</Flex.Quick>}>
       <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
     </Accordion.Tab>
     <Accordion.Tab title="What kinds of dogs are there?">

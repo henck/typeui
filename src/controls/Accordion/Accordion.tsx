@@ -16,6 +16,8 @@ interface IAccordionProps {
   active?: number[];  
   /** A styled accordion adds basic formatting. */
   styled?: boolean;
+  /** A styled accordion will have an extra-strong dropshadow if true. */
+  raised?: boolean;  
   /** 
    * If set, the accordion can have multiple panels open at the same time. 
    * By default, an accordion only allows a single panel open at any time.
@@ -95,6 +97,9 @@ const AccordionStyled = styled(AccordionBase)`
   ${p => p.styled && css`
     border: solid 1px ${p.theme.normalColor};
     border-radius: ${p.theme.radius}px;
+    box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;
+    /* A raised Accordion gets an extra deep shadow. */
+    ${p.raised && css`box-shadow: rgba(34, 36, 38, 0.12) 0px 2px 4px 0px, rgba(34, 36, 38, 0.15) 0px 2px 10px 0px;`}
   `}
 `;
 
