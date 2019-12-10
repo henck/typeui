@@ -9,7 +9,7 @@ storiesOf('Controls/Segment/Groups', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    Segments can be \`attached\` to other content.
+    Segments can be \`attached\` to other content. Note that all dropshadows are removed for attached content.
     `
   })
   .addWithJSX(
