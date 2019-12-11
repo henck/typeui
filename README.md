@@ -13,6 +13,10 @@ bower install @independent-software/typeui --save
 
 Storybook available as [GitHub pages](https://henck.github.io/typeui/).
 
+## Projects
+
+You can see TypeUI in action on (recharts.online)[http://recharts.online).
+
 ## Usage
 
 This package has a built-in theme, which must be passed on to any controls your app uses. You can derive new themes from the default theme. The required imports are:
