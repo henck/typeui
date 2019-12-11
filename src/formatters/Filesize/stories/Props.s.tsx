@@ -9,7 +9,7 @@ storiesOf('Formatters/Filesize', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    Filesize takes a size prop (in bytes) and renders
+    \`Filesize\` takes a \`value\` prop (in bytes) and renders
     a human-readable filesize string.
      
     E.g. \`10000\` yields \`10.0 kB\`

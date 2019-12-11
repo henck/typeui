@@ -9,7 +9,8 @@ storiesOf('Formatters/Number', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    Number formats a number with thousands separators and optional fractional digits.
+    \`Number\` formats a number with thousands separators and optional fractional digits. If provided
+    with a string, \`Number\` will convert it to a float first.
      
     E.g. \`10000\` yields \`10,000\`
     `
