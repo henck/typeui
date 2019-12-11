@@ -1,8 +1,12 @@
 import * as React from 'react';
 
+type TUnit = 'si' | 'binary';
+
 interface IFilesizeProps {
   /** File size in bytes */
-  value: number;  
+  value: number | string;  
+  /** Unit type, `si` or `binary` */
+  unit?: 'si' | 'binary';
 }
 
 /**
@@ -14,12 +18,12 @@ interface IFilesizeProps {
 class Filesize extends React.Component<IFilesizeProps, {}> {
 
   /** Convert bytes to size string (kB, MB, GB etc.) */
-  humanFileSize = (bytes: number, si: boolean = true) => {
-    var thresh = si ? 1000 : 1024;
+  humanFileSize = (bytes: number, unit: TUnit) => {
+    var thresh = unit == 'si' ? 1000 : 1024;
     if(Math.abs(bytes) < thresh) {
         return bytes + ' B';
     }
-    var units = si
+    var units = unit == 'si'
       ? ['kB','MB','GB','TB','PB','EB','ZB','YB']
       : ['KiB','MiB','GiB','TiB','PiB','EiB','ZiB','YiB'];
     var u = -1;
@@ -31,7 +35,14 @@ class Filesize extends React.Component<IFilesizeProps, {}> {
   }
 
   render() {
-    return this.humanFileSize(this.props.value, true);
+    let p = this.props;
+
+    if(p.value == null) return null;
+
+    // Make sure value is a number.
+    let val = (typeof p.value === 'string') ? parseFloat(p.value) : p.value;
+
+    return this.humanFileSize(val, p.unit ? p.unit : 'si');
   }
 }
 
