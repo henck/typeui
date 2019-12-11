@@ -15,7 +15,7 @@ Storybook available as [GitHub pages](https://henck.github.io/typeui/).
 
 ## Projects
 
-You can see TypeUI in action on (recharts.online)[http://recharts.online).
+You can see TypeUI in action on (recharts.online)[http://recharts.online].
 
 ## Usage
 
