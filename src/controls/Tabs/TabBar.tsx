@@ -104,7 +104,6 @@ class TabBarBase extends React.Component<ITabBarProps, {}> {
   private moveUnderliner() {
     if(!this.tabRef) return;
     let { offsetLeft, offsetWidth } = this.tabRef;
-    console.log(offsetLeft, offsetWidth);
     if(this.underlinerRef) {
       this.underlinerRef.style.left = `${offsetLeft}px`;
       this.underlinerRef.style.width = `${offsetWidth}px`;
