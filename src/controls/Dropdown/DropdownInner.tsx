@@ -39,16 +39,16 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
 
   componentDidMount() {
     // Listen for document-wide mousedown event when Dropdown mounts.
-    document.addEventListener('mousedown', this.handleClickOutside.bind(this));
+    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
   componentWillUnmount() {
     // Clean up document-wide mousedown event when Dropdown unmounts.
-    document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
+    document.removeEventListener('mousedown', this.handleClickOutside);
   }
   
   // Handle document-wide mousedown event by closing the Dropdown.
-  handleClickOutside(event: MouseEvent) {
+  handleClickOutside = (event: MouseEvent) => {
     let elem:Element = event.target as Element;
     if (this.wrapperElement && !this.wrapperElement.contains(elem)) {
       this.close();
@@ -75,7 +75,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     this.setState({ open: false });
     // When the dropdown is closed, an onClose event may be fired.
     // It is fired 300ms after dropdown closure to give the close
-    // animation a change to run, before any changes are made
+    // animation a chance to run, before any changes are made
     // to the dropdown's contents.
     if(this.props.onClose) {
       setTimeout( this.props.onClose, 300 );
@@ -93,6 +93,59 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
       this.open();
     }
   }  
+
+  //
+  // Given a single character, find the first data item that starts with
+  // that character. If such an item is found, it is made the current selection.
+  // 
+  // Data items are compared by converting them to strings. If a data item is
+  // an object, all its keys are converted to strings and compared.
+  // 
+  private selectItemByCharacter = (c: string) => {
+    c = c.toLowerCase();
+    // Go through all (non-null) data records:
+    let idx = this.props.data.filter(r => r != null).findIndex(row => {
+      // Build a list of strings contained in the data row:
+      let strings: string[] = [];
+      // If data row is an object, convert all its keys to string.
+      if(typeof row === 'object' && row != null) {
+        for(let p in row) strings.push(row[p].toString());
+      // If data row is not an object, just convert its value to a string.
+      } else {
+        strings.push(row.toString());
+      }
+      return strings.find(s => s.length > 0 && s.charAt(0).toLowerCase() == c);
+    });
+
+    // Was a matching row found?
+    if(idx != -1) {
+      this.handleClick(this.props.data[idx]);
+    }
+  }
+
+  //
+  // A key was pressed while the selector had focus.
+  // 
+  private handleKeyDown = (e: React.KeyboardEvent) => {
+    if(this.props.disabled) return;
+    let key = e.key;
+    
+    // Is space or ArrowDown pressed?
+    if(key == 'ArrowDown' || key == ' ') {
+      e.stopPropagation();
+      if(this.state.open) return;
+      this.open();
+    }
+
+    // Is a letter or a digit pressed?
+    if(key.length == 1 && key.match(/[a-z0-9]/i)) {
+      e.stopPropagation();
+      this.selectItemByCharacter(key);
+    }
+
+    // Any other key's propagation is not stopped (most importantly
+    // the TAB key to navigate to the next control).
+  }
 
   private setValue(item: any) {
     this.close();
@@ -217,6 +270,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
           inline={p.inline} 
           multiple={p.multiple}
           onClick={this.handleSelectorClicked} 
+          onKeyDown={this.handleKeyDown}
           onClear={(p.clearable && !showPlaceholder) ? this.handleClear : null}
           placeholder={showPlaceholder}>
           {label}

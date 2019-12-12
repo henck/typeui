@@ -8,8 +8,9 @@ import { lighten } from '../../helper/lighten';
 interface ISelectorProps {
   className?: string;
   children?: React.ReactNode;
-  onClick: any;
-  onClear?: any;
+  onClick: () => void;
+  onClear?: () => void;
+  onKeyDown: (e: React.KeyboardEvent) => void;
   /** Dropdown currently disabled? */
   disabled?: boolean;
   /** Is the Dropdown currently open? */
@@ -32,11 +33,15 @@ class SelectorBase extends React.Component<ISelectorProps, {}> {
     if(this.props.onClear) this.props.onClear();
   }
 
+  private handleKeyDown = (e: React.KeyboardEvent) => {
+    this.props.onKeyDown(e);
+  }
+
   render() {
     let p = this.props;
     return (
       <div className={p.className} onClick={p.onClick}>
-        <span>
+        <span onKeyDown={this.handleKeyDown}>
           {p.children}
         </span>
         <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
