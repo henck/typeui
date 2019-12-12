@@ -142,8 +142,9 @@ const HeaderStyled = styled(HeaderBase)`
   line-height: ${p => getLineHeight(p.size, p.relative, p.theme.headerBase, p.theme.scaleRatio, p.theme.heightRatio)};
 
   /* Text color */
-  color: ${p => p.disabled && css`#888`};
-  color: ${p => !p.disabled && p.color && css`${p.color}`};
+  ${p => p.disabled && css`color: #888;`}
+  ${p => !p.disabled && !p.color && css`color: ${p.theme.fontColor};`}
+  ${p => !p.disabled && p.color && css`color: ${p.color};`};
 
   /* Dividing */
   ${p => p.dividing && css`border-bottom: solid 1px rgba(34, 36, 38, 0.15);`}
