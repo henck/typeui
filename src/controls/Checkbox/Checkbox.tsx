@@ -49,8 +49,8 @@ class CheckboxBase extends React.Component<ICheckboxProps, {}> {
         <input 
           name={p.name} 
           type={p.radio ? "radio" : "checkbox"}
-          value={p.value} 
-          checked={p.checked}
+          value={p.value === null ? undefined : p.value} 
+          checked={p.checked === null ? false : p.checked}
           disabled={p.disabled}
           onChange={this.handleChange}/>
         <div>

@@ -19,6 +19,7 @@ storiesOf('Controls/Checkbox/Types', module)
     <Checkbox 
       name="mycheck" 
       radio={boolean('radio', false)} 
+      value={null}
       type={select('type', ['', 'check', 'toggle', 'slider', 'circle'], '') as CheckboxType} 
       label={text('label', 'My label')} 
       error={boolean('error', false)}
