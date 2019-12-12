@@ -5,14 +5,14 @@ import styled from '../../styles/Theme';
 import { Pane } from './Pane';
 import { Panes } from './Panes';
 import { TabBar } from './TabBar';
-import { Tab } from './Tab';
-import { Underliner } from './Underliner';
 
 interface ITabsProps {
   className?: string;
   children?: React.ReactNode;
   /** Underline the current tab (animated). */
   underlined?: boolean;
+  /** If set, hidden panes are not rendered. */
+  nohiddenrender?: boolean;
   /** Index of active tab by default (0-based) */
   active?: number;
   /* Method to call when active tab changes. */
@@ -32,9 +32,7 @@ class TabsBase extends React.PureComponent<ITabsProps, ITabsState> {
   }
 
   readonly tabClicked = (idx: number) => {
-    this.setState((state, props) => ({
-      index: idx
-    }));
+    this.setState({ index: idx });
     if(this.props.onTabChange) {
       this.props.onTabChange(idx);
     }
@@ -48,7 +46,8 @@ class TabsBase extends React.PureComponent<ITabsProps, ITabsState> {
   getPanes() {
     return React.Children.map(this.props.children, (child:any, i) => {
       return React.cloneElement(child, {
-        active: i === this.state.index
+        active: i === this.state.index,
+        nohiddenrender: this.props.nohiddenrender
       })
     });
   }
@@ -57,7 +56,7 @@ class TabsBase extends React.PureComponent<ITabsProps, ITabsState> {
     let p = this.props;
 
     // - Render tabbar with tabs; state.index determines which one is active.
-    //   Tabs is resonsible for rendering the tabs.
+    //   TabBar is resonsible for rendering the tabs.
     // - Render body. The Tab children are responsible for rendering the body.
     //   Active tab gets props.active, tabs hide body as necessary.
 

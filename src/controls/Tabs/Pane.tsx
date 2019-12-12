@@ -6,15 +6,23 @@ interface IPaneProps {
   children?: React.ReactNode;
   active?: boolean;
   label: React.ReactNode;
+  nohiddenrender?: boolean;
 }
 
 class PaneBase extends React.Component<IPaneProps, {}> {
+
+  private shouldRender = () => {
+    return !this.props.nohiddenrender || this.props.active;
+  }
+
   render() {
     let p = this.props;
-    // Children are rendered only when pane is active.
+    // By default, all children are rendered (but hidden when
+    // not active). With nohiddenrender enabled, only the active
+    // tab is rendered.
     return (
       <div className={p.className}>
-        {p.children}
+        {this.shouldRender() ? p.children : null}
       </div>
     )
   }
