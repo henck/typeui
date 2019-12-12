@@ -4,14 +4,18 @@ Bootstrap getting old hat? SemanticUI too heavy? Prefer React and TypeScript? Ty
 
 ## Installation 
 ```sh
-npm install typeui --save
-yarn add typeui
-bower install typeui --save
+npm install @independent-software/typeui --save
+yarn add @independent-software/typeui
+bower install @independent-software/typeui --save
 ```
 
 ## Documentation
 
 Storybook available as [GitHub pages](https://henck.github.io/typeui/).
+
+## Projects
+
+You can see TypeUI in action on [recharts.online](http://recharts.online).
 
 ## Usage
 
