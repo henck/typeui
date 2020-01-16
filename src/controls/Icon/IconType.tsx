@@ -37,6 +37,7 @@ type IconType =
   | 'save'
   | 'search'
   | 'table'
+  | 'th'
   | 'times'
   | 'tools'
   | 'trash'
