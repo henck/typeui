@@ -69,6 +69,7 @@ const Selector = styled(SelectorBase)`
     display: block;
     width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
     white-space: nowrap;
     /* Add ellipsis to selection text */
     ${p => !p.multiple && css`text-overflow: ellipsis;`}

@@ -26,7 +26,7 @@ storiesOf('Controls/Dropdown/Types', module)
   .addWithJSX(
     'Dropdown',
   () => (
-  <Dropdown placeholder="Select domain" label={(item:any) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}]}>
+  <Dropdown placeholder="Select domain" label={(item:any) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}]}>
     <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
   </Dropdown>
   ));  

@@ -67,6 +67,9 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     if(this.props.onSearch) {
       let input = this.wrapperElement.querySelector('input');
       input.focus();
+      // In IE/Chrome, body content scrolls up a little when setting focus
+      // to search input. Scroll it back to top.
+      this.wrapperElement.children[1].scrollTop = 0;
     }
   }
 
