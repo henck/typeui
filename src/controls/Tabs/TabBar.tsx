@@ -133,6 +133,7 @@ const TabBar = styled(TabBarBase)`
   position: relative;
   display: block;
   height: 40px;
+  min-height: 40px;
   overflow-x: hidden;
 
   &>div {
