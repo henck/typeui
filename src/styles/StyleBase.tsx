@@ -23,6 +23,10 @@ const base = css`
     font-style: italic;
   }
 
+  small, sub, sup { font-size: .83em; }
+  sub             { vertical-align: sub; }
+  sup             { vertical-align: super; }
+
   code {
     font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
     background-color: #555;
