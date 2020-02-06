@@ -37,14 +37,14 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
   height: 12px;
   margin: 4px 0 4px 0;
 
-  ${p => p.bordered && css`border: solid 1px ${darken(0.1, p.theme.normalColor)};`}
-  ${p => p.background && css`background: ${p.theme.normalColor};`}
+  ${p => p.bordered && css`border: solid 1px ${p => darken(0.1, p.theme.normalColor)};`}
+  ${p => p.background && css`background: ${p => p.theme.normalColor};`}
   
   /* Raised adds a dropshadow. */
-  ${p => p.raised && css`box-shadow: 1px 1px 2px ${p.theme.normalColor};`}
+  ${p => p.raised && css`box-shadow: 1px 1px 2px ${p => p.theme.normalColor};`}
 
   /* Not-rectangular adds rounding: */
-  ${p => !p.rectangular && css`border-radius: ${p.theme.radius + 2}px;`}
+  ${p => !p.rectangular && css`border-radius: ${p => p.theme.radius + 2}px;`}
 
   &:before {
     content: '';
@@ -57,7 +57,7 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
     height: 100%;
     background: ${p => p.theme.primaryColor};
     /* Not-rectangular adds rounding: */
-    ${p => !p.rectangular && css`border-radius: ${p.theme.radius}px;`}
+    ${p => !p.rectangular && css`border-radius: ${p => p.theme.radius}px;`}
   }
 
   ${p => p.numbered && css`
