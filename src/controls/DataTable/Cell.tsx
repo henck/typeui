@@ -15,6 +15,8 @@ interface ICellProps {
   align?: Float;
   /** Show vertical grid lines? */
   grid?: boolean;
+  /** If true, column always appears no matter the screen size. */
+  force?: boolean;
 }
 
 class CellBase extends React.Component<ICellProps, {}> {
@@ -33,11 +35,13 @@ const Cell = styled(CellBase)`
   box-sizing: border-box;
 
   /* On small screens, only the first column is shown. */
-  &:not(:first-child) {
-    @media (max-width: ${p => p.theme.smallScreen}px) {
-      display: none;
-    }
-  }      
+  ${p => !p.force && css`
+    &:not(:first-child) {
+      @media (max-width: ${p => p.theme.smallScreen}px) {
+        display: none;
+      }
+    }      
+  `}
   
   /* All cells are equal width. Todo? */
   flex: ${p => p.weight ? p.weight : 1};

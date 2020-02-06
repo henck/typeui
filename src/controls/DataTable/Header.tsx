@@ -25,6 +25,8 @@ interface IHeaderProps {
   weight?: number;
   /** Text alignment. Defaults to 'left'. */
   align?: Float;  
+  /** If true, column always appears no matter the screen size. */
+  force?: boolean;  
 }
 
 class HeaderBase extends React.Component<IHeaderProps, {}> {
@@ -49,11 +51,13 @@ const Header = styled(HeaderBase)`
   background-color: #fff;
 
   /* On small screens, only the first Heading is shown. */
-  &:not(:first-child) {
-    @media (max-width: ${p => p.theme.smallScreen}px) {
-      display: none;
-    }
-  }    
+  ${p => !p.force && css` 
+    &:not(:first-child) {
+      @media (max-width: ${p => p.theme.smallScreen}px) {
+        display: none;
+      }
+    }    
+  `}
 
   /* All cells are equal width. Todo? */
   flex: ${p => p.weight ? p.weight : 1};

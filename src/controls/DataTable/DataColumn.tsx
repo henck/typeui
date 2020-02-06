@@ -15,7 +15,9 @@ interface IDataColumnProps {
   /** Column weight. Defaults to `1`. */
   weight?: number;
   /** Text alignment, `left` or `right`. Defaults to `left`. */
-  align?: Float;  
+  align?: Float; 
+  /** If true, column always appears no matter the screen size. */
+  force?: boolean;
 }
 
 class DataColumn extends React.Component<IDataColumnProps, {}> {
