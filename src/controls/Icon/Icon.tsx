@@ -16,7 +16,9 @@ interface IIconProps {
   /** An icon can have an `onClick` handler. */
   onClick?: () => void;
   /** Name of sprite from SVG spritesheet to use, e.g. 'caret-down' */
-  name: IconType;
+  name?: IconType;
+  /** URL of spritesheet and icon, e.g. 'sprites.svg#arrow' */
+  url?: string;
   /** Optional icon popup title. */
   title?: string;
   /** Disabled icons have a lighter color. */
@@ -53,7 +55,8 @@ export class IconBase extends React.Component<IIconProps, {}> {
     return (
       <svg className={p.className} onClick={p.onClick} focusable="false">
         {p.title && <title>{p.title}</title>}
-        <use xlinkHref={"spritemap.svg#" + p.name}></use>
+        {p.name && <use xlinkHref={"spritemap.svg#" + p.name}></use>}
+        {p.url && <use xlinkHref={p.url}></use>}
       </svg>
     )
   }  

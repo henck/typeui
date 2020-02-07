@@ -8,11 +8,12 @@ storiesOf('Controls/Icon/Types', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A standard icon. The \`name\` attribute is used to pick an icon from the built-in icons.
+    An icon with a custom URL. If you want to use an icon from a spritesheet other than the built-in spritesheet,
+    you can pass its URL using the \`url\` attribute (and omit the \`name\` attribute).
     `
   })
   .addWithJSX(
-    'Icon',
+    'url',
   () => (
-  <Icon name="bullhorn"/>
+  <Icon url="spritemap.svg#bullhorn"/>
   ));  
