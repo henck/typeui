@@ -5,21 +5,6 @@ const Body = styled('div')`
   overflow-y: scroll;
 `;
 
-/* const Row = styled('div')`
-  position: absolute;
-  display: flex;
-  width: 100%;
-  cursor: pointer;
-  background-color: #fff;
-  &:not(:last-child) {
-    border-bottom: solid 1px ${p => p.theme.normalColor};
-  }
-  transition: background-color ${p => p.theme.transition.duration}s ease;
-  &:hover {
-    background-color: #f9f9f9;
-  }
-`; */
-
 const Table = styled('div')`
   position: relative;
   flex: 1;

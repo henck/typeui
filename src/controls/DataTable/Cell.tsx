@@ -33,6 +33,7 @@ class CellBase extends React.Component<ICellProps, {}> {
 
 const Cell = styled(CellBase)`
   box-sizing: border-box;
+  font-size: 14px;
 
   /* On small screens, only the first column is shown. */
   ${p => !p.force && css`
@@ -49,7 +50,7 @@ const Cell = styled(CellBase)`
   /* Text alignment */
   ${p => p.align === 'right' && css`text-align: right;`}
 
-  padding: 16px 12px;
+  padding: 16px 6px;
   height: 56px;
 
   /* Vertical gridlines */

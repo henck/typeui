@@ -63,7 +63,7 @@ const Header = styled(HeaderBase)`
   flex: ${p => p.weight ? p.weight : 1};
   overflow-x: hidden;
 
-  padding: 16px 12px;
+  padding: 16px 6px;
   margin-right: 30px;
   &:not(:last-child) {
     margin-right: 26px;
