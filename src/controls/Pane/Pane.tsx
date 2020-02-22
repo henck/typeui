@@ -39,7 +39,7 @@ class PaneBase extends React.Component<IPaneProps, {}> {
   // Handle document-wide mousedown event by sending a pane close event.
   handleClickOutside(event: MouseEvent) {
     let elem:Element = event.target as Element;
-    if (this.paneElement && !this.paneElement.contains(elem) && this.props.onClose) {
+    if (this.props.open && this.paneElement && !this.paneElement.contains(elem) && this.props.onClose) {
       this.props.onClose();
     }
   } 
