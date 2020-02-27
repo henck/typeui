@@ -12,6 +12,8 @@ interface ICardProps {
   children?: React.ReactNode;
   /** A fluid card occupies all width available to it. */
   fluid?: boolean;
+  /** A raised card will have an extra-strong dropshadow. */
+  raised?: boolean;
   /** A card can be clickable. If an event handler is set, then the card will respond to mouse hover. */
   onClick?: () => void;
 }
@@ -43,7 +45,8 @@ const CardStyled = styled(CardBase)`
   background: #fff;
   border: solid 1px ${p => p.theme.normalColor};
   border-radius: ${p => p.theme.radius}px;
-  box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;
+  ${p => !p.raised && css`box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;`}
+  ${p => p.raised && css`box-shadow: rgba(34, 36, 38, 0.12) 0px 2px 4px 0px, rgba(34, 36, 38, 0.15) 0px 2px 10px 0px;`}
 
   ${p => p.onClick && css`
     cursor: pointer;
@@ -52,7 +55,8 @@ const CardStyled = styled(CardBase)`
     &:hover {
       margin-top: 3px;
       margin-bottom: 12px;
-      box-shadow: rgba(34, 36, 38, 0.3) 0px 2px 3px 0px;
+      ${p => !p.raised && css`box-shadow: rgba(34, 36, 38, 0.3) 0px 2px 3px 0px;`}
+      ${p => p.raised && css`box-shadow: rgba(34, 36, 38, 0.24) 0px 2px 4px 0px, rgba(34, 36, 38, 0.3) 0px 2px 10px 0px;`}
     }
   `}
 `
