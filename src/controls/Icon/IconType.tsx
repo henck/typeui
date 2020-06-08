@@ -43,6 +43,8 @@ type IconType =
   | 'trash'
   | 'unlock'
   | 'zoom-extents'
+  | 'zoom-minus'
+  | 'zoom-plus'
   ;
 
 export { IconType };
