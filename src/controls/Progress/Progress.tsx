@@ -17,6 +17,11 @@ interface IProgressProps {
   raised?: boolean;
   /** If set, a percentage number is shown on the Progress bar. */
   numbered?: boolean;
+  /** 
+   * If set, sets the color of the Progress bar. By default, 
+   * the color is the theme primary color.
+   */
+  color?: string;
 }
 
 class ProgressBase extends React.Component<IProgressProps, {}> {
@@ -55,7 +60,7 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
     width: ${p => p.value + '%'};
     transition: width ${p => p.theme.transition.duration * 2}s;
     height: 100%;
-    background: ${p => p.theme.primaryColor};
+    background: ${p => p.color ? p.color : p.theme.primaryColor};
     /* Not-rectangular adds rounding: */
     ${p => !p.rectangular && css`border-radius: ${p => p.theme.radius}px;`}
   }
