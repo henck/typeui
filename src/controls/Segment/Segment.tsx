@@ -27,6 +27,8 @@ interface ISegmentProps {
   secondary?: boolean;
   /** Seriously decrease segment's emphasis. */
   tertiary?: boolean;
+  /** Custom color */
+  color?: string;
   /** Increase segment padding (optionally `very`). */
   padded?: 'very' | boolean;
   /** Decrease segment padding. */
@@ -130,6 +132,9 @@ const SegmentStyled = styled(SegmentBase)`
     `}
     ${p => p.tertiary && css`
       background: ${darken(0.2, '#fff')};
+    `}
+    ${p => p.color && css`
+      background: ${p.color};
     `}
 
     /* Padded */
