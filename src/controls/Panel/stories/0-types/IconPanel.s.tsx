@@ -13,6 +13,8 @@ storiesOf('Controls/Panel/Types', module)
     \`Icon\` is clicked. Note that the \`Panel.Icon\` must still be placed inside a container
     that is relatively positioned, and that the only way to close the panel is to click
     outside it.
+
+    An icon can be passed as an icon type, or as a collection of icon properties.
     `
   })
   .addWithJSX(
