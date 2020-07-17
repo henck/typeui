@@ -25,6 +25,7 @@ class TabBase extends React.Component<ITabProps, {}> {
 const Tab = styled(TabBase)`
   display: table-cell;
   vertical-align: middle;
+  white-space: nowrap;
   padding: 0 20px;
   font-size: 0.875em;
   box-sizing: border-box;
