@@ -9,33 +9,33 @@ import { Label } from './Label';
 import { FormContext, IFormContext } from './FomContext';
 
 interface ISimpleValidation {
-  message: string;
+  message: React.ReactNode;
 }
 
 interface IFloatValidation {
   separator?: string;
-  message: string;
+  message: React.ReactNode;
 }
 
 interface IValueValidation {
   value: number;
-  message: string;
+  message: React.ReactNode;
 }
 
 interface IBetweenValidation {
   min: number;
   max: number;
-  message: string;
+  message: React.ReactNode;
 }
 
 interface ILengthValidation {
   length: number;
-  message: string;
+  message: React.ReactNode;
 }
 
 interface IPatternValidation {
   pattern: string;
-  message: string;
+  message: React.ReactNode;
 }
 
 interface IProps {
@@ -45,7 +45,7 @@ interface IProps {
   /** Relative width of field. If not set, field will not flex to fill available width. */
   width?: number;  
   /** Label to show by field. */
-  label?: string;
+  label?: React.ReactNode;
   /** Field name. Required.  */
   name: string;
   /** Field value. Required. */
@@ -80,7 +80,7 @@ interface IProps {
 
 interface IState {
   pristine: boolean;
-  validation: string;
+  validation: React.ReactNode;
   value: any;
 }
 
@@ -159,7 +159,7 @@ class FieldBase extends React.Component<IProps, IState> {
     }
   }
 
-  getValidation(value: any): string {
+  getValidation(value: any): React.ReactNode {
     if(this.props.required != null) {
       if(!this.validateRequired(value)) return this.props.required.message;
     }
