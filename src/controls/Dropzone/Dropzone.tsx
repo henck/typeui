@@ -10,6 +10,10 @@ interface IDropzoneProps {
   children?: React.ReactNode;
   /** Callback to call when files are dropped in the Dropzone. */
   onAddFiles: (files: File[]) => void;
+  /**
+   * Optional translation override for Dropzone message.
+   */
+  message?: React.ReactNode;
 }
 
 interface IDropzoneState {
@@ -42,6 +46,7 @@ class Dropzone extends React.Component<IDropzoneProps, IDropzoneState> {
     return (
       <Dropbox 
         hover={this.state.hover} 
+        message={p.message}
         onDragover={this.handleDragOver} 
         onDragLeave={this.handleDragLeave} 
         onAddFiles={this.handleAddFiles}/>

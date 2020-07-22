@@ -9,6 +9,7 @@ interface IDropboxProps {
   onDragLeave: () => void;
   onAddFiles: (files: File[]) => void;
   hover: boolean;
+  message?: React.ReactNode;
 }
 
 class DropboxBase extends React.Component<IDropboxProps, {}> {
@@ -58,7 +59,7 @@ class DropboxBase extends React.Component<IDropboxProps, {}> {
         onDragLeave={this.handleDragLeave}
         onDrop={this.handleDrop}>
 
-        <div>Drop a file here to upload, or click to select.</div>
+        <div>{p.message ? p.message : "Drop a file here to upload, or click to select."}</div>
         <svg>
           <use xlinkHref={"spritemap.svg#cloud-upload"}></use>
         </svg>
