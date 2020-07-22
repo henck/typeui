@@ -17,7 +17,7 @@ interface ICheckboxProps {
   /** Is the Checkbox currently checked? */
   checked?: boolean;  
   /** Checkbox label. Appears to the right of the box. */
-  label?: string;
+  label?: React.ReactNode;
   /** Is this a radio? */
   radio?: boolean;
   /** Checkbox visual style: `check`, `toggle`, `slider` or `circle`. Default is `check`. */
