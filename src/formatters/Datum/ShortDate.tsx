@@ -23,7 +23,7 @@ class ShortDate extends React.Component<IProps, {}> {
 
     return (
       <span title={format(date, 'eeee, d MMMM yyyy', p.locale ? { locale: p.locale } : {} )}>
-         {format(date, 'dd-MMM-yyyy', p.locale ? { locale: p.locale } : {} )}
+         {format(date, 'dd-MM-yyyy', p.locale ? { locale: p.locale } : {} )}
       </span>
     );
   }

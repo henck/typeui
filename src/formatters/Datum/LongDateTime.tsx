@@ -21,7 +21,11 @@ class LongDateTime extends React.Component<IProps, {}> {
       date = p.value;
     }
 
-    return format(date, 'eee, d MMMM yyyy HH:mm:ss', p.locale ? { locale: p.locale } : {} );
+    return (
+      <span title={format(date, 'eeee, d MMMM yyyy HH:mm:ss', p.locale ? { locale: p.locale } : {} )}>
+        {format(date, 'eee, d MMMM yyyy HH:mm:ss', p.locale ? { locale: p.locale } : {} )}
+     </span>    
+    );
   }
 }
 
