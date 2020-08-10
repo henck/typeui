@@ -2,6 +2,7 @@ import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase.s';
 import { Form } from '../../../controls/Form';
 import { MarkdownTextarea } from '../../../modules/MarkdownTextarea';
+import { number } from '@storybook/addon-knobs';
 
 
 storiesOf('Modules/MarkdownTextarea', module)
@@ -22,7 +23,7 @@ storiesOf('Modules/MarkdownTextarea', module)
       name="description"
       value={null}
       control={
-        <MarkdownTextarea rows={10} placeholder="Description"/>
+        <MarkdownTextarea rows={number('rows', 15)} placeholder="Description"/>
       }
     />
   </Form>   

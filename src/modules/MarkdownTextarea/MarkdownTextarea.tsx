@@ -21,22 +21,40 @@ interface IProps {
   label_markdown?: React.ReactNode;
 }
 
-class MarkdownTextarea extends React.Component<IProps & ITextareaProps> {
+interface IState {
+  tabIndex: number;
+}
+
+class MarkdownTextarea extends React.Component<IProps & ITextareaProps, IState> {
+  constructor(props: IProps & ITextareaProps) {
+    super(props);
+    this.state = {
+      tabIndex: 0
+    };
+  }
+
+  private handleTabChange = (index: number) => {
+    this.setState({ tabIndex: index });
+  }
+
   render() {
     let { className, label_text, label_preview, label_markdown, ...textAreaProps } = this.props;
     return (
       <div className={className}>
         <Segment tight attached="top">
-          <Tabs underlined>
-            <Tabs.Pane label={label_text ? label_text : 'Text'}>
-              <Textarea monospaced fluid transparent {...textAreaProps}/>
-            </Tabs.Pane>
-            <Tabs.Pane label={label_preview ? label_preview : 'Preview'}>
-              <Scrollable>
-                <Markdown source={textAreaProps.value}/>
-              </Scrollable>
-            </Tabs.Pane>
+          <Tabs underlined onTabChange={this.handleTabChange}>
+            <Tabs.Pane label={label_text ? label_text : 'Text'}></Tabs.Pane>
+            <Tabs.Pane label={label_preview ? label_preview : 'Preview'}></Tabs.Pane>
           </Tabs>
+          <div style={{position: 'relative'}}>
+            <div style={{overflow: 'hidden', width: this.state.tabIndex == 0 ? '100%' : '1px'}}>
+              <Textarea monospaced fluid transparent {...textAreaProps}/>
+            </div>
+            {this.state.tabIndex == 1 &&
+            <Scrollable rows={this.props.rows}>
+              <Markdown source={textAreaProps.value}/>
+            </Scrollable>}
+          </div>
         </Segment>
         <Segment tight secondary attached="bottom">
           <Options>
@@ -48,10 +66,19 @@ class MarkdownTextarea extends React.Component<IProps & ITextareaProps> {
   }
 }
 
-const Scrollable = styled('div')`
-  height: 187px;
-  margin: 1px 0 3px 0;
-  padding: 9.5px 14px;
+class ScrollableBase extends React.Component<{className?: string; children?: React.ReactNode; rows?: number}> {
+  render() {
+    let p = this.props;
+    return <div className={p.className}>{p.children}</div>
+  }
+}
+
+const Scrollable = styled(ScrollableBase)`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
   overflow-x: none;
 `
