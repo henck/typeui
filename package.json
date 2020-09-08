@@ -1,6 +1,6 @@
 {
   "name": "@independent-software/typeui",
-  "version": "0.0.84",
+  "version": "0.0.86",
   "description": "TypeUI",
   "keywords": [
     "react",
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/henck/typeui#readme",
   "dependencies": {
     "awesome-debounce-promise": "^2.1.0",
-    "date-fns": "^2.0.1",
+    "date-fns": "^2.16.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-transition-group": "^4.2.2",

@@ -1,9 +1,13 @@
 import * as React from 'react';
-import { format, formatDistanceToNow } from 'date-fns';
+import { format, formatDistanceToNow, formatDistanceToNowStrict } from 'date-fns';
 
 interface IProps {
   value: Date | string;
   locale?: Locale;
+  /** A strict formatter does not use helpers like 'almost', 'over', 
+   * 'less than' and the like. 
+   */
+  strict?: boolean;
 }
 
 interface IState {
@@ -60,7 +64,7 @@ class DistanceDate extends React.Component<IProps, IState> {
 
     return (
       <span title={format(date, 'eeee, d MMMM yyyy', p.locale ? { locale: p.locale } : {} )}>
-         {formatDistanceToNow(date, options)}
+         {p.strict ? formatDistanceToNowStrict(date, options) : formatDistanceToNow(date, options)}
       </span>
     );
   }
