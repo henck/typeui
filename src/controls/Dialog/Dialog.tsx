@@ -15,10 +15,16 @@ interface IDialogProps {
   children?: React.ReactNode;
   /** Is the Dialog currently open? */
   open?: boolean;
-  /** This callback is called when the user closes the dialog window. */
+  /** This callback is called when the user closes the Dialog window. */
   onClose?: () => void;
   /** Override standard dialog width of 600 pixels. */
   width?: number;
+  /** 
+   * If set to false, then the Dialog cannot be closed by clicking 
+   * outside of it. This is helpful when a Dialog is executing an 
+   * asynchronous task and must remain open while doing so.
+   */
+  canClose?: boolean;
 }
 
 class Dialog extends React.Component<IDialogProps, {}> {
@@ -41,9 +47,11 @@ class Dialog extends React.Component<IDialogProps, {}> {
   }
   
   // Handle document-wide mousedown event by sending a dialog close event.
+  // When clicking outside of it, a Dialog can close only if its canClose
+  // prop is not set to false.
   handleClickOutside(event: MouseEvent) {
     let elem:Element = event.target as Element;
-    if (this.windowElement && !this.windowElement.contains(elem) && this.props.onClose) {
+    if (this.windowElement && !this.windowElement.contains(elem) && this.props.onClose && this.props.canClose !== false) {
       this.props.onClose();
     }
   }  
