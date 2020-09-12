@@ -76,6 +76,7 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   ${p => p.error && css`
     border-color: ${p.theme.errorColor.border};
     background-color: ${p.theme.errorColor.background};
+    color: ${p.theme.errorColor.color};
     box-shadow: none;
   `}
 
