@@ -7,7 +7,6 @@ import { parseISO, format } from 'date-fns';
 import { lighten } from '../../../helper/lighten';
 
 // Other controls
-import { Button } from '../../Button/Button';
 import { Day } from './Day';
 
 
@@ -134,6 +133,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
             </NavLabel>
             <NavButtonRight onClick={this.handleNextMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButtonRight>
             <NavButtonRight onClick={this.handleNextYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButtonRight>
+            <NavButtonRight onClick={this.handleCancel}><use xlinkHref={"spritemap.svg#times"}></use></NavButtonRight>
           </NavBar>
           <Month>
             <DayName>Mo</DayName>
@@ -146,9 +146,6 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
             {days}
           </Month>
         </Body>
-        <Footer>
-          <Button secondary onClick={this.handleCancel}>Cancel</Button>
-        </Footer>        
       </div>
     );
   }
@@ -218,15 +215,6 @@ const DayName = styled('div')`
   font-size: 90%;
   color: #aaa;
 `
-
-const Footer = styled('div')`
-  padding: 10px;
-  text-align: right;
-  border-top: solid 1px ${p => p.theme.normalColor};
-  background: ${p => lighten(0.1, p.theme.normalColor)};    
-  border-bottom-left-radius: ${p => p.theme.radius}px;
-  border-bottom-right-radius: ${p => p.theme.radius}px;  
-`;
 
 const Selector = styled(SelectorBase)`
   position: absolute;
