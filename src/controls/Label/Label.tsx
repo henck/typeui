@@ -72,9 +72,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
 
   /* Colors and border */
   ${p => p.basic && css`
-    /* border: solid 1px ${p.color ? p.color : p.theme.normalColor}; */ 
-    /* Use box-shadow rather than border so that the box doesn't get bigger. */
-    box-shadow: inset 0px 0px 0px 1px ${p.color ? p.color : p.theme.normalColor};
+    border: solid 1px ${p.color ? p.color : p.theme.normalColor};
     color:  ${p.color ? p.color : lighten(0.4, p.theme.fontColor)}; 
     background: #fff;
     font-weight: 500;
