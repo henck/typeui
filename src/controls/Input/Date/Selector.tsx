@@ -23,7 +23,10 @@ interface ISelectorProps {
 }
 
 interface ISelectorState {
-  date: Date
+  // Running date, to determine which month to show
+  date: Date,
+  // Currently selected date (can be null if no selection yet)
+  selectedDate: Date
 }
 
 class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
@@ -42,7 +45,8 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
     // If no value is specified, use today's date.
     this.state = {
-      date: this.props.value ? parseISO(this.props.value) : new Date(Date.now())
+      date: this.props.value ? parseISO(this.props.value) : new Date(Date.now()),
+      selectedDate: this.props.value ? parseISO(this.props.value) : null 
     };
   }
 
@@ -106,10 +110,10 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
       days.push(<Day 
         key={start.getTime()}
         grey={start.getMonth() != this.state.date.getMonth()} 
-        selected={this.state.date &&
-                  this.state.date.getFullYear() === start.getFullYear() && 
-                  this.state.date.getMonth() === start.getMonth() &&
-                  this.state.date.getDate() === start.getDate()}
+        selected={this.state.selectedDate &&
+                  this.state.selectedDate.getFullYear() === start.getFullYear() && 
+                  this.state.selectedDate.getMonth() === start.getMonth() &&
+                  this.state.selectedDate.getDate() === start.getDate()}
         today={today.getFullYear() === start.getFullYear() && 
                today.getMonth() === start.getMonth() &&
                today.getDate() === start.getDate()}
@@ -248,21 +252,22 @@ const Selector = styled(SelectorBase)`
   ${p => !p.right && !p.upward && css`transform-origin: top left;`}
 
   &.fade-enter {
-    opacity: 0;
-    transform: scale(0);
+    opacity: 0.01;
+    transform: scale(0.01);
   }
   &.fade-enter-active {
     opacity: 1;
     transform: scale(1);
-    transition: opacity 300ms, transform 300ms ease-out;
+    transition: all 300ms ease-out;
   }
   &.fade-exit {
     opacity: 1;
+    transform: scale(1);
   }
   &.fade-exit-active {
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 300ms, transform 300ms ease-in;
+    opacity: 0.01;
+    transform: scale(0.01);
+    transition: all 300ms ease-in;
   }
 `
 
