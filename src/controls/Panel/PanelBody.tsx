@@ -70,8 +70,8 @@ const PanelBody = styled(PanelBodyBase)`
               transform ${p => p.theme.transition.duration*3}s ease-out;
 
   &.fade-enter {
-    opacity: 0;
-    transform: scaleX(0) scaleY(0);
+    opacity: 0.01;
+    transform: scaleX(0.01) scaleY(0.01);
     ${p => p.above && css`bottom: 0;`}
     ${p => !p.above && css`top: 0;`}    
   }
@@ -83,12 +83,13 @@ const PanelBody = styled(PanelBodyBase)`
   }
   &.fade-exit {
     opacity: 1;
+    transform: scaleX(1) scaleY(1);
     ${p => p.above && css`bottom: 100%;`}
     ${p => !p.above && css`top: 100%;`}    
   }
   &.fade-exit-active {
-    opacity: 0;
-    transform: scaleX(0) scaleY(0);
+    opacity: 0.01;
+    transform: scaleX(0.01) scaleY(0.01);
     ${p => p.above && css`bottom: 0;`}
     ${p => !p.above && css`top: 0;`}    
   }
