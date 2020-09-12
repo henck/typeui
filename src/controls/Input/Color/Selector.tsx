@@ -335,21 +335,22 @@ const Selector = styled(SelectorBase)`
   ${p => !p.right && !p.upward && css`transform-origin: top left;`}
 
   &.fade-enter {
-    opacity: 0;
-    transform: scale(0);
+    opacity: 0.01;
+    transform: scale(0.01);
   }
   &.fade-enter-active {
     opacity: 1;
     transform: scale(1);
-    transition: opacity 300ms, transform 300ms ease-out;
+    transition: all 300ms ease-out;
   }
   &.fade-exit {
     opacity: 1;
+    transform: scale(1);
   }
   &.fade-exit-active {
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 300ms, transform 300ms ease-in;
+    opacity: 0.01;
+    transform: scale(0.01);
+    transition: all 300ms ease-in;
   }  
 `
 
