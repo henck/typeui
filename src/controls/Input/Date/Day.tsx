@@ -37,14 +37,14 @@ const Day = styled(DayBase)`
 
   /* Highlight today's date and selected date. */
   ${p => (p.today || p.selected) && css`
-    color: #fff;
     font-weight: 500;
   `}
   ${p => p.today && css`
-    background: ${p.theme.primaryColor};
+    background: ${p.theme.normalColor};
   `}
   ${p => p.selected && css`
-    background: ${p.theme.positiveColor};
+    color: #fff;
+    background: ${p.theme.primaryColor};
   `}  
 
   /* Lift element up when hovered. */
