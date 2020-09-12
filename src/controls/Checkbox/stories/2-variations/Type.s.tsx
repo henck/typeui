@@ -10,7 +10,7 @@ storiesOf('Controls/Checkbox/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`Checkbox\` can have \`type\` \`check\` (default), \`toggle\`, \`slider\` or \`radio\`.
+    A \`Checkbox\` can have \`type\` \`check\` (default), \`toggle\`, \`slider\` or \`circle\`.
 
     For \`radio\` buttons, \`type\` will default to \`circle\` unless overridden.
     `
