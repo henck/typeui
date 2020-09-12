@@ -73,7 +73,9 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
   /* Colors and border */
   ${p => p.basic && css`
     border: solid 1px ${p.color ? p.color : p.theme.normalColor};
-    color:  ${p.color ? p.color : lighten(0.4, p.theme.fontColor)}; 
+    /* Since border occupies 1px, reduce padding by 1px: */
+    padding: calc(-1px + 0.58em) calc(-1px + 0.83em);
+    color: ${p.color ? p.color : lighten(0.4, p.theme.fontColor)}; 
     background: #fff;
     font-weight: 500;
   `}
@@ -205,7 +207,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
       content: '';
       position: absolute;
       top: 50%;
-      left: ${p.basic ? '-1px' : '0'};
+      left: 0;
       background-color: inherit;
       width: 1.5274em; /* Label height * sqrt(2) */
       height: 1.5274em;
