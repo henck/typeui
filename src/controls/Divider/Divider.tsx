@@ -41,12 +41,7 @@ const DividerStyled = styled(DividerBase)`
 
   /* Border:
      A hidden divider has no dividing line. */
-  ${p => !p.hidden && css`
-    border-top: solid 1px rgba(34, 36, 38, 0.15);
-  `}
-  ${p => p.hidden && css`
-    border-top: solid 1px #fff;
-  `}
+  border-top: solid 1px ${p => p.hidden ? p.theme.background : p.theme.normalColor};
 
   /* A <span> is used to center the <Divider>'s content
      vertically. */
