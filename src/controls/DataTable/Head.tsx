@@ -44,7 +44,7 @@ const Head = styled(HeadBase)`
   flex-shrink: 0;
   flex-grow: 0;
   width: 100%;
-  border-bottom: solid 1px #E3E3E3;
+  border-bottom: solid 1px ${p => p.theme.normalColor};
 
   /* Prevent user text selection. */
   user-select: none;

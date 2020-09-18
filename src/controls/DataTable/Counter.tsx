@@ -35,7 +35,7 @@ const Counter = styled(CounterBase)`
   cursor: default;
   border: solid 1px ${p => p.theme.normalColor};
   border-radius: ${p => p.theme.radius}px;
-  background: #fff;
+  background: ${p => p.theme.background};
   padding: 3px 8px 3px 8px;
   font-size: 12px;
   box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;

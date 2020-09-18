@@ -24,7 +24,7 @@ const Slider = styled(SliderBase)`
   position: relative;
   /* Draw repeating empty rows in background */
   background-size: 100% ${ITEM_HEIGHT}px;
-  background-image: linear-gradient(to bottom, #fff 56px, ${p => p.theme.normalColor} 1px);
+  background-image: linear-gradient(to bottom, ${p => p.theme.background} 56px, ${p => p.theme.normalColor} 1px);
 `
 
 export { Slider };

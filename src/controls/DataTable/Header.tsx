@@ -48,7 +48,7 @@ class HeaderBase extends React.Component<IHeaderProps, {}> {
 const Header = styled(HeaderBase)`
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: ${p => p.theme.background};
 
   /* On small screens, only the first Heading is shown. */
   ${p => !p.force && css` 
@@ -94,7 +94,7 @@ const Header = styled(HeaderBase)`
     transition: transform ${p => p.theme.transition.duration*2}s ease, 
                 width ${p => p.theme.transition.duration*2}s ease, 
                 height ${p => p.theme.transition.duration*2}s ease;
-    fill: #333;
+    fill: ${p => p.theme.fontColor};
     transform: rotate(180deg);
   }
   

@@ -29,7 +29,7 @@ const RowStyled = styled(RowBase)`
   position: absolute;
   display: flex;
   width: 100%;
-  background-color: #fff;
+  background-color: ${p => p.theme.background};
   &:not(:last-child) {
     border-bottom: solid 1px ${p => p.theme.normalColor};
   }
