@@ -87,14 +87,14 @@ const SegmentStyled = styled(SegmentBase)`
 
   & > div {
     position: relative;
-    background: #fff;
+    background: ${p => p.theme.background};
     padding: 14px;
 
     /* Shadow: only unattached segments have a dropshadow. */
     ${p => !p.attached && css`box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;`}
 
     /* Attachment and border: */
-    border-color: rgba(34, 36, 38, 0.15);
+    border-color: ${p => p.theme.normalColor};
     border-style: solid;
     border-left-width: 1px;
     border-right-width: 1px;
