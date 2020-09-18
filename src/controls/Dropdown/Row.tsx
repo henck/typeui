@@ -38,7 +38,7 @@ const Row = styled(RowBase)`
   /* Background color on hover: */
   transition: background-color ${p => p.theme.transition.duration}s ease;
   &:hover {
-    background: #f9f9f9;
+    background: ${p => p.theme.normalColor};
   }
 `;
 

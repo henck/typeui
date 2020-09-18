@@ -57,7 +57,7 @@ const Selector = styled(SelectorBase)`
   box-sizing:      border-box;
   width:           100%;
   cursor:          pointer;
-  background:      #fff;
+  background:      ${p => p.theme.background};
 
   /* Disabled */
   ${p => p.disabled && css`
@@ -128,7 +128,7 @@ const Selector = styled(SelectorBase)`
   & > svg:nth-of-type(1) {
     display: ${p => p.onClear ? 'none' : 'block'};
     transition: fill ${p => p.theme.transition.duration*3}s ease-in-out;
-    fill: ${p => (p.error && !p.open) ? p.theme.errorColor.color : (p.disabled ? '#888' : '#000')};
+    fill: ${p => (p.error && !p.open) ? p.theme.errorColor.color : (p.disabled ? '#888' : p.theme.fontColor)};
   }
   /* Clear icon is only shown when there is an onClear callback. */
   & > svg:nth-of-type(2) {

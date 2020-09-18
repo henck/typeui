@@ -47,8 +47,8 @@ const Body = styled(BodyBase).attrs(p => ({
   border:         solid 1px ${p => p.theme.normalColor};
   border-radius:  ${p => p.theme.radius}px;
 
-  /* Background is white */
-  background:     #fff;
+  /* Background is theme background */
+  background:     ${p => p.theme.background};
 
   /* Dropbox can open upwards or downwards. This affects its
      positioning relative to the parent. */
