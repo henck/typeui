@@ -76,7 +76,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
     /* Since border occupies 1px, reduce padding by 1px: */
     padding: calc(-1px + 0.58em) calc(-1px + 0.83em);
     color: ${p.color ? p.color : lighten(0.4, p.theme.fontColor)}; 
-    background: #fff;
+    background: ${p.theme.background};
     font-weight: 500;
   `}
   ${p => !p.basic && css`
