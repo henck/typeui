@@ -213,7 +213,8 @@ const InfoBox = styled(InfoBoxBase)`
 
   input {
     width: 100%;
-    border: solid 1px #fff;
+    background: ${p => p.theme.background};
+    border: solid 1px ${p => p.theme.normalColor};
     padding: 0 6px 0 6px;
     transition: border-color ${p => p.theme.transition.duration}s ease;
     border-radius: 2px;

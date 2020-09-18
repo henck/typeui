@@ -309,7 +309,7 @@ const Selector = styled(SelectorBase)`
   ${p => !p.right && css`left: 0;`}
   ${p => p.upward && css`bottom: 42px;`}
   ${p => !p.upward && css`top: 42px;`}
-  background: #fff;
+  background: ${p => p.theme.background};
   border: solid 1px ${p => p.theme.normalColor};
   border-radius: ${p => p.theme.radius}px;
   box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;
