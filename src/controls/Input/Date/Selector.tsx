@@ -220,7 +220,7 @@ const Selector = styled(SelectorBase)`
   position: absolute;
   width: 302px;
   box-sizing: border-box;
-  background: #fff;
+  background: ${p => p.theme.background};
   border: solid 1px ${p => p.theme.normalColor};
   border-radius: ${p => p.theme.radius}px;
   box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;

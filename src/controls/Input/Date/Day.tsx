@@ -28,8 +28,8 @@ const Day = styled(DayBase)`
   text-align: center;
   line-height: 30px; /* For vertical centering */
   cursor: pointer;
-  background: #fff;
-  border: solid 1px #fff;
+  background: ${p => p.theme.background};
+  border: solid 1px ${p => p.theme.background};
   border-radius: ${p => p.theme.radius}px;
 
   /* Grey dates do not belong to the current month. */
