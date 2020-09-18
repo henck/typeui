@@ -90,7 +90,7 @@ const TextareaStyled = styled(TextareaBase).attrs(p => ({
   border:           solid 1px ${p => p.borderColor};
   border-radius:    ${p => p.theme.radius}px;
   outline:          0;
-  background-color: #fff;
+  background-color: ${p => p.theme.background};
   padding:          9.5px 14px;
 
   /* Monospaced font */
