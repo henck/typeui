@@ -137,7 +137,7 @@ const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
   ${p => p.basic && css`
     border-style: solid;
     border-width: 1px;
-    background-color: #fff;
+    background-color: ${p.theme.background};
     /* Since border occupies 1px, adjust to padding to shrink: */
     padding: calc(-1px + 0.6875em) calc(-1px + 1.2em);
     ${p.hasColor && css`
