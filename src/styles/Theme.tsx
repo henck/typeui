@@ -27,6 +27,8 @@ export interface ITransitionGroup {
 }
 
 export interface IThemeInterface {
+  readonly background:      string;
+
   // Default font
   readonly fontSize:        number; // px
   readonly fontColor:       string; 
@@ -67,6 +69,8 @@ export interface IThemeInterface {
 }
 
 const Theme: IThemeInterface = {
+  background:      '#fff',
+  
   // Default font
   fontSize:        16,
   fontColor:       "rgba(0, 0, 0, 0.77)",
