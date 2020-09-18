@@ -108,7 +108,7 @@ const AccordionStyled = styled(AccordionBase)`
     ${p.raised && !p.attached && css`box-shadow: rgba(34, 36, 38, 0.12) 0px 2px 4px 0px, rgba(34, 36, 38, 0.15) 0px 2px 10px 0px;`}
 
     /* Attachment and border: */
-    border-color: rgba(34, 36, 38, 0.15);
+    border-color: ${p.theme.normalColor};
     border-style: solid;
     border-left-width: 1px;
     border-right-width: 1px;
