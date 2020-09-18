@@ -33,7 +33,7 @@ const ContentStyled = styled(ContentBase)`
   ${p => p.align == 'center' && css`text-align: center;`}    
   ${p => p.align == 'right' && css`text-align: right;`}      
 
-  ${p => p.secondary && css`background: #f9f9f9;`}
+  ${p => p.secondary && css`background: ${p.theme.normalColor};`}
 
   /* Multiple Card.Content elements are separated by a border. */
   &:not(:first-of-type) {

@@ -6,6 +6,7 @@ import styled from '../../styles/Theme';
 import { Content } from './Content';
 import { Header } from './Header';
 import { Meta } from './Meta';
+import { lighten } from '../../helper/lighten';
 
 interface ICardProps {
   className?: string;
@@ -42,7 +43,7 @@ const CardStyled = styled(CardBase)`
   overflow: hidden; /* Make child elements follow card's rounded corners */
   
   /* Colors */
-  background: #fff;
+  background: ${p => lighten(0.05, p.theme.background)};
   border: solid 1px ${p => p.theme.normalColor};
   border-radius: ${p => p.theme.radius}px;
   ${p => !p.raised && css`box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;`}
