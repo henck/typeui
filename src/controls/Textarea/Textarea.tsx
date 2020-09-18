@@ -76,7 +76,7 @@ const TextareaStyled = styled(TextareaBase).attrs(p => ({
   ${p => !p.minHeight && css`min-height: 80px;`}
   ${p => p.minHeight && css`min-height: ${p.minHeight}px;`}
 
-  min-width:        160px;
+  width:            250px;
   /* Font-size must be redefined or it will be bigger than container font size. */
   font-size:        100%;
   ${p => p.fluid && css`width: 100%;`}
