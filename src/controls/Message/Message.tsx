@@ -12,6 +12,7 @@ import { lighten } from '../../helper/lighten';
 import { MessageHeader } from './MessageHeader';
 import { MessageContent } from './MessageContent';
 import { IconStyled } from '../Icon/Icon';
+import { darken } from '../../helper/darken';
 
 type TMessageType = 'info' | 'warning' | 'success' | 'error';
 
@@ -51,7 +52,7 @@ const MessageStyled = styled(MessageBase).attrs(p => ({
                  (p.type === 'success' ? p.theme.successColor :
                  (p.type === 'error' ? p.theme.errorColor :
                  (p.color ? { color: p.color, border: p.color, background: lighten(0.45, p.color) } :
-                 { color: p.theme.fontColor, border: "rgba(34, 36, 38, 0.22)", background: "rgb(248, 248, 249)" })))))
+                 { color: p.theme.fontColor, border: darken(0.2, p.theme.normalColor), background: p.theme.normalColor })))))
 }))`
   padding: 14px 21px;
   
