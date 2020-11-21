@@ -44,6 +44,8 @@ interface IInputProps {
   clearable?: boolean;  
   /** If set, dates (in inputs of type `date`) are shown in this format (refer to date-fns/format for format options). */
   dateformat?: string;
+  /** If set, date pickers do not allow picking future dates (beyond today). */
+  nofuture?: boolean;
   
   // Events
   /** Listeners are notified whenever the user interacts with the Input. */
@@ -166,7 +168,7 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
         <React.Fragment>
           <DateInputBox {...p} focused={this.state.open}/>
           <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
-            <DateSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect}/>
+            <DateSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect} nofuture={p.nofuture}/>
           </CSSTransition>
         </React.Fragment>}
       {p.type === 'color' &&

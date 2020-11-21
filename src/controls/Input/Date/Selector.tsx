@@ -12,6 +12,8 @@ import { Day } from './Day';
 
 interface ISelectorProps {
   className?: string;
+  // If true, do not accept future dates (beyond today).
+  nofuture?: boolean;
   value: any;
   // If true, selector opens above the input.
   upward: boolean;
@@ -108,7 +110,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     while(start.getTime() < end.getTime()) {
       days.push(<Day 
         key={start.getTime()}
-        grey={start.getMonth() != this.state.date.getMonth()} 
+        grey={start.getMonth() != this.state.date.getMonth() || (p.nofuture && start > today)} 
         selected={this.state.selectedDate &&
                   this.state.selectedDate.getFullYear() === start.getFullYear() && 
                   this.state.selectedDate.getMonth() === start.getMonth() &&
@@ -117,7 +119,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
                today.getMonth() === start.getMonth() &&
                today.getDate() === start.getDate()}
         day={start.getDate()}
-        onClick={this.handleDayClick.bind(this, new Date(start.getTime()))}/>);
+        onClick={(!p.nofuture || start <= today) ? this.handleDayClick.bind(this, new Date(start.getTime())) : null}/>);
       start.setDate(start.getDate() + 1);
     }
 
