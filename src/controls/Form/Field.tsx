@@ -293,8 +293,6 @@ class FieldBase extends React.Component<IProps, IState> {
    */  
   validatePattern(value: any): boolean {
     if(!value) return true;
-    // Invalid if not a string.
-    if(!(typeof value === "string")) return false;    
     const regex = new RegExp(this.props.pattern.pattern);
     return regex.test(value);    
   }
@@ -304,8 +302,6 @@ class FieldBase extends React.Component<IProps, IState> {
    */
   validateNotPattern(value: any): boolean {
     if(!value) return true;
-    // Invalid if not a string.
-    if(!(typeof value === "string")) return false;    
     const regex = new RegExp(this.props.noPattern.pattern);
     return !regex.test(value);    
   }    

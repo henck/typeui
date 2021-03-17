@@ -235,8 +235,6 @@ class NotPatternValidator extends Validator {
 
   isValid(value: any): boolean {
     if(!value) return true;
-    // Invalid if not a string.
-    if(!(typeof value === "string")) return false;    
     const regex = new RegExp(this.pattern);
     return !regex.test(value);    
   }
