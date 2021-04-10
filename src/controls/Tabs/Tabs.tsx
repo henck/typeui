@@ -45,6 +45,7 @@ class TabsBase extends React.PureComponent<ITabsProps, ITabsState> {
   //
   getPanes() {
     return React.Children.map(this.props.children, (child:any, i) => {
+      if(child == null) return null;
       return React.cloneElement(child, {
         active: i === this.state.index,
         nohiddenrender: this.props.nohiddenrender

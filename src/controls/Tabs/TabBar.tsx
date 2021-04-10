@@ -43,6 +43,7 @@ class TabBarBase extends React.Component<ITabBarProps, {}> {
     return React.Children.map(this.props.children, (child, i) => {
       // Callback refs are used to get ref to current tab.
       let ref = i === this.props.active ? this.setTabRef : null;
+      if(child == null) return null;
       return (<Tab 
         setRef={ref} 
         active={i === this.props.active} 
