@@ -1,6 +1,6 @@
 {
   "name": "@independent-software/typeui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "TypeUI",
   "keywords": [
     "react",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@storybook/addon-actions": "^5.1.11",
-    "@storybook/addon-info": "^5.1.11",
+    "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-knobs": "^5.1.11",
     "@storybook/addon-options": "^5.1.11",
     "@storybook/components": "^5.1.11",
@@ -60,7 +60,7 @@
     "react-markdown": "^4.1.0",
     "replace-in-file": "^4.1.3",
     "storybook-addon-jsx": "^7.1.5",
-    "svg-spritemap-webpack-plugin": "^3.4.0",
+    "svg-spritemap-webpack-plugin": "^3.9.1",
     "ts-loader": "^6.0.4",
     "typescript": "^3.6.2",
     "webpack": "^4.39.3",
