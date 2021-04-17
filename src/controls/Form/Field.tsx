@@ -184,7 +184,7 @@ class FieldBase extends React.Component<IProps, IState> {
     if(this.props.maxLength != null) {
       if(!this.validateMaxLength(value)) return this.props.maxLength.message;
     }    
-    if(this.props.between != null) {
+    if(this.props.lengthBetween != null) {
       if(!this.validateLengthBetween(value)) return this.props.lengthBetween.message;
     }
     if(this.props.pattern != null) {
