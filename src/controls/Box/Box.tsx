@@ -5,7 +5,7 @@ import styled from '../../styles/Theme';
 interface IBoxProps {
   className?: string;
   children?: React.ReactNode;
-  /** Box fill color. Default is \'pink\'. */
+  /** Box fill color. Default is `pink`. */
   color?: string;
 }
 

@@ -16,12 +16,12 @@ interface IAccordionTabProps {
   title: React.ReactNode;
   /** If true, tab is hidden. */
   hidden?: boolean;
+  /** Optional click event callback. */
+  onClick?: () => void;  
   /* (Not public) A styled accordion adds basic formatting. */
   styled?: boolean;
   /* (Not public) Is this tab currently active? */
   active?: boolean;
-  /** Optional click event callback. */
-  onClick?: () => void;
   /* (Not public) Align caret icon to `left` or `right`. Defaults to `left`. */
   align?: Float;  
   /* (Not public) If set, there will be no sliding animations. */

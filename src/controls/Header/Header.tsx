@@ -13,22 +13,6 @@ import { Subheader } from './Subheader';
 import { HeaderContent } from './HeaderContent';
 import { IconStyled } from '../Icon/Icon';
 
-/**
- * The <Header> component offers sizes h1..h6. The size ratio is determined using the
- * modularScale algorithm. Starting at 1rem (normal text), h6 is the next
- * scale up, h5 the scale after that and so on. The actual scale ratio can be defined in
- * the theme.
- * 
- * By default header sizes are in 'rem', but by adding the 'relative' attribute they
- * will be in 'em' and header size will be relative to the header's container's 
- * font-size.
- * 
- * Usage:
- * <Header size='h1'>Hello, world</Header>
- * 
- * 'size' is a mandatory attribute.
- */
-
 /* Original Semantic UI sizes:
   h1
     size: 28
@@ -221,9 +205,33 @@ const HeaderStyled = styled(HeaderBase)`
 // Header merely exists to wrap styled-component HeaderStyled;
 // this way we can add static class members to Header.
 //
+
+/**
+ * The <Header> component offers sizes h1..h6. The size ratio is determined using the
+ * modularScale algorithm. Starting at 1rem (normal text), h6 is the next
+ * scale up, h5 the scale after that and so on. The actual scale ratio can be defined in
+ * the theme.
+ * 
+ * By default header sizes are in 'rem', but by adding the 'relative' attribute they
+ * will be in 'em' and header size will be relative to the header's container's 
+ * font-size.
+ * 
+ * * 'size' is a mandatory attribute.
+ * 
+ * @example
+ * <Header size='h1'>Hello, world</Header>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-header--properties}
+ */
 export class Header extends React.Component<IHeaderProps, {}> {
   public static displayName = "Header";
+  /**
+   * A header may contain a <Subheader>.
+   */
   public static Subheader = Subheader;
+  /**
+   * Header.Content is used to group header content (allowing for Subheader).
+   */
   public static Content = HeaderContent;
   render() {
     return (<HeaderStyled {...this.props}></HeaderStyled>)

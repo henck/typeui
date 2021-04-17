@@ -17,7 +17,7 @@ interface IProps {
    */
   angleBody: number;     
   /**
-   * OFfset of slice in degrees
+   * Offfset of slice in degrees
    */
   angleOffset: number;
 }

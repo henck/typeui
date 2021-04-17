@@ -270,9 +270,40 @@ const ButtonStyled = styled(ButtonBase)`
   ${p => p.onClick && css`cursor: pointer;`}
 `;
 
+/**
+ * A Button can be clicked and styled.
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-button--properties}
+ */
 class Button extends React.PureComponent<IButtonProps, {}> {
   public static displayName = "Button";
+
+  /**
+   * Button groups can contain conditionals using Button.Or.
+   * 
+   * @example
+   * <Button.Group>
+   *   <Button>One</Button> 
+   *   <Button.Or/>
+   *   <Button positive>Two</Button> 
+   * </Button.Group>
+   * 
+   * @see {@link https://henck.github.io/typeui/?path=/story/controls-button-groups--group-attributes}
+   */  
   public static Or = ButtonOr;
+
+  /**
+   * Buttons can be grouped horizontally or vertically using Button.Group.
+   * 
+   * @example
+   * <Button.Group vertical>
+   *  <Button>One</Button> 
+   *  <Button>Two</Button> 
+   *  <Button>Three</Button> 
+   * </Button.Group> 
+   * 
+   * @see {@link https://henck.github.io/typeui/?path=/story/controls-button-groups--conditional}
+   */  
   public static Group = ButtonGroup;  
 
   render() {

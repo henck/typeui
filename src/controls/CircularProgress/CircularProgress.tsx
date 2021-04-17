@@ -153,6 +153,16 @@ const Value = styled('div')`
   transform: translateX(-50%) translateY(-50%);
 `
 
+/**
+ * A CircularProgress shows a circular progress meter that is optionally animated.
+ * 
+ * @example 
+ * <CircularProgress animated color="hotpink" padded raised value={15}/>
+ * <CircularProgress animated background padded raised value={90}/>
+ * <CircularProgress animated background color="crimson" padded raised rounded value={48}/>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-circularprogress--properties}
+ */
 class CircularProgress extends React.Component<IProps> {
   render() {
     return (

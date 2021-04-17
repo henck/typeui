@@ -77,6 +77,17 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
   `}
 `
 
+/**
+ * The Progress component shows a progress bar, filled to a percentage equal to 
+ * value. The bar always stretches to fill all horizontal space available to it.
+ * 
+ * @example
+ * <Progress
+ *   background
+ *   value={50}/>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-progress--properties}
+ */
 class Progress extends React.Component<IProgressProps, {}> {
   render() {
     let p = this.props;

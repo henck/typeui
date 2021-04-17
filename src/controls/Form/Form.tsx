@@ -34,9 +34,60 @@ interface IState {
   providerValue: IFormContext;
 }
 
+/**
+ * The Form element must be used to wrap all forms. All controls inside a form must 
+ * be wrapped in Form.Field elements.
+ * 
+ * The data that must be shown in the form is provided through the data prop, which 
+ * should be an object.
+ * 
+ * Form uses Context to set onChange and onValidate handlers on all Field elements inside 
+ * the form, whatever their nesting depth. When form data is changed, onChange is fired 
+ * with the new form content.
+ * 
+ * The Field element keeps its own state so that updates to the form are reflected without 
+ * changing the form's data prop. This way, should a caller of Form choose to, they may 
+ * update the form data only when required (such as when setting the dirty flag), which 
+ * avoid rerendering all form elements on every interaction.
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-form--properties}
+ */
 class Form extends React.Component<IProps, IState> {
+  /** 
+   * A Form.Field wraps a form control. It serves several purposes.
+   * 
+   * First, the Field automatically adds name, onChange, value and error props 
+   * to the control it contains. The onChange prop is supplied by the Form content 
+   * so that the developer does not need to add it.
+   * 
+   * Second, the Field performs validation when it is mounted, whenever its control's 
+   * value changes, and when it is unmounted. Validation results are send directly to 
+   * the parent Form (using Context, again).
+   * 
+   * A Field may add any number of validation rules, e.g. required=. Each rule is a 
+   * prop. Rules include rquired, isInt, minLength etc. When a field is first mounted, 
+   * it is pristine. Even when its content is invalid, it will not show any validation 
+   * error. When the user edits the fields, it will no longer be pristine and any errors 
+   * will appear. The parent Form also provides a dirty prop to the Field. When the 
+   * Form is dirty, so are its fields, and any validation errors are shown, pristine or not.
+   * 
+   * For dark backgrounds, fields may set their contrast prop to true to use lighter 
+   * error colors.
+   */
   public static Field = Field;
+
+  /** Groups several form fields. */
   public static Group = Group;
+
+  /** 
+   * Components may wish to show a control wrapped in a field, without the overhead of 
+   * a Form, while still benefiting from Field formatting.
+   * 
+   * The Uncontrolled element accepts a label and a hint, but no validation rules (and 
+   * thus shows no errors). It also does not provide an onChange handler to its control; 
+   * the calling code must do that. The field's control is also not provided as a prop, 
+   * but as a child. 
+   */
   public static Uncontrolled = Uncontrolled;
 
   // Build a form-wide validation object, with 

@@ -165,8 +165,32 @@ const ImageStyled = styled(ImageBase)`
   ${p => p.disabled && css`filter: brightness(1.2);`}
 `;
 
+/**
+ * Loads an image.
+ * 
+ * An Image can have children. These are only shown when the image fails to load. 
+ * There should be one child potentially containing other children, otherwise they 
+ * will overlap.
+ * 
+ * @example 
+ * <Image
+ *  size="medium"
+ *  src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png-does-not-exist">
+ *  <Label>
+ *    <Icon name="code" />
+ *    Loading error
+ *  </Label>
+ * </Image>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-image--properties}
+ */
 class Image extends React.Component<IImageProps, {}> {
   public static displayName = "Image";
+
+  /**
+   * An Image.Group is a group of images can share size, bordered, 
+   * rounded and circular attributes. The images are automatically spaced.
+   */
   public static Group = ImageGroup;
 
   render() {

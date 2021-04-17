@@ -264,10 +264,26 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
   ${p => p.attached && p.attached === 'right' && css`border-left-width: 0;`}
 `;
 
+/**
+ * Stylable label.
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-label--properties}
+ */
 class Label extends React.Component<ILabelProps, {}> {
   public static displayName = "Label";
+
+  /** 
+   * A Label.Group can pass props to the labels it contains, but 
+   * children can still override them. Goups can pass along basic, 
+   * color, pointing, size and tag.
+   */
   public static Group = LabelGroup;
+
+  /** 
+   * A label can contain a Label.Detail inside it. 
+   */
   public static Detail = LabelDetail;
+
   render() {
     return (<LabelStyled {...this.props}></LabelStyled>);
   }

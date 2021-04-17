@@ -83,12 +83,35 @@ const TabsStyled = styled(TabsBase)`
   flex-direction: column;
 `
 
-//
-// Wrap Tabs styled component to we can add static fields to it.
-//
+/**
+ * Collection of tabs.
+ * 
+ * @example
+ * <Tabs>
+ *   <Tabs.Pane label="One">
+ *     Content for first tab.
+ *   </Tabs.Pane>
+ *   <Tabs.Pane label="Two">
+ *     Content for second tab.
+ *   </Tabs.Pane>
+ *   <Tabs.Pane label="Three">
+ *     Content for third tab.
+ *   </Tabs.Pane>
+ * </Tabs>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-tabs--properties}
+ */
 class Tabs extends React.PureComponent<ITabsProps, {}> {
   public static displayName = "Tabs";
+
+  /** 
+   * A single tab pane. 
+   * 
+   * The Pane label can contain arbitrary content.
+   * To get the content to vertically align properly, a Flex.Quick can help.
+   */
   public static Pane = Pane;
+
   render() {
     let p = this.props;
     return (

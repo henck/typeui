@@ -210,7 +210,14 @@ const SegmentStyled = styled(SegmentBase)`
   }
 `
 
-// Storybook won't find properties if we don't create a component.
+/**
+ * A Segment places a border around some content.
+ * 
+ * @example
+ * <Segment piled>Some content</Segment>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-segment--properties}
+ */
 class Segment extends React.PureComponent<ISegmentProps, {}> {
   public static displayName = 'Segment';
 

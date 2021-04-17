@@ -270,6 +270,11 @@ const InputStyled = styled(InputBase)`
   ${p => p.fluid && css`width: 100%;`}
 `
 
+/**
+ * Replacement for standard HTML input.
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-input--properties}
+ */
 class Input extends React.Component<IInputProps, {}> {
   render() {
     let p = this.props;

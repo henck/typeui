@@ -143,9 +143,34 @@ const AccordionStyled = styled(AccordionBase)`
  * An Accordion is used to group content in panes that can be expanded individually. 
  * By default, an Accordion only allows one pane to be open at any time. A multiple 
  * Accordion allows users to expand multiple panes. 
+ * 
+ * @example
+ * <Accordion 
+ *   styled raised multiple
+ *   <Accordion.Tab title="What is a dog?">
+ *     <p>A dog is a type of domesticated animal.</p>
+ *   </Accordion.Tab>
+ *   <Accordion.Tab title="What kinds of dogs are there?">
+ *     <p>There are many breeds of dogs.</p>
+ *   </Accordion.Tab>
+ *   <Accordion.Tab title="How do you acquire a dog?">
+ *     <p>From pet shops, private owners, or shelters.</p>
+ *   </Accordion.Tab>
+ * </Accordion> 
+ * 
+ * @see https://henck.github.io/typeui/?path=/story/controls-accordion--properties
  */
 class Accordion extends React.Component<IAccordionProps, {}> {
   public static displayName = "Accordion";
+
+  /**
+   * Each accordion tab is an instance of Accordion.Tab.
+   * 
+   * @example
+   * <Accordion.Tab title="What is a dog?">
+   *   <p>A dog is a type of domesticated animal.</p>
+   * </Accordion.Tab>
+   */
   public static Tab = AccordionTab;
 
   render() {

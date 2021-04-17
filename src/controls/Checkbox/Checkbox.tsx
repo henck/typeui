@@ -16,9 +16,9 @@ interface ICheckboxProps {
   value?: any;  
   /** Is the Checkbox currently checked? */
   checked?: boolean;  
-  /** Checkbox label. Appears to the right of the box. */
+  /** Checkbox label. Appears to the right of the box. Can be JSX. */
   label?: React.ReactNode;
-  /** Is this a radio? */
+  /** Is this a radio button? */
   radio?: boolean;
   /** Checkbox visual style: `check`, `toggle`, `slider` or `circle`. Default is `check`. */
   type?: CheckboxType; 
@@ -95,7 +95,7 @@ const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
       width: 17px;
       height: 17px;
       border: solid 1px ${p.borderColor};
-      border-radius: ${p => p.theme.radius}px;
+      border-radius: ${p.theme.radius}px;
       transition: border-color 0.1s ease;
     }
     ${!p.disabled && !p.error && css`
@@ -212,6 +212,15 @@ const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
   }
 `
 
+/**
+ * A Checkbox can be used to create either a HTML checkbox or a HTML radio button.
+ * 
+ * @example 
+ * <Checkbox label="One" name="myradio" radio value={1}/>
+ * <Checkbox label="Two" name="myradio" radio value={2}/>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-checkbox--properties}
+ */
 class Checkbox extends React.Component<ICheckboxProps, {}> {
   public static displayName = 'Checkbox';
 

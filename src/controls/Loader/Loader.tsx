@@ -68,6 +68,11 @@ class LoaderBase extends React.Component<ILoaderProps, {}> {
   }
 }
 
+/** 
+ * A Loader projects a loading animation over the entire screen. 
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-loader-types--loader}
+ */
 const Loader = styled(LoaderBase)`
   position: absolute;
   left: 0;

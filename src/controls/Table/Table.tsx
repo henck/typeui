@@ -99,6 +99,18 @@ const TableStyled = styled(TableBase)`
   `}
 `
 
+/**
+ * A Table adds some standard styling to Table elements. Ordinary th and td elements are used 
+ * inside. You must use thead and tbody for the styling to work correctly.
+ * 
+ * @example
+ * <Table>
+ *   <thead>...</thead>
+ *   <tbody>...</tbody>
+ * </Table>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-table--properties}
+ */
 class Table extends React.PureComponent<ITableProps, {}> {
   render() {
     return (

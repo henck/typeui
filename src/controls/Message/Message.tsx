@@ -128,6 +128,11 @@ const MessageStyled = styled(MessageBase).attrs(p => ({
   ${p => p.align === 'right' && css`text-align:right;`}
 `;
 
+/**
+ * Displays an informational message block.
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-message--properties}
+ */
 class Message extends React.Component<IMessageProps, {}> {
   public static displayName = "Message";
   public static Header = MessageHeader;

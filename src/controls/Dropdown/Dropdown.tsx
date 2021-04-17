@@ -104,8 +104,32 @@ const DropdownStyled = styled(DropdownBase)`
 /* Dropdown is merely a wrapper that allows us to add static
  * members to Dropdown, which we cannot do for a Styled Component
  * (in TypeScript). */
+
+/**
+ * A Dropdown is a replacement for <select>. It opens upwards or downwards 
+ * depending on its position in the viewport. Its selection and dropdown items 
+ * are formatted using a formatting function. A Dropdown can also take a 
+ * search callback, which tells provides its subscriber with a search query 
+ * in order to provide the Dropdown with new items.
+ * 
+ * @example 
+ * <Dropdown 
+ *   data={[{id: 1, name: 'One'}, {id: 2, name: 'Two'}, {id: 3, name: 'Three'}]}
+ *   label={(item: any) => item.name}
+ *   placeholder="Select one"
+ * >
+ *   <Dropdown.Column>{(item: any) => item.name}</Dropdown.Column>
+ * </Dropdown>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-dropdown--properties}
+ */
 class Dropdown extends React.Component<IDropdownProps, {}> {
   public static displayName = "Dropdown";
+
+  /**
+   * A Dropdown.Column's child is an item formatter function. A column can optionally take
+   * a weight and an alignment.
+   */
   public static Column = Column;
 
   render() {

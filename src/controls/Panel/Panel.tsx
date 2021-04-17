@@ -25,11 +25,26 @@ interface IPanelState {
   anchor: HTMLDivElement
 }
 
+/**
+ * Note that a panel determines its position from the position of its direct parent. 
+ * The parent therefore must have position: relative.
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-panel--properties}
+ */
 class Panel extends React.Component<IPanelProps, IPanelState> {
   public static displayName = "Panel";
   public static Header = Header;
   public static Content = Content;
   public static Footer = Footer;
+
+  /**
+   * The Panel.Icon component is a shortcut to building a Panel that opens when an
+   * Icon is clicked. Note that the Panel.Icon must still be placed inside a container
+   * that is relatively positioned, and that the only way to close the panel is to click
+   * outside it.
+   * 
+   * An icon can be passed as an icon type, or as a collection of icon properties.
+   */
   public static Icon = IconPanel;
 
   private panelElement: HTMLDivElement;

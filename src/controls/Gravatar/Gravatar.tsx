@@ -21,6 +21,14 @@ interface IGravatarProps {
   onClick?: () => void;
 }
 
+/**
+ * A Gravatar shows a generated image based on an email address, as provided by the gravatar service. 
+ * 
+ * @example
+ * <Gravatar email="john.smith@email.com"/>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-gravatar--properties}
+ */
 class Gravatar extends React.Component<IGravatarProps, {}> {
   render() {
     let p = this.props;

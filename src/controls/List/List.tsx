@@ -106,6 +106,9 @@ const ListStyled = styled(ListBase)`
 // Wrapper around ListStyled to turn it into a component again.
 // This way, we can add static class members.
 // 
+/**
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-list--properties}
+ */
 class List extends React.Component<IListProps, {}> {
   public static Item = ListItem;
   public static Icon = ListIcon;

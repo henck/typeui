@@ -65,7 +65,16 @@ const DividerStyled = styled(DividerBase)`
   }
 `
 
-// Storybook won't find properties if we don't create a component.
+/**
+ * A Divider is used to separate blocks of contents vertically. Dividers 
+ * can be invisible or contain a horizontal line. Dividers can also contain 
+ * content.
+ * 
+ * @example
+ * <Divider>OR</Divider>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-divider--properties}
+ */
 class Divider extends React.PureComponent<IDividerProps, {}> {
   public static displayName = 'Divider';
 

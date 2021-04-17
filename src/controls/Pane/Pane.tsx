@@ -85,6 +85,13 @@ const PaneStyled = styled(PaneBase)`
   `}
 `
 
+/**
+ * A Pane slides in from the right side of the viewport when its open property is set 
+ * to true. An onClose event is triggered when the user clicks outside of the pane or 
+ * when the user clicks the close (cross) icon.
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-pane--properties}
+ */
 class Pane extends React.Component<IPaneProps, {}> {
   public static displayName = 'Pane';
   public static Icon = IconPane;

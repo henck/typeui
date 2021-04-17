@@ -48,7 +48,7 @@ interface IDataTableProps {
   error?: boolean;
   /** If set, this message replaces the default error message. */
   errorMessage?: React.ReactNode;
-  /** if set, DatTable shows vertical grid lines. */
+  /** if set, DataTable shows vertical grid lines. */
   grid?: boolean;
 }
 
@@ -294,10 +294,40 @@ const DataTableStyled = styled(DataTableBase)`
   flex: 1;
 `;
 
-// Add static fields to DataTableStyled.
+/**
+ * @example
+ * <DataTable 
+ *   error={false} loading={false} scrollTop={0}
+ *   onScroll={(scrollTop: number) => {}} 
+ *   data={[
+ *     { name: "John",   age: 24, sport: "Soccer"},
+ *     { name: "Mary",   age: 18, sport: "Polo"},
+ *     { name: "Bert",   age: 21, sport: "Basketball"}
+ *   ]} 
+ *   onFetch={(offset: number, count: number) => {}} 
+ *   onOrder={(order: string, dir?: TDir) => {}} 
+ *   order="name" dir="asc">
+ *
+ *   <DataTable.Column weight={2} label="Name" order="name" dir="asc">{(item:IItem) => item.name}</DataTable.Column>
+ *   <DataTable.Column weight={1} label="Age" order="age" dir="asc">{(item:IItem) => item.age}</DataTable.Column>
+ *   <DataTable.Column weight={1} label="Sport" order="sport" dir="asc">{(item:IItem) => item.sport}</DataTable.Column>
+ *
+ * </DataTable>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-datatable--properties}
+ */
 class DataTable extends React.Component<IDataTableProps, {}> {
   public static displayName = 'DataTable';
+
+  /**
+   * A single column in a DataTable. Its child element must be a function that takes an item 
+   * provided to it by the parent DataTable.
+   * 
+   * @example 
+   * <DataTable.Column weight={2} label="Name" order="name" dir="asc">{(item: MyItem) => item.name}</DataTable.Column>
+   */
   public static Column = DataColumn;
+
   render() {
     return (
       <DataTableStyled {...this.props}></DataTableStyled>

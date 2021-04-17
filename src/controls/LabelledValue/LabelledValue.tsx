@@ -81,6 +81,13 @@ const LabelledValueStyled = styled(LabelledValueBase)`
   ${p => p.width && css `flex: ${p.width}`}
 `
 
+/**
+ * Displays a value with a label above it. A LabelledValue is just that: a label and 
+ * a value. It is used for view-only data. There is a very slight color change when the 
+ * mouse hovers over the value.
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-labelledvalue--properties}
+ */
 class LabelledValue extends React.Component<IProps> {
   render() {
     return (

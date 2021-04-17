@@ -61,11 +61,33 @@ const CardStyled = styled(CardBase)`
     }
   `}
 `
-
+/**
+ * A Card groups information with an optional header and footer.
+ * 
+ * @example
+ * <Card fluid onClick={() => ...)}>
+ *   <Card.Header>Card header</Card.Header>
+ *   <Card.Meta>Meta content</Card.Meta>
+ *   <Card.Content>
+ *     Main content of the Card goes into a Card.Content element.
+ *   </Card.Content>
+ *   <Card.Content secondary>
+ *     Secondary content has the secondary attribute set.
+ *   </Card.Content>    
+ * </Card>
+ * 
+ * @see {@link https://henck.github.io/typeui/?path=/story/controls-card--properties}
+ */
 class Card extends React.Component<ICardProps, {}> {
   public static displayName = 'Card';
+
+  /** A Card can have a Card.Header element. */
   public static Header = Header;
+
+  /** A Card can have a Card.Meta element. */
   public static Meta = Meta;
+
+  /** A Card can have any number of Card.Content elements inside it. */
   public static Content = Content;
 
   render() {
