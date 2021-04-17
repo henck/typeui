@@ -8,7 +8,6 @@ import { Float, VerticalDirection } from '../Types';
 // Other controls
 import { AccordionTab } from './AccordionTab';
 
-
 interface IAccordionProps {
   className?: string;
   children?: React.ReactNode;
@@ -16,14 +15,14 @@ interface IAccordionProps {
   active?: number[];  
   /** A styled accordion adds basic formatting. */
   styled?: boolean;
-  /** A styled accordion will have an extra-strong dropshadow if true. */
+  /** Adds ab extra-strong dropshadow. Applies only to styled Accordions. */
   raised?: boolean;  
   /** 
    * If set, the accordion can have multiple panels open at the same time. 
    * By default, an accordion only allows a single panel open at any time.
    */
   multiple?: boolean;
-  /** Align caret icon to `left` or `right` (defaults to `left`).*/
+  /** Align caret icon to `left` or `right` (defaults to `left`). */
   align?: Float;
   /** If set, there will be no sliding animations. */
   noanimate?: boolean;
@@ -117,7 +116,7 @@ const AccordionStyled = styled(AccordionBase)`
     ${!p.attached && css`
       border-top-width: 1px;
       border-bottom-width: 1px;
-      border-radius: ${p => p.theme.radius}px;
+      border-radius: ${p.theme.radius}px;
     `}
     /* Middle attached: Only bottom border. */
     ${p.attached && p.attached !== 'top' && p.attached !== 'bottom' && css`
@@ -140,6 +139,11 @@ const AccordionStyled = styled(AccordionBase)`
   `}
 `;
 
+/**
+ * An Accordion is used to group content in panes that can be expanded individually. 
+ * By default, an Accordion only allows one pane to be open at any time. A multiple 
+ * Accordion allows users to expand multiple panes. 
+ */
 class Accordion extends React.Component<IAccordionProps, {}> {
   public static displayName = "Accordion";
   public static Tab = AccordionTab;
