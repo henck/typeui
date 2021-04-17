@@ -51,13 +51,13 @@ const CardStyled = styled(CardBase)`
 
   ${p => p.onClick && css`
     cursor: pointer;
-    transition: margin ${p => p.theme.transition.duration}s ease,
-                box-shadow ${p => p.theme.transition.duration}s ease;
+    transition: margin ${p.theme.transition.duration}s ease,
+                box-shadow ${p.theme.transition.duration}s ease;
     &:hover {
       margin-top: 3px;
       margin-bottom: 12px;
-      ${p => !p.raised && css`box-shadow: rgba(34, 36, 38, 0.3) 0px 2px 3px 0px;`}
-      ${p => p.raised && css`box-shadow: rgba(34, 36, 38, 0.24) 0px 2px 4px 0px, rgba(34, 36, 38, 0.3) 0px 2px 10px 0px;`}
+      ${!p.raised && css`box-shadow: rgba(34, 36, 38, 0.3) 0px 2px 3px 0px;`}
+      ${p.raised && css`box-shadow: rgba(34, 36, 38, 0.24) 0px 2px 4px 0px, rgba(34, 36, 38, 0.3) 0px 2px 10px 0px;`}
     }
   `}
 `
