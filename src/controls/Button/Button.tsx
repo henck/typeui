@@ -273,7 +273,7 @@ const ButtonStyled = styled(ButtonBase)`
 /**
  * A Button can be clicked and styled.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-button--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-button--properties
  */
 class Button extends React.PureComponent<IButtonProps, {}> {
   public static displayName = "Button";
@@ -288,7 +288,7 @@ class Button extends React.PureComponent<IButtonProps, {}> {
    *   <Button positive>Two</Button> 
    * </Button.Group>
    * 
-   * @see {@link https://henck.github.io/typeui/?path=/story/controls-button-groups--group-attributes}
+   * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--group-attributes
    */  
   public static Or = ButtonOr;
 
@@ -302,7 +302,7 @@ class Button extends React.PureComponent<IButtonProps, {}> {
    *  <Button>Three</Button> 
    * </Button.Group> 
    * 
-   * @see {@link https://henck.github.io/typeui/?path=/story/controls-button-groups--conditional}
+   * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--conditional
    */  
   public static Group = ButtonGroup;  
 

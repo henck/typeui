@@ -121,7 +121,7 @@ const DropdownStyled = styled(DropdownBase)`
  *   <Dropdown.Column>{(item: any) => item.name}</Dropdown.Column>
  * </Dropdown>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-dropdown--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-dropdown--properties
  */
 class Dropdown extends React.Component<IDropdownProps, {}> {
   public static displayName = "Dropdown";

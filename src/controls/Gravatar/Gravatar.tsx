@@ -27,7 +27,7 @@ interface IGravatarProps {
  * @example
  * <Gravatar email="john.smith@email.com"/>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-gravatar--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-gravatar--properties
  */
 class Gravatar extends React.Component<IGravatarProps, {}> {
   render() {

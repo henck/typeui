@@ -161,7 +161,7 @@ const Value = styled('div')`
  * <CircularProgress animated background padded raised value={90}/>
  * <CircularProgress animated background color="crimson" padded raised rounded value={48}/>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-circularprogress--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-circularprogress--properties
  */
 class CircularProgress extends React.Component<IProps> {
   render() {

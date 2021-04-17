@@ -86,7 +86,7 @@ const LabelledValueStyled = styled(LabelledValueBase)`
  * a value. It is used for view-only data. There is a very slight color change when the 
  * mouse hovers over the value.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-labelledvalue--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-labelledvalue--properties
  */
 class LabelledValue extends React.Component<IProps> {
   render() {

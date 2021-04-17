@@ -182,7 +182,7 @@ const ImageStyled = styled(ImageBase)`
  *  </Label>
  * </Image>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-image--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-image--properties
  */
 class Image extends React.Component<IImageProps, {}> {
   public static displayName = "Image";

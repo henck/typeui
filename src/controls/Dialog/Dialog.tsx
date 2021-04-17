@@ -43,7 +43,7 @@ interface IDialogProps {
  *   </Dialog.Footer>
  * </Dialog>      
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-dialog--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-dialog--properties
  */
 class Dialog extends React.Component<IDialogProps, {}> {
   private windowElement: HTMLDivElement;

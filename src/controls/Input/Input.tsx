@@ -273,7 +273,7 @@ const InputStyled = styled(InputBase)`
 /**
  * Replacement for standard HTML input.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-input--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-input--properties
  */
 class Input extends React.Component<IInputProps, {}> {
   render() {

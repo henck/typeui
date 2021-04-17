@@ -131,7 +131,7 @@ const MessageStyled = styled(MessageBase).attrs(p => ({
 /**
  * Displays an informational message block.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-message--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-message--properties
  */
 class Message extends React.Component<IMessageProps, {}> {
   public static displayName = "Message";

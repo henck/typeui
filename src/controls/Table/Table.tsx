@@ -109,7 +109,7 @@ const TableStyled = styled(TableBase)`
  *   <tbody>...</tbody>
  * </Table>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-table--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-table--properties
  */
 class Table extends React.PureComponent<ITableProps, {}> {
   render() {

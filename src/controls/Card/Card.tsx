@@ -76,7 +76,7 @@ const CardStyled = styled(CardBase)`
  *   </Card.Content>    
  * </Card>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-card--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-card--properties
  */
 class Card extends React.Component<ICardProps, {}> {
   public static displayName = 'Card';

@@ -86,7 +86,7 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
  *   background
  *   value={50}/>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-progress--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-progress--properties
  */
 class Progress extends React.Component<IProgressProps, {}> {
   render() {

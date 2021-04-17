@@ -158,7 +158,7 @@ const AccordionStyled = styled(AccordionBase)`
  *   </Accordion.Tab>
  * </Accordion> 
  * 
- * @see https://henck.github.io/typeui/?path=/story/controls-accordion--properties
+ * @link https://henck.github.io/typeui/?path=/story/controls-accordion--properties
  */
 class Accordion extends React.Component<IAccordionProps, {}> {
   public static displayName = "Accordion";

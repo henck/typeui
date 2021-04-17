@@ -90,7 +90,7 @@ const PaneStyled = styled(PaneBase)`
  * to true. An onClose event is triggered when the user clicks outside of the pane or 
  * when the user clicks the close (cross) icon.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-pane--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-pane--properties
  */
 class Pane extends React.Component<IPaneProps, {}> {
   public static displayName = 'Pane';

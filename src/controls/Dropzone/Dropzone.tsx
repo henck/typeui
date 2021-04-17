@@ -31,7 +31,7 @@ interface IDropzoneState {
  *   onAddFiles={(files: File[]) => console.log("Files dropped", files)}
  * />
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-dropzone--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-dropzone--properties
  */
 class Dropzone extends React.Component<IDropzoneProps, IDropzoneState> {
   constructor(props: IDropzoneProps) {

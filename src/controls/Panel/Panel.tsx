@@ -29,7 +29,7 @@ interface IPanelState {
  * Note that a panel determines its position from the position of its direct parent. 
  * The parent therefore must have position: relative.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-panel--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-panel--properties
  */
 class Panel extends React.Component<IPanelProps, IPanelState> {
   public static displayName = "Panel";

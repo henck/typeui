@@ -216,7 +216,7 @@ const SegmentStyled = styled(SegmentBase)`
  * @example
  * <Segment piled>Some content</Segment>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-segment--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-segment--properties
  */
 class Segment extends React.PureComponent<ISegmentProps, {}> {
   public static displayName = 'Segment';

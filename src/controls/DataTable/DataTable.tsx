@@ -314,7 +314,7 @@ const DataTableStyled = styled(DataTableBase)`
  *
  * </DataTable>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-datatable--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-datatable--properties
  */
 class DataTable extends React.Component<IDataTableProps, {}> {
   public static displayName = 'DataTable';

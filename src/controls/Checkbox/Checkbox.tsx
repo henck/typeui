@@ -219,7 +219,7 @@ const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
  * <Checkbox label="One" name="myradio" radio value={1}/>
  * <Checkbox label="Two" name="myradio" radio value={2}/>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-checkbox--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-checkbox--properties
  */
 class Checkbox extends React.Component<ICheckboxProps, {}> {
   public static displayName = 'Checkbox';

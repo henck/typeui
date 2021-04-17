@@ -221,7 +221,7 @@ const HeaderStyled = styled(HeaderBase)`
  * @example
  * <Header size='h1'>Hello, world</Header>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-header--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-header--properties
  */
 export class Header extends React.Component<IHeaderProps, {}> {
   public static displayName = "Header";

@@ -50,7 +50,7 @@ interface IState {
  * update the form data only when required (such as when setting the dirty flag), which 
  * avoid rerendering all form elements on every interaction.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-form--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-form--properties
  */
 class Form extends React.Component<IProps, IState> {
   /** 

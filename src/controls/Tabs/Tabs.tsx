@@ -99,7 +99,7 @@ const TabsStyled = styled(TabsBase)`
  *   </Tabs.Pane>
  * </Tabs>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-tabs--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-tabs--properties
  */
 class Tabs extends React.PureComponent<ITabsProps, {}> {
   public static displayName = "Tabs";

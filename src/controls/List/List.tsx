@@ -107,7 +107,7 @@ const ListStyled = styled(ListBase)`
 // This way, we can add static class members.
 // 
 /**
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-list--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-list--properties
  */
 class List extends React.Component<IListProps, {}> {
   public static Item = ListItem;

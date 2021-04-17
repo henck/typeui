@@ -72,7 +72,7 @@ const StyledFlex = styled(FlexBase)`
  *   </Flex.Row>
  * </Flex>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-flex--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-flex--properties
  */
 class Flex extends React.Component<IFlexProps, {}> {
   public static displayName = "Flex";

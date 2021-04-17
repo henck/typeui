@@ -73,7 +73,7 @@ const DividerStyled = styled(DividerBase)`
  * @example
  * <Divider>OR</Divider>
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-divider--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-divider--properties
  */
 class Divider extends React.PureComponent<IDividerProps, {}> {
   public static displayName = 'Divider';

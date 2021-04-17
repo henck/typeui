@@ -69,7 +69,7 @@ const PlaceholderStyled = styled(PlaceholderBase)`
  * The background animation is done using CSS transforms so that it can be smooth and 
  * GPU-accelerated.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-placeholder--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-placeholder--properties
  */
 class Placeholder extends React.Component<IPlaceholderProps, {}> {
   public static Paragraph = PlaceholderParagraph;

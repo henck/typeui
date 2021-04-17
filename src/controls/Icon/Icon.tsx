@@ -138,7 +138,7 @@ const IconStyled = styled(IconBase).attrs(p => ({
 /**
  * Displays an icon.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-icon--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-icon--properties
  */
 class Icon extends React.Component<IIconProps, {}> {
   render() {

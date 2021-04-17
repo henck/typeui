@@ -267,7 +267,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
 /**
  * Stylable label.
  * 
- * @see {@link https://henck.github.io/typeui/?path=/story/controls-label--properties}
+ * @link https://henck.github.io/typeui/?path=/story/controls-label--properties
  */
 class Label extends React.Component<ILabelProps, {}> {
   public static displayName = "Label";
