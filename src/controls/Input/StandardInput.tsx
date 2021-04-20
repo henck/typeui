@@ -23,6 +23,7 @@ class StandardInputBase extends React.Component<IInputProps, {}> {
         placeholder={p.placeholder} 
         disabled={p.disabled}
         type={p.type} 
+        maxLength={p.maxLength}
         onChange={this.handleChange}
         onFocus={this.props.onFocus}/>
     )

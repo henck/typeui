@@ -46,6 +46,8 @@ interface IInputProps {
   dateformat?: string;
   /** If set, date pickers do not allow picking future dates (beyond today). */
   nofuture?: boolean;
+  /** Optional input maxlength */
+  maxLength?: number;
   
   // Events
   /** Listeners are notified whenever the user interacts with the Input. */
