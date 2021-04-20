@@ -23,7 +23,7 @@ class PanesBase extends React.Component<IPanesProps, {}> {
 const Panes = styled(PanesBase)`
   height: 100%;
   flex: 1;
-  padding-top: 14px;
+  
   border-bottom-left-radius: ${p => p.theme.radius}px;
   border-bottom-right-radius: ${p => p.theme.radius}px;
 
