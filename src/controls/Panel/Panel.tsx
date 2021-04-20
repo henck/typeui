@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { ThemeConsumer } from 'styled-components';
+import { IThemeInterface } from '../../styles/Theme';
 
 // Other controls
 import { PanelContainer } from './PanelContainer';
@@ -18,6 +20,8 @@ interface IPanelProps {
   width?: number;
   /** Does Panel have internal padding? There is no padding by default to allow content to fill the Panel completely. */
   padded?: boolean;  
+  /** If set, Panel does not perform animation. */
+  noanimation?: boolean;
 }
 
 interface IPanelState {
@@ -81,12 +85,13 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
 
   render() {
     let p = this.props;
-
     return (
       <div ref={(el:any) => this.panelElement = el}>
-        <CSSTransition in={p.open} timeout={300} unmountOnExit classNames="fade">
-          <PanelContainer anchor={this.state.anchor} padded={p.padded} width={p.width}>{p.children}</PanelContainer>
-        </CSSTransition>
+        <ThemeConsumer>
+          {(theme:IThemeInterface) => <CSSTransition in={p.open} timeout={theme.transition.duration*1000*3} appear unmountOnExit classNames="fade">
+            <PanelContainer noanimation={this.props.noanimation} anchor={this.state.anchor} padded={p.padded} width={p.width}>{p.children}</PanelContainer>
+          </CSSTransition>}
+        </ThemeConsumer>
       </div>
     );
   }

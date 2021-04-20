@@ -12,6 +12,8 @@ interface IPanelContainerProps {
   width?: number;
   /** Does panel have internal padding? */
   padded?: boolean;  
+  /** If set, panel does not perform animation. */
+  noanimation?: boolean;
 }
 
 class PanelContainer extends React.Component<IPanelContainerProps> {
@@ -31,14 +33,19 @@ class PanelContainer extends React.Component<IPanelContainerProps> {
   // After mounting, focus on the first <input> element in the panel,
   // if there is one.
   componentDidMount() {
+    console.log("Mount");
     let firstInput = this.props.anchor.parentElement.querySelector('input');
     if(firstInput != null) firstInput.focus();
+  }
+
+  componentWillUnmount() {
+    console.log("Unmount");
   }
 
   render() {
     let p = this.props;
     return (
-      <PanelBody className={p.className} above={this.above} right={this.right} offset={this.offset} padded={p.padded} width={p.width}>{p.children}</PanelBody>
+      <PanelBody noanimation={this.props.noanimation} className={p.className} above={this.above} right={this.right} offset={this.offset} padded={p.padded} width={p.width}>{p.children}</PanelBody>
     );
   }
 }

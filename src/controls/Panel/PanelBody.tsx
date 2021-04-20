@@ -15,6 +15,8 @@ interface IPanelBodyProps {
   width?: number;
   /** Does panel have internal padding? */
   padded?: boolean;
+  /** If set, panel does not perform animation. */
+  noanimation?: boolean;
 }
 
 class PanelBodyBase extends React.Component<IPanelBodyProps, {}> {
@@ -64,34 +66,37 @@ const PanelBody = styled(PanelBodyBase)`
   ${p =>  p.above &&  p.right && css`transform-origin: left bottom;`} 
   ${p => !p.above && !p.right && css`transform-origin: right top;`} 
   ${p => !p.above &&  p.right && css`transform-origin: left top;`} 
-  transition: opacity ${p => p.theme.transition.duration*3}s ease-out, 
-              top ${p => p.theme.transition.duration*3}s ease-out, 
-              bottom ${p => p.theme.transition.duration*3}s ease-out, 
-              transform ${p => p.theme.transition.duration*3}s ease-out;
+  transition: opacity ${p => p.noanimation ? 0 : p.theme.transition.duration*3}s ease-out, 
+              top ${p => p.noanimation ? 0 : p.theme.transition.duration*3}s ease-out, 
+              bottom ${p => p.noanimation ? 0 : p.theme.transition.duration*3}s ease-out, 
+              transform ${p => p.noanimation ? 0 : p.theme.transition.duration*3}s ease-out;
+
+  opacity: 0.01;
+  transform: scaleX(0.01) scaleY(0.01);
 
   &.fade-enter {
     opacity: 0.01;
     transform: scaleX(0.01) scaleY(0.01);
     ${p => p.above && css`bottom: 0;`}
-    ${p => !p.above && css`top: 0;`}    
+    ${p => !p.above && css`top: 0;`}
   }
-  &.fade-enter-active {
+  &.fade-enter.fade-enter-active, &.fade-enter-done {
     opacity: 1;
     transform: scaleX(1) scaleY(1);
     ${p => p.above && css`bottom: 100%;`}
-    ${p => !p.above && css`top: 100%;`}    
+    ${p => !p.above && css`top: 100%;`}
   }
   &.fade-exit {
     opacity: 1;
     transform: scaleX(1) scaleY(1);
     ${p => p.above && css`bottom: 100%;`}
-    ${p => !p.above && css`top: 100%;`}    
+    ${p => !p.above && css`top: 100%;`}
   }
-  &.fade-exit-active {
+  &.fade-exit.fade-exit-active {
     opacity: 0.01;
     transform: scaleX(0.01) scaleY(0.01);
     ${p => p.above && css`bottom: 0;`}
-    ${p => !p.above && css`top: 0;`}    
+    ${p => !p.above && css`top: 0;`}
   }
 
   /* Colors */
