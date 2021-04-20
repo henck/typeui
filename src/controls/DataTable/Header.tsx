@@ -27,6 +27,8 @@ interface IHeaderProps {
   align?: Float;  
   /** If true, column always appears no matter the screen size. */
   force?: boolean;  
+  /** If true, then gridlines are shown. */
+  grid?: boolean;
 }
 
 class HeaderBase extends React.Component<IHeaderProps, {}> {
@@ -49,6 +51,13 @@ const Header = styled(HeaderBase)`
   display: flex;
   align-items: center;
   background-color: ${p => p.theme.background};
+  box-sizing: border-box;
+
+  /* Vertical gridlines */
+  ${p => p.grid && css`
+  &:not(:first-child) {
+    border-left: solid 1px ${p => p.theme.normalColor};
+  }`}
 
   /* On small screens, only the first Heading is shown. */
   ${p => !p.force && css` 
@@ -63,10 +72,11 @@ const Header = styled(HeaderBase)`
   flex: ${p => p.weight ? p.weight : 1};
   overflow-x: hidden;
 
-  padding: 16px 6px;
-  margin-right: 30px;
-  &:not(:last-child) {
-    margin-right: 26px;
+  padding: 16px 32px 16px 6px;
+  
+  &:last-child {
+    padding-right: 36px;
+  
   }
   ${p => p.orderable && css`cursor:pointer;`}
 

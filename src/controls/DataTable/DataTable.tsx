@@ -155,7 +155,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
       let orderable = !!child.props.order && !!this.props.onOrder;
       // Is this column currently sorted?
       let ordered = child.props.order === this.props.order;
-      return <Header align={child.props.align} force={child.props.force} weight={child.props.weight} orderable={orderable} ordered={ordered} dir={this.props.dir} defaultDir={child.props.dir} onClick={orderable ? () => this.props.onOrder(child.props.order, child.props.dir) : null}>{child.props.label}</Header>
+      return <Header grid={this.props.grid} align={child.props.align} force={child.props.force} weight={child.props.weight} orderable={orderable} ordered={ordered} dir={this.props.dir} defaultDir={child.props.dir} onClick={orderable ? () => this.props.onOrder(child.props.order, child.props.dir) : null}>{child.props.label}</Header>
     })
   }
 
