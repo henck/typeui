@@ -5,6 +5,7 @@ import { css } from 'styled-components';
 // Other controls
 import { Icon } from '../Icon/Icon';
 import { IconStyled } from '../Icon/Icon';
+import { Hint } from '../Form/Hint';
 
 interface IProps {
   className?: string;
@@ -15,6 +16,10 @@ interface IProps {
   onClick?: () => void;
   /** Optional flex width */
   width?: number;
+  /** Remove backround */
+  nobackground?: boolean;
+  /** Optional hint text. Can be JSX. */
+  hint?: React.ReactNode;
 }
 
 const Label = styled('div')`
@@ -28,10 +33,6 @@ const Label = styled('div')`
 `
 
 const Block = styled('div')`
-  position: relative;
-  background: #f0f0f0;
-  padding: 2px 8px;
-  border-radius: 4px;
 `
 
 class LabelledValueBase extends React.Component<IProps, {}> {
@@ -47,6 +48,7 @@ class LabelledValueBase extends React.Component<IProps, {}> {
           {!hasContent ? '-' : p.children}&nbsp;
           {p.onClick && <Icon name="link"/>}
         </Block>
+        {p.hint && <Hint>{p.hint}</Hint>}
       </div>
     );
   }
@@ -57,6 +59,13 @@ const LabelledValueStyled = styled(LabelledValueBase)`
 
   /* If the label is a link, then give it a pointer cursor, and hover color. */
   ${Block} {
+    position: relative;
+    ${p => !p.nobackground && css`
+      background: #f0f0f0;
+      padding: 2px 8px;
+      border-radius: ${p.theme.radius}px;
+    `}
+
     ${p => p.onClick && css`
       cursor: pointer;
       transition: background-color ${p => p.theme.transition.duration * 2}s ease,
@@ -85,6 +94,9 @@ const LabelledValueStyled = styled(LabelledValueBase)`
  * Displays a value with a label above it. A LabelledValue is just that: a label and 
  * a value. It is used for view-only data. There is a very slight color change when the 
  * mouse hovers over the value.
+ * 
+ * @example
+ * <LabelledValue label="My label">{value}</LabelledValue>
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-labelledvalue--properties
  */
