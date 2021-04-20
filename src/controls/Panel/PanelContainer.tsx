@@ -33,8 +33,13 @@ class PanelContainer extends React.Component<IPanelContainerProps> {
   // After mounting, focus on the first <input> element in the panel,
   // if there is one.
   componentDidMount() {
+    console.log("Mount");
     let firstInput = this.props.anchor.parentElement.querySelector('input');
     if(firstInput != null) firstInput.focus();
+  }
+
+  componentWillUnmount() {
+    console.log("Unmount");
   }
 
   render() {
