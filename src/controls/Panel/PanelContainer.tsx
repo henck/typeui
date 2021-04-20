@@ -12,6 +12,8 @@ interface IPanelContainerProps {
   width?: number;
   /** Does panel have internal padding? */
   padded?: boolean;  
+  /** If set, panel does not perform animation. */
+  noanimation?: boolean;
 }
 
 class PanelContainer extends React.Component<IPanelContainerProps> {
@@ -38,7 +40,7 @@ class PanelContainer extends React.Component<IPanelContainerProps> {
   render() {
     let p = this.props;
     return (
-      <PanelBody className={p.className} above={this.above} right={this.right} offset={this.offset} padded={p.padded} width={p.width}>{p.children}</PanelBody>
+      <PanelBody noanimation={this.props.noanimation} className={p.className} above={this.above} right={this.right} offset={this.offset} padded={p.padded} width={p.width}>{p.children}</PanelBody>
     );
   }
 }
