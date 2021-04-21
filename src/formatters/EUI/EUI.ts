@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 interface IEUIProps {
-  className?: string;
   /** Value to format. */
   value: string | number;
 }
