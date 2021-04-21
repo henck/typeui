@@ -17,5 +17,5 @@ storiesOf('Formatters/EUI', module)
   .addWithJSX(
     'Properties',
   () => (
-  <EUI value={text('value', "12345678abcdefaa")}/>
+    <EUI value={text('value', "12345678abcdefaa")}/>
   ));  
