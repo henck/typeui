@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase.s';
-import { number, text, boolean } from '@storybook/addon-knobs/react';
+import { text } from '@storybook/addon-knobs/react';
 import { EUI } from '../EUI'
 
 storiesOf('Formatters/EUI', module)
