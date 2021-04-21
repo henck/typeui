@@ -292,4 +292,4 @@ class Label extends React.Component<ILabelProps, {}> {
 (Label.Group as any).displayName = "Label.Group";
 (Label.Detail as any).displayName = "Label.Detail";
 
-export { Label };
+export { Label, LabelStyled };
