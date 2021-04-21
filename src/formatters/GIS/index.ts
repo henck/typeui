@@ -1,2 +1,2 @@
-import { GIS } from './GIS';
-export { GIS };
+import { Latitude, Longitude } from './GIS';
+export { Latitude, Longitude };
