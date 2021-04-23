@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase.s';
-import { text } from '@storybook/addon-knobs/react';
 import { Form } from '../../../Form';
 import { Dropdown } from '../../../Dropdown';
 import { Input } from '../../../Input'
@@ -37,8 +36,14 @@ storiesOf('Controls/Input/Layout', module)
         label="Date"
         name="date"
         value={null}
-        control={<Input type="date" placeholder="Date" dateformat="E d MMMM, yyyy"/>}
+        control={<Input type="date" placeholder="Date" format="E d MMMM, yyyy"/>}
         hint="Please select a date."/>
+      <Form.Field
+        label="Time"
+        name="time"
+        value={null}
+        control={<Input type="time" placeholder="Time" format="HH:mm"/>}
+        hint="Please select a time."/>      
       <Form.Field
         label="Color"
         name="color"

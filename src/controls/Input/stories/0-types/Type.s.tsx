@@ -12,7 +12,7 @@ storiesOf('Controls/Input/Types', module)
   .addParameters({
     info: `
     An input must have a specific \`type\` (as defined by HTML). Supported types
-    are \`text\`, \`password\`, \`date\` and \`color\`.
+    are \`text\`, \`password\`, \`date\`, \`time\` and \`color\`.
     `
   })
   .addWithJSX(
@@ -34,6 +34,11 @@ storiesOf('Controls/Input/Types', module)
         name="date"
         value={null}
         control={<Input type="date"/>}/>
+      <Header size="h4">Time</Header>
+      <Form.Field
+        name="time"
+        value={null}
+        control={<Input type="time"/>}/>        
       <Header size="h4">Color</Header>
       <Form.Field
         name="color"

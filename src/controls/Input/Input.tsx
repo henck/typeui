@@ -10,6 +10,8 @@ import { Float } from '../Types';
 import { StandardInput } from './StandardInput';
 import { InputBox as DateInputBox } from './Date/InputBox';
 import { Selector as DateSelector } from './Date/Selector';
+import { InputBox as TimeInputBox } from './Time/InputBox';
+import { Selector as TimeSelector } from './Time/Selector';
 import { InputBox as ColorInputBox } from './Color/InputBox';
 import { Selector as ColorSelector } from './Color/Selector';
 import { Clear } from './Clear';
@@ -24,8 +26,8 @@ interface IInputProps {
   name?: string;
   /** Input value. */
   value?: any;
-  /** Input type, `text`, `password`, `date` or `color`. Defaults to `text`. */
-  type?: 'date' | 'text' | 'password' | 'color';
+  /** Input type, `text`, `password`, `date`, `time` or `color`. Defaults to `text`. */
+  type?: 'date' | 'time' | 'text' | 'password' | 'color';
   /** Placeholder to show when the Input is empty. */
   placeholder?: string;
   /** Marks input as disabled. */
@@ -42,10 +44,18 @@ interface IInputProps {
   iconPosition?: Float;
   /** If set, Input's value can be cleared. */
   clearable?: boolean;  
-  /** If set, dates (in inputs of type `date`) are shown in this format (refer to date-fns/format for format options). */
-  dateformat?: string;
+  /** If set, dates and times (in inputs of type `date` or `time`) are shown in this format 
+   * (refer to date-fns/format for format options). 
+   */
+  format?: string;
   /** If set, date pickers do not allow picking future dates (beyond today). */
   nofuture?: boolean;
+  /** If set, time pickers have a "seconds" field. */
+  hasSeconds?: boolean;
+  /** If set, time pickers use a 24h clock. */
+  is24h?: boolean;
+  /** If set, time pickers show a clock face. */
+  clock?: boolean;
   /** Optional input maxlength */
   maxLength?: number;
   
@@ -149,7 +159,6 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
   } */
 
   render() {
-    //console.log("RENDER INPUT");
     let {className, ...p} = this.props;
 
     let icon = null;
@@ -164,22 +173,29 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
 
     return (
     <div className={className} onClick={this.handleClick} ref={this.wrapperRef}>
-      {p.type !== 'date' && p.type !== 'color' && 
+      {p.type !== 'date' && p.type !== 'color' && p.type !== 'time' && 
         <StandardInput {...p}/>}
       {p.type === 'date' && 
-        <React.Fragment>
-          <DateInputBox {...p} focused={this.state.open}/>
+        <>
+          <DateInputBox {...p} defaultFormat="dd-MM-yyyy" focused={this.state.open}/>
           <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
             <DateSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect} nofuture={p.nofuture}/>
           </CSSTransition>
-        </React.Fragment>}
+        </>}
+      {p.type === 'time' && 
+        <>
+          <TimeInputBox {...p} defaultFormat="HH:mm:ss" focused={this.state.open}/>
+          <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
+            <TimeSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect} hasSeconds={p.hasSeconds} is24h={p.is24h} clock={p.clock}/>
+          </CSSTransition>          
+        </>}
       {p.type === 'color' &&
-        <React.Fragment>
+        <>
           <ColorInputBox {...p} focused={this.state.open}/>
           <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
             <ColorSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect}/>
           </CSSTransition>
-        </React.Fragment>}      
+        </>}
       {icon}
       {p.clearable && p.value !== null && <Clear onClick={this.handleClear}></Clear>}
     </div>)

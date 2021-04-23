@@ -18,10 +18,10 @@ storiesOf('Controls/Input', module)
   <Input 
     name="name"
     type="text"      
-    placeholder={text('placeholder', 'Enter something')}
-    disabled={boolean('disabled', false)}
+    placeholder={text('placeholder', 'Enter something', 'Input')}
+    disabled={boolean('disabled', false, 'Input')}
     error={boolean('error', false, 'Input')}
-    transparent={boolean('transparent', false)}
-    fluid={boolean('fluid', false)}/>
+    transparent={boolean('transparent', false, 'Input')}
+    fluid={boolean('fluid', false, 'Input')}/>
   ));  
 
