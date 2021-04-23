@@ -61,6 +61,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
   componentDidMount = () => {
     // On mount, focus on first input (hours).
     this.wrapperElement.querySelector('input').focus();
+    this.wrapperElement.querySelector('input').select();
   }
 
   // Cancel and close control
@@ -70,8 +71,8 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
   }
 
   // Select a time and update the input's value.
-  private handleSelect = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  private handleSelect = (e?: React.MouseEvent) => {
+    if(e) e.stopPropagation();
     let hour = this.state.hour;
     if(!this.props.is24h && hour == 12) hour = 0;
     if(!this.props.is24h && !this.state.am) hour += 12;
@@ -133,6 +134,10 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
         this.setState({ hour: this.forceRange(value, this.getMinHour(), this.getMaxHour()) });
         if(done) {
           this.wrapperElement.querySelectorAll('input')[1].focus();
+          this.wrapperElement.querySelectorAll('input')[1].select();
+        } else {
+          this.wrapperElement.querySelectorAll('input')[0].focus();
+          this.wrapperElement.querySelectorAll('input')[0].select();
         }
         break;
       case 'minute':
@@ -140,11 +145,17 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
         this.setState({ minute: this.forceRange(value, 0, 60) });
         if(done && this.props.hasSeconds) {
           this.wrapperElement.querySelectorAll('input')[2].focus();
-        }        
+          this.wrapperElement.querySelectorAll('input')[2].select();
+        } else {
+          this.wrapperElement.querySelectorAll('input')[1].focus();
+          this.wrapperElement.querySelectorAll('input')[1].select();
+        }
         break;        
       case 'second':
         value = Math.round(deg / 6) % 60;
         this.setState({ second: this.forceRange(value, 0, 60) });
+        this.wrapperElement.querySelectorAll('input')[2].focus();
+        this.wrapperElement.querySelectorAll('input')[2].select();
         break;        
     }
   }
@@ -160,12 +171,17 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     }
   }
 
+  private handleKeyPress = (e: React.KeyboardEvent) => {
+    console.log(this.isValid() ? "valid" : "invalid");
+    if(e.key == 'Enter' && this.isValid()) this.handleSelect();
+  }
+
   render() {
     let p = this.props;
 
     return (
       <div className={p.className}>
-        <Body ref={(el:any) => this.wrapperElement = el} >
+        <Body ref={(el:any) => this.wrapperElement = el} onKeyPress={this.handleKeyPress}>
           <ControlBar>
             <InputBar>
             <InputHolder>
