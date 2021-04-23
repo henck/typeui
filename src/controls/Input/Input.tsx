@@ -184,7 +184,7 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
         </>}
       {p.type === 'time' && 
         <>
-          <TimeInputBox {...p} defaultFormat="HH:mm:ss" focused={this.state.open}/>
+          <TimeInputBox {...p} defaultFormat={p.hasSeconds ? "HH:mm:ss" : "HH:mm"} focused={this.state.open}/>
           <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
             <TimeSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect} hasSeconds={p.hasSeconds} is24h={p.is24h} clock={p.clock}/>
           </CSSTransition>          
