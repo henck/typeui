@@ -46,13 +46,15 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     super(props);
 
     let time = this.props.value ? parse(this.props.value, "HH:mm:ss", new Date()): null;
+    let hour = time ? time.getHours() % (this.props.is24h ? 24 : 12) : null;
+    if(!props.is24h && hour == 0) hour = 12;
     this.state = {
       mode:   'hour',
-      hour:   time ? time.getHours() % this.getMaxHour() : null,
+      hour:   hour,
       minute: time ? time.getMinutes() : null,
       // If we have no seconds, just set them to 0.
       second: props.hasSeconds  ? (time ? time.getSeconds() : null) : 0,
-      am:     time ? time.getHours() <= 12 : true
+      am:     time ? time.getHours() < 12 : true
     };
   }
 
@@ -71,41 +73,46 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
   private handleSelect = (e: React.MouseEvent) => {
     e.stopPropagation();
     let hour = this.state.hour;
+    if(!this.props.is24h && hour == 12) hour = 0;
     if(!this.props.is24h && !this.state.am) hour += 12;
     let date = new Date(1, 1, 1, hour, this.state.minute, this.state.second);
     this.props.onSelect(format(date, 'HH:mm:ss'));
   }
 
+  private getMinHour = () => {
+    return this.props.is24h ? 0 : 1;
+  }
+
   private getMaxHour = () => {
-    return this.props.is24h ? 24 : 12;
+    return this.props.is24h ? 24 : 13;
   }
 
   // Is the currently selected time a valid time?
   private isValid = () => {
-    return this.state.hour != null   && this.state.hour >= 0   && this.state.hour < this.getMaxHour()
+    return this.state.hour != null   && this.state.hour >= this.getMinHour() && this.state.hour < this.getMaxHour()
         && this.state.minute != null && this.state.minute >= 0 && this.state.minute < 60
         && this.state.second != null && this.state.second >= 0 && this.state.second < 60;
   }
 
   // Force a value into a 0..max (exclusive) range.
-  private forceRange = (value: number, max: number): number => {
+  private forceRange = (value: number, min: number, max: number): number => {
     value = parseInt(value as any);
-    if(isNaN(value)) value = 0;
-    if(value < 0) return 0;
+    if(isNaN(value)) value = min;
+    if(value < min) return min;
     if(value >= max) return max - 1;
     return value;
   }
 
   private handleHour = (value: number) => {
-    this.setState({ hour: this.forceRange(value, this.getMaxHour()) });
+    this.setState({ hour: this.forceRange(value, this.getMinHour(), this.getMaxHour()) });
   }
 
   private handleMinute = (value: number) => {
-    this.setState({ minute: this.forceRange(value, 60) });
+    this.setState({ minute: this.forceRange(value, 0, 60) });
   }
   
   private handleSecond = (value: number) => {
-    this.setState({ second: this.forceRange(value, 60) });
+    this.setState({ second: this.forceRange(value, 0, 60) });
   }  
 
   private handleAM = () => {
@@ -123,21 +130,21 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
         value = Math.round(deg / 30);
         if(this.props.is24h) value = Math.round(deg/15);
         value = value % this.getMaxHour();
-        this.setState({ hour: this.forceRange(value, this.getMaxHour()) });
+        this.setState({ hour: this.forceRange(value, this.getMinHour(), this.getMaxHour()) });
         if(done) {
           this.wrapperElement.querySelectorAll('input')[1].focus();
         }
         break;
       case 'minute':
         value = Math.round(deg / 6) % 60;
-        this.setState({ minute: this.forceRange(value, 60) });
+        this.setState({ minute: this.forceRange(value, 0, 60) });
         if(done && this.props.hasSeconds) {
           this.wrapperElement.querySelectorAll('input')[2].focus();
         }        
         break;        
       case 'second':
         value = Math.round(deg / 6) % 60;
-        this.setState({ second: this.forceRange(value, 60) });
+        this.setState({ second: this.forceRange(value, 0, 60) });
         break;        
     }
   }
