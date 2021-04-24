@@ -13,7 +13,7 @@ storiesOf('Controls/CircularProgress/Variations', module)
     `
   })
   .addWithJSX(
-    'Thickness',
+    'Radius',
   () => (
     <CircularProgress 
       value={35}
