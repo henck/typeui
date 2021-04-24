@@ -68,6 +68,22 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     };
   }
 
+  componentDidMount() {
+    // Add document-wide event listener for mouse move/up.
+    document.addEventListener('mousemove', this.handleMouseMove.bind(this));
+    document.addEventListener('mouseup', this.handleMouseUp.bind(this));
+    // Listen for document-wide keydown event when component mounts.
+    document.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    // Remove document-wide event listener for mouse move/up.
+    document.removeEventListener('mousemove', this.handleMouseMove.bind(this));
+    document.removeEventListener('mouseup', this.handleMouseUp.bind(this));
+    // Clean up document-wide keydown event when component unmounts.
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }    
+
   // Restore all swatches from local storage.
   // Uses default colors for missing swatches.
   private loadSwatches(): ISwatch[] {
@@ -208,13 +224,13 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     });
   }
 
-  private handleSelect(e: React.MouseEvent) {
-    e.stopPropagation();
+  private handleSelect(e?: React.MouseEvent) {
+    if(e) e.stopPropagation();
     this.props.onSelect(RgbColor.FromHsl(new HslColor(this.state.hue, this.state.hsl_saturation, this.state.hsl_lightness)).toString());
   }
   
-  private handleCancel(e: React.MouseEvent) {
-    e.stopPropagation();
+  private handleCancel(e?: React.MouseEvent) {
+    if(e) e.stopPropagation();
     this.props.onSelect(null);
   }
 
@@ -257,16 +273,10 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     });
   }  
 
-  componentDidMount() {
-    // Add document-wide event listener for mouse move/up.
-    document.addEventListener('mousemove', this.handleMouseMove.bind(this));
-    document.addEventListener('mouseup', this.handleMouseUp.bind(this));
-  }
-
-  componentWillUnmount() {
-    // Remove document-wide event listener for mouse move/up.
-    document.removeEventListener('mousemove', this.handleMouseMove.bind(this));
-    document.removeEventListener('mouseup', this.handleMouseUp.bind(this));
+  // Close control when Escape is pressed.
+  private handleKeyDown = (e: KeyboardEvent) => {
+    if(e.key == 'Enter') this.handleSelect();
+    if(e.key == 'Escape') this.handleCancel();
   }  
 
   render() {
