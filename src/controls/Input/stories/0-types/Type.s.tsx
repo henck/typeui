@@ -38,7 +38,7 @@ storiesOf('Controls/Input/Types', module)
       <Form.Field
         name="time"
         value={null}
-        control={<Input type="time"/>}/>        
+        control={<Input type="time" clock/>}/>        
       <Header size="h4">Color</Header>
       <Form.Field
         name="color"

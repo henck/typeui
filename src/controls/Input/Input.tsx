@@ -99,6 +99,20 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }     
 
+  private handleClick = () => {
+    // Disabled input cannot be clicked.
+    if(this.props.disabled) return;
+    // Is the input below the middle of the viewport?
+    let below = this.wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
+    // Is the input to the right of the middle of the viewport?
+    let right = this.wrapperRef.current.getBoundingClientRect().left > window.innerWidth * 0.45;
+    this.setState({
+      upward: below,
+      right: right,
+      open: true
+    });
+  }
+
   //
   // Toggle selector.
   //
@@ -113,7 +127,7 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
       upward: below,
       right: right,
       open: !this.state.open
-    })
+    });
   }  
 
   private handleKeyDown = (e: React.KeyboardEvent) => {
@@ -182,7 +196,7 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
     }    
 
     return (
-    <div className={className} onClick={this.handleToggle} ref={this.wrapperRef}>
+    <div className={className} onClick={this.handleClick} ref={this.wrapperRef}>
       {p.type !== 'date' && p.type !== 'color' && p.type !== 'time' && 
         <StandardInput {...p}/>}
       {p.type === 'date' && 

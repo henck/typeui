@@ -42,7 +42,7 @@ storiesOf('Controls/Input/Layout', module)
         label="Time"
         name="time"
         value={null}
-        control={<Input type="time" placeholder="Time" format="HH:mm"/>}
+        control={<Input type="time" placeholder="Time" format="HH:mm" clock/>}
         hint="Please select a time."/>      
       <Form.Field
         label="Color"
