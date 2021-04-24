@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { darken } from '../../../helper/darken';
 import styled from '../../../styles/Theme';
 
 import { ClockNumber } from './ClockNumber';
@@ -129,9 +130,15 @@ const ClockFace = styled('div')`
   height:         0;   /* hack to keep clock face ratio 1:1 */
   padding-bottom: 100%;
   border-radius:  50%;
-  background:     ${p => p.theme.normalColor};
+  box-shadow:     rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;
+  border:         solid 1px ${p => p.theme.normalColor};
+  background-color: ${p => p.theme.normalColor};
   cursor:         pointer;
+  transition:     border-color ${p => p.theme.transition.duration}s ease,
+                  background-color ${p => p.theme.transition.duration}s ease;
   &.move {
+    border:       solid 1px ${p => p.theme.primaryColor};
+    background-color: ${p => darken(0.05, p.theme.normalColor)};
     cursor:       move;
   }
 `

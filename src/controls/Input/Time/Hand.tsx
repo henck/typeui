@@ -48,7 +48,7 @@ const Hand = styled(HandBase)`
   top:        25%;
   width:      50%;
   height:     50%;
-  background: ${p => p.theme.normalColor};
+  background: transparent;
   border-radius: 50%;
   transform-origin: 50% 50%;
   transition: transform ${p => p.animation ? 0.2 : 0}s ease;
