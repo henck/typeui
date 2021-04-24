@@ -47,12 +47,19 @@ class ClockBase extends React.Component<IProps, IState> {
 
   private handleMouseDown = () => {
     this.mouseDown = true;
+    this.faceElement.classList.add('move');
     this.setState({ arrow_animation: false });
   }
 
   private handleMouseUp = (e: React.MouseEvent) => {
     this.mouseDown = false;
+    this.faceElement.classList.remove('move');
     this.props.onSelect(this.eventToDeg(e), true);
+  }
+
+  private handleMouseLeave = () => {
+    this.mouseDown = false;
+    this.faceElement.classList.remove('move');
   }
 
   private handleMouseMove = (e: React.MouseEvent) => {
@@ -63,7 +70,7 @@ class ClockBase extends React.Component<IProps, IState> {
     let p = this.props;
     return (
       <div className={p.className}>
-        <ClockFace ref={(el:any) => this.faceElement = el} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove}>
+        <ClockFace ref={(el:any) => this.faceElement = el} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove} onMouseLeave={this.handleMouseLeave}>
           <Arrow animation={this.state.arrow_animation} deg={p.value}/>
           {p.mode == 'hour' && !p.is24h && [12,1,2,3,4,5,6,7,8,9,10,11].map((v, index) => 
             <ClockNumber active={p.value == (v * 30) % 360} key={index} value={v.toString()} deg={v * 30}/>
@@ -89,6 +96,10 @@ const ClockFace = styled('div')`
   padding-bottom: 100%;
   border-radius: 50%;
   background: ${p => p.theme.normalColor};
+  cursor: pointer;
+  &.move {
+    cursor: move;
+  }
 `
 
 const Clock = styled(ClockBase) `
