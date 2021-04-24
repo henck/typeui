@@ -107,6 +107,11 @@ const Selector = styled(SelectorBase)`
     border-${p.upwards ? 'top' : 'bottom'}-right-radius: 0px;
   `}
 
+  /* If parent DIV has focus, give this a border. */
+  div:focus & {
+    border-color: ${p => lighten(0.25, p.theme.primaryColor)};
+  }
+
   /* Icon size and positions: */
   & > svg {
     position: absolute;

@@ -18,11 +18,20 @@ const WIDTH  = 100;
 const HEIGHT = 276;
 
 class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
-  private inputRef: React.RefObject<HTMLInputElement>;
+  private inputElement: HTMLInputElement;
 
   constructor(props: IInfoBoxProps) {
     super(props);
-    this.inputRef = React.createRef<HTMLInputElement>();
+  }
+
+  componentDidMount() {
+    this.updateHex();
+    // Focus on first input:
+    this.inputElement.focus();
+  }  
+
+  componentDidUpdate() {
+    this.updateHex();
   }
 
   private handleClick = () => {
@@ -97,13 +106,7 @@ class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
     let hsl = new HslColor(this.props.hue, this.props.saturation, this.props.lightness, 1);
     let rgb = RgbColor.FromHsl(hsl);
     // Remove the '#' from the color string.
-    this.inputRef.current.value = rgb.toString().substr(1).toUpperCase();
-  }
-  componentDidUpdate() {
-    this.updateHex();
-  }
-  componentDidMount() {
-    this.updateHex();
+    this.inputElement.value = rgb.toString().substr(1).toUpperCase();
   }
 
   render() {
@@ -120,7 +123,7 @@ class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
             <tbody>
               <tr>
                 <td>#</td>
-                <td><input type="text" ref={this.inputRef} onBlur={this.handleChangeHex}/></td>
+                <td><input type="text" ref={(el:any) => this.inputElement = el} onBlur={this.handleChangeHex}/></td>
               </tr>
             </tbody>
           </table>

@@ -128,27 +128,49 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     }
   }
 
+  private selectPreviousItem = () => {
+    let prevIndex = this.props.data.indexOf(this.props.value) - 1;
+    if(prevIndex < 0) prevIndex = 0;
+    if(this.props.data.length <= prevIndex) return;
+    this.handleClick(this.props.data[prevIndex]);    
+  }
+
+  private selectNextItem = () => {
+    let nextIndex = this.props.data.indexOf(this.props.value) + 1;
+    if(this.props.data.length <= nextIndex) return;
+    this.handleClick(this.props.data[nextIndex]);
+  }
+
   //
   // A key was pressed while the selector had focus.
   // 
   private handleKeyDown = (e: KeyboardEvent) => {
     if(document.activeElement != this.wrapperElement) return;
-    console.log("key", e.key);
 
     if(this.props.disabled) return;
     let key = e.key;
 
-    if(key == 'Escape') {
+    if(key == 'Escape' || key == 'Tab') {
       e.stopPropagation();
       if(!this.state.open) return;
       this.close();
     }
     
-    // Is space or ArrowDown pressed?
-    if(key == 'ArrowDown' || key == ' ') {
+    // Is space or enter pressed?
+    if(key == ' ' || key == 'Enter') {
       e.stopPropagation();
       if(this.state.open) return;
       this.open();
+    }
+
+    if(key == 'ArrowUp') {
+      e.stopPropagation();
+      this.selectPreviousItem();
+    }
+
+    if(key == 'ArrowDown') {
+      e.stopPropagation();
+      this.selectNextItem();
     }
 
     // Is a letter or a digit pressed?
@@ -314,6 +336,8 @@ const DropdownInnerStyled = styled(DropdownInnerBase)`
   display: block;
   position: relative;
   width: 100%;
+  outline: none;
+
   /* If something is attached to the Dropdown, remove its border radius. */
   &:not(:first-child) {
     ${Selector} {

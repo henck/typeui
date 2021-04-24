@@ -99,8 +99,10 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }     
 
-  // If control is clicked, open selector.
-  private handleClick = () => {
+  //
+  // Toggle selector.
+  //
+  private handleToggle = () => {
     // Disabled input cannot be clicked.
     if(this.props.disabled) return;
     // Is the input below the middle of the viewport?
@@ -110,13 +112,22 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
     this.setState({
       upward: below,
       right: right,
-      open: true
+      open: !this.state.open
     })
   }  
 
+  private handleKeyDown = (e: React.KeyboardEvent) => {
+    e.stopPropagation();
+    if(e.key == 'Enter' || e.key == ' ') {
+      this.handleToggle();
+    }
+    if(e.key == 'Tab') {
+      this.setState({ open: false });
+    }
+  }
+  
   //
-  // If control is clicked, open selector.
-  // (This only happens if there actually is a Selector.)
+  // If a value is selected, close the selector.
   //  
   private handleSelect = (value: any) => {
     // Close the selector.
@@ -171,26 +182,26 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
     }    
 
     return (
-    <div className={className} onClick={this.handleClick} ref={this.wrapperRef}>
+    <div className={className} onClick={this.handleToggle} ref={this.wrapperRef}>
       {p.type !== 'date' && p.type !== 'color' && p.type !== 'time' && 
         <StandardInput {...p}/>}
       {p.type === 'date' && 
         <>
-          <DateInputBox {...p} defaultFormat="dd-MM-yyyy" focused={this.state.open}/>
+          <DateInputBox {...p} defaultFormat="dd-MM-yyyy" onKeyDown={this.handleKeyDown}/>
           <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
             <DateSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect} nofuture={p.nofuture}/>
           </CSSTransition>
         </>}
       {p.type === 'time' && 
         <>
-          <TimeInputBox {...p} defaultFormat={p.hasSeconds ? "HH:mm:ss" : "HH:mm"} focused={this.state.open}/>
+          <TimeInputBox {...p} defaultFormat={p.hasSeconds ? "HH:mm:ss" : "HH:mm"} onKeyDown={this.handleKeyDown}/>
           <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
             <TimeSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect} hasSeconds={p.hasSeconds} is24h={p.is24h} clock={p.clock}/>
           </CSSTransition>          
         </>}
       {p.type === 'color' &&
         <>
-          <ColorInputBox {...p} focused={this.state.open}/>
+          <ColorInputBox {...p} onKeyDown={this.handleKeyDown}/>
           <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
             <ColorSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect}/>
           </CSSTransition>

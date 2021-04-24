@@ -9,8 +9,8 @@ import { lighten } from '../../../helper/lighten';
 // Other controls
 import { IInputProps } from '../Input';
 
-interface IDateInputProps {
-  focused?: boolean;
+interface ITimeInputProps {
+  onKeyDown: (e: React.KeyboardEvent) => void;
   /**
    * Default date/time format to use if `format` is not specified.
    * e.g. `dd-MM-yyyy` or `HH:mm:ss`.
@@ -18,11 +18,11 @@ interface IDateInputProps {
   defaultFormat: string;
 }
 
-class InputBoxBase extends React.Component<IInputProps & IDateInputProps, {}> {
+class InputBoxBase extends React.Component<IInputProps & ITimeInputProps, {}> {
   render() {
     let p = this.props;
     return (
-      <div className={p.className}>
+      <div tabIndex={0} className={p.className} onKeyDown={p.onKeyDown}>
         {p.value && format(parse(p.value, 'HH:mm:ss', new Date()), p.format ? p.format : p.defaultFormat)}
         {!p.value && p.placeholder}
       </div>
@@ -55,14 +55,16 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   `}     
   
   /* Focused */
+  outline: none;
   transition: border-color ${p => p.theme.transition.duration}s ease;
-  ${p => p.focused && css`
+  &:focus {
     border-color: ${p => lighten(0.25, p.theme.primaryColor)};
-  `}
+  }
 
   /* Placeholder */ 
   ${p => !p.value && css`
-    color: ${lighten(p.focused ? 0.4 : 0.6, p.theme.fontColor)};
+    color: ${lighten(0.6, p.theme.fontColor)};
+    &:focus { color: ${lighten(0.4, p.theme.fontColor)}; }
   `}
 
   /* Error */

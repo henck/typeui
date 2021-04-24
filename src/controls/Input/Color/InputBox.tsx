@@ -9,14 +9,14 @@ import { lighten } from '../../../helper/lighten';
 import { IInputProps } from '../Input';
 
 interface IColorInputProps {
-  focused?: boolean;
+  onKeyDown: (e: React.KeyboardEvent) => void;
 }
 
 class InputBoxBase extends React.Component<IInputProps & IColorInputProps, {}> {
   render() {
     let p = this.props;
     return (
-      <div className={p.className}>
+      <div tabIndex={0} className={p.className} onKeyDown={p.onKeyDown}>
         {p.value && typeof p.value === 'string' && (<span style={{background: p.value}}></span>)}
         {p.value && typeof p.value !== 'string' && 'Not a color'}
         {!p.value && p.placeholder}
@@ -61,14 +61,16 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   }  
   
   /* Focused */
+  outline: none;
   transition: border-color ${p => p.theme.transition.duration}s ease;
-  ${p => p.focused && css`
+  &:focus {
     border-color: ${p => lighten(0.25, p.theme.primaryColor)};
-  `}
+  }
 
   /* Placeholder */ 
-  ${p => p.placeholder && css`
-    color: ${lighten(p.focused ? 0.4 : 0.6, p.theme.fontColor)};
+  ${p => !p.value && css`
+    color: ${lighten(0.6, p.theme.fontColor)};
+    &:focus { color: ${lighten(0.4, p.theme.fontColor)}; }
   `}
 
   /* Error */
