@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 import { ClockNumber } from './ClockNumber';
-import { Arrow } from './Arrow';
+import { Hand } from './Hand';
 
 // Current selection mode
 type TMode = 'hour' | 'minute' | 'second';
@@ -104,7 +104,7 @@ class ClockBase extends React.Component<IProps, IState> {
     return (
       <div className={p.className}>
         <ClockFace ref={(el:any) => this.faceElement = el} onMouseDown={this.handleMouseDown}>
-          <Arrow animation={this.state.arrow_animation} deg={p.value}/>
+          <Hand animation={this.state.arrow_animation} deg={p.value}/>
           {p.mode == 'hour' && !p.is24h && [12,1,2,3,4,5,6,7,8,9,10,11].map((v, index) => 
             <ClockNumber active={p.value == (v * 30) % 360} key={index} value={v.toString()} degrees={v * 30}/>
           )}

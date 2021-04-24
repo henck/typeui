@@ -8,7 +8,7 @@ interface IProps {
   animation: boolean;
 }
 
-class ArrowBase extends React.Component<IProps> {
+class HandBase extends React.Component<IProps> {
   render() {
     let p = this.props;
     return <div className={p.className}>
@@ -20,32 +20,32 @@ class ArrowBase extends React.Component<IProps> {
 }
 
 const Selector = styled('div')`
-  position: absolute;
-  top: -12.5px;
-  right: -12.5px;
-  width: 25px;
-  height: 25px;
+  position:      absolute;
+  top:           -12.5px;
+  right:         -12.5px;
+  width:         25px;
+  height:        25px;
   border-radius: 50%;
-  background: ${p => p.theme.primaryColor};
+  background:    ${p => p.theme.primaryColor};
   /* White circle in center of selector */
   &:after {
-    content: "";
-    position: absolute;
-    left: calc(50% - 1px);
-    top: calc(50% - 1px);
-    width: 3px;
-    height: 3px;
+    content:       "";
+    position:      absolute;
+    left:          calc(50% - 1px);
+    top:           calc(50% - 1px);
+    width:         3px;
+    height:        3px;
     border-radius: 50%;
-    background: #fff;
+    background:  #fff;
   }
 `
 
-const Arrow = styled(ArrowBase)`
-  position: absolute;
-  left: calc(25% + 1px);
-  top: 25%;
-  width: 50%;
-  height: 50%;
+const Hand = styled(HandBase)`
+  position:   absolute;
+  left:       calc(25% + 1px);
+  top:        25%;
+  width:      50%;
+  height:     50%;
   background: ${p => p.theme.normalColor};
   border-radius: 50%;
   transform-origin: 50% 50%;
@@ -64,19 +64,19 @@ const Arrow = styled(ArrowBase)`
 
 const Line = styled('div')`
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 80%;
-  height: 0;
+  left:     50%;
+  top:      50%;
+  width:    80%;
+  height:   0;
   &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: -0.5px;
-    width: 100%;
-    height: 1px;
+    content:    '';
+    position:   absolute;
+    left:       0;
+    top:        -0.5px;
+    width:      100%;
+    height:     1px;
     background: ${p => p.theme.primaryColor}
   }
 `
 
-export { Arrow }
+export { Hand }
