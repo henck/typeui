@@ -211,6 +211,7 @@ const DayName = styled('div')`
   line-height: 30px; /* For vertical centering */  
   font-size: 90%;
   color: #aaa;
+  user-select: none;
 `
 
 const Selector = styled(SelectorBase)`
