@@ -11,12 +11,12 @@ interface IProps {
   /**
    * Clock value in degrees (0..359)
    */
-  value: number; // 0..359
+  degrees: number; // 0..359
   /**
-   * Callback when a new value is selected. Done is true if the mouse button
-   * was released.
+   * Callback when a new value in degrees is selected. 
+   * Done is true if the mouse button was released.
    */
-  onSelect: (value: number, done: boolean) => void;
+  onSelect: (degrees: number, done: boolean) => void;
   /**
    * Clock mode (hour, minute, second)
    */
@@ -104,15 +104,15 @@ class ClockBase extends React.Component<IProps, IState> {
     return (
       <div className={p.className}>
         <ClockFace ref={(el:any) => this.faceElement = el} onMouseDown={this.handleMouseDown}>
-          <Hand animation={this.state.arrow_animation} degrees={p.value}/>
+          <Hand animation={this.state.arrow_animation} degrees={p.degrees}/>
           {p.mode == 'hour' && !p.is24h && [12,1,2,3,4,5,6,7,8,9,10,11].map((v, index) => 
-            <ClockNumber active={p.value == (v * 30) % 360} key={index} value={v.toString()} degrees={v * 30}/>
+            <ClockNumber active={p.degrees == (v * 30) % 360} key={index} value={v.toString()} degrees={v * 30}/>
           )}
           {p.mode == 'hour' && p.is24h && [0,1,2,3,4,5,6,7,8,9,10,11].map((v, index) => 
-            <ClockNumber active={p.value == (v * 30) % 360} key={index} value={(v * 2).toString()} degrees={v * 30}/>
+            <ClockNumber active={p.degrees == (v * 30) % 360} key={index} value={(v * 2).toString()} degrees={v * 30}/>
           )}
           {p.mode != 'hour' && [0,5,10,15,20,25,30,35,40,45,50,55].map((v, index) => 
-            <ClockNumber active={p.value == (v * 6) % 360} key={index} value={v.toString().padStart(2, "0")} degrees={v * 6}/>
+            <ClockNumber active={p.degrees == (v * 6) % 360} key={index} value={v.toString().padStart(2, "0")} degrees={v * 6}/>
           )}
           <Center/>
         </ClockFace>

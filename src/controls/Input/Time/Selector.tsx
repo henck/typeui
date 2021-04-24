@@ -206,7 +206,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
               mode={this.state.mode} 
               is24h={this.props.is24h} 
               onSelect={this.handleClock} 
-              value={this.getClockValue()}/>
+              degrees={this.getClockValue()}/>
             </>}
         </Body>
         <Footer>
