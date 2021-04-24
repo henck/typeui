@@ -137,13 +137,9 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
             <NavButtonRight onClick={this.handleCancel}><use xlinkHref={"spritemap.svg#times"}></use></NavButtonRight>
           </NavBar>
           <Month>
-            <DayName>Mo</DayName>
-            <DayName>Tu</DayName>
-            <DayName>We</DayName>
-            <DayName>Th</DayName>
-            <DayName>Fr</DayName>
-            <DayName>Sa</DayName>
-            <DayName>Su</DayName>
+            {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day, index) => 
+              <DayName key={index}>{day}</DayName>
+            )}
             {days}
           </Month>
         </Body>
