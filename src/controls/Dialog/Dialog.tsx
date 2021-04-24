@@ -85,18 +85,18 @@ class Dialog extends React.Component<IDialogProps, {}> {
 
   // Listen for document-wide mousedown event when component mounts.
   componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside.bind(this));
+    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
   // Clean up document-wide mousedown event when component unmounts.
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
+    document.removeEventListener('mousedown', this.handleClickOutside);
   }
   
   // Handle document-wide mousedown event by sending a dialog close event.
   // When clicking outside of it, a Dialog can close only if its canClose
   // prop is not set to false.
-  handleClickOutside(event: MouseEvent) {
+  handleClickOutside = (event: MouseEvent) => {
     let elem:Element = event.target as Element;
     if (this.windowElement && !this.windowElement.contains(elem) && this.props.onClose && this.props.canClose !== false) {
       this.props.onClose();

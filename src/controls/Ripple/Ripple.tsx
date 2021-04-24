@@ -10,7 +10,7 @@ interface IRippleProps {
 
 // Ripple adds "any" to props, thus accepting any prop that 
 // it will forward to the element it creates.
-class Ripple extends React.Component<IRippleProps & any, {}> {
+class Ripple extends React.Component<IRippleProps & any> {
   private ref: React.RefObject<HTMLElement>;
   private backgroundColor: string;
   private backgroundHSL: HslColor;
@@ -22,7 +22,6 @@ class Ripple extends React.Component<IRippleProps & any, {}> {
   constructor(props: IRippleProps) {
     super(props);
     this.ref = React.createRef<HTMLElement>();
-    this.handleMouseDown = this.handleMouseDown.bind(this);
   }
 
   componentDidMount() {
@@ -40,7 +39,7 @@ class Ripple extends React.Component<IRippleProps & any, {}> {
     } 
   }
 
-  handleMouseDown(e: React.MouseEvent) {
+  private handleMouseDown = (e: React.MouseEvent) => {
     // Determine (x,y) inside element where mouse was pressed,
     // in percentages.
     let rect = this.ref.current.getBoundingClientRect();
@@ -50,10 +49,10 @@ class Ripple extends React.Component<IRippleProps & any, {}> {
     // Start animation.
     this.animationFrame = 0;
     if(this.animationID) cancelAnimationFrame(this.animationID);
-    this.animationID = requestAnimationFrame(this.animate.bind(this));
+    this.animationID = requestAnimationFrame(this.animate);
   }
 
-  easeInOutQuad(t: number) { 
+  private easeInOutQuad = (t: number) => { 
     // The functions below are actually in the range t = [0..2],
     // which is why we multiply t by 2 first.
     t = t * 2;
@@ -62,7 +61,7 @@ class Ripple extends React.Component<IRippleProps & any, {}> {
     return 2 * (t-2) * (t-2);
   }
 
-  animate() {
+  private animate = () => {
     // Do not animate after component is destroyed.
     if(this.ref.current === null) return;
     // Calculate lightness increase/decrease from animation frame.
@@ -88,7 +87,7 @@ class Ripple extends React.Component<IRippleProps & any, {}> {
     this.animationFrame += 3;
     // Stop animation when we hit a ripple of 100%.
     if(this.animationFrame <= 100) {
-      requestAnimationFrame(this.animate.bind(this));
+      requestAnimationFrame(this.animate);
     } else if(this.animationID) {
       cancelAnimationFrame(this.animationID);
       this.animationID = 0;

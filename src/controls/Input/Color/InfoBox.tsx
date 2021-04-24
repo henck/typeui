@@ -14,7 +14,7 @@ interface IInfoBoxProps {
   onChange: (color: string) => void;
 }
 
-const WIDTH = 100;
+const WIDTH  = 100;
 const HEIGHT = 276;
 
 class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
@@ -23,13 +23,6 @@ class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
   constructor(props: IInfoBoxProps) {
     super(props);
     this.inputRef = React.createRef<HTMLInputElement>();
-    this.handleChangeHue = this.handleChangeHue.bind(this);
-    this.handleChangeSaturation = this.handleChangeSaturation.bind(this);
-    this.handleChangeLightness = this.handleChangeLightness.bind(this);
-    this.handleChangeRed = this.handleChangeRed.bind(this);
-    this.handleChangeGreen = this.handleChangeGreen.bind(this);
-    this.handleChangeBlue = this.handleChangeBlue.bind(this);
-    this.handleChangeHex = this.handleChangeHex.bind(this);
   }
 
   private handleClick = () => {
@@ -46,28 +39,28 @@ class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
     return Math.max(Math.min(value, max), 0);
   }
 
-  private handleChangeHue(e: React.FormEvent<HTMLInputElement>) {
+  private handleChangeHue = (e: React.FormEvent<HTMLInputElement>) => {
     let hue = this.parseInteger(e.currentTarget.value, 359);
     let hsl = new HslColor(hue, this.props.saturation, this.props.lightness);
     let rgb = RgbColor.FromHsl(hsl).toString();
     this.props.onChange(rgb);
   }
 
-  private handleChangeSaturation(e: React.FormEvent<HTMLInputElement>) {
+  private handleChangeSaturation = (e: React.FormEvent<HTMLInputElement>) => {
     let saturation = this.parseInteger(e.currentTarget.value, 100) / 100;
     let hsl = new HslColor(this.props.hue, saturation, this.props.lightness);
     let rgb = RgbColor.FromHsl(hsl).toString();
     this.props.onChange(rgb);
   }
 
-  private handleChangeLightness(e: React.FormEvent<HTMLInputElement>) {
+  private handleChangeLightness = (e: React.FormEvent<HTMLInputElement>) => {
     let lightness = this.parseInteger(e.currentTarget.value, 100) / 100;
     let hsl = new HslColor(this.props.hue, this.props.saturation, lightness);
     let rgb = RgbColor.FromHsl(hsl).toString();
     this.props.onChange(rgb);
   }
 
-  private handleChangeRed(e: React.FormEvent<HTMLInputElement>) {
+  private handleChangeRed = (e: React.FormEvent<HTMLInputElement>) => {
     let red = this.parseInteger(e.currentTarget.value, 255);
     let hsl = new HslColor(this.props.hue, this.props.saturation, this.props.lightness);
     let rgb = RgbColor.FromHsl(hsl);
@@ -75,7 +68,7 @@ class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
     this.props.onChange(rgb.toString());    
   }
 
-  private handleChangeGreen(e: React.FormEvent<HTMLInputElement>) {
+  private handleChangeGreen = (e: React.FormEvent<HTMLInputElement>) => {
     let green = this.parseInteger(e.currentTarget.value, 255);
     let hsl = new HslColor(this.props.hue, this.props.saturation, this.props.lightness);
     let rgb = RgbColor.FromHsl(hsl);
@@ -83,7 +76,7 @@ class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
     this.props.onChange(rgb.toString());    
   }  
 
-  private handleChangeBlue(e: React.FormEvent<HTMLInputElement>) {
+  private handleChangeBlue = (e: React.FormEvent<HTMLInputElement>) => {
     let blue = this.parseInteger(e.currentTarget.value, 255);
     let hsl = new HslColor(this.props.hue, this.props.saturation, this.props.lightness);
     let rgb = RgbColor.FromHsl(hsl);
@@ -91,7 +84,7 @@ class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
     this.props.onChange(rgb.toString());    
   }  
   
-  private handleChangeHex(e: React.FormEvent<HTMLInputElement>) {
+  private handleChangeHex = (e: React.FormEvent<HTMLInputElement>) => {
     let hex = '#' + e.currentTarget.value;
     let rgb = RgbColor.FromString(hex);
     this.props.onChange(rgb.toString());

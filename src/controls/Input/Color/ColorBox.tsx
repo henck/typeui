@@ -23,7 +23,6 @@ class ColorBoxBase extends React.Component<IColorBoxProps, {}> {
   constructor(props: IColorBoxProps) {
     super(props);
     this.canvasRef = React.createRef();
-    this.handleMouseDown = this.handleMouseDown.bind(this);
   }
 
   drawColorBlock() {
@@ -45,7 +44,7 @@ class ColorBoxBase extends React.Component<IColorBoxProps, {}> {
     ctx.globalCompositeOperation = "source-over";    
   }
 
-  private handleMouseDown(e:React.MouseEvent) {
+  private handleMouseDown = (e:React.MouseEvent) => {
     this.props.onMouseDown({ 
       mouseX: e.nativeEvent.offsetX,
       offsetX: e.clientX - e.nativeEvent.offsetX,

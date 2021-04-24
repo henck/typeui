@@ -50,12 +50,6 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
   constructor(props: ISelectorProps) {
     super(props);
-    this.handleClickSwatch = this.handleClickSwatch.bind(this);
-    this.handleToggleSwatch = this.handleToggleSwatch.bind(this);
-    this.handleClickColor = this.handleClickColor.bind(this);
-    this.handleChangeColor = this.handleChangeColor.bind(this);
-    this.handleClickHarmony = this.handleClickHarmony.bind(this);
-
     this.state = {
       ...this.getStateFromColor(this.props.value),
       ...{
@@ -184,15 +178,15 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     this.setColor(this.mouseX, this.mouseY);
   }
 
-  private handleClickSwatch(idx: number) {
+  private handleClickSwatch = (idx: number) => {
     this.setState(this.getStateFromColor(this.state.swatches[idx].color));
   }
 
-  private handleClickHarmony(color: string) {
+  private handleClickHarmony = (color: string) => {
     this.addSwatch(color);
   }
 
-  private handleToggleSwatch(idx: number) {
+  private handleToggleSwatch = (idx: number) => {
     this.setState((prevState: ISelectorState) => {
       let swatches = prevState.swatches;
       swatches[idx].locked = !swatches[idx].locked;
@@ -203,11 +197,11 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     });
   }
 
-  private handleClickColor(color: string) {
+  private handleClickColor = (color: string) => {
     this.addSwatch(color);
   }  
 
-  private handleChangeColor(color: string) {
+  private handleChangeColor = (color: string) => {
     let rgb = RgbColor.FromString(color);
     let hsl = HslColor.FromRgb(rgb);
     let [s,v] = this.sl_to_sv(hsl.saturation, hsl.lightness);

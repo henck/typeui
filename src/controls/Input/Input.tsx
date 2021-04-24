@@ -82,13 +82,22 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
   constructor(props: IInputProps) {
     super(props);
     this.wrapperRef = React.createRef<HTMLDivElement>();
-    this.handleSelect = this.handleSelect.bind(this);
     this.state = {
       open: false,
       upward: false,
       right: false
     }
   }
+
+  componentDidMount() {
+    // Add document-wide event listener for mousedown.
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    // Remove document-wide event listener for mousedown.
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }     
 
   // If control is clicked, open selector.
   private handleClick = () => {
@@ -109,7 +118,7 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
   // If control is clicked, open selector.
   // (This only happens if there actually is a Selector.)
   //  
-  private handleSelect(value: any) {
+  private handleSelect = (value: any) => {
     // Close the selector.
     this.setState({
       open: false
@@ -124,8 +133,8 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
   // Handle document-wide mousedown event by closing the Selector.
   // (This only happens if there actually is a Selector).
   //
-  handleClickOutside(event: MouseEvent) {
-    let elem:Element = event.target as Element;
+  handleClickOutside = (e: MouseEvent) => {
+    let elem: Element = e.target as Element;
     if (this.wrapperRef.current && !this.wrapperRef.current.contains(elem)) {
       this.setState({
         open: false
@@ -138,16 +147,6 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
       this.props.onChange(null);
     }    
   }
-
-  componentDidMount() {
-    // Add document-wide event listener for mousedown.
-    document.addEventListener('mousedown', this.handleClickOutside.bind(this));
-  }
-
-  componentWillUnmount() {
-    // Remove document-wide event listener for mousedown.
-    document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
-  }     
 
   // Speedup: only re-render input when value changes, or its error/disabled state.
   /*  shouldComponentUpdate(nextProps: IInputProps, nextState: IInputState) {

@@ -17,16 +17,6 @@ interface ISwatchProps {
 class SwatchBase extends React.Component<ISwatchProps, {}> {
   constructor(props: ISwatchProps) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
-  }
-
-  private handleClick() {
-    this.props.onClick();
-  }
-
-  private handleToggle() {
-    this.props.onToggle();
   }
 
   render() {
@@ -34,8 +24,8 @@ class SwatchBase extends React.Component<ISwatchProps, {}> {
 
     return (
       <div className={p.className}>
-        <div onClick={this.handleClick}></div>
-        <svg onClick={this.handleToggle}>
+        <div onClick={this.props.onClick}></div>
+        <svg onClick={this.props.onToggle}>
           <use xlinkHref={`spritemap.svg#${p.locked ? 'lock' : 'unlock'}`}></use>
         </svg>
       </div>

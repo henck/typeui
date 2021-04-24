@@ -16,7 +16,6 @@ class HueBoxBase extends React.Component<IHueBoxProps, {}> {
   constructor(props: IHueBoxProps) {
     super(props);
     this.canvasRef = React.createRef();
-    this.handleMouseDown = this.handleMouseDown.bind(this);
   }
 
   // Draw vertical hue bar.
@@ -29,7 +28,7 @@ class HueBoxBase extends React.Component<IHueBoxProps, {}> {
     }
   }
 
-  private handleMouseDown(e:React.MouseEvent) {
+  private handleMouseDown = (e:React.MouseEvent) => {
     this.props.onMouseDown({ 
       mouseY: e.nativeEvent.offsetY, 
       offsetY: e.clientY - e.nativeEvent.offsetY,

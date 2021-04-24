@@ -65,16 +65,16 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
     this.setState({
       anchor: this.panelElement
     })
-    document.addEventListener('mousedown', this.handleClickOutside.bind(this));
+    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
   // Clean up document-wide mousedown event when component unmounts.
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
+    document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
   // Handle document-wide mousedown event by sending a panel close event.
-  handleClickOutside(e: MouseEvent) {
+  handleClickOutside = (e: MouseEvent) => {
     let elem:Element = e.target as Element;
     if (this.panelElement && !this.panelElement.contains(elem) && this.props.open && this.props.onClose) {
       // A short timeout prevents the panel reopening immediately when its

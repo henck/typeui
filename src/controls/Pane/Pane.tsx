@@ -28,16 +28,16 @@ class PaneBase extends React.Component<IPaneProps, {}> {
 
   // Listen for document-wide mousedown event when component mounts.
   componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside.bind(this));
+    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
   // Clean up document-wide mousedown event when component unmounts.
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside.bind(this));
+    document.removeEventListener('mousedown', this.handleClickOutside);
   }
   
   // Handle document-wide mousedown event by sending a pane close event.
-  handleClickOutside(event: MouseEvent) {
+  handleClickOutside = (event: MouseEvent) => {
     let elem:Element = event.target as Element;
     if (this.props.open && this.paneElement && !this.paneElement.contains(elem) && this.props.onClose) {
       this.props.onClose();
