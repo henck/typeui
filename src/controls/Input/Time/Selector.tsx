@@ -65,8 +65,8 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
   }
 
   // Cancel and close control
-  private handleCancel = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  private handleCancel = (e?: React.MouseEvent) => {
+    if(e) e.stopPropagation();
     this.props.onSelect(null);
   }
 
@@ -171,9 +171,9 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     }
   }
 
-  private handleKeyPress = (e: React.KeyboardEvent) => {
-    console.log(this.isValid() ? "valid" : "invalid");
+  private handleKeyDown = (e: React.KeyboardEvent) => {
     if(e.key == 'Enter' && this.isValid()) this.handleSelect();
+    if(e.key == 'Escape') this.handleCancel();
   }
 
   render() {
@@ -181,7 +181,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
     return (
       <div className={p.className}>
-        <Body ref={(el:any) => this.wrapperElement = el} onKeyPress={this.handleKeyPress}>
+        <Body ref={(el:any) => this.wrapperElement = el} onKeyDown={this.handleKeyDown}>
           <ControlBar>
             <InputBar>
             <InputHolder>
