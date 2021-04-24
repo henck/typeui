@@ -40,13 +40,13 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
   componentDidMount() {
     // Listen for document-wide mousedown/keydown events when Dropdown mounts.
     document.addEventListener('mousedown', this.handleClickOutside);
-    document.addEventListener('keydown', this.handleDocumentKeyDown);
+    document.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
     // Clean up document-wide mousedown/keydown events when Dropdown unmounts.
     document.removeEventListener('mousedown', this.handleClickOutside);
-    document.removeEventListener('keydown', this.handleDocumentKeyDown);
+    document.removeEventListener('keydown', this.handleKeyDown);
   }
   
   // Handle document-wide mousedown event by closing the Dropdown.
@@ -56,10 +56,6 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
       this.close();
     }
   }  
-
-  private handleDocumentKeyDown = (e: KeyboardEvent) => {
-    if(e.key == 'Escape') this.close();
-  }
 
   // Open the dropdown.
   private open() {
@@ -135,9 +131,18 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
   //
   // A key was pressed while the selector had focus.
   // 
-  private handleKeyDown = (e: React.KeyboardEvent) => {
+  private handleKeyDown = (e: KeyboardEvent) => {
+    if(document.activeElement != this.wrapperElement) return;
+    console.log("key", e.key);
+
     if(this.props.disabled) return;
     let key = e.key;
+
+    if(key == 'Escape') {
+      e.stopPropagation();
+      if(!this.state.open) return;
+      this.close();
+    }
     
     // Is space or ArrowDown pressed?
     if(key == 'ArrowDown' || key == ' ') {
@@ -270,7 +275,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     </SearchBox>);
 
     return (
-      <div className={p.className} ref={(el:any) => this.wrapperElement = el}>
+      <div tabIndex={0} className={p.className} ref={(el:any) => this.wrapperElement = el}>
         <Selector 
           open={this.state.open} 
           error={this.props.error}
@@ -279,7 +284,6 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
           inline={p.inline} 
           multiple={p.multiple}
           onClick={this.handleSelectorClicked} 
-          onKeyDown={this.handleKeyDown}
           onClear={(p.clearable && !showPlaceholder) ? this.handleClear : null}
           placeholder={showPlaceholder}>
           {label}

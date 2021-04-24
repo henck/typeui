@@ -10,7 +10,6 @@ interface ISelectorProps {
   children?: React.ReactNode;
   onClick: () => void;
   onClear?: () => void;
-  onKeyDown: (e: React.KeyboardEvent) => void;
   /** Dropdown currently disabled? */
   disabled?: boolean;
   /** Is the Dropdown currently open? */
@@ -33,15 +32,11 @@ class SelectorBase extends React.Component<ISelectorProps, {}> {
     if(this.props.onClear) this.props.onClear();
   }
 
-  private handleKeyDown = (e: React.KeyboardEvent) => {
-    this.props.onKeyDown(e);
-  }
-
   render() {
     let p = this.props;
     return (
       <div className={p.className} onClick={p.onClick}>
-        <span onKeyDown={this.handleKeyDown}>
+        <span>
           {p.children}
         </span>
         <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
@@ -78,7 +73,7 @@ const Selector = styled(SelectorBase)`
   /* Inline Dropdowns have no border, but normal Dropdowns do. */
   ${p => !p.inline && css`
     border:         solid 1px ${p.theme.normalColor};
-    border-radius:  ${p => p.theme.radius}px;
+    border-radius:  ${p.theme.radius}px;
     line-height:    17px;
     padding:        9px 30px 9px 14px;
     ${p.multiple && !p.placeholder && css`padding: 7px 30px 7px 14px;`}
