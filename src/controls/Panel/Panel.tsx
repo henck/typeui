@@ -60,17 +60,19 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
     }
   }
 
-  // Listen for document-wide mousedown event when component mounts.
+  // Listen for document-wide mousedown/keydown events when component mounts.
   componentDidMount() {
     this.setState({
       anchor: this.panelElement
     })
     document.addEventListener('mousedown', this.handleClickOutside);
+    document.addEventListener('keydown', this.handleKeyDown);
   }
 
-  // Clean up document-wide mousedown event when component unmounts.
+  // Clean up document-wide mousedown/keydown events when component unmounts.
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
+    document.removeEventListener('keydown', this.handleKeyDown);
   }
 
   // Handle document-wide mousedown event by sending a panel close event.
@@ -82,6 +84,10 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
       setTimeout(() => this.props.onClose(), 100);
     }
   }    
+
+  handleKeyDown = (e: KeyboardEvent) => {
+    if(e.key == 'Escape') this.props.onClose();
+  }
 
   render() {
     let p = this.props;
