@@ -10,7 +10,7 @@ storiesOf('Controls/Dropdown/Variations', module)
   .addParameters({
     info: `
     If an \`onSearch\` callback is provided, then the \`Dropdown\` will have a search box. When the user
-    types in the search box, the callback is called with the search string. There is a debounce or 350ms
+    types in the search box, the callback is called with the search string. There is a debounce of 350ms
     in place so the search callback is not called too often. This gives your code an opportunity to provide
     the \`Dropdown\` with new items based on the search string.
     `
