@@ -4,7 +4,9 @@ import styled from '../../../styles/Theme';
 
 interface IProps {
   className?: string;
-  deg: number;
+  /** Hand angle in degrees (0..359 */
+  degrees: number;
+  /** If set, hand is animated. */
   animation: boolean;
 }
 
@@ -50,10 +52,10 @@ const Hand = styled(HandBase)`
   border-radius: 50%;
   transform-origin: 50% 50%;
   transition: transform ${p => p.animation ? 0.2 : 0}s ease;
-  transform: rotateZ(${p => p.deg - 90}deg);
+  transform: rotateZ(${p => p.degrees - 90}deg);
   /* If a number is currently selected, hide the disc in the middle
    * of the selector. */
-  ${p => p.deg % 30 == 0 && css`
+  ${p => p.degrees % 30 == 0 && css`
     ${Selector} {
       &:after {
         display: none;

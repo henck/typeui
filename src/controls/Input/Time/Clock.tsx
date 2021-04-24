@@ -104,7 +104,7 @@ class ClockBase extends React.Component<IProps, IState> {
     return (
       <div className={p.className}>
         <ClockFace ref={(el:any) => this.faceElement = el} onMouseDown={this.handleMouseDown}>
-          <Hand animation={this.state.arrow_animation} deg={p.value}/>
+          <Hand animation={this.state.arrow_animation} degrees={p.value}/>
           {p.mode == 'hour' && !p.is24h && [12,1,2,3,4,5,6,7,8,9,10,11].map((v, index) => 
             <ClockNumber active={p.value == (v * 30) % 360} key={index} value={v.toString()} degrees={v * 30}/>
           )}
