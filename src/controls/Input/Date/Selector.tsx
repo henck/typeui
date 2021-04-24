@@ -126,15 +126,15 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
       <div className={p.className}>
         <Body onKeyDown={this.handleKeyDown}>
           <NavBar>
-            <NavButtonLeft onClick={this.handlePrevYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButtonLeft>
-            <NavButtonLeft onClick={this.handlePrevMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButtonLeft>
+            <NavButton className="left" onClick={this.handlePrevYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
+            <NavButton className="left" onClick={this.handlePrevMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
             <NavLabel>
               <NavMonth>{this.state.date.toLocaleString(undefined, { month: 'long'})}</NavMonth>
               <NavYear>{this.state.date.getFullYear()}</NavYear>
             </NavLabel>
-            <NavButtonRight onClick={this.handleNextMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButtonRight>
-            <NavButtonRight onClick={this.handleNextYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButtonRight>
-            <NavButtonRight onClick={this.handleCancel}><use xlinkHref={"spritemap.svg#times"}></use></NavButtonRight>
+            <NavButton className="right" onClick={this.handleNextMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
+            <NavButton className="right" onClick={this.handleNextYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
+            <NavButton className="right" onClick={this.handleCancel}><use xlinkHref={"spritemap.svg#times"}></use></NavButton>
           </NavBar>
           <Month>
             {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day, index) => 
@@ -156,22 +156,21 @@ const NavButton = styled('svg')`
   cursor: pointer;
   transition: transform ${p => p.theme.transition.duration}s ease,
               fill ${p => p.theme.transition.duration}s ease;
-`
-
-const NavButtonLeft = styled(NavButton)`
-  transform: scaleX(-1);  
-  &:hover {
+  &:hover { 
     fill: ${p => p.theme.fontColor};
-    transform: scaleX(-1.2) scaleY(1.2);
-  }  
-`
-
-const NavButtonRight = styled(NavButton)`
-  transform: scaleX(1);  
-  &:hover {
-    fill: ${p => p.theme.fontColor};
-    transform: scaleX(1.2) scaleY(1.2);
-  }  
+  }
+  &.left {
+    transform: scaleX(-1);  
+    &:hover {
+      transform: scaleX(-1.2) scaleY(1.2);
+    }  
+  }
+  &.right {
+    transform: scaleX(1);  
+    &:hover {
+      transform: scaleX(1.2) scaleY(1.2);
+    }  
+  }
 `
 
 const NavLabel = styled('div')`
