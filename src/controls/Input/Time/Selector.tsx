@@ -124,12 +124,12 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     this.setState({ am: false });
   }
 
-  private handleClock = (deg: number, done: boolean) => {
+  private handleClock = (degrees: number, done: boolean) => {
     let value: number;
     switch(this.state.mode) {
       case 'hour':
-        value = Math.round(deg / 30);
-        if(this.props.is24h) value = Math.round(deg/15);
+        value = Math.round(degrees / 30);
+        if(this.props.is24h) value = Math.round(degrees/15);
         value = value % this.getMaxHour();
         this.setState({ hour: this.forceRange(value, this.getMinHour(), this.getMaxHour()) });
         if(done) {
@@ -141,7 +141,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
         }
         break;
       case 'minute':
-        value = Math.round(deg / 6) % 60;
+        value = Math.round(degrees / 6) % 60;
         this.setState({ minute: this.forceRange(value, 0, 60) });
         if(done && this.props.hasSeconds) {
           this.wrapperElement.querySelectorAll('input')[2].focus();
@@ -152,7 +152,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
         }
         break;        
       case 'second':
-        value = Math.round(deg / 6) % 60;
+        value = Math.round(degrees / 6) % 60;
         this.setState({ second: this.forceRange(value, 0, 60) });
         this.wrapperElement.querySelectorAll('input')[2].focus();
         this.wrapperElement.querySelectorAll('input')[2].select();

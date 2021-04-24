@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
+
 import { ClockNumber } from './ClockNumber';
 import { Hand } from './Hand';
 
