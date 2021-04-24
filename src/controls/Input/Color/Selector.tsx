@@ -50,15 +50,11 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
   constructor(props: ISelectorProps) {
     super(props);
-    this.handleHueMouseDown = this.handleHueMouseDown.bind(this);
-    this.handleColorMouseDown = this.handleColorMouseDown.bind(this);
     this.handleClickSwatch = this.handleClickSwatch.bind(this);
     this.handleToggleSwatch = this.handleToggleSwatch.bind(this);
     this.handleClickColor = this.handleClickColor.bind(this);
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.handleClickHarmony = this.handleClickHarmony.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
 
     this.state = {
       ...this.getStateFromColor(this.props.value),
@@ -70,16 +66,16 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
   componentDidMount() {
     // Add document-wide event listener for mouse move/up.
-    document.addEventListener('mousemove', this.handleMouseMove.bind(this));
-    document.addEventListener('mouseup', this.handleMouseUp.bind(this));
+    document.addEventListener('mousemove', this.handleMouseMove);
+    document.addEventListener('mouseup', this.handleMouseUp);
     // Listen for document-wide keydown event when component mounts.
     document.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
     // Remove document-wide event listener for mouse move/up.
-    document.removeEventListener('mousemove', this.handleMouseMove.bind(this));
-    document.removeEventListener('mouseup', this.handleMouseUp.bind(this));
+    document.removeEventListener('mousemove', this.handleMouseMove);
+    document.removeEventListener('mouseup', this.handleMouseUp);
     // Clean up document-wide keydown event when component unmounts.
     document.removeEventListener('keydown', this.handleKeyDown);
   }    
@@ -156,7 +152,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     return [s, v];
   }  
 
-  handleMouseMove(e:MouseEvent) {
+  handleMouseMove = (e:MouseEvent) => {
     if(this.mouseType === 'hue') {
       this.setHue(e.clientY - this.offsetY);
     }
@@ -165,11 +161,11 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     }
   }
 
-  handleMouseUp(e:MouseEvent) {
+  handleMouseUp = () => {
     this.mouseType = 'none';
   }  
 
-  handleHueMouseDown(data: { mouseY:number, offsetY: number, height: number}) {
+  handleHueMouseDown = (data: { mouseY:number, offsetY: number, height: number}) => {
     this.mouseType = 'hue';
     this.mouseY = data.mouseY;
     this.offsetY = data.offsetY;
@@ -177,7 +173,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     this.setHue(this.mouseY);
   }
 
-  handleColorMouseDown(data: { mouseX: number, offsetX: number, width: number, mouseY: number, offsetY: number, height: number}) {
+  handleColorMouseDown = (data: { mouseX: number, offsetX: number, width: number, mouseY: number, offsetY: number, height: number}) => {
     this.mouseType = 'color';
     this.mouseX = data.mouseX;
     this.offsetX = data.offsetX;
@@ -224,12 +220,12 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     });
   }
 
-  private handleSelect(e?: React.MouseEvent) {
+  private handleSelect = (e?: React.MouseEvent) => {
     if(e) e.stopPropagation();
     this.props.onSelect(RgbColor.FromHsl(new HslColor(this.state.hue, this.state.hsl_saturation, this.state.hsl_lightness)).toString());
   }
   
-  private handleCancel(e?: React.MouseEvent) {
+  private handleCancel = (e?: React.MouseEvent) => {
     if(e) e.stopPropagation();
     this.props.onSelect(null);
   }
