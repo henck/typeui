@@ -3,11 +3,17 @@ import styled from '../../../styles/Theme';
 
 interface IProps {
   className?: string;
+  /** Value to show */
   value: string;
-  deg: number;
+  /** Location of number in degrees (0 = top) */
+  degrees: number;
+  /** Is the clock number currently selected? */
   active: boolean;
 }
 
+/**
+ * A ClockNumber is a number on the face of the clock.
+ */
 class ClockNumberBase extends React.Component<IProps> {
   render() {
     let p = this.props;
@@ -16,10 +22,10 @@ class ClockNumberBase extends React.Component<IProps> {
 }
 
 const ClockNumber = styled(ClockNumberBase).attrs(p => ({
-  left: 50 + Math.cos((p.deg-90) * Math.PI/180) * 40,
-  top:  50 + Math.sin((p.deg-90) * Math.PI/180) * 40,
+  left: 50 + Math.cos((p.degrees-90) * Math.PI/180) * 40,
+  top:  50 + Math.sin((p.degrees-90) * Math.PI/180) * 40,
   // The "3" and the "9" are slightly offset. Fix this:
-  yFix: ((p.deg >= 88 && p.deg <= 92) || (p.deg >= 268 && p.deg <= 272)) ? 1 : 0
+  yFix: ((p.degrees >= 88 && p.degrees <= 92) || (p.degrees >= 268 && p.degrees <= 272)) ? 1 : 0
 }))`
   position: absolute;
   left: calc(${p => p.left}% + ${p => p.yFix}px);

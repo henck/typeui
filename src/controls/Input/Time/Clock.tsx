@@ -73,13 +73,13 @@ class ClockBase extends React.Component<IProps, IState> {
         <ClockFace ref={(el:any) => this.faceElement = el} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove} onMouseLeave={this.handleMouseLeave}>
           <Arrow animation={this.state.arrow_animation} deg={p.value}/>
           {p.mode == 'hour' && !p.is24h && [12,1,2,3,4,5,6,7,8,9,10,11].map((v, index) => 
-            <ClockNumber active={p.value == (v * 30) % 360} key={index} value={v.toString()} deg={v * 30}/>
+            <ClockNumber active={p.value == (v * 30) % 360} key={index} value={v.toString()} degrees={v * 30}/>
           )}
           {p.mode == 'hour' && p.is24h && [0,1,2,3,4,5,6,7,8,9,10,11].map((v, index) => 
-            <ClockNumber active={p.value == (v * 30) % 360} key={index} value={(v * 2).toString()} deg={v * 30}/>
+            <ClockNumber active={p.value == (v * 30) % 360} key={index} value={(v * 2).toString()} degrees={v * 30}/>
           )}
           {p.mode != 'hour' && [0,5,10,15,20,25,30,35,40,45,50,55].map((v, index) => 
-            <ClockNumber active={p.value == (v * 6) % 360} key={index} value={v.toString().padStart(2, "0")} deg={v * 6}/>
+            <ClockNumber active={p.value == (v * 6) % 360} key={index} value={v.toString().padStart(2, "0")} degrees={v * 6}/>
           )}
           <Center/>
         </ClockFace>
