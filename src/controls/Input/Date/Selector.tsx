@@ -31,19 +31,8 @@ interface ISelectorState {
 }
 
 class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
-  private handlePrevYear: () => void;
-  private handleNextYear: () => void;
-  private handlePrevMonth: () => void;
-  private handleNextMonth: () => void;
-
   constructor(props: ISelectorProps) {
     super(props);
-    this.handleCancel = this.handleCancel.bind(this);
-    this.handlePrevYear = this.handleMove.bind(this, -12);
-    this.handleNextYear = this.handleMove.bind(this, 12);
-    this.handlePrevMonth = this.handleMove.bind(this, -1);
-    this.handleNextMonth = this.handleMove.bind(this, 1);
-
     // If no value is specified, use today's date.
     this.state = {
       date: this.props.value ? parseISO(this.props.value) : new Date(Date.now()),
@@ -54,7 +43,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
   // 
   // Moves current view by specified number of months.
   // 
-  private handleMove(months: number, e: React.MouseEvent) {
+  private handleMove = (months: number, e: React.MouseEvent) => {
     e.stopPropagation();
     this.setState((prevState) => {
       prevState.date.setMonth(prevState.date.getMonth() + months);
@@ -64,14 +53,24 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     });
   }
 
-  private handleCancel(e: React.MouseEvent) {
-    e.stopPropagation();
+  private handlePrevYear =  (e: React.MouseEvent) => this.handleMove(-12, e);
+  private handleNextYear =  (e: React.MouseEvent) => this.handleMove(12,e );
+  private handlePrevMonth = (e: React.MouseEvent) => this.handleMove(-1, e);
+  private handleNextMonth = (e: React.MouseEvent) => this.handleMove(1, e);
+
+  private handleCancel = (e?: React.MouseEvent) => {
+    if(e) e.stopPropagation();
     this.props.onSelect(null);
   }
 
   private handleDayClick(date: Date, e: React.MouseEvent) {
     e.stopPropagation();
     this.props.onSelect(format(date, 'yyyy-MM-dd'));
+  }
+
+  private handleKeyDown = (e: React.KeyboardEvent) => {
+    console.log(e.key);
+    if(e.key == 'Escape') this.handleCancel();
   }
 
   render() {
@@ -125,7 +124,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
     return (
       <div className={p.className}>
-        <Body>
+        <Body onKeyDown={this.handleKeyDown}>
           <NavBar>
             <NavButtonLeft onClick={this.handlePrevYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButtonLeft>
             <NavButtonLeft onClick={this.handlePrevMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButtonLeft>
