@@ -8,9 +8,22 @@ type TMode = 'hour' | 'minute' | 'second';
 
 interface IProps {
   className?: string;
+  /**
+   * Clock value in degrees (0..359)
+   */
   value: number; // 0..359
+  /**
+   * Callback when a new value is selected. Done is true if the mouse button
+   * was released.
+   */
   onSelect: (value: number, done: boolean) => void;
+  /**
+   * Clock mode (hour, minute, second)
+   */
   mode: TMode;
+  /**
+   * If set, 24H mode is on.
+   */
   is24h?: boolean;
 }
 
@@ -21,7 +34,9 @@ interface IState {
 }
 
 class ClockBase extends React.Component<IProps, IState> {
+  // Reference to clock face.
   private faceElement: HTMLElement;
+  // Is mouse currently down?
   private mouseDown: boolean = false;
 
   constructor(props: IProps) {
@@ -31,12 +46,24 @@ class ClockBase extends React.Component<IProps, IState> {
     }
   }
 
+  // Listen for document-wide mousedown event when component mounts.
+  componentDidMount() {
+    document.addEventListener('mouseup', this.handleMouseUp);
+    document.addEventListener('mousemove', this.handleMouseMove);
+  }
+
+  // Clean up document-wide mousedown event when component unmounts.
+  componentWillUnmount() {
+    document.removeEventListener('mouseup', this.handleMouseUp);
+    document.removeEventListener('mousemove', this.handleMouseMove);
+  }  
+
   componentDidUpdate = (newProps: IProps) => {
     if(newProps.mode != this.props.mode) this.setState({ arrow_animation: true });
   }
 
   // Convert a mouse location to degrees on the clockface.
-  private eventToDeg = (e: React.MouseEvent) => {
+  private eventToDeg = (e: MouseEvent) => {
     let rect = this.faceElement.getBoundingClientRect();
     let x = (e.clientX - rect.left) - rect.width / 2;
     let y = -((e.clientY - rect.top) - rect.height / 2);
@@ -45,32 +72,38 @@ class ClockBase extends React.Component<IProps, IState> {
     return deg;
   }  
 
+  //
+  // On mouseDown, then start dragging the clock hand. 
+  // 
   private handleMouseDown = () => {
     this.mouseDown = true;
     this.faceElement.classList.add('move');
+    // Disable clock hand animation.
     this.setState({ arrow_animation: false });
   }
 
-  private handleMouseUp = (e: React.MouseEvent) => {
+  //
+  // On mouseUp, update clock.
+  // 
+  private handleMouseUp = (e: MouseEvent) => {
+    if(!this.mouseDown) return;
     this.mouseDown = false;
     this.faceElement.classList.remove('move');
     this.props.onSelect(this.eventToDeg(e), true);
   }
 
-  private handleMouseLeave = () => {
-    this.mouseDown = false;
-    this.faceElement.classList.remove('move');
-  }
-
-  private handleMouseMove = (e: React.MouseEvent) => {
+  //
+  // On mouseMove, update clock.
+  // 
+  private handleMouseMove = (e: MouseEvent) => {
     if(this.mouseDown) this.props.onSelect(this.eventToDeg(e), false);
   }
 
-  render() {
+  render = () => {
     let p = this.props;
     return (
       <div className={p.className}>
-        <ClockFace ref={(el:any) => this.faceElement = el} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove} onMouseLeave={this.handleMouseLeave}>
+        <ClockFace ref={(el:any) => this.faceElement = el} onMouseDown={this.handleMouseDown}>
           <Arrow animation={this.state.arrow_animation} deg={p.value}/>
           {p.mode == 'hour' && !p.is24h && [12,1,2,3,4,5,6,7,8,9,10,11].map((v, index) => 
             <ClockNumber active={p.value == (v * 30) % 360} key={index} value={v.toString()} degrees={v * 30}/>
@@ -89,33 +122,33 @@ class ClockBase extends React.Component<IProps, IState> {
 }
 
 const ClockFace = styled('div')`
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 0;            /* hack to keep clock face ratio 1:1 */
+  position:       relative;
+  display:        inline-block;
+  width:          100%;
+  height:         0;   /* hack to keep clock face ratio 1:1 */
   padding-bottom: 100%;
-  border-radius: 50%;
-  background: ${p => p.theme.normalColor};
-  cursor: pointer;
+  border-radius:  50%;
+  background:     ${p => p.theme.normalColor};
+  cursor:         pointer;
   &.move {
-    cursor: move;
+    cursor:       move;
   }
 `
 
 const Clock = styled(ClockBase) `
-  position: relative;
-  margin: 0 auto;    /* center clock */
-  max-width: 200px;  /* max clock size */
+  position:       relative;
+  margin:         0 auto;    /* center clock */
+  max-width:      200px;     /* max clock size */
 `
 
 const Center = styled('div')`
-  position: absolute;
-  left: calc(50% - 3px);
-  top: calc(50% - 3px);
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: ${p => p.theme.primaryColor};
+  position:       absolute;
+  left:           calc(50% - 3px);
+  top:            calc(50% - 3px);
+  width:          7px;
+  height:         7px;
+  border-radius:  50%;
+  background:     ${p => p.theme.primaryColor};
 `
 
 export { Clock, TMode }
