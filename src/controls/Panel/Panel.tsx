@@ -76,7 +76,7 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
   }
 
   // Handle document-wide mousedown event by sending a panel close event.
-  handleClickOutside = (e: MouseEvent) => {
+  private handleClickOutside = (e: MouseEvent) => {
     let elem:Element = e.target as Element;
     if (this.panelElement && !this.panelElement.contains(elem) && this.props.open && this.props.onClose) {
       // A short timeout prevents the panel reopening immediately when its
@@ -85,7 +85,7 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
     }
   }    
 
-  handleKeyDown = (e: KeyboardEvent) => {
+  private handleKeyDown = (e: KeyboardEvent) => {
     if(e.key == 'Escape') this.props.onClose();
   }
 

@@ -38,22 +38,28 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
   // is clicked anywhere but this Dropdown, the Dropdown closes.
 
   componentDidMount() {
-    // Listen for document-wide mousedown event when Dropdown mounts.
+    // Listen for document-wide mousedown/keydown events when Dropdown mounts.
     document.addEventListener('mousedown', this.handleClickOutside);
+    document.addEventListener('keydown', this.handleDocumentKeyDown);
   }
 
   componentWillUnmount() {
-    // Clean up document-wide mousedown event when Dropdown unmounts.
+    // Clean up document-wide mousedown/keydown events when Dropdown unmounts.
     document.removeEventListener('mousedown', this.handleClickOutside);
+    document.removeEventListener('keydown', this.handleDocumentKeyDown);
   }
   
   // Handle document-wide mousedown event by closing the Dropdown.
-  handleClickOutside = (event: MouseEvent) => {
+  private handleClickOutside = (event: MouseEvent) => {
     let elem:Element = event.target as Element;
     if (this.wrapperElement && !this.wrapperElement.contains(elem)) {
       this.close();
     }
   }  
+
+  private handleDocumentKeyDown = (e: KeyboardEvent) => {
+    if(e.key == 'Escape') this.close();
+  }
 
   // Open the dropdown.
   private open() {
