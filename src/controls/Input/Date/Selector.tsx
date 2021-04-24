@@ -40,6 +40,16 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     };
   }
 
+  // Listen for document-wide keydown event when component mounts.
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  // Clean up document-wide keydown event when component unmounts.
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }  
+
   // 
   // Moves current view by specified number of months.
   // 
@@ -68,8 +78,8 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     this.props.onSelect(format(date, 'yyyy-MM-dd'));
   }
 
-  private handleKeyDown = (e: React.KeyboardEvent) => {
-    console.log(e.key);
+  // Close control when Escape is pressed.
+  private handleKeyDown = (e: KeyboardEvent) => {
     if(e.key == 'Escape') this.handleCancel();
   }
 
@@ -124,7 +134,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
 
     return (
       <div className={p.className}>
-        <Body onKeyDown={this.handleKeyDown}>
+        <Body>
           <NavBar>
             <NavButton className="left" onClick={this.handlePrevYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
             <NavButton className="left" onClick={this.handlePrevMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
