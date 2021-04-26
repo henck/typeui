@@ -25,9 +25,7 @@ const Row = styled(RowBase)`
   /* Cells are flex-aligned: */
   display: flex;
 
-  /* Row has a top border if it's not the first child. 
-   * That means the first row *will* get a top border if there is 
-   * a search input box above it. */
+  /* Row has a top/bottom border depending on opening direction. */
   ${p => p.upwards && css`
     border-bottom: solid 1px ${p.theme.normalColor};
   `}

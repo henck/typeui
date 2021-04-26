@@ -4,15 +4,22 @@ import { css } from 'styled-components';
 
 // Helpers
 import { lighten } from '../../helper/lighten';
+import { Input } from '../Input';
 
 interface IBodyProps {
   className?: string;
   children?: React.ReactNode;
   /* Is the Dropdown currently open? */
   open: boolean;
+  /* Is the Dropdown currently in an error state? */
+  error: boolean;
   /** A Dropdown can open upwards, which affects its styles. */
   upwards: boolean;
   inline?: boolean;
+  /** Search callback (optional) */
+  onSearch?: (value: any) => void;
+  /** Current search value */
+  search?: string;
 }
 
 class BodyBase extends React.Component<IBodyProps, {}> {
@@ -20,28 +27,49 @@ class BodyBase extends React.Component<IBodyProps, {}> {
     let p = this.props;
     return (
       <div className={p.className}>
-        {p.children}
+        {p.onSearch &&
+          <SearchBox>
+            <Input icon="search" error={p.error} value={p.search} transparent fluid type="text" onChange={p.onSearch}/>
+          </SearchBox>}
+        <BodyInner>
+          {p.children}
+        </BodyInner>
       </div>
     )
   }
 }
 
 // maximum number of children before scrollbar is added.
-const MAX_CHILDREN_SHOWN = 6;
+const MAX_CHILDREN_VISIBLE = 6;
+
+/** 
+ * A search input is contained in a SearchBox to give it the same
+ * height as other list items. This is important for opening/closing
+ * the list to the correct height.
+ */
+const SearchBox = styled('div')`
+  box-sizing: border-box;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 10px;
+  height: 56px;
+`
+
+const BodyInner = styled('div')`
+`
 
 const Body = styled(BodyBase).attrs(p => ({
-  // Height is based on number of children, up to MAX_CHILDREN_SHOWN
-  totalHeight: Math.min(React.Children.count(p.children), MAX_CHILDREN_SHOWN) * 57 + 1
+  // Height is based on number of children, up to MAX_CHILDREN_VISIBLE, 
+  // plus a search box added if specified.
+  totalHeight: (Math.min(React.Children.count(p.children), MAX_CHILDREN_VISIBLE) + (p.onSearch ? 1 : 0)) * 57 + 1,
+  totalInnerHeight: Math.min(React.Children.count(p.children), MAX_CHILDREN_VISIBLE) * 57 + 1
 }))`
   position:       absolute;
   z-index:        100;
   box-sizing:     border-box;
   width:          100%;
-  overflow-x:     hidden;
-  /* If there are more children than MAX_CHILDREN_SHOWN, 
-     then the body content scrolls vertically. */
-  overflow-y:     ${p => React.Children.count(p.children) > MAX_CHILDREN_SHOWN ? 'scroll' : 'hidden'};
   height:         1000px; /* We animate max-height based on child count. */
+  overflow-y:     hidden;
 
   /* Border is grey, unless error. */
   border:         solid 1px ${p => p.theme.normalColor};
@@ -95,6 +123,14 @@ const Body = styled(BodyBase).attrs(p => ({
     opacity: 1;
     max-height: ${p.totalHeight}px;
   `}
+
+  ${BodyInner} {
+    overflow-x:     hidden;
+    /* If there are more children than MAX_CHILDREN_VISIBLE, 
+       then the body content scrolls vertically. */
+    overflow-y:     ${p => (React.Children.count(p.children) > MAX_CHILDREN_VISIBLE) ? 'scroll' : 'hidden'};
+    height:         ${p => p.totalInnerHeight}px;
+  }
 `;
 
 export { Body };

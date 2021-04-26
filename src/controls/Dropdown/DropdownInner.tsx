@@ -292,9 +292,6 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     }
 
     let children = this.getBodyChildren();
-    if(p.onSearch) children.unshift(<SearchBox key={0}>
-      <Input icon="search" error={p.error} value={this.state.search} transparent fluid type="text" name="q" onChange={this.handleSearch}/>
-    </SearchBox>);
 
     return (
       <div tabIndex={0} className={p.className} ref={(el:any) => this.wrapperElement = el}>
@@ -313,7 +310,10 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
         <Body 
           open={this.state.open} 
           upwards={this.state.upwards} 
-          inline={p.inline}>
+          inline={p.inline}
+          error={p.error}
+          onSearch={p.onSearch ? this.handleSearch : null}
+          search={this.state.search}>
           {children}
         </Body>
       </div>
@@ -321,22 +321,15 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
   }  
 }
 
-/** 
- * A search input is contained in a SearhBox to give it the same
- * height as other list items. This is important for opening/closing
- * the list to the correct height.
- */
-const SearchBox = styled('div')`
-  box-sizing: border-box;
-  padding: 16px 12px;
-  height: 56px;
-`
-
 const DropdownInnerStyled = styled(DropdownInnerBase)`
   display: block;
   position: relative;
   width: 100%;
   outline: none;
+  /* By setting transform other than 'none', we force position:fixed elements
+   * inside this element to use this element as their parent container, rather
+   * than the whole document. */
+  transform: scaleX(1);
 
   /* If something is attached to the Dropdown, remove its border radius. */
   &:not(:first-child) {
