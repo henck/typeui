@@ -9,11 +9,11 @@ storiesOf('Controls/Progress/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A \`rectangular\` \`Progress\` has sharp corners rather than rounded ones.
+    \`thickness\` can be used to create thicker \`Progress\` bars.
     `
   })
   .addWithJSX(
-    'Rectangular',
+    'Thickness',
   () => (
   <Progress 
     value={number('value', 50, { range: true, min: 0, max: 100, step: 1 }, 'Types')} 
@@ -22,5 +22,6 @@ storiesOf('Controls/Progress/Variations', module)
     bordered={boolean('bordered', false, 'Variations')}  
     raised={boolean('raised', false, 'Variations')}  
     numbered={boolean('numbered', false, 'Variations')}  
+    thickness={number('thickness', 20, { range: true, min: 8, max: 50, step: 1 }, 'Variations')}
   />
   ));  

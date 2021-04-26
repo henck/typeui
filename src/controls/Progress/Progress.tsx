@@ -17,6 +17,8 @@ interface IProgressProps {
   raised?: boolean;
   /** If set, a percentage number is shown on the Progress bar. */
   numbered?: boolean;
+  /** Set progress bar thickness in pixels. Defaults to 12. */
+  thickness?: number;
   /** 
    * If set, sets the color of the Progress bar. By default, 
    * the color is the theme primary color.
@@ -34,12 +36,12 @@ class ProgressBase extends React.Component<IProgressProps, {}> {
 }
 
 const ProgressStyled = styled(ProgressBase).attrs(p => ({
-  percentage: Math.round(p.value).toString() + '%'
+  percentageStr: Math.round(p.value).toString() + '%'
 }))` 
   position: relative; 
   box-sizing: border-box;
   width: 100%;
-  height: 12px;
+  height: ${p => p.thickness ? p.thickness : 12}px;
   margin: 4px 0 4px 0;
 
   ${p => p.bordered && css`border: solid 1px ${p => darken(0.1, p.theme.normalColor)};`}
@@ -52,6 +54,7 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
   ${p => !p.rectangular && css`border-radius: ${p => p.theme.radius + 2}px;`}
 
   &:before {
+    transition: width ${p => p.theme.transition.duration}s ease;
     content: '';
     position: absolute;
     top: 0;
@@ -67,7 +70,7 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
 
   ${p => p.numbered && css`
     &:after {
-      content: '${p.percentage}';
+      content: '${p.percentageStr}';
       position: absolute;
       top: 50%;
       right: 6px;
