@@ -10,8 +10,9 @@
 
 > pub.bat
 
-4. Publish dist directory to npm
+4. Publish contents of dist directory to npm
 
-> npm publish dist
+> cd dist
+> npm publish
 
 
