@@ -1,6 +1,6 @@
 {
   "name": "@independent-software/typeui",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "TypeUI",
   "keywords": [
     "react",
@@ -16,9 +16,6 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o docs"
   },
-  "files": [
-    "/dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/henck/typeui.git"
