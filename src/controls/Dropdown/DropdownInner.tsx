@@ -29,7 +29,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     this.state = {
       open: false,
       upwards: false,
-      search: ''
+      search: null
     };
   }
 
@@ -63,7 +63,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     this.setState({ open: true, upwards: below });
     // If reset on open is specified, then the search query is reset whenever the
     // dropdown opens or reopens.
-    if(this.props.resetOnOpen) this.setState({ search: '' });
+    if(this.props.resetOnOpen) this.setState({ search: null });
     // If a search box is present, move focus to it:
     if(this.props.onSearch) {
       let input = this.wrapperElement.querySelector('input');
