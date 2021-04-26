@@ -106,6 +106,6 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
 (Panel.Header as any).displayName = "Panel.Header";
 (Panel.Content as any).displayName = "Panel.Content";
 (Panel.Footer as any).displayName = "Panel.Footer";
-(Panel.Icon as any).displayName = "Panel.IconPanel";
+(Panel.Icon as any).displayName = "Panel.Icon";
 
 export { Panel };
