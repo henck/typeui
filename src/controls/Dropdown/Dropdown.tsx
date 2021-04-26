@@ -40,6 +40,8 @@ interface IDropdownProps {
    *  (This only applies to dropdowns with an `onSearch` callback.)
    */
   resetOnOpen?: boolean;
+  /** Max items to display before a scrollbar is added. Defaults to 6. */
+  maxItems?: number;
 
   // Events
   /** Listeners are notified whenever the user interacts with the input. */

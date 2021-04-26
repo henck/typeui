@@ -18,7 +18,6 @@ storiesOf('Controls/Dropdown/Groups', module)
   () => (
   <div>
     <Dropdown placeholder="Select..." label={(item:any) => item.name} data={[{id: 1, name: 'Hello'}, {id: 2, name:'World'}]}>
-      <Label>Left (default)</Label>
       <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
     </Dropdown>       
     <Divider hidden/>

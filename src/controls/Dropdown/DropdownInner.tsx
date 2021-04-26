@@ -10,7 +10,6 @@ import { Body } from './Body';
 import { IDropdownProps } from './Dropdown';
 import { Selector } from './Selector';
 import { Selection } from './Selection';
-import { Input } from '../Input/Input';
 
 interface IDropdownState {
   /** Is dropdown currently open? */
@@ -312,6 +311,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
           upwards={this.state.upwards} 
           inline={p.inline}
           error={p.error}
+          maxItems={p.maxItems}
           onSearch={p.onSearch ? this.handleSearch : null}
           search={this.state.search}>
           {children}
@@ -326,10 +326,6 @@ const DropdownInnerStyled = styled(DropdownInnerBase)`
   position: relative;
   width: 100%;
   outline: none;
-  /* By setting transform other than 'none', we force position:fixed elements
-   * inside this element to use this element as their parent container, rather
-   * than the whole document. */
-  transform: scaleX(1);
 
   /* If something is attached to the Dropdown, remove its border radius. */
   &:not(:first-child) {

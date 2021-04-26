@@ -17,8 +17,10 @@ interface IBodyProps {
   upwards: boolean;
   /** Is Dropdown inline? */
   inline?: boolean;
+  /** Max visible items before a scrollbar is added. Defaults to 6. */
+  maxItems?: number;
   /** Search callback (optional) */
-  onSearch?: (value: any) => void;
+  onSearch?: (q: string) => void;
   /** Current search value */
   search?: string;
 }
@@ -62,8 +64,8 @@ const BodyInner = styled('div')`
 const Body = styled(BodyBase).attrs(p => ({
   // Height is based on number of children, up to MAX_CHILDREN_VISIBLE, 
   // plus a search box added if specified.
-  totalHeight: (Math.min(React.Children.count(p.children), MAX_CHILDREN_VISIBLE) + (p.onSearch ? 1 : 0)) * 57 + 1,
-  totalInnerHeight: Math.min(React.Children.count(p.children), MAX_CHILDREN_VISIBLE) * 57 + 1
+  totalHeight: (Math.min(React.Children.count(p.children), (p.maxItems ? p.maxItems : MAX_CHILDREN_VISIBLE)) + (p.onSearch ? 1 : 0)) * 57 + 1,
+  totalInnerHeight: Math.min(React.Children.count(p.children), (p.maxItems ? p.maxItems : MAX_CHILDREN_VISIBLE)) * 57 + 1
 }))`
   position:       absolute;
   z-index:        100;
@@ -129,7 +131,7 @@ const Body = styled(BodyBase).attrs(p => ({
     overflow-x:     hidden;
     /* If there are more children than MAX_CHILDREN_VISIBLE, 
        then the body content scrolls vertically. */
-    overflow-y:     ${p => (React.Children.count(p.children) > MAX_CHILDREN_VISIBLE) ? 'scroll' : 'hidden'};
+    overflow-y:     ${p => (React.Children.count(p.children) > (p.maxItems ? p.maxItems : MAX_CHILDREN_VISIBLE)) ? 'scroll' : 'hidden'};
     height:         ${p => p.totalInnerHeight}px;
   }
 `;
