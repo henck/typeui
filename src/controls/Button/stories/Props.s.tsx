@@ -6,7 +6,7 @@ import { Size, Float } from '../../Types';
 import { Button } from '../../Button';
 
 storiesOf('Controls/Button', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Button.Group, Button.Or], propTablesExclude: []}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Button, Button.Group, Button.Or], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
