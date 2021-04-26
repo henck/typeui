@@ -14,9 +14,9 @@ storiesOf('Controls/CircularProgress', module)
   .addWithJSX(
     'Properties',
   () => (
-    <React.Fragment>
+    <>
       <CircularProgress padded value={15} color="hotpink" raised animated/>
       <CircularProgress padded value={90} raised background animated/>
       <CircularProgress padded value={48} color="crimson" raised background animated rounded/>
-    </React.Fragment>
+    </>
   ));  

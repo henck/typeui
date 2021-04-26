@@ -260,7 +260,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
                   </Message>
                 </div>
               }
-              {!p.error && <React.Fragment>
+              {!p.error && <>
                 <Slider heightInItems={p.data.length}>
                   {this.getData()}
                 </Slider>
@@ -273,7 +273,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
                     </Message>
                   </div>
                 }
-                </React.Fragment>}
+                </>}
             </Body>
             <CSSTransition in={p.data.length > 0 && this.state.showCounter} timeout={500} unmountOnExit classNames="fade">
               <Counter count={p.data.length} first={this.state.first} last={this.state.last}/>

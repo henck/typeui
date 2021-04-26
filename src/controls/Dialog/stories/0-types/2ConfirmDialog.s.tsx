@@ -29,12 +29,12 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Button onClick={this.handleClick}>Open dialog</Button>
         <Dialog.Confirm title="Ice cream" open={this.state.open} onClose={this.handleClose} onConfirm={this.handleConfirm}>
           Would you like <i>ice cream</i>?
         </Dialog.Confirm>
-      </React.Fragment>
+      </>
     )
   }
 }

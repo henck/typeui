@@ -29,11 +29,11 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Button onClick={this.handleClick}>Open dialog</Button>
         <Dialog.Xhr error={{response:{status:404}}} open={this.state.open} onClose={this.handleClose} onRetry={this.handleRetry}>
         </Dialog.Xhr>
-      </React.Fragment>
+      </>
     )
   }
 }

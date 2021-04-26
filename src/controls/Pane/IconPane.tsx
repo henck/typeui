@@ -47,12 +47,12 @@ class IconPane extends React.Component<IIconPaneProps, IState> {
   render() {
     let p = this.props;
     return (
-      <React.Fragment>
+      <>
         <Icon name={p.icon} onClick={this.handleOpenPane}/>
         <Pane open={this.state.open} width={p.width} padded={p.padded} onClose={this.handleClosePane}>
           {p.children}
         </Pane>
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -34,7 +34,7 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Button onClick={this.handleClick}>Open dialog</Button>
         <Dialog width={1024} open={this.state.open} onClose={this.handleClose}>
           <Dialog.Header>Delete all items</Dialog.Header>
@@ -44,7 +44,7 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
             <Button onClick={this.handleNo}>No</Button>
           </Dialog.Footer>
         </Dialog>      
-      </React.Fragment>
+      </>
     )
   }
 }

@@ -72,7 +72,7 @@ class XhrDialog extends React.Component<IErrorDialogProps, {}> {
         <Dialog.Content>
           {p.error && <p>{this.getStatusText()}</p>}
           {p.error && p.error.response && p.error.response.status === 422 && p.error.response.data &&
-            <React.Fragment>
+            <>
               <Header size="h3">Details</Header>
               <List>
                 {Object.keys(p.error.response.data).map((key) => 
@@ -86,7 +86,7 @@ class XhrDialog extends React.Component<IErrorDialogProps, {}> {
                   </List.Item>
                 )}
               </List>
-            </React.Fragment>
+            </>
           }
         </Dialog.Content>
         <Dialog.Footer>

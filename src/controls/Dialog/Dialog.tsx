@@ -112,7 +112,7 @@ class Dialog extends React.Component<IDialogProps, {}> {
     // CSS Transition mounts dialog when it is open. When it's closed, 
     // a Dialog does not appear in the DOM at all.
     return (
-      <React.Fragment>
+      <>
         <CSSTransition in={p.open} timeout={300} unmountOnExit classNames="fade">          
           <DialogBackground/>
         </CSSTransition>
@@ -121,7 +121,7 @@ class Dialog extends React.Component<IDialogProps, {}> {
             {p.children}
           </DialogWindow>
         </CSSTransition>
-      </React.Fragment>
+      </>
     );
   }
 }

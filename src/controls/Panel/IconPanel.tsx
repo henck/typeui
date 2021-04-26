@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { css } from 'styled-components';
-import styled from '../../styles/Theme';
 
 // Other controls
 import { Icon, IIconProps } from '../Icon/Icon';
@@ -55,12 +53,12 @@ class IconPanel extends React.Component<IIconPanelProps, IState> {
     }    
 
     return (
-      <React.Fragment>
+      <>
         {icon}
         <Panel open={this.state.open} width={p.width} padded={p.padded} onClose={this.handleClosePanel}>
           {p.children}
         </Panel>
-      </React.Fragment>
+      </>
     );
   }
 }

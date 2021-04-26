@@ -29,7 +29,7 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Button onClick={this.handleClick}>Open dialog</Button>
         <Dialog open={this.state.open} onClose={this.handleClose}>
           <Dialog.Header>Welcome</Dialog.Header>
@@ -38,7 +38,7 @@ class DemoDialog extends React.Component<{}, IDemoDialogState> {
             <Button onClick={this.handleOK}>OK</Button>
           </Dialog.Footer>
         </Dialog>      
-      </React.Fragment>
+      </>
     )
   }
 }
