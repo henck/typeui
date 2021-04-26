@@ -51,11 +51,6 @@ const MAX_CHILDREN_VISIBLE = 6;
  * the list to the correct height.
  */
 const SearchBox = styled('div')`
-  box-sizing: border-box;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 10px;
-  height: 56px;
 `
 
 const BodyInner = styled('div')`
@@ -133,6 +128,15 @@ const Body = styled(BodyBase).attrs(p => ({
        then the body content scrolls vertically. */
     overflow-y:     ${p => (React.Children.count(p.children) > (p.maxItems ? p.maxItems : MAX_CHILDREN_VISIBLE)) ? 'scroll' : 'hidden'};
     height:         ${p => p.totalInnerHeight}px;
+  }
+
+  ${SearchBox} {
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 10px;
+    height: 56px;
+    ${p => p.error && css`background: ${p.theme.errorColor.background};`}
   }
 `;
 
