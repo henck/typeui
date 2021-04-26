@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../../StorybookBase.s';
-import { boolean } from '@storybook/addon-knobs';
 import { Dropdown } from '../../../Dropdown'
 
 storiesOf('Controls/Dropdown/Variations', module)
