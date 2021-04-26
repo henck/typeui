@@ -15,6 +15,7 @@ interface IBodyProps {
   error: boolean;
   /** A Dropdown can open upwards, which affects its styles. */
   upwards: boolean;
+  /** Is Dropdown inline? */
   inline?: boolean;
   /** Search callback (optional) */
   onSearch?: (value: any) => void;
@@ -29,7 +30,7 @@ class BodyBase extends React.Component<IBodyProps, {}> {
       <div className={p.className}>
         {p.onSearch &&
           <SearchBox>
-            <Input icon="search" error={p.error} value={p.search} transparent fluid type="text" onChange={p.onSearch}/>
+            <Input icon="search" clearable error={p.error} value={p.search} transparent fluid type="text" onChange={p.onSearch}/>
           </SearchBox>}
         <BodyInner>
           {p.children}
@@ -39,7 +40,7 @@ class BodyBase extends React.Component<IBodyProps, {}> {
   }
 }
 
-// maximum number of children before scrollbar is added.
+// Maximum number of children before scrollbar is added.
 const MAX_CHILDREN_VISIBLE = 6;
 
 /** 
