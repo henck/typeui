@@ -3,8 +3,9 @@ import { HslColor } from '../../helper/HslColor';
 import { RgbColor } from '../../helper/RgbColor';
 
 interface IRippleProps {
-  type: string;
-  className?: string;
+  /** Element to instantiate */
+  type: string; 
+  /** Element's children, if any */
   children?: React.ReactNode;
 }
 
@@ -12,8 +13,6 @@ interface IRippleProps {
 // it will forward to the element it creates.
 class Ripple extends React.Component<IRippleProps & any> {
   private ref: React.RefObject<HTMLElement>;
-  private backgroundColor: string;
-  private backgroundHSL: HslColor;
   private rippleX: number;
   private rippleY: number;
   private animationFrame: number;
@@ -24,31 +23,31 @@ class Ripple extends React.Component<IRippleProps & any> {
     this.ref = React.createRef<HTMLElement>();
   }
 
-  componentDidMount() {
-    // Get the element's original background color.
-    this.backgroundColor = getComputedStyle(this.ref.current).backgroundColor;
-    // Store HSL version of background color of ripple's element.
-    // We do this here so we only have to do this calculation once.
-    this.backgroundHSL = HslColor.FromRgb(RgbColor.FromString(this.backgroundColor));
-  }
-
   componentWillUnmount() {
     // End animation if it is running.
-    if(this.animationID) {
-      cancelAnimationFrame(this.animationID);
-    } 
+    this.stopAnimation();
   }
 
   private handleMouseDown = (e: React.MouseEvent) => {
+    this.stopAnimation();
+
     // Determine (x,y) inside element where mouse was pressed,
     // in percentages.
     let rect = this.ref.current.getBoundingClientRect();
     this.rippleX = Math.round((e.nativeEvent.clientX - rect.left) * 100 / rect.width);
     this.rippleY = Math.round((e.nativeEvent.clientY - rect.top) * 100 / rect.height);
-    
-    // Start animation.
+
+    // A small timeout is necessary to allow the subcomponent to 
+    // render itself, so that we can pick the current color from it.
+    this.startAnimation();
+  }
+
+  private stopAnimation = () => {
     this.animationFrame = 0;
     if(this.animationID) cancelAnimationFrame(this.animationID);
+  }
+
+  private startAnimation = () => {
     this.animationID = requestAnimationFrame(this.animate);
   }
 
@@ -64,14 +63,20 @@ class Ripple extends React.Component<IRippleProps & any> {
   private animate = () => {
     // Do not animate after component is destroyed.
     if(this.ref.current === null) return;
+
+    // Get the element's original background color.
+    let backgroundColor = getComputedStyle(this.ref.current).backgroundColor;
+    // Store HSL version of background color of ripple's element.
+    let backgroundHSL = HslColor.FromRgb(RgbColor.FromString(backgroundColor));
+    
     // Calculate lightness increase/decrease from animation frame.
     let lightDiff = this.easeInOutQuad(this.animationFrame/100) * 0.1;
     // If the original element has a lightness of over 50%, then 
     // we ADD the increase, otherwise we subtract it.
-    if(this.backgroundHSL.lightness > 0.5) lightDiff = -lightDiff;
-    let light = lightDiff + this.backgroundHSL.lightness;
+    if(backgroundHSL.lightness > 0.5) lightDiff = -lightDiff;
+    let light = lightDiff + backgroundHSL.lightness;
     // Build HSL for the lightcolor.
-    let lightColor = `hsl(${this.backgroundHSL.hue}, ${Math.round(this.backgroundHSL.saturation * 100)}%, ${Math.round(light*100)}%)`;
+    let lightColor = `hsl(${backgroundHSL.hue}, ${Math.round(backgroundHSL.saturation * 100)}%, ${Math.round(light*100)}%)`;
     // Calculate ripple size from animation frame.
     let rippleSize = this.animationFrame;
     // Apply ripple background image.
@@ -80,11 +85,12 @@ class Ripple extends React.Component<IRippleProps & any> {
         circle at ${this.rippleX}% ${this.rippleY}%, 
         ${lightColor} 0%, 
         ${lightColor} ${rippleSize}%, 
-        ${this.backgroundColor} 
+        ${backgroundColor} 
         ${rippleSize}%, 
-        ${this.backgroundColor})`;
+        ${backgroundColor})`;
     // Go to next frame.
     this.animationFrame += 3;
+
     // Stop animation when we hit a ripple of 100%.
     if(this.animationFrame <= 100) {
       requestAnimationFrame(this.animate);

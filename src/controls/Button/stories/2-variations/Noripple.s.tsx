@@ -9,11 +9,12 @@ storiesOf('Controls/Button/Variations', module)
   .addDecorator(withKnobs)
   .addParameters({
     info: `
-    A button with the \`noripple\` attribute does not show the ripple effect. This is
-    necessary for buttons that change their background color on user interaction.
+    A button with the \`noripple\` attribute does not show the ripple effect. 
     `
   })
   .addWithJSX(
     'Noripple', () => (
-    <Button noripple={boolean('noripple', true, 'Variations')}>Button</Button>
+    <>
+      <Button noripple={boolean('noripple', true, 'Variations')}>Button</Button>
+    </>
   ));  

@@ -49,7 +49,7 @@ interface IButtonProps {
   float?: Float;
   /** Make button circular. This works only with icon buttons. */
   circular?: boolean;
-  /** If set, disables button ripple effect. This is necessary for buttons that change their style on user interaction. */
+  /** If set, disables button ripple effect. */
   noripple?: boolean;
 }
 
