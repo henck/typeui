@@ -5,7 +5,7 @@ import { Float } from '../../Types';
 import { Accordion } from '../../Accordion';
 
 storiesOf('Controls/Accordion', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({... withInfoSettings, propTables: [Accordion, Accordion.Tab]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

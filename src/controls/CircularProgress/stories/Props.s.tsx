@@ -3,7 +3,7 @@ import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs 
 import { CircularProgress } from '../CircularProgress'
 
 storiesOf('Controls/CircularProgress', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [CircularProgress]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

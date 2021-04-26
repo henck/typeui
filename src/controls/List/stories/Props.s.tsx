@@ -5,7 +5,7 @@ import { List } from '../../List';
 import { VerticalAlignment, ListStyleType } from '../../Types';
 
 storiesOf('Controls/List', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [List, List.Content, List.Description, List.Header, List.Item]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

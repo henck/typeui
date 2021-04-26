@@ -5,7 +5,7 @@ import { Flex } from '../../Flex'
 import { Box } from '../../Box'
 
 storiesOf('Controls/Flex', module)
-  .addDecorator(withInfo({...withInfoSettings, propTablesExclude: [Box]}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Flex, Flex.Column, Flex.Row]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

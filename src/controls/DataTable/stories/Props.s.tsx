@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase.s'
-import { select, text, boolean } from '@storybook/addon-knobs/react'
 import { DataTable } from '../../DataTable'
 import { TDir } from '../../Types';
 
@@ -11,7 +10,7 @@ interface IItem {
 }
 
 storiesOf('Controls/DataTable', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [DataTable, DataTable.Column]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

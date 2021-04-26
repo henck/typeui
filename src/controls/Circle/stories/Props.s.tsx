@@ -1,11 +1,10 @@
 import * as React from 'react'
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase.s'
-import { select, text, boolean } from '@storybook/addon-knobs/react'
 import { Circle } from '../Circle'
 import { Icon } from '../../Icon/'
 
 storiesOf('Controls/Circle', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Circle]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

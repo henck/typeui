@@ -58,7 +58,7 @@ class DemoPanel extends React.Component<{ className?: string }, IDemoPanelState>
 }
 
 storiesOf('Controls/Panel', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel], propTablesExclude: [DemoPanel]}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Panel, Panel.Header, Panel.Content, Panel.Footer, Panel.Icon], propTablesExclude: [DemoPanel]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

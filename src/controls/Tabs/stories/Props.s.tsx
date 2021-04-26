@@ -4,7 +4,7 @@ import { boolean } from '@storybook/addon-knobs/react';
 import { Tabs } from '../../Tabs'
 
 storiesOf('Controls/Tabs', module)
-  .addDecorator(withInfo({...withInfoSettings, propTablesExclude: [ ]}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Tabs, Tabs.Pane]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Input } from '../../Input'
 
 storiesOf('Controls/Input', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Input]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

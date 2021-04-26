@@ -6,7 +6,7 @@ import { Size, Float } from '../../Types';
 import { IconType } from '../IconType';
 
 storiesOf('Controls/Icon', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Icon]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

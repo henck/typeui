@@ -4,7 +4,7 @@ import { boolean } from '@storybook/addon-knobs/react';
 import { Divider } from '../../Divider';
 
 storiesOf('Controls/Divider', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Divider]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

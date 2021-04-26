@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Textarea } from '../../Textarea'
 
 storiesOf('Controls/Textarea', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Textarea]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

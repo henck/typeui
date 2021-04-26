@@ -5,7 +5,7 @@ import { HorizontalAlignment } from '../../Types';
 import { Message } from '../../Message'
 
 storiesOf('Controls/Message', module)
-  .addDecorator(withInfo({...withInfoSettings, propTables: [Message.Content, Message.Header], propTablesExclude: []}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Message, Message.Content, Message.Header], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

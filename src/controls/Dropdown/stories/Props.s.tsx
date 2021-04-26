@@ -4,7 +4,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import { Dropdown } from '../../Dropdown'
 
 storiesOf('Controls/Dropdown', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Dropdown, Dropdown.Column]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

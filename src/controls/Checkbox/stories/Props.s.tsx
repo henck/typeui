@@ -5,7 +5,7 @@ import { CheckboxType } from '../../Types'
 import { Checkbox } from '../../Checkbox'
 
 storiesOf('Controls/Checkbox', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Checkbox]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

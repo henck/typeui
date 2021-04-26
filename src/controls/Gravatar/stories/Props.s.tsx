@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase.s';
-import { boolean, text, select } from '@storybook/addon-knobs/react';
+import { text, select } from '@storybook/addon-knobs/react';
 import { Size } from '../../Types';
 import { Gravatar } from '../../Gravatar'
 
 storiesOf('Controls/Gravatar', module)
-  .addDecorator(withInfo({...withInfoSettings, propTablesExclude: []}))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Gravatar]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

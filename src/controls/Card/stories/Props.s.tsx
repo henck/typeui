@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { Card } from '../../Card';
 
 storiesOf('Controls/Card', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Card, Card.Header, Card.Meta, Card.Content]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

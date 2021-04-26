@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { withInfoSettings, withStyledComponents, storiesOf, withInfo, withKnobs } from '../../../StorybookBase.s';
-import { select, boolean } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs/react';
 import { Table } from '../../Table';
 
 storiesOf('Controls/Table', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [Table]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

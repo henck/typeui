@@ -4,7 +4,7 @@ import { text, number } from '@storybook/addon-knobs/react';
 import { LabelledValue } from '../../LabelledValue'
 
 storiesOf('Controls/LabelledValue', module)
-  .addDecorator(withInfo(withInfoSettings))
+  .addDecorator(withInfo({...withInfoSettings, propTables: [LabelledValue]}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({

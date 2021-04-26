@@ -5,7 +5,7 @@ import { Image } from '../../Image'
 import { Float, Size, VerticalAlignment } from '../../Types';
 
 storiesOf('Controls/Image', module)
-.addDecorator(withInfo({...withInfoSettings, propTables: [Image.Group], propTablesExclude: []}))
+.addDecorator(withInfo({...withInfoSettings, propTables: [Image, Image.Group], propTablesExclude: []}))
   .addDecorator(withStyledComponents)
   .addDecorator(withKnobs)
   .addParameters({
