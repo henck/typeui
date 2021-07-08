@@ -71,17 +71,15 @@ const Selector = styled(SelectorBase)`
   }
 
   /* Inline Dropdowns have no border, but normal Dropdowns do. */
-  ${p => !p.inline && css`
-    border:         solid 1px ${p.theme.normalColor};
-    border-radius:  ${p.theme.radius}px;
-    line-height:    17px;
-    padding:        9px 30px 9px 14px;
-    ${p.multiple && !p.placeholder && css`padding: 7px 30px 7px 14px;`}
-    min-height:     17px;
-    ${p.error && !p.open && css`
-      background:   ${p.theme.errorColor.background};
-      border-color: ${p.theme.errorColor.border};
-    `}
+  border:         solid 1px ${p => p.inline ? "transparent" : p.theme.normalColor};
+  border-radius:  ${p => p.theme.radius}px;
+  line-height:    17px;
+  padding:        9px 30px 9px 14px;
+  ${p => p.multiple && !p.placeholder && css`padding: 7px 30px 7px 14px;`}
+  min-height:     17px;
+  ${p => p.error && !p.open && css`
+    background:   ${p.theme.errorColor.background};
+    border-color: ${p.inline ? "transparent" : p.theme.errorColor.border};
   `}
 
   /* Placeholder labels will be light in color: */
@@ -108,10 +106,12 @@ const Selector = styled(SelectorBase)`
   `}
 
   /* If parent DIV has focus, give this a border. */
-  div:focus & {
-    border-color: ${p => lighten(0.25, p.theme.primaryColor)};
-  }
-
+  ${p => !p.inline && css`
+    div:focus & {
+      border-color: ${p => lighten(0.25, p.theme.primaryColor)};
+    }
+  `}
+  
   /* Icon size and positions: */
   & > svg {
     position: absolute;
@@ -121,7 +121,6 @@ const Selector = styled(SelectorBase)`
     width: 17px;
     height: 17px;
     margin-left: 0.5em;
-    ${p => p.inline && css `margin-right: 1em`}
   }
 
   /* Caret icon is only shown when there is an onClear callback. */

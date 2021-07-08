@@ -97,8 +97,8 @@ const DropdownStyled = styled(DropdownBase)`
   display:     inline-flex;
   align-items: stretch;
   color:       ${p => p.theme.fontColor};
-  /* Unless inline, a Dropdown has a minimum width. */
-  ${p => !p.inline && css`width: 250px;`}
+  /* Dropdown has a minimum width. */
+  width: 250px;
   /* A fluid Dropdown occupies full horizontal width. */
   ${p => p.fluid && css`width: 100%;`}  
 `;
