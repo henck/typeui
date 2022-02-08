@@ -16,7 +16,7 @@ class Time extends React.Component<IProps, {}> {
     // If date is a string, parse it to a Date.
     let date;
     if(typeof p.value === 'string') {
-      date = parse(p.value, 'p', new Date());
+      date = parse(p.value, 'HH:mm:ss', new Date());
     } else {
       date = p.value;
     }
