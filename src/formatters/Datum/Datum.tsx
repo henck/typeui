@@ -3,6 +3,7 @@ import { LongDate } from "./LongDate";
 import { DistanceDate } from "./Distance";
 import { ShortDateTime } from "./ShortDateTime";
 import { LongDateTime } from "./LongDateTime";
+import { Time } from './Time';
 import { Custom } from "./Custom";
 
 class Datum {
@@ -12,6 +13,7 @@ class Datum {
   public static Distance = DistanceDate;
   public static ShortDateTime = ShortDateTime;
   public static LongDateTime = LongDateTime;
+  public static Time = Time;
   public static Custom = Custom
 }
 
@@ -20,6 +22,7 @@ class Datum {
 (Datum.Distance as any).displayName = "Datum.Distance";
 (Datum.ShortDateTime as any).displayName = "Datum.ShortDateTime";
 (Datum.LongDateTime as any).displayName = "Datum.LongDateTime";
+(Datum.Time as any).displayName = "Datum.Time";
 (Datum.Custom as any).displayName = "Datum.Custom";
 
 export { Datum }
