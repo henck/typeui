@@ -1,0 +1,67 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Label} from '../Label';
+import {Image} from '../../Image';
+import {Divider} from '../../Divider';
+
+# Label: Groups
+. 
+
+<Meta
+  title="Controls/Label/Groups"
+  component={Label.Group}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+## Properties of `Label.Group`
+
+<ArgsTable of={Label.Group}/>
+
+## Label.Group
+
+A `Label.Group` can pass props to the labels it contains, but children can still override them. 
+    
+Groups can pass along `basic`, `color`, `pointing`, `size` and `tag`.
+
+export const GroupTemplate = (args) =>
+<div>
+  <Label.Group tag>
+    <Label>One</Label>
+    <Label>Two</Label>
+    <Label>Three</Label>
+  </Label.Group>
+  <Divider hidden/>
+  <Label.Group basic>
+    <Label>One</Label>
+    <Label>Two</Label>
+    <Label>Three</Label>
+  </Label.Group>
+  <Divider hidden/>
+  <Label.Group size='large'>
+    <Label>One</Label>
+    <Label>Two</Label>
+    <Label>Three</Label>
+  </Label.Group>
+  <Divider hidden/>
+  <Label.Group color='cornflowerblue'>
+    <Label>Group color</Label>
+    <Label color="green">Overridden color</Label>
+    <Label>Group color</Label>
+  </Label.Group>
+  <Divider hidden/>
+  <Label.Group pointing="top" color='LightCoral'>
+    <Label>One</Label>
+    <Label>Two</Label>
+    <Label>Three</Label>
+  </Label.Group>
+</div>                  
+
+<Canvas>
+  <Story
+    name="Label.Group"
+    args={{  }}>
+    {GroupTemplate.bind({})}
+  </Story>
+</Canvas>
+

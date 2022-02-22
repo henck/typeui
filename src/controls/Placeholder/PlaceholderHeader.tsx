@@ -3,19 +3,18 @@ import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 
 interface IPlaceholderHeaderProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** If true, header will contain a small image placeholder. */
+  /** 
+   * If true, header will contain a small image placeholder. 
+   * @default false
+   */
   image?: boolean;
 }
 
-class PlaceholderHeaderBase extends React.Component<IPlaceholderHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
+class PlaceholderHeaderBase extends React.Component<IPlaceholderHeaderProps> {
+  render = () =><div className={this.props.className}>{this.props.children}</div>
 }
 
 const PlaceholderHeaderStyled = styled(PlaceholderHeaderBase)`
@@ -52,13 +51,8 @@ const PlaceholderHeaderStyled = styled(PlaceholderHeaderBase)`
   }
 `;
 
-class PlaceholderHeader extends React.Component<IPlaceholderHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <PlaceholderHeaderStyled {...p}/>
-    )
-  }  
+class PlaceholderHeader extends React.Component<IPlaceholderHeaderProps> {
+  render = () => <PlaceholderHeaderStyled {...this.props}/>
 }
 
 export { PlaceholderHeader };

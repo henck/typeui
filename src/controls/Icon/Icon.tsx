@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
-import { keyframes, css, StyledComponentBase } from 'styled-components';
+import { keyframes, css } from 'styled-components';
 
 // Types
 import { Size, Float } from '../Types';
@@ -12,44 +12,89 @@ import { scaleSize } from '../../helper/SizeHelper';
 import { IconType } from './IconType';
 
 interface IIconProps {
+  /** @ignore */
   className?: string;
-  /** An icon can have an `onClick` handler. */
-  onClick?: () => void;
-  /** Name of sprite from SVG spritesheet to use, e.g. 'caret-down' */
+  /** 
+   * Name of sprite from SVG spritesheet to use, e.g. 'caret-down' 
+   */
   name?: IconType;
-  /** URL of spritesheet and icon, e.g. 'sprites.svg#arrow' */
+  /** 
+   * URL of spritesheet and icon, e.g. 'sprites.svg#arrow' 
+   */
   url?: string;
-  /** Optional icon popup title. */
+  /** 
+   * Optional icon popup title. 
+   */
   title?: string;
-  /** Disabled icons have a lighter color. */
+  /** 
+   * Disabled icons have a lighter color. 
+   * @default false 
+   */
   disabled?: boolean;
-  /** Icon size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
+  /** 
+   * Icon size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. 
+   */
   size?: Size;
-  /** Flip icon vertically. */
+  /** 
+   * Flip icon vertically. 
+   * @default false 
+   */
   flipped?: boolean;
-  /** Mirror icon horizontally. */
+  /** 
+   * Mirror icon horizontally. 
+   * @default false 
+   */
   mirrored?: boolean;
-  /** Rotate icon by degrees, e.g. `90` for a quarter rotation to the right. */
+  /** 
+   * Rotate icon by degrees, e.g. `90` for a quarter rotation to the right. 
+   * @default 0
+   */
   rotated?: number;
-  /** Icon color, e.g. `skyblue`. */
+  /** 
+   * Icon color, e.g. `skyblue`. 
+   */
   color?: string;
-  /** Add circular border. */
+  /** 
+   * Add circular border. 
+   * @default false 
+   */
   circular?: boolean;
-  /** Invert the icon's colors. */
+  /** 
+   * Invert the icon's colors. 
+   * @default false
+   */
   inverted?: boolean;
-  /** Add square border. */
+  /** 
+   * Add square border. 
+   * @default false 
+   */
   bordered?: boolean;
-  /** Add rounded border. */
+  /** 
+   * Add rounded border. 
+   * @default false 
+   */
   cornered?: boolean;
-  /** Add a rotation animation. */
+  /** 
+   * Add a rotation animation. 
+   * @default false 
+   */
   loading?: boolean;
-  /** Floating to the \`left\` or \`right\`. */
+  /** 
+   * Floating to the \`left\` or \`right\`. 
+   */
   float?: Float;
-  /** Adds spacing around the icon. */
+  /** 
+   * Adds spacing around the icon. 
+   * @default false
+   */
   padded?: boolean;
+  /** 
+   * An icon can have an `onClick` handler. 
+   */
+   onClick?: () => void;
 }
 
-export class IconBase extends React.Component<IIconProps, {}> {
+export class IconBase extends React.Component<IIconProps> {
   render() {
     let p = this.props;
     return (
@@ -140,13 +185,14 @@ const IconStyled = styled(IconBase).attrs(p => ({
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-icon--properties
  */
-class Icon extends React.Component<IIconProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <IconStyled {...p}></IconStyled>
-    );
+class Icon extends React.Component<IIconProps> {
+
+  /* This is used by parent components to determine if a child is an Icon. */
+  public static defaultProps = {
+    isIcon: true
   }
+
+  render = () =><IconStyled {...this.props}></IconStyled>
 }
 
 export { Icon, IconStyled, IIconProps };

@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { css } from 'styled-components';
-import styled from '../../styles/Theme';
 
 // Other controls
 import { Icon } from '../Icon/Icon';
@@ -8,13 +6,22 @@ import { IconType } from '../Icon/IconType';
 import { Pane } from './Pane';
 
 interface IIconPaneProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Pane activation icon. */
+  /** 
+   * Pane activation icon. 
+   */
   icon: IconType;
-  /** A padded pane adds padding to its content. */
+  /** 
+   * A padded pane adds padding to its content. 
+   * @default false
+   */
   padded?: boolean;
-  /** Override default pane width of 400 pixels. */
+  /** 
+   * Override default pane width of 400 pixels. 
+   * @default 400
+   */
   width?: number;
 }
 

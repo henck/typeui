@@ -1,0 +1,47 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Tabs} from '../Tabs';
+
+<Meta
+  title="Controls/Tabs"  
+  component={Tabs}
+  subcomponents = {{ "Tabs.Pane": Tabs.Pane }} 
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) =>
+<Tabs {...args}>
+  <Tabs.Pane label="One">
+    <p>Content for first tab.</p>
+    <p>Additional line of content.</p>
+  </Tabs.Pane>
+  <Tabs.Pane label="Two">
+    Content for second tab.
+  </Tabs.Pane>
+  <Tabs.Pane label="Three">
+    Content for third tab.
+  </Tabs.Pane>
+</Tabs>
+
+# Tabs
+
+A collection of tabs.
+
+<ArgsTable of={Tabs}/>
+
+## Example
+
+This is a default `Tabs`.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Events 
+
+A tab change can be detected by listening to the `onTabChange` event.

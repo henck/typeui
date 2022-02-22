@@ -1,0 +1,92 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Card} from '../Card';
+
+# Card: General
+.
+
+<Meta 
+  title="Controls/Card/General" 
+  component={Card}
+  subcomponents={{"Card.Content": Card.Content, "Card.Header": Card.Header, "Card.Meta" : Card.Meta}}
+  argTypes={{
+    className: { table: { disable: true } },
+  }}
+/>
+
+## Card.Content 
+
+A `Card` can have any number of `Card.Content` elements inside it.
+
+export const ContentTemplate = (args) =>
+<Card {...args}>
+  <Card.Content>
+    Card content one.
+  </Card.Content>
+  <Card.Content>
+    Card content two.
+  </Card.Content>
+  <Card.Content>
+    Card content three.
+  </Card.Content>
+</Card>  
+
+<Canvas>
+  <Story
+    name="Card.Content"
+    args={{ }}>
+    {ContentTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Card.Header
+
+A `Card` can have a `Card.Header` element.
+
+export const HeaderTemplate = (args) =>
+<Card {...args}>
+  <Card.Header>
+    Card Header
+  </Card.Header>
+  <Card.Content>
+    Card content one.
+  </Card.Content>
+  <Card.Content>
+    Card content two.
+  </Card.Content>
+  <Card.Content>
+    Card content three.
+  </Card.Content>
+</Card>  
+
+<Canvas>
+  <Story
+    name="Card.Header"
+    args={{ }}>
+    {HeaderTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Card.Meta
+
+A `Card` can have a `Card.Meta` element.
+
+export const MetaTemplate = (args) =>
+<Card {...args}>
+  <Card.Header>
+    Card Header
+  </Card.Header>
+  <Card.Content>
+    Card content.
+  </Card.Content>
+  <Card.Meta>
+    Card Meta
+  </Card.Meta>  
+</Card>  
+
+<Canvas>
+  <Story
+    name="Card.Meta"
+    args={{ }}>
+    {MetaTemplate.bind({})}
+  </Story>
+</Canvas>

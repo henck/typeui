@@ -1,0 +1,40 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Panel} from '../Panel';
+import {Button} from '../../Button';
+
+<Meta
+  title="Controls/Panel"  
+  component={Panel}
+  subcomponents={{ "Panel.Header": Panel.Header, "Panel.Content": Panel.Content, "Panel.Footer": Panel.Footer, "Panel.Icon": Panel.Icon }}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+# Panel
+
+A standard `Panel`.
+
+Note that a panel determines its position from the position of its direct parent.
+The parent therefore **must** have `position: relative`.
+
+Extra spacing was given to this story in order to illustrate how a panel will
+appear above or below, or left or right, of its parent based on the screen 
+location.
+
+<ArgsTable of={Panel}/>
+
+## Standard Panel
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ open: true, padded: true, children: "Panel content." }}>
+    {args =>   
+    <div style={{position: 'relative', background: 'gray'}}>
+      Anchor
+      <Panel {...args}/>
+    </div>}
+  </Story>
+</Canvas>
+

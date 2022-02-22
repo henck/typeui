@@ -1,0 +1,32 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Icon} from '../Icon';
+
+<Meta 
+  title="Controls/Icon" 
+  component={Icon}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Icon {...args}/>
+
+# Icon
+
+Displays an icon.
+
+<ArgsTable of={Icon}/>
+
+## Default
+
+A standard icon. The `name` property is used to pick an icon from the built-in 
+icons.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ name: "bullhorn", onClick: null }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,20 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import { Template } from './Template.stories'
+
+# Rectangular theme
+
+<Meta
+  title="Theme/Themes"  
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+<Canvas>
+  <Story
+    name="Rectangular theme"
+    args={{ radius: 0 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

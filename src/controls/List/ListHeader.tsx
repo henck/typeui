@@ -1,21 +1,14 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
-import { css } from 'styled-components';
 
 interface IListHeaderProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
 }
 
-class ListHeaderBase extends React.Component<IListHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        {p.children}
-      </div>
-    )
-  }  
+class ListHeaderBase extends React.Component<IListHeaderProps> {
+  render = () => <div className={this.props.className}>{this.props.children}</div>
 }
 
 /* Styling for list header. */
@@ -25,13 +18,8 @@ const ListHeaderStyled = styled(ListHeaderBase)`
   padding-top: 4px;
 `;
 
-class ListHeader extends React.Component<IListHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ListHeaderStyled {...p}/>
-    )
-  }  
+class ListHeader extends React.Component<IListHeaderProps> {
+  render = () => <ListHeaderStyled {...this.props}/>
 }
 
 export { ListHeader };

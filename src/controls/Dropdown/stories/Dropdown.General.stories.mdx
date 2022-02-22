@@ -1,0 +1,113 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Dropdown} from '../Dropdown';
+import {Icon} from '../../Icon';
+import {Form} from '../../Form';
+import {Label} from '../../Label';
+
+# Dropdown: General
+.
+
+<Meta 
+  title="Controls/Dropdown/General" 
+  component={Dropdown}
+  subcomponents={{ 'Dropdown.Column': Dropdown.Column }}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const domains = [{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}];
+export const people = [{id: 1, name: 'John', relation: 'friend'}, {id: 2, name:'Zachary', relation: 'uncle'}, {id: 3, name:'Deke', relation: 'friend'}];
+
+export const Template = (args) => 
+<div style={{height: '250px'}}>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="Domain"
+      value={null}
+      control={<Dropdown {...args}>
+        <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+      </Dropdown>}
+    />
+  </Form>
+</div>
+
+export const NoFormTemplate = (args) =>
+<div style={{height: '250px'}}>
+  <Dropdown {...args}>
+    <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+  </Dropdown>
+</div>
+
+## Columns
+
+A dropdown can show multiple columns. Each `Dropdown.Column` must have 
+a single child that is a formatting function for an item, e.g. 
+`(item) => item.name`
+
+export const ColumnsTemplate = (args) =>
+<div style={{height: '250px'}}>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="person"
+      value={null}
+      control={<Dropdown {...args}>
+        <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+        <Dropdown.Column>{(item) => (<Label>{item.relation}</Label>)}</Dropdown.Column>
+      </Dropdown>}
+    />
+  </Form>
+</div>
+
+<Canvas>
+  <Story
+    name="Columns"
+    args={{data: people, alwaysDown: true, maxItems: 4, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {ColumnsTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## multiple
+
+A dropdown can allow `multiple` selection. Items can be removed from the 
+selection set by clicking them.
+
+<Canvas>
+  <Story
+    name="multiple"
+    args={{multiple: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## disabled 
+
+A `disabled` `Dropdown` cannot be interacted with.
+
+<Canvas>
+  <Story
+    name="disabled"
+    args={{disabled: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {NoFormTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## error
+
+A `Dropdown` can be in an `error` state.
+
+export const ErrorTemplate = (args) =>
+<Dropdown {...args}>
+  <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+</Dropdown>
+
+<Canvas>
+  <Story
+    name="error"
+    args={{error: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {NoFormTemplate.bind({})}
+  </Story>
+</Canvas>
+
+
+

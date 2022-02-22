@@ -1,0 +1,143 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {DataTable} from '../DataTable';
+
+# DataTable: Variations
+.
+
+<Meta 
+  title="Controls/DataTable/Variations" 
+  component={DataTable}
+  subcomponents={{'DataTable.Column': DataTable.Column}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const data = [
+  { name: "John",   age: 24, sport: "Soccer"},
+  { name: "Mary",   age: 18, sport: "Polo"},
+  { name: "Bert",   age: 21, sport: "Basketball"},
+  { name: "Joseph", age: 24, sport: "Kendo"},
+  { name: "Rose",   age: 17, sport: "Soccer"},
+  { name: "Alexander",  age: 15, sport: "Athletics"},
+  { name: "Rudolph", age: 29, sport: "Krav maga"},
+  { name: "Jessica", age: 19, sport: "None"},
+  { name: "Ellen", age: 16, sport: "Athletics"},
+  { name: "Ralph", age: 22, sport: "Volleyball"}
+];
+
+export const Template = (args) =>   
+<div style={{display: 'flex', position: 'relative', height: '400px'}}>
+  <DataTable {...args}>
+    <DataTable.Column weight={2} label="Name" order="name" dir="asc">{(item) => item.name}</DataTable.Column>
+    <DataTable.Column weight={1} label="Age" order="age" dir="asc">{(item) => item.age}</DataTable.Column>
+    <DataTable.Column weight={1} label="Sport" order="sport" dir="asc">{(item) => item.sport}</DataTable.Column>
+  </DataTable>
+</div>
+
+## error
+
+A `DataTable` can be in an `error` state. Code can set this state to show 
+that data fetching failed. If the `DataTable` has an `onFetch` property, then 
+the error message will include a "Retry" button that will call `onFetch`.  
+
+<Canvas>
+  <Story
+    name="error"
+    args={{data: data, error: true, onOrder: null, onClick: null, onFetch: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## errorMessage
+
+A `DataTable` in an `error` state will show a default error message. You 
+can override this message by providing the `errorMessage` property.
+
+<Canvas>
+  <Story
+    name="errorMessage"
+    args={{data: data, error: true, errorMessage: "Too bad: an error occurred!", onOrder: null, onClick: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## force 
+
+Columns marked with `force` always appear, regardless of the available screen space.
+
+export const ForceTemplate = (args) =>   
+<div style={{display: 'flex', position: 'relative', height: '400px'}}>
+  <DataTable {...args} data={[
+      { code: "AF", name: "Afghanistan", desc: "A country somewhere in the world."},
+      { code: "AL", name: "Albania", desc: "A country somewhere in the world."},
+      { code: "DZ", name: "Algeria", desc: "A country somewhere in the world."},
+      { code: "AS", name: "American Samoa", desc: "A country somewhere in the world."}
+    ]}>
+    <DataTable.Column weight={1} label="Code" force>{(item) => item.code}</DataTable.Column>
+    <DataTable.Column weight={1} label="Name" force>{(item) => item.name}</DataTable.Column>
+    <DataTable.Column weight={1} label="Desc">{(item) => item.desc}</DataTable.Column>
+  </DataTable>
+</div>
+
+<Canvas>
+  <Story
+    name="force"
+    args={{force: true, onOrder: null, onClick: null}}>
+    {ForceTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## grid 
+
+A `DataTable` can show vertical grid lines with the `grid` property set.
+
+<Canvas>
+  <Story
+    name="grid"
+    args={{data: data, grid: true, onOrder: null, onClick: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## loading
+
+A `DataTable` can set the `loading` attribute, which will give 
+a visual feedback that indicates that data is being loaded.
+
+<Canvas>
+  <Story
+    name="loading"
+    args={{data: data, loading: true, onOrder: null, onClick: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## nodata 
+
+When there is no data, `DataTable` shows a default message. This message 
+can be overridden by setting the `nodata` property.
+
+<Canvas>
+  <Story
+    name="nodata"
+    args={{data: [], nodata: "There was no data to load!", onOrder: null, onClick: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## scrollPosition
+
+A `DataTable` can remember its current scroll position, and restore it when the user 
+navigates away and returns. When the table scrolls, the current scroll position is 
+returned through the `onScroll` event. Calling code can then set the scroll position 
+using the `scrollTop` property. 
+
+<Canvas>
+  <Story
+    name="scrollPosition"
+    args={{data: data, scrollTop: 60, onScroll: (scrollTop) => {}, onOrder: null, onClick: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

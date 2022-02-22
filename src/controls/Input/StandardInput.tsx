@@ -7,7 +7,7 @@ import { lighten } from '../../helper/lighten';
 
 import { IInputProps } from './Input';
 
-class StandardInputBase extends React.Component<IInputProps, {}> {
+class StandardInputBase extends React.Component<IInputProps> {
 
   private handleChange = (e:any) => {
     if(this.props.onChange) {

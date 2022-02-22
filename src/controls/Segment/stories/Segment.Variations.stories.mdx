@@ -1,0 +1,185 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Segment} from '../Segment';
+
+# Segment: Variations
+.
+
+<Meta
+  title="Controls/Segment/Variations"  
+  component={Segment}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Segment {...args}/>
+
+# align
+
+`Segment` text content can `align` to the `left`, `center` or `right`.
+
+export const AlignTemplate = (args) =>
+<div>
+  <Segment {...args}>
+    Left: <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+  </Segment>
+  <Segment align="center">
+    Center: <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+  </Segment>
+  <Segment align="right">
+    Right: <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+  </Segment>
+</div>
+
+<Canvas>
+  <Story
+    name="align"
+    args={{ align: "left" }}>
+    {AlignTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## compact 
+
+A `compact` `Segment` only takes up as much space as necessary.
+
+<Canvas>
+  <Story
+    name="compact"
+    args={{ compact: true, children: "Enough said." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Emphasis 
+
+A `Segment` can be formatted to appear less noticeable using `secondary` or `tertiary`.
+
+export const EmphasisTemplate = (args) =>
+<div>
+  <Segment {...args}>
+    I'm here to tell you something, and you will probably read me first.
+  </Segment>
+  <Segment secondary>
+    I am pretty noticeable but you might check out other content before you look at me.
+  </Segment>
+  <Segment tertiary>
+    If you notice me you must be looking very hard.
+  </Segment>            
+</div>
+
+<Canvas>
+  <Story
+    name="Emphasis"
+    args={{ }}>
+    {EmphasisTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## float 
+
+A `Segment` can `float` to `left` or `right`. Note that segments themselves 
+are self-clearing (there is no `clearing` attribute).
+
+export const FloatTemplate = (args) =>
+<Segment>
+  <p>This parent segment is self-clearing.</p>
+  <Segment float="left">
+    This segment will appear to the left.
+  </Segment>
+  <Segment float="right">
+    This segment will appear to the right.
+  </Segment>            
+</Segment>
+
+<Canvas>
+  <Story
+    name="float"
+    args={{ }}>
+    {FloatTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## padded
+
+A `Segment` can be `padded`, optionally to `padded="very"`.
+
+export const PaddedTemplate = (args) =>
+<div>
+  <Segment {...args}>
+    <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+  </Segment>
+  <Segment padded="very">
+    <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+  </Segment>            
+</div>
+
+<Canvas>
+  <Story
+    name="padded"
+    args={{ padded: true }}>
+    {PaddedTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## piled 
+
+A `piled` `Segment` looks like a pile of pages. It handles negative z-indices 
+by adding a parent element to set the stacking order.
+
+<Canvas>
+  <Story
+    name="piled"
+    args={{ piled: true, children: "This is a piled segment." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## raised
+
+A `Segment` may be formatted to be `raised` above the page.
+
+<Canvas>
+  <Story
+    name="raised"
+    args={{ raised: true, children: "This is a raised segment." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## stacked
+
+A `stacked` `Segment` shows that it contains multiple pages. It can also be 
+`tall stacked`.
+
+export const StackedTemplate = (args) =>
+<div>
+  <Segment {...args}>
+    <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+  </Segment>
+  <Segment tall stacked>
+    <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+  </Segment>
+</div>
+
+<Canvas>
+  <Story
+    name="stacked"
+    args={{ stacked: true, children: "This is a stacked segment." }}>
+    {StackedTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## tight 
+
+A `Segment` can be `tight`, reducing its top and bottom padding.
+
+<Canvas>
+  <Story
+    name="tight"
+    args={{ tight: true, children: "This is a tight segment." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

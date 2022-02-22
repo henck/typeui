@@ -1,0 +1,29 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Image} from '../Image';
+
+<Meta 
+  title="Controls/Image" 
+  subcomponents={{'Image.Group': Image.Group}}
+  component={Image}
+/>
+
+export const Template = (args) => 
+  <Image {...args}/>
+
+# Image
+
+<ArgsTable of={Image}/>
+
+# Standard Image
+
+A standard image takes a required `src` property.
+
+With no size, an image will fill the space available to it.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

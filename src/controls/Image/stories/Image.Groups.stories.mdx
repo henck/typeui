@@ -1,0 +1,38 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Image} from '../Image';
+import {Label} from '../../Label';
+import {Icon} from '../../Icon';
+
+# Image: Groups
+
+<Meta 
+  title="Controls/Image/Groups" 
+  component={Image}
+  subcomponents={{'Image.Group': Image.Group}}
+/>
+
+<ArgsTable of={Image}/>
+
+export const Template = (args) => 
+  <Image {...args}/>
+
+## Image.Group
+
+An `Image.Group` is a group of images can share `size`, `bordered`, `rounded` 
+and `circular` attributes. The images are automatically spaced.
+
+export const ImageGroupTemplate = (args) =>
+  <Image.Group {...args}>
+    <Image src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+    <Image src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+    <Image src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+    <Image src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  </Image.Group>
+
+<Canvas>
+  <Story
+    name="Image.Group"
+    args={{ size: "small", onClick: null, bordered: false, rounded: true, circular: false }}>
+    {ImageGroupTemplate.bind({})}
+  </Story>
+</Canvas>

@@ -3,11 +3,18 @@ import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 
 interface ILabelProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** An inline label floats before its control, not above it. */
+  /** 
+   * An inline label floats before its control, not above it. 
+   * @default false
+   */
   inline?: boolean;
-  /** A required label gets an asterisk.  */
+  /** 
+   * A required label gets an asterisk.  
+   * @default false
+   */
   required?: boolean;
 }
 
@@ -42,4 +49,4 @@ const Label = styled(LabelBase)`
   `}
 `;
 
-export { Label };
+export { Label }

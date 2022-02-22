@@ -5,19 +5,19 @@ import styled from '../../styles/Theme';
 import { VerticalAlignment } from '../Types';
 
 interface IQuickProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Flex vertical alignment of \`top\`, \`center\` or \`bottom\`. By default, 'center' is used. */
+  /** 
+   * Flex vertical alignment of \`top\`, \`center\` or \`bottom\`. By default, 
+   * 'center' is used. 
+   * @default center
+   */
   align?: VerticalAlignment;
 }
 
 class QuickBase extends React.Component<IQuickProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
+  render = () => <div className={this.props.className}>{this.props.children}</div>
 }
 
 const QuickStyled = styled(QuickBase)`
@@ -29,12 +29,7 @@ const QuickStyled = styled(QuickBase)`
 `;
 
 class Quick extends React.Component<IQuickProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <QuickStyled {...p}/>
-    )
-  }  
+  render = () => <QuickStyled {...this.props}/>
 }
 
 export { Quick };

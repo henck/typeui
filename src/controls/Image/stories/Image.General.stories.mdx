@@ -1,0 +1,89 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Image} from '../Image';
+import {Label} from '../../Label';
+import {Icon} from '../../Icon';
+
+# Image: General
+
+<Meta 
+  title="Controls/Image/General" 
+  component={Image}
+/>
+
+export const Template = (args) => 
+  <Image {...args}/>
+
+## alt
+
+An `Image` can take an `alt` property.
+
+<Canvas>
+  <Story
+    name="alt"
+    args={{ alt: "A wireframe", size: "tiny", onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## title
+
+An `Image` can take a `title` property.
+
+<Canvas>
+  <Story
+    name="title"
+    args={{ title: "A wireframe", size: "tiny", onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## disabled 
+
+An `Image` can be `disabled`. Note that this is done using a CSS brightness `filter`.
+
+<Canvas>
+  <Story
+    name="disabled"
+    args={{ disabled: true, size: "tiny", onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## error 
+
+An Image that fails to load shows a grey box the same size as the image size.
+
+An `Image` can have children. These are only shown when the image fails to load. There should be one child potentially containing other children, otherwise they will overlap.
+ 
+The image in this demo is loaded with a delay of 1000ms (and does not exist.)
+
+export const ErrorTemplate = (args) => 
+<Image {...args}>
+  <Label>
+    <Icon name="code"/>
+    Loading error
+  </Label>
+</Image>
+
+<Canvas>
+  <Story
+    name="error"
+    args={{ size: "small", onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png-does-not-exist' }}>
+    {ErrorTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## onClick 
+
+An `Image` can have an `onClick` event.
+
+Clickable images get a "hand" cursor.
+
+<Canvas>
+  <Story
+    name="onClick"
+    args={{ size: "tiny", onClick: () => {}, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

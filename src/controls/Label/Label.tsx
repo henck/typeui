@@ -17,35 +17,53 @@ import { ImageStyled } from '../Image/Image';
 import { IconStyled } from '../Icon/Icon';
 
 interface ILabelProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** onClick events are passed through to the Label's HTML element */
-  onClick?: () => void;
-  /** A `basic` Label adds a border and does not have a background. */
+  /** 
+   * A `basic` Label adds a border and does not have a background. 
+   * @default false
+   */
   basic?: boolean;
-  /** Label background color, e.g. `skyblue`. */
+  /** 
+   * Label background color, e.g. `skyblue`. 
+   */
   color?: string;
-  /** Label content may be passed as attribute. */
+  /** 
+   * Label content may be passed as a property. 
+   */
   content?: React.ReactNode;
-  /** A floating Label floats over the top-right corner of its parent. */
+  /** 
+   * A floating Label floats over the top-right corner of its parent. 
+   * @default false
+   */
   floating?: boolean;
-  /** Point to other content to the `left`, `top`, `right` or `bottom`. Default direction is `left` */
+  /** 
+   * Point to other content to the `left`, `top`, `right` or `bottom`. Default direction is `left` 
+   */
   pointing?: boolean | Direction;
-  /** Label size, one of `mini`, `tiny`, `small`, `medium`, `large`, `big`, `huge` and `massive`. */
+  /** 
+   * Label size, one of `mini`, `tiny`, `small`, `medium`, `large`, `big`, `huge` and `massive`. 
+   * @default medium
+   */
   size?: Size;
-  /** If set, Label appears as a tag. */
+  /** 
+   * If set, Label appears as a tag. 
+   * @default false
+   */
   tag?: boolean;
-  /** Determine if Label is attached to anything, `left` or `right`. */
+  /** 
+   * Determine if Label is attached to anything, `left` or `right`. 
+   */
   attached?: Float;
+  /** 
+   * onClick events are passed through to the Label's HTML element.
+   */
+  onClick?: () => void;
 }
 
-class LabelBase extends React.Component<ILabelProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onClick={p.onClick}>{p.children}{p.content}</div>
-    );
-  }
+class LabelBase extends React.Component<ILabelProps> {
+  render = () => <div className={this.props.className} onClick={this.props.onClick}>{this.props.children}{this.props.content}</div>
 }
 
 const LabelStyled = styled(LabelBase).attrs(p => ({
@@ -269,8 +287,12 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-label--properties
  */
-class Label extends React.Component<ILabelProps, {}> {
-  public static displayName = "Label";
+class Label extends React.Component<ILabelProps> {
+
+  /* This is used by parent components to determine if a child is a Label. */
+  public static defaultProps = {
+    isLabel: true
+  }
 
   /** 
    * A Label.Group can pass props to the labels it contains, but 
@@ -284,12 +306,7 @@ class Label extends React.Component<ILabelProps, {}> {
    */
   public static Detail = LabelDetail;
 
-  render() {
-    return (<LabelStyled {...this.props}></LabelStyled>);
-  }
+  render = () => <LabelStyled {...this.props}/>
 }
-
-(Label.Group as any).displayName = "Label.Group";
-(Label.Detail as any).displayName = "Label.Detail";
 
 export { Label, LabelStyled };

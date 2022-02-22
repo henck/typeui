@@ -1,5 +1,7 @@
 import * as React from 'react';
-import * as ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 import { Header } from '../../controls/Header';
 import { List } from '../../controls/List';
 import { Image } from '../../controls/Image';
@@ -35,30 +37,33 @@ class Markdown extends React.Component<IMarkdownProps> {
    * In order to render <List> components, we need to know if the list is
    * ordered or bulleted. react-markdown provides an ordered:boolean. 
    */
-  private listRenderer(props: { children: React.ReactNode, ordered: boolean }) {
-    return <List ordered={props.ordered} bulleted={!props.ordered}>{props.children}</List>
+  private listRenderer(props: { ordered: boolean, children: React.ReactNode}) {
+    // Filter out any string children.
+    let children = React.Children.toArray(props.children).filter((c) => typeof c !== "string");
+    return <List ordered={props.ordered} bulleted={!props.ordered}>{children}</List>
   }
 
-  /**
-   * We'd like to use TypeUI's <Image> component to render images,
-   * so that we can set a size and an error message for load failures.
-   */  
-  private imageRenderer(props: { src: string, alt: string }) {
-    return <Image src={props.src} alt={props.alt} size="medium">
-      Image resource not found.
-    </Image>
-  }
-  
   render() {
     let p = this.props;
     return (
-      <ReactMarkdown source={p.source} renderers={{
-        heading: this.headingRenderer,  // Use special Header renderer
-        table: Table,                   // Use Table instead of <table> 
-        list: this.listRenderer,        // Use special List renderer
-        listItem: List.Item,            // Use <List.Item> instead of <li>
-        image: this.imageRenderer       // Use special Image renderer
-      }}/>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          h1: this.headingRenderer,
+          h2: this.headingRenderer,
+          h3: this.headingRenderer,
+          h4: this.headingRenderer,
+          h5: this.headingRenderer,
+          h6: this.headingRenderer,
+          img: ({node, ...props}) => <Image size="medium" {...props as any}>Image resource not found.</Image>,
+          ul: this.listRenderer,
+          li: ({ node, children, ...props}) => <List.Item>{children}</List.Item>,
+          table: ({node, children, ...props}) => <Table>{children}</Table>
+
+        }}
+      >
+        {p.source}
+      </ReactMarkdown>
     );
   }
 }

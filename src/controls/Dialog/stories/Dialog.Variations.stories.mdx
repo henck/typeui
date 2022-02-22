@@ -1,0 +1,35 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Dialog} from '../Dialog'
+import {Button} from '../../Button'
+
+# Dialog: Variations
+.
+
+<Meta 
+  title="Controls/Dialog/Variations" 
+  component={Dialog}
+/>
+
+## width 
+
+A `Dialog` has a default width in pixels, but the `width` attribute can be 
+used to override that.
+
+export const Template = (args) => 
+<div style={{height: '300px'}}>
+<Dialog {...args}>
+  <Dialog.Header>Welcome</Dialog.Header>
+  <Dialog.Content>Good day!</Dialog.Content>
+  <Dialog.Footer>
+    <Button>OK</Button>
+  </Dialog.Footer>
+</Dialog>
+</div>
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ open: true, width: 200 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

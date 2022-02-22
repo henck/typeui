@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 import { Slice } from './Slice';
@@ -8,17 +7,24 @@ const DEFAULT_RADIUS = 100;
 const INNER_RADIUS_RATIO = 5;
 
 interface ICircleProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
   /** onClick handler for segment clicks. */
   onClick?: (index: number) => void;
-  /** Circle radius in pixels. Defaults to 100. */
+  /** 
+   * Circle radius in pixels. Defaults to 100. 
+   * @default 100 
+   */
   radius?: number;
-  /** Segments color. Defauls to dark grey. */
+  /*
+   * Segments color. Defauls to dark grey. 
+   * @default #333
+   */
   color?: string;
 }
 
-class CircleBase extends React.Component<ICircleProps, {}> {
+class CircleBase extends React.Component<ICircleProps> {
 
   private handleClick = (index: number) => {
     if(this.props.onClick) this.props.onClick(index);
@@ -82,14 +88,8 @@ const CircleStyled = styled(CircleBase).attrs(p => ({
   }
 `
 
-class Circle extends React.Component<ICircleProps, {}> {
-  public static displayName = 'Circle';
-
-  render() {
-    return (
-      <CircleStyled {...this.props}></CircleStyled>
-    );
-  }
+class Circle extends React.Component<ICircleProps> {
+  render = () => <CircleStyled {...this.props}></CircleStyled>
 }
 
 export { Circle };

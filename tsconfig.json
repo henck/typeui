@@ -13,7 +13,8 @@
     "noImplicitReturns": true,   // Raise error when not all code paths in function return a value.
     "removeComments": false,     // Remove all comments except copyright header comments beginning with /*!
     "preserveConstEnums": true,  // Do not erase const enum declarations in generated code.
-    "lib": ["es2015", "dom"]
+    "lib": ["es2015", "dom"],
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*"
@@ -21,6 +22,7 @@
   "exclude": [
     "node_modules",
     "docs",
-    "src/**/*.s.tsx"
+    "src/**/*.s.tsx",
+    "src/**/*.stories.tsx"
   ]
 }

@@ -1,0 +1,54 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Message} from '../Message';
+import {Icon} from '../../Icon';
+
+# Message: General
+.
+
+<Meta
+  title="Controls/Message/General"  
+  component={Message}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Message {...args}/>
+
+## Icon
+
+A `Message` can contain an `Icon`. Adding the `icon` attribute will apply 
+appropriate layout to the message.
+
+export const IconTemplate = (args) =>
+<Message {...args}>
+  <Icon name="circle-notch" size="big" loading="true"/>
+  <Message.Content>
+    <Message.Header>Just one second</Message.Header>
+    <p>
+      We are fetching content for you.
+    </p>
+  </Message.Content>
+</Message>
+
+<Canvas>
+  <Story
+    name="Icon"
+    args={{ icon: true }}>
+    {IconTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## hidden 
+
+A `Message` can be `hidden`.
+
+<Canvas>
+  <Story
+    name="hidden"
+    args={{ hidden: true, icon: true }}>
+    {IconTemplate.bind({})}
+  </Story>
+</Canvas>
+

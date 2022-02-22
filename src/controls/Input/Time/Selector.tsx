@@ -184,16 +184,16 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
         <Body ref={(el:any) => this.wrapperElement = el} onKeyDown={this.handleKeyDown}>
           <ControlBar>
             <InputBar>
-            <InputHolder>
-              <Input onFocus={() => this.setState({mode: "hour"})} transparent fluid maxLength={2} value={this.state.hour} placeholder="HH" onChange={this.handleHour}/>
-            </InputHolder>
-            <InputHolder>
-              <Input onFocus={() => this.setState({mode: "minute"})} transparent fluid maxLength={2} value={this.state.minute} placeholder="mm" onChange={this.handleMinute}/>
-            </InputHolder>
-            {p.hasSeconds &&
               <InputHolder>
-                <Input onFocus={() => this.setState({mode: "second"})} transparent fluid maxLength={2} value={this.state.second} placeholder="ss" onChange={this.handleSecond}/>
-              </InputHolder>}
+                <Input onFocus={() => this.setState({mode: "hour"})} transparent fluid maxLength={2} value={this.state.hour} placeholder="HH" onChange={this.handleHour}/>
+              </InputHolder>
+              <InputHolder>
+                <Input onFocus={() => this.setState({mode: "minute"})} transparent fluid maxLength={2} value={this.state.minute} placeholder="mm" onChange={this.handleMinute}/>
+              </InputHolder>
+              {p.hasSeconds &&
+                <InputHolder>
+                  <Input onFocus={() => this.setState({mode: "second"})} transparent fluid maxLength={2} value={this.state.second} placeholder="ss" onChange={this.handleSecond}/>
+                </InputHolder>}
             </InputBar>
             {!p.is24h && <>
                 <Label color={this.state.am ? "#000" : null} attached="right" onClick={this.handleAM}>AM</Label>

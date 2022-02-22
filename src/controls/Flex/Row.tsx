@@ -3,11 +3,16 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IRowProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
+  /** @ignore */
   stackable?: boolean; // (Not public) Passed by parent Flex
+  /** @ignore */
   divided?: boolean;   // (Not public) Passed by parent Flex
+  /** @ignore */
   compact?: boolean;   // (Not public) Passed by parent Flex
+  /** @ignore */
   gutter?: number;     // (Not public) Passed by parent Flex
 }
 
@@ -43,12 +48,7 @@ const RowStyled = styled(RowBase)`
 `;
 
 class Row extends React.Component<IRowProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <RowStyled {...p}/>
-    )
-  }  
+  render = () => <RowStyled {...this.props}/>
 }
 
 export { Row };

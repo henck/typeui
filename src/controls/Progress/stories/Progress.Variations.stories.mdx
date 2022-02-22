@@ -1,0 +1,101 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Progress} from '../Progress';
+
+# Progress: Variations
+.
+
+<Meta
+  title="Controls/Progress/Variations"  
+  component={Progress}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Progress {...args}/>
+
+## background
+
+A `Progress` with the `background` attribute adds a background to the progress bar.
+
+<Canvas>
+  <Story
+    name="background"
+    args={{ background: true, value: 50 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## bordered
+
+A `bordered` `Progress` adds a border around the progress bar.
+
+<Canvas>
+  <Story
+    name="bordered"
+    args={{ bordered: true, value: 75 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## color 
+
+By default, a `Progress` has the primary theme color. You can override this using
+the `color` attribute.
+
+<Canvas>
+  <Story
+    name="color"
+    args={{ color: 'pink', value: 66 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## numbered
+
+A `numbered` `Progress` shows a percentage value.
+
+<Canvas>
+  <Story
+    name="numbered"
+    args={{ numbered: true, value: 45 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## raised 
+
+A `raised` `Progress` adds a drop shadow. This works well with the `background` attribute.
+
+<Canvas>
+  <Story
+    name="raised"
+    args={{ raised: true, background: true, value: 70 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## rectangular 
+
+A `rectangular` `Progress` has sharp corners rather than rounded ones.
+
+<Canvas>
+  <Story
+    name="rectangular"
+    args={{ rectangular: true, value: 85 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## thickness
+
+`thickness` can be used to create thicker `Progress` bars.
+
+<Canvas>
+  <Story
+    name="thickness"
+    args={{ thickness: 20, value: 58 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

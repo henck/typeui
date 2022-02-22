@@ -3,6 +3,7 @@ import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 
 interface IPanesProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
   underlined?: boolean;
@@ -11,13 +12,8 @@ interface IPanesProps {
 //
 // Container for Tabs Panes.
 //
-class PanesBase extends React.Component<IPanesProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    )
-  }
+class PanesBase extends React.Component<IPanesProps> {
+  render = () => <div className={this.props.className}>{this.props.children}</div>
 }
 
 const Panes = styled(PanesBase)`
@@ -34,7 +30,5 @@ const Panes = styled(PanesBase)`
     border-top: none;      
   `}
 `
-
-Panes.displayName = "Tabs.Panes";
 
 export { Panes };

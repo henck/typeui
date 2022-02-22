@@ -1,0 +1,116 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Header} from '../Header';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+import {Segment} from '../../Segment';
+import {Message} from '../../Message';
+
+# Header: Variations
+.
+
+<Meta 
+  title="Controls/Header/Variations" 
+  component={Header}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Header {...args}>Header</Header>
+
+## Align 
+
+Header text content can have an `align` of `left`, `center` or `right`.
+
+export const AlignTemplate = (args) =>
+<div>
+  <Header {...args}>Left header</Header>
+  <Header size="h1" align="center">Center header</Header>
+  <Header size="h1" align="right">Right header</Header>
+</div>
+
+<Canvas>
+  <Story
+    name="Align"
+    args={{ size: 'h1', align: 'left' }}>
+    {AlignTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Block 
+
+A `block` header appears as a content block.
+
+<Canvas>
+  <Story
+    name="Block"
+    args={{ size: 'h1', block: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Color 
+
+A header can have a custom `color`.
+
+<Canvas>
+  <Story
+    name="Color"
+    args={{ size: 'h1', color: 'goldenrod' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Dividing 
+
+A `dividing` header separates itself from the content below it with a border.
+
+<Canvas>
+  <Story
+    name="Dividing"
+    args={{ size: 'h1', dividing: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Float
+
+Headers can `float` to the `left` or `right`.
+
+export const FloatTemplate = (args) =>
+<Segment>
+  <Header {...args}>Float Left</Header>
+  <Header size="h1" float="right">Float right</Header>
+</Segment>
+
+<Canvas>
+  <Story
+    name="Float"
+    args={{ size: 'h1', float: 'left' }}>
+    {FloatTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Attached 
+
+A header can be `attached` to other content.
+
+export const AttachedTemplate = (args) =>
+<div>
+  <Header {...args}>Header 2</Header>
+  <Segment attached>
+    <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p>
+  </Segment>
+  <Message attached="bottom" type="warning">
+    This is a message.
+  </Message>
+</div>
+
+<Canvas>
+  <Story
+    name="Attached"
+    args={{ size: 'h2', attached: 'top' }}>
+    {AttachedTemplate.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,31 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Message} from '../Message';
+
+<Meta
+  title="Controls/Message"  
+  component={Message}
+  subcomponents={{"Message.Content": Message.Content, "Message.Header": Message.Header}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Message {...args}/>
+
+# Message
+
+Displays an informational message block.
+
+<ArgsTable of={Message}/>
+
+## Standard Message
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ children: "Hello, world." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

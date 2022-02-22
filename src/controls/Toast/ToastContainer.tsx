@@ -8,8 +8,11 @@ import { Toast } from './Toast';
 import { ToastService, IToastSubscriber } from './ToastService';
 
 interface IToastContainerProps {
+  /** @ignore */
   className?: string;
-  /** Maximum number of toasts on-screen at the same time. */
+  /** 
+   * Maximum number of toasts on-screen at the same time. 
+   */
   maxToasts: number;
 }
 
@@ -87,13 +90,8 @@ const ToastContainerStyled = styled(ToastContainerBase)`
   bottom: 20px;
 `
 
-class ToastContainer extends React.Component<IToastContainerProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ToastContainerStyled {...p}/>
-    );
-  }
+class ToastContainer extends React.Component<IToastContainerProps> {
+  render = () =><ToastContainerStyled {...this.props}/>
 }
 
 export { ToastContainer };

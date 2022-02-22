@@ -1,17 +1,22 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
-import { css } from 'styled-components';
 
 // Other controls
 import { Icon } from '../Icon/Icon';
 import { IconStyled } from '../Icon/Icon';
 
 interface IToastProps {
+  /** @ignore */
   className?: string;
   message: React.ReactNode;
-  /** Toast duration in ms. Default is 8000ms */
+  /** 
+   * Toast duration in ms. Default is 8000ms 
+   * @default 8000
+   */
   duration?: number;
-  /** Timeout callback, called when the Toast self-closes. */
+  /** 
+   * Timeout callback, called when the Toast self-closes. 
+   */
   onTimeout: () => void;
 };
 
@@ -19,7 +24,7 @@ interface IToastProps {
  * Toasts can be clicked to self-close. Otherwise they self-close
  * after a duration in milliseconds.
  */
-class ToastBase extends React.Component<IToastProps, {}> {
+class ToastBase extends React.Component<IToastProps> {
   private timerHandle: number;
 
   constructor(props: IToastProps) {
@@ -91,13 +96,8 @@ const ToastStyled = styled(ToastBase)`
   }  
 `;
 
-class Toast extends React.Component<IToastProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ToastStyled {...p}/>
-    );
-  }
+class Toast extends React.Component<IToastProps> {
+  render = () => <ToastStyled {...this.props}/>
 }
 
 export { Toast };

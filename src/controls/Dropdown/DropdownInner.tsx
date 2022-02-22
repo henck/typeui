@@ -60,6 +60,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
   private open() {
     // Is the Dropdown below the middle of the viewport?
     let below = this.wrapperElement.getBoundingClientRect().top > window.innerHeight / 2;
+    if(this.props.alwaysDown) below = false;
     this.setState({ open: true, upwards: below });
     // If reset on open is specified, then the search query is reset whenever the
     // dropdown opens or reopens.
@@ -343,12 +344,7 @@ const DropdownInnerStyled = styled(DropdownInnerBase)`
 `
 
 class DropdownInner extends React.Component<IDropdownProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <DropdownInnerStyled {...p}></DropdownInnerStyled>
-    );
-  }
+  render = () => <DropdownInnerStyled {...this.props}></DropdownInnerStyled>
 }
 
 export { DropdownInner };

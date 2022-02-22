@@ -39,8 +39,12 @@ interface IPatternValidation {
 }
 
 interface IProps {
+  /** @ignore */
   className?: string;
-  /** Place label inline with field control. */
+  /** 
+   * Place label inline with field control. 
+   * @default false
+   */
   inline?: boolean;
   /** Relative width of field. If not set, field will not flex to fill available width. */
   width?: number;  
@@ -50,16 +54,23 @@ interface IProps {
   name: string;
   /** Field value. Required. */
   value: any;
-  /** Disabled is passed on to control. */
+  /** 
+   * Disabled is passed on to control. 
+   * @default false 
+   */
   disabled?: boolean;
   /** Hint to be shown when there is no error. Can be JSX. */
   hint?: React.ReactNode;
-  /** If true, error messages have more contrast (for dark backgrounds) */
+  /** 
+   * If true, error messages have more contrast (for dark backgrounds) 
+   * @default false 
+   */
   contrast?: boolean;  
   /** Control to show in field. */
   control: React.ReactNode;
   /**
    * If true, a change to this field forces the whole form to update.
+   * @default false
    */
   forceupdate?: boolean;
 
@@ -445,12 +456,7 @@ const FieldStyled = styled(FieldBase)`
 `;
 
 class Field extends React.Component<IProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <FieldStyled {...p}/>
-    )
-  }  
+  render = () => <FieldStyled {...this.props}/>
 }
 
 export { Field };

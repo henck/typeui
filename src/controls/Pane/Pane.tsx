@@ -7,19 +7,31 @@ import { Icon } from '../Icon/Icon';
 import { IconPane } from './IconPane';
 
 interface IPaneProps {
+  /** ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Is the Pane currently open? */
+  /** 
+   * Is the Pane currently open? 
+   * @default false
+   */
   open: boolean;
-  /** This callback is called when the Pane requests to close. */
-  onClose: () => void;
-  /** A padded Pane adds padding to its content. */
+  /** 
+   * A padded Pane adds padding to its content. 
+   * @default false
+   */
   padded?: boolean;
-  /** Override default Pane width of 400 pixels. */
+  /** 
+   * Override default Pane width of 400 pixels. 
+   * @default 400
+   */
   width?: number;
+  /** 
+   * This callback is called when the Pane requests to close. 
+   */
+  onClose: () => void;  
 }
 
-class PaneBase extends React.Component<IPaneProps, {}> {
+class PaneBase extends React.Component<IPaneProps> {
   private paneElement: HTMLDivElement;
 
   constructor(props: IPaneProps) {
@@ -98,17 +110,10 @@ const PaneStyled = styled(PaneBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-pane--properties
  */
-class Pane extends React.Component<IPaneProps, {}> {
-  public static displayName = 'Pane';
+class Pane extends React.Component<IPaneProps> {
   public static Icon = IconPane;
 
-  render() {
-    return (
-      <PaneStyled {...this.props}></PaneStyled>
-    );
-  }
+  render = () => <PaneStyled {...this.props}/>
 }
-
-(Pane.Icon as any).displayName = "Pane.Icon";
 
 export { Pane };

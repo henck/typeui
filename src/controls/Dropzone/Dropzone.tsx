@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Dropbox } from './Dropbox';
 
 interface IDropzoneProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
   /** 

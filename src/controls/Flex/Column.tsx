@@ -3,25 +3,21 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IColumnProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Column relative weight, for cell growth. If not specified, cell doesn't flex. */
+  /** 
+   * Column relative weight, for cell growth. If not specified, cell doesn't flex. 
+   */
   width?: number;
+  /** @ignore */
   stackable?: boolean; // (Not public) Passed by parent Flex
+  /** @ignore */
   gutter?: number;     // (Not public) Passed by parent Flex
 }
 
-class ColumnBase extends React.Component<IColumnProps, {}> {
-  constructor(props: IColumnProps) {
-    super(props);
-  }
-
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
+class ColumnBase extends React.Component<IColumnProps> {
+  render = () => <div className={this.props.className}>{this.props.children}</div>
 }
 
 const ColumnStyled = styled(ColumnBase)`
@@ -38,13 +34,8 @@ const ColumnStyled = styled(ColumnBase)`
   `}
 `;
 
-class Column extends React.Component<IColumnProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ColumnStyled {...p}/>
-    )
-  }  
+class Column extends React.Component<IColumnProps> {
+  render = () => <ColumnStyled {...this.props}/>
 }
 
 export { Column };

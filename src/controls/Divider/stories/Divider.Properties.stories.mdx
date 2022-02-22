@@ -1,0 +1,61 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Divider} from '../Divider';
+import {Segment} from '../../Segment';
+import {Input} from '../../Input';
+import {Button} from '../../Button';
+import {Label} from '../../Label';
+import {Icon} from '../../Icon';
+
+<Meta 
+  title="Controls/Divider" 
+  component={Divider}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+<div>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+  <Divider {...args}/>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+</div>
+
+# Divider
+
+A `Divider` is used to separate blocks of contents vertically. Dividers 
+can be invisible or contain a horizontal line. Dividers can also contain 
+content.
+
+<ArgsTable of={Divider}/>
+
+## Default Divider
+
+A standard `Divider` separates contents vertically using a thin line.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Sample Divider 
+
+<Canvas>
+  <Story
+    name="Sample"
+    args={{}}>
+    {args => <Segment align="center">
+      <Input name="search" type="text">
+        <Label attached="right" color="SteelBlue" onClick={() => {}}>Search</Label>
+      </Input>
+      <Divider {...args}>OR</Divider>
+      <Button color="DarkCyan" onClick={() => {}}>
+        <Label color="Teal"><Icon name="code" color="white"/></Label>
+        Create New Order
+      </Button>
+    </Segment>}
+  </Story>
+</Canvas>

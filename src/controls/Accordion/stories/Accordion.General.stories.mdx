@@ -1,0 +1,112 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Accordion} from '../Accordion';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Flex} from '../../Flex';
+import {Message} from '../../Message';
+
+# Accordion: General
+.
+
+<Meta 
+  title="Controls/Accordion/General" 
+  component={Accordion}
+  subcomponents={{'Accordion.Tab': Accordion.Tab}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const DefaultTemplate = (args) =>
+<Accordion {...args}>
+  <Accordion.Tab title="What is a dog?">
+    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+  </Accordion.Tab>
+  <Accordion.Tab title="What kinds of dogs are there?">
+    There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.
+  </Accordion.Tab>
+  <Accordion.Tab title="How do you acquire a dog?">
+    Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.
+    A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.
+  </Accordion.Tab>       
+</Accordion>
+
+## active
+
+The default active tab of an `Accordion` can be specified with the `active` 
+property. This is actually an *array* of currently active tabs. The indices 
+are 0-based.
+
+<Canvas>
+  <Story
+    name="active"
+    args={{ active: [1] }}>
+    {DefaultTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## multiple 
+
+A `multiple` Accordion is non-exclusive and allows multiple tabs to be open at 
+the same time.
+
+<Canvas>
+  <Story
+    name="multiple"
+    args={{ raised: true, styled: true, multiple: true, active: [1] }}>
+    {DefaultTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## title
+
+The _required_ `title` attribute of an `Accordion.Tab` can be any JSX, so it's possible 
+to include an icon in the title (or anything else).
+
+export const TitleTemplate = (args) =>
+<Accordion {...args}>
+  <Accordion.Tab title={<Flex.Quick><Icon name="code"/> What is a dog?</Flex.Quick>}>
+    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+  </Accordion.Tab>
+  <Accordion.Tab title="What kinds of dogs are there?">
+    There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.
+  </Accordion.Tab>
+  <Accordion.Tab title="How do you acquire a dog?">
+    Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.
+    A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.
+  </Accordion.Tab>       
+</Accordion>
+
+<Canvas>
+  <Story
+    name="title"
+    args={{ raised: true, styled: true, multiple: true, active: [1] }}>
+    {TitleTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## hidden
+
+An `Accordion.Tab` can be `hidden`.
+
+export const HiddenTemplate = (args) =>
+<Accordion {...args}>
+  <Accordion.Tab title="What is a dog?">
+    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+  </Accordion.Tab>
+  <Accordion.Tab hidden title="What kinds of dogs are there?">
+    There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.
+  </Accordion.Tab>
+  <Accordion.Tab title="How do you acquire a dog?">
+    Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.
+    A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.
+  </Accordion.Tab>       
+</Accordion>
+
+<Canvas>
+  <Story
+    name="hidden"
+    args={{ raised: true, styled: true, multiple: true, active: [1] }}>
+    {HiddenTemplate.bind({})}
+  </Story>
+</Canvas>

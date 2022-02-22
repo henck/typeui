@@ -4,18 +4,30 @@ import { Size } from '../Types';
 import { IImageProps } from './Image';
 
 interface IImageGroupProps {
+  /** @ignore */
   className?: string;
-  /** Sets image size: mini, tiny, small, medium (default), large, big, huge or massive. */
+  /** 
+   * Sets image size: mini, tiny, small, medium (default), large, big, huge or massive. 
+   */
   size?: Size;  
-  /** Add border */
+  /** 
+   * Add border 
+   * @default false 
+   */
   bordered?: boolean;
-  /** Round image corners */
+  /** 
+   * Round image corners 
+   * @default false 
+   */
   rounded?: boolean;
-  /** Cicular image (works only for square images) */
+  /** 
+   * Cicular image (works only for square images) 
+   * @default false
+   */
   circular?: boolean;
 }
 
-class ImageGroupBase extends React.Component<IImageGroupProps, {}> {
+class ImageGroupBase extends React.Component<IImageGroupProps> {
   render() {
     let p = this.props;
 
@@ -44,13 +56,8 @@ const ImageGroupStyled = styled(ImageGroupBase)`
   }
 `;
 
-class ImageGroup extends React.Component<IImageGroupProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ImageGroupStyled {...p}/>
-    )
-  }  
+class ImageGroup extends React.Component<IImageGroupProps> {
+  render = () =><ImageGroupStyled {...this.props}/>
 }
 
 export { ImageGroup };

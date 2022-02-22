@@ -3,19 +3,13 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IContentProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
 }
 
-class ContentBase extends React.Component<IContentProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        {p.children}
-      </div>
-    );
-  }
+class ContentBase extends React.Component<IContentProps> {
+  render = () => <div className={this.props.className}>{this.props.children}</div>
 }
 
 const ContentStyled = styled(ContentBase)`
@@ -30,12 +24,8 @@ const ContentStyled = styled(ContentBase)`
   }
 `
 
-class Content extends React.Component<IContentProps, {}> {
-  render() {
-    return (
-      <ContentStyled {...this.props}></ContentStyled>
-    );
-  }
+class Content extends React.Component<IContentProps> {
+  render = () => <ContentStyled {...this.props}></ContentStyled>
 }
 
 export { Content };

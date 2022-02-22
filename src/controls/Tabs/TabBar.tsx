@@ -150,7 +150,4 @@ const TabBar = styled(TabBarBase)`
   }
 `
 
-
-TabBar.displayName = "Tabs.TabBar";
-
 export { TabBar };

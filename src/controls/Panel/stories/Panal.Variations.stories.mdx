@@ -1,0 +1,64 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Panel} from '../Panel';
+import {Button} from '../../Button';
+
+# Panel: Variations
+.
+
+<Meta
+  title="Controls/Panel/Variations"
+  component={Panel}
+  subcomponents={{}}
+/>
+
+## noanimation
+
+Panel animation can be turned off with `noanimation`.
+
+<Canvas>
+  <Story
+    name="noanimation"
+    args={{ open: true, padded: true, icon: "layers", noanimation: true }}>
+    {args =>   
+    <div style={{position: 'relative'}}>
+      <Panel.Icon {...args}>
+        <p>This is some panel text.</p>
+      </Panel.Icon>
+    </div>}
+  </Story>
+</Canvas>
+
+## padded
+
+A `padded` `Panel` adds some padding around its contents.
+
+<Canvas>
+  <Story
+    name="padded"
+    args={{ open: true, padded: true, icon: "layers" }}>
+    {args =>   
+    <div style={{position: 'relative'}}>
+      <Panel.Icon {...args}>
+        Padded content.
+      </Panel.Icon>
+    </div>}
+  </Story>
+</Canvas>
+
+
+## width
+
+A `Panel` has a width of 200px by default. This `width` can be overridden.
+
+<Canvas>
+  <Story
+    name="width"
+    args={{ open: true, width: 600, icon: "layers" }}>
+    {args =>   
+    <div style={{position: 'relative'}}>
+      <Panel.Icon {...args}>
+        Panel of 600px.
+      </Panel.Icon>
+    </div>}
+  </Story>
+</Canvas>

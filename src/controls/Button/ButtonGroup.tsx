@@ -12,19 +12,37 @@ import { IButtonProps } from './Button';
 // https://stackoverflow.com/questions/41007060/target-another-styled-component-on-hover
 
 interface IButtonGroupProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Aligns buttons in a vertical list. Default is horizontal. */
+  /** 
+   * Aligns buttons in a vertical list. Default is horizontal. 
+   * @default horizontal
+   */
   vertical?: boolean;
-  /** Sets size for buttons in group: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
+  /** 
+   * Sets size for buttons in group: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. 
+   * @default medium
+   */
   size?: Size;
-  /** Sets color for all buttons in group, e.g. `#aa3311`. */
+  /** 
+   * Sets color for all buttons in group, e.g. `#aa3311`. 
+   */
   color?: string;
-  /** Gives all buttons in group reduced padding. */
+  /** 
+   * Gives all buttons in group reduced padding. 
+   * @default false
+   */
   compact?: boolean;
-  /** Sets all buttons in group to be basic buttons, which are less pronounced. */
+  /** 
+   * Sets all buttons in group to be basic buttons, which are less pronounced. 
+   * @default false
+   */
   basic?: boolean;
-  /** Sets all buttons in group to be icon buttons that have no margin, to center icons. */
+  /** 
+   * Sets all buttons in group to be icon buttons that have no margin, to center icons. 
+   * @default false
+  */
   icon?: boolean;
 }
 
@@ -32,7 +50,7 @@ class ButtonGroupBase extends React.Component<IButtonGroupProps, {}> {
   render() {
     // Build a list of properties to pass along to child buttons.
     let props: IButtonProps = {};
-    let p = this.props;
+    const p = this.props;
     props.grouped = true;
     if(this.props.size) props.size = p.size;
     if(this.props.color) props.color = p.color;

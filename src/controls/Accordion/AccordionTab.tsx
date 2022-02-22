@@ -10,6 +10,7 @@ import { AccordionHeader } from './AccordionHeader';
 import { AccordionBody } from './AccordionBody';
 
 interface IAccordionTabProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
   /** Tab title. Can be JSX. */
@@ -18,13 +19,13 @@ interface IAccordionTabProps {
   hidden?: boolean;
   /** Optional click event callback. */
   onClick?: () => void;  
-  /* (Not public) A styled accordion adds basic formatting. */
+  /** @ignore (Not public) A styled accordion adds basic formatting. */
   styled?: boolean;
-  /* (Not public) Is this tab currently active? */
+  /** @ignore (Not public) Is this tab currently active? */
   active?: boolean;
-  /* (Not public) Align caret icon to `left` or `right`. Defaults to `left`. */
+  /** @ignore (Not public) Align caret icon to `left` or `right`. Defaults to `left`. */
   align?: Float;  
-  /* (Not public) If set, there will be no sliding animations. */
+  /** @ignore (Not public) If set, there will be no sliding animations. */
   noanimate?: boolean;
 }
 

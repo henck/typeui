@@ -1,0 +1,16 @@
+import * as React from 'react';
+interface IProps {
+    className?: string;
+    /** Label to show, if any */
+    label?: string;
+    /** Place label inline with field control. */
+    inline?: boolean;
+    /** Relative width of field. If not set, field will not flex to fill available width. */
+    width?: number;
+    /** Hint to show */
+    hint?: React.ReactNode;
+}
+declare class Uncontrolled extends React.Component<IProps, {}> {
+    render(): JSX.Element;
+}
+export { Uncontrolled };

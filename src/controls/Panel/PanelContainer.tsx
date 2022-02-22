@@ -4,6 +4,7 @@ import * as React from 'react';
 import { PanelBody } from './PanelBody';
 
 interface IPanelContainerProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
   /** Anchor element to base positioning of body on. */
@@ -23,18 +24,22 @@ class PanelContainer extends React.Component<IPanelContainerProps> {
 
   constructor(props: IPanelContainerProps) {
     super(props);
-    let parent:HTMLElement = this.props.anchor.parentElement;
-    let rect = parent.getBoundingClientRect();
-    this.above = rect.top >= window.innerHeight / 2,
-    this.right = rect.left < window.innerWidth / 2
-    this.offset = Math.round(rect.width / 2);
+    if(this.props.anchor) {
+      const parent:HTMLElement = this.props.anchor.parentElement;
+      const rect = parent.getBoundingClientRect();
+      this.above = rect.top >= window.innerHeight / 2,
+      this.right = rect.left < window.innerWidth / 2
+      this.offset = Math.round(rect.width / 2);
+    }
   }
 
   // After mounting, focus on the first <input> element in the panel,
   // if there is one.
   componentDidMount() {
-    let firstInput = this.props.anchor.parentElement.querySelector('input');
-    if(firstInput != null) firstInput.focus();
+    if(this.props.anchor) {
+      const firstInput = this.props.anchor.parentElement.querySelector('input');
+      if(firstInput != null) firstInput.focus();
+    }
   }
 
   render() {

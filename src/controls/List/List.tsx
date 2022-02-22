@@ -13,29 +13,55 @@ import { ListHeader } from './ListHeader';
 import { ListDescription } from './ListDescription';
 
 interface IListProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Icon and content alignment: `top`, `center` or `bottom`. By default `top` */
+  /** 
+   * Icon and content alignment: `top`, `center` or `bottom`. By default `top` 
+   */
   align?: VerticalAlignment;  
-  /** Shows division lines between list items. */
+  /** 
+   * Shows division lines between list items. 
+   * @default false
+   */
   divided?: boolean;
-  /** Marks items with a bullet. */
+  /** 
+   * Marks items with a bullet. 
+   * @default false
+   */
   bulleted?: boolean;
-  /** Marks items with a number. */
+  /** 
+   * Marks items with a number. 
+   * @default false
+   */
   ordered?: boolean;
-  /** Optional bullet style (HTML values, e.g. `square`). This only has effect on `bulleted` lists.*/
+  /** 
+   * Optional bullet style (HTML values, e.g. `square`). This only has effect on `bulleted` lists.
+   */
   type?: ListStyleType;
-  /** Make items appear horizontally. */
+  /** 
+   * Make items appear horizontally. 
+   * @default false
+   */
   horizontal?: boolean;
-  /** Display selection rectangle on hover. */
+  /**
+   * Display selection rectangle on hover. 
+   * @default false
+   */
   selection?: boolean;
-  /** Increase negative space around items. Optionally `very`. */
+  /** 
+   * Increase negative space around items. Optionally `very`. 
+   * @default false
+   */
   relaxed?: 'very' | boolean;
-  /** Animate list items on hover. */
+  /** 
+   * Animate list items on hover. 
+   * @default false
+   */
   animated?: boolean;
 }
 
-class ListBase extends React.Component<IListProps, {}> {
+class ListBase extends React.Component<IListProps> {
   render() {
     let p = this.props;
 
@@ -109,25 +135,15 @@ const ListStyled = styled(ListBase)`
 /**
  * @link https://henck.github.io/typeui/?path=/story/controls-list--properties
  */
-class List extends React.Component<IListProps, {}> {
+class List extends React.Component<IListProps> {
   public static Item = ListItem;
   public static Icon = ListIcon;
   public static Content = ListContent;
   public static Header = ListHeader;
   public static Description = ListDescription;
 
-  render() {
-    let p = this.props;
-    return (
-      <ListStyled {...p}></ListStyled>
-    )
-  }
+  render = () => <ListStyled {...this.props}/>
 }
 
-(List.Content as any).displayName = "List.Content";
-(List.Description as any).displayName = "List.Description";
-(List.Header as any).displayName = "List.Header";
-(List.Icon as any).displayName = "List.Icon";
-(List.Item as any).displayName = "List.Item";
 
 export { List };

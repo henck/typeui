@@ -1,0 +1,73 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Dialog} from '../Dialog'
+import {Button} from '../../Button'
+
+# Dialog: General
+.
+
+<Meta 
+  title="Controls/Dialog/General" 
+  component={Dialog}
+/>
+
+## Dialog.Alert
+
+The `Dialog` component offers a pre-built `Dialog.Alert` type, with an "OK" button.
+The caller provides a `title`, and any JSX inside the component is used as dialog content.
+
+export const AlertTemplate = (args) => 
+<div style={{height: '300px'}}>
+  <Dialog.Alert {...args}/>
+</div>
+
+<Canvas>
+  <Story
+    name="Dialog.Alert"
+    args={{ open: true, title: "Lunch", children: "It's lunchtime!" }}>
+    {AlertTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Dialog.Confirm
+
+The `Dialog` component offers a pre-built `Dialog.Confirm` type, with a "Yes" and a "No" button.
+The caller provides a `title`, and any JSX inside the component is used as dialog content.
+
+If Yes is clicked, then the `onConfirm` callback is called.
+
+export const ConfirmTemplate = (args) => 
+<div style={{height: '300px'}}>
+  <Dialog.Confirm {...args}/>
+</div>
+
+<Canvas>
+  <Story
+    name="Dialog.Confirm"
+    args={{ open: true, title: "Ice cream", children: "Would you like ice cream?" }}>
+    {ConfirmTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Dialog.Xhr
+
+The `Dialog` component offers a pre-built `Dialog.Xhr` type, with an "OK" and a "Retry" button.
+This dialog can be used when an XHR request fails. It takes an `error` attribute with an Axios response object,
+and reports it to the user, providing a title and text that describe the error 
+that the asynchronous operation encountered.
+
+The Retry button only appears if the `onRetry` callback is provided. 
+If the user chooses to Retry the operation, then the `onRetry` callback is called.
+
+export const XhrTemplate = (args) =>
+<div style={{height: '300px'}}>
+  <Dialog.Xhr {...args}/>
+</div>
+
+<Canvas>
+  <Story
+    name="Dialog.Xhr"
+    args={{ open: true, onRetry: () => {}, error: {response:{status:404}} }}>
+    {XhrTemplate.bind({})}
+  </Story>
+</Canvas>
+

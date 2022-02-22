@@ -1,0 +1,129 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {List} from '../List';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+
+# List: Variations
+.
+
+<Meta
+  title="Controls/List/Variations"  
+  component={List}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) =>
+  <List {...args}>
+    <List.Item>
+      <Image avatar src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />    
+      <List.Content>
+        <List.Header>Joe Smith</List.Header>
+        <List.Description>All-around cool guy</List.Description>
+      </List.Content>
+    </List.Item>
+    <List.Item>
+      <Image avatar src='https://react.semantic-ui.com/images/avatar/small/veronika.jpg' />    
+      <List.Content>
+        <List.Header>Veronika Ossi</List.Header>
+        <List.Description>Blue in the face</List.Description>
+      </List.Content>
+    </List.Item>
+    <List.Item>
+      <Image avatar src='https://react.semantic-ui.com/images/avatar/small/jenny.jpg' />    
+      <List.Content>
+        <List.Header>Jenny Hess</List.Header>
+        <List.Description>Matrix shades</List.Description>
+      </List.Content>
+    </List.Item>
+  </List>   
+
+## animated
+
+A `List` can be `animated` to set the hovered item apart from the list.
+
+<Canvas>
+  <Story
+    name="animated"
+    args={{ align: 'center', animated: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## bulleted 
+
+A `bulleted` list marks items with a bullet.
+
+You can provide a bullet style type using `type` (default `disc`).
+
+<Canvas>
+  <Story
+    name="bulleted"
+    args={{ bulleted: true, type: 'circle' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## horizontal 
+
+A `horizontal` `List` lines up its items horizontally.
+
+<Canvas>
+  <Story
+    name="horizontal"
+    args={{ horizontal: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## ordered 
+
+A `List` can be `ordered` with numbers.
+
+<Canvas>
+  <Story
+    name="ordered"
+    args={{ ordered: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## relaxed 
+
+A `relaxed` `List` adds more negative space around its items. Optionally `relaxed="very"`.
+
+<Canvas>
+  <Story
+    name="relaxed"
+    args={{ relaxed: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## divided 
+
+A `divided` `List` adds a horizontal line between list items.
+
+<Canvas>
+  <Story
+    name="divided"
+    args={{ divided: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## selection 
+
+A `selection` list shows a selection rectangle on hover. This works well with `onClick`. 
+   
+If `divided` then the selection rectangle has no corner radius.
+
+<Canvas>
+  <Story
+    name="selection"
+    args={{ selection: true, divided: false }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

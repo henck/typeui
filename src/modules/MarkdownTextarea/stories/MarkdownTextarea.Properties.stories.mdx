@@ -1,0 +1,55 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import { MarkdownTextarea } from '../MarkdownTextarea';
+import { Form } from '../../../controls/Form';
+
+<Meta
+  title="Modules/MarkdownTextarea"  
+  component={MarkdownTextarea}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+# MarkdownTextarea
+
+The `MarkdownTextarea` module combines a `TextArea` component with a
+`Markdown` formatter to add markdown preview.
+
+<ArgsTable of={MarkdownTextarea}/>
+
+## Example
+
+export const Template = (args) =>
+<Form data={{}} onChange={() => {}} onValidate={() => {}}>
+  <Form.Field
+    name="description"
+    value={null}
+    control={
+      <MarkdownTextarea {...args}/>
+    }
+  />
+</Form>  
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ rows: 15, placeholder: "Description" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Translations
+
+The UI elements of the `MarkdownTextarea` can optionally be translated.
+
+<Canvas>
+  <Story
+    name="Translations"
+    args={{ rows: 15, placeholder: "Descrição", label_markdown: "é suportado", label_preview: "Pre-visualização", label_text: "Texto" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
+
+

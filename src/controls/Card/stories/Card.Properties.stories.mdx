@@ -1,0 +1,38 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Card} from '../Card';
+
+<Meta 
+  title="Controls/Card" 
+  component={Card}
+  subcomponents={{"Card.Content": Card.Content, "Card.Header": Card.Header, "Card.Meta" : Card.Meta}}
+  argTypes={{
+    className: { table: { disable: true } },
+  }}
+/>
+
+export const Template = (args) => 
+<Card {...args}>
+  <Card.Content>
+    Card content
+  </Card.Content>
+</Card>
+
+# Card
+
+A `Card` groups information with an optional header and footer.
+
+<ArgsTable of={Card}/>
+
+## Default Card
+
+A default `Card` with a single `Card.Content` element in it. All Card content
+should be placed in `Card.Content`, `Card.Header` and `Card.Meta` elements.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

@@ -3,18 +3,17 @@ import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 
 interface IPlaceholderImageProps {
+  /** @ignore */
   className?: string;
-  /** A rectangular image has a 4:3 ratio. */
+  /** 
+   * A rectangular image has a 4:3 ratio. 
+   * @default false 
+   */
   rectangular?: boolean;
 }
 
-class PlaceholderImageBase extends React.Component<IPlaceholderImageProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}></div>
-    );
-  }
+class PlaceholderImageBase extends React.Component<IPlaceholderImageProps> {
+  render = () => <div className={this.props.className}></div>
 }
 
 const PlaceholderImageStyled = styled(PlaceholderImageBase)`
@@ -23,13 +22,8 @@ const PlaceholderImageStyled = styled(PlaceholderImageBase)`
   background: transparent;
 `;
 
-class PlaceholderImage extends React.Component<IPlaceholderImageProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <PlaceholderImageStyled {...p}/>
-    )
-  }  
+class PlaceholderImage extends React.Component<IPlaceholderImageProps> {
+  render = () => <PlaceholderImageStyled {...this.props}/>
 }
 
 export { PlaceholderImage };

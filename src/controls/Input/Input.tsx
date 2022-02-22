@@ -20,6 +20,7 @@ import { Icon, IIconProps, IconType } from '../Icon/';
 import { IconStyled } from '../Icon/Icon';
 
 interface IInputProps {
+  /** @ignore */
   className?: string;
   children?: any;
   /** Input name. */
@@ -30,31 +31,58 @@ interface IInputProps {
   type?: 'date' | 'time' | 'text' | 'password' | 'color';
   /** Placeholder to show when the Input is empty. */
   placeholder?: string;
-  /** Marks input as disabled. */
+  /** 
+   * Marks input as disabled. 
+   * @default false 
+   */
   disabled?: boolean;
-  /** Removes input border. */
+  /** 
+   * Removes input border. 
+   * @default false 
+   */
   transparent?: boolean;
-  /** A fluid Input takes up all available horizontal space available to it. */
+  /** 
+   * A fluid Input takes up all available horizontal space available to it. 
+   * @default false
+   */
   fluid?: boolean;
-  /** An input can show an error state. */
+  /** 
+   * An input can show an error state. 
+   * @default false 
+   */
   error?: boolean;
   /** Icon props (optional). */
   icon?: IconType | IIconProps;
   /** Icon position. */
   iconPosition?: Float;
-  /** If set, Input's value can be cleared. */
+  /** 
+   * If set, Input's value can be cleared. 
+   * @default false 
+   */
   clearable?: boolean;  
   /** If set, dates and times (in inputs of type `date` or `time`) are shown in this format 
    * (refer to date-fns/format for format options). 
    */
   format?: string;
-  /** If set, date pickers do not allow picking future dates (beyond today). */
+  /** 
+   * If set, date pickers do not allow picking future dates (beyond today). 
+   * @default false 
+   */
   nofuture?: boolean;
-  /** If set, time pickers have a "seconds" field. */
+  /** 
+   * If set, time pickers have a "seconds" field. 
+   * @default false 
+   */
   hasSeconds?: boolean;
-  /** If set, time pickers use a 24h clock. */
+  /** 
+   * If set, time pickers use a 24h clock. 
+   * @default false 
+   */
   is24h?: boolean;
-  /** If set, time pickers show a clock face. */
+  /** 
+   * If set, time pickers show a clock face. 
+   * @default false 
+   */
   clock?: boolean;
   /** Optional input maxlength */
   maxLength?: number;
@@ -62,7 +90,7 @@ interface IInputProps {
   // Events
   /** Listeners are notified whenever the user interacts with the Input. */
   onChange?: (value: any) => void;
-  /** Listeners ar enotified when the Input receives focus. */
+  /** Listeners are notified when the Input receives focus. */
   onFocus?: () => void;
 }
 
@@ -263,24 +291,32 @@ const InputInner = styled(InputInnerBase)`
   }
 `;
 
-class InputBase extends React.Component<IInputProps, {}> {
-  getAttachables(side:Float = "left") {
-    return React.Children.map(this.props.children, (child:any) => {
-      if(child.type && child.type === Label) {
-        // Does label have 'attached' attribute, and it is equal to side?
-        if(child.props.attached && child.props.attached === side) return child;
-        // No attached attribute, but side is left? Then add attached attribute.
-        if(!child.props.attached && side === 'left') {
-          return React.cloneElement(child, { attached: 'left'});
-        }
-      }
+class InputBase extends React.Component<IInputProps> {
+  private isAttachedTo(c: any, side: Float) {
+    const attached = (c.props as any).attached;
+    return attached === side || (!attached && side === 'left');
+  }
+
+  // Return an array of children that are Labels and attached to this
+  // Input control.
+  private getAttachables(side: Float) {
+    return React.Children.toArray(this.props.children)
+    .filter(
+      c => React.isValidElement(c)     // Is this a React node?
+      && (c.props as any).isLabel      // Is this a Label?
+      && this.isAttachedTo(c, side)    // Is it attached to this side?
+    )
+    .map((c: any, idx: number) => {
+      let attached = (c.props as any).attached;
+      if(!attached) attached = 'left'; // Attach to left side by default.
+      return React.cloneElement(c, { key: idx, attached: attached } as any);
     });
   }
 
-  getIconProps(): IIconProps {
+  private getIconProps(): IIconProps {
     let props = null;
     React.Children.forEach(this.props.children, (child:any) => {
-      if(child.type && child.type === Icon) {
+      if(React.isValidElement(child) && (child.props as any).isIcon) {
         props = child.props;
       }
     });
@@ -317,13 +353,8 @@ const InputStyled = styled(InputBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-input--properties
  */
-class Input extends React.Component<IInputProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <InputStyled {...p}/>
-    );
-  }
+class Input extends React.Component<IInputProps> {
+  render = () => <InputStyled {...this.props}/>
 }
 
 export { Input, IInputProps };

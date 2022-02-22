@@ -1,0 +1,41 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import { DmsInput } from '../DmsInput';
+import { Form } from '../../../controls/Form';
+
+<Meta
+  title="Modules/DmsInput"  
+  component={DmsInput}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+# DmsInput
+
+The `DmsInput` module provides a way to input latitudes or longitudes
+either through degrees, minutes and seconds, or through a floating-point number. 
+One format is converted into the other.
+
+<ArgsTable of={DmsInput}/>
+
+## Example
+
+export const Template = (args) =>
+<Form data={{}} onChange={() => {}} onValidate={() => {}}>
+  <Form.Field
+    name="latitude"
+    value={null}
+    control={
+      <DmsInput {...args}/>
+    }
+  />
+</Form>  
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ isLatitude: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

@@ -1,0 +1,37 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {List} from '../List';
+
+<Meta
+  title="Controls/List"  
+  component={List}
+  subcomponents={{"List.Item": List.Item, "List.Content": List.Content, "List.Description": List.Description, "List.Header": List.Header, "List.Icon": List.Icon }}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <List {...args}/>
+
+# List
+
+A `List` shows a list of `List.Item` elements, by default vertically (but a 
+horizontal List is possible). List items can have an `Icon` and `Image`. 
+
+<ArgsTable of={List}/>
+
+## Standard List
+
+A standard `List` has no bullets, icons or images. Its items are `List.Item` elements.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ children: [ 
+      <List.Item>Red Delicious is a clone of apple cultigen, now comprising more than 50 cultivars, first recognized in Madison County, Iowa, in 1880. According to the US Apple Association website, it is one of the fifteen most popular apple cultivars in the United States.</List.Item>,
+      <List.Item>Pears</List.Item>,
+      <List.Item>Oranges</List.Item>
+    ] }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

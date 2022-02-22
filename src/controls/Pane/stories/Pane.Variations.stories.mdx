@@ -1,0 +1,42 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Pane} from '../Pane';
+
+# Pane: Variations
+.
+
+<Meta
+  title="Controls/Pane/Variations"  
+  component={Pane}
+  subcomponents={{}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Pane {...args}/>
+
+## padded
+
+By default, a `Pane` does not pad its content. The `padded` property adds 
+some padding.
+
+<Canvas>
+  <Story
+    name="padded"
+    args={{ open: true, padded: true, children: "Some content." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## width
+
+By default, a `Pane` has a width of 400px. The `width` property overrides this.
+
+<Canvas>
+  <Story
+    name="width"
+    args={{ open: true, width: 650, children: "Some content." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

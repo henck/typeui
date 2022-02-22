@@ -1,0 +1,185 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Button} from '../Button';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Divider} from '../../Divider';
+import {Label} from '../../Label';
+
+# Button: Variations
+.
+
+<Meta 
+  title="Controls/Button/Variations" 
+  component={Button}
+  argTypes={{
+    className: { table: { disable: true } },
+    grouped: { table: { disable: true } }    
+  }}
+/>
+
+export const Template = (args) => <Button {...args}>Button</Button>
+
+## Emphasis 
+
+A button can be be formatted to show different levels of emphasis: `primary` 
+and `secondary`.
+
+export const EmphasisTemplate = (args) => <div>
+  <Button {...args}>Primary</Button>
+  <Button secondary>Secondary</Button>
+</div>
+
+<Canvas>
+  <Story
+    name="Emphasis"
+    args={{ primary: true }}>
+    {EmphasisTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Positive and negative
+
+A button can hint toward a `positive` or `negative` consequence.
+
+export const PositiveTemplate = (args) => <div>
+  <Button {...args}>Positive</Button>
+  <Button negative>Negative</Button>  
+</div>
+
+<Canvas>
+  <Story
+    name="Positive and negative"
+    args={{ positive: true }}>
+    {PositiveTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## circular
+
+A button can be `circular`. Note that this implies the `icon` attribute.
+
+export const CircularTemplate = (args) => <div>
+  <Button {...args}><Icon name="circle"/></Button>
+  <Button circular color="tan"><Icon name="unlock"/></Button>
+  <Button basic circular icon><Icon name="bullhorn"/></Button>
+</div>
+
+<Canvas>
+  <Story
+    name="circular"
+    args={{ circular: true }}>
+    {CircularTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## color 
+
+A button can have a different `color`.
+
+export const ColorTemplate = (args) => <div>
+  <Button {...args}>Orange</Button>
+  <Button color="brown">Brown</Button>
+  <Button color="skyblue">Sky blue</Button>
+</div>
+
+<Canvas>
+  <Story
+    name="color"
+    args={{ color: "orange" }}>
+    {ColorTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## size 
+
+A button can have different sizes.
+
+export const SizeTemplate = (args) => <div>
+  <Button {...args}>Button</Button>
+  <br/>  
+  <Button size='mini'>Mini</Button>
+  <Button size='tiny'>Tiny</Button>
+  <Button size='small'>Small</Button>
+  <Button size='medium'>Medium (default)</Button>
+  <Button size='large'>Large</Button>
+  <Button size='big'>Big</Button>
+  <Button size='huge'>Huge</Button>
+  <Button size='massive'>Massive</Button>  
+</div>
+
+<Canvas>
+  <Story
+    name="size"
+    args={{ size: "medium" }}>
+    {SizeTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## compact 
+
+A `compact` button has less padding.
+
+export const CompactTemplate = (args) => <div>
+  <Button {...args}>Button</Button>
+  <br/>
+  <Button compact size='mini'>Mini</Button>
+  <Button compact size='tiny'>Tiny</Button>
+  <Button compact size='small'>Small</Button>
+  <Button compact size='medium'>Medium (default)</Button>
+  <Button compact size='large'>Large</Button>
+  <Button compact size='big'>Big</Button>
+  <Button compact size='huge'>Huge</Button>
+  <Button compact size='massive'>Massive</Button>  
+</div>
+
+<Canvas>
+  <Story
+    name="compact"
+    args={{ size: "medium", compact: true }}>
+    {CompactTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## float
+
+A button can float to the `left` or to the `right`. (Here, the buttons are 
+placed in a `Segment` because segments are self-clearing.)
+
+export const FloatTemplate = (args) => 
+  <Segment>
+    <Button {...args}>Button</Button>
+    <Button basic float="right"><Icon name="circle"/> Button</Button>
+  </Segment>
+
+<Canvas>
+  <Story
+    name="float"
+    args={{ float: "left" }}>
+    {FloatTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## fluid 
+
+A `fluid` button fills the width of its container.
+
+<Canvas>
+  <Story
+    name="fluid"
+    args={{ fluid: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## noripple
+
+A button with the `noripple` attribute does not show the ripple effect. 
+
+<Canvas>
+  <Story
+    name="noripple"
+    args={{ noripple: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

@@ -1,0 +1,33 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import { Number } from '../Number';
+
+<Meta
+  title="Formatters/Number"  
+  component={Number}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+# Number
+
+`Number` formats a number with thousands separators and optional fractional digits. If provided
+with a string, `Number` will convert it to a float first.
+  
+E.g. `10000` yields `10,000`
+
+<ArgsTable of={Number}/>
+
+## Example
+
+export const Template = (args) =>
+<Number {...args}/>
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ value: 50000, decimals: 2 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

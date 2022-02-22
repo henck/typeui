@@ -8,18 +8,31 @@ import { IconStyled } from '../Icon/Icon';
 import { Hint } from '../Form/Hint';
 
 interface IProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Label to show above value */
+  /** 
+   * Label to show above value 
+   */
   label: string;
-  /** If onClick is specified, then the label has a link appearance. */
-  onClick?: () => void;
-  /** Optional flex width */
+  /** 
+   * Optional flex width 
+   */
   width?: number;
-  /** Remove backround */
+  /** 
+   * If set, then the LabelledValue has no background color. 
+   * @default false
+   */
   nobackground?: boolean;
-  /** Optional hint text. Can be JSX. */
+  /** 
+   * Optional hint text. Can be JSX. 
+   */
   hint?: React.ReactNode;
+  /** 
+   * If onClick is specified, then the label has a link appearance.
+   */
+  onClick?: () => void;
+
 }
 
 const Label = styled('div')`
@@ -101,11 +114,7 @@ const LabelledValueStyled = styled(LabelledValueBase)`
  * @link https://henck.github.io/typeui/?path=/story/controls-labelledvalue--properties
  */
 class LabelledValue extends React.Component<IProps> {
-  render() {
-    return (
-      <LabelledValueStyled {...this.props}></LabelledValueStyled>
-    )
-  }
+  render = () => <LabelledValueStyled {...this.props}/>
 }
 
 export { LabelledValue };

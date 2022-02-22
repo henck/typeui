@@ -1,0 +1,148 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Dropdown} from '../Dropdown';
+import {Icon} from '../../Icon';
+import {Form} from '../../Form';
+import {Label} from '../../Label';
+
+# Dropdown: Variations
+.
+
+<Meta 
+  title="Controls/Dropdown/Variations" 
+  component={Dropdown}
+/>
+
+export const data = [{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}];
+export const people = [{id: 1, name: 'John', relation: 'friend'}, {id: 2, name:'Zachary', relation: 'uncle'}, {id: 3, name:'Deke', relation: 'friend'}];
+export const ages = [{id: 1, name: 'John', age: 26}, {id: 2, name:'Zachary', age: 18}, {id: 3, name:'Deke', age: 38}];
+
+export const Template = (args) => 
+<div style={{height: '250px'}}>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="Domain"
+      value={null}
+      control={<Dropdown {...args}>
+        <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+      </Dropdown>}
+    />
+  </Form>
+</div>
+
+## align
+
+Individual `Dropdown.Column` elements can have their content `align` 
+to the `left` or to the `right`. 
+
+export const AlignTemplate = (args) => 
+<div style={{height: '250px'}}>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="Domain"
+      value={null}
+      control={<Dropdown {...args}>
+        <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+        <Dropdown.Column align="right">{(item) => item.age}</Dropdown.Column>
+      </Dropdown>}
+    />
+  </Form>
+</div>
+
+<Canvas>
+  <Story
+    name="align"
+    args={{alwaysDown: true, maxItems: 4, data: ages, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {AlignTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## clearable 
+
+A `clearable` dropdown allows the user to clear the selection.
+
+<Canvas>
+  <Story
+    name="clearable"
+    args={{clearable: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## fluid 
+
+A `fluid` `Dropdown` fills all available horizontal space.
+
+<Canvas>
+  <Story
+    name="fluid"
+    args={{fluid: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## inline 
+
+An `inline` `Dropdown` is useful for a menu bar.
+
+<Canvas>
+  <Story
+    name="inline"
+    args={{inline: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## maxItems
+
+The maximum number of items a `Dropdown` shows defaults to 6. 
+With `maxItems`, you can change this.
+
+<Canvas>
+  <Story
+    name="maxItems"
+    args={{alwaysDown: true, maxItems: 8, data: data, placeholder: "Select domain", label: (item) => item.name, onSearch: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## onSearch 
+
+If an `onSearch` callback is provided, then the `Dropdown` will have a search box. When the user
+types in the search box, the callback is called with the search string. There is a debounce of 350ms
+in place so the search callback is not called too often. This gives your code an opportunity to provide
+the `Dropdown` with new items based on the search string.
+
+<Canvas>
+  <Story
+    name="onSearch"
+    args={{alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: () => {} }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## weight 
+
+Individual `Dropdown.Column` elements can have a `weight`. The default weight is `1`. 
+This is useful to set different relative widths for different columns.
+
+export const WeightTemplate = (args) => 
+<div style={{height: '250px'}}>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="person"
+      value={null}
+      control={<Dropdown {...args}>
+        <Dropdown.Column weight={4}>{(item) => item.name}</Dropdown.Column>
+        <Dropdown.Column weight={1}>{(item) => item.relation}</Dropdown.Column>
+      </Dropdown>}
+    />
+  </Form>
+</div>
+
+<Canvas>
+  <Story
+    name="weight"
+    args={{fluid: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null }}>
+    {WeightTemplate.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,62 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {LabelledValue} from '../LabelledValue';
+
+# LabelledValue: Variations
+.
+
+<Meta
+  title="Controls/LabelledValue/Variations"  
+  component={LabelledValue}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <LabelledValue {...args}/>
+
+## nobackground
+
+If `nobackground` is set, then the `LabelledValue` has no background color.
+
+<Canvas>
+  <Story
+    name="nobackground"
+    args={{ onClick: null, nobackground: true, label: "A label", children: "Some value" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## hint
+
+An optional `hint` can be provided for a `LabelledValue`.
+
+<Canvas>
+  <Story
+    name="hint"
+    args={{ onClick: null, hint: "Concentration of oxygen in sample", label: "Oxygen", children: "5.3 mmol/m3" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## width
+
+The `LabelledValue` flex width can be set with `width`.
+
+export const WidthTemplate = (args) =>
+<div style={{display: 'flex'}}>
+  <LabelledValue {...args}/>
+  <LabelledValue onClick={null} width={1} label="Depth" hint="Depth in meters">3.0 m</LabelledValue>
+</div>
+
+<Canvas>
+  <Story
+    name="width"
+    args={{ onClick: null, width: 2, hint: "Concentration of oxygen in sample", label: "Oxygen", children: "5.3 mmol/m3" }}>
+    {WidthTemplate.bind({})}
+  </Story>
+</Canvas>
+
+
+
+

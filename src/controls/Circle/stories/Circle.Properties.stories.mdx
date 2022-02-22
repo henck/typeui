@@ -1,0 +1,33 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Circle} from '../Circle';
+import {Icon} from '../../Icon';
+
+<Meta 
+  title="Controls/Circle" 
+  component={Circle}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+<Circle {...args}>
+  <div>One <Icon color="white" name="at"/></div>
+  <div>Two <Icon color="white" name="chevron"/></div>
+  <div>Three <Icon color="white" name="area-chart"/></div>
+  <div>Four <Icon color="white" name="bullhorn"/></div>
+  <div>Five <Icon color="white" name="edit"/></div>
+</Circle>
+
+# Circle
+
+<ArgsTable of={Circle}/>
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

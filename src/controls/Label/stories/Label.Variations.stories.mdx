@@ -1,0 +1,148 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Label} from '../Label';
+import {Image} from '../../Image';
+import {Segment} from '../../Segment';
+import {Input} from '../../Input';
+import {Divider} from '../../Divider';
+
+# Label: Variations
+.
+
+<Meta
+  title="Controls/Label/Variations"  
+  component={Label}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Label {...args}/>
+
+## basic
+
+A `basic` Label has a border and a white background. Hovering labels with `onClick` only affects labels with default color. 
+
+export const BasicTemplate = (args) =>
+<div>
+  <Label {...args}/>
+  <Label basic color="teal" onClick={() => {}}>One</Label>
+  <Label basic color="rebeccapurple" onClick={() => {}}><Image src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />Three</Label>
+</div>
+
+<Canvas>
+  <Story
+    name="basic"
+    args={{ basic: true, onClick: () => {}, children: "One" }}>
+    {BasicTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## color 
+
+A label can have a background `color`. If the `color` property is set, then 
+the font will turn white and bold.
+
+export const ColorTemplate = (args) =>
+<div>
+  <Label {...args}/>
+  <Label color="teal" onClick={() => {}}>One</Label>
+  <Label color="rebeccapurple" onClick={() => {}}><Image src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />Three</Label>
+</div>
+
+<Canvas>
+  <Story
+    name="color"
+    args={{ onClick: () => {}, children: "One" }}>
+    {ColorTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## floating 
+
+A label can appear `floating` above another component.
+
+export const FloatingTemplate = (args) => 
+<Segment compact>
+  <Label {...args}/>
+  Some segment content.
+</Segment>
+
+<Canvas>
+  <Story
+    name="floating"
+    args={{ floating: true, onClick: () => {}, children: "22" }}>
+    {FloatingTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## pointing 
+
+A label can be `pointing` to `top`, `bottom`, `left` or `right`.
+
+export const PointingTemplate = (args) => 
+<div>
+  <Input name="firstname" type="text" placeholder="First name" fluid/>
+  <Label {...args}/>
+  <Divider hidden/>
+  <Label pointing="bottom">Please enter a value</Label>
+  <Input name="lastname" type="text" placeholder="Last name" fluid/>
+  <Divider hidden/>
+  <Input name="username" type="text" placeholder="Username"/>
+  <Label pointing>That name is taken!</Label>
+  <Divider hidden/>
+  <Label pointing="right">Your password must be 6 characters or more</Label>
+  <Input name="password" type="password" placeholder="Password"/>
+</div>  
+
+<Canvas>
+  <Story
+    name="pointing"
+    args={{ onClick: () => {}, pointing: "top", children: "Please enter a value" }}>
+    {PointingTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## size 
+
+A `Label` can have a `size`.
+
+export const SizeTemplate = (args) =>
+<div>
+  <Label size='mini'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Mini</Label>
+  <Label size='tiny'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Tiny</Label>
+  <Label size='small'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Small</Label>
+  <Label {...args}/>
+  <Label size='large'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Large</Label>
+  <Label size='big'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Big</Label>
+  <Label size='huge'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Huge</Label>
+  <Label size='massive'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Massive <Icon name="code"/></Label>            
+</div>
+
+<Canvas>
+  <Story
+    name="size"
+    args={{ onClick: () => {}, color: 'rebeccapurple', size: "medium", children: [<Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />, "Medium" ] }}>
+    {SizeTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## tag 
+
+A `Label` can appear as a `tag`. Tagged labels are meant to be placed on the right side of anything they're attached to.
+
+export const TagTemplate = (args) =>
+<div>
+  <Label tag onClick={() => { alert('Clicked');}}>One</Label>
+  <Label basic tag color="cornflowerblue" onClick={() => { alert('Clicked');}}>One</Label>
+  <Label tag color="rgb(0, 156, 149)" onClick={() => { alert('Clicked');}}>Two</Label>
+  <Label tag color="rebeccapurple" onClick={() => { alert('Clicked');}}><Image src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />Three</Label>
+</div>
+
+<Canvas>
+  <Story
+    name="tag"
+    args={{ onClick: () => {}, children: "One" }}>
+    {TagTemplate.bind({})}
+  </Story>
+</Canvas>

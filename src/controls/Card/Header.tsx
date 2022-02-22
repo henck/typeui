@@ -6,21 +6,17 @@ import styled from '../../styles/Theme';
 import { HorizontalAlignment } from '../Types';
 
 interface IHeaderProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Optional text alignment to `left`, `center` or `right` (default is `left`). */
+  /** 
+   * Optional text alignment to `left`, `center` or `right` (default is `left`). 
+   */
   align?: HorizontalAlignment;
 }
 
-class HeaderBase extends React.Component<IHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <span className={p.className}>
-        {p.children}
-      </span>
-    );
-  }
+class HeaderBase extends React.Component<IHeaderProps> {
+  render = () => <span className={this.props.className}>{this.props.children}</span>
 }
 
 const HeaderStyled = styled(HeaderBase)`
@@ -36,12 +32,8 @@ const HeaderStyled = styled(HeaderBase)`
   }
 `
 
-class Header extends React.Component<IHeaderProps, {}> {
-  render() {
-    return (
-      <HeaderStyled {...this.props}></HeaderStyled>
-    );
-  }
+class Header extends React.Component<IHeaderProps> {
+  render = () => <HeaderStyled {...this.props}></HeaderStyled>
 }
 
 export { Header };

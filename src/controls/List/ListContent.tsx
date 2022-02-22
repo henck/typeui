@@ -6,23 +6,21 @@ import { css } from 'styled-components';
 import { VerticalAlignment } from '../Types';
 
 interface IListContentProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** onClick events are passed through to the list item's HTML element. */
-  onClick?: () => void;
-  /** Align content item vertically (defaults to `top`). */
+  /** 
+   * Align content item vertically (defaults to `top`). 
+   */
   align?: VerticalAlignment;
+  /** 
+   * onClick events are passed through to the list item's HTML element. 
+   */
+  onClick?: () => void;
 }
 
-class ListContentBase extends React.Component<IListContentProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onClick={p.onClick}>
-        {p.children}
-      </div>
-    )
-  }  
+class ListContentBase extends React.Component<IListContentProps> {
+  render = () => <div className={this.props.className} onClick={this.props.onClick}>{this.props.children}</div>
 }
 
 /* Styling for list item. */
@@ -48,13 +46,8 @@ const ListContentStyled = styled(ListContentBase)`
   }  
 `;
 
-class ListContent extends React.Component<IListContentProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ListContentStyled {...p}/>
-    )
-  }  
+class ListContent extends React.Component<IListContentProps> {
+  render = () => <ListContentStyled {...this.props}/>
 }
 
 export { ListContent };

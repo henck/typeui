@@ -1,0 +1,64 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Panel} from '../Panel';
+import {Button} from '../../Button';
+
+# Panel: General
+.
+
+<Meta
+  title="Controls/Panel/General"
+  component={Panel}
+  subcomponents={{}}
+/>
+
+## Panel.Icon
+
+The `Panel.Icon` component is a shortcut to building a `Panel` that opens when an
+`Icon` is clicked. Note that the `Panel.Icon` must still be placed inside a container
+that is relatively positioned, and that the only way to close the panel is to click
+outside it.
+
+An icon can be passed as an icon type, or as a collection of icon properties.
+
+<Canvas>
+  <Story
+    name="Panel.Icon"
+    args={{ open: true, padded: true, icon: "layers" }}>
+    {args =>   
+    <div style={{position: 'relative'}}>
+      <Panel.Icon {...args}>
+        <p>This is some panel text.</p>
+      </Panel.Icon>
+    </div>}
+  </Story>
+</Canvas>
+
+# Panel.Content 
+
+The standard `Panel` has no padding. Padding can be added, or you can use the `Panel.Header`, 
+`Panel.Content` and `Panel.Footer` components. These add padding, and different background colors.
+
+The components also take care of applying rounded borders to their content so as not to interfere with
+the Panel's own rounded borders.
+
+<Canvas>
+  <Story
+    name="Panel.Content"
+    args={{ open: true, icon: "layers" }}>
+    {args =>   
+    <div style={{position: 'relative'}}>
+      <Panel.Icon {...args}>
+        <Panel.Header>
+          Header
+        </Panel.Header>
+        <Panel.Content>
+          <p>This is some panel text.</p>
+        </Panel.Content>
+        <Panel.Footer>
+          <Button secondary>Close</Button>
+        </Panel.Footer>
+      </Panel.Icon>
+    </div>}
+  </Story>
+</Canvas>
+    

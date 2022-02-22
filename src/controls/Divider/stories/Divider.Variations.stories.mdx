@@ -1,0 +1,59 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Divider} from '../Divider';
+import {Icon} from '../../Icon';
+import {Header} from '../../Header';
+
+# Divider: Variations
+.
+
+<Meta 
+  title="Controls/Divider/Variations" 
+  component={Divider}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+<div>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+  <Divider {...args}/>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+</div>
+
+## fitted 
+
+A `fitted` `Divider` has no space above or below it.
+
+<Canvas>
+  <Story
+    name="fitted"
+    args={{ fitted: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## hidden 
+
+A `hidden` `Divider` divides content without creating a dividing line.
+
+<Canvas>
+  <Story
+    name="hidden"
+    args={{ hidden: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
+## section 
+
+A `section` `Divider` creates a greater margin between blocks of content.
+
+<Canvas>
+  <Story
+    name="section"
+    args={{ section: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

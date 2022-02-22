@@ -11,27 +11,47 @@ import { ImageGroup } from './ImageGroup';
 import { ImageLoader } from './ImageLoader';
 
 interface IImageProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** onClick events are passed through to the list item's HTML element */
-  onClick?: any;
   /** Image source URL. */
   src?: string;
   /** Sets image size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
   size?: Size;  
-  /** Add border. */
+  /** 
+   * Add border. 
+   * @default false 
+   */
   bordered?: boolean;
-  /** Round image corners. */
+  /** 
+   * Round image corners. 
+   * @default false 
+   */
   rounded?: boolean;
-  /** Cicular image (ellipical for non-square images). */
+  /** 
+   * Cicular image (ellipical for non-square images). 
+   * @default false 
+   */
   circular?: boolean;
-  /** A fluid image takes up the width of its container. */
+  /** 
+   * A fluid image takes up the width of its container. 
+   * @default false 
+   */
   fluid?: boolean;
-  /** An avatar image appears inline and circular.  */
+  /** 
+   * An avatar image appears inline and circular.  
+   * @default false 
+   */
   avatar?: boolean;
-  /** Set as centered content block. */
+  /** 
+   * Set as centered content block. 
+   * @default false 
+   */
   centered?: boolean;
-  /** Make image inline. */
+  /** 
+   * Make image inline. 
+   * @default false 
+   */
   inline?: boolean;
   /** Extra space between inline image and text, either both or `left` or `right`. Implies inline. */
   spaced?: boolean | Float;
@@ -41,12 +61,25 @@ interface IImageProps {
   alt?: string;
   /** Title text. */
   title?: string;  
-  /** Hide the image. */
+  /** 
+   * Hide the image. 
+   * @default false 
+   */
   hidden?: boolean;
-  /** Disable the image. */
+  /** 
+   * Disable the image. 
+   * @default false 
+   */
   disabled?: boolean;
-  /** Vertical alignment `top`, `center` or `bottom` (by default `center`) */
+  /** 
+   * Vertical alignment `top`, `center` or `bottom` (by default `center`) 
+   * @default center 
+   */
   align?: VerticalAlignment;
+  /** 
+   * onClick events are passed through to the list item's HTML element 
+   */
+  onClick?: () => void;
 }
 
 /* An image can be in one of the following states: */
@@ -184,24 +217,14 @@ const ImageStyled = styled(ImageBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-image--properties
  */
-class Image extends React.Component<IImageProps, {}> {
-  public static displayName = "Image";
-
+class Image extends React.Component<IImageProps> {
   /**
    * An Image.Group is a group of images can share size, bordered, 
    * rounded and circular attributes. The images are automatically spaced.
    */
   public static Group = ImageGroup;
 
-  render() {
-    let p = this.props;
-
-    return (
-      <ImageStyled {...p}></ImageStyled>
-    )
-  }  
+  render = () => <ImageStyled {...this.props}></ImageStyled>
 }
-
-(Image.Group as any).displayName = "Image.Group";
 
 export { Image, IImageProps, ImageStyled };

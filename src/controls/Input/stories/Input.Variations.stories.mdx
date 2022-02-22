@@ -1,0 +1,158 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Input} from '../Input';
+import {Form} from '../../Form';
+import {Flex} from '../../Flex';
+import {Icon} from '../../Icon';
+
+# Input: Variations
+.
+
+<Meta 
+  title="Controls/Input/Variations" 
+  component={Input}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="name"
+      value={null}
+      control={<Input {...args}/>}
+    />
+  </Form>
+
+## fluid
+
+A `fluid` input fills all horizontal space available to it.
+
+<Canvas>
+  <Story
+    name="fluid"
+    args={{ fluid: true, placeholder: "Fluid" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## icon
+
+An `Input` can be formatted with an `Icon`. This can be done in several ways:
+
+* By setting the Input's `icon` prop to the icon's name
+* By adding an `Icon` as a child element to the Input
+* By passing Icon props into the `icon` property of the Input.
+
+<Canvas>
+  <Story
+    name="icon"
+    args={{ }}>
+    {args => <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Flex.Columns count={2}>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="text" 
+            icon="code"
+            placeholder="Icon name"/>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="text" 
+            icon={{name: 'code', circular: true, inverted: true, color: 'grey'}}
+            placeholder="Icon props">
+            <Icon name="code"/>
+          </Input>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="text" 
+            placeholder="Icon element">
+            <Icon name="code"/>
+          </Input>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="text" 
+            fluid
+            placeholder="Icon element w/ props">
+            <Icon 
+              name="code" circular inverted color="grey"/>
+          </Input>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="date" 
+            icon="code"
+            placeholder="Date"/>}/>
+      <Form.Field
+        name="code"
+        value={null}
+        control={
+          <Input 
+            type="color" 
+            icon="code"
+            placeholder="Color"/>}/>
+    </Flex.Columns>
+  </Form>}
+  </Story>
+</Canvas>
+
+## iconPosition
+
+An input's `Icon` can be placed `left` or `right`.
+
+<Canvas>
+  <Story
+    name="iconPosition"
+    args={{ type: 'text', icon: 'bullhorn', iconPosition: 'right', placeholder: 'Code....' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## iconProps 
+An input with an `icon` property can take `Icon` props rather than just an icon name.
+
+<Canvas>
+  <Story
+    name="iconProps"
+    args={{ type: 'text', icon: {name:'bullhorn', circular: true, inverted: true, color: 'grey'}, placeholder: 'Your name' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## placeholder 
+
+An `Input` can have a `placeholder` text value.
+
+<Canvas>
+  <Story
+    name="placeholder"
+    args={{ type: 'text', placeholder: 'My placeholder' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## transparent
+
+The border of an `Input` can be removed with the `transparent` property.
+
+<Canvas>
+  <Story
+    name="transparent"
+    args={{ type: 'text', placeholder: 'Transparent', transparent: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

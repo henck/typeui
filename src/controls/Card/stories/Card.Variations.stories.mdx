@@ -1,0 +1,89 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Card} from '../Card';
+
+# Card: General
+.
+
+<Meta 
+  title="Controls/Card/Variations" 
+  component={Card}
+  subcomponents={{"Card.Content": Card.Content, "Card.Header": Card.Header, "Card.Meta" : Card.Meta}}
+  argTypes={{
+    className: { table: { disable: true } },
+  }}
+/>
+
+export const Template = (args) => 
+<Card {...args}>
+  <Card.Content>
+    Card content
+  </Card.Content>
+</Card>
+
+## align 
+
+`Card.Content` and `Card.Header` elements can have horizontal alignment.
+
+export const AlignTemplate = (args) =>
+<Card {...args}>
+  <Card.Header align="right">
+    Card header
+  </Card.Header>
+  <Card.Content align="right">
+    Card content
+  </Card.Content>
+</Card>
+
+<Canvas>
+  <Story
+    name="align"
+    args={{  }}>
+    {AlignTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## fluid 
+
+A `fluid` card takes up all the horizontal space available to it.
+
+<Canvas>
+  <Story
+    name="fluid"
+    args={{ fluid: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## raised 
+
+A `raised` `Card` will have an extra-strong dropshadow.
+
+<Canvas>
+  <Story
+    name="raised"
+    args={{ raied: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## secondary 
+
+A `Card.Content` element can be made `secondary` and will have a darker background.
+
+export const SecondaryTemplate = (args) =>
+<Card {...args}>
+  <Card.Content>
+    Card content one.
+  </Card.Content>
+  <Card.Content secondary>
+    Card content two.
+  </Card.Content>
+</Card>
+
+<Canvas>
+  <Story
+    name="secondary"
+    args={{ }}>
+    {SecondaryTemplate.bind({})}
+  </Story>
+</Canvas>

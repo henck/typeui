@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IPanelBodyProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
   /** Is body above the parent element? */

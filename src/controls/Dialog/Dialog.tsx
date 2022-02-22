@@ -13,16 +13,23 @@ import { XhrDialog } from './XhrDialog';
 
 interface IDialogProps {
   children?: React.ReactNode;
-  /** Is the Dialog currently open? */
+  /** 
+   * Is the Dialog currently open? 
+   * @default: false
+   */
   open?: boolean;
   /** This callback is called when the user closes the Dialog window. */
   onClose?: () => void;
-  /** Override standard dialog width of 600 pixels. */
+  /**
+   * Override standard dialog width of 600 pixels. 
+   * @default 600
+   */
   width?: number;
   /** 
    * If set to false, then the Dialog cannot be closed by clicking 
    * outside of it. This is helpful when a Dialog is executing an 
    * asynchronous task and must remain open while doing so.
+   * @default true
    */
   canClose?: boolean;
 }
@@ -125,13 +132,6 @@ class Dialog extends React.Component<IDialogProps, {}> {
     );
   }
 }
-
-(Dialog.Header as any).displayName = "Dialog.Header";
-(Dialog.Content as any).displayName = "Dialog.Content";
-(Dialog.Footer as any).displayName = "Dialog.Footer";
-(Dialog.Alert as any).displayName = "Dialog.Alert";
-(Dialog.Confirm as any).displayName = "Dialog.Confirm";
-(Dialog.Xhr as any).displayName = "Dialog.Xhr";
 
 export { Dialog };
 

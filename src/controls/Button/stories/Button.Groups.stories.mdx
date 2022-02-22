@@ -1,0 +1,133 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Button} from '../Button';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Divider} from '../../Divider';
+import {Label} from '../../Label';
+
+
+<Meta 
+  title="Controls/Button/Groups" 
+  component={Button}
+  subcomponents={{'Button.Group': Button.Group,  'Button.Or': Button.Or}}
+  argTypes={{
+    className: { table: { disable: true } },
+    grouped: { table: { disable: true } }    
+  }}
+/>
+
+export const Template = (args) => <Button {...args}>Button</Button>
+
+# Button: Groups
+
+The `Button.Group` component serves to group `Button` instances together. They
+can be grouped horizontally or vertically, and a `Button.Or` can further be used
+to separate them.
+
+<ArgsTable of={Button}/>
+
+## Attributes
+
+Groups can share attributes like `color`, `size`, `compact`, `basic` and `icon`.
+
+export const AttributesTemplate = (args) => <div>
+  <Button.Group color="brown" size="big" compact>
+    <Button>One</Button> 
+    <Button>Two</Button> 
+    <Button>Three</Button> 
+  </Button.Group>
+  <Divider hidden/>
+  <Button.Group basic>
+    <Button>One</Button> 
+    <Button>Two</Button> 
+    <Button>Three</Button> 
+  </Button.Group>
+  <Divider hidden/>
+  <Button.Group basic vertical color="brown">
+    <Button>One</Button> 
+    <Button>Two</Button> 
+    <Button>Three</Button> 
+  </Button.Group>
+</div>
+
+<Canvas>
+  <Story
+    name="Attributes"
+    args={{ }}>
+    {AttributesTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Conditionals
+
+export const ConditionalTemplate = (args) => <div>
+  <Button.Group>
+    <Button>One</Button> 
+    <Button.Or/>
+    <Button positive>Two</Button> 
+  </Button.Group>
+  <Divider hidden/>
+  <Button.Group>
+    <Button>One</Button> 
+    <Button.Or/>
+    <Button>Two</Button> 
+    <Button.Or/>
+    <Button>Three</Button> 
+  </Button.Group>            
+</div>
+
+Button groups can contain conditionals using `Button.Or`.
+
+<Canvas>
+  <Story
+    name="Conditionals"
+    args={{ }}>
+    {ConditionalTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Horizontal
+
+Buttons can be grouped horizontally using `Button.Group`.
+
+export const HorizontalTemplate = (args) => <div>
+  <Button.Group>
+    <Button>One</Button> 
+    <Button>Two</Button> 
+    <Button>Three</Button> 
+  </Button.Group>
+  <Divider hidden/>
+  <Button.Group basic icon>
+    <Button><Icon name="code"/></Button> 
+    <Button><Icon name="exchange"/></Button> 
+    <Button><Icon name="circle"/></Button> 
+  </Button.Group>              
+</div>
+
+<Canvas>
+  <Story
+    name="Horizontal"
+    args={{ }}>
+    {HorizontalTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Vertical 
+
+Buttons can be grouped vertically using `Button.Group`, with attribute `vertical`.
+
+export const VerticalTemplate = (args) => <div>
+  <Button.Group vertical>
+    <Button>One</Button> 
+    <Button>Two</Button> 
+    <Button>Three</Button> 
+  </Button.Group>         
+</div>
+
+<Canvas>
+  <Story
+    name="Vertical"
+    args={{ }}>
+    {VerticalTemplate.bind({})}
+  </Story>
+</Canvas>

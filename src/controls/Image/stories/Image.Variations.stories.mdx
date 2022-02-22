@@ -1,0 +1,223 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Image} from '../Image';
+import {Label} from '../../Label';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+
+# Image: Variations
+
+<Meta 
+  title="Controls/Image/Variations" 
+  component={Image}
+/>
+
+export const Template = (args) => 
+  <Image {...args}/>
+
+## align
+
+An `Image` can specify its vertical alignment using `align` (either `top`, `center` or `bottom`).
+
+export const AlignTemplate = (args) => 
+<div>
+  <p>Aligned <Image inline size='mini' align='top' src="http://deelay.me/1000/https://react.semantic-ui.com/images/avatar/small/joe.jpg"/> to top.</p>
+  <p>Aligned <Image inline size='mini' align='center' src="http://deelay.me/1000/https://react.semantic-ui.com/images/avatar/small/elliot.jpg"/> to center.</p>
+  <p>Aligned <Image inline size='mini' align='bottom' src="http://deelay.me/1000/https://react.semantic-ui.com/images/avatar/small/stevie.jpg"/> to bottom.</p>
+</div>
+
+<Canvas>
+  <Story
+    name="align"
+    args={{  }}>
+    {AlignTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## avatar 
+
+An `avatar` image has a fixed size, is circular and appears inline with text. This implies `inline`.
+
+<Canvas>
+  <Story
+    name="avatar"
+    args={{ avatar: true, onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/square-image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## bordered 
+
+An image can be `bordered` to emphasize the edges of white or transparent content.
+
+<Canvas>
+  <Story
+    name="bordered"
+    args={{ bordered: true, size: 'small', onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/white-image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## centered 
+
+An image can appear `centered` in a content block.
+
+export const CenteredTemplate = (args) => 
+<div>
+  <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+  <Image {...args}/>
+  <p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p><p>Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow tackle lee trysail keel cable scuppers avast matey.</p>
+</div>  
+
+<Canvas>
+  <Story
+    name="centered"
+    args={{ centered: true, size: 'medium', onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/square-image.png' }}>
+    {CenteredTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## circular 
+
+An `Image` may appear `circular`.
+
+This only works for square images. Rectangular images will appear elliptical.
+
+<Canvas>
+  <Story
+    name="circular"
+    args={{ circular: true, size: 'small', onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/square-image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## float 
+
+An image can `float` to the `left` or `right`.
+
+export const FloatTemplate = (args) =>
+<Segment>
+  <p>
+    <Image {...args}/>
+    Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog blossom 
+    lee. Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. 
+    Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.
+  </p>
+  <p>
+    <Image float="right" size="tiny" src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+    Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. 
+    Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow 
+    tackle lee trysail keel cable scuppers avast matey.
+  </p>
+</Segment>
+
+<Canvas>
+  <Story
+    name="float"
+    args={{ float: 'left', size: 'tiny', onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png' }}>
+    {FloatTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## fluid 
+
+A `fluid` image takes up the width of its container.
+
+<Canvas>
+  <Story
+    name="fluid"
+    args={{ fluid: true, onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## inline 
+
+An `inline` image can appear inline in text.
+
+export const InlineTemplate = (args) =>
+<p>Marooned rum capstan galleon fathom yard American Main Admiral of the Black 
+grog <Image {...args}/> jib
+square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. Hang 
+the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.</p>   
+
+<Canvas>
+  <Story
+    name="inline"
+    args={{ inline: true, size: 'tiny', onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/square-image.png' }}>
+    {InlineTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## rounded
+
+An `Image` may appear `rounded`.
+
+<Canvas>
+  <Story
+    name="rounded"
+    args={{ rounded: true, size: "small", onClick: null, src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## size
+
+An image can have a different `size`.
+
+Available sizes are `mini`, `tiny`, `small`, `medium`, `large`, `big`, `huge` and `massive`.
+
+export const SizeTemplate = (args) =>
+<div>
+  <Image size="mini" src="http://deelay.me/3000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  <Divider hidden/>
+  <Image size="tiny" src="http://deelay.me/3000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  <Divider hidden/>
+  <Image size="small" src="http://deelay.me/3000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  <Divider hidden/>
+  <Image size="medium" src="http://deelay.me/3000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  <Divider hidden/>
+  <Image size="large" src="http://deelay.me/3000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  <Divider hidden/>
+  <Image size="big" src="http://deelay.me/3000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  <Divider hidden/>
+  <Image size="huge" src="http://deelay.me/3000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  <Divider hidden/>
+  <Image size="massive" src="http://deelay.me/3000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+</div>
+
+<Canvas>
+  <Story
+    name="size"
+    args={{}}>
+    {SizeTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## spaced
+
+A `spaced` image has extra space around it, either both (default), `left` or `right`.
+
+export const SpacedTemplate = (args) => 
+<div>
+  <p>
+    Marooned rum capstan galleon fathom yard American Main Admiral of the Black grog 
+    blossom <Image spaced size="mini" src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png"/> lee.
+    Square-rigged gabion to go on account piracy wench line sheet poop deck squiffy Gold Road. 
+    Hang the jib tender coffer to go on account fore brigantine jury mast poop deck long clothes heave to.
+  </p>
+  <p>
+    <Image spaced="right" size="mini" src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+    Lugger clap of thunder grapple gally sheet heave to come about Jolly Roger ballast poop deck. 
+    Chandler Jack Tar black spot transom pillage haul wind lugsail tender lugger list. Yardarm snow 
+    tackle lee trysail keel cable scuppers avast matey.
+    <Image spaced="left" size="mini" src="http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png"/>
+  </p>
+</div>   
+
+<Canvas>
+  <Story
+    name="spaced"
+    args={{}}>
+    {SpacedTemplate.bind({})}
+  </Story>
+</Canvas>

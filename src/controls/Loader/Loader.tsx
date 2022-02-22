@@ -3,6 +3,7 @@ import styled from '../../styles/Theme';
 import { keyframes } from 'styled-components';
 
 interface ILoaderProps {
+  /** @ignore */
   className?: string;
 }
 
@@ -54,7 +55,7 @@ const Cube = styled('div')`
   &:nth-child(9) { animation-delay: 0.2s; }  
 `;
 
-class LoaderBase extends React.Component<ILoaderProps, {}> {
+class LoaderBase extends React.Component<ILoaderProps> {
   render() {
     let p = this.props;
     return (
@@ -73,7 +74,7 @@ class LoaderBase extends React.Component<ILoaderProps, {}> {
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-loader-types--loader
  */
-const Loader = styled(LoaderBase)`
+const LoaderStyled = styled(LoaderBase)`
   position: absolute;
   left: 0;
   top: 0;
@@ -81,6 +82,8 @@ const Loader = styled(LoaderBase)`
   bottom: 0;
 `;
 
-Loader.displayName = 'Loader';
+class Loader extends React.Component<ILoaderProps> {
+  render = () => <LoaderStyled {...this.props}/>
+}
 
 export { Loader };

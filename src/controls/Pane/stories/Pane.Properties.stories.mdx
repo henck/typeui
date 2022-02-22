@@ -1,0 +1,33 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Pane} from '../Pane';
+
+<Meta
+  title="Controls/Pane"  
+  component={Pane}
+  subcomponents={{}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Pane {...args}/>
+
+# Pane
+
+A `Pane` slides in from the right side of the viewport when its `open` property is set 
+to true. An `onClose` event is triggered when the user clicks outside of the pane or 
+when the user clicks the close (cross) icon.
+
+<ArgsTable of={Pane}/>
+
+## Standard Pane
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ open: true, children: "Some content" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

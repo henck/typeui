@@ -9,20 +9,33 @@ import { Quick } from './Quick';
 import { Columns } from './Columns';
 
 interface IFlexProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** A stackable flex stacks when screen gets small. */
+  /** 
+   * A stackable flex stacks when screen gets small. 
+   * @default false
+   */
   stackable?: boolean;
-  /** A divided Flex shows a *horizontal* dividing line between rows, in the gutter. 
-   *  Use a `<Divider/>` for a vertical dividing line. */
+  /** 
+   * A divided Flex shows a *horizontal* dividing line between rows, in the gutter. 
+   * Use a `<Divider/>` for a vertical dividing line. 
+   * @default false
+   */
   divided?: boolean;
-  /** A compact Flex has no VERTICAL gutter. */
+  /** 
+   * A compact Flex has no VERTICAL gutter. 
+   * @default false
+   */
   compact?: boolean;
-  /** A `relaxed` Flex has twice the gutter width, and a `very relaxed` Flex has 4 times gutter width. */
+  /** 
+   * A `relaxed` Flex has twice the gutter width, and a `very relaxed` Flex has 4 times gutter width. 
+   * @default false 
+   */
   relaxed?: 'very' | boolean;
 }
 
-class FlexBase extends React.Component<IFlexProps, {}> {
+class FlexBase extends React.Component<IFlexProps> {
   render() {
     let p = this.props;
 
@@ -74,9 +87,7 @@ const StyledFlex = styled(FlexBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-flex--properties
  */
-class Flex extends React.Component<IFlexProps, {}> {
-  public static displayName = "Flex";
-
+class Flex extends React.Component<IFlexProps> {
   /**
    * There can be multiple Flex.Row elements, but there is no vertical connection
    * between cells (this is not a grid).
@@ -110,18 +121,7 @@ class Flex extends React.Component<IFlexProps, {}> {
    */  
   public static Columns = Columns;
 
-  render() {
-    let p = this.props;
-    return (
-      <StyledFlex {...p}></StyledFlex>
-    );
-  }
+  render = () => <StyledFlex {...this.props}></StyledFlex>
 }
-
-(Flex.Row as any).displayName = "Flex.Row";
-(Flex.Column as any).displayName = "Flex.Column";
-(Flex.Divider as any).displayName = "Flex.Divider";
-(Flex.Quick as any).displayName = "Flex.Quick";
-(Flex.Columns as any).displayName = "Flex.Columns";
 
 export { Flex };

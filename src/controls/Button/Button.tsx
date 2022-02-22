@@ -18,56 +18,101 @@ import { Ripple } from '../Ripple/Ripple';
 import { IconStyled } from '../Icon/Icon';
 
 interface IButtonProps {
+  /** @ignore */
   className?: string;
-  /* (Not public) True when button is in a Button.Group; styling will need to know this. */
+  /** @ignore (Not public) True when button is in a Button.Group; styling will need to know this. */
   grouped?: boolean;
-  /** Optional event handler for `onClick` event. The corresponding listener is set on the button's HTML element. */
-  onClick?: any;
-  /** Emphasis: make this button stand out using the primary theme color. */
+  /** 
+   * Optional event handler for `onClick` event. The corresponding listener is set on the button's HTML element.
+   * @default null
+   */
+  onClick?: () => void;
+  /** 
+   * Emphasis: make this button stand out using the primary theme color. 
+   * @default false
+   */
   primary?: boolean;
-  /** Emphasis: make this button stand out using the secondary theme color. */
+  /** 
+   * Emphasis: make this button stand out using the secondary theme color. 
+   * @default false
+   */
   secondary?: boolean;
-  /** Variation: make this button hint toward a positive consequence. */
+  /** 
+   * Variation: make this button hint toward a positive consequence. 
+   * @default false 
+   */
   positive?: boolean;
-  /** Variation: make this button hint toward a negative consequence. */
+  /** 
+   * Variation: make this button hint toward a negative consequence. 
+   * @default false 
+   */
   negative?: boolean;
-  /** Set custom color for button, e.g. `skyblue` or `#ffff00`. */
+  /** 
+   * Set custom color for button, e.g. `skyblue` or `#ffff00`. 
+   */
   color?: string;
-  /** Reduce button padding. */
+  /** 
+   * Reduce button padding. 
+   * @default false
+   */
   compact?: boolean;
-  /** Set button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
+  /** 
+   * Set button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. 
+   * @default medium
+   */
   size?: Size;
-  /** Make button fill the width of its container. */
+  /** 
+   * Make button fill the width of its container. 
+   * @default false
+   */
   fluid?: boolean;
-  /** Remove button padding, for icon-only buttons. */
+  /** 
+   * Remove button padding, for icon-only buttons. 
+   * @default false
+   */
   icon?: boolean;
-  /** Basic buttons have a subtler appearance. */
+  /** 
+   * Basic buttons have a subtler appearance. 
+   * @default false
+   */
   basic?: boolean;
-  /** Disabled buttons cannot be pressed. */
+  /** 
+   * Disabled buttons cannot be pressed. 
+   * @default false
+   */
   disabled?: boolean;
   /** Optional; causes button to float to the `left` or `right`. */
   float?: Float;
-  /** Make button circular. This works only with icon buttons. */
+  /** 
+   * Make button circular. This works only with icon buttons. 
+   * @default false
+   */
   circular?: boolean;
-  /** If set, disables button ripple effect. */
+  /** 
+   * If set, disables button ripple effect. 
+   * @default false
+   */
   noripple?: boolean;
 }
 
 //
 // The InnerBase is the actual <button> element (created by a Ripple).
 //
-class ButtonInnerBase extends React.PureComponent<IButtonProps, {}> {
+class ButtonInnerBase extends React.Component<IButtonProps, {}> {
   render() {
     let p = this.props;
-    return (
-      p.noripple ? 
-        <button className={p.className} disabled={p.disabled}>
-          {p.children}
-        </button>
-      : <Ripple type="button" className={p.className} disabled={p.disabled}>
-        {p.children}
-      </Ripple>
-    );
+
+    // Treat disabled as a special case. React will not allow us to 
+    // pass "disabled=true" along; it must be just "disabled".
+    if(p.disabled) {
+      return <button className={p.className} disabled>{p.children}</button>
+    }
+
+    if(p.noripple) {
+      return <button className={p.className}>{p.children}</button>
+    } else {
+      return <Ripple type="button" className={p.className}>{p.children}</Ripple>
+    }
   }
 }
 
@@ -214,20 +259,28 @@ const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
  * can add attachable components.
  */
 class ButtonBase extends React.Component<IButtonProps, {}> {
-  getAttachables = (side:Float = "left") => {
-    return React.Children.map(this.props.children, (child:any) => {
-      if(child && child.type && child.type === Label) {
-        // Does label have 'attached' attribute, and it is equal to the side argument?
-        if(child.props.attached && child.props.attached === side) return child;
-        // No attached attribute, but side is left? Then add attached attribute.
-        if(!child.props.attached && side === 'left') {
-          return React.cloneElement(child, { attached: 'left'});
-        }
-      }
+  private isAttachedTo(c: any, side: Float) {
+    const attached = (c.props as any).attached;
+    return attached === side || (!attached && side === 'left');
+  }
+
+  // Return an array of children that are Labels and attached to this
+  // Input control.
+  private getAttachables(side: Float) {
+    return React.Children.toArray(this.props.children)
+    .filter(
+      c => React.isValidElement(c)     // Is this a React node?
+      && (c.props as any).isLabel      // Is this a Label?
+      && this.isAttachedTo(c, side)    // Is it attached to this side?
+    )
+    .map((c: any, idx: number) => {
+      let attached = (c.props as any).attached;
+      if(!attached) attached = 'left'; // Attach to left side by default.
+      return React.cloneElement(c, { key: idx, attached: attached } as any);
     });
   }
 
-  getNonAttachables = () => {
+  private getNonAttachables = () => {
     return React.Children.map(this.props.children, (child:any) => {
       if(!child) return;
       // Only non-labels are passed to ButtonInner.
@@ -275,9 +328,7 @@ const ButtonStyled = styled(ButtonBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-button--properties
  */
-class Button extends React.PureComponent<IButtonProps, {}> {
-  public static displayName = "Button";
-
+class Button extends React.Component<IButtonProps, {}> {
   /**
    * Button groups can contain conditionals using Button.Or.
    * 
@@ -306,15 +357,7 @@ class Button extends React.PureComponent<IButtonProps, {}> {
    */  
   public static Group = ButtonGroup;  
 
-  render() {
-    let p = this.props;
-    return (
-      <ButtonStyled {...p} disabled={p.disabled}></ButtonStyled>
-    );
-  }  
+  render = () => <ButtonStyled {...this.props} disabled={this.props.disabled}></ButtonStyled>
 }
-
-(Button.Group as any).displayName = "Button.Group";
-(Button.Or as any).displayName = "Button.Or";
 
 export { Button, IButtonProps };

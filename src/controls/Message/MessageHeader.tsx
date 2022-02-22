@@ -2,17 +2,13 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IMessageHeaderProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
 }
 
-class MessageHeaderBase extends React.Component<IMessageHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
+class MessageHeaderBase extends React.Component<IMessageHeaderProps> {
+  render = () => <div className={this.props.className}>{this.props.children}</div>
 }
 
 const MessageHeaderStyled = styled(MessageHeaderBase)`
@@ -20,13 +16,8 @@ const MessageHeaderStyled = styled(MessageHeaderBase)`
   font-size: 115%;
 `;
 
-class MessageHeader extends React.Component<IMessageHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <MessageHeaderStyled {...p}/>
-    )
-  }  
+class MessageHeader extends React.Component<IMessageHeaderProps> {
+  render = () => <MessageHeaderStyled {...this.props}/>
 }
 
 export { MessageHeader };

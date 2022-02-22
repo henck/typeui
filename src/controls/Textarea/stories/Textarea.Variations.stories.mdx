@@ -1,0 +1,71 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Textarea} from '../Textarea';
+import {Form} from '../../Form';
+
+# Textarea: Variations
+. 
+
+<Meta
+  title="Controls/Textarea/Variations"  
+  component={Textarea}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) =>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="name"
+      value={null}
+      control={<Textarea {...args}/>}
+    />
+  </Form>
+
+## fluid
+
+A `fluid` `Textarea` fills all horizontal space available to it.
+
+<Canvas>
+  <Story
+    name="fluid"
+    args={{ fluid: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## monospaced
+
+A `monospaced` `Textarea` uses a monospaced font. 
+
+<Canvas>
+  <Story
+    name="monospaced"
+    args={{ monospaced: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## placeholder 
+
+A `Textarea` can have a `placeholder` text value.
+
+<Canvas>
+  <Story
+    name="placeholder"
+    args={{ placeholder: "Write here..." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## transparent 
+
+A `Textarea` can be `transparent`, removing its border.
+
+<Canvas>
+  <Story
+    name="transparent"
+    args={{ placeholder: "Transparent", transparent: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

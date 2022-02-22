@@ -10,25 +10,51 @@ import { ImageStyled } from '../Image/Image';
 import { List } from './List';
 import { IconStyled } from '../Icon/Icon';
 
+// Pass 'align', 'horizontal', 'divided', 'selection', 'relaxed', 'animated' properties 
+
 interface IListItemProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** onClick events are passed through to the list item's HTML element. */
-  onClick?: () => void;
-  /** Icon and content alignment. Defaults to `top` */
+  /** 
+   * (Not public) Icon and content alignment. Defaults to `top` 
+   * @ignore
+   */
   align?: VerticalAlignment;
-  /** Shows division lines between list items. */
+  /** 
+   * (Not public) Shows division lines between list items. 
+   * @ignore 
+   */
   divided?: boolean;
-  /** Make items appear horizontally. */
+  /** 
+   * (Not public) Make items appear horizontally. 
+   * @ignore
+   */
   horizontal?: boolean;  
-  /** Display selection rectangle on hover. */
+  /** 
+   * (Not public) Display selection rectangle on hover. 
+   * @ignore 
+   */
   selection?: boolean;  
-  /** Active selection is highlighted. */
+  /** 
+   * (Not public) Active selection is highlighted. 
+   * @ignore
+   */
   active?: boolean;
-  /** Increase negative space around item. Optionally `very`. */
+  /** 
+   * (Not public) Increase negative space around item. Optionally `very`. 
+   * @ignore
+   */
   relaxed?: 'very' | boolean;
-  /** Animate list items on hover */
+  /** 
+   * (Not public)Animate list items on hover 
+   * @ignore
+   */
   animated?: boolean;
+  /** 
+   * onClick events are passed through to the list item's HTML element. 
+   */
+  onClick?: () => void;
 }
 
 class ListItemBase extends React.Component<IListItemProps, {}> {

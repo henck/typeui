@@ -1,0 +1,40 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Textarea} from '../Textarea';
+import {Form} from '../../Form';
+
+
+<Meta
+  title="Controls/Textarea"  
+  component={Textarea}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) =>
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="name"
+      value={null}
+      control={<Textarea {...args}/>}
+    />
+  </Form>
+
+# Textarea
+
+A collection of tabs.
+
+<ArgsTable of={Textarea}/>
+
+## Example
+
+This is a default `Textarea` with a `placeholder` text.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ placeholder: "Type here" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

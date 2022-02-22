@@ -1,0 +1,34 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Progress} from '../Progress';
+
+<Meta
+  title="Controls/Progress"  
+  component={Progress}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Progress {...args}/>
+
+# Progress
+
+The `Progress` component shows a progress bar, filled to a percentage equal to 
+`value`. The bar always stretches to fill all horizontal space available to it.
+
+<ArgsTable of={Progress}/>
+
+## Example
+
+A default `Progress` shows a transparent bar, filled to `value` percent. It
+will have the primary theme color, unless overridden using the `color` 
+property.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ value: 50 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

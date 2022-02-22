@@ -1,0 +1,30 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Loader} from '../Loader';
+
+<Meta
+  title="Controls/Loader"  
+  component={Loader}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Loader {...args}/>
+
+# Loader
+
+<ArgsTable of={Loader}/>
+
+## Standard Loader
+
+A `Loader` projects a loading animation over the entire screen.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

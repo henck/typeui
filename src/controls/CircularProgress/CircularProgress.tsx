@@ -8,39 +8,66 @@ import { Dot } from './Dot';
 const DEFAULT_RADIUS = 50;
 const DEFAULT_THICKNESS = 8;
 
-interface IProps {
+interface ICircularProgressProps {
+  /** @ignore */
   className?: string;
-  /** Progress percentage value */
+  /** 
+   * Progress percentage value.
+   * This must be a value between 0 and 100.
+   */
   value: number;
-  /** Progress line color. Defaults to primary theme color. */
+  /** 
+   * Progress line color. Defaults to primary theme color. 
+   */
   color?: string;
-  /** Circle radius. Defaults to 50px. */
+  /** 
+   * Circle radius. Defaults to 50px. 
+   * @default 50
+   */
   radius?: number;  
-  /** Line thickness. Defaults to 8px. */
+  /** 
+   * Line thickness. Defaults to 8px. 
+   * @default 8
+   */
   thickness?: number;
-  /** If set, line gets a grey background. */
+  /** 
+   * If set, line gets a grey background. 
+   * @default false 
+   */
   background?: boolean;
-  /** If set, line is rounded at ends. */
+  /** 
+   * If set, line is rounded at ends. 
+   * @default false
+   */
   rounded?: boolean;
-  /** If set, line gets edge drop shadow. */
+  /** 
+   * If set, line gets edge drop shadow. 
+   * @default false
+   */
   raised?: boolean;
-  /** If set, progress line animates when it first appears. */
+  /** 
+   * If set, progress line animates when it first appears. 
+   * @default false 
+   */
   animated?: boolean;
-  /** A padded CircularProgress has a margin around it. */
+  /** 
+   * A padded CircularProgress has a margin around it. 
+   * @default false 
+   */
   padded?: boolean;
 }
 
-interface IState {
+interface ICircularProgressState {
   value: number;
 }
 
-class CircularProgressBase extends React.Component<IProps, IState> {
+class CircularProgressBase extends React.Component<ICircularProgressProps, ICircularProgressState> {
   // Animation timer interval.
   private interval: any;
   // Animation step size. Larger progress values animate faster so that all animations end at the same time.
   private step: number; 
 
-  constructor(props: IProps) {
+  constructor(props: ICircularProgressProps) {
     super(props);
     this.step = props.value / 40;
     this.state = {
@@ -82,7 +109,6 @@ class CircularProgressBase extends React.Component<IProps, IState> {
     let q4 = Math.max(0, Math.min(degrees - 270, 95));
 
     // Dot calculations:
-    const innerRadius = radius - thickness;
     const middleRadius = radius - thickness / 2;
     const rad = (360 / 100 * Math.min(100,Math.max(this.state.value, 0)) - 90) * Math.PI/180
 
@@ -163,12 +189,8 @@ const Value = styled('div')`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-circularprogress--properties
  */
-class CircularProgress extends React.Component<IProps> {
-  render() {
-    return (
-      <CircularProgressStyled{...this.props}></CircularProgressStyled>
-    );
-  }  
+class CircularProgress extends React.Component<ICircularProgressProps> {
+  render = () => <CircularProgressStyled{...this.props}></CircularProgressStyled>
 }
 
 export { CircularProgress };

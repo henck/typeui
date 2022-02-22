@@ -1,0 +1,237 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Icon} from '../Icon';
+import {Segment} from '../../Segment';
+
+# Icon: Variations
+.
+
+<Meta 
+  title="Controls/Icon/Variations" 
+  component={Icon}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Icon {...args}/>
+
+## bordered 
+
+An icon can be `bordered`. The effect can be `inverted`.
+
+export const BorderedTemplate = (args) => <div>
+  <Icon {...args}/>
+  <Icon padded name="id-card" color="teal" bordered/>
+  <Icon padded name="lock" inverted bordered/>
+  <Icon padded name="plus" color="teal" inverted bordered/>     
+</div>
+
+<Canvas>
+  <Story
+    name="bordered"
+    args={{ name: "bullhorn", padded: true, bordered: true, onClick: null }}>
+    {BorderedTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## circular
+
+An icon can be `circular`. The effect can be `inverted`.
+
+export const CircularTemplate = (args) => <div>
+  <Icon {...args}/>
+  <Icon padded name="bullhorn" color="teal" circular/>
+  <Icon padded name="chevron-double" inverted circular/>
+  <Icon padded name="file-excel" color="teal" inverted circular/>
+</div>
+
+<Canvas>
+  <Story
+    name="circular"
+    args={{ name: "at", padded: true, circular: true, onClick: null }}>
+    {CircularTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## color
+
+An icon can have a different `color`.
+
+export const ColorTemplate = (args) =>   
+<div>
+  <Icon {...args}/>
+  <Icon padded name="at" color='orange'/>
+  <Icon padded name="id-card" color='yellow'/>
+  <Icon padded name="chevron-double" color='olive'/>
+  <Icon padded name="envelope" color='green'/>
+  <Icon padded name="file-excel" color='teal'/>
+  <Icon padded name="download" color='blue'/>
+  <Icon padded name="edit" color='violet'/>
+  <Icon padded name="code" color='purple'/>
+  <Icon padded name="circle" color='pink'/>
+  <Icon padded name="layers" color='brown'/>
+  <Icon padded name="trash" color='grey'/>
+  <Icon padded name="tools" color='black'/>
+</div>
+
+<Canvas>
+  <Story
+    name="color"
+    args={{ name: "bullhorn", padded: true, color: "red", onClick: null }}>
+    {ColorTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## cornered 
+
+An icon can be `cornered`. The effect can be `inverted`.
+
+export const CorneredTemplate = (args) =>   
+<div>
+  <Icon {...args}/>
+  <Icon padded name="envelope" color="teal" cornered/>
+  <Icon padded name="exchange" inverted cornered/>
+  <Icon padded name="zoom-extents" color="teal" inverted cornered/>     
+</div>
+
+<Canvas>
+  <Story
+    name="cornered"
+    args={{ name: "bullhorn", padded: true, cornered, onClick: null }}>
+    {CorneredTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## flipped 
+
+An icon can be `flipped`.
+
+<Canvas>
+  <Story
+    name="flipped"
+    args={{ name: "bullhorn", flipped: true, onClick: null }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## float 
+
+An icon can float to the `left` or to the `right`.
+
+export const FloatTemplate = (args) => 
+  <Segment>
+    <Icon {...args}/>
+    <Icon padded name="bullhorn" float="right"/>
+  </Segment>
+
+<Canvas>
+  <Story
+    name="float"
+    args={{ name: "bullhorn", padded: true, float: "left", onClick: null }}>
+    {FloatTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## loading 
+
+
+An icon can have a simple `loading` animation.
+
+export const LoadingTemplate = (args) =>
+<div>
+  <Icon {...args}/>
+  <Icon padded name="envelope" bordered loading/>
+  <Icon padded name="download" circular inverted loading/>
+</div>
+
+<Canvas>
+  <Story
+    name="loading"
+    args={{ name: "bullhorn", padded: true, loading: true, onClick: null }}>
+    {LoadingTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## mirrored 
+
+An icon can be `mirrored`.
+
+<Canvas>
+  <Story
+    name="mirrored"
+    args={{ name: "bullhorn", mirrored: true, onClick: null }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## rotated 
+
+An icon can be `rotated` by degrees.
+
+export const RotatedTemplate = (args) => 
+<div>
+  <Icon {...args}/>
+  <Icon padded name="bullhorn" rotated={90}/>
+  <Icon padded name="bullhorn" rotated={180}/>
+  <Icon padded name="bullhorn" rotated={270}/>         
+  <Icon padded name="bullhorn" rotated={45}/>         
+</div>
+
+<Canvas>
+  <Story
+    name="rotated"
+    args={{ name: "bullhorn", padded: true, onClick: null }}>
+    {RotatedTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## size 
+
+Icons can have a different `size`.
+
+Note that icon sizes are in `em` and thus relative to the parent container.
+
+Any icon border will scale its thickness with the icon size.
+
+export const SizeTemplate = (args) => 
+<div>
+  <Icon {...args}/>
+  <Icon padded name="envelope" size="tiny"/>
+  <Icon padded name="envelope" size="small"/>
+  <Icon padded name="envelope"/>
+  <Icon padded name="envelope" size="large"/>
+  <Icon padded name="envelope" size="big"/>
+  <Icon padded name="envelope" size="huge"/>
+  <Icon padded name="envelope" size="massive"/>
+  <Divider hidden/>
+  <Icon padded name="bullhorn" circular size="mini"/>
+  <Icon padded name="bullhorn" circular size="tiny"/>
+  <Icon padded name="bullhorn" circular size="small"/>
+  <Icon padded name="bullhorn" circular/>
+  <Icon padded name="bullhorn" circular size="large"/>
+  <Icon padded name="bullhorn" circular size="big"/>
+  <Icon padded name="bullhorn" circular size="huge"/>
+  <Icon padded name="bullhorn" circular size="massive"/>                
+</div>
+
+<Canvas>
+  <Story
+    name="size"
+    args={{ name: "envelope", padded: true, size: "mini", onClick: null }}>
+    {SizeTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## title 
+
+An icon can have an optional `title`. 
+
+<Canvas>
+  <Story
+    name="title"
+    args={{ name: "bullhorn", padded: true, title: "My title", onClick: null }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

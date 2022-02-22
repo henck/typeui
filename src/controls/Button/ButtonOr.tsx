@@ -6,17 +6,17 @@ import styled from '../../styles/Theme';
 import { Size } from '../Types';
 
 interface IButtonOrProps {
+  /** @ignore */
   className?: string;
-  /** Sets button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. */
+  /** 
+   * Sets button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. 
+   * @default medium
+   */
   size?: Size;  
 }
 
 class ButtonOrBase extends React.Component<IButtonOrProps, {}> {
-  render() {
-    return (
-      <div className={this.props.className}></div>
-    )
-  }
+  render = () => <div className={this.props.className}></div>
 }
 
 const ButtonOrStyled = styled(ButtonOrBase)`
@@ -48,12 +48,7 @@ const ButtonOrStyled = styled(ButtonOrBase)`
 `
 
 class ButtonOr extends React.Component<IButtonOrProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ButtonOrStyled {...p}/>
-    )
-  }  
+  render = () => <ButtonOrStyled {...this.props}/>
 }
 
 export { ButtonOr };

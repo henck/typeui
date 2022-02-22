@@ -1,0 +1,77 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Checkbox} from '../Checkbox';
+import {Icon} from '../../Icon';
+import {Divider} from '../../Divider';
+
+<Meta 
+  title="Controls/Checkbox/General" 
+  component={Checkbox}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => <Checkbox {...args}/>
+
+# Checkbox: General 
+.
+
+## Label
+
+A `Checkbox` should (usually) have a `label`. This is not the same as a 
+`Form.Field` label. The label is clickable and toggles the checkbox.
+
+<Canvas>
+  <Story
+    name="label"
+    args={{label: "My label"}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## radio 
+
+A radio group must provide the `radio` attribute to each of its members,
+and all must have the same `name`, and provide a `value`.
+
+For `radio` buttons, `type` will default to `circle` unless overridden.
+
+export const RadioTemplate = (args) => <div style={{display: 'flex', flexDirection: 'column'}}>
+  <Checkbox {...args}/>
+  <Divider hidden/>
+  <Checkbox name="myradio" radio value={2} label="Two"/>
+  <Divider hidden/>
+  <Checkbox name="myradio" radio value={3} label="Three"/>
+</div>
+
+<Canvas>
+  <Story
+    name="radio"
+    args={{radio: true, label: "One", value: 1, name: "myradio" }}>
+    {RadioTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## disabled 
+
+A `disabled` `Checkbox` cannot be interacted with.
+
+<Canvas>
+  <Story
+    name="disabled"
+    args={{disabled: true, label: "Disabled checkbox"}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## error 
+
+A `Checkbox` can be in an `error` state.
+
+<Canvas>
+  <Story
+    name="error"
+    args={{error: true, label: "Checkbox with error"}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

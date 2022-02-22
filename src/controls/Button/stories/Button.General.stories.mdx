@@ -1,0 +1,140 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Button} from '../Button';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Divider} from '../../Divider';
+import {Label} from '../../Label';
+
+# Button: General 
+.
+
+<Meta 
+  title="Controls/Button/General" 
+  component={Button}
+  argTypes={{
+    className: { table: { disable: true } },
+    grouped: { table: { disable: true } }    
+  }}
+/>
+
+export const Template = (args) => <Button {...args}>Button</Button>
+
+## basic
+
+A `basic` button is less pronounced.
+
+<Canvas>
+  <Story
+    name="Basic"
+    args={{ basic }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## icon
+
+A `Button` can have an `<Icon>` inside it. The icon will be 80% opaque, and 
+100% opaque when the button is hovered. If the `icon` attribute is specified, 
+then the button will have no padding. The icon itself can have its own 
+attributes.
+
+The icon color will automatically adjust to the button's color.
+
+export const IconTemplate = (args) => <div>
+  <div>
+    <Button {...args}><Icon name="circle" size="large"/> Button</Button>
+  </div>
+  <Divider hidden/>
+  <div>
+    <Button><Icon name="circle" size="large"/> Button</Button>
+    <Button><Icon name="circle" size="large"/></Button>
+    <Button icon><Icon name="circle" size="large"/></Button>
+  </div>
+  <Divider hidden/>
+  <div>
+    <Button basic><Icon name="circle" size="large"/> Button</Button>
+    <Button basic><Icon name="circle" size="large"/></Button>
+    <Button basic icon><Icon name="circle" size="large"/></Button>
+  </div>
+  <Divider hidden/>
+  <div>
+    <Button color="crimson"><Icon name="circle" size="large"/> Button</Button>
+    <Button basic color="skyblue"><Icon name="circle" size="large"/></Button>
+    <Button color="DarkGoldenrod" icon><Icon name="circle" size="large"/></Button>
+  </div>            
+</div>
+
+<Canvas>
+  <Story
+    name="Icon"
+    args={{ icon: true }}>
+    {IconTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## labelled
+
+A `Label` can be `attached` to a button, either `attached=left` or `attached=right`.
+
+<Canvas>
+  <Story
+    name="Labelled">
+    {args => 
+    <div>
+      <Button>
+        <Label>One</Label>
+        Button
+      </Button>
+      <Divider hidden/>
+      <Button>
+        <Label attached="left"><Icon name="circle" size="large"/></Label>
+        Like
+      </Button>            
+      <Divider hidden/>
+      <Button>
+        <Icon name="circle"/>
+        <Label basic attached="right">2,048</Label>
+        Like
+      </Button>            
+      <Divider hidden/>
+      <Button>
+        <Icon name="circle"/>
+        <Label basic attached="right">One</Label>
+        <Label basic attached="right">Two</Label>
+        Button
+      </Button>            
+      <Divider hidden/>
+      <Button>
+        <Icon name="circle"/>
+        <Label basic pointing attached="right">2,048</Label>
+        Like
+      </Button>            
+      <Divider hidden/>
+      <Button color="RoyalBlue">
+        <Icon name="circle"/>
+        <Label basic pointing attached="right" color="RoyalBlue">42</Label>
+        Like
+      </Button>            
+      <Divider hidden/>
+      <Button basic color="crimson">
+        <Icon name="circle"/>
+        <Label basic pointing attached="right" color="crimson">2,048</Label>
+        Forks
+      </Button>            
+    </div>
+}
+  </Story>
+</Canvas>
+
+## disabled
+
+A `disabled` button cannot be interacted with. `onClick` event handlers 
+registered on it will not fire.
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{disabled}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

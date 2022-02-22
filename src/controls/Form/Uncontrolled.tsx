@@ -7,10 +7,14 @@ import { Hint } from './Hint';
 import { Label } from './Label';
 
 interface IProps {
+  /** @ignore */
   className?: string;
   /** Label to show, if any */
   label?: string;
-  /** Place label inline with field control. */
+  /** 
+   * Place label inline with field control. 
+   * @default false
+   */
   inline?: boolean;
   /** Relative width of field. If not set, field will not flex to fill available width. */
   width?: number;  
@@ -47,12 +51,7 @@ const UncontrolledStyled = styled(UncontrolledBase)`
 `;
 
 class Uncontrolled extends React.Component<IProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <UncontrolledStyled {...p}/>
-    )
-  }  
+  render = () => <UncontrolledStyled {...this.props}/>
 }
 
 export { Uncontrolled };

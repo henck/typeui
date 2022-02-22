@@ -1,0 +1,99 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Placeholder} from '../Placeholder';
+import {Divider} from '../../Divider';
+import {Flex} from '../../Flex';
+import {Segment} from '../../Segment';
+
+<Meta
+  title="Controls/Placeholder"  
+  component={Placeholder}
+  subcomponents={{ "Placeholder.Header": Placeholder.Header, "Placeholder.Line": Placeholder.Line, "Placeholder.Paragraph": Placeholder.Paragraph }}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <div>
+    <Placeholder {...args}>
+      <Placeholder.Header image>
+        <Placeholder.Line tall/>
+        <Placeholder.Line tall/>
+      </Placeholder.Header>
+      <Placeholder.Paragraph>
+        <Placeholder.Line/>
+        <Placeholder.Line/>
+        <Placeholder.Line/>
+        <Placeholder.Line/>
+      </Placeholder.Paragraph>
+      <Placeholder.Paragraph>
+        <Placeholder.Line/>
+        <Placeholder.Line/>
+        <Placeholder.Line/>
+        <Placeholder.Line/>
+      </Placeholder.Paragraph>                
+    </Placeholder>
+    <Divider hidden section/>
+    <Flex.Columns count={3}>
+          <Segment raised>
+            <Placeholder>
+              <Placeholder.Header image>
+                <Placeholder.Line tall length="long"/>
+                <Placeholder.Line tall length="medium"/>
+              </Placeholder.Header>                        
+              <Placeholder.Paragraph>
+                <Placeholder.Line  length="medium"/>
+                <Placeholder.Line  length="short"/>
+              </Placeholder.Paragraph>                             
+            </Placeholder>
+          </Segment>
+          <Segment raised>
+            <Placeholder>
+              <Placeholder.Header image>
+                <Placeholder.Line tall length="long"/>
+                <Placeholder.Line tall length="medium"/>
+              </Placeholder.Header>                        
+              <Placeholder.Paragraph>
+                <Placeholder.Line  length="medium"/>
+                <Placeholder.Line  length="short"/>
+              </Placeholder.Paragraph>                             
+            </Placeholder>
+          </Segment>
+          <Segment raised>
+            <Placeholder>
+              <Placeholder.Header image>
+                <Placeholder.Line tall length="long"/>
+                <Placeholder.Line tall length="medium"/>
+              </Placeholder.Header>                        
+              <Placeholder.Paragraph>
+                <Placeholder.Line  length="medium"/>
+                <Placeholder.Line  length="short"/>
+              </Placeholder.Paragraph>                             
+            </Placeholder>
+          </Segment>
+    </Flex.Columns>
+  </div>
+
+
+# Placeholder
+
+A `Placeholder` is used to take the place of content that is yet to be loaded 
+from a remote server.
+
+A `Placeholder` can contain a `Placeholder.Header` as well as `Placeholder.Paragraph` elements. 
+Any `PlaceHolder.Line` elements have random lengths by default, unless a `length` is specified. 
+The background animation is done using CSS transforms so that it can be smooth and GPU-accelerated.
+
+<ArgsTable of={Placeholder}/>
+
+## Example
+
+A default `Placeholder` element is empty. Header, lines or images must be added to it:
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

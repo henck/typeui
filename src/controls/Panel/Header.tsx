@@ -1,21 +1,14 @@
 import * as React from 'react';
-import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IHeaderProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
 }
 
 class HeaderBase extends React.Component<IHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <span className={p.className}>
-        {p.children}
-      </span>
-    );
-  }
+  render = () => <span className={this.props.className}>{this.props.children}</span>
 }
 
 const HeaderStyled = styled(HeaderBase)`
@@ -33,12 +26,8 @@ const HeaderStyled = styled(HeaderBase)`
   }
 `
 
-class Header extends React.Component<IHeaderProps, {}> {
-  render() {
-    return (
-      <HeaderStyled {...this.props}></HeaderStyled>
-    );
-  }
+class Header extends React.Component<IHeaderProps> {
+  render = () => <HeaderStyled {...this.props}/>
 }
 
 export { Header };

@@ -1,0 +1,74 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Tabs} from '../Tabs';
+import {Label} from '../../Label';
+import {Flex} from '../../Flex';
+import {Icon} from '../../Icon';
+
+# Tabs: General
+.
+
+<Meta
+  title="Controls/Tabs/General"  
+  component={Tabs}
+  subcomponents = {{ "Tabs.Pane": Tabs.Pane }} 
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) =>
+<Tabs {...args}>
+  <Tabs.Pane label="One">
+    <p>Content for first tab.</p>
+    <p>Additional line of content.</p>
+  </Tabs.Pane>
+  <Tabs.Pane label="Two">
+    Content for second tab.
+  </Tabs.Pane>
+  <Tabs.Pane label="Three">
+    Content for third tab.
+  </Tabs.Pane>
+</Tabs>
+
+## active
+
+The initially active tab can be set with the `active` property. It is 0-based.
+
+If `active` is omitted, then the initially active tab is tab 0.
+
+<Canvas>
+  <Story
+    name="active"
+    args={{ active: 1 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## label
+
+The Pane `label` can contain arbitrary content.
+
+To get the content to vertically align properly, a `Flex.Quick` can help.
+
+export const LabelContentTemplate = (args) =>
+<Tabs {...args}>
+  <Tabs.Pane label={(<Flex.Quick><Icon name="code"/> Hello</Flex.Quick>)}>
+    <p>Content for first tab.</p>
+    <p>Additional line of content.</p>
+  </Tabs.Pane>
+  <Tabs.Pane label={(<span>Messages <Label>15</Label></span>)}>
+    Content for second tab.
+  </Tabs.Pane>
+  <Tabs.Pane label="Three">
+    Content for third tab.
+  </Tabs.Pane>
+</Tabs>
+
+<Canvas>
+  <Story
+    name="label"
+    args={{  }}>
+    {LabelContentTemplate.bind({})}
+  </Story>
+</Canvas>
+

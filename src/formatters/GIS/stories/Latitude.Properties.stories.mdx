@@ -1,0 +1,30 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import { Latitude } from '../GIS';
+
+<Meta
+  title="Formatters/Latitude"  
+  component={Latitude}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+# Latitude
+
+`Latitude` formats a latitude float into degrees, minutes and seconds.
+
+<ArgsTable of={Latitude}/>
+
+## Example
+
+export const Template = (args) =>
+<Latitude {...args}/>
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ value: 10.45 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

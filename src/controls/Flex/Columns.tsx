@@ -5,6 +5,9 @@ import { Flex } from './Flex';
 
 interface IColumnsProps {
   children?: React.ReactNode;
+  /**
+   * Number of columns to show.
+   */
   count: number;
 }
 

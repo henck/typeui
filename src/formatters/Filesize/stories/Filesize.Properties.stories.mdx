@@ -1,0 +1,36 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import { Filesize } from '../Filesize';
+
+<Meta
+  title="Formatters/Filesize"  
+  component={Filesize}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+# Filesize
+
+`Filesize` takes a `value` prop (in bytes) and renders
+a human-readable filesize string.
+  
+E.g. `10000` yields `10.0 kB`
+
+The unit type can optionally be specified, either `si` (International System of 
+Units, where 1 kilobyte is 1,000 byes), or `binary`, where 1 kilobyte is 1,024 bytes.
+
+<ArgsTable of={Filesize}/>
+
+## Example
+
+export const Template = (args) =>
+<Filesize {...args}/>
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ value: 50000 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

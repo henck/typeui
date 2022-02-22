@@ -1,0 +1,35 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Pane} from '../Pane';
+
+# Pane: General
+.
+
+<Meta
+  title="Controls/Pane/General"  
+  component={Pane}
+  subcomponents={{}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+## Pane.Icon
+
+The `Pane.Icon` is a shortcut for a `Pane` that opens when an `Icon` is 
+clicked. It is self-closing.
+
+export const PaneIconTemplate = (args) =>
+<div style={{position: 'relative', display: 'inline-block'}}>
+  <Pane.Icon icon="layers" padded>
+    <p>This is some pane text.</p>
+  </Pane.Icon>      
+</div>
+
+<Canvas>
+  <Story
+    name="Pane.Icon"
+    args={{  }}>
+    {PaneIconTemplate.bind({})}
+  </Story>
+</Canvas>
+

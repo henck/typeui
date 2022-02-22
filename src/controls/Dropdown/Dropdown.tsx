@@ -11,12 +11,16 @@ import { DropdownInner } from './DropdownInner';
 import { Label } from '../Label/Label';
 
 interface IDropdownProps {
+  /** @ignore */
   className?: string;
   /** Dropdown name, for use in forms. */
   name?: string;
   /** Data to show in Dropdown. */
   data: any[];
-  /** Dropdown's value can be cleared. */
+  /** 
+   * Dropdown's value can be cleared. 
+   * @default false 
+   */
   clearable?: boolean;
   /** Label function */
   label: (item:any) => React.ReactNode;
@@ -26,22 +30,47 @@ interface IDropdownProps {
    *  The value is an object, not an ID!
    */
   value?: any; 
-  /** Marks dropdown as disabled. */
+  /** 
+   * Marks dropdown as disabled. 
+   * @default false
+   */
   disabled?: boolean;
-  /** A fluid Dropdown occupies all horizontal space available to it. */
+  /** 
+   * A fluid Dropdown occupies all horizontal space available to it. 
+   * @default false
+   */
   fluid?: boolean;
-  /** An inline Dropdown has no border. Useful for menu items. */
+  /** 
+   * An inline Dropdown has no border. Useful for menu items. 
+   * @default false 
+   */
   inline?: boolean;
-  /** If set, Dropdown is in an error state. */
+  /** 
+   * If set, Dropdown is in an error state. 
+   * @default false 
+   */
   error?: boolean;
-  /** If set, allow multiple selection. */
+  /** 
+   * If set, allow multiple selection. 
+   * @default false
+   */
   multiple?: boolean;
-  /** If true, the search query is reset when dropdown is opened 
-   *  (This only applies to dropdowns with an `onSearch` callback.)
+  /** 
+   * If true, the search query is reset when dropdown is opened 
+   * (This only applies to dropdowns with an `onSearch` callback.)
+   * @default false
    */
   resetOnOpen?: boolean;
-  /** Max items to display before a scrollbar is added. Defaults to 6. */
+  /** 
+   * Max items to display before a scrollbar is added. Defaults to 6. 
+   * @default 6
+   */
   maxItems?: number;
+  /**
+   * Force Dropdown to always open downwards.
+   * @default false;
+   */
+  alwaysDown?: boolean;
 
   // Events
   /** Listeners are notified whenever the user interacts with the input. */
@@ -57,20 +86,28 @@ interface IDropdownProps {
  * can add attachable components.
  */
 class DropdownBase extends React.Component<IDropdownProps, {}> {
-  getAttachables = (side:Float = "left") => {
-    return React.Children.map(this.props.children, (child:any) => {
-      if(child.type && child.type === Label) {
-        // Does label have 'attached' attribute, and it is equal to side?
-        if(child.props.attached && child.props.attached === side) return child;
-        // No attached attribute, but side is left? Then add attached attribute.
-        if(!child.props.attached && side === 'left') {
-          return React.cloneElement(child, { attached: 'left'});
-        }
-      }
+  private isAttachedTo(c: any, side: Float) {
+    const attached = (c.props as any).attached;
+    return attached === side || (!attached && side === 'left');
+  }
+
+  // Return an array of children that are Labels and attached to this
+  // Input control.
+  private getAttachables(side: Float) {
+    return React.Children.toArray(this.props.children)
+    .filter(
+      c => React.isValidElement(c)     // Is this a React node?
+      && (c.props as any).isLabel      // Is this a Label?
+      && this.isAttachedTo(c, side)    // Is it attached to this side?
+    )
+    .map((c: any, idx: number) => {
+      let attached = (c.props as any).attached;
+      if(!attached) attached = 'left'; // Attach to left side by default.
+      return React.cloneElement(c, { key: idx, attached: attached } as any);
     });
   }
 
-  getItems = () => {
+  private getItems = () => {
     return React.Children.map(this.props.children, (child:any) => {
       // Only Columns are passed to DropdownInner.
       if(child.type && child.type === Column) return child;
@@ -108,7 +145,7 @@ const DropdownStyled = styled(DropdownBase)`
  * (in TypeScript). */
 
 /**
- * A Dropdown is a replacement for <select>. It opens upwards or downwards 
+ * A Dropdown is a replacement for <select> (select). It opens upwards or downwards 
  * depending on its position in the viewport. Its selection and dropdown items 
  * are formatted using a formatting function. A Dropdown can also take a 
  * search callback, which tells provides its subscriber with a search query 
@@ -126,23 +163,14 @@ const DropdownStyled = styled(DropdownBase)`
  * @link https://henck.github.io/typeui/?path=/story/controls-dropdown--properties
  */
 class Dropdown extends React.Component<IDropdownProps, {}> {
-  public static displayName = "Dropdown";
-
   /**
    * A Dropdown.Column's child is an item formatter function. A column can optionally take
    * a weight and an alignment.
    */
   public static Column = Column;
 
-  render() {
-    let p = this.props;
-    return (
-      <DropdownStyled {...p}></DropdownStyled>
-    )
-  }  
+  render = () => <DropdownStyled {...this.props}></DropdownStyled>
 }
-
-(Dropdown.Column as any).displayName = "Dropdown.Column";
 
 
 export { IDropdownProps, Dropdown };

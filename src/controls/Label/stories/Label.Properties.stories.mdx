@@ -1,0 +1,33 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Label} from '../Label';
+
+<Meta
+  title="Controls/Label"  
+  component={Label}
+  subcomponents={{"Label.Detail": Label.Detail, "Label.Group": Label.Group}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Label {...args}/>
+
+# Label
+
+A `Label` is a small box containing information. It can be used by itself,
+or `attached` to other components like `Input`, `Dropdown` and `Button`.
+
+<ArgsTable of={Label}/>
+
+## Standard Label
+
+A standard `Label` is gray, with non-bold text.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ onClick: null, children: "Label" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

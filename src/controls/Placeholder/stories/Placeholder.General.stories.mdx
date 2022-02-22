@@ -1,0 +1,131 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Placeholder} from '../Placeholder';
+import {Divider} from '../../Divider';
+import {Flex} from '../../Flex';
+import {Segment} from '../../Segment';
+
+# Placeholder: General 
+.
+
+<Meta
+  title="Controls/Placeholder/General"  
+  component={Placeholder}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+## Placeholder.Header
+
+A placeholder can contain a `Placeholder.Header`. If the `image` attribute is specified, then 
+the header contains a small image block.
+
+Header lines can optionally have the `tall` attribute to appear taller than paragraph lines.
+
+export const HeaderTemplate = (args) => 
+<Placeholder>
+  <Placeholder.Header {...args}>
+    <Placeholder.Line tall/>
+    <Placeholder.Line tall/>
+  </Placeholder.Header>          
+</Placeholder>
+
+<Canvas>
+  <Story
+    name="Placeholder.Header"
+    args={{ image: true }}>
+    {HeaderTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Placeholder.Image 
+
+A placeholder can contain a `Placeholder.Image`.
+    
+Using `rectangular` will use a 4:3 aspect ratio. The default aspect ratio is 1:1.
+
+export const ImageTemplate = (args) =>
+<div>
+  <Placeholder>
+    <Placeholder.Image {...args}/>
+  </Placeholder>
+  <Divider hidden/>
+  <Flex.Columns count={3}>
+    <Segment> 
+      <Placeholder>
+        <Placeholder.Image rectangular/>
+      </Placeholder>
+    </Segment>
+    <Segment> 
+      <Placeholder>
+        <Placeholder.Image rectangular/>
+      </Placeholder>
+    </Segment>
+    <Segment> 
+      <Placeholder>
+        <Placeholder.Image rectangular/>
+      </Placeholder>
+    </Segment>
+  </Flex.Columns>                
+</div>
+
+<Canvas>
+  <Story
+    name="Placeholder.Image"
+    args={{  }}>
+    {ImageTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Placeholder.Line 
+
+A placeholder can contain `Placeholder.Line` of text. A line can be made `tall` to appear slightly taller.
+
+By default, repeated lines will appear varied in length. However, it may be useful to specify an exact `length` 
+to make the lines match up with content more effectively. Length values are `short`, `medium`, `long` and `full`.
+
+export const LineTemplate = (args) =>
+<Placeholder>
+  <Placeholder.Line {...args}/>
+  <Placeholder.Line/>
+  <Placeholder.Line length="short"/>
+  <Placeholder.Line length="medium"/>
+  <Placeholder.Line length="long"/>
+  <Placeholder.Line length="full"/>
+</Placeholder>
+
+<Canvas>
+  <Story
+    name="Placeholder.Line"
+    args={{  }}>
+    {LineTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Placeholder.Paragraph
+
+A `Placeholder.Paragraph` is used to group lines together. A margin appears between paragraphs.
+
+export const ParagraphTemplate = (args) =>
+<Placeholder>
+  <Placeholder.Paragraph>
+    <Placeholder.Line/>
+    <Placeholder.Line/>
+    <Placeholder.Line/>
+    <Placeholder.Line/>
+  </Placeholder.Paragraph>
+  <Placeholder.Paragraph>
+    <Placeholder.Line/>
+    <Placeholder.Line/>
+    <Placeholder.Line/>
+    <Placeholder.Line/>
+  </Placeholder.Paragraph>                
+</Placeholder>
+
+<Canvas>
+  <Story
+    name="Placeholder.Paragraph"
+    args={{  }}>
+    {ParagraphTemplate.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,119 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {CircularProgress} from '../CircularProgress';
+
+# CircularProgress: Variations
+.
+
+<Meta 
+  title="Controls/CircularProgress/Variations" 
+  component={CircularProgress}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => <CircularProgress {...args}/>
+
+## animated
+
+A `CircularProgress` can be `animated`. When it first appears, it will 
+animate its progress line from 0 to `value`.
+
+<Canvas>
+  <Story
+    name="animated"
+    args={{animated: true, value: 50}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## background 
+
+With `background` set, `CircularProgress` will add a gray background to 
+its progress line.
+
+<Canvas>
+  <Story
+    name="background"
+    args={{background: true, value: 25}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## color 
+
+The color of a `CircularProgress` progress line can be set with the 
+`color` prop.
+
+<Canvas>
+  <Story
+    name="color"
+    args={{color: 'green', value: 33}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## padded 
+
+A `padded` `CircularProgress` has some margin around it.
+
+<Canvas>
+  <Story
+    name="padded"
+    args={{padded: true, value: 50}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## radius 
+
+The radius of a `CircularProgress` circle can be set with the `radius` 
+prop.
+
+<Canvas>
+  <Story
+    name="radius"
+    args={{radius: 80, value: 95}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## raised 
+
+A `raised` `CircularProgress` shows a dropshadow on the inside and 
+outside of its progress line.
+
+<Canvas>
+  <Story
+    name="raised"
+    args={{raised: true, value: 45}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## rounded 
+
+A `rounded` `CircularProgress` applies rounding to the ends of its 
+progress line.
+
+<Canvas>
+  <Story
+    name="rounded"
+    args={{rounded: true, value: 50}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## thickness 
+
+The thickness of a `CircularProgress` progress line can be set with 
+the `thickness` prop.
+
+<Canvas>
+  <Story
+    name="thickness"
+    args={{thickness: 12, value: 50}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

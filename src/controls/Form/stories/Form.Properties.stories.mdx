@@ -1,0 +1,46 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Form} from '../Form';
+import {Input} from '../../Input';
+
+<Meta 
+  title="Controls/Form" 
+  component={Form}
+  subcomponents={{"Form.Field": Form.Field, "Form.Uncontrolled": Form.Uncontrolled}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+<Form {...args}>
+</Form>
+
+# Form
+
+<ArgsTable of={Form}/>
+
+## Overview
+
+The `Form` element must be used to wrap all forms. All controls inside a form
+must be wrapped in `Form.Field` elements.
+
+The data that must be shown in the form is provided through the `data` prop, which
+should be an object. 
+
+Form uses Context to set `onChange` and `onValidate` handlers on all Field elements inside
+the form, whatever their nesting depth. When form data is changed, onChange is fired
+with the new form content. 
+
+The Field element keeps its own state so that updates to the form are reflected without
+changing the form's `data` prop. This way, should a caller of Form choose to, they may
+update the form data only when required (such as when setting the dirty flag), which
+avoid rerendering all form elements on every interaction.
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{ data: {}, onChange: () => {}, onValidate: () => {} }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

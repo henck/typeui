@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styled from '../../styles/Theme';
 
 // Types
 import { Size } from '../Types';
@@ -12,10 +11,14 @@ import { Image } from '../Image/Image';
 
 
 interface IGravatarProps {
+  /** @ignore */
   className?: string;
   /** Email address to use for Gravatar. If not specified, shows default unknown user image. */
   email?: string;
-  /** Gravatar image size. If not specified, uses `avatar`. */
+  /** 
+   * Gravatar image size. If not specified, uses `avatar`. 
+   * @default avatar 
+   */
   size?: Size;
   /** onClick handler, if any. */
   onClick?: () => void;

@@ -53,6 +53,4 @@ const Tab = styled(TabBase)`
   `}
 `
 
-Tab.displayName = "Tabs.Tab";
-
 export { Tab };

@@ -3,20 +3,18 @@ import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 
 interface IGroupProps {
+  /** @ignore */
   className?: string;  
   children?: React.ReactNode;
-  /** Divide field widths evenly. */
+  /** 
+   * Divide field widths evenly. 
+   * @default false 
+   */
   equal?: boolean;
 }
 
-class GroupBase extends React.Component<IGroupProps, {}> {
-  render() {
-    return (
-      <div className={this.props.className}>
-        {this.props.children}
-      </div>
-    );
-  }
+class GroupBase extends React.Component<IGroupProps> {
+  render = () => <div className={this.props.className}>{this.props.children}</div>
 }
 
 const GroupStyled = styled(GroupBase)`
@@ -37,13 +35,8 @@ const GroupStyled = styled(GroupBase)`
   `}
 `;
 
-class Group extends React.Component<IGroupProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <GroupStyled {...p}/>
-    )
-  }  
+class Group extends React.Component<IGroupProps> {
+  render = () => <GroupStyled {...this.props}/>
 }
 
-export { Group };
+export { Group }

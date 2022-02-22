@@ -1,0 +1,31 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Gravatar} from '../Gravatar';
+
+<Meta 
+  title="Controls/Gravatar" 
+  component={Gravatar}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Gravatar {...args}/>
+
+# Gravatar
+
+<ArgsTable of={Gravatar}/>
+
+## Default
+
+A `Gravatar` shows a generated image based on an email address, as provided by 
+the gravatar service. 
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{ email: "alex.vanoostenrijk@gmail.com" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

@@ -1,21 +1,14 @@
 import * as React from 'react';
-import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IMetaProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
 }
 
-class MetaBase extends React.Component<IMetaProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <span className={p.className}>
-        {p.children}
-      </span>
-    );
-  }
+class MetaBase extends React.Component<IMetaProps> {
+  render = () => <span className={this.props.className}>{this.props.children}</span>
 }
 
 const MetaStyled = styled(MetaBase)`
@@ -29,12 +22,8 @@ const MetaStyled = styled(MetaBase)`
   }  
 `
 
-class Meta extends React.Component<IMetaProps, {}> {
-  render() {
-    return (
-      <MetaStyled {...this.props}></MetaStyled>
-    );
-  }
+class Meta extends React.Component<IMetaProps> {
+  render = () => <MetaStyled {...this.props}></MetaStyled>
 }
 
 export { Meta };

@@ -1,0 +1,34 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {LabelledValue} from '../LabelledValue';
+
+<Meta
+  title="Controls/LabelledValue"  
+  component={LabelledValue}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <LabelledValue {...args}/>
+
+# LabelledValue
+
+Displays a value with a label above it. A `LabelledValue` is just that: a label and 
+a value. It is used for view-only data. There is a very slight color change when the 
+mouse hovers over the value.
+
+<ArgsTable of={LabelledValue}/>
+
+## Standard LabelledValue
+
+A standard `LabelledValue` is gray, with non-bold text. The `label` property
+is required.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ onClick: null, label: "A label", children: "Some value" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

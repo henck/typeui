@@ -9,6 +9,7 @@ import { darken } from '../../helper/darken';
 import { CheckboxType } from '../Types';
 
 interface ICheckboxProps {
+  /** @ignore */
   className?: string;
   /** Checkbox name. */
   name?: string;
@@ -20,11 +21,20 @@ interface ICheckboxProps {
   label?: React.ReactNode;
   /** Is this a radio button? */
   radio?: boolean;
-  /** Checkbox visual style: `check`, `toggle`, `slider` or `circle`. Default is `check`. */
+  /** 
+   * Checkbox visual style: `check`, `toggle`, `slider` or `circle`. Default is `check`. 
+   * @default check
+   */
   type?: CheckboxType; 
-  /** A disabled checkbox cannot be interacted with. */
+  /** 
+   * A disabled checkbox cannot be interacted with. 
+   * @default false
+   */
   disabled?: boolean;
-  /** If set, show an error state. */
+  /** 
+   * If set, show an error state. 
+   * @default false
+   */
   error?: boolean;
 
   // Events
@@ -32,7 +42,7 @@ interface ICheckboxProps {
   onChange?: (value: any) => void;
 }
 
-class CheckboxBase extends React.Component<ICheckboxProps, {}> {
+class CheckboxBase extends React.Component<ICheckboxProps> {
   private handleChange = (e:any) => {
     // For radios, we use the value attribute.
     // For checkboxes, we use the checked attribute.
@@ -221,14 +231,8 @@ const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-checkbox--properties
  */
-class Checkbox extends React.Component<ICheckboxProps, {}> {
-  public static displayName = 'Checkbox';
-
-  render() {
-    return (
-      <CheckboxStyled {...this.props}></CheckboxStyled>
-    );
-  }
+class Checkbox extends React.Component<ICheckboxProps> {
+  render = () => <CheckboxStyled {...this.props}></CheckboxStyled>
 }
 
 export { Checkbox };

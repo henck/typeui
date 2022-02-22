@@ -1,0 +1,133 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Header} from '../Header';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+import {Segment} from '../../Segment';
+import {Message} from '../../Message';
+
+# Header: General 
+.
+
+<Meta 
+  title="Controls/Header/General" 
+  component={Header}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Header {...args}>Header</Header>
+
+## Size
+
+Headers can have `size="h1"` through `size="h6"`. The `size` attribute is required.
+
+By default, sizes are absolute. If `relative` is specified, then sizes are relative to the container font size.
+
+export const SizeTemplate = (args) => 
+<div>
+  <Header {...args}>My header</Header>
+  <Header size="h1">Size h1</Header>
+  <Header size="h2">Size h2</Header>
+  <Header size="h3">Size h3</Header>
+  <Header size="h4">Size h4</Header>
+  <Header size="h5">Size h5</Header>
+  <Header size="h6">Size h6</Header>
+</div>
+
+<Canvas>
+  <Story
+    name="Size"
+    args={{ size: 'h3' }}>
+    {SizeTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Icon
+
+An `icon` header emphasizes its icon.
+
+export const IconTemplate = (args) =>
+<div>
+  <Header {...args}><Icon name="code"/> Icon header</Header>
+  <Header size="h1" icon><Icon name="at" circular/> Icon header</Header>
+</div>
+
+<Canvas>
+  <Story
+    name="Icon"
+    args={{ size: 'h3', icon: true }}>
+    {IconTemplate.bind({})}
+  </Story>
+</Canvas>
+
+# Image
+
+A header may contain an `Image`. The image is emphasized if `icon` is also set.
+
+export const ImageTemplate = (args) =>  
+<div>
+  <Header {...args}>
+    <Image size="mini" circular src="https://react.semantic-ui.com/images/avatar/large/patrick.png"/>
+    Image header
+  </Header>
+  <Header size="h1" icon>
+    <Image size="tiny" circular src="https://react.semantic-ui.com/images/avatar/large/patrick.png"/>
+    Image header
+  </Header>                
+</div>
+
+<Canvas>
+  <Story
+    name="Image"
+    args={{ size: 'h1' }}>
+    {ImageTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Subheader 
+
+A header may contain a `<Header.Subheader>`.
+
+export const SubheaderTemplate = (args) =>
+  <div>
+    <Header size="h1">
+      <Header.Content>
+        Account Settings
+        <Header.Subheader>
+          Manage your account settings and set email preferences
+        </Header.Subheader>
+      </Header.Content>
+    </Header>
+    <Header size="h1">
+      <Icon name="code" size="large"/> 
+      <Header.Content>
+        Header with icon
+        <Header.Subheader>
+          Subheader text
+        </Header.Subheader>
+      </Header.Content>
+    </Header>
+  </div>
+
+<Canvas>
+  <Story
+    name="Subheader"
+    args={{  }}>
+    {SubheaderTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Disabled 
+
+A `disabled` header shows as inactive.
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{ size: 'h1', disabled: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

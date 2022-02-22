@@ -2,14 +2,20 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IPaneProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  active?: boolean;
+  /**
+   * Tab label. Can be JSX.
+   */
   label: React.ReactNode;
+  /** @ignore */
+  active?: boolean;
+  /** @ignore */
   nohiddenrender?: boolean;
 }
 
-class PaneBase extends React.Component<IPaneProps, {}> {
+class PaneBase extends React.Component<IPaneProps> {
 
   private shouldRender = () => {
     return !this.props.nohiddenrender || this.props.active;
@@ -36,13 +42,8 @@ const PaneStyled = styled(PaneBase)`
   height: 100%;
 `
 
-class Pane extends React.Component<IPaneProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <PaneStyled {...p}/>
-    )
-  }  
+class Pane extends React.Component<IPaneProps> {
+  render = () => <PaneStyled {...this.props}/>
 }
 
 export { Pane };

@@ -9,35 +9,74 @@ import { HorizontalAlignment, Float, VerticalDirection } from '../Types';
 import { darken } from '../../helper/darken';
 
 interface ISegmentProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Segment will have an extra-strong dropshadow if true. */
+  /** 
+   * Segment will have an extra-strong dropshadow if true. 
+   * @default false 
+   */
   raised?: boolean;
-  /** Segment will have a page lying below it if true. */
+  /** 
+   * Segment will have a page lying below it if true. 
+   * @default false
+   */
   stacked?: boolean;
-  /** (With stacked): Segment will have two pages lying below it if true. */
+  /** 
+   * (With stacked): Segment will have two pages lying below it if true. 
+   * @default false
+   */
   tall?: boolean;
-  /** Segment will have a disorganized pile of two pages lying below it if true. */
+  /** 
+   * Segment will have a disorganized pile of two pages lying below it if true. 
+   * @default false 
+   */
   piled?: boolean;
-  /** Align content to `left`, `center` or `right`. By default `left`. */
+  /** 
+   * Align content to `left`, `center` or `right`. By default `left`. 
+   */
   align?: HorizontalAlignment;
-  /** Segment can float to the `left` or `right`. */
+  /** 
+   * Segment can float to the `left` or `right`. 
+   */
   float?: Float;
-  /** Decrease segment's emphasis. */
+  /** 
+   * Decrease segment's emphasis. 
+   * @default false
+   */
   secondary?: boolean;
-  /** Seriously decrease segment's emphasis. */
+  /** 
+   * Seriously decrease segment's emphasis. 
+   * @default false
+   */
   tertiary?: boolean;
-  /** Custom color */
+  /** 
+   * Custom color 
+   */
   color?: string;
-  /** Increase segment padding (optionally `very`). */
+  /** 
+   * Increase segment padding (optionally `very`). 
+   * @default false
+   */
   padded?: 'very' | boolean;
-  /** Decrease segment padding. */
+  /** 
+   * Decrease segment padding. 
+   * @default false
+   */
   tight?: boolean;
-  /** Only take up as much space as necessary. */
+  /** 
+   * Only take up as much space as necessary. 
+   * @default false
+   */
   compact?: boolean;
-  /** A disabled segment is light in color. */
+  /** 
+   * A disabled segment is light in color.
+   * @default false
+   */
   disabled?: boolean;
-  /** Attached to `top`, `bottom` or nothing (both). */
+  /** 
+   * Attached to `top`, `bottom` or nothing (both). 
+   */
   attached?: boolean | VerticalDirection;
 }
 
@@ -47,7 +86,7 @@ const ClearSegment = styled('div')`
   clear: both;
 `;
 
-class SegmentBase extends React.PureComponent<ISegmentProps, {}> {
+class SegmentBase extends React.PureComponent<ISegmentProps> {
   render() {
     let p = this.props;
     // Yes, this needs a double <div>:
@@ -218,14 +257,8 @@ const SegmentStyled = styled(SegmentBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-segment--properties
  */
-class Segment extends React.PureComponent<ISegmentProps, {}> {
-  public static displayName = 'Segment';
-
-  render() {
-    return (
-      <SegmentStyled {...this.props}></SegmentStyled>
-    );
-  }
+class Segment extends React.PureComponent<ISegmentProps> {
+  render = () => <SegmentStyled {...this.props}/>
 }
 
 export { Segment };

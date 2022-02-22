@@ -6,7 +6,7 @@ interface IUnderlinerProps {
   setRef?: any;
 }
 
-class UnderlinerBase extends React.Component<IUnderlinerProps, {}> {
+class UnderlinerBase extends React.Component<IUnderlinerProps> {
   render() {
     let p = this.props;
     return (
@@ -25,7 +25,5 @@ const Underliner = styled(UnderlinerBase)`
   box-sizing: border-box;
   transition: left ease .3s, width ease .3s;
 `
-
-Underliner.displayName = "Tabs.Underliner";
 
 export { Underliner };

@@ -1,0 +1,39 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Checkbox} from '../Checkbox';
+import {Icon} from '../../Icon';
+
+<Meta 
+  title="Controls/Checkbox/Variations" 
+  component={Checkbox}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => <Checkbox {...args}/>
+
+# Checkbox: Variations
+.
+
+## type
+
+A `Checkbox` can have a `type` of `check` (default), `toggle`, 
+`slider` or `circle`.
+
+For `radio` buttons, `type` will default to `circle` unless overridden.
+
+export const TypeTemplate = (args) => <div>
+  <Checkbox {...args}/>
+  <Checkbox type='toggle' label="Toggle"/>
+  <Checkbox type='slider' label="Slider"/>
+  <Checkbox type='circle' label="Circle"/>
+</div>
+
+<Canvas>
+  <Story
+    name="type"
+    args={{type: 'check', label: "Check"}}>
+    {TypeTemplate.bind({})}
+  </Story>
+</Canvas>
+

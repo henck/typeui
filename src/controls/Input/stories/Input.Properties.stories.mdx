@@ -1,0 +1,39 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Input} from '../Input';
+import {Form} from '../../Form';
+
+<Meta 
+  title="Controls/Input" 
+  component={Input}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+    <Form.Field
+      name="name"
+      value={null}
+      control={<Input {...args}/>}
+    />
+  </Form>
+  
+
+# Input
+
+<ArgsTable of={Input}/>
+
+# Standard Input
+
+A standard `Input` will have the `text` type. Optionally, it can have a 
+`placeholder` property.  An `Input` should be wrapped in a `Form.Field` or 
+`Form.Uncontrolled`.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ placeholder: "Type here..." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

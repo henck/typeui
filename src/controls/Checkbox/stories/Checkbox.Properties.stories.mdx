@@ -1,0 +1,36 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Checkbox} from '../Checkbox';
+import {Icon} from '../../Icon';
+
+<Meta 
+  title="Controls/Checkbox" 
+  component={Checkbox}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => <Checkbox {...args}/>
+
+# Checkbox
+
+A Checkbox can be used to create either a HTML checkbox or a HTML radio button.
+
+Note that the property that indicates whether the checkbox is currently checked 
+is named `checked`.
+
+<ArgsTable of={Checkbox}/>
+
+## Default Checkbox
+
+A standard `Checkbox` appears as a box. The `type` can be changed to three
+alternative displays.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{label: "My checkbox"}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

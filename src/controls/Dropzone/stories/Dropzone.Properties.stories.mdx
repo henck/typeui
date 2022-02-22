@@ -1,0 +1,31 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Dropzone} from '../Dropzone';
+
+<Meta 
+  title="Controls/Dropzone" 
+  component={Dropzone}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => <Dropzone {...args}/>
+
+# Dropzone
+
+A `Dropzone` accepts files, either by dragging them into the zone or by clicking the
+zone and selection files. Multiple files may be dragged or selected at the same
+time. When files are selected, Dropzone fires `onAddFiles` with a `File[]` argument.
+
+<ArgsTable of={Dropzone}/>
+
+## Default Dropzone
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

@@ -1,0 +1,33 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Header} from '../Header';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+import {Segment} from '../../Segment';
+import {Message} from '../../Message';
+
+<Meta 
+  title="Controls/Header" 
+  component={Header}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Header {...args}>Header</Header>
+
+# Header
+
+<ArgsTable of={Header}/>
+
+# Standard header
+
+A standard header takes a required `size` property.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ size: 'h3' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

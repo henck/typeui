@@ -1,0 +1,72 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {DataTable} from '../DataTable';
+
+# DataTable: General
+.
+
+<Meta 
+  title="Controls/DataTable/General" 
+  component={DataTable}
+  subcomponents={{'DataTable.Column': DataTable.Column}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const data = [
+  { name: "John",   age: 24, sport: "Soccer"},
+  { name: "Mary",   age: 18, sport: "Polo"},
+  { name: "Bert",   age: 21, sport: "Basketball"},
+  { name: "Joseph", age: 24, sport: "Kendo"},
+  { name: "Rose",   age: 17, sport: "Soccer"},
+  { name: "Alexander",  age: 15, sport: "Athletics"},
+  { name: "Rudolph", age: 29, sport: "Krav maga"},
+  { name: "Jessica", age: 19, sport: "None"},
+  { name: "Ellen", age: 16, sport: "Athletics"},
+  { name: "Ralph", age: 22, sport: "Volleyball"}
+];
+
+export const Template = (args) =>   
+<div style={{display: 'flex', position: 'relative', height: '400px'}}>
+  <DataTable 
+    data={data} {...args}>
+    <DataTable.Column weight={2} label="Name" order="name" dir="asc">{(item) => item.name}</DataTable.Column>
+    <DataTable.Column weight={1} label="Age" order="age" dir="asc">{(item) => item.age}</DataTable.Column>
+    <DataTable.Column weight={1} label="Sport" order="sport" dir="asc">{(item) => item.sport}</DataTable.Column>
+  </DataTable>
+</div>
+
+## order
+
+The `DataTable` supports visual elements for row ordering. Calling code 
+must provide the `order` attribute (a column name) and optionally 
+the `dir` attribute (`asc` or `desc`) for ordering options to appear.
+
+The `DataTable.Column` elements in the DataTable must have `order` 
+and `dir` properties set, as well.
+
+Note that `DataTable` is not responsible for the ordering; the calling 
+code must listen for the `onOrder` event and provide a new `data` array.
+
+<Canvas>
+  <Story
+    name="order"
+    args={{order: "name", dir: "asc", onClick: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## onClick
+
+A `DataTable` takes an `onClick` event handler. When a row is clicked, 
+the onClick event is fired with the row's data item. Clickable rows also 
+give visual feedback.
+
+<Canvas>
+  <Story
+    name="onClick"
+    args={{onClick: () => {}, onOrder: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

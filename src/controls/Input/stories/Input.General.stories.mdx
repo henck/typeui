@@ -1,0 +1,105 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Input} from '../Input';
+import {Form} from '../../Form';
+
+# Input: General 
+.
+
+<Meta 
+  title="Controls/Input/General" 
+  component={Input}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+<Form data={{}} onChange={() => {}} onValidate={() => {}}>
+  <Form.Field
+    name="name"
+    value={null}
+    control={<Input {...args}/>}
+  />
+</Form>
+
+export const NoFormTemplate = (args) =>
+<Input {...args}/>
+
+## clearable
+
+A `clearable` `Input` presents a clickable icon that clears the input's contents. 
+The icon only appears when the `Input` has content. The Input must be a 
+controlled component for this to work.
+
+<Canvas>
+  <Story
+    name="clearable"
+    args={{ clearable: true, placeholder: "Clearable" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## color 
+
+An input control of type `color` allows color picking. 
+
+<Story
+  name="color"
+  args={{ type:'color', placeholder: "Select color" }}>
+  {Template.bind({})}
+</Story>
+
+## date
+
+An `Input` control of type `date` allows date picking. 
+
+* Use `nofuture` to disallow only future dates. 
+* The `format` attribute controls how time is formatted in the input display (defaults to `HH:mm:ss`).
+
+See https://date-fns.org/v2.21.1/docs/format for formatting.
+
+<Story
+  name="date"
+  args={{ type:'date', format: "dd-MM-yyyy", placeholder: "Select date"  }}>
+  {Template.bind({})}
+</Story>
+
+## time
+
+An `Input` control of type `time` can show time in 12 or 24 hours, and optionally add a clock face.
+
+* Hours and minutes are always shown, but seconds are optional and appear only if `seconds` is set. 
+* If the optional property `clock` is given, then a clock face is shown.
+* The `format` attribute controls how time is formatted in the input display (defaults to `HH:mm:ss`).
+
+See https://date-fns.org/v2.21.1/docs/format for formatting.
+
+<Story
+  name="time"
+  args={{ type:'time', placeholder: "Select time", clock: true }}>
+  {Template.bind({})}
+</Story>
+
+## disabled 
+
+An `Input` can be `disabled`. A disabled `Input` cannot be interactive with.
+
+<Canvas>
+  <Story
+    name="disabled"
+    args={{ disabled: true, placeholder: "Disabled" }}>
+    {NoFormTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## error 
+
+An `Input` can be in an `error` state.
+
+<Canvas>
+  <Story
+    name="error"
+    args={{ error: true, placeholder: "Error" }}>
+    {NoFormTemplate.bind({})}
+  </Story>
+</Canvas>

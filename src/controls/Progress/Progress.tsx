@@ -4,20 +4,41 @@ import styled from '../../styles/Theme';
 import { darken } from '../../helper/darken';
 
 interface IProgressProps {
+  /** @ignore */
   className?: string;
-  /** Progress value (in range 0..100) */
+  /** 
+   * Progress value (in range 0..100) 
+   */
   value: number;
-  /** If set, Progress is not rounded. */
+  /** 
+   * If set, Progress is not rounded. 
+   * default false
+   */
   rectangular?: boolean;
-  /** If set, a background is added. */
+  /** 
+   * If set, a background is added. 
+   * @default false
+   */
   background?: boolean;
-  /** If set, a border is added. */
+  /** 
+   * If set, a border is added. 
+   * @default false 
+   */
   bordered?: boolean;
-  /** A raised Progress has a drop shadow. */
+  /** 
+   * A raised Progress has a drop shadow. 
+   * @default false
+   */
   raised?: boolean;
-  /** If set, a percentage number is shown on the Progress bar. */
+  /** 
+   * If set, a percentage number is shown on the Progress bar. 
+   * @default false
+   */
   numbered?: boolean;
-  /** Set progress bar thickness in pixels. Defaults to 12. */
+  /** 
+   * Set progress bar thickness in pixels. Defaults to 12. 
+   * @default 12
+   */
   thickness?: number;
   /** 
    * If set, sets the color of the Progress bar. By default, 
@@ -26,13 +47,8 @@ interface IProgressProps {
   color?: string;
 }
 
-class ProgressBase extends React.Component<IProgressProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}></div>
-    );
-  }
+class ProgressBase extends React.Component<IProgressProps> {
+  render = () => <div className={this.props.className}></div>
 }
 
 const ProgressStyled = styled(ProgressBase).attrs(p => ({
@@ -91,13 +107,8 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-progress--properties
  */
-class Progress extends React.Component<IProgressProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ProgressStyled {...p}/>
-    )
-  }  
+class Progress extends React.Component<IProgressProps> {
+  render = () => <ProgressStyled {...this.props}/>
 }
 
 export { Progress };

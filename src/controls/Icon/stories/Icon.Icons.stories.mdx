@@ -1,0 +1,70 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Icon} from '../Icon';
+import {Card} from '../../Card';
+
+<Meta 
+  title="Controls/Icon" 
+  component={Icon}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+# Icons
+
+export const IconsTemplate = (args) =>
+<div>
+  <Card><Card.Content><Icon name='area-chart'/></Card.Content><Card.Content secondary>area-chart</Card.Content></Card>
+  <Card><Card.Content><Icon name='arrow'/></Card.Content><Card.Content secondary>arrow</Card.Content></Card>
+  <Card><Card.Content><Icon name='at'/></Card.Content><Card.Content secondary>at</Card.Content></Card> 
+  <Card><Card.Content><Icon name='bar-chart'/></Card.Content><Card.Content secondary>bar-chart</Card.Content></Card>
+  <Card><Card.Content><Icon name='bars'/></Card.Content><Card.Content secondary>bars</Card.Content></Card> 
+  <Card><Card.Content><Icon name='bullhorn'/></Card.Content><Card.Content secondary>bullhorn</Card.Content></Card>
+  <Card><Card.Content><Icon name='caret-down'/></Card.Content><Card.Content secondary>caret-down</Card.Content></Card>
+  <Card><Card.Content><Icon name='caret-up'/></Card.Content><Card.Content secondary>caret-up</Card.Content></Card>
+  <Card><Card.Content><Icon name='check'/></Card.Content><Card.Content secondary>check</Card.Content></Card>
+  <Card><Card.Content><Icon name='chevron'/></Card.Content><Card.Content secondary>chevron</Card.Content></Card>
+  <Card><Card.Content><Icon name='chevron-double'/></Card.Content><Card.Content secondary>chevron-double</Card.Content></Card>
+  <Card><Card.Content><Icon name='circle'/></Card.Content><Card.Content secondary>circle</Card.Content></Card>
+  <Card><Card.Content><Icon name='circle-notch'/></Card.Content><Card.Content secondary>circle-notch</Card.Content></Card>
+  <Card><Card.Content><Icon name='cloud-upload'/></Card.Content><Card.Content secondary>cloud-upload</Card.Content></Card>
+  <Card><Card.Content><Icon name='code'/></Card.Content><Card.Content secondary>code</Card.Content></Card>
+  <Card><Card.Content><Icon name='download'/></Card.Content><Card.Content secondary>download</Card.Content></Card>
+  <Card><Card.Content><Icon name='edit'/></Card.Content><Card.Content secondary>edit</Card.Content></Card>
+  <Card><Card.Content><Icon name='envelope'/></Card.Content><Card.Content secondary>envelope</Card.Content></Card>
+  <Card><Card.Content><Icon name='exchange'/></Card.Content><Card.Content secondary>exchange</Card.Content></Card>
+  <Card><Card.Content><Icon name='eye'/></Card.Content><Card.Content secondary>eye</Card.Content></Card>
+  <Card><Card.Content><Icon name='eye-slash'/></Card.Content><Card.Content secondary>eye-slash</Card.Content></Card>
+  <Card><Card.Content><Icon name='file-csv'/></Card.Content><Card.Content secondary>file-csv</Card.Content></Card>
+  <Card><Card.Content><Icon name='file-download'/></Card.Content><Card.Content secondary>file-download</Card.Content></Card>
+  <Card><Card.Content><Icon name='file-excel'/></Card.Content><Card.Content secondary>file-excel</Card.Content></Card>
+  <Card><Card.Content><Icon name='file-geojson'/></Card.Content><Card.Content secondary>file-geojson</Card.Content></Card>
+  <Card><Card.Content><Icon name='file-ods'/></Card.Content><Card.Content secondary>file-ods</Card.Content></Card>
+  <Card><Card.Content><Icon name='filter'/></Card.Content><Card.Content secondary>filter</Card.Content></Card>
+  <Card><Card.Content><Icon name='heart-beat'/></Card.Content><Card.Content secondary>heart-beat</Card.Content></Card>
+  <Card><Card.Content><Icon name='id-card'/></Card.Content><Card.Content secondary>id-card</Card.Content></Card>
+  <Card><Card.Content><Icon name='layers'/></Card.Content><Card.Content secondary>layers</Card.Content></Card>
+  <Card><Card.Content><Icon name='line-chart'/></Card.Content><Card.Content secondary>line-chart</Card.Content></Card>
+  <Card><Card.Content><Icon name='link'/></Card.Content><Card.Content secondary>link</Card.Content></Card>
+  <Card><Card.Content><Icon name='lock'/></Card.Content><Card.Content secondary>lock</Card.Content></Card>
+  <Card><Card.Content><Icon name='minus'/></Card.Content><Card.Content secondary>minus</Card.Content></Card>
+  <Card><Card.Content><Icon name='plus'/></Card.Content><Card.Content secondary>plus</Card.Content></Card>
+  <Card><Card.Content><Icon name='save'/></Card.Content><Card.Content secondary>save</Card.Content></Card>
+  <Card><Card.Content><Icon name='search'/></Card.Content><Card.Content secondary>search</Card.Content></Card>
+  <Card><Card.Content><Icon name='table'/></Card.Content><Card.Content secondary>table</Card.Content></Card>
+  <Card><Card.Content><Icon name='times'/></Card.Content><Card.Content secondary>times</Card.Content></Card>
+  <Card><Card.Content><Icon name='tools'/></Card.Content><Card.Content secondary>tools</Card.Content></Card>
+  <Card><Card.Content><Icon name='trash'/></Card.Content><Card.Content secondary>trash</Card.Content></Card>
+  <Card><Card.Content><Icon name='unlock'/></Card.Content><Card.Content secondary>unlock</Card.Content></Card>
+  <Card><Card.Content><Icon name='zoom-extents'/></Card.Content><Card.Content secondary>zoom-extents</Card.Content></Card>
+</div>
+
+
+
+<Canvas>
+  <Story
+    name="Icons"
+    args={{  }}>
+    {IconsTemplate.bind({})}
+  </Story>
+</Canvas>

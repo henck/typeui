@@ -1,0 +1,43 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Gravatar} from '../Gravatar';
+
+# Gravatar: General 
+.
+
+<Meta 
+  title="Controls/Gravatar/General" 
+  component={Gravatar}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Gravatar {...args}/>
+
+## Size
+
+A gravatar may have a `size` prop. If not specified, it uses `avatar` size. 
+
+<Canvas>
+  <Story
+    name="Size"
+    args={{ email: "alex.vanoostenrijk@gmail.com", size: 'tiny' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Unknown
+
+If an `email` is not provided, then `Gravatar` will request the default "unknown user" 
+image from the gravatar service.
+
+<Canvas>
+  <Story
+    name="Unknown"
+    args={{ }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+

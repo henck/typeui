@@ -1,0 +1,35 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {CircularProgress} from '../CircularProgress';
+
+# CircularProgress: General
+.
+
+<Meta 
+  title="Controls/CircularProgress/General" 
+  component={CircularProgress}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => <CircularProgress {...args}/>
+
+## value
+
+The `value` property is required. This must be a value between `0` and `100`.
+
+export const ValueTemplate = (args) => <div>
+  <CircularProgress {...args}/>
+  <CircularProgress padded color="green" background value={50}/>
+  <CircularProgress padded color="pink" background value={80}/>
+  <CircularProgress padded color="red" background value={100}/>
+</div>
+
+<Canvas>
+  <Story
+    name="value"
+    args={{value: 30, padded: true, background: true}}>
+    {ValueTemplate.bind({})}
+  </Story>
+</Canvas>
+

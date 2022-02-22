@@ -7,15 +7,26 @@ import { Panes } from './Panes';
 import { TabBar } from './TabBar';
 
 interface ITabsProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** Underline the current tab (animated). */
+  /** 
+   * Underline the current tab (animated). 
+   * @default false
+   */
   underlined?: boolean;
-  /** If set, hidden panes are not rendered. */
+  /** 
+   * If set, hidden panes are not rendered. 
+   * @default false
+   */
   nohiddenrender?: boolean;
-  /** Index of active tab by default (0-based) */
+  /** 
+   * Index of active tab by default (0-based) 
+   */
   active?: number;
-  /* Method to call when active tab changes. */
+  /**
+   * Method to call when active tab changes. 
+   */
   onTabChange?: (idx: number) => void;
 }
 
@@ -101,9 +112,7 @@ const TabsStyled = styled(TabsBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-tabs--properties
  */
-class Tabs extends React.PureComponent<ITabsProps, {}> {
-  public static displayName = "Tabs";
-
+class Tabs extends React.PureComponent<ITabsProps> {
   /** 
    * A single tab pane. 
    * 
@@ -112,14 +121,7 @@ class Tabs extends React.PureComponent<ITabsProps, {}> {
    */
   public static Pane = Pane;
 
-  render() {
-    let p = this.props;
-    return (
-      <TabsStyled {...p}></TabsStyled>
-    )
-  }
+  render = () => <TabsStyled {...this.props}></TabsStyled>
 }
-
-(Tabs.Pane as any).displayName = "Tabs.Pane";
 
 export { Tabs };

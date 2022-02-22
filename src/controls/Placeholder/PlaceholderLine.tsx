@@ -5,21 +5,22 @@ import { css } from 'styled-components';
 type TLineLength = 'full' | 'long' | 'medium' | 'short';
 
 interface IPlaceholderLineProps {
+  /** @ignore */
   className?: string;
-  /** Length of line: 'full', 'long', 'medium' or 'short'. If not provided,
-      then the length will be randomized. */
+  /** 
+   * Length of line: 'full', 'long', 'medium' or 'short'. If not provided,
+   * then the length will be randomized. 
+   */
   length?: TLineLength;
-  /** A tall line is a little higher than a normal line. */
+  /** 
+   * A tall line is a little higher than a normal line. 
+   * @default false
+   */
   tall?: boolean;
 }
 
-class PlaceholderLineBase extends React.Component<IPlaceholderLineProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}></div>
-    );
-  }
+class PlaceholderLineBase extends React.Component<IPlaceholderLineProps> {
+  render = () => <div className={this.props.className}></div>
 }
 
 /* Spacing between lines */
@@ -69,7 +70,7 @@ const PlaceholderLineStyled = styled(PlaceholderLineBase).attrs(p => ({
 // It does this so that it can set a default (random) value for the length prop
 // if it wasn't specified.
 //
-class PlaceholderLine extends React.Component<IPlaceholderLineProps, {}> {
+class PlaceholderLine extends React.Component<IPlaceholderLineProps> {
   private length: TLineLength;
 
   constructor(props: IPlaceholderLineProps) {
@@ -81,11 +82,7 @@ class PlaceholderLine extends React.Component<IPlaceholderLineProps, {}> {
     this.length = props.length || randomLength;
   }
 
-  render() {
-    return (
-      <PlaceholderLineStyled {...this.props} length={this.length}/>
-    );
-  }
+  render = () => <PlaceholderLineStyled {...this.props} length={this.length}/>
 }
 
 export { PlaceholderLine };

@@ -1,0 +1,42 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import { ToastService } from '../ToastService';
+import { ToastContainer } from '../ToastContainer';
+import { Toast } from '../Toast';
+import { Button } from '../../Button';
+
+
+<Meta
+  title="Controls/Toast"  
+  component={Toast}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+# Toast
+
+Toasts require a `ToastContainer` (at least one, possible to create more) to live somewhere to
+show the toasts. The ToastContainer defines how many toasts remain on-screen at the same time. When 
+there are too many toasts, newer toasts cause older toasts to be removed.
+
+A toast is created by calling `ToastService.toast()` with a message (a ReactNode) and an optional
+duration. The ToastService manages all ToastContainers and dispatches the toasts to them.
+
+<ArgsTable of={Toast}/>
+
+## Example
+
+export const Template = (args) =>
+<div>
+  <ToastContainer maxToasts={3}/>
+  <Button onClick={() => ToastService.toast('hello, world')}>Create Toast</Button>
+</div>
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+

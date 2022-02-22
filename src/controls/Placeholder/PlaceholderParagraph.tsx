@@ -2,17 +2,13 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IPlaceholderParagraphProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
 }
 
-class PlaceholderParagraphBase extends React.Component<IPlaceholderParagraphProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
+class PlaceholderParagraphBase extends React.Component<IPlaceholderParagraphProps> {
+  render = () => <div className={this.props.className}>{this.props.children}</div>
 }
 
 const PlaceholderParagraphStyled = styled(PlaceholderParagraphBase)`
@@ -37,13 +33,8 @@ const PlaceholderParagraphStyled = styled(PlaceholderParagraphBase)`
   }
 `;
 
-class PlaceholderParagraph extends React.Component<IPlaceholderParagraphProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <PlaceholderParagraphStyled {...p}/>
-    )
-  }  
+class PlaceholderParagraph extends React.Component<IPlaceholderParagraphProps> {
+  render = () => <PlaceholderParagraphStyled {...this.props}/>
 }
 
 export { PlaceholderParagraph };

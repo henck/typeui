@@ -6,6 +6,7 @@ import { keyframes, css } from 'styled-components';
 import { Size } from '../Types';
 
 interface IImageLoaderProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
   // Are we in an error state?

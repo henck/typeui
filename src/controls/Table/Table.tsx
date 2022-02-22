@@ -3,21 +3,23 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface ITableProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** If set, adds row striping. */
+  /** 
+   * If set, adds row striping. 
+   * @default false
+   */
   striped?: boolean;
-  /** If set, removes table border. */
+  /** 
+   * If set, removes table border. 
+   * @default false
+   */
   transparent?: boolean;
 }
 
-class TableBase extends React.Component<ITableProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <table className={p.className}>{p.children}</table>
-    );
-  }
+class TableBase extends React.Component<ITableProps> {
+  render = () => <table className={this.props.className}>{this.props.children}</table>
 }
 
 const TableStyled = styled(TableBase)`
@@ -111,12 +113,8 @@ const TableStyled = styled(TableBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-table--properties
  */
-class Table extends React.PureComponent<ITableProps, {}> {
-  render() {
-    return (
-      <TableStyled {...this.props}/>
-    );
-  }
+class Table extends React.PureComponent<ITableProps> {
+  render = () => <TableStyled {...this.props}/>
 }
 
 export { Table };

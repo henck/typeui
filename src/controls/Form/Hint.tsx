@@ -2,17 +2,13 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IFormHintProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
 }
 
 class HintBase extends React.Component<IFormHintProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
+  render = () =><div className={this.props.className}>{this.props.children}</div>
 }
 
 const Hint = styled(HintBase)`
@@ -23,4 +19,4 @@ const Hint = styled(HintBase)`
   padding-left: 4px;
 `;
 
-export { Hint };
+export { Hint }

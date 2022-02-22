@@ -1,0 +1,82 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Accordion} from '../Accordion';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Flex} from '../../Flex';
+import {Message} from '../../Message';
+
+# Accordion: Variations
+.
+
+<Meta 
+  title="Controls/Accordion/Variatons" 
+  component={Accordion}
+  subcomponents={{'Accordion.Tab': Accordion.Tab}}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const DefaultTemplate = (args) =>
+<Accordion {...args}>
+  <Accordion.Tab title="What is a dog?">
+    A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
+  </Accordion.Tab>
+  <Accordion.Tab title="What kinds of dogs are there?">
+    There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.
+  </Accordion.Tab>
+  <Accordion.Tab title="How do you acquire a dog?">
+    Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.
+    A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.
+  </Accordion.Tab>       
+</Accordion>
+
+## align
+
+An Accordion's expand/collapse carets can have an `align` of `left` (default) or `right`.
+
+<Canvas>
+  <Story
+    name="align"
+    args={{align: 'right'}}>
+    {DefaultTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## noanimate 
+
+The Accordion's sliding animation can be turned off with `noanimate`.
+
+<Canvas>
+  <Story
+    name="noanimate"
+    args={{noanimate: true, styled: true}}>
+    {DefaultTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## styled 
+
+A `styled` Accordion adds basic formatting.
+
+<Canvas>
+  <Story
+    name="styled"
+    args={{styled: true}}>
+    {DefaultTemplate.bind({})}
+  </Story>
+</Canvas>
+
+
+## raised 
+
+A `raised` Accordion (with `styled` set) gets an extra-deep drop shadow.
+
+<Canvas>
+  <Story
+    name="raised"
+    args={{raised: true, styled: true}}>
+    {DefaultTemplate.bind({})}
+  </Story>
+</Canvas>
+

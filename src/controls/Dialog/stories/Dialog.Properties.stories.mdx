@@ -1,0 +1,39 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Dialog} from '../Dialog'
+import {Button} from '../../Button'
+
+<Meta 
+  title="Controls/Dialog" 
+  component={Dialog}
+/>
+
+# Dialog
+
+A `Dialog` is an overlay window that is triggered when the Dialog's `open` attribute is set 
+to `true`. The calling code is responsible for setting `open` to `false` when the Dialog
+should close.
+
+The `Dialog` also calls `onClose` when the user clicks outside the Dialog.
+
+<ArgsTable for="Dialog"/>
+
+# Sample dialog
+
+export const Template = (args) => 
+<div style={{height: '300px'}}>
+<Dialog {...args}>
+  <Dialog.Header>Welcome</Dialog.Header>
+  <Dialog.Content>Good day!</Dialog.Content>
+  <Dialog.Footer>
+    <Button>OK</Button>
+  </Dialog.Footer>
+</Dialog>
+</div>
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ open: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

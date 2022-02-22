@@ -9,25 +9,28 @@ import { Meta } from './Meta';
 import { lighten } from '../../helper/lighten';
 
 interface ICardProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** A fluid card occupies all width available to it. */
+  /** 
+   * A fluid Card occupies all width available to it. 
+   * @default false
+   */
   fluid?: boolean;
-  /** A raised card will have an extra-strong dropshadow. */
+  /** 
+   * A raised Card will have an extra-strong dropshadow. 
+   * @default false 
+   */
   raised?: boolean;
-  /** A card can be clickable. If an event handler is set, then the card will respond to mouse hover. */
+  /** 
+   * A Card can be clickable. If an event handler is set, then the Card will 
+   * respond to mouse hover. 
+   */
   onClick?: () => void;
 }
 
-class CardBase extends React.Component<ICardProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onClick={p.onClick}>
-        {p.children}
-      </div>
-    );
-  }
+class CardBase extends React.Component<ICardProps> {
+  render = () => <div className={this.props.className} onClick={this.props.onClick}>{this.props.children}</div>
 }
 
 const CardStyled = styled(CardBase)`
@@ -78,9 +81,7 @@ const CardStyled = styled(CardBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-card--properties
  */
-class Card extends React.Component<ICardProps, {}> {
-  public static displayName = 'Card';
-
+class Card extends React.Component<ICardProps> {
   /** A Card can have a Card.Header element. */
   public static Header = Header;
 
@@ -90,15 +91,7 @@ class Card extends React.Component<ICardProps, {}> {
   /** A Card can have any number of Card.Content elements inside it. */
   public static Content = Content;
 
-  render() {
-    return (
-      <CardStyled {...this.props}></CardStyled>
-    );
-  }
+  render = () => <CardStyled {...this.props}></CardStyled>
 }
-
-(Card.Header as any).displayName = "Card.Header";
-(Card.Meta as any).displayName = "Card.Meta";
-(Card.Content as any).displayName = "Card.Content";
 
 export { Card };

@@ -1,0 +1,56 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Icon} from '../Icon';
+
+# Icon: General
+.
+
+<Meta 
+  title="Controls/Icon/General" 
+  component={Icon}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Icon {...args}/>
+
+## url 
+
+An icon with a custom URL. If you want to use an icon from a spritesheet other than the built-in spritesheet,
+you can pass its URL using the `url` attribute (and omit the `name` attribute).
+
+<Canvas>
+  <Story
+    name="url"
+    args={{ url: "spritemap.svg#bullhorn", onClick: null }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## disabled 
+
+An icon can show that it is `disabled`.
+
+<Canvas>
+  <Story
+    name="disabled"
+    args={{ name: "bullhorn", onClick: null, disabled: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## onClick 
+
+An icon with an `onClick` attribute has a hover transition.
+
+<Canvas>
+  <Story
+    name="onClick"
+    args={{ name: "bullhorn", onClick: () => {} }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
+

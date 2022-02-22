@@ -7,16 +7,29 @@ import { lighten } from '../../helper/lighten';
 import { DMS } from '../../helper/DMS';
 
 interface IProps {
+  /** @ignore */
   className?: string;  
-  /** Latitude or longitude? */
+  /** 
+   * Latitude or longitude? 
+   */
   isLatitude: boolean;
-  /** Input name. */
+  /** 
+   * Input name. 
+   */
   name?: string;
-  /** Input value. */
+  /** 
+   * Input value. 
+   */
   value?: any;
-  /** Marks input as disabled. */
+  /** 
+   * Marks input as disabled. 
+   * @default false
+   */
   disabled?: boolean;
-  /** An input can show an error state. */
+  /** 
+   * An input can show an error state. 
+   * @default false
+   */
   error?: boolean;
 
   onChange?: (value: any) => void;

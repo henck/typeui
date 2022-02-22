@@ -1,0 +1,29 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Segment} from '../Segment';
+
+<Meta
+  title="Controls/Segment"  
+  component={Segment}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Segment {...args}/>
+
+# Segment
+
+A `Segment` places a border around some content.
+
+<ArgsTable of={Segment}/>
+
+## Example
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ children: "Some content." }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

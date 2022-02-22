@@ -3,25 +3,28 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IDividerProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** A fitted Divider has no space above or below it. */
+  /** 
+   * A fitted Divider has no space above or below it. 
+   * @default false 
+   */
   fitted?: boolean;
-  /** A hidden Divider divides content without a dividing line. */
+  /** 
+   * A hidden Divider divides content without a dividing line. 
+   * @default false 
+   */
   hidden?: boolean;
-  /** A section Divider creates more margin between blocks of content. */
+  /** 
+   * A section Divider creates more margin between blocks of content. 
+   * @default false
+   */
   section?: boolean;
 }
 
-class DividerBase extends React.PureComponent<IDividerProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        <span>{p.children}</span>
-      </div>
-    );
-  }
+class DividerBase extends React.PureComponent<IDividerProps> {
+  render = () => <div className={this.props.className}><span>{this.props.children}</span></div>
 }
 
 const DividerStyled = styled(DividerBase)`
@@ -75,14 +78,8 @@ const DividerStyled = styled(DividerBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-divider--properties
  */
-class Divider extends React.PureComponent<IDividerProps, {}> {
-  public static displayName = 'Divider';
-
-  render() {
-    return (
-      <DividerStyled {...this.props}></DividerStyled>
-    );
-  }
+class Divider extends React.PureComponent<IDividerProps> {
+  render = () => <DividerStyled {...this.props}></DividerStyled>
 }
 
 export { Divider };

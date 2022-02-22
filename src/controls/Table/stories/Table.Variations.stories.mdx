@@ -1,0 +1,108 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Table} from '../Table';
+
+# Table: Variations
+.
+
+<Meta
+  title="Controls/Table/Variations"  
+  component={Table}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+<Table {...args}>
+  <thead>
+    <tr>
+      <th>Column One</th>
+      <th>Column Two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Value One</td>
+      <td>Value Two</td>
+    </tr>
+    <tr>
+      <td>Value Three</td>
+      <td>Value Four</td>
+    </tr>
+    <tr>
+      <td>Value Five</td>
+      <td>Value Six</td>
+    </tr>
+    <tr>
+      <td>Value Seven</td>
+      <td>Value Eight</td>
+    </tr>
+    <tr>
+      <td>Value Nine</td>
+      <td>Value Ten</td>
+    </tr>
+  </tbody>
+</Table>    
+
+## striped 
+
+A `striped` `Table` adds row striping.
+
+<Canvas>
+  <Story
+    name="striped"
+    args={{ striped: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## transparent 
+
+A `transparent` `Table` has no border.
+
+<Canvas>
+  <Story
+    name="transparent"
+    args={{ transparent: true }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Headerless 
+
+A `Table` without a `<thead>` adds a rounded border to the first row. Note that
+for the styling to work, a `<tbody>` element is required.
+
+export const HeaderlessTemplate = (args) =>
+<Table {...args}>
+  <tbody>
+    <tr>
+      <td>Value One</td>
+      <td>Value Two</td>
+    </tr>
+    <tr>
+      <td>Value Three</td>
+      <td>Value Four</td>
+    </tr>
+    <tr>
+      <td>Value Five</td>
+      <td>Value Six</td>
+    </tr>
+    <tr>
+      <td>Value Seven</td>
+      <td>Value Eight</td>
+    </tr>
+    <tr>
+      <td>Value Nine</td>
+      <td>Value Ten</td>
+    </tr>
+  </tbody>
+</Table>    
+
+<Canvas>
+  <Story
+    name="Headerless"
+    args={{ }}>
+    {HeaderlessTemplate.bind({})}
+  </Story>
+</Canvas>

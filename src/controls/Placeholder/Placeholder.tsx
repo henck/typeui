@@ -9,13 +9,17 @@ import { PlaceholderHeader } from './PlaceholderHeader';
 import { PlaceholderLine } from './PlaceholderLine';
 
 interface IPlaceholderProps {
+  /** @ignore */
   className?: string;
   children?: React.ReactNode;
-  /** A fluid placeholder fills the width of its container. */
+  /** 
+   * A fluid placeholder fills the width of its container. 
+   * @default false
+   */
   fluid?: boolean;
 }
 
-class PlaceholderBase extends React.Component<IPlaceholderProps, {}> {
+class PlaceholderBase extends React.Component<IPlaceholderProps> {
   render() {
     let p = this.props;
     return (
@@ -71,24 +75,14 @@ const PlaceholderStyled = styled(PlaceholderBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-placeholder--properties
  */
-class Placeholder extends React.Component<IPlaceholderProps, {}> {
+class Placeholder extends React.Component<IPlaceholderProps> {
   public static Paragraph = PlaceholderParagraph;
   public static Image = PlaceholderImage;
   public static Header = PlaceholderHeader;
   public static Line = PlaceholderLine;
-  public static displayName = 'Placeholder';
 
-  render() {
-    return (
-      <PlaceholderStyled {...this.props}></PlaceholderStyled>
-    );
-  }
+  render = () =><PlaceholderStyled {...this.props}/>
 }
-
-(Placeholder.Paragraph as any).displayName = "Placeholder.Paragraph";
-(Placeholder.Image as any).displayName = "Placeholder.Image";
-(Placeholder.Header as any).displayName = "Placeholder.Header";
-(Placeholder.Line as any).displayName = "Placeholder.Line";
 
 
 export { Placeholder };

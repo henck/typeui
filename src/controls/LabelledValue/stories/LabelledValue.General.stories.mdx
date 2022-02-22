@@ -1,0 +1,29 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {LabelledValue} from '../LabelledValue';
+
+# LabelledValue: General
+.
+
+<Meta
+  title="Controls/LabelledValue/General"  
+  component={LabelledValue}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <LabelledValue {...args}/>
+
+## onClick
+
+If an `onClick` event is attached to a `LabelledValue`, then the label has 
+a link appearance.
+
+<Canvas>
+  <Story
+    name="onClick"
+    args={{ onClick: () => {}, label: "A label", children: "Some value" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

@@ -1,0 +1,60 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Label} from '../Label';
+import {Image} from '../../Image';
+
+# Label: General
+. 
+
+<Meta
+  title="Controls/Label/General"  
+  component={Label}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Label {...args}/>
+
+# Label.Detail
+
+A `Label` can contain a `Label.Detail` inside it.
+
+<Canvas>
+  <Story
+    name="Properties"
+    args={{ onClick: null, children: ["Dogs", <Label.Detail>22</Label.Detail> ]}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## onClick
+
+A `Label` with an `onClick` event darkens on hover.
+
+<Canvas>
+  <Story
+    name="onClick"
+    args={{ onClick: () => {}, children: "Clickable" }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Image
+
+A `Label` can contain an `Image`. Images are sized to match the Label height.
+
+export const ImageTemplate = (args) => 
+<div>
+  <Label {...args}/>
+  <Label size="small"><Image src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg'/>Two</Label>
+  <Label size="huge"><Image src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg'/>Three</Label>
+</div>  
+
+<Canvas>
+  <Story
+    name="Image"
+    args={{ onClick: () => {}, children: [<Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg'/>, "One"] }}>
+    {ImageTemplate.bind({})}
+  </Story>
+</Canvas>
