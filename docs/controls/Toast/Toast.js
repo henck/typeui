@@ -68,12 +68,10 @@ var ToastStyled = styled(ToastBase)(templateObject_1 || (templateObject_1 = __ma
 var Toast = /** @class */ (function (_super) {
     __extends(Toast, _super);
     function Toast() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ToastStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Toast.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ToastStyled, __assign({}, p)));
-    };
     return Toast;
 }(React.Component));
 export { Toast };

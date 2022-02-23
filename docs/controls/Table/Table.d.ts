@@ -1,10 +1,17 @@
 import * as React from 'react';
 interface ITableProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
-    /** If set, adds row striping. */
+    /**
+     * If set, adds row striping.
+     * @default false
+     */
     striped?: boolean;
-    /** If set, removes table border. */
+    /**
+     * If set, removes table border.
+     * @default false
+     */
     transparent?: boolean;
 }
 /**
@@ -19,7 +26,7 @@ interface ITableProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-table--properties
  */
-declare class Table extends React.PureComponent<ITableProps, {}> {
-    render(): JSX.Element;
+declare class Table extends React.PureComponent<ITableProps> {
+    render: () => JSX.Element;
 }
 export { Table };

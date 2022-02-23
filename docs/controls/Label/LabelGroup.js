@@ -56,12 +56,10 @@ var LabelGroupStyled = styled(LabelGroupBase)(templateObject_1 || (templateObjec
 var LabelGroup = /** @class */ (function (_super) {
     __extends(LabelGroup, _super);
     function LabelGroup() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(LabelGroupStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    LabelGroup.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(LabelGroupStyled, __assign({}, p)));
-    };
     return LabelGroup;
 }(React.Component));
 export { LabelGroup };

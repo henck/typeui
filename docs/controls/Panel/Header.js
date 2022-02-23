@@ -33,23 +33,20 @@ import styled from '../../styles/Theme';
 var HeaderBase = /** @class */ (function (_super) {
     __extends(HeaderBase, _super);
     function HeaderBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("span", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    HeaderBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("span", { className: p.className }, p.children));
-    };
     return HeaderBase;
 }(React.Component));
 var HeaderStyled = styled(HeaderBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  display: block;\n  padding: 10px 14px 8px 14px;\n  font-size: 16px;\n  background: #f9f9f9;\n  &:first-child {\n    border-top-left-radius: ", "px;\n    border-top-right-radius: ", "px;    \n  }\n  &:not(:last-child) {\n    border-bottom: solid 1px ", ";\n  }\n"], ["\n  position: relative;\n  display: block;\n  padding: 10px 14px 8px 14px;\n  font-size: 16px;\n  background: #f9f9f9;\n  &:first-child {\n    border-top-left-radius: ", "px;\n    border-top-right-radius: ", "px;    \n  }\n  &:not(:last-child) {\n    border-bottom: solid 1px ", ";\n  }\n"])), function (p) { return p.theme.radius; }, function (p) { return p.theme.radius; }, function (p) { return p.theme.normalColor; });
 var Header = /** @class */ (function (_super) {
     __extends(Header, _super);
     function Header() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(HeaderStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Header.prototype.render = function () {
-        return (React.createElement(HeaderStyled, __assign({}, this.props)));
-    };
     return Header;
 }(React.Component));
 export { Header };

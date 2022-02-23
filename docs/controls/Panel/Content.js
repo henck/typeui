@@ -33,23 +33,20 @@ import styled from '../../styles/Theme';
 var ContentBase = /** @class */ (function (_super) {
     __extends(ContentBase, _super);
     function ContentBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    ContentBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return ContentBase;
 }(React.Component));
 var ContentStyled = styled(ContentBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  padding: 14px;\n  &:first-child {\n    border-top-left-radius: ", "px;\n    border-top-right-radius: ", "px;    \n  }\n  &:not(:last-child) {\n    border-bottom: solid 1px ", ";\n  }\n"], ["\n  position: relative;\n  padding: 14px;\n  &:first-child {\n    border-top-left-radius: ", "px;\n    border-top-right-radius: ", "px;    \n  }\n  &:not(:last-child) {\n    border-bottom: solid 1px ", ";\n  }\n"])), function (p) { return p.theme.radius; }, function (p) { return p.theme.radius; }, function (p) { return p.theme.normalColor; });
 var Content = /** @class */ (function (_super) {
     __extends(Content, _super);
     function Content() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ContentStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Content.prototype.render = function () {
-        return (React.createElement(ContentStyled, __assign({}, this.props)));
-    };
     return Content;
 }(React.Component));
 export { Content };

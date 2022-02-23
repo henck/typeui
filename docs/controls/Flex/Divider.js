@@ -38,25 +38,21 @@ import styled from '../../styles/Theme';
  */
 var DividerBase = /** @class */ (function (_super) {
     __extends(DividerBase, _super);
-    function DividerBase(props) {
-        return _super.call(this, props) || this;
+    function DividerBase() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("span", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    DividerBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("span", { className: p.className }, p.children));
-    };
     return DividerBase;
 }(React.Component));
 var DividerStyled = styled(DividerBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position:       absolute;\n  top:            50%;\n  left:           50%;\n  width:          auto;\n  height:         50%;\n  z-index:        1;\n  transform:      translateX(-50%);\n  line-height:    0;\n  font-weight:    500;\n  text-transform: uppercase;  \n  text-align:     center;\n  &:before, &:after {\n    content:      '';\n    position:     absolute;\n    left:         50%;\n    width:        0;\n    height:       calc(100% - 1em);\n    border-left:  solid 1px ", ";\n  }\n  &:before { \n    bottom:       0;\n  }\n  &:after {\n    top:          -100%;\n  }\n  ", "  \n"], ["\n  position:       absolute;\n  top:            50%;\n  left:           50%;\n  width:          auto;\n  height:         50%;\n  z-index:        1;\n  transform:      translateX(-50%);\n  line-height:    0;\n  font-weight:    500;\n  text-transform: uppercase;  \n  text-align:     center;\n  &:before, &:after {\n    content:      '';\n    position:     absolute;\n    left:         50%;\n    width:        0;\n    height:       calc(100% - 1em);\n    border-left:  solid 1px ", ";\n  }\n  &:before { \n    bottom:       0;\n  }\n  &:after {\n    top:          -100%;\n  }\n  ", "  \n"])), function (p) { return p.theme.normalColor; }, function (p) { return p.stackable && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      width:        100%;\n      height:       auto;\n      &:before, &:after {\n        left:       auto;\n        top:        50%;\n        width:      calc(50% - 2em);\n        height:     0;\n        border-top: solid 1px ", ";\n      }\n      &:before {\n        left:       0;\n      }\n      &:after {\n        right:      0;\n      }\n    }  \n  "], ["\n    @media (max-width: ", "px) {\n      width:        100%;\n      height:       auto;\n      &:before, &:after {\n        left:       auto;\n        top:        50%;\n        width:      calc(50% - 2em);\n        height:     0;\n        border-top: solid 1px ", ";\n      }\n      &:before {\n        left:       0;\n      }\n      &:after {\n        right:      0;\n      }\n    }  \n  "])), function (p) { return p.theme.smallScreen; }, function (p) { return p.theme.normalColor; }); });
 var Divider = /** @class */ (function (_super) {
     __extends(Divider, _super);
     function Divider() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(DividerStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Divider.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(DividerStyled, __assign({}, p)));
-    };
     return Divider;
 }(React.Component));
 export { Divider };

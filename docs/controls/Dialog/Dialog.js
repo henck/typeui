@@ -111,10 +111,4 @@ var Dialog = /** @class */ (function (_super) {
     Dialog.Xhr = XhrDialog;
     return Dialog;
 }(React.Component));
-Dialog.Header.displayName = "Dialog.Header";
-Dialog.Content.displayName = "Dialog.Content";
-Dialog.Footer.displayName = "Dialog.Footer";
-Dialog.Alert.displayName = "Dialog.Alert";
-Dialog.Confirm.displayName = "Dialog.Confirm";
-Dialog.Xhr.displayName = "Dialog.Xhr";
 export { Dialog };

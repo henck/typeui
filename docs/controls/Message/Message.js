@@ -41,12 +41,10 @@ import { darken } from '../../helper/darken';
 var MessageBase = /** @class */ (function (_super) {
     __extends(MessageBase, _super);
     function MessageBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    MessageBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return MessageBase;
 }(React.Component));
 var MessageStyled = styled(MessageBase).attrs(function (p) { return ({
@@ -65,18 +63,13 @@ var MessageStyled = styled(MessageBase).attrs(function (p) { return ({
 var Message = /** @class */ (function (_super) {
     __extends(Message, _super);
     function Message() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(MessageStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Message.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(MessageStyled, __assign({}, p)));
-    };
-    Message.displayName = "Message";
     Message.Header = MessageHeader;
     Message.Content = MessageContent;
     return Message;
 }(React.Component));
-Message.Header.displayName = "Message.Header";
-Message.Content.displayName = "Message.Content";
 export { Message };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17, templateObject_18, templateObject_19, templateObject_20;

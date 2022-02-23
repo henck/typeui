@@ -90,12 +90,10 @@ var ToastContainerStyled = styled(ToastContainerBase)(templateObject_1 || (templ
 var ToastContainer = /** @class */ (function (_super) {
     __extends(ToastContainer, _super);
     function ToastContainer() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ToastContainerStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    ToastContainer.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ToastContainerStyled, __assign({}, p)));
-    };
     return ToastContainer;
 }(React.Component));
 export { ToastContainer };

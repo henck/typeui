@@ -52,12 +52,10 @@ var PaneStyled = styled(PaneBase)(templateObject_1 || (templateObject_1 = __make
 var Pane = /** @class */ (function (_super) {
     __extends(Pane, _super);
     function Pane() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(PaneStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Pane.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(PaneStyled, __assign({}, p)));
-    };
     return Pane;
 }(React.Component));
 export { Pane };

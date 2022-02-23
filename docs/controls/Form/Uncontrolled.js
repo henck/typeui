@@ -58,12 +58,10 @@ var UncontrolledStyled = styled(UncontrolledBase)(templateObject_2 || (templateO
 var Uncontrolled = /** @class */ (function (_super) {
     __extends(Uncontrolled, _super);
     function Uncontrolled() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(UncontrolledStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Uncontrolled.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(UncontrolledStyled, __assign({}, p)));
-    };
     return Uncontrolled;
 }(React.Component));
 export { Uncontrolled };

@@ -85,12 +85,10 @@ var CheckboxStyled = styled(CheckboxBase).attrs(function (p) { return ({
 var Checkbox = /** @class */ (function (_super) {
     __extends(Checkbox, _super);
     function Checkbox() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(CheckboxStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Checkbox.prototype.render = function () {
-        return (React.createElement(CheckboxStyled, __assign({}, this.props)));
-    };
-    Checkbox.displayName = 'Checkbox';
     return Checkbox;
 }(React.Component));
 export { Checkbox };

@@ -41,13 +41,14 @@ import { Icon } from '../Icon/Icon';
 var ListIcon = /** @class */ (function (_super) {
     __extends(ListIcon, _super);
     function ListIcon() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () {
+            var _a = _this.props, className = _a.className, other = __rest(_a, ["className"]);
+            return (React.createElement("div", { className: className },
+                React.createElement(Icon, __assign({}, other))));
+        };
+        return _this;
     }
-    ListIcon.prototype.render = function () {
-        var _a = this.props, className = _a.className, other = __rest(_a, ["className"]);
-        return (React.createElement("div", { className: className },
-            React.createElement(Icon, __assign({}, other))));
-    };
     return ListIcon;
 }(React.Component));
 export { ListIcon };

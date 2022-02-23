@@ -63,11 +63,13 @@ var IconStyled = styled(IconBase).attrs(function (p) { return ({
 var Icon = /** @class */ (function (_super) {
     __extends(Icon, _super);
     function Icon() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(IconStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Icon.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(IconStyled, __assign({}, p)));
+    /* This is used by parent components to determine if a child is an Icon. */
+    Icon.defaultProps = {
+        isIcon: true
     };
     return Icon;
 }(React.Component));

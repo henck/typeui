@@ -86,13 +86,10 @@ var ImageStyled = styled(ImageBase)(templateObject_29 || (templateObject_29 = __
 var Image = /** @class */ (function (_super) {
     __extends(Image, _super);
     function Image() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ImageStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Image.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ImageStyled, __assign({}, p)));
-    };
-    Image.displayName = "Image";
     /**
      * An Image.Group is a group of images can share size, bordered,
      * rounded and circular attributes. The images are automatically spaced.
@@ -100,6 +97,5 @@ var Image = /** @class */ (function (_super) {
     Image.Group = ImageGroup;
     return Image;
 }(React.Component));
-Image.Group.displayName = "Image.Group";
 export { Image, ImageStyled };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17, templateObject_18, templateObject_19, templateObject_20, templateObject_21, templateObject_22, templateObject_23, templateObject_24, templateObject_25, templateObject_26, templateObject_27, templateObject_28, templateObject_29;

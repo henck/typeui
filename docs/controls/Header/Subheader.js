@@ -33,24 +33,20 @@ import styled from '../../styles/Theme';
 var SubheaderBase = /** @class */ (function (_super) {
     __extends(SubheaderBase, _super);
     function SubheaderBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    SubheaderBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return SubheaderBase;
 }(React.Component));
 var SubheaderStyled = styled(SubheaderBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  font-weight: 500;\n  font-size: 60%;\n"], ["\n  font-weight: 500;\n  font-size: 60%;\n"])));
 var Subheader = /** @class */ (function (_super) {
     __extends(Subheader, _super);
     function Subheader() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(SubheaderStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Subheader.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(SubheaderStyled, __assign({}, p)));
-    };
     return Subheader;
 }(React.Component));
 export { Subheader };

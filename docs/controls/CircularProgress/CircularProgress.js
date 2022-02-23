@@ -77,7 +77,6 @@ var CircularProgressBase = /** @class */ (function (_super) {
         var q3 = Math.max(0, Math.min(degrees - 180, 95));
         var q4 = Math.max(0, Math.min(degrees - 270, 95));
         // Dot calculations:
-        var innerRadius = radius - thickness;
         var middleRadius = radius - thickness / 2;
         var rad = (360 / 100 * Math.min(100, Math.max(this.state.value, 0)) - 90) * Math.PI / 180;
         return (React.createElement("div", { className: p.className },
@@ -135,11 +134,10 @@ var Value = styled('div')(templateObject_4 || (templateObject_4 = __makeTemplate
 var CircularProgress = /** @class */ (function (_super) {
     __extends(CircularProgress, _super);
     function CircularProgress() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(CircularProgressStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    CircularProgress.prototype.render = function () {
-        return (React.createElement(CircularProgressStyled, __assign({}, this.props)));
-    };
     return CircularProgress;
 }(React.Component));
 export { CircularProgress };

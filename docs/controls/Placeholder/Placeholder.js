@@ -67,21 +67,15 @@ var PlaceholderStyled = styled(PlaceholderBase)(templateObject_3 || (templateObj
 var Placeholder = /** @class */ (function (_super) {
     __extends(Placeholder, _super);
     function Placeholder() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(PlaceholderStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Placeholder.prototype.render = function () {
-        return (React.createElement(PlaceholderStyled, __assign({}, this.props)));
-    };
     Placeholder.Paragraph = PlaceholderParagraph;
     Placeholder.Image = PlaceholderImage;
     Placeholder.Header = PlaceholderHeader;
     Placeholder.Line = PlaceholderLine;
-    Placeholder.displayName = 'Placeholder';
     return Placeholder;
 }(React.Component));
-Placeholder.Paragraph.displayName = "Placeholder.Paragraph";
-Placeholder.Image.displayName = "Placeholder.Image";
-Placeholder.Header.displayName = "Placeholder.Header";
-Placeholder.Line.displayName = "Placeholder.Line";
 export { Placeholder };
 var templateObject_1, templateObject_2, templateObject_3;

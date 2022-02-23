@@ -28,13 +28,12 @@ var ClearBase = /** @class */ (function (_super) {
             e.stopPropagation();
             _this.props.onClick();
         };
+        _this.render = function () {
+            return React.createElement("svg", { className: _this.props.className, onClick: _this.handleClick },
+                React.createElement("use", { xlinkHref: "spritemap.svg#times" }));
+        };
         return _this;
     }
-    ClearBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("svg", { className: p.className, onClick: this.handleClick },
-            React.createElement("use", { xlinkHref: "spritemap.svg#times" })));
-    };
     return ClearBase;
 }(React.Component));
 var Clear = styled(ClearBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: absolute;\n  z-index: 1;\n  right: 15px;\n  top: 10px;\n  width: 17px;\n  height: 17px;\n  cursor: pointer;\n  fill: #888;\n  &:hover {\n    fill: ", ";\n  }\n"], ["\n  position: absolute;\n  z-index: 1;\n  right: 15px;\n  top: 10px;\n  width: 17px;\n  height: 17px;\n  cursor: pointer;\n  fill: #888;\n  &:hover {\n    fill: ", ";\n  }\n"])), function (p) { return p.theme.fontColor; });

@@ -124,6 +124,5 @@ var TabBarBase = /** @class */ (function (_super) {
 /* Style the tabs bar. Its bottom border is erased by
  * the active tab's bottom border. */
 var TabBar = styled(TabBarBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  display: block;\n  height: 40px;\n  min-height: 40px;\n  overflow-x: hidden;\n\n  &>div {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: auto !important;\n    min-width: 100%;\n    height: 40px;\n    box-sizing: border-box;\n    display: block;\n    border-bottom: solid 1px rgba(35, 35, 35, 0.15);\n  }\n"], ["\n  position: relative;\n  display: block;\n  height: 40px;\n  min-height: 40px;\n  overflow-x: hidden;\n\n  &>div {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: auto !important;\n    min-width: 100%;\n    height: 40px;\n    box-sizing: border-box;\n    display: block;\n    border-bottom: solid 1px rgba(35, 35, 35, 0.15);\n  }\n"])));
-TabBar.displayName = "Tabs.TabBar";
 export { TabBar };
 var templateObject_1;

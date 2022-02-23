@@ -68,9 +68,8 @@ var Panel = /** @class */ (function (_super) {
         var p = this.props;
         return (React.createElement("div", { ref: function (el) { return _this.panelElement = el; } },
             React.createElement(ThemeConsumer, null, function (theme) { return React.createElement(CSSTransition, { in: p.open, timeout: theme.transition.duration * 1000 * 3, appear: true, unmountOnExit: true, classNames: "fade" },
-                React.createElement(PanelContainer, { noanimation: _this.props.noanimation, anchor: _this.state.anchor, padded: p.padded, width: p.width }, p.children)); })));
+                React.createElement(PanelContainer, { anchor: _this.state.anchor, noanimation: p.noanimation, padded: p.padded, width: p.width }, p.children)); })));
     };
-    Panel.displayName = "Panel";
     Panel.Header = Header;
     Panel.Content = Content;
     Panel.Footer = Footer;
@@ -85,8 +84,4 @@ var Panel = /** @class */ (function (_super) {
     Panel.Icon = IconPanel;
     return Panel;
 }(React.Component));
-Panel.Header.displayName = "Panel.Header";
-Panel.Content.displayName = "Panel.Content";
-Panel.Footer.displayName = "Panel.Footer";
-Panel.Icon.displayName = "Panel.Icon";
 export { Panel };

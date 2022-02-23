@@ -1,23 +1,50 @@
 import * as React from 'react';
-interface IProps {
+interface ICircularProgressProps {
+    /** @ignore */
     className?: string;
-    /** Progress percentage value */
+    /**
+     * Progress percentage value.
+     * This must be a value between 0 and 100.
+     */
     value: number;
-    /** Progress line color. Defaults to primary theme color. */
+    /**
+     * Progress line color. Defaults to primary theme color.
+     */
     color?: string;
-    /** Circle radius. Defaults to 50px. */
+    /**
+     * Circle radius. Defaults to 50px.
+     * @default 50
+     */
     radius?: number;
-    /** Line thickness. Defaults to 8px. */
+    /**
+     * Line thickness. Defaults to 8px.
+     * @default 8
+     */
     thickness?: number;
-    /** If set, line gets a grey background. */
+    /**
+     * If set, line gets a grey background.
+     * @default false
+     */
     background?: boolean;
-    /** If set, line is rounded at ends. */
+    /**
+     * If set, line is rounded at ends.
+     * @default false
+     */
     rounded?: boolean;
-    /** If set, line gets edge drop shadow. */
+    /**
+     * If set, line gets edge drop shadow.
+     * @default false
+     */
     raised?: boolean;
-    /** If set, progress line animates when it first appears. */
+    /**
+     * If set, progress line animates when it first appears.
+     * @default false
+     */
     animated?: boolean;
-    /** A padded CircularProgress has a margin around it. */
+    /**
+     * A padded CircularProgress has a margin around it.
+     * @default false
+     */
     padded?: boolean;
 }
 /**
@@ -30,7 +57,7 @@ interface IProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-circularprogress--properties
  */
-declare class CircularProgress extends React.Component<IProps> {
-    render(): JSX.Element;
+declare class CircularProgress extends React.Component<ICircularProgressProps> {
+    render: () => JSX.Element;
 }
 export { CircularProgress };

@@ -315,12 +315,10 @@ var FieldStyled = styled(FieldBase)(templateObject_2 || (templateObject_2 = __ma
 var Field = /** @class */ (function (_super) {
     __extends(Field, _super);
     function Field() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(FieldStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Field.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(FieldStyled, __assign({}, p)));
-    };
     return Field;
 }(React.Component));
 export { Field };

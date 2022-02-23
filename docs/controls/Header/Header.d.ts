@@ -4,20 +4,30 @@ import { Subheader } from './Subheader';
 import { HeaderContent } from './HeaderContent';
 export declare type HeaderSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface IHeaderProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
     onClick?: () => void;
     /** Header size: one of `h1` through `h6`. */
     size: HeaderSize;
-    /** By default, header sizes are absolute and use rem units. When
-     *  relative sizes are selected, 'em' units are used and the header size
-     *  is relative to the container's font-size. */
+    /**
+     * By default, header sizes are absolute and use rem units. When
+     * relative sizes are selected, 'em' units are used and the header size
+     * is relative to the container's font-size.
+     * @default false
+     */
     relative?: boolean;
-    /** Have header show as inactive. */
+    /**
+     * Have header show as inactive.
+     * @default false
+     */
     disabled?: boolean;
     /** A Header can float to the `left` or to the `right`. */
     float?: Float;
-    /** Draw block around header */
+    /**
+     * Draw block around header
+     * @default false
+     */
     block?: boolean;
     /** Attached to 'top', 'bottom' or nothing (both). */
     attached?: boolean | VerticalDirection;
@@ -25,9 +35,15 @@ export interface IHeaderProps {
     align?: HorizontalAlignment;
     /** Header color, e.g. `skyblue`. */
     color?: string;
-    /** A dividing header has a bottom border. */
+    /**
+     * A dividing header has a bottom border.
+     * @default false
+     */
     dividing?: boolean;
-    /** Emphasize icon in header */
+    /**
+     * Emphasize icon in header
+     * @default false
+     */
     icon?: boolean;
 }
 /**
@@ -47,8 +63,7 @@ export interface IHeaderProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-header--properties
  */
-export declare class Header extends React.Component<IHeaderProps, {}> {
-    static displayName: string;
+declare class Header extends React.Component<IHeaderProps> {
     /**
      * A header may contain a <Subheader>.
      */
@@ -57,5 +72,6 @@ export declare class Header extends React.Component<IHeaderProps, {}> {
      * Header.Content is used to group header content (allowing for Subheader).
      */
     static Content: typeof HeaderContent;
-    render(): JSX.Element;
+    render: () => JSX.Element;
 }
+export { Header };

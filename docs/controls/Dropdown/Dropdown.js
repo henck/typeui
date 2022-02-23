@@ -45,7 +45,6 @@ import { css } from 'styled-components';
 // Other controls
 import { Column } from './Column';
 import { DropdownInner } from './DropdownInner';
-import { Label } from '../Label/Label';
 /*
  * DropdownBase puts a <div> around DropdownInner so that we
  * can add attachable components.
@@ -54,20 +53,6 @@ var DropdownBase = /** @class */ (function (_super) {
     __extends(DropdownBase, _super);
     function DropdownBase() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.getAttachables = function (side) {
-            if (side === void 0) { side = "left"; }
-            return React.Children.map(_this.props.children, function (child) {
-                if (child.type && child.type === Label) {
-                    // Does label have 'attached' attribute, and it is equal to side?
-                    if (child.props.attached && child.props.attached === side)
-                        return child;
-                    // No attached attribute, but side is left? Then add attached attribute.
-                    if (!child.props.attached && side === 'left') {
-                        return React.cloneElement(child, { attached: 'left' });
-                    }
-                }
-            });
-        };
         _this.getItems = function () {
             return React.Children.map(_this.props.children, function (child) {
                 // Only Columns are passed to DropdownInner.
@@ -77,6 +62,26 @@ var DropdownBase = /** @class */ (function (_super) {
         };
         return _this;
     }
+    DropdownBase.prototype.isAttachedTo = function (c, side) {
+        var attached = c.props.attached;
+        return attached === side || (!attached && side === 'left');
+    };
+    // Return an array of children that are Labels and attached to this
+    // Input control.
+    DropdownBase.prototype.getAttachables = function (side) {
+        var _this = this;
+        return React.Children.toArray(this.props.children)
+            .filter(function (c) { return React.isValidElement(c) // Is this a React node?
+            && c.props.isLabel // Is this a Label?
+            && _this.isAttachedTo(c, side); } // Is it attached to this side?
+        )
+            .map(function (c, idx) {
+            var attached = c.props.attached;
+            if (!attached)
+                attached = 'left'; // Attach to left side by default.
+            return React.cloneElement(c, { key: idx, attached: attached });
+        });
+    };
     DropdownBase.prototype.render = function () {
         var _a = this.props, className = _a.className, p = __rest(_a, ["className"]);
         return (React.createElement("div", { className: className },
@@ -91,7 +96,7 @@ var DropdownStyled = styled(DropdownBase)(templateObject_2 || (templateObject_2 
  * members to Dropdown, which we cannot do for a Styled Component
  * (in TypeScript). */
 /**
- * A Dropdown is a replacement for <select>. It opens upwards or downwards
+ * A Dropdown is a replacement for <select> (select). It opens upwards or downwards
  * depending on its position in the viewport. Its selection and dropdown items
  * are formatted using a formatting function. A Dropdown can also take a
  * search callback, which tells provides its subscriber with a search query
@@ -111,13 +116,10 @@ var DropdownStyled = styled(DropdownBase)(templateObject_2 || (templateObject_2 
 var Dropdown = /** @class */ (function (_super) {
     __extends(Dropdown, _super);
     function Dropdown() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(DropdownStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Dropdown.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(DropdownStyled, __assign({}, p)));
-    };
-    Dropdown.displayName = "Dropdown";
     /**
      * A Dropdown.Column's child is an item formatter function. A column can optionally take
      * a weight and an alignment.
@@ -125,6 +127,5 @@ var Dropdown = /** @class */ (function (_super) {
     Dropdown.Column = Column;
     return Dropdown;
 }(React.Component));
-Dropdown.Column.displayName = "Dropdown.Column";
 export { Dropdown };
 var templateObject_1, templateObject_2;

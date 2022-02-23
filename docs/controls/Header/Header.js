@@ -123,12 +123,10 @@ var HeaderStyled = styled(HeaderBase)(templateObject_19 || (templateObject_19 = 
 var Header = /** @class */ (function (_super) {
     __extends(Header, _super);
     function Header() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(HeaderStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Header.prototype.render = function () {
-        return (React.createElement(HeaderStyled, __assign({}, this.props)));
-    };
-    Header.displayName = "Header";
     /**
      * A header may contain a <Subheader>.
      */
@@ -140,6 +138,4 @@ var Header = /** @class */ (function (_super) {
     return Header;
 }(React.Component));
 export { Header };
-Header.Subheader.displayName = "Header.Subheader";
-Header.Content.displayName = "Header.Content";
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17, templateObject_18, templateObject_19;

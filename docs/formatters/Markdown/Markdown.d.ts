@@ -13,11 +13,6 @@ declare class Markdown extends React.Component<IMarkdownProps> {
      * ordered or bulleted. react-markdown provides an ordered:boolean.
      */
     private listRenderer;
-    /**
-     * We'd like to use TypeUI's <Image> component to render images,
-     * so that we can set a size and an error message for load failures.
-     */
-    private imageRenderer;
     render(): JSX.Element;
 }
 export { Markdown };

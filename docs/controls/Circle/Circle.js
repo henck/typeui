@@ -64,12 +64,10 @@ var CircleStyled = styled(CircleBase).attrs(function (p) { return ({
 var Circle = /** @class */ (function (_super) {
     __extends(Circle, _super);
     function Circle() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(CircleStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Circle.prototype.render = function () {
-        return (React.createElement(CircleStyled, __assign({}, this.props)));
-    };
-    Circle.displayName = 'Circle';
     return Circle;
 }(React.Component));
 export { Circle };

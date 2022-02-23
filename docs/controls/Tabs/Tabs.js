@@ -122,13 +122,10 @@ var TabsStyled = styled(TabsBase)(templateObject_1 || (templateObject_1 = __make
 var Tabs = /** @class */ (function (_super) {
     __extends(Tabs, _super);
     function Tabs() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(TabsStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Tabs.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(TabsStyled, __assign({}, p)));
-    };
-    Tabs.displayName = "Tabs";
     /**
      * A single tab pane.
      *
@@ -138,6 +135,5 @@ var Tabs = /** @class */ (function (_super) {
     Tabs.Pane = Pane;
     return Tabs;
 }(React.PureComponent));
-Tabs.Pane.displayName = "Tabs.Pane";
 export { Tabs };
 var templateObject_1;

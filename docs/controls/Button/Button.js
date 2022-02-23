@@ -62,9 +62,17 @@ var ButtonInnerBase = /** @class */ (function (_super) {
     }
     ButtonInnerBase.prototype.render = function () {
         var p = this.props;
-        return (p.noripple ?
-            React.createElement("button", { className: p.className, disabled: p.disabled }, p.children)
-            : React.createElement(Ripple, { type: "button", className: p.className, disabled: p.disabled }, p.children));
+        // Treat disabled as a special case. React will not allow us to 
+        // pass "disabled=true" along; it must be just "disabled".
+        if (p.disabled) {
+            return React.createElement("button", { className: p.className, disabled: true }, p.children);
+        }
+        if (p.noripple) {
+            return React.createElement("button", { className: p.className }, p.children);
+        }
+        else {
+            return React.createElement(Ripple, { type: "button", className: p.className }, p.children);
+        }
     };
     return ButtonInnerBase;
 }(React.Component));
@@ -102,20 +110,6 @@ var ButtonBase = /** @class */ (function (_super) {
     __extends(ButtonBase, _super);
     function ButtonBase() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.getAttachables = function (side) {
-            if (side === void 0) { side = "left"; }
-            return React.Children.map(_this.props.children, function (child) {
-                if (child && child.type && child.type === Label) {
-                    // Does label have 'attached' attribute, and it is equal to the side argument?
-                    if (child.props.attached && child.props.attached === side)
-                        return child;
-                    // No attached attribute, but side is left? Then add attached attribute.
-                    if (!child.props.attached && side === 'left') {
-                        return React.cloneElement(child, { attached: 'left' });
-                    }
-                }
-            });
-        };
         _this.getNonAttachables = function () {
             return React.Children.map(_this.props.children, function (child) {
                 if (!child)
@@ -129,6 +123,26 @@ var ButtonBase = /** @class */ (function (_super) {
         };
         return _this;
     }
+    ButtonBase.prototype.isAttachedTo = function (c, side) {
+        var attached = c.props.attached;
+        return attached === side || (!attached && side === 'left');
+    };
+    // Return an array of children that are Labels and attached to this
+    // Input control.
+    ButtonBase.prototype.getAttachables = function (side) {
+        var _this = this;
+        return React.Children.toArray(this.props.children)
+            .filter(function (c) { return React.isValidElement(c) // Is this a React node?
+            && c.props.isLabel // Is this a Label?
+            && _this.isAttachedTo(c, side); } // Is it attached to this side?
+        )
+            .map(function (c, idx) {
+            var attached = c.props.attached;
+            if (!attached)
+                attached = 'left'; // Attach to left side by default.
+            return React.cloneElement(c, { key: idx, attached: attached });
+        });
+    };
     ButtonBase.prototype.render = function () {
         // We must pass all props down to ButtonInnerStyled,
         // EXCEPT className, or the parent's classes will 
@@ -150,13 +164,10 @@ var ButtonStyled = styled(ButtonBase)(templateObject_29 || (templateObject_29 = 
 var Button = /** @class */ (function (_super) {
     __extends(Button, _super);
     function Button() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ButtonStyled, __assign({}, _this.props, { disabled: _this.props.disabled })); };
+        return _this;
     }
-    Button.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ButtonStyled, __assign({}, p, { disabled: p.disabled })));
-    };
-    Button.displayName = "Button";
     /**
      * Button groups can contain conditionals using Button.Or.
      *
@@ -185,8 +196,5 @@ var Button = /** @class */ (function (_super) {
     Button.Group = ButtonGroup;
     return Button;
 }(React.Component));
-// This breaks Storybook:
-//(Button.Group as any).displayName = "Button.Group";
-//(Button.Or as any).displayName = "Button.Or";
 export { Button };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17, templateObject_18, templateObject_19, templateObject_20, templateObject_21, templateObject_22, templateObject_23, templateObject_24, templateObject_25, templateObject_26, templateObject_27, templateObject_28, templateObject_29;

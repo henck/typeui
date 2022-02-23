@@ -43,14 +43,12 @@ import { IconStyled } from '../Icon/Icon';
 var LabelBase = /** @class */ (function (_super) {
     __extends(LabelBase, _super);
     function LabelBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className, onClick: _this.props.onClick },
+            _this.props.children,
+            _this.props.content); };
+        return _this;
     }
-    LabelBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className, onClick: p.onClick },
-            p.children,
-            p.content));
-    };
     return LabelBase;
 }(React.Component));
 var LabelStyled = styled(LabelBase).attrs(function (p) { return ({
@@ -64,12 +62,14 @@ var LabelStyled = styled(LabelBase).attrs(function (p) { return ({
 var Label = /** @class */ (function (_super) {
     __extends(Label, _super);
     function Label() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(LabelStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Label.prototype.render = function () {
-        return (React.createElement(LabelStyled, __assign({}, this.props)));
+    /* This is used by parent components to determine if a child is a Label. */
+    Label.defaultProps = {
+        isLabel: true
     };
-    Label.displayName = "Label";
     /**
      * A Label.Group can pass props to the labels it contains, but
      * children can still override them. Goups can pass along basic,
@@ -82,7 +82,5 @@ var Label = /** @class */ (function (_super) {
     Label.Detail = LabelDetail;
     return Label;
 }(React.Component));
-Label.Group.displayName = "Label.Group";
-Label.Detail.displayName = "Label.Detail";
 export { Label, LabelStyled };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17, templateObject_18, templateObject_19, templateObject_20, templateObject_21, templateObject_22, templateObject_23, templateObject_24, templateObject_25;

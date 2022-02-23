@@ -1,5 +1,6 @@
 import * as React from 'react';
 interface IPanelContainerProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
     /** Anchor element to base positioning of body on. */

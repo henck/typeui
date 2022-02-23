@@ -34,23 +34,20 @@ import { css } from 'styled-components';
 var GroupBase = /** @class */ (function (_super) {
     __extends(GroupBase, _super);
     function GroupBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    GroupBase.prototype.render = function () {
-        return (React.createElement("div", { className: this.props.className }, this.props.children));
-    };
     return GroupBase;
 }(React.Component));
 var GroupStyled = styled(GroupBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  display:        flex;\n  flex-direction: row;\n  flex-wrap:      wrap;\n  align-items:    flex-start;\n\n  /* Insert a small margin between fields, and fix for wrapping\n  * using negative margins. */\n  margin: 0 -8px;\n  & > * { margin: 0 8px; }\n  /* For equal spacing, have each field occupy 100%. */\n  ", "\n"], ["\n  display:        flex;\n  flex-direction: row;\n  flex-wrap:      wrap;\n  align-items:    flex-start;\n\n  /* Insert a small margin between fields, and fix for wrapping\n  * using negative margins. */\n  margin: 0 -8px;\n  & > * { margin: 0 8px; }\n  /* For equal spacing, have each field occupy 100%. */\n  ", "\n"])), function (p) { return p.equal && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    & > * {\n      width: 100%;\n    }\n  "], ["\n    & > * {\n      width: 100%;\n    }\n  "]))); });
 var Group = /** @class */ (function (_super) {
     __extends(Group, _super);
     function Group() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(GroupStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Group.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(GroupStyled, __assign({}, p)));
-    };
     return Group;
 }(React.Component));
 export { Group };

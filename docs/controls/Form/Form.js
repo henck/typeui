@@ -153,7 +153,4 @@ var Form = /** @class */ (function (_super) {
     Form.Uncontrolled = Uncontrolled;
     return Form;
 }(React.Component));
-Form.Field.displayName = "Form.Field";
-Form.Group.displayName = "Form.Group";
-Form.Uncontrolled.displayName = "Form.Uncontrolled";
 export { Form };

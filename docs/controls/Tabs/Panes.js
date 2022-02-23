@@ -26,15 +26,12 @@ import { css } from 'styled-components';
 var PanesBase = /** @class */ (function (_super) {
     __extends(PanesBase, _super);
     function PanesBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    PanesBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return PanesBase;
 }(React.Component));
 var Panes = styled(PanesBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  height: 100%;\n  flex: 1;\n  \n  border-bottom-left-radius: ", "px;\n  border-bottom-right-radius: ", "px;\n\n  /* Non-underlined panes have a border around them. */\n  ", "\n"], ["\n  height: 100%;\n  flex: 1;\n  \n  border-bottom-left-radius: ", "px;\n  border-bottom-right-radius: ", "px;\n\n  /* Non-underlined panes have a border around them. */\n  ", "\n"])), function (p) { return p.theme.radius; }, function (p) { return p.theme.radius; }, function (p) { return !p.underlined && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    padding: 14px;\n    border: solid 1px rgba(35, 35, 35, 0.15);\n    border-top: none;      \n  "], ["\n    padding: 14px;\n    border: solid 1px rgba(35, 35, 35, 0.15);\n    border-top: none;      \n  "]))); });
-Panes.displayName = "Tabs.Panes";
 export { Panes };
 var templateObject_1, templateObject_2;

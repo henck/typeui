@@ -33,24 +33,20 @@ import styled from '../../styles/Theme';
 var HeaderContentBase = /** @class */ (function (_super) {
     __extends(HeaderContentBase, _super);
     function HeaderContentBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    HeaderContentBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return HeaderContentBase;
 }(React.Component));
 var HeaderContentStyled = styled(HeaderContentBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: block;\n  line-height: 1em;\n"], ["\n  display: block;\n  line-height: 1em;\n"])));
 var HeaderContent = /** @class */ (function (_super) {
     __extends(HeaderContent, _super);
     function HeaderContent() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(HeaderContentStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    HeaderContent.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(HeaderContentStyled, __assign({}, p)));
-    };
     return HeaderContent;
 }(React.Component));
 export { HeaderContent };

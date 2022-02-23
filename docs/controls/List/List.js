@@ -74,12 +74,10 @@ var ListStyled = styled(ListBase)(templateObject_9 || (templateObject_9 = __make
 var List = /** @class */ (function (_super) {
     __extends(List, _super);
     function List() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ListStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    List.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ListStyled, __assign({}, p)));
-    };
     List.Item = ListItem;
     List.Icon = ListIcon;
     List.Content = ListContent;
@@ -87,10 +85,5 @@ var List = /** @class */ (function (_super) {
     List.Description = ListDescription;
     return List;
 }(React.Component));
-List.Content.displayName = "List.Content";
-List.Description.displayName = "List.Description";
-List.Header.displayName = "List.Header";
-List.Icon.displayName = "List.Icon";
-List.Item.displayName = "List.Item";
 export { List };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9;

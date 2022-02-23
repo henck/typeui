@@ -34,24 +34,20 @@ import { css } from 'styled-components';
 var PlaceholderImageBase = /** @class */ (function (_super) {
     __extends(PlaceholderImageBase, _super);
     function PlaceholderImageBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }); };
+        return _this;
     }
-    PlaceholderImageBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }));
-    };
     return PlaceholderImageBase;
 }(React.Component));
 var PlaceholderImageStyled = styled(PlaceholderImageBase)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n  ", "\n  background: transparent;\n"], ["\n  ", "\n  ", "\n  background: transparent;\n"])), function (p) { return p.rectangular && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["padding-bottom: 75%;"], ["padding-bottom: 75%;"]))); }, function (p) { return !p.rectangular && css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["padding-bottom: 100%;"], ["padding-bottom: 100%;"]))); });
 var PlaceholderImage = /** @class */ (function (_super) {
     __extends(PlaceholderImage, _super);
     function PlaceholderImage() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(PlaceholderImageStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    PlaceholderImage.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(PlaceholderImageStyled, __assign({}, p)));
-    };
     return PlaceholderImage;
 }(React.Component));
 export { PlaceholderImage };

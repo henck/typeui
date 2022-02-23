@@ -17,6 +17,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { keyframes } from 'styled-components';
@@ -42,7 +53,15 @@ var LoaderBase = /** @class */ (function (_super) {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-loader-types--loader
  */
-var Loader = styled(LoaderBase)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n"], ["\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n"])));
-Loader.displayName = 'Loader';
+var LoaderStyled = styled(LoaderBase)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n"], ["\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n"])));
+var Loader = /** @class */ (function (_super) {
+    __extends(Loader, _super);
+    function Loader() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(LoaderStyled, __assign({}, _this.props)); };
+        return _this;
+    }
+    return Loader;
+}(React.Component));
 export { Loader };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;

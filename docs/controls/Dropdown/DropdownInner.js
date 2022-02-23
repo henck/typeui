@@ -271,6 +271,8 @@ var DropdownInnerBase = /** @class */ (function (_super) {
     DropdownInnerBase.prototype.open = function () {
         // Is the Dropdown below the middle of the viewport?
         var below = this.wrapperElement.getBoundingClientRect().top > window.innerHeight / 2;
+        if (this.props.alwaysDown)
+            below = false;
         this.setState({ open: true, upwards: below });
         // If reset on open is specified, then the search query is reset whenever the
         // dropdown opens or reopens.
@@ -343,12 +345,10 @@ var DropdownInnerStyled = styled(DropdownInnerBase)(templateObject_1 || (templat
 var DropdownInner = /** @class */ (function (_super) {
     __extends(DropdownInner, _super);
     function DropdownInner() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(DropdownInnerStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    DropdownInner.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(DropdownInnerStyled, __assign({}, p)));
-    };
     return DropdownInner;
 }(React.Component));
 export { DropdownInner };

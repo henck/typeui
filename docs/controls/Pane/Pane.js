@@ -91,15 +91,12 @@ var PaneStyled = styled(PaneBase)(templateObject_3 || (templateObject_3 = __make
 var Pane = /** @class */ (function (_super) {
     __extends(Pane, _super);
     function Pane() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(PaneStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Pane.prototype.render = function () {
-        return (React.createElement(PaneStyled, __assign({}, this.props)));
-    };
-    Pane.displayName = 'Pane';
     Pane.Icon = IconPane;
     return Pane;
 }(React.Component));
-Pane.Icon.displayName = "Pane.Icon";
 export { Pane };
 var templateObject_1, templateObject_2, templateObject_3;

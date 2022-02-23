@@ -33,12 +33,10 @@ import styled from '../../styles/Theme';
 var ListHeaderBase = /** @class */ (function (_super) {
     __extends(ListHeaderBase, _super);
     function ListHeaderBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    ListHeaderBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return ListHeaderBase;
 }(React.Component));
 /* Styling for list header. */
@@ -46,12 +44,10 @@ var ListHeaderStyled = styled(ListHeaderBase)(templateObject_1 || (templateObjec
 var ListHeader = /** @class */ (function (_super) {
     __extends(ListHeader, _super);
     function ListHeader() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ListHeaderStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    ListHeader.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ListHeaderStyled, __assign({}, p)));
-    };
     return ListHeader;
 }(React.Component));
 export { ListHeader };

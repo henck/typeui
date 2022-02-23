@@ -33,25 +33,21 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 var ColumnBase = /** @class */ (function (_super) {
     __extends(ColumnBase, _super);
-    function ColumnBase(props) {
-        return _super.call(this, props) || this;
+    function ColumnBase() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    ColumnBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return ColumnBase;
 }(React.Component));
 var ColumnStyled = styled(ColumnBase)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n  padding: 0 ", "em;\n  &:first-child { padding-left: 0; }\n  &:last-child { padding-right: 0; }  \n  ", "\n"], ["\n  ", "\n  padding: 0 ", "em;\n  &:first-child { padding-left: 0; }\n  &:last-child { padding-right: 0; }  \n  ", "\n"])), function (p) { return p.width && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["flex: ", ";"], ["flex: ", ";"])), p.width); }, function (p) { return p.gutter * p.theme.gutter; }, function (p) { return p.stackable && css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      padding: ", "em 0;\n      &:first-child { padding-top: 0; }\n      &:last-child { padding-bottom: 0; }        \n    }\n  "], ["\n    @media (max-width: ", "px) {\n      padding: ", "em 0;\n      &:first-child { padding-top: 0; }\n      &:last-child { padding-bottom: 0; }        \n    }\n  "])), function (p) { return p.theme.smallScreen; }, p.gutter * p.theme.gutter); });
 var Column = /** @class */ (function (_super) {
     __extends(Column, _super);
     function Column() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ColumnStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Column.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ColumnStyled, __assign({}, p)));
-    };
     return Column;
 }(React.Component));
 export { Column };

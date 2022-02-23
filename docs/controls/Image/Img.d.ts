@@ -1,5 +1,6 @@
 import * as React from 'react';
 interface IImgProps {
+    /** @ignore */
     className?: string;
     onLoad?: any;
     onError?: any;

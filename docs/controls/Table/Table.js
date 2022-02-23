@@ -34,12 +34,10 @@ import styled from '../../styles/Theme';
 var TableBase = /** @class */ (function (_super) {
     __extends(TableBase, _super);
     function TableBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("table", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    TableBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("table", { className: p.className }, p.children));
-    };
     return TableBase;
 }(React.Component));
 var TableStyled = styled(TableBase)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  width: 100%;\n  border-collapse: separate;\n  table-layout: fixed; /* Required for overflow-hidden to work in <td> */\n\n  th, td {\n    padding: 6px 8px 6px 8px;\n    text-align: left;\n  }  \n\n  th {\n    font-weight: 500;\n    font-size: 12px;\n    background: #f7f7f7;\n  }\n\n  /* Border */\n  ", "\n\n  ", "\n"], ["\n  width: 100%;\n  border-collapse: separate;\n  table-layout: fixed; /* Required for overflow-hidden to work in <td> */\n\n  th, td {\n    padding: 6px 8px 6px 8px;\n    text-align: left;\n  }  \n\n  th {\n    font-weight: 500;\n    font-size: 12px;\n    background: #f7f7f7;\n  }\n\n  /* Border */\n  ", "\n\n  ", "\n"
@@ -71,11 +69,10 @@ var TableStyled = styled(TableBase)(templateObject_3 || (templateObject_3 = __ma
 var Table = /** @class */ (function (_super) {
     __extends(Table, _super);
     function Table() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(TableStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Table.prototype.render = function () {
-        return (React.createElement(TableStyled, __assign({}, this.props)));
-    };
     return Table;
 }(React.PureComponent));
 export { Table };

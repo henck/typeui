@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TDir } from '../Types';
 import { DataColumn } from './DataColumn';
 interface IDataTableProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
     /**
@@ -13,7 +14,10 @@ interface IDataTableProps {
     order?: string;
     /** Current DataTable order direction (`asc` or `desc`). */
     dir?: TDir;
-    /** Optional vertical offset (in pixels) to scroll to after update. */
+    /**
+     * Optional vertical offset (in pixels) to scroll to after update.
+     * @default 0
+     */
     scrollTop?: number;
     /** Callback that receives scroll offset in pixels when a scroll operations ends. */
     onScroll?: (scrollTop: number) => void;
@@ -25,13 +29,23 @@ interface IDataTableProps {
     onOrder?: (order: string, dir?: TDir) => void;
     /** Element to show when there is no data. The DataTable has a default "no data" message. */
     nodata?: React.ReactNode;
-    /** Currently loading? If true, an amination appears. */
+    /**
+     * Currently loading? If true, an amination appears.
+     * @default false
+     */
     loading?: boolean;
-    /** Show error state? This will offer a default error message and a "Retry" button. */
+    /**
+     * Show error state? This will offer a default error message,  and a "Retry"
+     * button if onFetch is set.
+     * @default false
+     */
     error?: boolean;
     /** If set, this message replaces the default error message. */
     errorMessage?: React.ReactNode;
-    /** if set, DataTable shows vertical grid lines. */
+    /**
+     * If set, DataTable shows vertical grid lines.
+     * @default false
+     */
     grid?: boolean;
 }
 /**
@@ -56,8 +70,7 @@ interface IDataTableProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-datatable--properties
  */
-declare class DataTable extends React.Component<IDataTableProps, {}> {
-    static displayName: string;
+declare class DataTable extends React.Component<IDataTableProps> {
     /**
      * A single column in a DataTable. Its child element must be a function that takes an item
      * provided to it by the parent DataTable.
@@ -66,6 +79,6 @@ declare class DataTable extends React.Component<IDataTableProps, {}> {
      * <DataTable.Column weight={2} label="Name" order="name" dir="asc">{(item: MyItem) => item.name}</DataTable.Column>
      */
     static Column: typeof DataColumn;
-    render(): JSX.Element;
+    render: () => JSX.Element;
 }
 export { DataTable };

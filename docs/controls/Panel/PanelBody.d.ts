@@ -1,5 +1,6 @@
 import * as React from 'react';
 interface IPanelBodyProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
     /** Is body above the parent element? */

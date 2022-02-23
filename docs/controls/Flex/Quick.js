@@ -33,24 +33,20 @@ import styled from '../../styles/Theme';
 var QuickBase = /** @class */ (function (_super) {
     __extends(QuickBase, _super);
     function QuickBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    QuickBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return QuickBase;
 }(React.Component));
 var QuickStyled = styled(QuickBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  align-items: ", ";\n  & > * {\n    margin-right: 4px;\n  }\n"], ["\n  display: flex;\n  align-items: ", ";\n  & > * {\n    margin-right: 4px;\n  }\n"])), function (p) { return p.align || 'center'; });
 var Quick = /** @class */ (function (_super) {
     __extends(Quick, _super);
     function Quick() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(QuickStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Quick.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(QuickStyled, __assign({}, p)));
-    };
     return Quick;
 }(React.Component));
 export { Quick };

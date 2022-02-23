@@ -1,5 +1,6 @@
 import * as React from 'react';
 interface IDropzoneProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
     /**

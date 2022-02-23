@@ -81,11 +81,10 @@ var LabelledValueStyled = styled(LabelledValueBase)(templateObject_6 || (templat
 var LabelledValue = /** @class */ (function (_super) {
     __extends(LabelledValue, _super);
     function LabelledValue() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(LabelledValueStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    LabelledValue.prototype.render = function () {
-        return (React.createElement(LabelledValueStyled, __assign({}, this.props)));
-    };
     return LabelledValue;
 }(React.Component));
 export { LabelledValue };

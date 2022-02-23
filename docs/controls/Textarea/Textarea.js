@@ -57,14 +57,11 @@ var TextareaStyled = styled(TextareaBase).attrs(function (p) { return ({
 var Textarea = /** @class */ (function (_super) {
     __extends(Textarea, _super);
     function Textarea() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className },
+            React.createElement(TextareaStyled, __assign({}, _this.props))); };
+        return _this;
     }
-    Textarea.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className },
-            React.createElement(TextareaStyled, __assign({}, p))));
-    };
-    Textarea.displayName = "Textarea";
     return Textarea;
 }(React.Component));
 export { Textarea };

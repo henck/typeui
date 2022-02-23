@@ -34,23 +34,20 @@ import styled from '../../styles/Theme';
 var ContentBase = /** @class */ (function (_super) {
     __extends(ContentBase, _super);
     function ContentBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    ContentBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return ContentBase;
 }(React.Component));
 var ContentStyled = styled(ContentBase)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  padding: 14px;\n\n  ", "\n  ", "    \n  ", "      \n\n  ", "\n\n  /* Multiple Card.Content elements are separated by a border. */\n  &:not(:first-of-type) {\n    border-top: solid 1px ", ";\n  }\n"], ["\n  position: relative;\n  padding: 14px;\n\n  ", "\n  ", "    \n  ", "      \n\n  ", "\n\n  /* Multiple Card.Content elements are separated by a border. */\n  &:not(:first-of-type) {\n    border-top: solid 1px ", ";\n  }\n"])), function (p) { return (!p.align || p.align == 'left') && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["text-align: left;"], ["text-align: left;"]))); }, function (p) { return p.align == 'center' && css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["text-align: center;"], ["text-align: center;"]))); }, function (p) { return p.align == 'right' && css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["text-align: right;"], ["text-align: right;"]))); }, function (p) { return p.secondary && css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["background: ", ";"], ["background: ", ";"])), p.theme.normalColor); }, function (p) { return p.theme.normalColor; });
 var Content = /** @class */ (function (_super) {
     __extends(Content, _super);
     function Content() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ContentStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Content.prototype.render = function () {
-        return (React.createElement(ContentStyled, __assign({}, this.props)));
-    };
     return Content;
 }(React.Component));
 export { Content };

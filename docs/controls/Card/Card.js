@@ -39,12 +39,10 @@ import { lighten } from '../../helper/lighten';
 var CardBase = /** @class */ (function (_super) {
     __extends(CardBase, _super);
     function CardBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className, onClick: _this.props.onClick }, _this.props.children); };
+        return _this;
     }
-    CardBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className, onClick: p.onClick }, p.children));
-    };
     return CardBase;
 }(React.Component));
 var CardStyled = styled(CardBase)(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  display: inline-block;\n  flex: 1;\n  position: relative;\n  width: ", ";\n  margin-top: 5px;\n  margin-bottom: 10px;\n  margin-right: 16px;\n\n  text-align: left; /* Undo parent text-align */\n  overflow: hidden; /* Make child elements follow card's rounded corners */\n  \n  /* Colors */\n  background: ", ";\n  border: solid 1px ", ";\n  border-radius: ", "px;\n  ", "\n  ", "\n\n  ", "\n"], ["\n  display: inline-block;\n  flex: 1;\n  position: relative;\n  width: ", ";\n  margin-top: 5px;\n  margin-bottom: 10px;\n  margin-right: 16px;\n\n  text-align: left; /* Undo parent text-align */\n  overflow: hidden; /* Make child elements follow card's rounded corners */\n  \n  /* Colors */\n  background: ", ";\n  border: solid 1px ", ";\n  border-radius: ", "px;\n  ", "\n  ", "\n\n  ", "\n"
@@ -86,12 +84,10 @@ var CardStyled = styled(CardBase)(templateObject_6 || (templateObject_6 = __make
 var Card = /** @class */ (function (_super) {
     __extends(Card, _super);
     function Card() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(CardStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Card.prototype.render = function () {
-        return (React.createElement(CardStyled, __assign({}, this.props)));
-    };
-    Card.displayName = 'Card';
     /** A Card can have a Card.Header element. */
     Card.Header = Header;
     /** A Card can have a Card.Meta element. */
@@ -100,8 +96,5 @@ var Card = /** @class */ (function (_super) {
     Card.Content = Content;
     return Card;
 }(React.Component));
-Card.Header.displayName = "Card.Header";
-Card.Meta.displayName = "Card.Meta";
-Card.Content.displayName = "Card.Content";
 export { Card };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;

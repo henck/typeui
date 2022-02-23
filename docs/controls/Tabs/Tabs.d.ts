@@ -1,14 +1,26 @@
 import * as React from 'react';
 import { Pane } from './Pane';
 interface ITabsProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
-    /** Underline the current tab (animated). */
+    /**
+     * Underline the current tab (animated).
+     * @default false
+     */
     underlined?: boolean;
-    /** If set, hidden panes are not rendered. */
+    /**
+     * If set, hidden panes are not rendered.
+     * @default false
+     */
     nohiddenrender?: boolean;
-    /** Index of active tab by default (0-based) */
+    /**
+     * Index of active tab by default (0-based)
+     */
     active?: number;
+    /**
+     * Method to call when active tab changes.
+     */
     onTabChange?: (idx: number) => void;
 }
 /**
@@ -29,8 +41,7 @@ interface ITabsProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-tabs--properties
  */
-declare class Tabs extends React.PureComponent<ITabsProps, {}> {
-    static displayName: string;
+declare class Tabs extends React.PureComponent<ITabsProps> {
     /**
      * A single tab pane.
      *
@@ -38,6 +49,6 @@ declare class Tabs extends React.PureComponent<ITabsProps, {}> {
      * To get the content to vertically align properly, a Flex.Quick can help.
      */
     static Pane: typeof Pane;
-    render(): JSX.Element;
+    render: () => JSX.Element;
 }
 export { Tabs };

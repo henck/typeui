@@ -17,12 +17,10 @@ import * as React from 'react';
 var ListDescription = /** @class */ (function (_super) {
     __extends(ListDescription, _super);
     function ListDescription() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    ListDescription.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return ListDescription;
 }(React.Component));
 export { ListDescription };

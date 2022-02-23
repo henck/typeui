@@ -31,6 +31,5 @@ var UnderlinerBase = /** @class */ (function (_super) {
     return UnderlinerBase;
 }(React.Component));
 var Underliner = styled(UnderlinerBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: absolute;\n  left: 0;\n  top: 38px;\n  width: 0px;\n  height: 0px;\n  border-top: solid 2px ", ";\n  box-sizing: border-box;\n  transition: left ease .3s, width ease .3s;\n"], ["\n  position: absolute;\n  left: 0;\n  top: 38px;\n  width: 0px;\n  height: 0px;\n  border-top: solid 2px ", ";\n  box-sizing: border-box;\n  transition: left ease .3s, width ease .3s;\n"])), function (p) { return p.theme.primaryColor; });
-Underliner.displayName = "Tabs.Underliner";
 export { Underliner };
 var templateObject_1;

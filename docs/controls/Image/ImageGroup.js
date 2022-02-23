@@ -58,12 +58,10 @@ var ImageGroupStyled = styled(ImageGroupBase)(templateObject_1 || (templateObjec
 var ImageGroup = /** @class */ (function (_super) {
     __extends(ImageGroup, _super);
     function ImageGroup() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ImageGroupStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    ImageGroup.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ImageGroupStyled, __assign({}, p)));
-    };
     return ImageGroup;
 }(React.Component));
 export { ImageGroup };

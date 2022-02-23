@@ -272,12 +272,10 @@ var DataTableStyled = styled(DataTableBase)(templateObject_1 || (templateObject_
 var DataTable = /** @class */ (function (_super) {
     __extends(DataTable, _super);
     function DataTable() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(DataTableStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    DataTable.prototype.render = function () {
-        return (React.createElement(DataTableStyled, __assign({}, this.props)));
-    };
-    DataTable.displayName = 'DataTable';
     /**
      * A single column in a DataTable. Its child element must be a function that takes an item
      * provided to it by the parent DataTable.
@@ -288,6 +286,5 @@ var DataTable = /** @class */ (function (_super) {
     DataTable.Column = DataColumn;
     return DataTable;
 }(React.Component));
-DataTable.Column.displayName = "DataTable.Column";
 export { DataTable };
 var templateObject_1;

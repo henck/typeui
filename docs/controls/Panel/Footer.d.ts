@@ -1,2 +1,5 @@
-declare const Footer: import("styled-components").StyledComponent<"div", import("../../styles/Theme").IThemeInterface, {}, never>;
+import * as React from 'react';
+declare class Footer extends React.Component {
+    return: () => JSX.Element;
+}
 export { Footer };

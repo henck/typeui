@@ -75,12 +75,10 @@ var SegmentStyled = styled(SegmentBase)(templateObject_25 || (templateObject_25 
 var Segment = /** @class */ (function (_super) {
     __extends(Segment, _super);
     function Segment() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(SegmentStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Segment.prototype.render = function () {
-        return (React.createElement(SegmentStyled, __assign({}, this.props)));
-    };
-    Segment.displayName = 'Segment';
     return Segment;
 }(React.PureComponent));
 export { Segment };

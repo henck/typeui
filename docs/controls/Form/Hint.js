@@ -22,12 +22,10 @@ import styled from '../../styles/Theme';
 var HintBase = /** @class */ (function (_super) {
     __extends(HintBase, _super);
     function HintBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    HintBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return HintBase;
 }(React.Component));
 var Hint = styled(HintBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  font-size: 80%;\n  line-height: 1.4em;\n  color: #aaa;\n  padding-top: 4px;\n  padding-left: 4px;\n"], ["\n  font-size: 80%;\n  line-height: 1.4em;\n  color: #aaa;\n  padding-top: 4px;\n  padding-left: 4px;\n"])));

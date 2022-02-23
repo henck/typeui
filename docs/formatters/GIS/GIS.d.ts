@@ -1,8 +1,12 @@
 import * as React from 'react';
 interface IProps {
-    /** Value to format. */
+    /**
+     * Value to format.
+     */
     value: number | string;
-    /** String to show if formatting failed. */
+    /**
+     * String to show if formatting failed.
+     */
     default?: string;
 }
 declare class Latitude extends React.Component<IProps> {

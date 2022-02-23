@@ -33,24 +33,20 @@ import styled from '../../styles/Theme';
 var LabelDetailBase = /** @class */ (function (_super) {
     __extends(LabelDetailBase, _super);
     function LabelDetailBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("span", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    LabelDetailBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("span", { className: p.className }, p.children));
-    };
     return LabelDetailBase;
 }(React.Component));
 var LabelDetailStyled = styled(LabelDetailBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  opacity: 0.7;\n  margin-left: 0.6em;\n"], ["\n  opacity: 0.7;\n  margin-left: 0.6em;\n"])));
 var LabelDetail = /** @class */ (function (_super) {
     __extends(LabelDetail, _super);
     function LabelDetail() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(LabelDetailStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    LabelDetail.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(LabelDetailStyled, __assign({}, p)));
-    };
     return LabelDetail;
 }(React.Component));
 export { LabelDetail };

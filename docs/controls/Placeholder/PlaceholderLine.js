@@ -34,12 +34,10 @@ import { css } from 'styled-components';
 var PlaceholderLineBase = /** @class */ (function (_super) {
     __extends(PlaceholderLineBase, _super);
     function PlaceholderLineBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }); };
+        return _this;
     }
-    PlaceholderLineBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }));
-    };
     return PlaceholderLineBase;
 }(React.Component));
 /* Spacing between lines */
@@ -61,15 +59,13 @@ var PlaceholderLine = /** @class */ (function (_super) {
     __extends(PlaceholderLine, _super);
     function PlaceholderLine(props) {
         var _this = _super.call(this, props) || this;
+        _this.render = function () { return React.createElement(PlaceholderLineStyled, __assign({}, _this.props, { length: _this.length })); };
         // If length is not specified, then pick a random length for the line.
         var lengths = ['short', 'medium', 'long', 'full'];
         var randomLength = lengths[Math.floor(Math.random() * lengths.length)];
         _this.length = props.length || randomLength;
         return _this;
     }
-    PlaceholderLine.prototype.render = function () {
-        return (React.createElement(PlaceholderLineStyled, __assign({}, this.props, { length: this.length })));
-    };
     return PlaceholderLine;
 }(React.Component));
 export { PlaceholderLine };

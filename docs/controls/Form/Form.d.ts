@@ -13,6 +13,7 @@ interface IProps {
     /**
      * When a form is dirty, it shows all validation errors, even
      * on pristine fields.
+     * @default false
      */
     dirty?: boolean;
 }

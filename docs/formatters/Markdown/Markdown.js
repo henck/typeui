@@ -37,6 +37,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Header } from '../../controls/Header';
 import { List } from '../../controls/List';
 import { Image } from '../../controls/Image';
@@ -70,43 +71,34 @@ var Markdown = /** @class */ (function (_super) {
      * ordered or bulleted. react-markdown provides an ordered:boolean.
      */
     Markdown.prototype.listRenderer = function (props) {
-        return React.createElement(List, { ordered: props.ordered, bulleted: !props.ordered }, props.children);
-    };
-    /**
-     * We'd like to use TypeUI's <Image> component to render images,
-     * so that we can set a size and an error message for load failures.
-     */
-    Markdown.prototype.imageRenderer = function (props) {
-        return React.createElement(Image, { src: props.src, alt: props.alt, size: "medium" }, "Image resource not found.");
+        // Filter out any string children.
+        var children = React.Children.toArray(props.children).filter(function (c) { return typeof c !== "string"; });
+        return React.createElement(List, { ordered: props.ordered, bulleted: !props.ordered }, children);
     };
     Markdown.prototype.render = function () {
         var p = this.props;
-        return (React.createElement(ReactMarkdown, { components: {
+        return (React.createElement(ReactMarkdown, { remarkPlugins: [remarkGfm], components: {
                 h1: this.headingRenderer,
                 h2: this.headingRenderer,
                 h3: this.headingRenderer,
                 h4: this.headingRenderer,
                 h5: this.headingRenderer,
                 h6: this.headingRenderer,
-                table: function (_a) {
-                    var node = _a.node, children = _a.children, props = __rest(_a, ["node", "children"]);
-                    return React.createElement(Table, __assign({}, props), children);
+                img: function (_a) {
+                    var node = _a.node, props = __rest(_a, ["node"]);
+                    return React.createElement(Image, __assign({ size: "medium" }, props), "Image resource not found.");
                 },
+                ul: this.listRenderer,
                 li: function (_a) {
                     var node = _a.node, children = _a.children, props = __rest(_a, ["node", "children"]);
-                    return React.createElement(List.Item, __assign({}, props), children);
+                    return React.createElement(List.Item, null, children);
                 },
+                table: function (_a) {
+                    var node = _a.node, children = _a.children, props = __rest(_a, ["node", "children"]);
+                    return React.createElement(Table, null, children);
+                }
             } }, p.source));
     };
     return Markdown;
 }(React.Component));
-/* <ReactMarkdown children={p.source}
-      
-renderers={{
-  heading: this.headingRenderer,  // Use special Header renderer
-  table: Table,                   // Use Table instead of <table>
-  list: this.listRenderer,        // Use special List renderer
-  listItem: List.Item,            // Use <List.Item> instead of <li>
-  image: this.imageRenderer       // Use special Image renderer
-}}/> */
 export { Markdown };

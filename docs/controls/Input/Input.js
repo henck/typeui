@@ -52,7 +52,6 @@ import { Selector as TimeSelector } from './Time/Selector';
 import { InputBox as ColorInputBox } from './Color/InputBox';
 import { Selector as ColorSelector } from './Color/Selector';
 import { Clear } from './Clear';
-import { Label } from '../Label/Label';
 import { Icon } from '../Icon/';
 import { IconStyled } from '../Icon/Icon';
 var InputInnerBase = /** @class */ (function (_super) {
@@ -193,24 +192,30 @@ var InputBase = /** @class */ (function (_super) {
     function InputBase() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    InputBase.prototype.isAttachedTo = function (c, side) {
+        var attached = c.props.attached;
+        return attached === side || (!attached && side === 'left');
+    };
+    // Return an array of children that are Labels and attached to this
+    // Input control.
     InputBase.prototype.getAttachables = function (side) {
-        if (side === void 0) { side = "left"; }
-        return React.Children.map(this.props.children, function (child) {
-            if (child.type && child.type === Label) {
-                // Does label have 'attached' attribute, and it is equal to side?
-                if (child.props.attached && child.props.attached === side)
-                    return child;
-                // No attached attribute, but side is left? Then add attached attribute.
-                if (!child.props.attached && side === 'left') {
-                    return React.cloneElement(child, { attached: 'left' });
-                }
-            }
+        var _this = this;
+        return React.Children.toArray(this.props.children)
+            .filter(function (c) { return React.isValidElement(c) // Is this a React node?
+            && c.props.isLabel // Is this a Label?
+            && _this.isAttachedTo(c, side); } // Is it attached to this side?
+        )
+            .map(function (c, idx) {
+            var attached = c.props.attached;
+            if (!attached)
+                attached = 'left'; // Attach to left side by default.
+            return React.cloneElement(c, { key: idx, attached: attached });
         });
     };
     InputBase.prototype.getIconProps = function () {
         var props = null;
         React.Children.forEach(this.props.children, function (child) {
-            if (child.type && child.type === Icon) {
+            if (React.isValidElement(child) && child.props.isIcon) {
                 props = child.props;
             }
         });
@@ -243,12 +248,10 @@ var InputStyled = styled(InputBase)(templateObject_8 || (templateObject_8 = __ma
 var Input = /** @class */ (function (_super) {
     __extends(Input, _super);
     function Input() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(InputStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Input.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(InputStyled, __assign({}, p)));
-    };
     return Input;
 }(React.Component));
 export { Input };

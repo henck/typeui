@@ -33,23 +33,20 @@ import styled from '../../styles/Theme';
 var MetaBase = /** @class */ (function (_super) {
     __extends(MetaBase, _super);
     function MetaBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("span", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    MetaBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("span", { className: p.className }, p.children));
-    };
     return MetaBase;
 }(React.Component));
 var MetaStyled = styled(MetaBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  display: block;\n  padding: 0 14px 0 14px;\n  font-size: 90%;\n  color: #888;\n  &:last-child {\n    padding-bottom: 12px;\n  }  \n"], ["\n  position: relative;\n  display: block;\n  padding: 0 14px 0 14px;\n  font-size: 90%;\n  color: #888;\n  &:last-child {\n    padding-bottom: 12px;\n  }  \n"])));
 var Meta = /** @class */ (function (_super) {
     __extends(Meta, _super);
     function Meta() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(MetaStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Meta.prototype.render = function () {
-        return (React.createElement(MetaStyled, __assign({}, this.props)));
-    };
     return Meta;
 }(React.Component));
 export { Meta };

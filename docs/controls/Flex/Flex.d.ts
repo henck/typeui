@@ -5,16 +5,29 @@ import { Divider } from './Divider';
 import { Quick } from './Quick';
 import { Columns } from './Columns';
 interface IFlexProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
-    /** A stackable flex stacks when screen gets small. */
+    /**
+     * A stackable flex stacks when screen gets small.
+     * @default false
+     */
     stackable?: boolean;
-    /** A divided Flex shows a *horizontal* dividing line between rows, in the gutter.
-     *  Use a `<Divider/>` for a vertical dividing line. */
+    /**
+     * A divided Flex shows a *horizontal* dividing line between rows, in the gutter.
+     * Use a `<Divider/>` for a vertical dividing line.
+     * @default false
+     */
     divided?: boolean;
-    /** A compact Flex has no VERTICAL gutter. */
+    /**
+     * A compact Flex has no VERTICAL gutter.
+     * @default false
+     */
     compact?: boolean;
-    /** A `relaxed` Flex has twice the gutter width, and a `very relaxed` Flex has 4 times gutter width. */
+    /**
+     * A `relaxed` Flex has twice the gutter width, and a `very relaxed` Flex has 4 times gutter width.
+     * @default false
+     */
     relaxed?: 'very' | boolean;
 }
 /**
@@ -42,8 +55,7 @@ interface IFlexProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-flex--properties
  */
-declare class Flex extends React.Component<IFlexProps, {}> {
-    static displayName: string;
+declare class Flex extends React.Component<IFlexProps> {
     /**
      * There can be multiple Flex.Row elements, but there is no vertical connection
      * between cells (this is not a grid).
@@ -72,6 +84,6 @@ declare class Flex extends React.Component<IFlexProps, {}> {
      * with null-elements.
      */
     static Columns: typeof Columns;
-    render(): JSX.Element;
+    render: () => JSX.Element;
 }
 export { Flex };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { CheckboxType } from '../Types';
 interface ICheckboxProps {
+    /** @ignore */
     className?: string;
     /** Checkbox name. */
     name?: string;
@@ -12,11 +13,20 @@ interface ICheckboxProps {
     label?: React.ReactNode;
     /** Is this a radio button? */
     radio?: boolean;
-    /** Checkbox visual style: `check`, `toggle`, `slider` or `circle`. Default is `check`. */
+    /**
+     * Checkbox visual style: `check`, `toggle`, `slider` or `circle`. Default is `check`.
+     * @default check
+     */
     type?: CheckboxType;
-    /** A disabled checkbox cannot be interacted with. */
+    /**
+     * A disabled checkbox cannot be interacted with.
+     * @default false
+     */
     disabled?: boolean;
-    /** If set, show an error state. */
+    /**
+     * If set, show an error state.
+     * @default false
+     */
     error?: boolean;
     /** Listeners are notified whenever the user interacts with the input. */
     onChange?: (value: any) => void;
@@ -30,8 +40,7 @@ interface ICheckboxProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-checkbox--properties
  */
-declare class Checkbox extends React.Component<ICheckboxProps, {}> {
-    static displayName: string;
-    render(): JSX.Element;
+declare class Checkbox extends React.Component<ICheckboxProps> {
+    render: () => JSX.Element;
 }
 export { Checkbox };

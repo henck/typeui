@@ -35,12 +35,10 @@ import { darken } from '../../helper/darken';
 var ProgressBase = /** @class */ (function (_super) {
     __extends(ProgressBase, _super);
     function ProgressBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }); };
+        return _this;
     }
-    ProgressBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }));
-    };
     return ProgressBase;
 }(React.Component));
 var ProgressStyled = styled(ProgressBase).attrs(function (p) { return ({
@@ -72,12 +70,10 @@ var ProgressStyled = styled(ProgressBase).attrs(function (p) { return ({
 var Progress = /** @class */ (function (_super) {
     __extends(Progress, _super);
     function Progress() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ProgressStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Progress.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ProgressStyled, __assign({}, p)));
-    };
     return Progress;
 }(React.Component));
 export { Progress };

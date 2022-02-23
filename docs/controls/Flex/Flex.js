@@ -85,13 +85,10 @@ var StyledFlex = styled(FlexBase)(templateObject_1 || (templateObject_1 = __make
 var Flex = /** @class */ (function (_super) {
     __extends(Flex, _super);
     function Flex() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(StyledFlex, __assign({}, _this.props)); };
+        return _this;
     }
-    Flex.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(StyledFlex, __assign({}, p)));
-    };
-    Flex.displayName = "Flex";
     /**
      * There can be multiple Flex.Row elements, but there is no vertical connection
      * between cells (this is not a grid).
@@ -122,10 +119,5 @@ var Flex = /** @class */ (function (_super) {
     Flex.Columns = Columns;
     return Flex;
 }(React.Component));
-Flex.Row.displayName = "Flex.Row";
-Flex.Column.displayName = "Flex.Column";
-Flex.Divider.displayName = "Flex.Divider";
-Flex.Quick.displayName = "Flex.Quick";
-Flex.Columns.displayName = "Flex.Columns";
 export { Flex };
 var templateObject_1;

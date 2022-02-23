@@ -1,17 +1,29 @@
 import * as React from 'react';
 interface IProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
-    /** Label to show above value */
+    /**
+     * Label to show above value
+     */
     label: string;
-    /** If onClick is specified, then the label has a link appearance. */
-    onClick?: () => void;
-    /** Optional flex width */
+    /**
+     * Optional flex width
+     */
     width?: number;
-    /** Remove backround */
+    /**
+     * If set, then the LabelledValue has no background color.
+     * @default false
+     */
     nobackground?: boolean;
-    /** Optional hint text. Can be JSX. */
+    /**
+     * Optional hint text. Can be JSX.
+     */
     hint?: React.ReactNode;
+    /**
+     * If onClick is specified, then the label has a link appearance.
+     */
+    onClick?: () => void;
 }
 /**
  * Displays a value with a label above it. A LabelledValue is just that: a label and
@@ -24,6 +36,6 @@ interface IProps {
  * @link https://henck.github.io/typeui/?path=/story/controls-labelledvalue--properties
  */
 declare class LabelledValue extends React.Component<IProps> {
-    render(): JSX.Element;
+    render: () => JSX.Element;
 }
 export { LabelledValue };

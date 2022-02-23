@@ -1,16 +1,28 @@
 import * as React from 'react';
 import { IconPane } from './IconPane';
 interface IPaneProps {
+    /** ignore */
     className?: string;
     children?: React.ReactNode;
-    /** Is the Pane currently open? */
+    /**
+     * Is the Pane currently open?
+     * @default false
+     */
     open: boolean;
-    /** This callback is called when the Pane requests to close. */
-    onClose: () => void;
-    /** A padded Pane adds padding to its content. */
+    /**
+     * A padded Pane adds padding to its content.
+     * @default false
+     */
     padded?: boolean;
-    /** Override default Pane width of 400 pixels. */
+    /**
+     * Override default Pane width of 400 pixels.
+     * @default 400
+     */
     width?: number;
+    /**
+     * This callback is called when the Pane requests to close.
+     */
+    onClose: () => void;
 }
 /**
  * A Pane slides in from the right side of the viewport when its open property is set
@@ -19,9 +31,8 @@ interface IPaneProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-pane--properties
  */
-declare class Pane extends React.Component<IPaneProps, {}> {
-    static displayName: string;
+declare class Pane extends React.Component<IPaneProps> {
     static Icon: typeof IconPane;
-    render(): JSX.Element;
+    render: () => JSX.Element;
 }
 export { Pane };

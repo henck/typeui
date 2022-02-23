@@ -33,24 +33,20 @@ import styled from '../../styles/Theme';
 var MessageHeaderBase = /** @class */ (function (_super) {
     __extends(MessageHeaderBase, _super);
     function MessageHeaderBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    MessageHeaderBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return MessageHeaderBase;
 }(React.Component));
 var MessageHeaderStyled = styled(MessageHeaderBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  font-weight: 500;\n  font-size: 115%;\n"], ["\n  font-weight: 500;\n  font-size: 115%;\n"])));
 var MessageHeader = /** @class */ (function (_super) {
     __extends(MessageHeader, _super);
     function MessageHeader() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(MessageHeaderStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    MessageHeader.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(MessageHeaderStyled, __assign({}, p)));
-    };
     return MessageHeader;
 }(React.Component));
 export { MessageHeader };

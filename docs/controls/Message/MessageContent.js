@@ -17,12 +17,10 @@ import * as React from 'react';
 var MessageContent = /** @class */ (function (_super) {
     __extends(MessageContent, _super);
     function MessageContent() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    MessageContent.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return MessageContent;
 }(React.Component));
 export { MessageContent };

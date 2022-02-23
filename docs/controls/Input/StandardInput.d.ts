@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IInputProps } from './Input';
-declare class StandardInputBase extends React.Component<IInputProps, {}> {
+declare class StandardInputBase extends React.Component<IInputProps> {
     private handleChange;
     render(): JSX.Element;
 }

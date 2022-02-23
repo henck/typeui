@@ -1,12 +1,21 @@
 import * as React from 'react';
 interface IErrorDialogProps {
-    /** Is the Dialog currently open? */
+    /**
+     * Is the Dialog currently open?
+     * @default false
+     */
     open?: boolean;
-    /** Axios response object. */
+    /**
+     * Axios response object.
+     */
     error: any;
-    /** Function to call when user selects the 'OK' option. */
+    /**
+     * Function to call when user selects the 'OK' option.
+     */
     onClose: () => void;
-    /** Function to call when user selects the 'Retry' option. If not provided, retry option will not be available. */
+    /**
+     * Function to call when user selects the 'Retry' option. If not provided, retry option will not be available.
+     */
     onRetry?: () => void;
 }
 declare class XhrDialog extends React.Component<IErrorDialogProps, {}> {

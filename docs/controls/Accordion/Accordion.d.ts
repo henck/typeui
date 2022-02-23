@@ -2,22 +2,36 @@ import * as React from 'react';
 import { Float, VerticalDirection } from '../Types';
 import { AccordionTab } from './AccordionTab';
 interface IAccordionProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
     /** Array of panel indices that are active (open) by default (0-based) */
     active?: number[];
-    /** A styled accordion adds basic formatting. */
+    /**
+     * A styled accordion adds basic formatting.
+     * @default false
+     */
     styled?: boolean;
-    /** Adds ab extra-strong dropshadow. Applies only to styled Accordions. */
+    /**
+     * Adds ab extra-strong dropshadow. Applies only to styled Accordions.
+     * @default false
+     */
     raised?: boolean;
     /**
      * If set, the accordion can have multiple panels open at the same time.
      * By default, an accordion only allows a single panel open at any time.
+     * @default false
      */
     multiple?: boolean;
-    /** Align caret icon to `left` or `right` (defaults to `left`). */
+    /**
+     * Align caret icon to `left` or `right`.
+     * @default left
+    */
     align?: Float;
-    /** If set, there will be no sliding animations. */
+    /**
+     * If set, there will be no sliding animations.
+     * @default false
+     */
     noanimate?: boolean;
     /** Attached to `top`, `bottom` or nothing (both). */
     attached?: boolean | VerticalDirection;

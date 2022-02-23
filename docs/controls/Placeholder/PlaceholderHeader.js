@@ -34,24 +34,20 @@ import { css } from 'styled-components';
 var PlaceholderHeaderBase = /** @class */ (function (_super) {
     __extends(PlaceholderHeaderBase, _super);
     function PlaceholderHeaderBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className }, _this.props.children); };
+        return _this;
     }
-    PlaceholderHeaderBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, p.children));
-    };
     return PlaceholderHeaderBase;
 }(React.Component));
 var PlaceholderHeaderStyled = styled(PlaceholderHeaderBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: relative;\n  background: transparent;\n  border-top: solid 1px #fff;\n  \n  /* Separator between image and lines */\n  ", "\n\n  /* White block under lines */\n  padding-bottom: 12px;\n  &:after {\n    position: absolute;\n    z-index: 1;\n    content: '';\n    left: 0;\n    bottom: 0;\n    height: 12px;\n    right: 0;\n    background: #fff;\n  }\n"], ["\n  position: relative;\n  background: transparent;\n  border-top: solid 1px #fff;\n  \n  /* Separator between image and lines */\n  ", "\n\n  /* White block under lines */\n  padding-bottom: 12px;\n  &:after {\n    position: absolute;\n    z-index: 1;\n    content: '';\n    left: 0;\n    bottom: 0;\n    height: 12px;\n    right: 0;\n    background: #fff;\n  }\n"])), function (p) { return p.image && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    margin-left: 54px;\n    &:before {\n      position: absolute;\n      z-index: 1;\n      content: '';\n      left: -10px;\n      top: -1px;\n      bottom: 0;\n      width: 10px;\n      background: #fff;\n    }\n  "], ["\n    margin-left: 54px;\n    &:before {\n      position: absolute;\n      z-index: 1;\n      content: '';\n      left: -10px;\n      top: -1px;\n      bottom: 0;\n      width: 10px;\n      background: #fff;\n    }\n  "]))); });
 var PlaceholderHeader = /** @class */ (function (_super) {
     __extends(PlaceholderHeader, _super);
     function PlaceholderHeader() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(PlaceholderHeaderStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    PlaceholderHeader.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(PlaceholderHeaderStyled, __assign({}, p)));
-    };
     return PlaceholderHeader;
 }(React.Component));
 export { PlaceholderHeader };

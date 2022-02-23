@@ -34,13 +34,11 @@ import styled from '../../styles/Theme';
 var DividerBase = /** @class */ (function (_super) {
     __extends(DividerBase, _super);
     function DividerBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className },
+            React.createElement("span", null, _this.props.children)); };
+        return _this;
     }
-    DividerBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className },
-            React.createElement("span", null, p.children)));
-    };
     return DividerBase;
 }(React.PureComponent));
 var DividerStyled = styled(DividerBase)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  position: relative; /* For internal <span> positioning */\n  box-sizing: border-box;\n  font-weight: 500;\n\n  /* A divider always clears content above it. */\n  clear: both;\n\n  /* Margin:\n     A fitted divider has no vertical margin. \n     A section divider has double vertical margin.*/\n  ", "\n  ", "\n  ", "\n\n  /* Border:\n     A hidden divider has no dividing line. */\n  border-top: solid 1px ", ";\n\n  /* A <span> is used to center the <Divider>'s content\n     vertically. */\n  & > span {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translateX(-50%) translateY(-50%);\n    padding: 0 16px;\n    background: #fff;\n  }\n\n  /* Any elements contained in the <Divider> get their\n     vertical margins removed to vertically center \n     them properly.\n     An example would be a <Header> contained in te\n     <Divider>. */\n  & span * {\n    margin-top: 0;\n    margin-bottom: 0;\n  }\n"], ["\n  position: relative; /* For internal <span> positioning */\n  box-sizing: border-box;\n  font-weight: 500;\n\n  /* A divider always clears content above it. */\n  clear: both;\n\n  /* Margin:\n     A fitted divider has no vertical margin. \n     A section divider has double vertical margin.*/\n  ", "\n  ", "\n  ", "\n\n  /* Border:\n     A hidden divider has no dividing line. */\n  border-top: solid 1px ", ";\n\n  /* A <span> is used to center the <Divider>'s content\n     vertically. */\n  & > span {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    transform: translateX(-50%) translateY(-50%);\n    padding: 0 16px;\n    background: #fff;\n  }\n\n  /* Any elements contained in the <Divider> get their\n     vertical margins removed to vertically center \n     them properly.\n     An example would be a <Header> contained in te\n     <Divider>. */\n  & span * {\n    margin-top: 0;\n    margin-bottom: 0;\n  }\n"
@@ -68,12 +66,10 @@ var DividerStyled = styled(DividerBase)(templateObject_4 || (templateObject_4 = 
 var Divider = /** @class */ (function (_super) {
     __extends(Divider, _super);
     function Divider() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(DividerStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    Divider.prototype.render = function () {
-        return (React.createElement(DividerStyled, __assign({}, this.props)));
-    };
-    Divider.displayName = 'Divider';
     return Divider;
 }(React.PureComponent));
 export { Divider };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Size } from '../Types';
 interface IImageLoaderProps {
+    /** @ignore */
     className?: string;
     children?: React.ReactNode;
     error: boolean;

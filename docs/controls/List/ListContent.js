@@ -34,12 +34,10 @@ import { css } from 'styled-components';
 var ListContentBase = /** @class */ (function (_super) {
     __extends(ListContentBase, _super);
     function ListContentBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement("div", { className: _this.props.className, onClick: _this.props.onClick }, _this.props.children); };
+        return _this;
     }
-    ListContentBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className, onClick: p.onClick }, p.children));
-    };
     return ListContentBase;
 }(React.Component));
 /* Styling for list item. */
@@ -47,12 +45,10 @@ var ListContentStyled = styled(ListContentBase)(templateObject_4 || (templateObj
 var ListContent = /** @class */ (function (_super) {
     __extends(ListContent, _super);
     function ListContent() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.render = function () { return React.createElement(ListContentStyled, __assign({}, _this.props)); };
+        return _this;
     }
-    ListContent.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(ListContentStyled, __assign({}, p)));
-    };
     return ListContent;
 }(React.Component));
 export { ListContent };
