@@ -10,7 +10,7 @@ const FooterStyled = styled('div')`
 `
 
 class Footer extends React.Component {
-  render = () => <FooterStyled/>
+  render = () => <FooterStyled>{this.props.children}</FooterStyled>
 }
 
 export { Footer };
