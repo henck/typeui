@@ -189,7 +189,14 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
         React.Children.map(this.props.children, (child:DataColumn) => {
           // Is the column removed? This can happen for conditionally-rendered columns.
           if(!child) return null;
-          return <Cell item={row} grid={this.props.grid} align={child.props.align} force={child.props.force} weight={child.props.weight}>{child.props.children}</Cell>
+          return <Cell 
+            item={row} grid={this.props.grid} align={child.props.align}
+            force={child.props.force} weight={child.props.weight}
+            onClick={child.props.onClick ? () => child.props.onClick(row) : null}
+            onDoubleClick={child.props.onDoubleClick ? () => child.props.onDoubleClick(row) : null}
+            >
+              {child.props.children}
+            </Cell>
         })
       }</Row>);
     }

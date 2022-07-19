@@ -17,6 +17,10 @@ interface ICellProps {
   grid?: boolean;
   /** If true, column always appears no matter the screen size. */
   force?: boolean;
+  /** Event is fired when cell is clicked. */
+  onClick?: () => void;
+  /** Event is fired when cell is double-clicked. */
+  onDoubleClick?: () => void;  
 }
 
 class CellBase extends React.Component<ICellProps, {}> {
@@ -24,7 +28,7 @@ class CellBase extends React.Component<ICellProps, {}> {
     let p = this.props;
     // Item function is only called when item is not null.
     return (
-      <div className={p.className}>
+      <div className={p.className} onClick={p.onClick} onDoubleClick={p.onDoubleClick}>
         {p.item !== null && (p.children as any)(p.item)}
       </div>
     )
@@ -32,6 +36,8 @@ class CellBase extends React.Component<ICellProps, {}> {
 }
 
 const Cell = styled(CellBase)`
+  position: relative;
+  
   box-sizing: border-box;
   font-size: 14px;
 
