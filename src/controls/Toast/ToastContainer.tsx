@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // Other controls
 import { Toast } from './Toast';
 import { ToastService, IToastSubscriber } from './ToastService';
+import { HorizontalDirection, VerticalDirection } from '../Types';
 
 interface IToastContainerProps {
   /** @ignore */
@@ -14,6 +15,14 @@ interface IToastContainerProps {
    * Maximum number of toasts on-screen at the same time. 
    */
   maxToasts: number;
+  /** Vertical alignment: top or bottom (defaults to bottom). */
+  verticalAlign?: VerticalDirection;
+  /** Horizontal alignment: left or right (defaults to left). */
+  horizontalAlign?: HorizontalDirection;
+  /** Offset from corner (defaults to 20 pixels). */
+  horizontalOffset?: number;
+  /** Offset from corner (defaults to 20 pixels). */
+  verticalOffset?: number;
 }
 
 interface IMessage {
@@ -83,11 +92,14 @@ class ToastContainerBase extends React.Component<IToastContainerProps, IToastCon
 }
 
 const ToastContainerStyled = styled(ToastContainerBase)`
-  /* Toasts are placed in the bottom-left corner. */
   position: absolute;
   z-index: 9999;
-  left: 20px;
-  bottom: 20px;
+  /* 
+   * Toasts are placed in the bottom-left corner, unless placement
+   * is overridden. 
+   */
+  ${p => p.horizontalAlign == 'right' ? css`right: ${p.horizontalOffset ? p.horizontalOffset : 20}px` : css`left: ${p.horizontalOffset ? p.horizontalOffset : 20}px`};
+  ${p => p.verticalAlign == 'top' ? css`top: ${p.verticalOffset ? p.verticalOffset : 20}px` : css`bottom: ${p.verticalOffset ? p.verticalOffset : 20}px`};
 `
 
 class ToastContainer extends React.Component<IToastContainerProps> {
