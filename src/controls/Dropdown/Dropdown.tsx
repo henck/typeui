@@ -8,11 +8,12 @@ import { Float } from '../Types';
 // Other controls
 import { Column } from './Column';
 import { DropdownInner } from './DropdownInner';
-import { Label } from '../Label/Label';
 
 interface IDropdownProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  children?: React.ReactNode;
   /** Dropdown name, for use in forms. */
   name?: string;
   /** Data to show in Dropdown. */
