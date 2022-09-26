@@ -9,6 +9,8 @@ import { Label } from './Label';
 interface IProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  children?: string;
   /** Label to show, if any */
   label?: string;
   /** 
