@@ -20,6 +20,8 @@ import { IconStyled } from '../Icon/Icon';
 interface IButtonProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  children?: React.ReactNode;
   /** @ignore (Not public) True when button is in a Button.Group; styling will need to know this. */
   grouped?: boolean;
   /** 
