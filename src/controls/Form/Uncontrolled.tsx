@@ -10,7 +10,7 @@ interface IProps {
   /** @ignore */
   className?: string;
   /** @ignore */
-  children?: string;
+  children?: React.ReactNode;
   /** Label to show, if any */
   label?: string;
   /** 
