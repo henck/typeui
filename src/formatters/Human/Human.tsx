@@ -26,7 +26,7 @@ class Human extends React.Component<IProps> {
       value /= thresh;
       ++u;
     } while(Math.abs(value) >= thresh && u < units.length - 1);
-    return value.toFixed(0) + units[u];
+    return value.toFixed(2) + units[u];
   }
 
   render() {
