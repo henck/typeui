@@ -18,9 +18,9 @@ class Human extends React.Component<IProps> {
   humanFileSize = (value: number) => {
     const thresh = 1000;
     if(Math.abs(value) < thresh) {
-        return value;
+        return value.toFixed(0)
     }
-    const units = ['k','M','G','T','P','E','Z','Y'];
+    const units = ['K','M','G','T','P','E','Z','Y'];
     let u = -1;
     do {
       value /= thresh;
