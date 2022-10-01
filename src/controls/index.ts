@@ -35,7 +35,7 @@ import { ToastService, ToastContainer } from "./Toast";
 
 export { Accordion, Box, Button, Card, Checkbox, Circle, CircularProgress, 
          DataTable, Dialog, Divider, Dropdown, Dropzone, Flex, Form, 
-         Gravatar, Header, Icon, IIconProps, IconType, Image, ImageStyled,
+         Gravatar, Header, Icon, IIconProps, IconStyled, IconType, Image, ImageStyled,
          Input, IInputProps, Label, LabelStyled, LabelledValue, List,
          Loader, Message, TMessageType, Pane, IconPane, Panel, IconPanel,
          Placeholder, Progress, Ripple, Segment, Table, Tabs, Textarea,
