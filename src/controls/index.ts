@@ -14,7 +14,7 @@ import { Flex } from "./Flex";
 import { Form } from "./Form";
 import { Gravatar } from "./Gravatar";
 import { Header } from "./Header";
-import { Icon, IIconProps, IconType } from "./Icon";
+import { Icon, IIconProps, IconStyled, IconType } from "./Icon";
 import { Image, ImageStyled } from "./Image";
 import { Input, IInputProps } from "./Input";
 import { Label, LabelStyled } from "./Label";
