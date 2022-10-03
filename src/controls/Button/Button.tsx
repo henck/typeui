@@ -139,7 +139,7 @@ const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
   width: 100%;
 
   /* Font */
-  font-family: Roboto, sans-serif;
+  font-family: ${p => p.theme.fontName}, sans-serif;
   font-weight: 500;
   font-size: 1em;
   white-space: nowrap;

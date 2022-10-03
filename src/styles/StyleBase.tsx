@@ -2,10 +2,10 @@ import { Theme } from './Theme'
 import { css, createGlobalStyle, GlobalStyleComponent, DefaultTheme } from 'styled-components'
 
 const base = css`
-  @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,400i,500,500i&subset=latin);
+  @import url(${Theme.fontURL});
   
   body {
-    font-family: Roboto, sans-serif;
+    font-family: ${Theme.fontName}, sans-serif;
     color: ${Theme.fontColor};
     font-size: ${Theme.fontSize}px;
     line-height: ${Theme.fontLineHeight}px;

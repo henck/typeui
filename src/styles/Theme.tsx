@@ -30,6 +30,8 @@ export interface IThemeInterface {
   readonly background:      string;
 
   // Default font
+  readonly fontURL:         string;
+  readonly fontName:        string;
   readonly fontSize:        number; // px
   readonly fontColor:       string; 
   readonly fontLineHeight:  number; // px
@@ -72,6 +74,8 @@ const Theme: IThemeInterface = {
   background:      '#fff',
   
   // Default font
+  fontURL:         "https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i&subset=latin",
+  fontName:        "Roboto",
   fontSize:        16,
   fontColor:       "rgba(0, 0, 0, 0.77)",
   fontLineHeight:  24,

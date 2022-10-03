@@ -110,7 +110,7 @@ const TextareaStyled = styled(TextareaBase).attrs(p => ({
   ${p => p.fluid && css`width: 100%;`}
   box-sizing:       border-box;
   z-index:          0;
-  font-family:      Roboto, sans-serif;
+  font-family:      ${p => p.theme.fontName}, sans-serif;
   font-size:        ${p => p.theme.fontSize}px;
   line-height:      17px;
   text-align:       left;
