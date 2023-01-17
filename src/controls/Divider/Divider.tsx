@@ -5,6 +5,7 @@ import styled from '../../styles/Theme';
 interface IDividerProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * A fitted Divider has no space above or below it. 
@@ -21,11 +22,15 @@ interface IDividerProps {
    * @default false
    */
   section?: boolean;
+  /**
+   * A narrow Divider creates less margin between blocks of content.
+   * @default false
+   */
+  narrow?: boolean;
 }
 
-class DividerBase extends React.PureComponent<IDividerProps> {
-  render = () => <div className={this.props.className}><span>{this.props.children}</span></div>
-}
+const DividerBase = (props: IDividerProps) => 
+  <div className={props.className}><span>{props.children}</span></div>
 
 const DividerStyled = styled(DividerBase)`
   position: relative; /* For internal <span> positioning */
@@ -38,9 +43,10 @@ const DividerStyled = styled(DividerBase)`
   /* Margin:
      A fitted divider has no vertical margin. 
      A section divider has double vertical margin.*/
+  margin: 14px 0;
   ${p => p.fitted && css`margin: 0;`}
-  ${p => !p.fitted && !p.section && css`margin: 14px 0;`}
-  ${p => !p.fitted &&  p.section && css`margin: 28px 0;`}
+  ${p => p.narrow && css`margin: 7px 0;`}
+  ${p => p.section && css`margin: 28px 0;`}
 
   /* Border:
      A hidden divider has no dividing line. */
@@ -78,8 +84,7 @@ const DividerStyled = styled(DividerBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-divider--properties
  */
-class Divider extends React.PureComponent<IDividerProps> {
-  render = () => <DividerStyled {...this.props}></DividerStyled>
-}
+const Divider = (props: IDividerProps) => <DividerStyled {...props}></DividerStyled>
 
-export { Divider };
+export { Divider }
+
