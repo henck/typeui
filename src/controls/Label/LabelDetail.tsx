@@ -7,14 +7,17 @@ interface ILabelDetailProps {
   children?: React.ReactNode;
 }
 
-const LabelDetailBase = (props: ILabelDetailProps) =>
-  <span className={props.className}>{props.children}</span>
+class LabelDetailBase extends React.Component<ILabelDetailProps> {
+  render = () => <span className={this.props.className}>{this.props.children}</span>
+}
 
 const LabelDetailStyled = styled(LabelDetailBase)`
   opacity: 0.7;
   margin-left: 0.6em;
 `;
 
-const LabelDetail = (props: ILabelDetailProps) => <LabelDetailStyled {...props}/>
+class LabelDetail extends React.Component<ILabelDetailProps> {
+  render = () => <LabelDetailStyled {...this.props}/>
+}
 
-export { LabelDetail }
+export { LabelDetail };
