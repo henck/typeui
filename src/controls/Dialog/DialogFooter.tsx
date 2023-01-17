@@ -5,37 +5,31 @@ import styled from '../../styles/Theme';
 import { lighten } from '../../helper/lighten';
 
 interface IDialogFooterProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
+  /** Optional alignment of items in the Dialog footer. Defaults to `end`. */
+  align?: 'start' | 'end' | 'space-between';
 }
 
-class DialogFooterBase extends React.Component<IDialogFooterProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
-}
+const DialogFooterBase = (props: IDialogFooterProps) => 
+  <div className={props.className}>{props.children}</div>
 
 const DialogFooterStyled = styled(DialogFooterBase)`
+  display: flex;
+  flex-direction: row;
+  justify-content: ${p => p.align ?? 'end'};
   padding: 20px 20px 20px 20px;
   border-top: solid 1px ${p => p.theme.normalColor};
   background: ${p => lighten(0.1, p.theme.normalColor)};
-  text-align: right;
   border-bottom-left-radius: ${p => p.theme.radius}px;
   border-bottom-right-radius: ${p => p.theme.radius}px;
 `
 
-class DialogFooter extends React.Component<IDialogFooterProps, {}> {
+class DialogFooter extends React.Component<IDialogFooterProps> {
   public static displayName = "Dialog.Footer";
-  
-  render() {
-    let p = this.props;
-    return (
-      <DialogFooterStyled {...p}/>
-    )
-  }  
+  render = () => <DialogFooterStyled {...this.props}/>
 }
 
 export { DialogFooter };
