@@ -50,26 +50,26 @@ interface IButtonProps {
    */
   negative?: boolean;
   /** 
-   * Set custom color for button, e.g. `skyblue` or `#ffff00`. 
+   * Optionally set custom color for button, e.g. `skyblue` or `#ffff00`. 
    */
   color?: string;
   /** 
-   * Reduce button padding. 
+   * Optionally reduce button padding. 
    * @default false
    */
   compact?: boolean;
   /** 
-   * Set button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. 
+   * Optionally set button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`. 
    * @default medium
    */
   size?: Size;
   /** 
-   * Make button fill the width of its container. 
+   * Optionally make button fill the width of its container. 
    * @default false
    */
   fluid?: boolean;
   /** 
-   * Remove button padding, for icon-only buttons. 
+   * Optionally remove button padding, for icon-only buttons. 
    * @default false
    */
   icon?: boolean;
@@ -100,21 +100,11 @@ interface IButtonProps {
 //
 // The InnerBase is the actual <button> element (created by a Ripple).
 //
-class ButtonInnerBase extends React.Component<IButtonProps, {}> {
-  render() {
-    let p = this.props;
-
-    // Treat disabled as a special case. React will not allow us to 
-    // pass "disabled=true" along; it must be just "disabled".
-    if(p.disabled) {
-      return <button className={p.className} disabled>{p.children}</button>
-    }
-
-    if(p.noripple) {
-      return <button className={p.className}>{p.children}</button>
-    } else {
-      return <Ripple type="button" className={p.className}>{p.children}</Ripple>
-    }
+const ButtonInnerBase = (props: IButtonProps) => {
+  if(props.noripple || props.disabled) {
+    return <button className={props.className}>{props.children}</button>
+  } else {
+    return <Ripple type="button" className={props.className}>{props.children}</Ripple>
   }
 }
 
@@ -184,7 +174,7 @@ const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
   ${p => p.basic && css`
     border-style: solid;
     border-width: 1px;
-    background-color: ${p.theme.background};
+    background-color: transparent;
     /* Since border occupies 1px, adjust to padding to shrink: */
     padding: calc(-1px + 0.6875em) calc(-1px + 1.2em);
     ${p.hasColor && css`
@@ -260,20 +250,20 @@ const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
  * ButtonBase puts a <div> around ButtonInner so that we 
  * can add attachable components.
  */
-class ButtonBase extends React.Component<IButtonProps, {}> {
-  private isAttachedTo(c: any, side: Float) {
+const ButtonBase = (props: IButtonProps) => {
+  const isAttachedTo = (c: any, side: Float) => {
     const attached = (c.props as any).attached;
     return attached === side || (!attached && side === 'left');
   }
 
   // Return an array of children that are Labels and attached to this
   // Input control.
-  private getAttachables(side: Float) {
-    return React.Children.toArray(this.props.children)
+  const getAttachables = (side: Float) => {
+    return React.Children.toArray(props.children)
     .filter(
       c => React.isValidElement(c)     // Is this a React node?
       && (c.props as any).isLabel      // Is this a Label?
-      && this.isAttachedTo(c, side)    // Is it attached to this side?
+      && isAttachedTo(c, side)    // Is it attached to this side?
     )
     .map((c: any, idx: number) => {
       let attached = (c.props as any).attached;
@@ -282,8 +272,8 @@ class ButtonBase extends React.Component<IButtonProps, {}> {
     });
   }
 
-  private getNonAttachables = () => {
-    return React.Children.map(this.props.children, (child:any) => {
+  const getNonAttachables = () => {
+    return React.Children.map(props.children, (child:any) => {
       if(!child) return;
       // Only non-labels are passed to ButtonInner.
       if(!child.type) return child;
@@ -291,21 +281,19 @@ class ButtonBase extends React.Component<IButtonProps, {}> {
     })
   }
 
-  render() {
-    // We must pass all props down to ButtonInnerStyled,
-    // EXCEPT className, or the parent's classes will 
-    // be added to the child.
-    let {className, ...otherProps} = this.props;
-    return (
-      <div className={className} onClick={otherProps.onClick}>
-        {this.getAttachables('left')}
-        <ButtonInnerStyled {...otherProps}>
-          {this.getNonAttachables()}
-        </ButtonInnerStyled>
-        {this.getAttachables('right')}        
-      </div>
-    )
-  }
+  // We must pass all props down to ButtonInnerStyled,
+  // EXCEPT className, or the parent's classes will 
+  // be added to the child.
+  const {className, ...otherProps} = props;
+  return (
+    <div className={className} onClick={otherProps.onClick}>
+      {getAttachables('left')}
+      <ButtonInnerStyled {...otherProps}>
+        {getNonAttachables()}
+      </ButtonInnerStyled>
+      {getAttachables('right')}        
+    </div>
+  );
 }
 
 const ButtonStyled = styled(ButtonBase)`
@@ -330,36 +318,35 @@ const ButtonStyled = styled(ButtonBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-button--properties
  */
-class Button extends React.Component<IButtonProps, {}> {
-  /**
-   * Button groups can contain conditionals using Button.Or.
-   * 
-   * @example
-   * <Button.Group>
-   *   <Button>One</Button> 
-   *   <Button.Or/>
-   *   <Button positive>Two</Button> 
-   * </Button.Group>
-   * 
-   * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--group-attributes
-   */  
-  public static Or = ButtonOr;
+const Button = (props: IButtonProps) =>
+  <ButtonStyled {...props} disabled={props.disabled}></ButtonStyled>
 
-  /**
-   * Buttons can be grouped horizontally or vertically using Button.Group.
-   * 
-   * @example
-   * <Button.Group vertical>
-   *  <Button>One</Button> 
-   *  <Button>Two</Button> 
-   *  <Button>Three</Button> 
-   * </Button.Group> 
-   * 
-   * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--conditional
-   */  
-  public static Group = ButtonGroup;  
+/**
+ * Button groups can contain conditionals using Button.Or.
+ * 
+ * @example
+ * <Button.Group>
+ *   <Button>One</Button> 
+ *   <Button.Or/>
+ *   <Button positive>Two</Button> 
+ * </Button.Group>
+ * 
+ * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--group-attributes
+ */  
+Button.Or = ButtonOr;
 
-  render = () => <ButtonStyled {...this.props} disabled={this.props.disabled}></ButtonStyled>
-}
+/**
+ * Buttons can be grouped horizontally or vertically using Button.Group.
+ * 
+ * @example
+ * <Button.Group vertical>
+ *  <Button>One</Button> 
+ *  <Button>Two</Button> 
+ *  <Button>Three</Button> 
+ * </Button.Group> 
+ * 
+ * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--conditional
+ */  
+Button.Group = ButtonGroup;
 
 export { Button, IButtonProps };

@@ -15,9 +15,8 @@ interface IButtonOrProps {
   size?: Size;  
 }
 
-class ButtonOrBase extends React.Component<IButtonOrProps, {}> {
-  render = () => <div className={this.props.className}></div>
-}
+const ButtonOrBase = (props: IButtonOrProps) => 
+  <div className={props.className}></div>
 
 const ButtonOrStyled = styled(ButtonOrBase)`
   display:  inline-block;
@@ -38,17 +37,15 @@ const ButtonOrStyled = styled(ButtonOrBase)`
     border-radius: 1em;
     color:         #888;
   }
-  ${p => p.size==='mini' && css`font-size: .79em`};
-  ${p => p.size==='tiny' && css`font-size: .86em`};
-  ${p => p.size==='small' && css`font-size: .93em`};
-  ${p => p.size==='large' && css`font-size: 1.14em`};
-  ${p => p.size==='big' && css`font-size: 1.29em`};
-  ${p => p.size==='huge' && css`font-size: 1.43em`};
+  ${p => p.size==='mini'    && css`font-size: .79em` };
+  ${p => p.size==='tiny'    && css`font-size: .86em` };
+  ${p => p.size==='small'   && css`font-size: .93em` };
+  ${p => p.size==='large'   && css`font-size: 1.14em`};
+  ${p => p.size==='big'     && css`font-size: 1.29em`};
+  ${p => p.size==='huge'    && css`font-size: 1.43em`};
   ${p => p.size==='massive' && css`font-size: 1.71em`};  
 `
 
-class ButtonOr extends React.Component<IButtonOrProps, {}> {
-  render = () => <ButtonOrStyled {...this.props}/>
-}
+const ButtonOr = (props: IButtonOrProps) => <ButtonOrStyled {...props}/>
 
-export { ButtonOr };
+export { ButtonOr, IButtonOrProps }

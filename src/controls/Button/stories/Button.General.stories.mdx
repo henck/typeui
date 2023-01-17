@@ -17,17 +17,28 @@ import {Label} from '../../Label';
   }}
 />
 
-export const Template = (args) => <Button {...args}>Button</Button>
+export const Template = (args) => 
+  <Button {...args}>Button</Button>
 
 ## basic
 
 A `basic` button is less pronounced.
 
+export const BasicTemplate = (args) => 
+  <>
+  <div style={{background: "white", padding: "20px" }}>
+    <Button {...args}>Button</Button>
+  </div>
+  <div style={{background: "black", padding: "20px" }}>
+  <Button positive {...args}>Button</Button>
+  </div>
+  </>
+
 <Canvas>
   <Story
     name="Basic"
     args={{ basic }}>
-    {Template.bind({})}
+    {BasicTemplate.bind({})}
   </Story>
 </Canvas>
 

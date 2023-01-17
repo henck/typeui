@@ -14,6 +14,7 @@ import { IButtonProps } from './Button';
 interface IButtonGroupProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Aligns buttons in a vertical list. Default is horizontal. 
@@ -46,26 +47,25 @@ interface IButtonGroupProps {
   icon?: boolean;
 }
 
-class ButtonGroupBase extends React.Component<IButtonGroupProps, {}> {
-  render() {
-    // Build a list of properties to pass along to child buttons.
-    let props: IButtonProps = {};
-    const p = this.props;
-    props.grouped = true;
-    if(this.props.size) props.size = p.size;
-    if(this.props.color) props.color = p.color;
-    if(this.props.compact) props.compact = p.compact;
-    if(this.props.basic) props.basic = p.basic;
-    if(this.props.icon) props.icon = p.icon;
-    // Render all children, cloning them to add group props.
-    return (
-      <div className={this.props.className}>
-        {React.Children.map(this.props.children, (child:any) => {
-          return React.cloneElement(child, props);
-        })}
-      </div>
-    )
-  }
+const ButtonGroupBase = (props: IButtonGroupProps) => {
+  // Build a list of properties to pass along to child buttons.
+  const newprops: IButtonProps = {
+    size:    props.size,
+    color:   props.color,
+    compact: props.compact,
+    basic:   props.basic,
+    icon:    props.icon,
+    grouped: true
+  };
+  
+  // Render all children, cloning them to add group props.
+  return (
+    <div className={props.className}>
+      {React.Children.map(props.children, (child: any) => {
+        return React.cloneElement(child, newprops);
+      })}
+    </div>
+  );
 }
 
 const ButtonGroupStyled = styled(ButtonGroupBase)`
@@ -116,14 +116,7 @@ const ButtonGroupStyled = styled(ButtonGroupBase)`
   }
 `
 
-class ButtonGroup extends React.Component<IButtonGroupProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ButtonGroupStyled {...p}/>
-    )
-  }  
-}
+const ButtonGroup = (props: IButtonGroupProps) => <ButtonGroupStyled {...props}/>
 
-export { ButtonGroup };
+export { ButtonGroup, IButtonGroupProps };
 
