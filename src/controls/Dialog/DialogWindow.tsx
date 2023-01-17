@@ -2,23 +2,18 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IDialogWindowProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   windowRef?: any;
   width?: number;
 }
 
-class DialogWindowBase extends React.Component<IDialogWindowProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div 
-        className={p.className}
-        ref={p.windowRef}>
-      {p.children}</div>
-    );
-  }
-}
+const DialogWindowBase = (props: IDialogWindowProps) => 
+  <div className={props.className} ref={props.windowRef}>
+    {props.children}
+  </div>
 
 const DialogWindow = styled(DialogWindowBase)`
   position: fixed;

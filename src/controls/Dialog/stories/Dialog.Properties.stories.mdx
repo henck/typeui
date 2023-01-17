@@ -9,11 +9,17 @@ import {Button} from '../../Button'
 
 # Dialog
 
-A `Dialog` is an overlay window that is triggered when the Dialog's `open` attribute is set 
-to `true`. The calling code is responsible for setting `open` to `false` when the Dialog
-should close.
+A `Dialog` is an overlay window that is triggered when the Dialog's `open` 
+attribute is set to `true`. The calling code is responsible for setting `open` 
+to `false` when the Dialog should close. The `Dialog` also calls `onClose` when 
+the user clicks outside the Dialog.
 
-The `Dialog` also calls `onClose` when the user clicks outside the Dialog.
+Elements `Dialog.Header`, `Dialog.Content` and `Dialog.Footer` are used to 
+build areas of the `Dialog`. `Dialog.Footer` can take an optional `align` 
+property that helps align any buttons in the footer.
+
+A Dialog's `Dialog.Content` will fill up to 70% of the vertical screen space 
+available before adding a vertical scrollbar.
 
 <ArgsTable for="Dialog"/>
 

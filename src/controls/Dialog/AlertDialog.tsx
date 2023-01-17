@@ -5,6 +5,7 @@ import { Button } from '../Button/Button';
 import { Dialog } from './Dialog';
 
 interface IAlertDialogProps {
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Is the Dialog currently open? 
@@ -12,31 +13,26 @@ interface IAlertDialogProps {
    */
   open?: boolean;
   /** 
-   * Title to show in alert dialog. If not specified, "Alert" 
+   * Optional title to show in alert dialog. If not specified, this will be 
+   * "Alert".
    * @default Alert
-    */
+   */
   title?: string;
   /** 
-   * Function to call on close. 
+   * Function to call when Dialog closes. 
    */
   onClose: () => void;
 }
 
-class AlertDialog extends React.Component<IAlertDialogProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <Dialog open={p.open} onClose={p.onClose}>
-        <Dialog.Header>{p.title ? p.title : 'Alert'}</Dialog.Header>
-        <Dialog.Content>
-          {p.children}
-        </Dialog.Content>
-        <Dialog.Footer>
-          <Button onClick={p.onClose}>OK</Button>
-        </Dialog.Footer>
-      </Dialog>
-    );
-  }
-}
+const AlertDialog = (props: IAlertDialogProps) =>
+  <Dialog open={props.open} onClose={props.onClose}>
+    <Dialog.Header>{props.title ?? 'Alert'}</Dialog.Header>
+    <Dialog.Content>
+      {props.children}
+    </Dialog.Content>
+    <Dialog.Footer>
+      <Button onClick={props.onClose}>OK</Button>
+    </Dialog.Footer>
+  </Dialog>
 
-export { AlertDialog };
+export { AlertDialog, IAlertDialogProps };

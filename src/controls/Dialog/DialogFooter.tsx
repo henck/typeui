@@ -27,9 +27,9 @@ const DialogFooterStyled = styled(DialogFooterBase)`
   border-bottom-right-radius: ${p => p.theme.radius}px;
 `
 
-class DialogFooter extends React.Component<IDialogFooterProps> {
-  public static displayName = "Dialog.Footer";
-  render = () => <DialogFooterStyled {...this.props}/>
-}
+const DialogFooter = (props: IDialogFooterProps) =>
+  <DialogFooterStyled {...props}/>
 
-export { DialogFooter };
+DialogFooter.displayName = "Dialog.Footer";
+
+export { DialogFooter, IDialogFooterProps };

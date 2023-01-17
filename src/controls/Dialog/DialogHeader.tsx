@@ -2,35 +2,25 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IDialogHeaderProps {
+  /* @ignore */
   className?: string;
+  /* @ignore */
   children?: React.ReactNode;
 }
 
-class DialogHeaderBase extends React.Component<IDialogHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
-}
+const DialogHeaderBase = (props: IDialogHeaderProps) => 
+  <div className={props.className}>{props.children}</div>
 
 const DialogHeaderStyled = styled(DialogHeaderBase)`
-  padding: 20px 20px 15px 20px;
+  padding:       20px 20px 15px 20px;
   border-bottom: solid 1px ${p => p.theme.normalColor};
-  font-size: 24px;
-  font-weight: 500;
+  font-size:     24px;
+  font-weight:   500;
 `
 
-class DialogHeader extends React.Component<IDialogHeaderProps, {}> {
-  public static displayName = "Dialog.Header";
-  
-  render() {
-    let p = this.props;
-    return (
-      <DialogHeaderStyled {...p}/>
-    )
-  }  
-}
+const DialogHeader = (props: IDialogHeaderProps) => 
+  <DialogHeaderStyled {...props}/>
 
-export { DialogHeader };
+DialogHeader.displayName = "Dialog.Header" ;
+
+export { DialogHeader, IDialogHeaderProps };

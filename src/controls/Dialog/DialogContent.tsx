@@ -2,35 +2,31 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IDialogContentProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
+  /** 
+   * Maximum height in percentage of screen height before a scrollbar is 
+   * added. Defaults to 70.
+   * @default 70
+   */
+  maxHeight?: number;
 }
 
-class DialogContentBase extends React.Component<IDialogContentProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
-}
+const DialogContentBase = (props: IDialogContentProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const DialogContentStyled = styled(DialogContentBase)`
-  position: relative;
-  padding: 20px 20px 20px 20px;
-  max-height: 70vh;
+  position:   relative;
+  padding:    20px 20px 20px 20px;
+  max-height: ${p => p.maxHeight ?? 70}vh;
   overflow-y: auto;  
 `
 
-class DialogContent extends React.Component<IDialogContentProps, {}> {
-  public static displayName = "Dialog.Content";
-  
-  render() {
-    let p = this.props;
-    return (
-      <DialogContentStyled {...p}/>
-    )
-  }  
-}
+const DialogContent = (props: IDialogContentProps) =>
+  <DialogContentStyled {...props}/>
 
-export { DialogContent };
+DialogContent.displayName = "Dialog.Content";
+
+export { DialogContent, IDialogContentProps };

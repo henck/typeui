@@ -12,16 +12,22 @@ import { ConfirmDialog } from './ConfirmDialog';
 import { XhrDialog } from './XhrDialog';
 
 interface IDialogProps {
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Is the Dialog currently open? 
-   * @default: false
+   * @default false
    */
   open?: boolean;
-  /** This callback is called when the user closes the Dialog window. */
+  /** 
+   * This optional callback is called when the user closes the Dialog 
+   * window.
+   * @default null
+   */
   onClose?: () => void;
   /**
-   * Override standard dialog width of 600 pixels. 
+   * Override standard dialog width of 600 pixels (large screens) or 
+   * 400 pixels (small screens). 
    * @default 600
    */
   width?: number;

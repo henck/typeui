@@ -5,6 +5,7 @@ import { Button } from '../Button/Button';
 import { Dialog } from './Dialog';
 
 interface IConfirmDialogProps {
+  /* @ignore */
   children?: React.ReactNode;
   /** 
    * Is the Dialog currently open? 
@@ -26,22 +27,16 @@ interface IConfirmDialogProps {
   onConfirm: () => void;
 }
 
-class ConfirmDialog extends React.Component<IConfirmDialogProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <Dialog open={p.open} onClose={p.onClose}>
-        <Dialog.Header>{p.title ? p.title : 'Confirmation'}</Dialog.Header>
-        <Dialog.Content>
-          {p.children}
-        </Dialog.Content>
-        <Dialog.Footer>
-          <Button negative onClick={p.onConfirm}>Yes</Button>
-          <Button onClick={p.onClose}>No</Button>
-        </Dialog.Footer>
-      </Dialog>
-    );
-  }
-}
+const  ConfirmDialog = (props: IConfirmDialogProps) => 
+  <Dialog open={props.open} onClose={props.onClose}>
+    <Dialog.Header>{props.title ?? 'Confirmation'}</Dialog.Header>
+    <Dialog.Content>
+      {props.children}
+    </Dialog.Content>
+    <Dialog.Footer>
+      <Button negative onClick={props.onConfirm}>Yes</Button>
+      <Button onClick={props.onClose}>No</Button>
+    </Dialog.Footer>
+  </Dialog>
 
-export { ConfirmDialog };
+export { ConfirmDialog, IConfirmDialogProps };

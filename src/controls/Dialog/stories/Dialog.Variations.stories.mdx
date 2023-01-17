@@ -12,8 +12,9 @@ import {Button} from '../../Button'
 
 ## width 
 
-A `Dialog` has a default width in pixels, but the `width` attribute can be 
-used to override that.
+A `Dialog` has a default width in pixels. On a large screen the width defaults
+to _600_ pixels, while on small screen, it defaults to _400_ pixels (done through 
+a `@media` query). The `width` attribute can be used to override this.
 
 export const Template = (args) => 
 <div style={{height: '300px'}}>
@@ -28,8 +29,88 @@ export const Template = (args) =>
 
 <Canvas>
   <Story
-    name="Properties"
+    name="Width"
     args={{ open: true, width: 200 }}>
     {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Scrolling content
+
+The `Dialog.Content` element will add a vertical scrollbar if the height of 
+the content exceeds _70%_ of the vertical screen size. The `maxHeight` property
+can be used to customize this by specifying a different percentage.
+
+export const ScrollingTemplate = (args) => 
+<div style={{height: '300px'}}>
+<Dialog {...args}>
+  <Dialog.Header>Long content</Dialog.Header>
+  <Dialog.Content maxHeight={15}>
+    Line 1<br/>
+    Line 2<br/>
+    Line 3<br/>
+    Line 4<br/>
+    Line 5<br/>
+    Line 6<br/>
+    Line 7<br/>
+    Line 8<br/>
+    Line 9<br/>
+    Line 10<br/>
+    Line 11<br/>
+    Line 12<br/>
+    Line 13<br/>
+    Line 14<br/>
+    Line 15<br/>
+    Line 16<br/>
+    Line 17<br/>
+    Line 18<br/>
+    Line 19<br/>
+    Line 20<br/>
+    Line 21<br/>
+    Line 22<br/>
+    Line 23<br/>
+    Line 24<br/>
+    Line 25<br/>
+    Line 26<br/>
+    Line 27<br/>
+    Line 28<br/>
+  </Dialog.Content>
+  <Dialog.Footer>
+    <Button>OK</Button>
+  </Dialog.Footer>
+</Dialog>
+</div>
+
+<Canvas>
+  <Story
+    name="Scrolling"
+    args={{ open: true }}>
+    {ScrollingTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Footer alignment
+
+The `Dialog.Footer` element accepts an optjonal `align` property that behaves 
+like Flexbox's `justify-content`, facilitating the placement of buttons in the 
+footer. Alignment defaults to the right for all items (`justify-content: end`).
+
+export const FooterTemplate = (args) => 
+<div style={{height: '300px'}}>
+<Dialog {...args}>
+  <Dialog.Header>Welcome</Dialog.Header>
+  <Dialog.Content>Good day!</Dialog.Content>
+  <Dialog.Footer align="space-between">
+    <Button primary>OK</Button>
+    <Button secondary>Another button</Button>
+  </Dialog.Footer>
+</Dialog>
+</div>
+
+<Canvas>
+  <Story
+    name="Footer alignment"
+    args={{ open: true }}>
+    {FooterTemplate.bind({})}
   </Story>
 </Canvas>
