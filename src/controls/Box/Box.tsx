@@ -3,22 +3,19 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IBoxProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
-  /** Box fill color. Default is `pink`. */
+  /** 
+   * Box fill color. Default is `pink`. 
+   * @default pink
+   */
   color?: string;
 }
 
-class BoxBase extends React.Component<IBoxProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        {p.children}
-      </div>
-    );
-  }
-}
+const BoxBase = (props: IBoxProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const BoxStyled = styled(BoxBase)`
   display: block;
@@ -29,13 +26,6 @@ const BoxStyled = styled(BoxBase)`
   ${p => p.color && css`background: ${p.color};`}
 `;
 
-class Box extends React.Component<IBoxProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <BoxStyled {...p}/>
-    )
-  }  
-}
+const Box = (props: IBoxProps) => <BoxStyled {...props}/>
 
 export { Box };
