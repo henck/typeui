@@ -32,6 +32,14 @@ interface ILabelProps {
   /** 
    * Label content may be passed as a property. 
    */
+  positive?: string;
+  /**
+   * If set, use `positive` color for Label.
+   */
+  negative?: string;
+  /**
+   * If set, use `negative` color for Label.
+   */  
   content?: React.ReactNode;
   /** 
    * A floating Label floats over the top-right corner of its parent. 
@@ -67,7 +75,8 @@ class LabelBase extends React.Component<ILabelProps> {
 }
 
 const LabelStyled = styled(LabelBase).attrs(p => ({
-  emSize: scaleSize(p.size, 0.86, p.theme.scale.label)
+  emSize: scaleSize(p.size, 0.86, p.theme.scale.label),
+  finalColor: p.positive ? p.theme.positiveColor : (p.negative ? p.theme.negativeColor : p.color)
 }))`
   display:     inline-flex;
   align-items: center;
@@ -91,17 +100,17 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
 
   /* Colors and border */
   ${p => p.basic && css`
-    border: solid 1px ${p.color ? p.color : p.theme.normalColor};
+    border: solid 1px ${p.finalColor ? p.finalColor : p.theme.normalColor};
     /* Since border occupies 1px, reduce padding by 1px: */
     padding: calc(-1px + 0.58em) calc(-1px + 0.83em);
-    color: ${p.color ? p.color : lighten(0.4, p.theme.fontColor)}; 
+    color: ${p.finalColor ? p.finalColor : lighten(0.4, p.theme.fontColor)}; 
     background: ${p.theme.background};
     font-weight: 500;
   `}
   ${p => !p.basic && css`
-    color:       ${p.color ? "#fff" : lighten(0.3, p.theme.fontColor)};
-    background:  ${p.color ? p.color : p.theme.normalColor};
-    font-weight: ${p.color ? "500" : "inherit"};
+    color:       ${p.finalColor ? "#fff" : lighten(0.3, p.theme.fontColor)};
+    background:  ${p.finalColor ?? p.theme.normalColor};
+    font-weight: ${p.finalColor ? "500" : "inherit"};
   `}
   
   /* Adjacent labels have a small margin. This does not apply to
@@ -139,12 +148,12 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
     &:hover {
-      ${p.basic && !p.color && css`
+      ${p.basic && !p.finalColor && css`
         color: ${p.theme.primaryColor};
       `}
       ${!p.basic && css`
-        background-color: ${darken(0.05, p.color ? p.color : p.theme.normalColor)};
-        ${!p.color && css`color:${p.theme.fontColor};`}
+        background-color: ${darken(0.05, p.finalColor ?? p.theme.normalColor)};
+        ${!p.finalColor && css`color:${p.theme.fontColor};`}
       `}      
     }
   `}

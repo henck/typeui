@@ -58,6 +58,42 @@ export const ColorTemplate = (args) =>
   </Story>
 </Canvas>
 
+## positive
+
+A label can have a `positive` color. If the `positive` property is set, then 
+the font will turn white and bold.
+
+export const PositiveTemplate = (args) =>
+<div>
+  <Label {...args}/>
+</div>
+
+<Canvas>
+  <Story
+    name="positive"
+    args={{ children: "Positive", positive: true }}>
+    {PositiveTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## negative
+
+A label can have a `negative` color. If the `negative` property is set, then 
+the font will turn white and bold.
+
+export const NegativeTemplate = (args) =>
+<div>
+  <Label {...args}/>
+</div>
+
+<Canvas>
+  <Story
+    name="negative"
+    args={{ children: "Negative", negative: true }}>
+    {PositiveTemplate.bind({})}
+  </Story>
+</Canvas>
+
 ## floating 
 
 A label can appear `floating` above another component.
@@ -71,7 +107,7 @@ export const FloatingTemplate = (args) =>
 <Canvas>
   <Story
     name="floating"
-    args={{ floating: true, onClick: () => {}, children: "22" }}>
+    args={{ floating: true, children: "22" }}>
     {FloatingTemplate.bind({})}
   </Story>
 </Canvas>
