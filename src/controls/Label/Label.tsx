@@ -77,6 +77,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
   padding:     0.58em 0.83em; /* Padding scales with font size. */
   vertical-align: middle;
   border-radius: ${p => p.theme.radius}px;
+  user-select: none;
 
   /* Position */
   ${p => !p.floating && css`position: relative;`}
