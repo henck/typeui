@@ -32,11 +32,11 @@ interface ILabelProps {
   /** 
    * Label content may be passed as a property. 
    */
-  positive?: string;
+  positive?: boolean;
   /**
    * If set, use `positive` color for Label.
    */
-  negative?: string;
+  negative?: boolean;
   /**
    * If set, use `negative` color for Label.
    */  
