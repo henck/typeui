@@ -286,7 +286,7 @@ const ButtonBase = (props: IButtonProps) => {
   // be added to the child.
   const {className, ...otherProps} = props;
   return (
-    <div className={className} onClick={otherProps.onClick}>
+    <div className={className} onClick={otherProps.disabled ? null : otherProps.onClick}>
       {getAttachables('left')}
       <ButtonInnerStyled {...otherProps}>
         {getNonAttachables()}
@@ -310,7 +310,7 @@ const ButtonStyled = styled(ButtonBase)`
   /* A disabled button is 50% transparent. */
   ${p => p.disabled && css`opacity: 0.5;`}
   /* Clickable */
-  ${p => p.onClick && css`cursor: pointer;`}
+  ${p => p.onClick && !p.disabled && css`cursor: pointer;`}
 `;
 
 /**
