@@ -296,7 +296,7 @@ const XhrDialog = (props: IXhrDialogProps) => {
   const getStatusText = () => {
     if(props.error.response) {
       const status = HttpStatusCodes[props.error.response.status];
-      return status ? status.header : "An error occurred on the server. Please try again later.";
+      return status ? status.desc : "An error occurred on the server. Please try again later.";
     } else if(props.error.request) {
       return "There was a problem communicating with the server. Please try again later.";
     } else {
