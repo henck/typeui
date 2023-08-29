@@ -1,0 +1,24 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Key} from '../Key';
+
+# Key: General
+. 
+
+<Meta
+  title="Controls/Key/General"  
+  component={Key}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Key {...args}>CTRL</Key>
+
+<Canvas>
+  <Story
+    name="Key"
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

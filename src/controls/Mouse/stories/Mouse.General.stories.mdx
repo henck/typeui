@@ -1,0 +1,24 @@
+import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
+import {Mouse} from '../Mouse';
+
+# Mouse: General
+. 
+
+<Meta
+  title="Controls/Mouse/General"  
+  component={Mouse}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => 
+  <Mouse {...args}/>
+
+<Canvas>
+  <Story
+    name="Mouse"
+    args={{ }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
