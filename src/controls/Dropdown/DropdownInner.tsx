@@ -269,7 +269,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     // Single-selection dropdowns:
     // If the Dropdown has a value, format it and use as label.
     if(!this.props.multiple) {
-      if(p.value) {
+      if(p.value !== null) {
         label = (p.label as any)(p.value);
         showPlaceholder = false;
       }
