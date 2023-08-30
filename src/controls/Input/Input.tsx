@@ -86,6 +86,8 @@ interface IInputProps {
   clock?: boolean;
   /** Optional input maxlength */
   maxLength?: number;
+  /** Optional autocomplete information (see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) */
+  autocomplete?: string;
   
   // Events
   /** Listeners are notified whenever the user interacts with the Input. */

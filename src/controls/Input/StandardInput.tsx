@@ -24,6 +24,7 @@ class StandardInputBase extends React.Component<IInputProps> {
         disabled={p.disabled}
         type={p.type} 
         maxLength={p.maxLength}
+        autoComplete={p.autocomplete}
         onChange={this.handleChange}
         onFocus={this.props.onFocus}/>
     )
@@ -128,4 +129,4 @@ const StandardInput = styled(StandardInputBase).attrs(p => ({
   }       
 `;
 
-export { StandardInput };
+export { StandardInput }
