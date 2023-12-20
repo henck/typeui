@@ -38,6 +38,8 @@ class SelectorBase extends React.Component<ISelectorProps, {}> {
       <div className={p.className} onClick={p.onClick}>
         <span>
           {p.children}
+          {/* Make sure an empty placeholder does occupy some space: */}
+          {p.children == null ? <>&nbsp;</> : ""}
         </span>
         <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
         <svg onClick={this.handleClear}><use xlinkHref={"spritemap.svg#times"}></use></svg>
