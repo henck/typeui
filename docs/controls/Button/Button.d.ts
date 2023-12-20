@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Size, Float } from '../Types';
-import { ButtonOr } from './ButtonOr';
-import { ButtonGroup } from './ButtonGroup';
 interface IButtonProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
+    children?: React.ReactNode;
     /** @ignore (Not public) True when button is in a Button.Group; styling will need to know this. */
     grouped?: boolean;
     /**
@@ -33,26 +33,26 @@ interface IButtonProps {
      */
     negative?: boolean;
     /**
-     * Set custom color for button, e.g. `skyblue` or `#ffff00`.
+     * Optionally set custom color for button, e.g. `skyblue` or `#ffff00`.
      */
     color?: string;
     /**
-     * Reduce button padding.
+     * Optionally reduce button padding.
      * @default false
      */
     compact?: boolean;
     /**
-     * Set button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`.
+     * Optionally set button size: `mini`, `tiny`, `small`, `medium` (default), `large`, `big`, `huge` or `massive`.
      * @default medium
      */
     size?: Size;
     /**
-     * Make button fill the width of its container.
+     * Optionally make button fill the width of its container.
      * @default false
      */
     fluid?: boolean;
     /**
-     * Remove button padding, for icon-only buttons.
+     * Optionally remove button padding, for icon-only buttons.
      * @default false
      */
     icon?: boolean;
@@ -84,7 +84,8 @@ interface IButtonProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-button--properties
  */
-declare class Button extends React.Component<IButtonProps, {}> {
+declare const Button: {
+    (props: IButtonProps): JSX.Element;
     /**
      * Button groups can contain conditionals using Button.Or.
      *
@@ -97,7 +98,7 @@ declare class Button extends React.Component<IButtonProps, {}> {
      *
      * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--group-attributes
      */
-    static Or: typeof ButtonOr;
+    Or: (props: import("./ButtonOr").IButtonOrProps) => JSX.Element;
     /**
      * Buttons can be grouped horizontally or vertically using Button.Group.
      *
@@ -110,7 +111,6 @@ declare class Button extends React.Component<IButtonProps, {}> {
      *
      * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--conditional
      */
-    static Group: typeof ButtonGroup;
-    render: () => JSX.Element;
-}
+    Group: (props: import("./ButtonGroup").IButtonGroupProps) => JSX.Element;
+};
 export { Button, IButtonProps };

@@ -181,7 +181,7 @@ var DataTableBase = /** @class */ (function (_super) {
                 // Is the column removed? This can happen for conditionally-rendered columns.
                 if (!child)
                     return null;
-                return React.createElement(Cell, { item: row, grid: _this.props.grid, align: child.props.align, force: child.props.force, weight: child.props.weight }, child.props.children);
+                return React.createElement(Cell, { item: row, grid: _this.props.grid, align: child.props.align, force: child.props.force, weight: child.props.weight, onClick: child.props.onClick ? function () { return child.props.onClick(row); } : null, onDoubleClick: child.props.onDoubleClick ? function () { return child.props.onDoubleClick(row); } : null }, child.props.children);
             })));
         };
         var this_1 = this;

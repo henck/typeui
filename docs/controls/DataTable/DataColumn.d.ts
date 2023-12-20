@@ -15,6 +15,10 @@ interface IDataColumnProps {
     align?: Float;
     /** If true, column always appears no matter the screen size. */
     force?: boolean;
+    /** This callback is called when an item is clicked. */
+    onClick?: (item: any) => void;
+    /** This callback is called when an item is double-clicked. */
+    onDoubleClick?: (item: any) => void;
 }
 declare class DataColumn extends React.Component<IDataColumnProps, {}> {
 }

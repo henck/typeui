@@ -3,6 +3,8 @@ import { Column } from './Column';
 interface IDropdownProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
+    children?: React.ReactNode;
     /** Dropdown name, for use in forms. */
     name?: string;
     /** Data to show in Dropdown. */

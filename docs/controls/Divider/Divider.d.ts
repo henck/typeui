@@ -2,6 +2,7 @@ import * as React from 'react';
 interface IDividerProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * A fitted Divider has no space above or below it.
@@ -18,6 +19,11 @@ interface IDividerProps {
      * @default false
      */
     section?: boolean;
+    /**
+     * A narrow Divider creates less margin between blocks of content.
+     * @default false
+     */
+    narrow?: boolean;
 }
 /**
  * A Divider is used to separate blocks of contents vertically. Dividers
@@ -29,7 +35,5 @@ interface IDividerProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-divider--properties
  */
-declare class Divider extends React.PureComponent<IDividerProps> {
-    render: () => JSX.Element;
-}
+declare const Divider: (props: IDividerProps) => JSX.Element;
 export { Divider };

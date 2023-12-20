@@ -3,6 +3,7 @@ import { Size } from './../Types';
 interface IButtonGroupProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Aligns buttons in a vertical list. Default is horizontal.
@@ -34,7 +35,5 @@ interface IButtonGroupProps {
     */
     icon?: boolean;
 }
-declare class ButtonGroup extends React.Component<IButtonGroupProps, {}> {
-    render(): JSX.Element;
-}
-export { ButtonGroup };
+declare const ButtonGroup: (props: IButtonGroupProps) => JSX.Element;
+export { ButtonGroup, IButtonGroupProps };

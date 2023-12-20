@@ -1,9 +1,7 @@
-import * as React from 'react';
+/// <reference types="react" />
 interface IDialogBackgroundProps {
+    /** @ignore */
     className?: string;
 }
-declare class DialogBackgroundBase extends React.Component<IDialogBackgroundProps, {}> {
-    render(): JSX.Element;
-}
-declare const DialogBackground: import("styled-components").StyledComponent<typeof DialogBackgroundBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const DialogBackground: import("styled-components").StyledComponent<(props: IDialogBackgroundProps) => JSX.Element, import("../../styles/Theme").IThemeInterface, {}, never>;
 export { DialogBackground };

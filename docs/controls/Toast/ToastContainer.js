@@ -30,6 +30,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import * as React from 'react';
 import styled from '../../styles/Theme';
+import { css } from 'styled-components';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // Other controls
 import { Toast } from './Toast';
@@ -86,7 +87,7 @@ var ToastContainerBase = /** @class */ (function (_super) {
     };
     return ToastContainerBase;
 }(React.Component));
-var ToastContainerStyled = styled(ToastContainerBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  /* Toasts are placed in the bottom-left corner. */\n  position: absolute;\n  z-index: 9999;\n  left: 20px;\n  bottom: 20px;\n"], ["\n  /* Toasts are placed in the bottom-left corner. */\n  position: absolute;\n  z-index: 9999;\n  left: 20px;\n  bottom: 20px;\n"])));
+var ToastContainerStyled = styled(ToastContainerBase)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: absolute;\n  z-index: 9999;\n  /* \n   * Toasts are placed in the bottom-left corner, unless placement\n   * is overridden. \n   */\n  ", ";\n  ", ";\n"], ["\n  position: absolute;\n  z-index: 9999;\n  /* \n   * Toasts are placed in the bottom-left corner, unless placement\n   * is overridden. \n   */\n  ", ";\n  ", ";\n"])), function (p) { return p.horizontalAlign == 'right' ? css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["right: ", "px"], ["right: ", "px"])), p.horizontalOffset ? p.horizontalOffset : 20) : css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["left: ", "px"], ["left: ", "px"])), p.horizontalOffset ? p.horizontalOffset : 20); }, function (p) { return p.verticalAlign == 'top' ? css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["top: ", "px"], ["top: ", "px"])), p.verticalOffset ? p.verticalOffset : 20) : css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["bottom: ", "px"], ["bottom: ", "px"])), p.verticalOffset ? p.verticalOffset : 20); });
 var ToastContainer = /** @class */ (function (_super) {
     __extends(ToastContainer, _super);
     function ToastContainer() {
@@ -97,4 +98,4 @@ var ToastContainer = /** @class */ (function (_super) {
     return ToastContainer;
 }(React.Component));
 export { ToastContainer };
-var templateObject_1;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;

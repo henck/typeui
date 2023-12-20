@@ -16,6 +16,8 @@ export interface ITransitionGroup {
 }
 export interface IThemeInterface {
     readonly background: string;
+    readonly fontURL: string;
+    readonly fontName: string;
     readonly fontSize: number;
     readonly fontColor: string;
     readonly fontLineHeight: number;

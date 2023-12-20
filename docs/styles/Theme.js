@@ -3,6 +3,8 @@ var _a = styledComponents, styled = _a.default, css = _a.css, createGlobalStyle 
 var Theme = {
     background: '#fff',
     // Default font
+    fontURL: "https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i&subset=latin",
+    fontName: "Roboto",
     fontSize: 16,
     fontColor: "rgba(0, 0, 0, 0.77)",
     fontLineHeight: 24,

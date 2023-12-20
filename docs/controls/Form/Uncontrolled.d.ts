@@ -2,6 +2,8 @@ import * as React from 'react';
 interface IProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
+    children?: React.ReactNode;
     /** Label to show, if any */
     label?: string;
     /**

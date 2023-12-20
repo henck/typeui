@@ -30,6 +30,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import * as React from 'react';
 import styled from '../../styles/Theme';
+import { css } from 'styled-components';
 var QuickBase = /** @class */ (function (_super) {
     __extends(QuickBase, _super);
     function QuickBase() {
@@ -39,7 +40,7 @@ var QuickBase = /** @class */ (function (_super) {
     }
     return QuickBase;
 }(React.Component));
-var QuickStyled = styled(QuickBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  align-items: ", ";\n  & > * {\n    margin-right: 4px;\n  }\n"], ["\n  display: flex;\n  align-items: ", ";\n  & > * {\n    margin-right: 4px;\n  }\n"])), function (p) { return p.align || 'center'; });
+var QuickStyled = styled(QuickBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  display: flex;\n  ", "\n  align-items: ", ";\n  & > * {\n    margin-right: 4px;\n  }\n"], ["\n  display: flex;\n  ", "\n  align-items: ", ";\n  & > * {\n    margin-right: 4px;\n  }\n"])), function (p) { return p.gap && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    gap: ", ";\n  "], ["\n    gap: ", ";\n  "])), p.gap); }, function (p) { return p.align || 'center'; });
 var Quick = /** @class */ (function (_super) {
     __extends(Quick, _super);
     function Quick() {
@@ -50,4 +51,4 @@ var Quick = /** @class */ (function (_super) {
     return Quick;
 }(React.Component));
 export { Quick };
-var templateObject_1;
+var templateObject_1, templateObject_2;

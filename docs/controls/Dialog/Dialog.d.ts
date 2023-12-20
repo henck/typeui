@@ -1,21 +1,21 @@
 import * as React from 'react';
-import { DialogHeader } from './DialogHeader';
-import { DialogContent } from './DialogContent';
-import { DialogFooter } from './DialogFooter';
-import { AlertDialog } from './AlertDialog';
-import { ConfirmDialog } from './ConfirmDialog';
-import { XhrDialog } from './XhrDialog';
 interface IDialogProps {
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Is the Dialog currently open?
-     * @default: false
+     * @default false
      */
     open?: boolean;
-    /** This callback is called when the user closes the Dialog window. */
+    /**
+     * This optional callback is called when the user closes the Dialog
+     * window.
+     * @default null
+     */
     onClose?: () => void;
     /**
-     * Override standard dialog width of 600 pixels.
+     * Override standard dialog width of 600 pixels (large screens) or
+     * 400 pixels (small screens).
      * @default 600
      */
     width?: number;
@@ -50,32 +50,41 @@ declare class Dialog extends React.Component<IDialogProps, {}> {
     /**
      * Dialog.Header contains dialog header content.
      */
-    static Header: typeof DialogHeader;
+    static Header: {
+        (props: import("./DialogHeader").IDialogHeaderProps): JSX.Element;
+        displayName: string;
+    };
     /**
      * Dialog.Content contains main dialog body content.
      */
-    static Content: typeof DialogContent;
+    static Content: {
+        (props: import("./DialogContent").IDialogContentProps): JSX.Element;
+        displayName: string;
+    };
     /**
      * Dialog.Footer contains dialog footer content.
      */
-    static Footer: typeof DialogFooter;
+    static Footer: {
+        (props: import("./DialogFooter").IDialogFooterProps): JSX.Element;
+        displayName: string;
+    };
     /**
      * The Dialog component offers a pre-built Dialog.Alert type, with an "OK" button.
      * The caller provides a title, and any JSX inside the component is used as dialog content.
      */
-    static Alert: typeof AlertDialog;
+    static Alert: (props: import("./AlertDialog").IAlertDialogProps) => JSX.Element;
     /**
      * The Dialog component offers a pre-built Dialog.Confirm type, with a "Yes" and a "No"
      * button. The caller provides a title, and any JSX inside the component is used as dialog
      * content.
      */
-    static Confirm: typeof ConfirmDialog;
+    static Confirm: (props: import("./ConfirmDialog").IConfirmDialogProps) => JSX.Element;
     /**
      * The Dialog component offers a pre-built Dialog.Xhr type, with an "OK" and a "Retry"
      * button. This dialog can be used when an XHR request fails. It takes an error attribute
      * with an Axios response object, and reports it to the user.
      */
-    static Xhr: typeof XhrDialog;
+    static Xhr: (props: import("./XhrDialog").IXhrDialogProps) => JSX.Element;
     componentDidMount(): void;
     componentWillUnmount(): void;
     handleClickOutside: (event: MouseEvent) => void;

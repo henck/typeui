@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { IThemeInterface } from '../../styles/Theme';
 import { Content } from './Content';
 import { Header } from './Header';
-import { Footer } from './Footer';
 import { IconPanel } from './IconPanel';
 interface IPanelProps {
     children?: React.ReactNode;
@@ -43,7 +43,7 @@ interface IPanelState {
 declare class Panel extends React.Component<IPanelProps, IPanelState> {
     static Header: typeof Header;
     static Content: typeof Content;
-    static Footer: typeof Footer;
+    static Footer: import("styled-components").StyledComponent<"div", IThemeInterface, {}, never>;
     /**
      * The Panel.Icon component is a shortcut to building a Panel that opens when an
      * Icon is clicked. Note that the Panel.Icon must still be placed inside a container

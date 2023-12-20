@@ -18,6 +18,14 @@ interface ILabelProps {
     /**
      * Label content may be passed as a property.
      */
+    positive?: boolean;
+    /**
+     * If set, use `positive` color for Label.
+     */
+    negative?: boolean;
+    /**
+     * If set, use `negative` color for Label.
+     */
     content?: React.ReactNode;
     /**
      * A floating Label floats over the top-right corner of its parent.
@@ -52,7 +60,8 @@ declare class LabelBase extends React.Component<ILabelProps> {
 }
 declare const LabelStyled: import("styled-components").StyledComponent<typeof LabelBase, import("../../styles/Theme").IThemeInterface, {
     emSize: number;
-}, "emSize">;
+    finalColor: string;
+}, "emSize" | "finalColor">;
 /**
  * Stylable label.
  *

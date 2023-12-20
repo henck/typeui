@@ -12,6 +12,10 @@ interface ICellProps {
     grid?: boolean;
     /** If true, column always appears no matter the screen size. */
     force?: boolean;
+    /** Event is fired when cell is clicked. */
+    onClick?: () => void;
+    /** Event is fired when cell is double-clicked. */
+    onDoubleClick?: () => void;
 }
 declare class CellBase extends React.Component<ICellProps, {}> {
     render(): JSX.Element;

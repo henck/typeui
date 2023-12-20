@@ -1,5 +1,6 @@
 import * as React from 'react';
 interface IAlertDialogProps {
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Is the Dialog currently open?
@@ -7,16 +8,15 @@ interface IAlertDialogProps {
      */
     open?: boolean;
     /**
-     * Title to show in alert dialog. If not specified, "Alert"
+     * Optional title to show in alert dialog. If not specified, this will be
+     * "Alert".
      * @default Alert
-      */
+     */
     title?: string;
     /**
-     * Function to call on close.
+     * Function to call when Dialog closes.
      */
     onClose: () => void;
 }
-declare class AlertDialog extends React.Component<IAlertDialogProps, {}> {
-    render(): JSX.Element;
-}
-export { AlertDialog };
+declare const AlertDialog: (props: IAlertDialogProps) => JSX.Element;
+export { AlertDialog, IAlertDialogProps };

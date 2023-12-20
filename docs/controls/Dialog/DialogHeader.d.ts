@@ -3,8 +3,8 @@ interface IDialogHeaderProps {
     className?: string;
     children?: React.ReactNode;
 }
-declare class DialogHeader extends React.Component<IDialogHeaderProps, {}> {
-    static displayName: string;
-    render(): JSX.Element;
-}
-export { DialogHeader };
+declare const DialogHeader: {
+    (props: IDialogHeaderProps): JSX.Element;
+    displayName: string;
+};
+export { DialogHeader, IDialogHeaderProps };
