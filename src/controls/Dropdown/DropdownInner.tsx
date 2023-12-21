@@ -269,7 +269,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     // Single-selection dropdowns:
     // If the Dropdown has a value, format it and use as label.
     if(!this.props.multiple) {
-      if(p.value !== null) {
+      if(p.value !== null && p.value !== undefined) {
         label = (p.label as any)(p.value);
         showPlaceholder = false;
       }
@@ -278,7 +278,7 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
     // Multiple-selection dropdowns:
     if(this.props.multiple) {
       // Warn if value is not an array, and not null:
-      if(!Array.isArray(p.value) && p.value !== null) {
+      if(!Array.isArray(p.value) && p.value !== null && p.value !== undefined) {
         console.error("In a multiple-selection checkbox, value should be an array.");
       }
       // Is the value not the empty array, and not null?
