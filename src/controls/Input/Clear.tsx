@@ -1,24 +1,25 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 
-interface IClearProps {
+interface IProps {
   /** @ignore */
   className?: string;
   onClick: () => void;
 }
 
-class ClearBase extends React.Component<IClearProps> {
+const ClearBase = (props: IProps) => {
 
-  handleClick = (e:React.MouseEvent) => {
+  const handleClick = (e:React.MouseEvent) => {
     // Stop propagation, or color/date controls will open on click.
     e.stopPropagation();
-    this.props.onClick();
+    props.onClick();
   }
 
-  render = () =>
-    <svg className={this.props.className} onClick={this.handleClick}>
+  return (
+    <svg className={props.className} onClick={handleClick}>
       <use xlinkHref={"spritemap.svg#times"}></use>
     </svg>
+  )
 }
 
 const Clear = styled(ClearBase)`
@@ -35,4 +36,4 @@ const Clear = styled(ClearBase)`
   }
 `
 
-export { Clear };
+export { Clear }
