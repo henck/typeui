@@ -6,6 +6,7 @@ import { Dropbox } from './Dropbox';
 interface IDropzoneProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Callback to call when files are dropped in the Dropzone. Multiple files can be uploaded at
@@ -16,10 +17,6 @@ interface IDropzoneProps {
    * Optional translation override for Dropzone message.
    */
   message?: React.ReactNode;
-}
-
-interface IDropzoneState {
-  hover: boolean;
 }
 
 /**
@@ -34,38 +31,30 @@ interface IDropzoneState {
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-dropzone--properties
  */
-class Dropzone extends React.Component<IDropzoneProps, IDropzoneState> {
-  constructor(props: IDropzoneProps) {
-    super(props);
-    this.state = {
-      hover: false
-    }
+const Dropzone = (props: IDropzoneProps) => {
+  const [hover, setHover] = React.useState(false);
+
+  const handleAddFiles = (files: File[]) => {
+    props.onAddFiles(files);
+    setHover(false);
   }
 
-  private handleAddFiles = (files: File[]) => {
-    this.props.onAddFiles(files);
-    this.setState({ hover: false });
+  const handleDragOver = () => {
+    setHover(true);
   }
 
-  private handleDragOver = () => {
-    this.setState({ hover: true });
+  const handleDragLeave = () =>  {
+    setHover(false);
   }
 
-  private handleDragLeave = () =>  {
-    this.setState({ hover: false });
-  }
-
-  render() {
-    let p = this.props;
-    return (
-      <Dropbox 
-        hover={this.state.hover} 
-        message={p.message}
-        onDragover={this.handleDragOver} 
-        onDragLeave={this.handleDragLeave} 
-        onAddFiles={this.handleAddFiles}/>
-    );
-  }
+  return (
+    <Dropbox 
+      hover={hover} 
+      message={props.message}
+      onDragover={handleDragOver} 
+      onDragLeave={handleDragLeave} 
+      onAddFiles={handleAddFiles}/>
+  );
 }
 
-export { Dropzone };
+export { Dropzone }

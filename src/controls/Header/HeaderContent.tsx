@@ -4,19 +4,19 @@ import styled from '../../styles/Theme';
 export interface IHeaderContentProps {
   /** ignore */
   className?: string;
+  /** ignore */
   children?: React.ReactNode;
 }
 
-class HeaderContentBase extends React.Component<IHeaderContentProps> {
-  render = () => <div className={this.props.className}>{this.props.children}</div>
-}
+const HeaderContentBase  = (props: IHeaderContentProps) => 
+  <div className={props.className}>{props.children}</div>
 
 const HeaderContentStyled = styled(HeaderContentBase)`
   display: block;
   line-height: 1em;
 `
 
-export class HeaderContent extends React.Component<IHeaderContentProps> {
-  render = () => <HeaderContentStyled {...this.props}/>
-}
+const HeaderContent = (props: IHeaderContentProps) =>
+  <HeaderContentStyled {...props}/>
 
+export { HeaderContent }
