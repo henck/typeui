@@ -209,7 +209,7 @@ const InfoBox = styled(InfoBoxBase)`
 
   td:first-child {
     padding: 0 10px 0 0;
-    color: #888;
+    color: ${p => p.theme.fontColor};
   }
 `
 
