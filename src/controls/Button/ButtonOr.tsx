@@ -46,6 +46,6 @@ const ButtonOrStyled = styled(ButtonOrBase)`
   ${p => p.size==='massive' && css`font-size: 1.71em`};  
 `
 
-const ButtonOr = (props: IButtonOrProps) => <ButtonOrStyled {...props}/>
+const ButtonOr = (props: IButtonOrProps) => <ButtonOrStyled {...props}/>;
 
 export { ButtonOr, IButtonOrProps }

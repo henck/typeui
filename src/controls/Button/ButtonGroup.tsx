@@ -118,5 +118,4 @@ const ButtonGroupStyled = styled(ButtonGroupBase)`
 
 const ButtonGroup = (props: IButtonGroupProps) => <ButtonGroupStyled {...props}/>
 
-export { ButtonGroup, IButtonGroupProps };
-
+export { ButtonGroup, IButtonGroupProps }
