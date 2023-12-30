@@ -11,6 +11,7 @@ import { AccordionTab } from './AccordionTab';
 interface IAccordionProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** Array of panel indices that are active (open) by default (0-based) */
   active?: number[];  
@@ -44,39 +45,26 @@ interface IAccordionProps {
   attached?: boolean | VerticalDirection;  
 }
 
-interface IAccordionState {
+const AccordionBase = (props: IAccordionProps) => {
   // Currently open panels.
-  indices: number[];
-}
+  // Take default active panels from props, or use [] if no active panels were 
+  // specified.
+  const [indices, setIndices] = React.useState<number[]>(props.active ?? []);
 
-class AccordionBase extends React.Component<IAccordionProps, IAccordionState> {
-  constructor(props: IAccordionProps) {
-    super(props);
-
-    // Take default active panels from props, or use [] is
-    // no active panels were specified.
-    this.state = {
-      indices: this.props.active ? this.props.active : []
-    }
-  }
-
-  private handleClick = (idx: number) => {
-    if(this.props.multiple) {
+  const handleClick = (idx: number) => {
+    if(props.multiple) {
       // Multiple tabs may be open.
       // If clicked tab not in indices, then add it.
       // Otherwise remove it.
-      this.setState((prev) => {
-        return {
-          indices: prev.indices.indexOf(idx) != -1 ?
-                   prev.indices.filter(a => a != idx) :
-                   prev.indices.concat([idx])
-      };})
+      setIndices(
+        indices.indexOf(idx) != -1 ?
+        indices.filter(a => a != idx) :
+        indices.concat([idx])
+      );
     } else {
       // Only one tab may be open.
       // Set indices to be just the clicked tab.
-      this.setState({
-        indices: [idx]
-      })
+      setIndices([idx]);
     }
   }
 
@@ -84,26 +72,23 @@ class AccordionBase extends React.Component<IAccordionProps, IAccordionState> {
    * Clone Tab children, passing them active, styled and align properties
    * and making them clickable.
    */
-  private getTabs = () => {
-    return React.Children.map(this.props.children, (child:any, i) => {
+  const getTabs = () => {
+    return React.Children.map(props.children, (child:any, i) => {
       return React.cloneElement(child, {
-        active: this.state.indices.indexOf(i) != -1,
-        styled: this.props.styled,
-        align: this.props.align,
-        noanimate: this.props.noanimate,
-        onClick: () => this.handleClick(i)
+        active: indices.indexOf(i) != -1,
+        styled: props.styled,
+        align: props.align,
+        noanimate: props.noanimate,
+        onClick: () => handleClick(i)
       })
     });    
   }
 
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        {this.getTabs()}
-      </div>
-    );
-  }
+  return (
+    <div className={props.className}>
+      {getTabs()}
+    </div>
+  );
 }
 
 const AccordionStyled = styled(AccordionBase)`
@@ -188,11 +173,10 @@ class Accordion extends React.Component<IAccordionProps, {}> {
   public static Tab = AccordionTab;
 
   render() {
-    let p = this.props;
     return (
-      <AccordionStyled {...p}></AccordionStyled>
+      <AccordionStyled {...this.props}></AccordionStyled>
     );
   }
 }
 
-export { Accordion, AccordionTab };
+export { Accordion, AccordionTab }

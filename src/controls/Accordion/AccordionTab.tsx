@@ -12,6 +12,7 @@ import { AccordionBody } from './AccordionBody';
 interface IAccordionTabProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** Tab title. Can be JSX. */
   title: React.ReactNode;
@@ -29,17 +30,11 @@ interface IAccordionTabProps {
   noanimate?: boolean;
 }
 
-class AccordionTabBase extends React.Component<IAccordionTabProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        <AccordionHeader styled={p.styled} align={p.align} active={p.active} onClick={this.props.onClick}>{p.title}</AccordionHeader>
-        <AccordionBody styled={p.styled} active={p.active} noanimate={p.noanimate}>{p.children}</AccordionBody>
-      </div>
-    );
-  }
-}
+const AccordionTabBase = (props: IAccordionTabProps) => 
+  <div className={props.className}>
+    <AccordionHeader styled={props.styled} align={props.align} active={props.active} onClick={props.onClick}>{props.title}</AccordionHeader>
+    <AccordionBody styled={props.styled} active={props.active} noanimate={props.noanimate}>{props.children}</AccordionBody>
+  </div>
 
 const AccordionTabStyled = styled(AccordionTabBase)`
   ${p => p.styled && css`
@@ -51,13 +46,10 @@ const AccordionTabStyled = styled(AccordionTabBase)`
   `}
 `;
 
-class AccordionTab extends React.Component<IAccordionTabProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      p.hidden ? null : <AccordionTabStyled {...p}/>
-    )
-  }  
+const AccordionTab = (props: IAccordionTabProps) => {
+  // A hidden tab renders nothing.
+  if(props.hidden) return null;
+  return <AccordionTabStyled {...props}/>
 }
 
-export { AccordionTab };
+export { AccordionTab, IAccordionTabProps }

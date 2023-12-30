@@ -9,7 +9,9 @@ import { Float } from '../Types';
 import { lighten } from '../../helper/lighten';
 
 interface IAccordionHeaderProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** Callback when header clicked. */
   onClick?: () => void;
@@ -21,18 +23,15 @@ interface IAccordionHeaderProps {
   align?: Float;    
 }
 
-class AccordionHeaderBase extends React.Component<IAccordionHeaderProps, {}> {
-  render() {
-    let p = this.props;
-    let svg = <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
-    return (
-      <div className={p.className} onClick={this.props.onClick}>
-        {(!p.align || p.align === 'left') && svg}
-        <span>{p.children}</span>
-        {p.align === 'right' && svg}
-      </div>
-    );
-  }
+const AccordionHeaderBase = (props: IAccordionHeaderProps) => {
+  const svg = <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
+  return (
+    <div className={props.className} onClick={props.onClick}>
+      {(!props.align || props.align === 'left') && svg}
+      <span>{props.children}</span>
+      {props.align === 'right' && svg}
+    </div>
+  );
 }
 
 const AccordionHeader = styled(AccordionHeaderBase)`
@@ -88,4 +87,4 @@ const AccordionHeader = styled(AccordionHeaderBase)`
   }
 `;
 
-export { AccordionHeader };
+export { AccordionHeader }
