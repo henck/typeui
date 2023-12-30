@@ -36,6 +36,7 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   height: 38px;
   line-height: 38px;
   padding: 0 14px;
+  color: ${p => p.theme.fontColor};
 
   /* Text overflow */
   white-space: nowrap;
