@@ -138,7 +138,7 @@ class DmsInputBase extends React.Component<IProps> {
   }
 }
 
-const DegreesHolder = styled('div')`
+const DegreesHolder = styled.div`
   display: inline-block;
   position: relative;
   width: 63px;
@@ -151,7 +151,7 @@ const DegreesHolder = styled('div')`
   }
 `
 
-const MinutesHolder = styled('div')`
+const MinutesHolder = styled.div`
   display: inline-block;
   position: relative;
   width: 46px;
@@ -164,7 +164,7 @@ const MinutesHolder = styled('div')`
   }
 `
 
-const SecondsHolder = styled('div')`
+const SecondsHolder = styled.div`
   display: inline-block;
   position: relative;
   width: 80px;
@@ -177,7 +177,7 @@ const SecondsHolder = styled('div')`
   }
 `
 
-const FloatHolder = styled('div')`
+const FloatHolder = styled.div`
   display: inline-block;
   width: 135px;
 `

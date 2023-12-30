@@ -50,10 +50,10 @@ const MAX_CHILDREN_VISIBLE = 6;
  * height as other list items. This is important for opening/closing
  * the list to the correct height.
  */
-const SearchBox = styled('div')`
+const SearchBox = styled.div`
 `
 
-const BodyInner = styled('div')`
+const BodyInner = styled.div`
 `
 
 const Body = styled(BodyBase).attrs(p => ({
@@ -140,4 +140,4 @@ const Body = styled(BodyBase).attrs(p => ({
   }
 `;
 
-export { Body };
+export { Body }

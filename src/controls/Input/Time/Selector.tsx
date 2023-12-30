@@ -219,14 +219,14 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
   }
 }
 
-const Body = styled('div')`
+const Body = styled.div`
   position: relative;
   padding: 14px;
   text-align: center;
 `;
 
 // Footer contains Select and Cancel buttons:
-const Footer = styled('div')`
+const Footer = styled.div`
   padding: 10px;
   text-align: right;
   border-top: solid 1px ${p => p.theme.normalColor};
@@ -236,7 +236,7 @@ const Footer = styled('div')`
 `
 
 // ControlBar aligns inputs and AM/PM labels in a row:
-const ControlBar = styled('div')`
+const ControlBar = styled.div`
   display: inline-flex;
   border: solid 1px ${p => p.theme.normalColor};
   border-radius: ${p => p.theme.radius}px;
@@ -248,12 +248,12 @@ const ControlBar = styled('div')`
 
 // InputBar aligns inputs in a row. These are in a div of their
 // own so that we can do last-child on them.
-const InputBar = styled('div')`
+const InputBar = styled.div`
   display: inline-flex;
 `
 
 // Wraps an input, adding ":" after it.
-const InputHolder = styled('div')`
+const InputHolder = styled.div`
   position: relative;
   width: 59px;
   &:not(:last-child):after {
@@ -311,4 +311,4 @@ const Selector = styled(SelectorBase)`
   }
 `
 
-export { Selector };
+export { Selector }

@@ -75,7 +75,7 @@ class PaneBase extends React.Component<IPaneProps> {
   }
 }
 
-const Iconholder = styled('div')`
+const Iconholder = styled.div`
   position: absolute;
   right: 10px;
   top: 10px;

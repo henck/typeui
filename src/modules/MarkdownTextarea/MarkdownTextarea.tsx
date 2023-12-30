@@ -83,7 +83,7 @@ const Scrollable = styled(ScrollableBase)`
   overflow-x: none;
 `
 
-const Options = styled('div')`
+const Options = styled.div`
   font-size: 9px;
   a { 
     color: steelblue; 

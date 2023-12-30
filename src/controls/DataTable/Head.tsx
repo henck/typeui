@@ -11,7 +11,7 @@ interface IHeadProps {
 // HeaderInner is used to get rid of the scrollbar in
 // the Head. It is replaced with whitespace.
 // https://stackoverflow.com/a/49278385/1266190
-const HeadInner = styled('div')`
+const HeadInner = styled.div`
   display: flex;
   margin-right: -999px;
   padding-right: 999px;

@@ -170,7 +170,7 @@ const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
 /**
  * Numeric value to show in center of control.
  */
-const Value = styled('div')`
+const Value = styled.div`
   position: absolute;
   font-size: 180%;
   font-weight: 500;

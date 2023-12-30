@@ -1,16 +1,16 @@
 import styled from '../../styles/Theme';
 
-const Body = styled('div')`
+const Body = styled.div`
   flex: 1;
   overflow-y: scroll;
 `;
 
-const Table = styled('div')`
+const Table = styled.div`
   position: relative;
   flex: 1;
 `
 
-const TableInner = styled('div')`
+const TableInner = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -20,4 +20,4 @@ const TableInner = styled('div')`
   bottom: 0;  
 `
 
-export { Body, Table, TableInner };
+export { Body, Table, TableInner }
