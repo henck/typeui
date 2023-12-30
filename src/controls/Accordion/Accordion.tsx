@@ -159,24 +159,17 @@ const AccordionStyled = styled(AccordionBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-accordion--properties
  */
-class Accordion extends React.Component<IAccordionProps, {}> {
-  public static displayName = "Accordion";
+const Accordion = (props: IAccordionProps) =>
+  <AccordionStyled {...props}></AccordionStyled>;
 
-  /**
-   * Each accordion tab is an instance of Accordion.Tab.
-   * 
-   * @example
-   * <Accordion.Tab title="What is a dog?">
-   *   <p>A dog is a type of domesticated animal.</p>
-   * </Accordion.Tab>
-   */
-  public static Tab = AccordionTab;
-
-  render() {
-    return (
-      <AccordionStyled {...this.props}></AccordionStyled>
-    );
-  }
-}
+/**
+ * Each accordion tab is an instance of Accordion.Tab.
+ * 
+ * @example
+ * <Accordion.Tab title="What is a dog?">
+ *   <p>A dog is a type of domesticated animal.</p>
+ * </Accordion.Tab>
+ */
+Accordion.Tab = AccordionTab
 
 export { Accordion, AccordionTab }
