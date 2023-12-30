@@ -9,6 +9,7 @@ import { TabBar } from './TabBar';
 interface ITabsProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Underline the current tab (animated). 
