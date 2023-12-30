@@ -2,18 +2,13 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IUnderlinerProps {
+  /** @ignore */
   className?: string;
   setRef?: any;
 }
 
-class UnderlinerBase extends React.Component<IUnderlinerProps> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} ref={p.setRef}></div>
-    )
-  }
-}
+const UnderlinerBase = (props: IUnderlinerProps) =>
+  <div className={props.className} ref={props.setRef}></div>
 
 const Underliner = styled(UnderlinerBase)`
   position: absolute;
@@ -26,4 +21,4 @@ const Underliner = styled(UnderlinerBase)`
   transition: left ease .3s, width ease .3s;
 `
 
-export { Underliner };
+export { Underliner }

@@ -3,7 +3,9 @@ import styled from '../../styles/Theme';
 import { css } from 'styled-components';
 
 interface ITabProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   active?: boolean;
   underlined?: boolean;
@@ -11,16 +13,10 @@ interface ITabProps {
   onClick?: any;
 }
 
-class TabBase extends React.Component<ITabProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} ref={p.setRef} onClick={p.onClick}>
-        {p.children}
-      </div>
-    )
-  }
-}
+const TabBase = (props: ITabProps) =>
+  <div className={props.className} ref={props.setRef} onClick={props.onClick}>
+    {props.children}
+  </div>
 
 const Tab = styled(TabBase)`
   display: table-cell;
@@ -54,4 +50,4 @@ const Tab = styled(TabBase)`
   `}
 `
 
-export { Tab };
+export { Tab }

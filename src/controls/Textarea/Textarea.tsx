@@ -6,9 +6,9 @@ import styled from '../../styles/Theme';
 import { lighten } from '../../helper/lighten';
 
 /**
- *  Textarea validates itself using the HTML validation API whenever
- *  its content changes. Listeners can use onValidate to obtain
- *  the resulting ValidityState.
+ * Textarea validates itself using the HTML validation API whenever its 
+ * content changes. Listeners can use onValidate to obtain the resulting 
+ * ValidityState.
  */
 
 interface ITextareaProps {
@@ -68,32 +68,25 @@ interface ITextareaProps {
 }
 
 
-class TextareaBase extends React.Component<ITextareaProps> {
-  private handleChange = (e:any) => {
-    if(this.props.onChange) {
-      this.props.onChange(e.target.value);
+const TextareaBase = (props: ITextareaProps) => {
+  const handleChange = (e:any) => {
+    if(props.onChange) {
+      props.onChange(e.target.value);
     }
   }
 
-  render() {
-    let p = this.props;
-
-    return (
-      <textarea className={this.props.className}
-        name={p.name} 
-        value={p.value == null ? '' : p.value}  
-        placeholder={p.placeholder} 
-        disabled={p.disabled}
-        rows={p.rows}
-        onChange={this.handleChange}/>
-    )
-  }
+  return (
+    <textarea className={props.className}
+      name={props.name} 
+      value={props.value == null ? '' : props.value}  
+      placeholder={props.placeholder} 
+      disabled={props.disabled}
+      rows={props.rows}
+      onChange={handleChange}/>
+  )
 }
 
-const TextareaStyled = styled(TextareaBase).attrs(p => ({
-  borderColor:      p.theme.normalColor,
-  highBorderColor:  lighten(0.25, p.theme.primaryColor),
-}))`
+const TextareaStyled = styled(TextareaBase)`
   position: relative;
   display: inline-block;
 
@@ -115,7 +108,7 @@ const TextareaStyled = styled(TextareaBase).attrs(p => ({
   line-height:      17px;
   text-align:       left;
   color:            ${p => p.theme.fontColor};
-  border:           solid 1px ${p => p.borderColor};
+  border:           solid 1px ${p => p.theme.normalColor};
   border-radius:    ${p => p.theme.radius}px;
   outline:          0;
   background-color: ${p => p.theme.background};
@@ -139,7 +132,7 @@ const TextareaStyled = styled(TextareaBase).attrs(p => ({
   /* Define colors when input has focus. */
   transition: border-color ${p => p.theme.transition.duration}s ease;
   &:focus {
-    border-color: ${p => p.highBorderColor};
+    border-color: ${p => lighten(0.25, p.theme.primaryColor)};
     &::placeholder {
       color: ${p => lighten(0.4, p.theme.fontColor)};
     }
@@ -178,8 +171,9 @@ const TextareaStyled = styled(TextareaBase).attrs(p => ({
   `}
 `;
 
-class Textarea extends React.Component<ITextareaProps> {
-  render = () => <div className={this.props.className}><TextareaStyled {...this.props}></TextareaStyled></div>
-}
+const Textarea = (props: ITextareaProps) =>
+  <div className={props.className}>
+    <TextareaStyled {...props}></TextareaStyled>
+  </div>
 
-export { Textarea, ITextareaProps };
+export { Textarea, ITextareaProps }

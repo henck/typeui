@@ -87,20 +87,14 @@ const ClearSegment = styled.div`
   clear: both;
 `;
 
-class SegmentBase extends React.PureComponent<ISegmentProps> {
-  render() {
-    let p = this.props;
-    // Yes, this needs a double <div>:
-    return (
-      <div className={p.className}>
-        <div>
-          {p.children}
-          <ClearSegment/>
-        </div>
-      </div>
-    );
-  }
-}
+const SegmentBase = (props: ISegmentProps) => 
+  // Yes, this needs a double <div>:
+  <div className={props.className}>
+    <div>
+      {props.children}
+      <ClearSegment/>
+    </div>
+  </div>
 
 /**
  *  A Segment wraps an area of content.
@@ -258,8 +252,6 @@ const SegmentStyled = styled(SegmentBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-segment--properties
  */
-class Segment extends React.PureComponent<ISegmentProps> {
-  render = () => <SegmentStyled {...this.props}/>
-}
+const Segment = (props: ISegmentProps) => <SegmentStyled {...props}/>
 
-export { Segment };
+export { Segment, ISegmentProps }

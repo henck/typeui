@@ -5,6 +5,7 @@ import styled from '../../styles/Theme';
 interface ITableProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * If set, adds row striping. 
@@ -18,9 +19,8 @@ interface ITableProps {
   transparent?: boolean;
 }
 
-class TableBase extends React.Component<ITableProps> {
-  render = () => <table className={this.props.className}>{this.props.children}</table>
-}
+const TableBase = (props: ITableProps) =>
+  <table className={props.className}>{props.children}</table>
 
 const TableStyled = styled(TableBase)`
   width: 100%;
@@ -113,8 +113,6 @@ const TableStyled = styled(TableBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-table--properties
  */
-class Table extends React.PureComponent<ITableProps> {
-  render = () => <TableStyled {...this.props}/>
-}
+const Table = (props: ITableProps) => <TableStyled {...props}/>
 
-export { Table };
+export { Table, ITableProps }

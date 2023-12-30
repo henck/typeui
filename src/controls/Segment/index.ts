@@ -1,5 +1,4 @@
-import { Segment } from './Segment';
-export { Segment };
+export { Segment } from './Segment';
 
 /** 
  * This index.tsx file exists so that you can do
