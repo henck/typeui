@@ -6,7 +6,9 @@ import { css } from 'styled-components';
 import { Float } from '../Types';
 
 interface ICellProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   item: any;
   /** Column weight. Defaults to 1. */
@@ -15,17 +17,11 @@ interface ICellProps {
   align?: Float;  
 }
 
-class CellBase extends React.Component<ICellProps, {}> {
-  public render() {
-    let p = this.props;
-    // Item function is only called when item is not null.
-    return (
-      <div className={p.className}>
-        {p.item !== null && (p.children as any)(p.item)}
-      </div>
-    )
-  }
-}
+const CellBase = (props: ICellProps) =>
+  // Item function is only called when item is not null.
+  <div className={props.className}>
+    {props.item !== null && (props.children as any)(props.item)}
+  </div>
 
 const Cell = styled(CellBase)`
   box-sizing: border-box;
@@ -49,4 +45,4 @@ const Cell = styled(CellBase)`
   }
 `;
 
-export { Cell };
+export { Cell }

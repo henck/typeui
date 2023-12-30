@@ -22,4 +22,4 @@ interface IColumnProps {
 class Column extends React.Component<IColumnProps> {
 }
 
-export { Column };
+export { Column }

@@ -11,91 +11,80 @@ import { IDropdownProps } from './Dropdown';
 import { Selector } from './Selector';
 import { Selection } from './Selection';
 
-interface IDropdownState {
+const DropdownInnerBase = (props: IDropdownProps) => {
+  // public static Column = Column;
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
+
   /** Is dropdown currently open? */
-  open: boolean;
+  const [open, setOpen] = React.useState(false);
   /** Does the Dropdown open upwards? This happens when it is on the lower half of the viewport. */
-  upwards: boolean;
+  const [upwards, setUpwards] = React.useState(false);
   /** Current search query */
-  search: string;
-}
-
-class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> {
-  public static Column = Column;
-  private wrapperElement: HTMLDivElement;
-
-  constructor(props: IDropdownProps) {
-    super(props);
-    this.state = {
-      open: false,
-      upwards: false,
-      search: null
-    };
-  }
+  const [search, setSearch] = React.useState<string>(null);
 
   // A mousedown event listener is attached to the document. When the document
   // is clicked anywhere but this Dropdown, the Dropdown closes.
 
-  componentDidMount() {
+  React.useEffect(() => {
     // Listen for document-wide mousedown/keydown events when Dropdown mounts.
-    document.addEventListener('mousedown', this.handleClickOutside);
-    document.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  componentWillUnmount() {
-    // Clean up document-wide mousedown/keydown events when Dropdown unmounts.
-    document.removeEventListener('mousedown', this.handleClickOutside);
-    document.removeEventListener('keydown', this.handleKeyDown);
-  }
-  
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      // Clean up document-wide mousedown/keydown events when Dropdown unmounts.
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, []);
+ 
   // Handle document-wide mousedown event by closing the Dropdown.
-  private handleClickOutside = (event: MouseEvent) => {
+  const handleClickOutside = (event: MouseEvent) => {
     let elem:Element = event.target as Element;
-    if (this.wrapperElement && !this.wrapperElement.contains(elem)) {
-      this.close();
+    if (wrapperRef.current && !wrapperRef.current.contains(elem)) {
+      doClose();
     }
   }  
 
   // Open the dropdown.
-  private open() {
+  const doOpen = () => {
     // Is the Dropdown below the middle of the viewport?
-    let below = this.wrapperElement.getBoundingClientRect().top > window.innerHeight / 2;
-    if(this.props.alwaysDown) below = false;
-    this.setState({ open: true, upwards: below });
+    let below = wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
+    if(props.alwaysDown) below = false;
+    setOpen(true);
+    setUpwards(below);
     // If reset on open is specified, then the search query is reset whenever the
     // dropdown opens or reopens.
-    if(this.props.resetOnOpen) this.setState({ search: null });
+    if(props.resetOnOpen) setSearch(null);
     // If a search box is present, move focus to it:
-    if(this.props.onSearch) {
-      let input = this.wrapperElement.querySelector('input');
+    if(props.onSearch) {
+      const input = wrapperRef.current.querySelector('input');
       input.focus();
       // In IE/Chrome, body content scrolls up a little when setting focus
       // to search input. Scroll it back to top.
-      this.wrapperElement.children[1].scrollTop = 0;
+      wrapperRef.current.children[1].scrollTop = 0;
     }
   }
 
   // Close the dropdown.
-  private close = () => {
-    this.setState({ open: false });
+  const doClose = () => {
+    setOpen(false);
     // When the dropdown is closed, an onClose event may be fired.
     // It is fired 300ms after dropdown closure to give the close
     // animation a chance to run, before any changes are made
     // to the dropdown's contents.
-    if(this.props.onClose) {
-      setTimeout( this.props.onClose, 300 );
+    if(props.onClose) {
+      setTimeout(props.onClose, 300);
     }
   }
 
   // The selector was clicked, open the Dropdown, or close
   // it if it was open.
-  private handleSelectorClicked = () => {
+  const handleSelectorClicked = () => {
     // Disabled input cannot be clicked.
-    if(this.props.disabled) return;
-    if(this.state.open) {
-      this.close();
+    if(props.disabled) return;
+    if(open) {
+      doClose();
     } else {
-      this.open();
+      doOpen();
     }
   }  
 
@@ -106,10 +95,10 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
   // Data items are compared by converting them to strings. If a data item is
   // an object, all its keys are converted to strings and compared.
   // 
-  private selectItemByCharacter = (c: string) => {
+  const selectItemByCharacter = (c: string) => {
     c = c.toLowerCase();
     // Go through all (non-null) data records:
-    let idx = this.props.data.filter(r => r != null).findIndex(row => {
+    let idx = props.data.filter(r => r != null).findIndex(row => {
       // Build a list of strings contained in the data row:
       let strings: string[] = [];
       // If data row is an object, convert all its keys to string.
@@ -124,77 +113,77 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
 
     // Was a matching row found?
     if(idx != -1) {
-      this.handleClick(this.props.data[idx]);
+      handleClick(props.data[idx]);
     }
   }
 
-  private selectPreviousItem = () => {
-    let prevIndex = this.props.data.indexOf(this.props.value) - 1;
+  const selectPreviousItem = () => {
+    let prevIndex = props.data.indexOf(props.value) - 1;
     if(prevIndex < 0) prevIndex = 0;
-    if(this.props.data.length <= prevIndex) return;
-    this.handleClick(this.props.data[prevIndex]);    
+    if(props.data.length <= prevIndex) return;
+    handleClick(props.data[prevIndex]);    
   }
 
-  private selectNextItem = () => {
-    let nextIndex = this.props.data.indexOf(this.props.value) + 1;
-    if(this.props.data.length <= nextIndex) return;
-    this.handleClick(this.props.data[nextIndex]);
+  const selectNextItem = () => {
+    const nextIndex = props.data.indexOf(props.value) + 1;
+    if(props.data.length <= nextIndex) return;
+    handleClick(props.data[nextIndex]);
   }
 
   //
   // A key was pressed while the selector had focus.
   // 
-  private handleKeyDown = (e: KeyboardEvent) => {
-    if(document.activeElement != this.wrapperElement) return;
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if(document.activeElement != wrapperRef.current) return;
 
-    if(this.props.disabled) return;
+    if(props.disabled) return;
     let key = e.key;
 
     if(key == 'Escape' || key == 'Tab') {
       e.stopPropagation();
-      if(!this.state.open) return;
-      this.close();
+      if(!open) return;
+      doClose();
     }
     
     // Is space or enter pressed?
     if(key == ' ' || key == 'Enter') {
       e.stopPropagation();
-      if(this.state.open) return;
-      this.open();
+      if(open) return;
+      doOpen();
     }
 
     if(key == 'ArrowUp') {
       e.stopPropagation();
-      this.selectPreviousItem();
+      selectPreviousItem();
     }
 
     if(key == 'ArrowDown') {
       e.stopPropagation();
-      this.selectNextItem();
+      selectNextItem();
     }
 
     // Is a letter or a digit pressed?
     if(key.length == 1 && key.match(/[a-z0-9]/i)) {
       e.stopPropagation();
-      this.selectItemByCharacter(key);
+      selectItemByCharacter(key);
     }
 
     // Any other key's propagation is not stopped (most importantly
     // the TAB key to navigate to the next control).
   }
 
-  private setValue(item: any) {
-    this.close();
-    if(this.props.onChange) {
-      this.props.onChange(item);
+  const setValue = (item: any) => {
+    doClose();
+    if(props.onChange) {
+      props.onChange(item);
     }
   }
 
   // An item was clicked. Close Dropdown and call onChange.
-  private handleClick = (item: any) => {
+  const handleClick = (item: any) => {
     // Is this a multiple-selection dropdown?
-    if(this.props.multiple) {
-      let array = this.props.value as Array<any>;
+    if(props.multiple) {
+      let array = props.value as Array<any>;
       if(array == null) array = [];
       // Compare the new item with the existing selection items
       // using deep comparision.
@@ -202,124 +191,118 @@ class DropdownInnerBase extends React.Component<IDropdownProps, IDropdownState> 
       if(array.find((x) => JSON.stringify(x) == newItem)) {
         // Item already in selection. Just re-set the
         // existing selection.
-        this.setValue(array);
+        setValue(array);
       } else {
         // Item not in selection. Add it.
         array.push(item);
-        this.setValue(array);
+        setValue(array);
       }
     } 
     // Not a multiple-selection dropdown. Simply
     // set the selection to the new item.
     else {
-      this.setValue(item);
+      setValue(item);
     }
   }  
 
   // Remove item from selection.
-  handleDelete = (item:any) => {
+  const handleDelete = (item:any) => {
     // Find item in value array:
-    let array = this.props.value as Array<any>;
+    let array = props.value as Array<any>;
     let toDelete = JSON.stringify(item);
     let index = array.findIndex((x) => JSON.stringify(x) == toDelete);
     // Remove item from selection:
     array.splice(index, 1);
     // Set new selection:
-    this.setValue(array);
+    setValue(array);
   }
   
-  private handleClear = () => {
-    if(this.props.multiple) {
-      this.setValue([]);
+  const handleClear = () => {
+    if(props.multiple) {
+      setValue([]);
     } else {
-      this.setValue(null);
+      setValue(null);
     }
   }
 
   // Search is debounced by 350ms:
-  private doSearch = (value:string) => this.props.onSearch(value);
-  private doSearchBebounced = AwesomeDebouncePromise(this.doSearch, 350);
-  private handleSearch = async (value: string) => {
-    this.setState({
-      search: value
-    })
-    this.doSearchBebounced(value);
+  const doSearch = (value:string) => props.onSearch(value);
+  const doSearchBebounced = AwesomeDebouncePromise(doSearch, 350);
+  const handleSearch = async (value: string) => {
+    setSearch(value);
+    doSearchBebounced(value);
   }
 
   // Determine children:
-  private getBodyChildren() {
+  const getBodyChildren = () => {
     let count: number = 1;
-    return this.props.data.map((row) => {
-      return (<Row key={count++} upwards={this.state.upwards} onClick={() => this.handleClick(row)}>{
-        React.Children.map(this.props.children, (child:Column) => {
+    return props.data.map((row) => {
+      return (<Row key={count++} upwards={upwards} onClick={() => handleClick(row)}>{
+        React.Children.map(props.children, (child:Column) => {
           return <Cell item={row} weight={child.props.weight} align={child.props.align}>{child.props.children}</Cell>
         })
       }</Row>);
     });    
   }
 
-  render() {
-    let p = this.props;
-
-    // Determine label:
-    // By default, we use the placeholder.
-    let label: any = p.placeholder;
-    let showPlaceholder = true;
-    
-    // Single-selection dropdowns:
-    // If the Dropdown has a value, format it and use as label.
-    if(!this.props.multiple) {
-      if(p.value !== null && p.value !== undefined) {
-        label = (p.label as any)(p.value);
-        showPlaceholder = false;
-      }
+  // Determine label:
+  // By default, we use the placeholder.
+  let label: any = props.placeholder;
+  let showPlaceholder = true;
+  
+  // Single-selection dropdowns:
+  // If the Dropdown has a value, format it and use as label.
+  if(!props.multiple) {
+    if(props.value !== null && props.value !== undefined) {
+      label = (props.label as any)(props.value);
+      showPlaceholder = false;
     }
+  }
 
-    // Multiple-selection dropdowns:
-    if(this.props.multiple) {
-      // Warn if value is not an array, and not null:
-      if(!Array.isArray(p.value) && p.value !== null && p.value !== undefined) {
-        console.error("In a multiple-selection checkbox, value should be an array.");
-      }
-      // Is the value not the empty array, and not null?
-      if(p.value != null && p.value.length > 0) {
-        showPlaceholder = false;
-        // Turn value elements into Selections.
-        label = p.value.map((item:any, index: number) => 
-          <Selection key={index} onClick={() => this.handleDelete(item)}>{(p.label as any)(item)}</Selection>  
-        );
-      }
+  // Multiple-selection dropdowns:
+  if(props.multiple) {
+    // Warn if value is not an array, and not null:
+    if(!Array.isArray(props.value) && props.value !== null && props.value !== undefined) {
+      console.error("In a multiple-selection checkbox, value should be an array.");
     }
+    // Is the value not the empty array, and not null?
+    if(props.value != null && props.value.length > 0) {
+      showPlaceholder = false;
+      // Turn value elements into Selections.
+      label = props.value.map((item:any, index: number) => 
+        <Selection key={index} onClick={() => handleDelete(item)}>{(props.label as any)(item)}</Selection>  
+      );
+    }
+  }
 
-    let children = this.getBodyChildren();
+  const children = getBodyChildren();
 
-    return (
-      <div tabIndex={0} className={p.className} ref={(el:any) => this.wrapperElement = el}>
-        <Selector 
-          open={this.state.open} 
-          error={this.props.error}
-          disabled={this.props.disabled}
-          upwards={this.state.upwards}
-          inline={p.inline} 
-          multiple={p.multiple}
-          onClick={this.handleSelectorClicked} 
-          onClear={(p.clearable && !showPlaceholder) ? this.handleClear : null}
-          placeholder={showPlaceholder}>
-          {label}
-        </Selector>      
-        <Body 
-          open={this.state.open} 
-          upwards={this.state.upwards} 
-          inline={p.inline}
-          error={p.error}
-          maxItems={p.maxItems}
-          onSearch={p.onSearch ? this.handleSearch : null}
-          search={this.state.search}>
-          {children}
-        </Body>
-      </div>
-    )
-  }  
+  return (
+    <div tabIndex={0} className={props.className} ref={wrapperRef}>
+      <Selector 
+        open={open} 
+        error={props.error}
+        disabled={props.disabled}
+        upwards={upwards}
+        inline={props.inline} 
+        multiple={props.multiple}
+        onClick={handleSelectorClicked} 
+        onClear={(props.clearable && !showPlaceholder) ? handleClear : null}
+        placeholder={showPlaceholder}>
+        {label}
+      </Selector>      
+      <Body 
+        open={open} 
+        upwards={upwards} 
+        inline={props.inline}
+        error={props.error}
+        maxItems={props.maxItems}
+        onSearch={props.onSearch ? handleSearch : null}
+        search={search}>
+        {children}
+      </Body>
+    </div>
+  )
 }
 
 const DropdownInnerStyled = styled(DropdownInnerBase)`

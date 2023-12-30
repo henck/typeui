@@ -6,7 +6,9 @@ import styled from '../../styles/Theme';
 import { lighten } from '../../helper/lighten';
 
 interface ISelectorProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   onClick: () => void;
   onClear?: () => void;
@@ -26,26 +28,23 @@ interface ISelectorProps {
   multiple?: boolean;
 }
 
-class SelectorBase extends React.Component<ISelectorProps, {}> {
-  private handleClear = (e: React.MouseEvent) => {
+const SelectorBase = (props: ISelectorProps) => {
+  const handleClear = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if(this.props.onClear) this.props.onClear();
+    if(props.onClear) props.onClear();
   }
 
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onClick={p.onClick}>
-        <span>
-          {p.children}
-          {/* Make sure an empty placeholder does occupy some space: */}
-          {p.children == null ? <>&nbsp;</> : ""}
-        </span>
-        <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
-        <svg onClick={this.handleClear}><use xlinkHref={"spritemap.svg#times"}></use></svg>
-      </div>
-    )
-  }  
+  return (
+    <div className={props.className} onClick={props.onClick}>
+      <span>
+        {props.children}
+        {/* Make sure an empty placeholder does occupy some space: */}
+        {props.children == null ? <>&nbsp;</> : ""}
+      </span>
+      <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
+      <svg onClick={handleClear}><use xlinkHref={"spritemap.svg#times"}></use></svg>
+    </div>
+  )
 }
 
 const Selector = styled(SelectorBase)`
@@ -141,4 +140,4 @@ const Selector = styled(SelectorBase)`
   }
 `;
 
-export { Selector };
+export { Selector }

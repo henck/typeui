@@ -3,20 +3,16 @@ import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 
 interface IRowProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   upwards?: boolean;
-  onClick?: any;
+  onClick?: () => void;
 }
 
-class RowBase extends React.Component<IRowProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onClick={p.onClick}>{p.children}</div>
-    );
-  }
-}
+const RowBase = (props: IRowProps) =>
+  <div className={props.className} onClick={props.onClick}>{props.children}</div>
 
 const Row = styled(RowBase)`
   /* Entire row is clickable: */
@@ -40,4 +36,4 @@ const Row = styled(RowBase)`
   }
 `;
 
-export { Row };
+export { Row }

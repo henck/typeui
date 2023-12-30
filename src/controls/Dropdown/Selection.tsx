@@ -6,30 +6,28 @@ import { css } from 'styled-components';
 import { lighten } from '../../helper/lighten';
 
 interface IProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   onClick: () => void;
 }
 
-class SelectionBase extends React.Component<IProps, {}> {
-  
+const SelectionBase = (props: IProps) => {
   // Handle clicks locally so that they don't propagate
   // to the Selector, then send them on to the subscriber.
-  private handleClick = (e: React.MouseEvent) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    this.props.onClick();
+    props.onClick();
   }
 
-  public render() {
-    let p = this.props;
-    // Item function is only called when item is not null.
-    return (
-      <div className={p.className} onClick={this.handleClick}>
-        {p.children}
-        <svg><use xlinkHref={"spritemap.svg#times"}></use></svg>
-      </div>
-    )
-  }
+  // Item function is only called when item is not null.
+  return (
+    <div className={props.className} onClick={handleClick}>
+      {props.children}
+      <svg><use xlinkHref={"spritemap.svg#times"}></use></svg>
+    </div>
+  )
 }
 
 const Selection = styled(SelectionBase)`
@@ -78,4 +76,4 @@ const Selection = styled(SelectionBase)`
   }  
 `;
 
-export { Selection };
+export { Selection }

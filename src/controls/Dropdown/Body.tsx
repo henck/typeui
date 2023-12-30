@@ -7,7 +7,9 @@ import { lighten } from '../../helper/lighten';
 import { Input } from '../Input';
 
 interface IBodyProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /* Is the Dropdown currently open? */
   open: boolean;
@@ -25,22 +27,16 @@ interface IBodyProps {
   search?: string;
 }
 
-class BodyBase extends React.Component<IBodyProps, {}> {
-  render() { 
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        {p.onSearch &&
-          <SearchBox>
-            <Input icon="search" clearable error={p.error} value={p.search} transparent fluid type="text" onChange={p.onSearch}/>
-          </SearchBox>}
-        <BodyInner>
-          {p.children}
-        </BodyInner>
-      </div>
-    )
-  }
-}
+const BodyBase = (props: IBodyProps) => 
+  <div className={props.className}>
+    {props.onSearch &&
+      <SearchBox>
+        <Input icon="search" clearable error={props.error} value={props.search} transparent fluid type="text" onChange={props.onSearch}/>
+      </SearchBox>}
+    <BodyInner>
+      {props.children}
+    </BodyInner>
+  </div>
 
 // Maximum number of children before scrollbar is added.
 const MAX_CHILDREN_VISIBLE = 6;
