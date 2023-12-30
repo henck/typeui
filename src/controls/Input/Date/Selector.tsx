@@ -30,135 +30,118 @@ interface ISelectorState {
   selectedDate: Date
 }
 
-class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
-  constructor(props: ISelectorProps) {
-    super(props);
-    // If no value is specified, use today's date.
-    this.state = {
-      date: this.props.value ? parseISO(this.props.value) : new Date(Date.now()),
-      selectedDate: this.props.value ? parseISO(this.props.value) : null 
-    };
-  }
+const SelectorBase = (props: ISelectorProps) => {
+  // If no value is specified, use today's date.
+  const [date, setDate] = React.useState<Date>(props.value ? parseISO(props.value) : new Date(Date.now()));
+  const [selectedDate, setSelectedDate] = React.useState<Date>(props.value ? parseISO(props.value) : null );
 
-  // Listen for document-wide keydown event when component mounts.
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  // Clean up document-wide keydown event when component unmounts.
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
-  }  
+  // Add (and remove) document-wide event listener for keydown.
+  React.useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);  
 
   // 
   // Moves current view by specified number of months.
   // 
-  private handleMove = (months: number, e: React.MouseEvent) => {
+  const handleMove = (months: number, e: React.MouseEvent) => {
     e.stopPropagation();
-    this.setState((prevState) => {
-      prevState.date.setMonth(prevState.date.getMonth() + months);
-      return {
-        date: prevState.date
-      };
-    });
+    date.setMonth(date.getMonth() + months);
+    setDate(date);
   }
 
-  private handlePrevYear =  (e: React.MouseEvent) => this.handleMove(-12, e);
-  private handleNextYear =  (e: React.MouseEvent) => this.handleMove(12,e );
-  private handlePrevMonth = (e: React.MouseEvent) => this.handleMove(-1, e);
-  private handleNextMonth = (e: React.MouseEvent) => this.handleMove(1, e);
+  const handlePrevYear =  (e: React.MouseEvent) => handleMove(-12, e);
+  const handleNextYear =  (e: React.MouseEvent) => handleMove(12,e );
+  const handlePrevMonth = (e: React.MouseEvent) => handleMove(-1, e);
+  const handleNextMonth = (e: React.MouseEvent) => handleMove(1, e);
 
-  private handleCancel = (e?: React.MouseEvent) => {
+  const handleCancel = (e?: React.MouseEvent) => {
     if(e) e.stopPropagation();
-    this.props.onSelect(null);
+    props.onSelect(null);
   }
 
-  private handleDayClick(date: Date, e: React.MouseEvent) {
+  const handleDayClick = (date: Date, e: React.MouseEvent) => {
     e.stopPropagation();
-    this.props.onSelect(format(date, 'yyyy-MM-dd'));
+    props.onSelect(format(date, 'yyyy-MM-dd'));
   }
 
   // Close control when Escape is pressed.
-  private handleKeyDown = (e: KeyboardEvent) => {
-    if(e.key == 'Escape') this.handleCancel();
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if(e.key == 'Escape') handleCancel();
   }
 
-  render() {
-    let p = this.props;
+  // Save today's date.
+  let today = new Date(Date.now());
 
-    // Save today's date.
-    let today = new Date(Date.now());
-
-    // Create a date for the first day of the month.
-    let start = new Date(this.state.date.getFullYear(), this.state.date.getMonth(), 1);
-    // Move backwards until it's a Monday.
-    while(start.getDay() !== 1) {
-      start.setDate(start.getDate() - 1);
-    }
-
-    // Create a date for the last day of the month.
-    let month = this.state.date.getMonth() + 1;
-    if(month > 12) month = 1;
-    let end = new Date(this.state.date.getFullYear(), month, 0);
-    // Move forward until it's a Sunday.
-    while(end.getDay() !== 0) {
-      end.setDate(end.getDate() + 1);
-    }
-
-    // There should be a total of 6x7 = 42 days. If a month starts 
-    // exactly on Sunday we may be a week short. Add days until 
-    // there are 42.
-    var timeDiff = Math.abs(end.getTime() - start.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));     
-    for(let i = 0; i < 42 - diffDays; i++) {
-      end.setDate(end.getDate() + 1);
-    }
-
-    // Build array of days.
-    let days = [];
-    while(start.getTime() < end.getTime()) {
-      days.push(<Day 
-        key={start.getTime()}
-        grey={start.getMonth() != this.state.date.getMonth() || (p.nofuture && start > today)} 
-        selected={this.state.selectedDate &&
-                  this.state.selectedDate.getFullYear() === start.getFullYear() && 
-                  this.state.selectedDate.getMonth() === start.getMonth() &&
-                  this.state.selectedDate.getDate() === start.getDate()}
-        today={today.getFullYear() === start.getFullYear() && 
-               today.getMonth() === start.getMonth() &&
-               today.getDate() === start.getDate()}
-        day={start.getDate()}
-        onClick={(!p.nofuture || start <= today) ? this.handleDayClick.bind(this, new Date(start.getTime())) : null}/>);
-      start.setDate(start.getDate() + 1);
-    }
-
-    return (
-      <div className={p.className}>
-        <Body>
-          <NavBar>
-            <NavButton className="left" onClick={this.handlePrevYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
-            <NavButton className="left" onClick={this.handlePrevMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
-            <NavLabel>
-              <NavMonth>{this.state.date.toLocaleString(undefined, { month: 'long'})}</NavMonth>
-              <NavYear>{this.state.date.getFullYear()}</NavYear>
-            </NavLabel>
-            <NavButton className="right" onClick={this.handleNextMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
-            <NavButton className="right" onClick={this.handleNextYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
-            <NavButton className="right" onClick={this.handleCancel}><use xlinkHref={"spritemap.svg#times"}></use></NavButton>
-          </NavBar>
-          <Month>
-            {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day, index) => 
-              <DayName key={index}>{day}</DayName>
-            )}
-            {days}
-          </Month>
-        </Body>
-      </div>
-    );
+  // Create a date for the first day of the month.
+  let start = new Date(date.getFullYear(), date.getMonth(), 1);
+  // Move backwards until it's a Monday.
+  while(start.getDay() !== 1) {
+    start.setDate(start.getDate() - 1);
   }
+
+  // Create a date for the last day of the month.
+  let month = date.getMonth() + 1;
+  if(month > 12) month = 1;
+  let end = new Date(date.getFullYear(), month, 0);
+  // Move forward until it's a Sunday.
+  while(end.getDay() !== 0) {
+    end.setDate(end.getDate() + 1);
+  }
+
+  // There should be a total of 6x7 = 42 days. If a month starts 
+  // exactly on Sunday we may be a week short. Add days until 
+  // there are 42.
+  var timeDiff = Math.abs(end.getTime() - start.getTime());
+  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));     
+  for(let i = 0; i < 42 - diffDays; i++) {
+    end.setDate(end.getDate() + 1);
+  }
+
+  // Build array of days.
+  let days = [];
+  while(start.getTime() < end.getTime()) {
+    days.push(<Day 
+      key={start.getTime()}
+      grey={start.getMonth() != date.getMonth() || (props.nofuture && start > today)} 
+      selected={selectedDate &&
+                selectedDate.getFullYear() === start.getFullYear() && 
+                selectedDate.getMonth() === start.getMonth() &&
+                selectedDate.getDate() === start.getDate()}
+      today={today.getFullYear() === start.getFullYear() && 
+              today.getMonth() === start.getMonth() &&
+              today.getDate() === start.getDate()}
+      day={start.getDate()}
+      onClick={(!props.nofuture || start <= today) ? handleDayClick.bind(this, new Date(start.getTime())) : null}/>);
+    start.setDate(start.getDate() + 1);
+  }
+
+  return (
+    <div className={props.className}>
+      <Body>
+        <NavBar>
+          <NavButton className="left" onClick={handlePrevYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
+          <NavButton className="left" onClick={handlePrevMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
+          <NavLabel>
+            <NavMonth>{date.toLocaleString(undefined, { month: 'long'})}</NavMonth>
+            <NavYear>{date.getFullYear()}</NavYear>
+          </NavLabel>
+          <NavButton className="right" onClick={handleNextMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
+          <NavButton className="right" onClick={handleNextYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
+          <NavButton className="right" onClick={handleCancel}><use xlinkHref={"spritemap.svg#times"}></use></NavButton>
+        </NavBar>
+        <Month>
+          {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day, index) => 
+            <DayName key={index}>{day}</DayName>
+          )}
+          {days}
+        </Month>
+      </Body>
+    </div>
+  );
 }
 
-const NavButton = styled('svg')`
+const NavButton = styled.svg`
   fill: ${p => lighten(0.3, p.theme.fontColor)};
   flex-grow: 0;
   width: 24px;
@@ -183,21 +166,21 @@ const NavButton = styled('svg')`
   }
 `
 
-const NavLabel = styled('div')`
+const NavLabel = styled.div`
   flex: 1;
   text-align: center;
 `
 
-const NavMonth = styled('span')`
+const NavMonth = styled.span`
   margin-right: 4px;
 `
 
-const NavYear = styled('span')`
+const NavYear = styled.span`
   font-weight: 500;  
   margin-left: 4px;
 `
 
-const NavBar = styled('div')`
+const NavBar = styled.div`
   display: flex;
   align-items: center;
   padding: 8px 8px 8px 8px;
@@ -205,16 +188,16 @@ const NavBar = styled('div')`
   margin-bottom: 4px;
 `
 
-const Body = styled('div')`
+const Body = styled.div`
   position: relative;
 `;
 
-const Month = styled('div')`
+const Month = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
 `
-const DayName = styled('div')`
+const DayName = styled.div`
   width: 40px;
   text-align: center;
   line-height: 30px; /* For vertical centering */  
@@ -266,4 +249,4 @@ const Selector = styled(SelectorBase)`
   }
 `
 
-export { Selector };
+export { Selector }

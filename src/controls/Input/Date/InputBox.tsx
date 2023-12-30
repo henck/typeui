@@ -18,17 +18,11 @@ interface IDateInputProps {
   defaultFormat: string;
 }
 
-class InputBoxBase extends React.Component<IInputProps & IDateInputProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div tabIndex={0} className={p.className} onKeyDown={p.onKeyDown}>
-        {p.value && format(parseISO(p.value), p.format ? p.format : p.defaultFormat)}
-        {!p.value && p.placeholder}
-      </div>
-    );
-  }
-}
+const InputBoxBase = (props: IInputProps & IDateInputProps) => 
+  <div tabIndex={0} className={props.className} onKeyDown={props.onKeyDown}>
+    {props.value && format(parseISO(props.value), props.format ? props.format : props.defaultFormat)}
+    {!props.value && props.placeholder}
+  </div>
 
 const InputBox = styled(InputBoxBase).attrs(p => ({
   iconPos: !p.iconPosition ? 'left' : p.iconPosition
@@ -94,4 +88,4 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   `}  
 `
 
-export { InputBox };
+export { InputBox }
