@@ -8,6 +8,8 @@ import {Label} from '../../Label';
 
 # Dropdown: Theming
 .
+The `Dropdown` control takes theme information from a `ThemeProvider` that 
+surrounds it. 
 
 <Meta 
   title="Controls/Dropdown/Theming" 
@@ -21,7 +23,7 @@ import {Label} from '../../Label';
 export const domains = [{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}];
 export const people = [{id: 1, name: 'John', relation: 'friend'}, {id: 2, name:'Zachary', relation: 'uncle'}, {id: 3, name:'Deke', relation: 'friend'}];
 
-## Columns
+## Samples
 
 A dropdown can show multiple columns. Each `Dropdown.Column` must have 
 a single child that is a formatting function for an item, e.g. 
@@ -45,7 +47,7 @@ export const ColumnsTemplate = (args) =>
 
 <Canvas>
   <Story
-    name="Columns"
+    name="Themed-Columns"
     args={{data: people, alwaysDown: true, maxItems: 4, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {ColumnsTemplate.bind({})}
   </Story>
