@@ -3,11 +3,11 @@ import * as React from 'react';
 interface IMessageContentProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
 }
 
-class MessageContent extends React.Component<IMessageContentProps> {
-  render = () => <div className={this.props.className}>{this.props.children}</div>
-}
+const MessageContent = (props: IMessageContentProps) =>
+  <div className={props.className}>{props.children}</div>
 
-export { MessageContent };
+export { MessageContent, IMessageContentProps }

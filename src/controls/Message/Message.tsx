@@ -19,6 +19,7 @@ type TMessageType = 'info' | 'warning' | 'success' | 'error';
 interface IMessageProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Setting `icon` will apply layout to the message to a allow a left-align icon. 
@@ -58,9 +59,8 @@ interface IMessageProps {
   align?: HorizontalAlignment;  
 }
 
-class MessageBase extends React.Component<IMessageProps> {
-  render = () => <div className={this.props.className}>{this.props.children}</div>
-}
+const MessageBase = (props: IMessageProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const MessageStyled = styled(MessageBase).attrs(p => ({
   colorSet:      (p.type === 'info' ? p.theme.infoColor : 
@@ -156,4 +156,4 @@ class Message extends React.Component<IMessageProps> {
   render = () => <MessageStyled {...this.props}/>
 }
 
-export { Message, TMessageType };
+export { Message, TMessageType }

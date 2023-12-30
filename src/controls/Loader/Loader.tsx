@@ -15,7 +15,7 @@ const scaleDelay = keyframes`
   }
 `;
 
-const Shader = styled('div')`
+const Shader = styled.div`
   position: absolute;
   z-index: 999;
   left: 0;
@@ -26,7 +26,7 @@ const Shader = styled('div')`
   opacity: 0.6;
 `;
 
-const Grid = styled('div')`
+const Grid = styled.div`
   position: absolute;
   z-index: 1000;
   left: 50%;
@@ -38,7 +38,7 @@ const Grid = styled('div')`
   background: transparent;
 `;
 
-const Cube = styled('div')`
+const Cube = styled.div`
   width: 33%;
   height: 33%;
   background-color: #fff;
@@ -55,19 +55,13 @@ const Cube = styled('div')`
   &:nth-child(9) { animation-delay: 0.2s; }  
 `;
 
-class LoaderBase extends React.Component<ILoaderProps> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        <Shader></Shader>
-        <Grid>
-          {Array(9).fill(0).map((v, i) => (<Cube key={i}></Cube>))}
-        </Grid>
-      </div>
-    );
-  }
-}
+const LoaderBase = (props: ILoaderProps) =>
+  <div className={props.className}>
+    <Shader></Shader>
+    <Grid>
+      {Array(9).fill(0).map((v, i) => (<Cube key={i}></Cube>))}
+    </Grid>
+  </div>
 
 /** 
  * A Loader projects a loading animation over the entire screen. 
@@ -82,8 +76,6 @@ const LoaderStyled = styled(LoaderBase)`
   bottom: 0;
 `;
 
-class Loader extends React.Component<ILoaderProps> {
-  render = () => <LoaderStyled {...this.props}/>
-}
+const Loader = (props: ILoaderProps) => <LoaderStyled {...props}/>
 
-export { Loader };
+export { Loader }
