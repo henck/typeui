@@ -8,11 +8,11 @@ import { lighten } from '../../../helper/lighten';
 // Other controls
 import { IInputProps } from '../Input';
 
-interface IColorInputProps {
+interface IProps {
   onKeyDown: (e: React.KeyboardEvent) => void;
 }
 
-const InputBoxBase = (props: IInputProps & IColorInputProps) =>
+const InputBoxBase = (props: IInputProps & IProps) =>
   <div tabIndex={0} className={props.className} onKeyDown={props.onKeyDown}>
     {props.value && typeof props.value === 'string' && (<span style={{background: props.value}}></span>)}
     {props.value && typeof props.value !== 'string' && 'Not a color'}
@@ -25,6 +25,7 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   position: relative;
   display: block;
   border: solid 1px ${p => p.theme.normalColor};
+  background-color: ${p => p.theme.background};
   box-sizing: border-box;
   border-radius: ${p => p.theme.radius}px;
   cursor: pointer;
