@@ -221,11 +221,6 @@ const HeaderStyled = styled(HeaderBase)`
   `}
 `
 
-//
-// Header merely exists to wrap styled-component HeaderStyled;
-// this way we can add static class members to Header.
-//
-
 /**
  * The <Header> component offers sizes h1..h6. The size ratio is determined using the
  * modularScale algorithm. Starting at 1rem (normal text), h6 is the next
@@ -243,17 +238,15 @@ const HeaderStyled = styled(HeaderBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-header--properties
  */
-class Header extends React.Component<IHeaderProps> {
-  /**
-   * A header may contain a <Subheader>.
-   */
-  public static Subheader = Subheader;
-  /**
-   * Header.Content is used to group header content (allowing for Subheader).
-   */
-  public static Content = HeaderContent;
+const Header = (props: IHeaderProps) => <HeaderStyled {...props}></HeaderStyled>
 
-  render = () => <HeaderStyled {...this.props}></HeaderStyled>
-}
+/**
+ * A header may contain a <Subheader>.
+ */
+Header.Subheader = Subheader;
+/**
+ * Header.Content is used to group header content (allowing for Subheader).
+ */
+Header.Content = HeaderContent;
 
 export { Header }

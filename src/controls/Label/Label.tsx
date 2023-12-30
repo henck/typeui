@@ -316,7 +316,7 @@ class Label extends React.Component<ILabelProps> {
    */
   public static Detail = LabelDetail;
 
-  render = () => <LabelStyled {...this.props}/>
+  render = () => <LabelStyled {...this.props}/>;
 }
 
 export { Label, LabelStyled }

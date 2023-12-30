@@ -204,14 +204,13 @@ const ImageStyled = styled(ImageBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-image--properties
  */
-class Image extends React.Component<IImageProps> {
-  /**
-   * An Image.Group is a group of images can share size, bordered, 
-   * rounded and circular attributes. The images are automatically spaced.
-   */
-  public static Group = ImageGroup;
+const Image = (props: IImageProps) => <ImageStyled {...props}></ImageStyled>;
 
-  render = () => <ImageStyled {...this.props}></ImageStyled>
-}
+/**
+ * An Image.Group is a group of images can share size, bordered, 
+ * rounded and circular attributes. The images are automatically spaced.
+ */
+Image.Group = ImageGroup;
+
 
 export { Image, IImageProps, ImageStyled }
