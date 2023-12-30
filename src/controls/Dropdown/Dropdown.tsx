@@ -139,10 +139,6 @@ const DropdownStyled = styled(DropdownBase)`
   ${p => p.fluid && css`width: 100%;`}  
 `;
 
-/* Dropdown is merely a wrapper that allows us to add static
- * members to Dropdown, which we cannot do for a Styled Component
- * (in TypeScript). */
-
 /**
  * A `Dropdown` is a replacement for `<select>` (select). It opens upwards or 
  * downwards depending on its position in the viewport. Its selection and 
