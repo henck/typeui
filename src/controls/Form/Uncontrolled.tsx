@@ -24,36 +24,31 @@ interface IProps {
   hint?: React.ReactNode;
 }
 
-class UncontrolledBase extends React.Component<IProps, {}> {
+const UncontrolledBase = (props: IProps) => {
 
   // Get field's label element, if any.
-  private getLabel(): React.ReactNode {
-    if(this.props.label) 
-      return (<Label inline={this.props.inline}>{this.props.label}</Label>);
+  const getLabel = (): React.ReactNode => {
+    if(props.label) 
+      return (<Label inline={props.inline}>{props.label}</Label>);
     return null;
   }  
 
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        {this.getLabel()}
-        {p.children}
-        <Hint>{this.props.hint}</Hint>
-      </div>
-    );
-  }
+  return (
+    <div className={props.className}>
+      {getLabel()}
+      {props.children}
+      <Hint>{props.hint}</Hint>
+    </div>
+  );
 }
 
 const UncontrolledStyled = styled(UncontrolledBase)`
   padding-bottom: 8px;
-  
   /* Fields may provide their width in relative units to other fields. */
   ${p => p.width && css `flex: ${p.width}`}
 `;
 
-class Uncontrolled extends React.Component<IProps, {}> {
-  render = () => <UncontrolledStyled {...this.props}/>
-}
+const Uncontrolled = (props: IProps) =>
+  <UncontrolledStyled {...props}/>
 
-export { Uncontrolled };
+export { Uncontrolled, IProps }

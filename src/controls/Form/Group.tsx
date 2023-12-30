@@ -5,6 +5,7 @@ import { css } from 'styled-components';
 interface IGroupProps {
   /** @ignore */
   className?: string;  
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Divide field widths evenly. 
@@ -13,9 +14,8 @@ interface IGroupProps {
   equal?: boolean;
 }
 
-class GroupBase extends React.Component<IGroupProps> {
-  render = () => <div className={this.props.className}>{this.props.children}</div>
-}
+const GroupBase = (props: IGroupProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const GroupStyled = styled(GroupBase)`
   display:        flex;
@@ -35,8 +35,6 @@ const GroupStyled = styled(GroupBase)`
   `}
 `;
 
-class Group extends React.Component<IGroupProps> {
-  render = () => <GroupStyled {...this.props}/>
-}
+const Group = (props: IGroupProps) => <GroupStyled {...props}/>
 
-export { Group }
+export { Group, IGroupProps }

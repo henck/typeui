@@ -7,6 +7,7 @@ import { lighten } from '../../helper/lighten';
 interface IErrorProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * If true, error messages have more contrast for readability on a dark 
@@ -16,14 +17,8 @@ interface IErrorProps {
   contrast?: boolean;
 }
 
-class ErrorBase extends React.Component<IErrorProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>{p.children}</div>
-    );
-  }
-}
+const ErrorBase = (props: IErrorProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const Error = styled(ErrorBase)`
   color: ${p => p.contrast ? lighten(0.3, p.theme.errorColor.color) : p .theme.errorColor.color};
@@ -33,4 +28,4 @@ const Error = styled(ErrorBase)`
   padding-left: 4px;
 `;
 
-export { Error };
+export { Error }

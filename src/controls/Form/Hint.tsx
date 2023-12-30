@@ -4,12 +4,12 @@ import styled from '../../styles/Theme';
 interface IFormHintProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
 }
 
-class HintBase extends React.Component<IFormHintProps, {}> {
-  render = () =><div className={this.props.className}>{this.props.children}</div>
-}
+const HintBase = (props: IFormHintProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const Hint = styled(HintBase)`
   font-size: 80%;

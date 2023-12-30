@@ -9,7 +9,6 @@ import { md5 } from '../../helper/md5';
 // Other controls
 import { Image } from '../Image/Image';
 
-
 interface IGravatarProps {
   /** @ignore */
   className?: string;
@@ -32,19 +31,13 @@ interface IGravatarProps {
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-gravatar--properties
  */
-class Gravatar extends React.Component<IGravatarProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <Image
-        avatar={!p.size} size={p.size} bordered circular 
-        onClick={p.onClick}
-        src={p.email 
-            ? `https://www.gravatar.com/avatar/${md5(p.email.toLowerCase().trim())}?d=mp&r=g`
-            : `https://www.gravatar.com/avatar/?d=mp&r=g&f=y`}
-      />
-    );
-  }
-}
+const Gravatar = (props: IGravatarProps) =>
+  <Image
+    avatar={!props.size} size={props.size} bordered circular 
+    onClick={props.onClick}
+    src={props.email 
+        ? `https://www.gravatar.com/avatar/${md5(props.email.toLowerCase().trim())}?d=mp&r=g`
+        : `https://www.gravatar.com/avatar/?d=mp&r=g&f=y`}
+  />
 
-export { Gravatar };
+export { Gravatar }

@@ -5,6 +5,7 @@ import { css } from 'styled-components';
 interface ILabelProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * An inline label floats before its control, not above it. 
@@ -18,22 +19,16 @@ interface ILabelProps {
   required?: boolean;
 }
 
-const Required = styled('span')`
+const Required = styled.span`
   /* Required fields put an asterisk on the label. */ 
   color: ${p => p.theme.errorColor.color};
 `
 
-class LabelBase extends React.Component<ILabelProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <label className={this.props.className}>
-        {p.children}
-        {p.required && (<Required>*</Required>)}
-      </label>
-    );
-  }
-}
+const LabelBase = (props: ILabelProps) =>
+  <label className={props.className}>
+    {props.children}
+    {props.required && (<Required>*</Required>)}
+  </label>
 
 const Label = styled(LabelBase)`
   position: relative;
