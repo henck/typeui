@@ -29,6 +29,7 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
 }))`
   display: block;
   border: solid 1px ${p => p.theme.normalColor};
+  background-color: ${p => p.theme.background};
   box-sizing: border-box;
   border-radius: ${p => p.theme.radius}px;
   cursor: pointer;
