@@ -20,9 +20,8 @@ interface IQuickProps {
   gap?: string;
 }
 
-class QuickBase extends React.Component<IQuickProps, {}> {
-  render = () => <div className={this.props.className}>{this.props.children}</div>
-}
+const QuickBase = (props: IQuickProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const QuickStyled = styled(QuickBase)`
   display: flex;
@@ -35,8 +34,6 @@ const QuickStyled = styled(QuickBase)`
   }
 `;
 
-class Quick extends React.Component<IQuickProps, {}> {
-  render = () => <QuickStyled {...this.props}/>
-}
+const Quick = (props: IQuickProps) => <QuickStyled {...props}/>
 
-export { Quick }
+export { Quick, IQuickProps }

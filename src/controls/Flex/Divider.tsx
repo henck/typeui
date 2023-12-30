@@ -5,6 +5,7 @@ import styled from '../../styles/Theme';
 interface IDividerProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** @ignore */
   stackable?: boolean; //`(Not public) Passed by Flex parent component.
@@ -15,9 +16,8 @@ interface IDividerProps {
  * If the Flex is stackable, then the Flex.Divider becomes horizontal when
  * the cells stack.
  */
-class DividerBase extends React.Component<IDividerProps> {
-  render = () => <span className={this.props.className}>{this.props.children}</span>
-}
+const DividerBase = (props: IDividerProps) =>
+  <span className={props.className}>{props.children}</span>
 
 const DividerStyled = styled(DividerBase)`
   position:       absolute;
@@ -66,8 +66,6 @@ const DividerStyled = styled(DividerBase)`
   `}  
 `;
 
-class Divider extends React.Component<IDividerProps> {
-  render = () => <DividerStyled {...this.props}/>
-}
+const Divider = (props: IDividerProps) => <DividerStyled {...props}/>
 
-export { Divider };
+export { Divider, IDividerProps }

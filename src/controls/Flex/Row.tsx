@@ -5,6 +5,7 @@ import styled from '../../styles/Theme';
 interface IRowProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** @ignore */
   stackable?: boolean; // (Not public) Passed by parent Flex
@@ -16,18 +17,12 @@ interface IRowProps {
   gutter?: number;     // (Not public) Passed by parent Flex
 }
 
-class RowBase extends React.Component<IRowProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        {React.Children.map(p.children, (child:any) => 
-          child ? React.cloneElement(child, { stackable: p.stackable, gutter: p.gutter }) : null
-        )}
-      </div>
-    );
-  }
-}
+const RowBase = (props: IRowProps) =>
+  <div className={props.className}>
+    {React.Children.map(props.children, (child:any) => 
+      child ? React.cloneElement(child, { stackable: props.stackable, gutter: props.gutter }) : null
+    )}
+  </div>
 
 const RowStyled = styled(RowBase)`
   display: flex;
@@ -47,8 +42,6 @@ const RowStyled = styled(RowBase)`
   `}
 `;
 
-class Row extends React.Component<IRowProps, {}> {
-  render = () => <RowStyled {...this.props}/>
-}
+const Row = (props: IRowProps) => <RowStyled {...props}/>
 
-export { Row };
+export { Row, IRowProps }

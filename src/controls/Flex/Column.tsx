@@ -5,6 +5,7 @@ import styled from '../../styles/Theme';
 interface IColumnProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Column relative weight, for cell growth. If not specified, cell doesn't flex. 
@@ -16,9 +17,8 @@ interface IColumnProps {
   gutter?: number;     // (Not public) Passed by parent Flex
 }
 
-class ColumnBase extends React.Component<IColumnProps> {
-  render = () => <div className={this.props.className}>{this.props.children}</div>
-}
+const ColumnBase = (props: IColumnProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const ColumnStyled = styled(ColumnBase)`
   ${p => p.width && css`flex: ${p.width};`}
@@ -34,8 +34,6 @@ const ColumnStyled = styled(ColumnBase)`
   `}
 `;
 
-class Column extends React.Component<IColumnProps> {
-  render = () => <ColumnStyled {...this.props}/>
-}
+const Column = (props: IColumnProps) => <ColumnStyled {...props}/>
 
-export { Column };
+export { Column, IColumnProps }

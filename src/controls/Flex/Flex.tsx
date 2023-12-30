@@ -11,6 +11,7 @@ import { Columns } from './Columns';
 interface IFlexProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * A stackable flex stacks when screen gets small. 
@@ -35,24 +36,20 @@ interface IFlexProps {
   relaxed?: 'very' | boolean;
 }
 
-class FlexBase extends React.Component<IFlexProps> {
-  render() {
-    let p = this.props;
+const FlexBase = (props: IFlexProps) => {
+  // Determine gutter width:
+  let gutter: number = 1;
+  if(props.relaxed) gutter = gutter * 2;
+  if(props.relaxed === 'very') gutter = gutter * 2;
 
-    // Determine gutter width:
-    let gutter: number = 1;
-    if(p.relaxed) gutter = gutter * 2;
-    if(p.relaxed === 'very') gutter = gutter * 2;
-
-    // Copy 'stackable', 'divided' and 'gutter' props into children.
-    return (
-      <div className={p.className}>
-        {React.Children.map(p.children, (child:any) => 
-          child == null ? null : React.cloneElement(child, { stackable: p.stackable, divided: p.divided, compact: p.compact, gutter: gutter })
-        )}
-      </div>
-    );
-  }
+  // Copy 'stackable', 'divided' and 'gutter' props into children.
+  return (
+    <div className={props.className}>
+      {React.Children.map(props.children, (child:any) => 
+        child == null ? null : React.cloneElement(child, { stackable: props.stackable, divided: props.divided, compact: props.compact, gutter: gutter })
+      )}
+    </div>
+  );
 }
 
 const StyledFlex = styled(FlexBase)`
