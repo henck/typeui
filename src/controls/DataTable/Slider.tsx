@@ -2,21 +2,17 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface ISliderProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   heightInItems: number;
 }
 
-class SliderBase extends React.Component<ISliderProps,{}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} style={{height: (p.heightInItems * ITEM_HEIGHT) + "px"}}>
-        {p.children}
-      </div>
-    );
-  }
-}
+const SliderBase = (props: ISliderProps) =>
+  <div className={props.className} style={{height: (props.heightInItems * ITEM_HEIGHT) + "px"}}>
+    {props.children}
+  </div>
 
 const ITEM_HEIGHT = 57;
 
@@ -27,4 +23,4 @@ const Slider = styled(SliderBase)`
   background-image: linear-gradient(to bottom, ${p => p.theme.background} 56px, ${p => p.theme.normalColor} 1px);
 `
 
-export { Slider };
+export { Slider }

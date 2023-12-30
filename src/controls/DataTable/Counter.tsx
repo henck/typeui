@@ -3,6 +3,7 @@ import styled from '../../styles/Theme';
 import { Number } from '../../formatters/Number';
 
 interface ICounterProps {
+  /** @ignore */
   className?: string;
   /** Total number of records */
   count: number;
@@ -17,16 +18,10 @@ interface ICounterProps {
  * the total number of records, and the indices of the first to
  * last record currently being scrolled to.
  */
-class CounterBase extends React.Component<ICounterProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        <span>{p.first}</span>-<span><Number value={Math.min(p.last, p.count)} decimals={0}/></span> of <span><Number value={p.count} decimals={0}/></span> {p.count == 1 && 'record'}{p.count != 1 && 'records'}
-      </div>
-    );
-  }
-}
+const CounterBase = (props: ICounterProps) =>
+  <div className={props.className}>
+    <span>{props.first}</span>-<span><Number value={Math.min(props.last, props.count)} decimals={0}/></span> of <span><Number value={props.count} decimals={0}/></span> {props.count == 1 && 'record'}{props.count != 1 && 'records'}
+  </div>
 
 const Counter = styled(CounterBase)`
   position: absolute;
@@ -66,4 +61,4 @@ const Counter = styled(CounterBase)`
   }    
 `
 
-export { Counter };
+export { Counter }

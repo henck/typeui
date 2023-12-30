@@ -67,4 +67,4 @@ const Head = styled(HeadBase)`
 `;
 
 
-export { Head };
+export { Head }

@@ -9,7 +9,9 @@ import { Float } from '../Types';
 import { Ripple } from '../Ripple/Ripple';
 
 interface IHeaderProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** Is column orderable? */
   orderable: boolean;
@@ -31,20 +33,17 @@ interface IHeaderProps {
   grid?: boolean;
 }
 
-class HeaderBase extends React.Component<IHeaderProps, {}> {
-  public render() {
-    let p = this.props;
-    let svg = <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>;
-    return (
-      <Ripple type={'div'} className={p.className} onClick={p.onClick}>
-        {p.align !== 'right' && svg}
-        <span>
-          {p.children}
-        </span>
-        {p.align === 'right' && svg}
-      </Ripple>
-    )
-  }
+const HeaderBase = (props: IHeaderProps) => {
+  const svg = <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>;
+  return (
+    <Ripple type={'div'} className={props.className} onClick={props.onClick}>
+      {props.align !== 'right' && svg}
+      <span>
+        {props.children}
+      </span>
+      {props.align === 'right' && svg}
+    </Ripple>
+  )
 }
 
 const Header = styled(HeaderBase)`
@@ -131,4 +130,4 @@ const Header = styled(HeaderBase)`
   `}
 `;
 
-export { Header };
+export { Header }

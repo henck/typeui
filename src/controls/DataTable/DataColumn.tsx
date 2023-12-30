@@ -27,4 +27,4 @@ interface IDataColumnProps {
 class DataColumn extends React.Component<IDataColumnProps, {}> {
 }
 
-export { DataColumn };
+export { DataColumn }

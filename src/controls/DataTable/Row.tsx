@@ -4,7 +4,9 @@ import { css } from 'styled-components';
 import { Ripple } from '../Ripple';
 
 interface IRowProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** Row top offset in pixels. */
   top: number;
@@ -12,17 +14,14 @@ interface IRowProps {
   onClick?: () => void;
 }
 
-class RowBase extends React.Component<IRowProps> {
-  render() {
-    let p = this.props;
-    return (
-      // If row is clickable, wrap in a Ripple:
-      p.onClick ? 
-        <Ripple type='div' className={p.className} style={{top: p.top + 'px'}} onClick={p.onClick}>{p.children}</Ripple>
-      : 
-        <div className={p.className} style={{top: p.top + 'px'}} onClick={p.onClick}>{p.children}</div>
-    );
-  }
+const RowBase = (props: IRowProps) => {
+  return (
+    // If row is clickable, wrap in a Ripple:
+    props.onClick ? 
+      <Ripple type='div' className={props.className} style={{top: props.top + 'px'}} onClick={props.onClick}>{props.children}</Ripple>
+    : 
+      <div className={props.className} style={{top: props.top + 'px'}} onClick={props.onClick}>{props.children}</div>
+  );
 }
 
 const RowStyled = styled(RowBase)`
@@ -42,10 +41,6 @@ const RowStyled = styled(RowBase)`
   `}
 `
 
-class Row extends React.PureComponent<IRowProps> {
-  render() {
-    return <RowStyled {...this.props}/>
-  }
-}
+const Row = (props: IRowProps) => <RowStyled {...props}/>
 
-export { Row };
+export { Row, IRowProps }
