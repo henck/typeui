@@ -7,28 +7,25 @@ import { lighten } from '../../helper/lighten';
 
 import { IInputProps } from './Input';
 
-class StandardInputBase extends React.Component<IInputProps> {
+const StandardInputBase = (props: IInputProps) => {
 
-  private handleChange = (e:any) => {
-    if(this.props.onChange) {
-      this.props.onChange(e.target.value);
+  const handleChange = (e:any) => {
+    if(props.onChange) {
+      props.onChange(e.target.value);
     }
   }  
 
-  render() {
-    let p = this.props;
-    return (
-      <input className={this.props.className}
-        value={p.value == null ? '' : p.value} 
-        placeholder={p.placeholder} 
-        disabled={p.disabled}
-        type={p.type} 
-        maxLength={p.maxLength}
-        autoComplete={p.autocomplete}
-        onChange={this.handleChange}
-        onFocus={this.props.onFocus}/>
-    )
-  }
+  return (
+    <input className={props.className}
+      value={props.value == null ? '' : props.value} 
+      placeholder={props.placeholder} 
+      disabled={props.disabled}
+      type={props.type} 
+      maxLength={props.maxLength}
+      autoComplete={props.autocomplete}
+      onChange={handleChange}
+      onFocus={props.onFocus}/>
+  )
 }
 
 const StandardInput = styled(StandardInputBase).attrs(p => ({
@@ -57,7 +54,7 @@ const StandardInput = styled(StandardInputBase).attrs(p => ({
   `}  
 
   /* Padding for clear icon, if present: */
-  ${p => p.clearable && css`}
+  ${p => p.clearable && css`
     padding-right: 40px;
   `}
 
