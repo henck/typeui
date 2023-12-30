@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
-import { css } from 'styled-components';
 
 // Helpers
 import { lighten } from '../../helper/lighten';
@@ -10,6 +9,7 @@ interface IProps {
   className?: string;
   /** @ignore */
   children?: React.ReactNode;
+  /** Fired when selection is clicked. */
   onClick: () => void;
 }
 

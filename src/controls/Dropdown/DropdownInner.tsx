@@ -326,8 +326,6 @@ const DropdownInnerStyled = styled(DropdownInnerBase)`
   }  
 `
 
-class DropdownInner extends React.Component<IDropdownProps, {}> {
-  render = () => <DropdownInnerStyled {...this.props}></DropdownInnerStyled>
-}
+const DropdownInner = (props: IDropdownProps) => <DropdownInnerStyled {...props}/>
 
-export { DropdownInner };
+export { DropdownInner, IDropdownProps }

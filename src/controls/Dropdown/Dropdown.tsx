@@ -86,20 +86,20 @@ interface IDropdownProps {
  * DropdownBase puts a <div> around DropdownInner so that we 
  * can add attachable components.
  */
-class DropdownBase extends React.Component<IDropdownProps, {}> {
-  private isAttachedTo(c: any, side: Float) {
+const DropdownBase = (props: IDropdownProps) => {
+  const isAttachedTo = (c: any, side: Float) => {
     const attached = (c.props as any).attached;
     return attached === side || (!attached && side === 'left');
   }
 
   // Return an array of children that are Labels and attached to this
   // Input control.
-  private getAttachables(side: Float) {
-    return React.Children.toArray(this.props.children)
+  const getAttachables = (side: Float) => {
+    return React.Children.toArray(props.children)
     .filter(
       c => React.isValidElement(c)     // Is this a React node?
       && (c.props as any).isLabel      // Is this a Label?
-      && this.isAttachedTo(c, side)    // Is it attached to this side?
+      && isAttachedTo(c, side)    // Is it attached to this side?
     )
     .map((c: any, idx: number) => {
       let attached = (c.props as any).attached;
@@ -108,25 +108,23 @@ class DropdownBase extends React.Component<IDropdownProps, {}> {
     });
   }
 
-  private getItems = () => {
-    return React.Children.map(this.props.children, (child:any) => {
+  const getItems = () => {
+    return React.Children.map(props.children, (child:any) => {
       // Only Columns are passed to DropdownInner.
       if(child.type && child.type === Column) return child;
     })
   }
 
-  render() {
-    let {className, ...p} = this.props;
-    return (
-      <div className={className}>
-        {this.getAttachables('left')}      
-        <DropdownInner {...p}>
-          {this.getItems()}
-        </DropdownInner>
-        {this.getAttachables('right')}
-      </div>
-    )
-  }
+  const {className, ...restprops} = props;
+  return (
+    <div className={className}>
+      {getAttachables('left')}      
+      <DropdownInner {...restprops}>
+        {getItems()}
+      </DropdownInner>
+      {getAttachables('right')}
+    </div>
+  )
 }
 
 
@@ -174,4 +172,4 @@ class Dropdown extends React.Component<IDropdownProps, {}> {
 }
 
 
-export { IDropdownProps, Dropdown };
+export { IDropdownProps, Dropdown }
