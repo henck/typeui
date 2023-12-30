@@ -11,6 +11,7 @@ import { darken } from '../../helper/darken';
 interface ISegmentProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Segment will have an extra-strong dropshadow if true. 
@@ -82,7 +83,7 @@ interface ISegmentProps {
 
 // An :after clearfix isn't possible as Segment uses :before and :after
 // for other purposes.
-const ClearSegment = styled('div')` 
+const ClearSegment = styled.div` 
   clear: both;
 `;
 

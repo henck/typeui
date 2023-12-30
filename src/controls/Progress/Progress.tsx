@@ -47,9 +47,8 @@ interface IProgressProps {
   color?: string;
 }
 
-class ProgressBase extends React.Component<IProgressProps> {
-  render = () => <div className={this.props.className}></div>
-}
+const ProgressBase = (props: IProgressProps) =>
+  <div className={props.className}></div>
 
 const ProgressStyled = styled(ProgressBase).attrs(p => ({
   percentageStr: Math.round(p.value).toString() + '%'
@@ -107,8 +106,6 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-progress--properties
  */
-class Progress extends React.Component<IProgressProps> {
-  render = () => <ProgressStyled {...this.props}/>
-}
+const Progress = (props: IProgressProps) => <ProgressStyled {...props}/>
 
-export { Progress };
+export { Progress, IProgressProps }
