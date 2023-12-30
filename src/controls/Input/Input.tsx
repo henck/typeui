@@ -15,7 +15,6 @@ import { Selector as TimeSelector } from './Time/Selector';
 import { InputBox as ColorInputBox } from './Color/InputBox';
 import { Selector as ColorSelector } from './Color/Selector';
 import { Clear } from './Clear';
-import { Label } from '../Label/Label';
 import { Icon, IIconProps, IconType } from '../Icon/';
 import { IconStyled } from '../Icon/Icon';
 
@@ -96,91 +95,63 @@ interface IInputProps {
   onFocus?: () => void;
 }
 
-interface IInputState {
+const InputInnerBase = (props: IInputProps) => {
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
   // Selector currently open?
-  open: boolean;
+  const [open, setOpen] = React.useState(false);
   // Selector opens upward?
-  upward: boolean;
+  const [upward, setUpward] = React.useState(false);
   // Selector opens right?
-  right: boolean;
-}
+  const [right, setRight] = React.useState(false);
 
+  // Add (and remove) document-wide event listener for mousedown.
+  React.useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
-class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
-  private wrapperRef: React.RefObject<HTMLDivElement>;
+  // Returns true if the input is in the lower half of the viewport.
+  const isInLowerViewport = (): boolean =>
+    wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
 
-  constructor(props: IInputProps) {
-    super(props);
-    this.wrapperRef = React.createRef<HTMLDivElement>();
-    this.state = {
-      open: false,
-      upward: false,
-      right: false
-    }
-  }
+  // Returns true if the input is to the right of the middle of the viewport.
+  const isInRightViewport = (): boolean => 
+    wrapperRef.current.getBoundingClientRect().left > window.innerWidth * 0.45;
 
-  componentDidMount() {
-    // Add document-wide event listener for mousedown.
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
-
-  componentWillUnmount() {
-    // Remove document-wide event listener for mousedown.
-    document.removeEventListener('mousedown', this.handleClickOutside);
-  }     
-
-  private handleClick = () => {
+  const handleClick = () => {
     // Disabled input cannot be clicked.
-    if(this.props.disabled) return;
-    // Is the input below the middle of the viewport?
-    let below = this.wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
-    // Is the input to the right of the middle of the viewport?
-    let right = this.wrapperRef.current.getBoundingClientRect().left > window.innerWidth * 0.45;
-    this.setState({
-      upward: below,
-      right: right,
-      open: true
-    });
+    if(props.disabled) return;
+    setUpward(isInLowerViewport());
+    setRight(isInRightViewport());
+    setOpen(true);
   }
 
   //
   // Toggle selector.
   //
-  private handleToggle = () => {
-    // Disabled input cannot be clicked.
-    if(this.props.disabled) return;
-    // Is the input below the middle of the viewport?
-    let below = this.wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
-    // Is the input to the right of the middle of the viewport?
-    let right = this.wrapperRef.current.getBoundingClientRect().left > window.innerWidth * 0.45;
-    this.setState({
-      upward: below,
-      right: right,
-      open: !this.state.open
-    });
+  const handleToggle = () => {
+    // A disabled input cannot be clicked.
+    if(props.disabled) return;
+    setUpward(isInLowerViewport());
+    setRight(isInRightViewport());
+    setOpen(!open);
   }  
 
-  private handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     e.stopPropagation();
-    if(e.key == 'Enter' || e.key == ' ') {
-      this.handleToggle();
-    }
-    if(e.key == 'Tab') {
-      this.setState({ open: false });
-    }
+    if(e.key == 'Enter' || e.key == ' ') handleToggle();
+    if(e.key == 'Tab') setOpen(false);
   }
   
   //
   // If a value is selected, close the selector.
   //  
-  private handleSelect = (value: any) => {
+  const handleSelect = (value: any) => {
     // Close the selector.
-    this.setState({
-      open: false
-    });
-    // If a value was selected, notify listener.
-    if(value && this.props.onChange) {
-      this.props.onChange(value);
+    setOpen(false);
+    // If a value was selected, notify listener (if any).
+    if(value && props.onChange) {
+      props.onChange(value);
     }
   }  
 
@@ -188,18 +159,16 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
   // Handle document-wide mousedown event by closing the Selector.
   // (This only happens if there actually is a Selector).
   //
-  handleClickOutside = (e: MouseEvent) => {
+  const handleClickOutside = (e: MouseEvent) => {
     let elem: Element = e.target as Element;
-    if (this.wrapperRef.current && !this.wrapperRef.current.contains(elem)) {
-      this.setState({
-        open: false
-      });
+    if (wrapperRef.current && !wrapperRef.current.contains(elem)) {
+      setOpen(false);
     }
   }      
 
-  handleClear = () => {
-    if(this.props.onChange) {
-      this.props.onChange(null);
+  const handleClear = () => {
+    if(props.onChange) {
+      props.onChange(null);
     }    
   }
 
@@ -212,55 +181,53 @@ class InputInnerBase extends React.PureComponent<IInputProps, IInputState> {
     return differentValue || differentError || differentDisabled || differentOpen;
   } */
 
-  render() {
-    let {className, ...p} = this.props;
+  let {className, ...p} = props;
 
-    let icon = null;
-    // An icon can be passed either as an IconType...
-    if(typeof p.icon === "string") {
-      icon = (<Icon name={p.icon}></Icon>)
-    } 
-    // ... or as IIconProps.
-    else if (p.icon != null) {
-      icon = (<Icon {...p.icon}></Icon>)
-    }    
+  let icon = null;
+  // An icon can be passed either as an IconType...
+  if(typeof p.icon === "string") {
+    icon = (<Icon name={p.icon}></Icon>)
+  } 
+  // ... or as IIconProps.
+  else if (p.icon != null) {
+    icon = (<Icon {...p.icon}></Icon>)
+  }    
 
-    return (
-    <div className={className} onClick={this.handleClick} ref={this.wrapperRef}>
-      {p.type !== 'date' && p.type !== 'color' && p.type !== 'time' && 
-        <StandardInput {...p}/>}
-      {p.type === 'date' && 
-        <>
-          <DateInputBox {...p} defaultFormat="dd-MM-yyyy" onKeyDown={this.handleKeyDown}/>
-          <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
-            <DateSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect} nofuture={p.nofuture}/>
-          </CSSTransition>
-        </>}
-      {p.type === 'time' && 
-        <>
-          <TimeInputBox {...p} defaultFormat={p.hasSeconds ? "HH:mm:ss" : "HH:mm"} onKeyDown={this.handleKeyDown}/>
-          <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
-            <TimeSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect} hasSeconds={p.hasSeconds} is24h={p.is24h} clock={p.clock}/>
-          </CSSTransition>          
-        </>}
-      {p.type === 'color' &&
-        <>
-          <ColorInputBox {...p} onKeyDown={this.handleKeyDown}/>
-          <CSSTransition in={this.state.open} timeout={300} unmountOnExit classNames="fade">
-            <ColorSelector value={p.value} upward={this.state.upward} right={this.state.right} onSelect={this.handleSelect}/>
-          </CSSTransition>
-        </>}
-      {icon}
-      {p.clearable && p.value !== null && <Clear onClick={this.handleClear}></Clear>}
-    </div>)
-  }
+  return (
+  <div className={className} onClick={handleClick} ref={wrapperRef}>
+    {p.type !== 'date' && p.type !== 'color' && p.type !== 'time' && 
+      <StandardInput {...p}/>}
+    {p.type === 'date' && 
+      <>
+        <DateInputBox {...p} defaultFormat="dd-MM-yyyy" onKeyDown={handleKeyDown}/>
+        <CSSTransition in={open} timeout={300} unmountOnExit classNames="fade">
+          <DateSelector value={p.value} upward={upward} right={right} onSelect={handleSelect} nofuture={p.nofuture}/>
+        </CSSTransition>
+      </>}
+    {p.type === 'time' && 
+      <>
+        <TimeInputBox {...p} defaultFormat={p.hasSeconds ? "HH:mm:ss" : "HH:mm"} onKeyDown={handleKeyDown}/>
+        <CSSTransition in={open} timeout={300} unmountOnExit classNames="fade">
+          <TimeSelector value={p.value} upward={upward} right={right} onSelect={handleSelect} hasSeconds={p.hasSeconds} is24h={p.is24h} clock={p.clock}/>
+        </CSSTransition>          
+      </>}
+    {p.type === 'color' &&
+      <>
+        <ColorInputBox {...p} onKeyDown={handleKeyDown}/>
+        <CSSTransition in={open} timeout={300} unmountOnExit classNames="fade">
+          <ColorSelector value={p.value} upward={upward} right={right} onSelect={handleSelect}/>
+        </CSSTransition>
+      </>}
+    {icon}
+    {p.clearable && p.value !== null && <Clear onClick={handleClear}></Clear>}
+  </div>)
 }
 
 const InputInner = styled(InputInnerBase)`
   position: relative;
   display: inline-block;
   ${p => !p.fluid && css`width: 250px;`}
-  ${p => p.fluid && css`width: 100%;`}
+  ${p =>  p.fluid && css`width: 100%;`}
 
   /* Icon */
   ${IconStyled} {
@@ -293,20 +260,20 @@ const InputInner = styled(InputInnerBase)`
   }
 `;
 
-class InputBase extends React.Component<IInputProps> {
-  private isAttachedTo(c: any, side: Float) {
+const InputBase = (props: IInputProps) => {
+  const isAttachedTo = (c: any, side: Float): boolean => {
     const attached = (c.props as any).attached;
     return attached === side || (!attached && side === 'left');
   }
 
   // Return an array of children that are Labels and attached to this
   // Input control.
-  private getAttachables(side: Float) {
-    return React.Children.toArray(this.props.children)
+  const getAttachables = (side: Float) => {
+    return React.Children.toArray(props.children)
     .filter(
       c => React.isValidElement(c)     // Is this a React node?
       && (c.props as any).isLabel      // Is this a Label?
-      && this.isAttachedTo(c, side)    // Is it attached to this side?
+      && isAttachedTo(c, side)         // Is it attached to this side?
     )
     .map((c: any, idx: number) => {
       let attached = (c.props as any).attached;
@@ -315,31 +282,29 @@ class InputBase extends React.Component<IInputProps> {
     });
   }
 
-  private getIconProps(): IIconProps {
-    let props = null;
-    React.Children.forEach(this.props.children, (child:any) => {
+  const getIconProps = (): IIconProps => {
+    let properties = null;
+    React.Children.forEach(props.children, (child:any) => {
       if(React.isValidElement(child) && (child.props as any).isIcon) {
-        props = child.props;
+        properties = child.props;
       }
     });
-    return props;
+    return properties;
   }
 
-  render() {
-    let {className, ...otherProps} = this.props;
+  let {className, ...otherProps} = props;
 
-    // The InputInner class is a wrapper to allow for placement
-    // of attached elements such as Labels, as well as passing
-    // the "pristine" state down.
+  // The InputInner class is a wrapper to allow for placement
+  // of attached elements such as Labels, as well as passing
+  // the "pristine" state down.
 
-    return (
-      <div className={className}>
-        {this.getAttachables('left')}
-        <InputInner icon={this.getIconProps()} {...otherProps}></InputInner>
-        {this.getAttachables('right')}
-      </div>
-    )
-  }
+  return (
+    <div className={className}>
+      {getAttachables('left')}
+      <InputInner icon={getIconProps()} {...otherProps}></InputInner>
+      {getAttachables('right')}
+    </div>
+  )
 }
 
 const InputStyled = styled(InputBase)`
@@ -355,8 +320,6 @@ const InputStyled = styled(InputBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-input--properties
  */
-class Input extends React.Component<IInputProps> {
-  render = () => <InputStyled {...this.props}/>
-}
+const Input = (props: IInputProps) => <InputStyled {...props}/>
 
 export { Input, IInputProps };
