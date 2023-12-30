@@ -10,13 +10,14 @@ import { Hint } from '../Form/Hint';
 interface IProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
-   * Label to show above value 
+   * Label to show above value.
    */
   label: string;
   /** 
-   * Optional flex width 
+   * Optional flex width. 
    */
   width?: number;
   /** 
@@ -35,7 +36,7 @@ interface IProps {
 
 }
 
-const Label = styled('div')`
+const Label = styled.div`
   position: relative;
   font-weight: 500;
   font-size: 80%;
@@ -45,26 +46,23 @@ const Label = styled('div')`
   display: block;
 `
 
-const Block = styled('div')`
+const Block = styled.div`
 `
 
-class LabelledValueBase extends React.Component<IProps, {}> {
-  render() {
-    let p = this.props;
-    // Does the label have content?
-    let hasContent = React.Children.count(p.children) != 0;
+const LabelledValueBase = (props: IProps) => {
+  // Does the label have content?
+  let hasContent = React.Children.count(props.children) != 0;
 
-    return (
-      <div className={p.className}>
-        <Label>{p.label}</Label>
-        <Block onClick={p.onClick}>
-          {!hasContent ? '-' : p.children}&nbsp;
-          {p.onClick && <Icon name="link"/>}
-        </Block>
-        {p.hint && <Hint>{p.hint}</Hint>}
-      </div>
-    );
-  }
+  return (
+    <div className={props.className}>
+      <Label>{props.label}</Label>
+      <Block onClick={props.onClick}>
+        {!hasContent ? '-' : props.children}&nbsp;
+        {props.onClick && <Icon name="link"/>}
+      </Block>
+      {props.hint && <Hint>{props.hint}</Hint>}
+    </div>
+  );
 }
 
 const LabelledValueStyled = styled(LabelledValueBase)`
@@ -113,8 +111,6 @@ const LabelledValueStyled = styled(LabelledValueBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-labelledvalue--properties
  */
-class LabelledValue extends React.Component<IProps> {
-  render = () => <LabelledValueStyled {...this.props}/>
-}
+const LabelledValue = (props: IProps) => <LabelledValueStyled {...props}/>
 
-export { LabelledValue };
+export { LabelledValue }
