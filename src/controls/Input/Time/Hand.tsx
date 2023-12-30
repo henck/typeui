@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 import styled from '../../../styles/Theme';
 
 interface IProps {
+  /** @ignore */
   className?: string;
   /** Hand angle in degrees (0..359 */
   degrees: number;
@@ -10,18 +11,14 @@ interface IProps {
   animation: boolean;
 }
 
-class HandBase extends React.Component<IProps> {
-  render() {
-    let p = this.props;
-    return <div className={p.className}>
-      <Line>
-        <Selector/>
-      </Line>
-    </div>
-  }
-}
+const HandBase = (props: IProps) =>
+  <div className={props.className}>
+    <Line>
+      <Selector/>
+    </Line>
+  </div>
 
-const Selector = styled('div')`
+const Selector = styled.div`
   position:      absolute;
   top:           -12.5px;
   right:         -12.5px;
@@ -64,7 +61,7 @@ const Hand = styled(HandBase)`
   `}
 `
 
-const Line = styled('div')`
+const Line = styled.div`
   position: absolute;
   left:     50%;
   top:      50%;

@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '../../../styles/Theme';
 
 interface IProps {
+  /** @ignore */
   className?: string;
   /** Value to show */
   value: string;
@@ -14,23 +15,17 @@ interface IProps {
 /**
  * A ClockNumber is a number on the face of the clock.
  */
-class ClockNumberBase extends React.Component<IProps> {
-  render = () => {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        <ClockValue>
-          {p.value}
-        </ClockValue>
-      </div>
-    );
-  }
-}
+const ClockNumberBase = (props: IProps) =>
+  <div className={props.className}>
+    <ClockValue>
+      {props.value}
+    </ClockValue>
+  </div>
 
 /**
  * Actual value of clock number
  */
-const ClockValue = styled('div')``
+const ClockValue = styled.div``
 
 const ClockNumber = styled(ClockNumberBase).attrs(p => ({
   // Position clock number in the center, then at 40% offset of total clock size

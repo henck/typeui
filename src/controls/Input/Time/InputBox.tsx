@@ -9,7 +9,7 @@ import { lighten } from '../../../helper/lighten';
 // Other controls
 import { IInputProps } from '../Input';
 
-interface ITimeInputProps {
+interface IProps {
   onKeyDown: (e: React.KeyboardEvent) => void;
   /**
    * Default date/time format to use if `format` is not specified.
@@ -18,17 +18,11 @@ interface ITimeInputProps {
   defaultFormat: string;
 }
 
-class InputBoxBase extends React.Component<IInputProps & ITimeInputProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div tabIndex={0} className={p.className} onKeyDown={p.onKeyDown}>
-        {p.value && format(parse(p.value, 'HH:mm:ss', new Date()), p.format ? p.format : p.defaultFormat)}
-        {!p.value && p.placeholder}
-      </div>
-    );
-  }
-}
+const InputBoxBase = (props: IInputProps & IProps) =>
+  <div tabIndex={0} className={props.className} onKeyDown={props.onKeyDown}>
+    {props.value && format(parse(props.value, 'HH:mm:ss', new Date()), props.format ?? props.defaultFormat)}
+    {!props.value && props.placeholder}
+  </div>
 
 const InputBox = styled(InputBoxBase).attrs(p => ({
   iconPos: !p.iconPosition ? 'left' : p.iconPosition
@@ -94,4 +88,4 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   `}  
 `
 
-export { InputBox };
+export { InputBox }

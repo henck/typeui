@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { darken } from '../../../helper/darken';
 import styled from '../../../styles/Theme';
+import { darken } from '../../../helper/darken';
 
 import { ClockNumber } from './ClockNumber';
 import { Hand } from './Hand';
@@ -123,7 +123,7 @@ class ClockBase extends React.Component<IProps, IState> {
   }
 }
 
-const ClockFace = styled('div')`
+const ClockFace = styled.div`
   position:       relative;
   display:        inline-block;
   width:          100%;
@@ -149,7 +149,7 @@ const Clock = styled(ClockBase) `
   max-width:      200px;     /* max clock size */
 `
 
-const Center = styled('div')`
+const Center = styled.div`
   position:       absolute;
   left:           calc(50% - 3px);
   top:            calc(50% - 3px);

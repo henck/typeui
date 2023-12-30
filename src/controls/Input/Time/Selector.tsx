@@ -5,6 +5,7 @@ import { format, parse } from 'date-fns';
 
 // Helpers
 import { lighten } from '../../../helper/lighten';
+import { darken } from '../../../helper/darken';
 import { Input } from '../Input';
 import { Button } from '../../Button';
 import { Clock, TMode } from './Clock';
@@ -229,7 +230,7 @@ const Footer = styled('div')`
   padding: 10px;
   text-align: right;
   border-top: solid 1px ${p => p.theme.normalColor};
-  background: ${p => lighten(0.1, p.theme.normalColor)};    
+  background: ${p => darken(0.1, p.theme.background)};    
   border-bottom-left-radius: ${p => p.theme.radius}px;
   border-bottom-right-radius: ${p => p.theme.radius}px;
 `
