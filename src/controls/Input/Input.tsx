@@ -322,4 +322,4 @@ const InputStyled = styled(InputBase)`
  */
 const Input = (props: IInputProps) => <InputStyled {...props}/>
 
-export { Input, IInputProps };
+export { Input, IInputProps }
