@@ -3,9 +3,9 @@ import styled from '../../../styles/Theme';
 
 // Other controls
 import { Swatch } from './Swatch';
-import { ISwatch } from './Swatch';
+import { ISwatch } from './ISwatch';
 
-interface ISwatchBoxProps {
+interface IProps {
   className?: string;
   swatches: ISwatch[];
   onClick: (idx: number) => void;
@@ -15,25 +15,18 @@ interface ISwatchBoxProps {
 const WIDTH = 50;
 const HEIGHT = 276;
 
-class SwatchBoxBase extends React.Component<ISwatchBoxProps, {}> {
-  render() {
-    let p = this.props;
-
-    return (
-      <div className={p.className}>
-        {p.swatches.map((swatch, i) =>
-          <Swatch 
-            key={i} 
-            color={swatch.color} 
-            locked={swatch.locked} 
-            onClick={this.props.onClick.bind(this,i)}
-            onToggle={this.props.onToggle.bind(this,i)}
-            />
-        )}
-      </div>
-    );
-  }
-}
+const SwatchBoxBase = (props: IProps) =>
+  <div className={props.className}>
+    {props.swatches.map((swatch, i) =>
+      <Swatch 
+        key={i} 
+        color={swatch.color} 
+        locked={swatch.locked} 
+        onClick={props.onClick.bind(this,i)}
+        onToggle={props.onToggle.bind(this,i)}
+      />
+    )}
+  </div>
 
 const SwatchBox = styled(SwatchBoxBase)`
   position: relative;
@@ -43,4 +36,4 @@ const SwatchBox = styled(SwatchBoxBase)`
   flex-direction: column;
 `
 
-export { SwatchBox };
+export { SwatchBox }

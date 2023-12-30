@@ -1,20 +1,15 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 
-interface IHarmonyElementProps {
+interface IProps {
+  /** @ignore */
   className?: string;
   color: string;
   onClick?: () => void;
 }
 
-class HarmonyElementBase extends React.Component<IHarmonyElementProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onClick={p.onClick} style={{background: p.color}}></div>
-    );
-  }
-}
+const HarmonyElementBase = (props: IProps) => 
+  <div className={props.className} onClick={props.onClick} style={{background: props.color}}></div>
 
 const HarmonyElement = styled(HarmonyElementBase)`
   position: relative;
@@ -44,4 +39,4 @@ const HarmonyElement = styled(HarmonyElementBase)`
   }
 `
 
-export { HarmonyElement };
+export { HarmonyElement }

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 
-interface IHueBoxProps {
+interface IProps {
+  /** @ignore */
   className?: string;
   hue: number;
   onMouseDown: (data: {mouseY: number, offsetY:number, height: number}) => void;
@@ -10,45 +11,35 @@ interface IHueBoxProps {
 const WIDTH = 30;
 const HEIGHT = 276;
 
-class HueBoxBase extends React.Component<IHueBoxProps, {}> {
-  private canvasRef: React.RefObject<HTMLCanvasElement>;
-
-  constructor(props: IHueBoxProps) {
-    super(props);
-    this.canvasRef = React.createRef();
-  }
+const HueBoxBase = (props: IProps) => {
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   // Draw vertical hue bar.
-  drawBar() {
-    let ctx = this.canvasRef.current.getContext('2d');
-    for(var i = 0; i < HEIGHT; i++) {
-      let angle = i / HEIGHT * 360;
+  const drawBar = () => {
+    let ctx = canvasRef.current.getContext('2d');
+    for(let i = 0; i < HEIGHT; i++) {
+      const angle = i / HEIGHT * 360;
       ctx.fillStyle = `hsl(${angle}, 100%, 50%)`;
       ctx.fillRect(0, i, WIDTH, 1);
     }
   }
 
-  private handleMouseDown = (e:React.MouseEvent) => {
-    this.props.onMouseDown({ 
+  const handleMouseDown = (e:React.MouseEvent) => {
+    props.onMouseDown({ 
       mouseY: e.nativeEvent.offsetY, 
       offsetY: e.clientY - e.nativeEvent.offsetY,
       height: (e.nativeEvent.target as any).clientHeight
     });
   }
 
-  componentDidMount() {
-    this.drawBar();
-  }
+  React.useEffect(() => drawBar(), []);
 
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onMouseDown={this.handleMouseDown}>
-        <canvas ref={this.canvasRef} width={WIDTH} height={HEIGHT}></canvas>
-        <div style={{top: Math.floor(p.hue / 3.6) + '%'}}></div>
-      </div>
-    );
-  }
+  return (
+    <div className={props.className} onMouseDown={handleMouseDown}>
+      <canvas ref={canvasRef} width={WIDTH} height={HEIGHT}></canvas>
+      <div style={{top: Math.floor(props.hue / 3.6) + '%'}}></div>
+    </div>
+  );
 }
 
 const HueBox = styled(HueBoxBase)`
@@ -56,6 +47,7 @@ const HueBox = styled(HueBoxBase)`
   width: ${WIDTH}px;
   height: ${HEIGHT}px;
   margin-right: 20px;
+  cursor: pointer;
 
   canvas {
     position: absolute;
@@ -79,10 +71,10 @@ const HueBox = styled(HueBoxBase)`
       top: -4px;
       width: ${WIDTH + 6}px;
       height: 9px;
-      border: solid 3px #444;
+      border: solid 3px ${p => p.theme.fontColor};
       border-radius: 3px;        
     }
   }
 `
 
-export { HueBox };
+export { HueBox }

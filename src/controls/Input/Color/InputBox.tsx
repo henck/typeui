@@ -12,18 +12,12 @@ interface IColorInputProps {
   onKeyDown: (e: React.KeyboardEvent) => void;
 }
 
-class InputBoxBase extends React.Component<IInputProps & IColorInputProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div tabIndex={0} className={p.className} onKeyDown={p.onKeyDown}>
-        {p.value && typeof p.value === 'string' && (<span style={{background: p.value}}></span>)}
-        {p.value && typeof p.value !== 'string' && 'Not a color'}
-        {!p.value && p.placeholder}
-      </div>
-    );
-  }
-}
+const InputBoxBase = (props: IInputProps & IColorInputProps) =>
+  <div tabIndex={0} className={props.className} onKeyDown={props.onKeyDown}>
+    {props.value && typeof props.value === 'string' && (<span style={{background: props.value}}></span>)}
+    {props.value && typeof props.value !== 'string' && 'Not a color'}
+    {!props.value && props.placeholder}
+  </div>
 
 const InputBox = styled(InputBoxBase).attrs(p => ({
   iconPos: !p.iconPosition ? 'left' : p.iconPosition
@@ -100,6 +94,4 @@ const InputBox = styled(InputBoxBase).attrs(p => ({
   `}  
 `
 
-export { InputBox };
-
-
+export { InputBox }

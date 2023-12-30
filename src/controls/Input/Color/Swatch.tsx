@@ -1,12 +1,8 @@
 import * as React from 'react';
 import styled from '../../../styles/Theme';
 
-interface ISwatch {
-  color: string;
-  locked: boolean;
-}
-
-interface ISwatchProps {
+interface IProps {
+  /** @ignore */
   className?: string;
   color: string;
   locked: boolean;
@@ -14,24 +10,13 @@ interface ISwatchProps {
   onToggle: () => void;
 }
 
-class SwatchBase extends React.Component<ISwatchProps, {}> {
-  constructor(props: ISwatchProps) {
-    super(props);
-  }
-
-  render() {
-    let p = this.props;
-
-    return (
-      <div className={p.className}>
-        <div onClick={this.props.onClick}></div>
-        <svg onClick={this.props.onToggle}>
-          <use xlinkHref={`spritemap.svg#${p.locked ? 'lock' : 'unlock'}`}></use>
-        </svg>
-      </div>
-    );
-  }
-}
+const SwatchBase = (props: IProps) =>
+  <div className={props.className}>
+    <div onClick={props.onClick}></div>
+    <svg onClick={props.onToggle}>
+      <use xlinkHref={`spritemap.svg#${props.locked ? 'lock' : 'unlock'}`}></use>
+    </svg>
+  </div>
 
 const Swatch = styled(SwatchBase)`
   position: relative;
@@ -65,4 +50,4 @@ const Swatch = styled(SwatchBase)`
   }
 `
 
-export { Swatch, ISwatch };
+export { Swatch }

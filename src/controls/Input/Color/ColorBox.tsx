@@ -6,7 +6,7 @@ import styled from '../../../styles/Theme';
  * https://stackoverflow.com/questions/41524641/draw-saturation-brightness-gradient
  */
 
-interface IColorBoxProps {
+interface IProps {
   className?: string;
   hue: number;
   saturation: number;
@@ -17,24 +17,19 @@ interface IColorBoxProps {
 const WIDTH = 300;
 const HEIGHT = 276;
 
-class ColorBoxBase extends React.Component<IColorBoxProps, {}> {
-  private canvasRef: React.RefObject<HTMLCanvasElement>;
+const ColorBoxBase = (props: IProps) => {
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
-  constructor(props: IColorBoxProps) {
-    super(props);
-    this.canvasRef = React.createRef();
-  }
-
-  drawColorBlock() {
-    let ctx = this.canvasRef.current.getContext('2d');
+  const drawColorBlock = () => {
+    let ctx = canvasRef.current.getContext('2d');
     // Brightness, top to bottom.
     var gradB = ctx.createLinearGradient(0, 0, 0, HEIGHT);
     gradB.addColorStop(0, "white");
     gradB.addColorStop(1, "black");
     // Saturation, left to right.
     var gradC = ctx.createLinearGradient(0, 0, WIDTH, 0);
-    gradC.addColorStop(0, `hsla(${this.props.hue},100%,50%,0)`);
-    gradC.addColorStop(1, `hsla(${this.props.hue},100%,50%,1)`);
+    gradC.addColorStop(0, `hsla(${props.hue},100%,50%,0)`);
+    gradC.addColorStop(1, `hsla(${props.hue},100%,50%,1)`);
   
     ctx.fillStyle = gradB;
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
@@ -44,8 +39,8 @@ class ColorBoxBase extends React.Component<IColorBoxProps, {}> {
     ctx.globalCompositeOperation = "source-over";    
   }
 
-  private handleMouseDown = (e:React.MouseEvent) => {
-    this.props.onMouseDown({ 
+  const handleMouseDown = (e:React.MouseEvent) => {
+    props.onMouseDown({ 
       mouseX: e.nativeEvent.offsetX,
       offsetX: e.clientX - e.nativeEvent.offsetX,
       width: (e.nativeEvent.target as any).clientWidth,
@@ -54,23 +49,14 @@ class ColorBoxBase extends React.Component<IColorBoxProps, {}> {
       height: (e.nativeEvent.target as any).clientHeight});
   }
 
-  componentDidMount() {
-    this.drawColorBlock();
-  }
+  React.useEffect(() => drawColorBlock());
 
-  componentDidUpdate() {
-    this.drawColorBlock();
-  }
-
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onMouseDown={this.handleMouseDown}>
-        <canvas ref={this.canvasRef} width={300} height={276}></canvas>
-        <div style={{left: Math.floor(p.saturation * 100) + '%', top: Math.floor((1-p.brightness) * 100) + '%'}}></div>
-      </div>
-    );
-  }
+  return (
+    <div className={props.className} onMouseDown={handleMouseDown}>
+      <canvas ref={canvasRef} width={300} height={276}></canvas>
+      <div style={{left: Math.floor(props.saturation * 100) + '%', top: Math.floor((1-props.brightness) * 100) + '%'}}></div>
+    </div>
+  );
 }
 
 const ColorBox = styled(ColorBoxBase)`
@@ -123,4 +109,4 @@ const ColorBox = styled(ColorBoxBase)`
   }
 `
 
-export { ColorBox };
+export { ColorBox }

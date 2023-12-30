@@ -12,7 +12,7 @@ import { HueBox } from './HueBox';
 import { ColorBox } from './ColorBox';
 import { InfoBox } from './InfoBox';
 import { SwatchBox } from './SwatchBox';
-import { ISwatch } from './Swatch';
+import { ISwatch } from './ISwatch';
 import { HarmonyBox } from './HarmonyBox';
 import { Tabs } from '../../Tabs/Tabs';
 import { Button } from '../../Button/Button';

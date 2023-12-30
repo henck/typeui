@@ -5,7 +5,8 @@ import styled from '../../../styles/Theme';
 import { RgbColor } from '../../../helper/RgbColor';
 import { HslColor } from '../../../helper/HslColor';
 
-interface IInfoBoxProps {
+interface IProps {
+  /** @ignore */
   className?: string;
   hue: number;
   saturation: number;
@@ -17,152 +18,137 @@ interface IInfoBoxProps {
 const WIDTH  = 100;
 const HEIGHT = 276;
 
-class InfoBoxBase extends React.Component<IInfoBoxProps, {}> {
-  private inputElement: HTMLInputElement;
+const InfoBoxBase = (props: IProps) => {
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
-  constructor(props: IInfoBoxProps) {
-    super(props);
-  }
+  React.useEffect(() => updateHex());
+  React.useEffect(() => inputRef.current.focus(), []);
 
-  componentDidMount() {
-    this.updateHex();
-    // Focus on first input:
-    this.inputElement.focus();
-  }  
-
-  componentDidUpdate() {
-    this.updateHex();
-  }
-
-  private handleClick = () => {
-    let color = RgbColor.FromHsl(new HslColor(this.props.hue, this.props.saturation, this.props.lightness)).toString();
-    this.props.onClick(color);
+  const handleClick = () => {
+    const color = RgbColor.FromHsl(new HslColor(props.hue, props.saturation, props.lightness)).toString();
+    props.onClick(color);
   }
 
   // Clamped integer parsing. 
   // Returns 0 if not parsable.
   // Result always between 0..max (inclusive).
-  private parseInteger(input: string, max: number) {
+  const parseInteger = (input: string, max: number) => {
     let value = parseInt(input);
     if(isNaN(value)) value = 0;
     return Math.max(Math.min(value, max), 0);
   }
 
-  private handleChangeHue = (e: React.FormEvent<HTMLInputElement>) => {
-    let hue = this.parseInteger(e.currentTarget.value, 359);
-    let hsl = new HslColor(hue, this.props.saturation, this.props.lightness);
-    let rgb = RgbColor.FromHsl(hsl).toString();
-    this.props.onChange(rgb);
+  const handleChangeHue = (e: React.FormEvent<HTMLInputElement>) => {
+    const hue = parseInteger(e.currentTarget.value, 359);
+    const hsl = new HslColor(hue, props.saturation, props.lightness);
+    const rgb = RgbColor.FromHsl(hsl).toString();
+    props.onChange(rgb);
   }
 
-  private handleChangeSaturation = (e: React.FormEvent<HTMLInputElement>) => {
-    let saturation = this.parseInteger(e.currentTarget.value, 100) / 100;
-    let hsl = new HslColor(this.props.hue, saturation, this.props.lightness);
-    let rgb = RgbColor.FromHsl(hsl).toString();
-    this.props.onChange(rgb);
+  const handleChangeSaturation = (e: React.FormEvent<HTMLInputElement>) => {
+    const saturation = parseInteger(e.currentTarget.value, 100) / 100;
+    const hsl = new HslColor(props.hue, saturation, props.lightness);
+    const rgb = RgbColor.FromHsl(hsl).toString();
+    props.onChange(rgb);
   }
 
-  private handleChangeLightness = (e: React.FormEvent<HTMLInputElement>) => {
-    let lightness = this.parseInteger(e.currentTarget.value, 100) / 100;
-    let hsl = new HslColor(this.props.hue, this.props.saturation, lightness);
-    let rgb = RgbColor.FromHsl(hsl).toString();
-    this.props.onChange(rgb);
+  const handleChangeLightness = (e: React.FormEvent<HTMLInputElement>) => {
+    const lightness = parseInteger(e.currentTarget.value, 100) / 100;
+    const hsl = new HslColor(props.hue, props.saturation, lightness);
+    const rgb = RgbColor.FromHsl(hsl).toString();
+    props.onChange(rgb);
   }
 
-  private handleChangeRed = (e: React.FormEvent<HTMLInputElement>) => {
-    let red = this.parseInteger(e.currentTarget.value, 255);
-    let hsl = new HslColor(this.props.hue, this.props.saturation, this.props.lightness);
-    let rgb = RgbColor.FromHsl(hsl);
+  const handleChangeRed = (e: React.FormEvent<HTMLInputElement>) => {
+    const red = parseInteger(e.currentTarget.value, 255);
+    const hsl = new HslColor(props.hue, props.saturation, props.lightness);
+    const rgb = RgbColor.FromHsl(hsl);
     rgb.red = red;
-    this.props.onChange(rgb.toString());    
+    props.onChange(rgb.toString());    
   }
 
-  private handleChangeGreen = (e: React.FormEvent<HTMLInputElement>) => {
-    let green = this.parseInteger(e.currentTarget.value, 255);
-    let hsl = new HslColor(this.props.hue, this.props.saturation, this.props.lightness);
-    let rgb = RgbColor.FromHsl(hsl);
+  const handleChangeGreen = (e: React.FormEvent<HTMLInputElement>) => {
+    const green = parseInteger(e.currentTarget.value, 255);
+    const hsl = new HslColor(props.hue, props.saturation, props.lightness);
+    const rgb = RgbColor.FromHsl(hsl);
     rgb.green = green;
-    this.props.onChange(rgb.toString());    
+    props.onChange(rgb.toString());    
   }  
 
-  private handleChangeBlue = (e: React.FormEvent<HTMLInputElement>) => {
-    let blue = this.parseInteger(e.currentTarget.value, 255);
-    let hsl = new HslColor(this.props.hue, this.props.saturation, this.props.lightness);
-    let rgb = RgbColor.FromHsl(hsl);
+  const handleChangeBlue = (e: React.FormEvent<HTMLInputElement>) => {
+    const blue = parseInteger(e.currentTarget.value, 255);
+    const hsl = new HslColor(props.hue, props.saturation, props.lightness);
+    const rgb = RgbColor.FromHsl(hsl);
     rgb.blue = blue;
-    this.props.onChange(rgb.toString());    
+    props.onChange(rgb.toString());    
   }  
   
-  private handleChangeHex = (e: React.FormEvent<HTMLInputElement>) => {
-    let hex = '#' + e.currentTarget.value;
-    let rgb = RgbColor.FromString(hex);
-    this.props.onChange(rgb.toString());
+  const handleChangeHex = (e: React.FormEvent<HTMLInputElement>) => {
+    const hex = '#' + e.currentTarget.value;
+    const rgb = RgbColor.FromString(hex);
+    props.onChange(rgb.toString());
   }
 
   // The RGB hex input is an uncontrolled component, because we want to
   // apply changes to it only on onBlur.
   // This is why we must use a ref to control it.
-  private updateHex() {
-    let hsl = new HslColor(this.props.hue, this.props.saturation, this.props.lightness, 1);
-    let rgb = RgbColor.FromHsl(hsl);
+  const updateHex = () => {
+    const hsl = new HslColor(props.hue, props.saturation, props.lightness, 1);
+    const rgb = RgbColor.FromHsl(hsl);
     // Remove the '#' from the color string.
-    this.inputElement.value = rgb.toString().substr(1).toUpperCase();
+    inputRef.current.value = rgb.toString().substr(1).toUpperCase();
   }
 
-  render() {
-    let p = this.props;
+  const hsl = new HslColor(props.hue, props.saturation, props.lightness, 1);
+  const rgb = RgbColor.FromHsl(hsl);
 
-    let hsl = new HslColor(p.hue, p.saturation, p.lightness, 1);
-    let rgb = RgbColor.FromHsl(hsl);
-
-    return (
-      <div className={p.className}>
-        <div style={{background: `${rgb.toString()}`, borderWidth: p.lightness > 0.9 ? '1px' : '0'}} onClick={this.handleClick}></div>
-        <div>
-          <table>
-            <tbody>
-              <tr>
-                <td>#</td>
-                <td><input type="text" ref={(el:any) => this.inputElement = el} onBlur={this.handleChangeHex}/></td>
-              </tr>
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-              <tr>
-                <td>H</td>
-                <td><input type="text" value={Math.round(p.hue).toString()} onChange={this.handleChangeHue}/></td>
-              </tr>
-              <tr>
-                <td>S</td>
-                <td><input type="text" value={Math.round(p.saturation * 100).toString()} onChange={this.handleChangeSaturation}/></td>
-              </tr>
-              <tr>
-                <td>L</td>
-                <td><input type="text" value={Math.round(p.lightness * 100).toString()} onChange={this.handleChangeLightness}/></td>
-              </tr>
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-              <tr>
-                <td>R</td>
-                <td><input type="text" value={Math.round(rgb.red).toString()} onChange={this.handleChangeRed}/></td>
-              </tr>
-              <tr>
-                <td>G</td>
-                <td><input type="text" value={Math.round(rgb.green).toString()} onChange={this.handleChangeGreen}/></td>
-              </tr>
-              <tr>
-                <td>B</td>
-                <td><input type="text" value={Math.round(rgb.blue).toString()} onChange={this.handleChangeBlue}/></td>
-              </tr>  
-            </tbody>          
-          </table>
-        </div>
+  return (
+    <div className={props.className}>
+      <div style={{background: `${rgb.toString()}`, borderWidth: props.lightness > 0.9 ? '1px' : '0'}} onClick={handleClick}></div>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>#</td>
+              <td><input type="text" ref={inputRef} onBlur={handleChangeHex}/></td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <tbody>
+            <tr>
+              <td>H</td>
+              <td><input type="text" value={Math.round(props.hue).toString()} onChange={handleChangeHue}/></td>
+            </tr>
+            <tr>
+              <td>S</td>
+              <td><input type="text" value={Math.round(props.saturation * 100).toString()} onChange={handleChangeSaturation}/></td>
+            </tr>
+            <tr>
+              <td>L</td>
+              <td><input type="text" value={Math.round(props.lightness * 100).toString()} onChange={handleChangeLightness}/></td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <tbody>
+            <tr>
+              <td>R</td>
+              <td><input type="text" value={Math.round(rgb.red).toString()} onChange={handleChangeRed}/></td>
+            </tr>
+            <tr>
+              <td>G</td>
+              <td><input type="text" value={Math.round(rgb.green).toString()} onChange={handleChangeGreen}/></td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td><input type="text" value={Math.round(rgb.blue).toString()} onChange={handleChangeBlue}/></td>
+            </tr>  
+          </tbody>          
+        </table>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const InfoBox = styled(InfoBoxBase)`
@@ -221,11 +207,10 @@ const InfoBox = styled(InfoBoxBase)`
     }
   }
 
-
   td:first-child {
     padding: 0 10px 0 0;
     color: #888;
   }
 `
 
-export { InfoBox };
+export { InfoBox }
