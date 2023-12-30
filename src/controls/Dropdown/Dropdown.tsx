@@ -144,11 +144,11 @@ const DropdownStyled = styled(DropdownBase)`
  * (in TypeScript). */
 
 /**
- * A Dropdown is a replacement for <select> (select). It opens upwards or downwards 
- * depending on its position in the viewport. Its selection and dropdown items 
- * are formatted using a formatting function. A Dropdown can also take a 
- * search callback, which tells provides its subscriber with a search query 
- * in order to provide the Dropdown with new items.
+ * A `Dropdown` is a replacement for `<select>` (select). It opens upwards or 
+ * downwards depending on its position in the viewport. Its selection and 
+ * dropdown items are formatted using a formatting function. A Dropdown can 
+ * also take an `onSearch` callback, which tells provides its subscriber with 
+ * a search query in order to provide the `Dropdown` with new items.
  * 
  * @example 
  * <Dropdown 
@@ -161,15 +161,13 @@ const DropdownStyled = styled(DropdownBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-dropdown--properties
  */
-class Dropdown extends React.Component<IDropdownProps, {}> {
-  /**
-   * A Dropdown.Column's child is an item formatter function. A column can optionally take
-   * a weight and an alignment.
-   */
-  public static Column = Column;
+const Dropdown = (props: IDropdownProps) =>
+  <DropdownStyled {...props}></DropdownStyled>
 
-  render = () => <DropdownStyled {...this.props}></DropdownStyled>
-}
-
+/**
+ * A Dropdown.Column's child is an item formatter function. A column can 
+ * optionally take a weight and an alignment.
+ */
+Dropdown.Column = Column;
 
 export { IDropdownProps, Dropdown }
