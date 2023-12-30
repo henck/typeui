@@ -52,7 +52,9 @@ export type HeaderSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface IHeaderProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
+  /** Fired when header is clicked. */
   onClick?: () => void;
   /** Header size: one of `h1` through `h6`. */
   size: HeaderSize;
@@ -98,7 +100,9 @@ class HeaderBase extends React.Component<IHeaderProps> {
     // This uses createElement rather than JSX in order to express
     // everything in one line. The HeaderSize attribute is used as
     // the element name.
-    return React.createElement(this.props.size, { className: this.props.className, onClick: this.props.onClick }, this.props.children);
+    return React.createElement(this.props.size, 
+      { className: this.props.className, onClick: this.props.onClick }, 
+      this.props.children);
   }
 }
 
