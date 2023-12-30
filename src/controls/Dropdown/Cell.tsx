@@ -28,7 +28,6 @@ const Cell = styled(CellBase)`
   padding: 16px 12px;
   height: 56px;
 
-  /* All cells are equal width. Todo? */
   flex: ${p => p.weight ? p.weight : 1};
 
   /* Text alignment */
@@ -37,6 +36,7 @@ const Cell = styled(CellBase)`
   /* Text is truncated with an ellipsis. */
   white-space: nowrap;
   overflow-x: hidden;
+  overflow-y: hidden;
   text-overflow: ellipsis;
 
   /* Space between cells. */
