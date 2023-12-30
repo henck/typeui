@@ -31,6 +31,7 @@ const Clear = styled(ClearBase)`
   height: 17px;
   cursor: pointer;
   fill: #888;
+  transition: fill ease-in-out 120ms;
   &:hover {
     fill: ${p => p.theme.fontColor};
   }
