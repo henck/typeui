@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IProps {
+  /** @ignore */
   className?: string;
   left: number;
   top: number;
@@ -9,11 +10,7 @@ interface IProps {
   color?: string;
 }
 
-class DotBase extends React.Component<IProps> {
-  render() {
-    return <div className={this.props.className}/>;
-  }
-}
+const DotBase = (props: IProps) => <div className={props.className}/>;
 
 const Dot = styled(DotBase)`
   position: absolute;
@@ -26,4 +23,4 @@ const Dot = styled(DotBase)`
   border-radius: 50%;
 `
 
-export { Dot };
+export { Dot }

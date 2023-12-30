@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '../../styles/Theme';
 
 interface IProps {
+  /** @ignore */
   className?: string;
   /**
    * Segment color. Defaults to theme primary color.
@@ -17,11 +18,8 @@ interface IProps {
   angleOffset: number;
 }
 
-class SegmentBase extends React.Component<IProps, {}> {
-  render() {
-    return <div className={this.props.className}/>;
-  }
-}
+const SegmentBase = (props: IProps) =>
+  <div className={props.className}/>
 
 // 120 => skew -30
 // 100 => skew -10
@@ -47,4 +45,4 @@ const Segment = styled(SegmentBase).attrs(p => ({
   transform-origin: 0 0;
 `
 
-export { Segment };
+export { Segment }
