@@ -8,7 +8,7 @@ import { Size, Direction, Float } from '../Types';
 // Helpers
 import { darken } from '../../helper/darken';
 import { lighten } from '../../helper/lighten';
-import { modularScale, scaleSize } from '../../helper/SizeHelper';
+import { scaleSize } from '../../helper/SizeHelper';
 
 // Other controls
 import { LabelGroup } from './LabelGroup';
@@ -19,6 +19,7 @@ import { IconStyled } from '../Icon/Icon';
 interface ILabelProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * A `basic` Label adds a border and does not have a background. 
@@ -70,9 +71,8 @@ interface ILabelProps {
   onClick?: () => void;
 }
 
-class LabelBase extends React.Component<ILabelProps> {
-  render = () => <div className={this.props.className} onClick={this.props.onClick}>{this.props.children}{this.props.content}</div>
-}
+const LabelBase = (props: ILabelProps) =>
+  <div className={props.className} onClick={props.onClick}>{props.children}{props.content}</div>
 
 const LabelStyled = styled(LabelBase).attrs(p => ({
   emSize: scaleSize(p.size, 0.86, p.theme.scale.label),
@@ -166,7 +166,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
    * appropriate sides.
    */
   ${p => !p.tag && css` /* No pointing on tags. */
-    ${p.pointing && css `
+    ${p.pointing && css`
       &:before {
         content: '';
         position: absolute;
@@ -223,7 +223,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
   `}
 
   /* Tag */
-  ${p => p.tag && css `
+  ${p => p.tag && css`
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     margin-left: 1.07em; /* 0.2em space between labels, plus half label height */
@@ -319,4 +319,4 @@ class Label extends React.Component<ILabelProps> {
   render = () => <LabelStyled {...this.props}/>
 }
 
-export { Label, LabelStyled };
+export { Label, LabelStyled }

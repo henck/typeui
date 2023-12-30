@@ -4,20 +4,19 @@ import styled from '../../styles/Theme';
 interface ILabelDetailProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
 }
 
-class LabelDetailBase extends React.Component<ILabelDetailProps> {
-  render = () => <span className={this.props.className}>{this.props.children}</span>
-}
+const LabelDetailBase  = (props: ILabelDetailProps) =>
+  <span className={props.className}>{props.children}</span>
+
 
 const LabelDetailStyled = styled(LabelDetailBase)`
   opacity: 0.7;
   margin-left: 0.6em;
-`;
+`
 
-class LabelDetail extends React.Component<ILabelDetailProps> {
-  render = () => <LabelDetailStyled {...this.props}/>
-}
+const LabelDetail = (props: ILabelDetailProps) => <LabelDetailStyled {...props}/>
 
-export { LabelDetail };
+export { LabelDetail, ILabelDetailProps }
