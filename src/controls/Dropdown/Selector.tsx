@@ -132,10 +132,12 @@ const Selector = styled(SelectorBase)`
   }
   /* Clear icon is only shown when there is an onClear callback. */
   & > svg:nth-of-type(2) {
-    fill: #888;
+    fill: ${p => p.theme.fontColor};
+    opacity: 0.7;
     display: ${p => p.onClear ? 'block' : 'none'};
+    transition: opacity ease-in-out 120ms;
     &:hover {
-      fill: ${p => p.theme.fontColor};
+      opacity: 1;
     }
   }
 `;
