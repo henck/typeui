@@ -81,17 +81,13 @@ const CardStyled = styled(CardBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-card--properties
  */
-class Card extends React.Component<ICardProps> {
-  /** A Card can have a Card.Header element. */
-  public static Header = Header;
+const Card = (props: ICardProps) => <CardStyled {...props}/>;
 
-  /** A Card can have a Card.Meta element. */
-  public static Meta = Meta;
-
-  /** A Card can have any number of Card.Content elements inside it. */
-  public static Content = Content;
-
-  render = () => <CardStyled {...this.props}></CardStyled>
-}
+/** A `Card` can have a `Card.Header` element. */
+Card.Header = Header;
+/** A `Card` can have a `Card.Meta` element. */
+Card.Meta = Meta;
+/** A `Card` can have any number of `Card.Content` elements inside it. */
+Card.Content = Content;
 
 export { Card }
