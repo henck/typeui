@@ -2,25 +2,20 @@ import * as React from 'react';
 import styled from '../../../styles/Theme';
 import { css } from 'styled-components';
 
-interface IDayProps {
+interface IProps {
+  /** @ignore */
   className?: string;
   grey: boolean;
   selected: boolean;
   today: boolean;
   day: number;
-  onClick?: any;
+  onClick?: () => void;
 }
 
-class DayBase extends React.Component<IDayProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className} onClick={p.onClick}>
-        {p.day}
-      </div>
-    );
-  }
-}
+const DayBase = (props: IProps) => 
+  <div className={props.className} onClick={props.onClick}>
+    {props.day}
+  </div>
 
 const Day = styled(DayBase)`
   box-sizing: border-box;
@@ -60,4 +55,4 @@ const Day = styled(DayBase)`
   }
 `
 
-export { Day };
+export { Day }
