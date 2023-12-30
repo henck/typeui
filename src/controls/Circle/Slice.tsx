@@ -6,7 +6,9 @@ import styled from '../../styles/Theme';
 import { lighten } from '../../helper/lighten';
 
 interface IProps {
+  /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   index: number;
   onClick: (index: number) => void;
@@ -22,24 +24,18 @@ interface IProps {
   angleOffset: number;
 }
 
-class SliceBase extends React.Component<IProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        <div onClick={() => this.props.onClick(this.props.index)}>
+const SliceBase = (props: IProps) =>
+  <div className={props.className}>
+    <div onClick={() => props.onClick(props.index)}>
+      <div>
+        <div>
           <div>
-            <div>
-              <div>
-                {p.children}
-               </div>
-            </div>
+            {props.children}
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  </div>
 
 // 120 => skew -30
 // 100 => skew -10
@@ -97,14 +93,6 @@ const SliceStyled = styled(SliceBase).attrs(p => ({
   }
 `
 
-class Slice extends React.Component<IProps, {}> {
-  public static displayName = 'Slice';
+const Slice = (props: IProps) => <SliceStyled {...props}></SliceStyled>
 
-  render() {
-    return (
-      <SliceStyled {...this.props}></SliceStyled>
-    );
-  }
-}
-
-export { Slice };
+export { Slice, IProps }

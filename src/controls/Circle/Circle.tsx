@@ -24,40 +24,37 @@ interface ICircleProps {
   color?: string;
 }
 
-class CircleBase extends React.Component<ICircleProps> {
+const CircleBase = (props: ICircleProps) => {
 
-  private handleClick = (index: number) => {
-    if(this.props.onClick) this.props.onClick(index);
+  const handleClick = (index: number) => {
+    if(props.onClick) props.onClick(index);
   }
 
-  render() {
-    let p = this.props;
-    let count = React.Children.count(p.children);
-    // Angle size of a single slice
-    let sliceSize = 360 / count;
-    return (
-      <div className={p.className}>
-        {/* holder */}
-        <div>
-          {React.Children.map(p.children, (c:any, index: number) => 
-            <Slice 
-              color={p.color ? p.color : '#333'}
-              radius={p.radius ? p.radius : DEFAULT_RADIUS} 
-              index={index}
-              onClick={this.handleClick}
-              angleBody={sliceSize} 
-              angleOffset={index * sliceSize}>
-                {c}
-            </Slice>
-          )}
-        </div>
-        {/* center */}
-        <div>
-
-        </div>
+  const count = React.Children.count(props.children);
+  // Angle size of a single slice
+  const sliceSize = 360 / count;
+  return (
+    <div className={props.className}>
+      {/* holder */}
+      <div>
+        {React.Children.map(props.children, (c:any, index: number) => 
+          <Slice 
+            color={props.color ?? '#333'}
+            radius={props.radius ?? DEFAULT_RADIUS} 
+            index={index}
+            onClick={handleClick}
+            angleBody={sliceSize} 
+            angleOffset={index * sliceSize}>
+              {c}
+          </Slice>
+        )}
       </div>
-    );
-  }
+      {/* center */}
+      <div>
+
+      </div>
+    </div>
+  );
 }
 
 const CircleStyled = styled(CircleBase).attrs(p => ({
@@ -88,8 +85,6 @@ const CircleStyled = styled(CircleBase).attrs(p => ({
   }
 `
 
-class Circle extends React.Component<ICircleProps> {
-  render = () => <CircleStyled {...this.props}></CircleStyled>
-}
+const Circle = (props: ICircleProps) =><CircleStyled {...props}></CircleStyled>
 
-export { Circle };
+export { Circle, ICircleProps }

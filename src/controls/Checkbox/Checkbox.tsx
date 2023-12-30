@@ -42,36 +42,33 @@ interface ICheckboxProps {
   onChange?: (value: any) => void;
 }
 
-class CheckboxBase extends React.Component<ICheckboxProps> {
-  private handleChange = (e:any) => {
+const CheckboxBase = (props: ICheckboxProps) => {
+  const handleChange = (e:any) => {
     // For radios, we use the value attribute.
     // For checkboxes, we use the checked attribute.
-    let value = this.props.radio ? e.target.value : e.target.checked;
-    if(this.props.onChange) {
-      this.props.onChange(value);
+    let value = props.radio ? e.target.value : e.target.checked;
+    if(props.onChange) {
+      props.onChange(value);
     }
   }  
 
-  render() {
-    let p = this.props;
-    return (
-      <label className={p.className}>
-        <input 
-          name={p.name} 
-          type={p.radio ? "radio" : "checkbox"}
-          value={p.value === null ? undefined : p.value} 
-          checked={p.checked === null ? false : p.checked}
-          disabled={p.disabled}
-          onChange={this.handleChange}/>
-        <div>
-          <svg>
-            <use xlinkHref={"spritemap.svg#check"}></use>
-          </svg>          
-        </div>
-        <span>{p.label}</span>
-      </label>
-    );
-  }
+  return (
+    <label className={props.className}>
+      <input 
+        name={props.name} 
+        type={props.radio ? "radio" : "checkbox"}
+        value={props.value === null ? undefined : props.value} 
+        checked={props.checked === null ? false : props.checked}
+        disabled={props.disabled}
+        onChange={handleChange}/>
+      <div>
+        <svg>
+          <use xlinkHref={"spritemap.svg#check"}></use>
+        </svg>          
+      </div>
+      <span>{props.label}</span>
+    </label>
+  );
 }
 
 const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
@@ -190,7 +187,7 @@ const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
       }
     }
 
-    ${!p.disabled && !p.error && css`}
+    ${!p.disabled && !p.error && css`
       &:hover > div {
         background: ${p.hoverColor};
       }
@@ -231,8 +228,6 @@ const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-checkbox--properties
  */
-class Checkbox extends React.Component<ICheckboxProps> {
-  render = () => <CheckboxStyled {...this.props}></CheckboxStyled>
-}
+const Checkbox = (props: ICheckboxProps) => <CheckboxStyled {...props}></CheckboxStyled>
 
-export { Checkbox };
+export { Checkbox, ICheckboxProps }
