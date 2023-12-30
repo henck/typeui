@@ -30,10 +30,11 @@ const Clear = styled(ClearBase)`
   width: 17px;
   height: 17px;
   cursor: pointer;
-  fill: #888;
-  transition: fill ease-in-out 120ms;
+  transition: opacity ease-in-out 120ms;
+  fill: ${p => p.theme.fontColor};
+  opacity: 0.7;
   &:hover {
-    fill: ${p => p.theme.fontColor};
+    opacity: 1;
   }
 `
 
