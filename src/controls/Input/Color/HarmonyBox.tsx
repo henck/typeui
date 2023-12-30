@@ -84,6 +84,8 @@ const HarmonyBoxBase = (props: IProps) => {
 const HarmonyBox = styled(HarmonyBoxBase)`
   position: relative;
   display: flex;
+  flex-direction: row;
+  margin-top: 8px;
 `
 
 export { HarmonyBox }

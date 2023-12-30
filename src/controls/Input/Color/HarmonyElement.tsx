@@ -13,11 +13,9 @@ const HarmonyElementBase = (props: IProps) =>
 
 const HarmonyElement = styled(HarmonyElementBase)`
   position: relative;
-  width: 65px;
-  @media (max-width: ${p => p.theme.smallScreen}px) {
-    width: 40px;
-  } 
+  flex: 1;
   height: 40px;
+  max-width: 80px;
   cursor: pointer;
 
   /* First and last child have rounded borders. */

@@ -5,7 +5,7 @@ import { css } from 'styled-components';
 // Helpers
 import { RgbColor } from '../../../helper/RgbColor';
 import { HslColor } from '../../../helper/HslColor';
-import { lighten } from '../../../helper/lighten';
+import { darken } from '../../../helper/darken';
 
 // Other controls
 import { HueBox } from './HueBox';
@@ -282,15 +282,15 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
             <SwatchBox swatches={this.state.swatches} onClick={this.handleClickSwatch} onToggle={this.handleToggleSwatch} />
           </div>
           <Tabs underlined>
-            <Tabs.Pane label="Complementary">        
-              <HarmonyBox type="complementary" hue={this.state.hue} saturation={this.state.hsl_saturation} lightness={this.state.hsl_lightness} onClick={this.handleClickHarmony}/>
-            </Tabs.Pane>
             <Tabs.Pane label="Shades">        
               <HarmonyBox type="shades" hue={this.state.hue} saturation={this.state.hsl_saturation} lightness={this.state.hsl_lightness} onClick={this.handleClickHarmony}/>
             </Tabs.Pane>   
             <Tabs.Pane label="Tints">        
               <HarmonyBox type="tints" hue={this.state.hue} saturation={this.state.hsl_saturation} lightness={this.state.hsl_lightness} onClick={this.handleClickHarmony}/>
             </Tabs.Pane>                    
+            <Tabs.Pane label="Complementary">        
+              <HarmonyBox type="complementary" hue={this.state.hue} saturation={this.state.hsl_saturation} lightness={this.state.hsl_lightness} onClick={this.handleClickHarmony}/>
+            </Tabs.Pane>
           </Tabs>
         </div>
         <div>
@@ -324,7 +324,7 @@ const Selector = styled(SelectorBase)`
     padding: 10px;
     text-align: right;
     border-top: solid 1px ${p => p.theme.normalColor};
-    background: ${p => lighten(0.1, p.theme.normalColor)};    
+    background: ${p => darken(0.1, p.theme.background)};    
     border-bottom-left-radius: ${p => p.theme.radius}px;
     border-bottom-right-radius: ${p => p.theme.radius}px;
   }
