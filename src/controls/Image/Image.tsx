@@ -13,6 +13,7 @@ import { ImageLoader } from './ImageLoader';
 interface IImageProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** Image source URL. */
   src?: string;
@@ -84,37 +85,23 @@ interface IImageProps {
 
 /* An image can be in one of the following states: */
 type TImageState = 'loading' | 'loaded' | 'error';
-interface IImageState {
-  readonly state: TImageState;
-}
 
-class ImageBase extends React.Component<IImageProps, IImageState> {
+const ImageBase = (props: IImageProps) => {
   // Images start off in 'loading' state.
-  readonly state: IImageState = {
-    state: 'loading'
-  }
+  const [state, setState] = React.useState<TImageState>('loading');
+  
+  const onLoad = () => setState('loaded');
+  const onError = () => setState('error');
 
-  readonly onLoad = () => {
-    this.setState(() => ({ state: 'loaded' }));
-  }  
-
-  readonly onError = () => {
-    this.setState(() => ({ state: 'error' }));
-  }    
-
-  render() {
-    let p = this.props;
-
-    // Note that <img> needs a <span> around it, because
-    // <img> itself does not support :before and :after because
-    // it cannot contain text content.
-    return (
-      <span className={p.className} onClick={p.onClick}>
-        {this.state.state!='loaded' && <ImageLoader avatar={p.avatar} size={p.size} error={this.state.state=='error'}>{p.children}</ImageLoader>}
-        {this.state.state!='error' && <Img src={p.src} loaded={this.state.state=='loaded'} onLoad={this.onLoad} onError={this.onError} alt={p.alt} title={p.title}/>}
-      </span>
-    )
-  }  
+  // Note that <img> needs a <span> around it, because
+  // <img> itself does not support :before and :after because
+  // it cannot contain text content.
+  return (
+    <span className={props.className} onClick={props.onClick}>
+      {state != 'loaded' && <ImageLoader avatar={props.avatar} size={props.size} error={state=='error'}>{props.children}</ImageLoader>}
+      {state != 'error' && <Img src={props.src} loaded={state=='loaded'} onLoad={onLoad} onError={onError} alt={props.alt} title={props.title}/>}
+    </span>
+  )
 }
 
 /* Styling for Image. */
@@ -227,4 +214,4 @@ class Image extends React.Component<IImageProps> {
   render = () => <ImageStyled {...this.props}></ImageStyled>
 }
 
-export { Image, IImageProps, ImageStyled };
+export { Image, IImageProps, ImageStyled }

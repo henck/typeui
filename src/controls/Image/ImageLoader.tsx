@@ -8,6 +8,7 @@ import { Size } from '../Types';
 interface IImageLoaderProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   // Are we in an error state?
   error: boolean;
@@ -26,22 +27,11 @@ interface IImageLoaderProps {
  *   control's children, which should contain an error message.
  *   The loading animation is removed.
  */
-class ImageLoaderBase extends React.Component<IImageLoaderProps, {}> {
-  constructor(props: IImageLoaderProps) {
-    super(props);
-  }  
-
-  render() {
-    let p = this.props;
-
-    return (
-      <span className={p.className}>
-        {p.error && p.children}
-        <span></span>
-      </span>
-    )
-  }  
-}
+const ImageLoaderBase = (props: IImageLoaderProps) =>
+  <span className={props.className}>
+    {props.error && props.children}
+    <span></span>
+  </span>
 
 // Background animation
 const shimmer = keyframes`
@@ -100,4 +90,4 @@ const ImageLoader = styled(ImageLoaderBase)`
   }  
 `;
 
-export { ImageLoader };
+export { ImageLoader }

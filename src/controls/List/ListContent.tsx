@@ -8,6 +8,7 @@ import { VerticalAlignment } from '../Types';
 interface IListContentProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Align content item vertically (defaults to `top`). 
@@ -19,9 +20,8 @@ interface IListContentProps {
   onClick?: () => void;
 }
 
-class ListContentBase extends React.Component<IListContentProps> {
-  render = () => <div className={this.props.className} onClick={this.props.onClick}>{this.props.children}</div>
-}
+const ListContentBase = (props: IListContentProps) =>
+  <div className={props.className} onClick={props.onClick}>{props.children}</div>
 
 /* Styling for list item. */
 const ListContentStyled = styled(ListContentBase)`
@@ -46,8 +46,6 @@ const ListContentStyled = styled(ListContentBase)`
   }  
 `;
 
-class ListContent extends React.Component<IListContentProps> {
-  render = () => <ListContentStyled {...this.props}/>
-}
+const ListContent = (props: IListContentProps) => <ListContentStyled {...props}/>
 
-export { ListContent };
+export { ListContent, IListContentProps }

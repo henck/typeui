@@ -72,4 +72,4 @@ const Img = styled(ImgBase)`
   width: 100%;
 `;
 
-export { Img };
+export { Img }

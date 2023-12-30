@@ -15,6 +15,7 @@ import { IconStyled } from '../Icon/Icon';
 interface IListItemProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * (Not public) Icon and content alignment. Defaults to `top` 
@@ -57,31 +58,25 @@ interface IListItemProps {
   onClick?: () => void;
 }
 
-class ListItemBase extends React.Component<IListItemProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <li className={p.className} onClick={p.onClick}>
-        <div>
-          {// Get non-list children. These live in a <div> 
-           // so we can apply flex to them.
-           React.Children.map(this.props.children, (child:any) => {
-             if(child == null) return; 
-             if(child.type && child.type === List) return null;
-             return child;
-          })}
-        </div>
-        { // Get list children.
-          // These live outside the <div> so flex is not applied
-          // to them.
-          React.Children.map(this.props.children, (child:any) => {
-            if(child == null) return;
-            if(child.type && child.type === List) return child;
-          })}
-      </li>
-    )
-  }  
-}
+const ListItemBase = (props: IListItemProps) =>
+  <li className={props.className} onClick={props.onClick}>
+    <div>
+      {// Get non-list children. These live in a <div> 
+        // so we can apply flex to them.
+        React.Children.map(props.children, (child:any) => {
+          if(child == null) return; 
+          if(child.type && child.type === List) return null;
+          return child;
+      })}
+    </div>
+    { // Get list children.
+      // These live outside the <div> so flex is not applied
+      // to them.
+      React.Children.map(props.children, (child:any) => {
+        if(child == null) return;
+        if(child.type && child.type === List) return child;
+      })}
+  </li>
 
 /* Styling for list item. */
 const ListItemStyled = styled(ListItemBase)`
@@ -172,13 +167,6 @@ const ListItemStyled = styled(ListItemBase)`
   }
 `;
 
-class ListItem extends React.Component<IListItemProps, {}> {
-  render() {
-    let p = this.props;
-    return (
-      <ListItemStyled {...p}/>
-    )
-  }  
-}
+const ListItem  = (props: IListItemProps) => <ListItemStyled {...props}/>
 
-export { ListItem };
+export { ListItem, IListItemProps }

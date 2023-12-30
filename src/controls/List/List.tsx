@@ -15,6 +15,7 @@ import { ListDescription } from './ListDescription';
 interface IListProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Icon and content alignment: `top`, `center` or `bottom`. By default `top` 
@@ -61,30 +62,27 @@ interface IListProps {
   animated?: boolean;
 }
 
-class ListBase extends React.Component<IListProps> {
-  render() {
-    let p = this.props;
+const ListBase = (props: IListProps) => {
 
-    // Pass 'align', 'horizontal', 'divided', 'selection', 'relaxed', 'animated' properties 
-    // to ListItem children.
-    let children = React.Children.map(this.props.children, (child:any) => {
-      if(child == null) return null;
-      return React.cloneElement(child, { 
-        align: p.align,
-        horizontal: p.horizontal,
-        divided: p.divided,
-        selection: p.selection,
-        relaxed: p.relaxed,
-        animated: p.animated
-      });
+  // Pass 'align', 'horizontal', 'divided', 'selection', 'relaxed', 'animated' properties 
+  // to ListItem children.
+  let children = React.Children.map(props.children, (child:any) => {
+    if(child == null) return null;
+    return React.cloneElement(child, { 
+      align: props.align,
+      horizontal: props.horizontal,
+      divided: props.divided,
+      selection: props.selection,
+      relaxed: props.relaxed,
+      animated: props.animated
     });
+  });
 
-    return (
-      <ul className={p.className}>
-        {children}
-      </ul>
-    );
-  }  
+  return (
+    <ul className={props.className}>
+      {children}
+    </ul>
+  );
 }
 
 /* Styling for list container. */
@@ -146,4 +144,4 @@ class List extends React.Component<IListProps> {
 }
 
 
-export { List };
+export { List }
