@@ -33,6 +33,7 @@ const Tab = styled(TabBase)`
   z-index: 1;
   cursor: pointer;
   opacity: 0.6;
+  color: ${p => p.theme.fontColor};
   transition: opacity 0.3s;
 
   /* User cannot select header text.
