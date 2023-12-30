@@ -98,8 +98,8 @@ const ToastContainerStyled = styled(ToastContainerBase)`
    * Toasts are placed in the bottom-left corner, unless placement
    * is overridden. 
    */
-  ${p => p.horizontalAlign == 'right' ? css`right: ${p.horizontalOffset ? p.horizontalOffset : 20}px` : css`left: ${p.horizontalOffset ? p.horizontalOffset : 20}px`};
-  ${p => p.verticalAlign == 'top' ? css`top: ${p.verticalOffset ? p.verticalOffset : 20}px` : css`bottom: ${p.verticalOffset ? p.verticalOffset : 20}px`};
+  ${p => p.horizontalAlign == 'right' ? css`right: ${p.horizontalOffset ? p.horizontalOffset : 20}px` : css`left: ${p.horizontalOffset ? p.horizontalOffset : 20}px`}
+  ${p => p.verticalAlign == 'top' ? css`top: ${p.verticalOffset ? p.verticalOffset : 20}px` : css`bottom: ${p.verticalOffset ? p.verticalOffset : 20}px`}
 `
 
 class ToastContainer extends React.Component<IToastContainerProps> {
