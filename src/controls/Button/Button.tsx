@@ -349,4 +349,4 @@ Button.Or = ButtonOr;
  */  
 Button.Group = ButtonGroup;
 
-export { Button, IButtonProps };
+export { Button, IButtonProps }

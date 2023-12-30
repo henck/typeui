@@ -5,9 +5,10 @@ import styled from '../../styles/Theme';
 // Types
 import { HorizontalAlignment } from '../Types';
 
-interface IContentProps {
+interface ICardContentProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Optional text alignment to `left`, `center` or `right` (default is `left`). 
@@ -20,9 +21,8 @@ interface IContentProps {
   secondary?: boolean;
 }
 
-class ContentBase extends React.Component<IContentProps> {
-  render = () => <div className={this.props.className}>{this.props.children}</div>
-}
+const ContentBase = (props: ICardContentProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const ContentStyled = styled(ContentBase)`
   position: relative;
@@ -40,8 +40,6 @@ const ContentStyled = styled(ContentBase)`
   }
 `
 
-class Content extends React.Component<IContentProps> {
-  render = () =><ContentStyled {...this.props}></ContentStyled>
-}
+const Content = (props: ICardContentProps) => <ContentStyled {...props}></ContentStyled>
 
-export { Content };
+export { Content, ICardContentProps }

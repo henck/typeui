@@ -11,14 +11,15 @@ import { lighten } from '../../helper/lighten';
 interface ICardProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
-   * A fluid Card occupies all width available to it. 
+   * A `fluid` Card occupies all width available to it. 
    * @default false
    */
   fluid?: boolean;
   /** 
-   * A raised Card will have an extra-strong dropshadow. 
+   * A `raised` Card will have an extra-strong dropshadow. 
    * @default false 
    */
   raised?: boolean;
@@ -29,9 +30,8 @@ interface ICardProps {
   onClick?: () => void;
 }
 
-class CardBase extends React.Component<ICardProps> {
-  render = () => <div className={this.props.className} onClick={this.props.onClick}>{this.props.children}</div>
-}
+const CardBase = (props: ICardProps) =>
+  <div className={props.className} onClick={props.onClick}>{props.children}</div>
 
 const CardStyled = styled(CardBase)`
   display: inline-block;
@@ -94,4 +94,4 @@ class Card extends React.Component<ICardProps> {
   render = () => <CardStyled {...this.props}></CardStyled>
 }
 
-export { Card };
+export { Card }

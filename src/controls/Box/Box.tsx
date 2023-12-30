@@ -28,4 +28,4 @@ const BoxStyled = styled(BoxBase)`
 
 const Box = (props: IBoxProps) => <BoxStyled {...props}/>
 
-export { Box };
+export { Box }

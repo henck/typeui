@@ -1,15 +1,15 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 
-interface IMetaProps {
+interface ICardMetaProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
 }
 
-class MetaBase extends React.Component<IMetaProps> {
-  render = () => <span className={this.props.className}>{this.props.children}</span>
-}
+const MetaBase = (props: ICardMetaProps) =>
+  <span className={props.className}>{props.children}</span>
 
 const MetaStyled = styled(MetaBase)`
   position: relative;
@@ -22,8 +22,6 @@ const MetaStyled = styled(MetaBase)`
   }  
 `
 
-class Meta extends React.Component<IMetaProps> {
-  render = () => <MetaStyled {...this.props}></MetaStyled>
-}
+const Meta = (props: ICardMetaProps) => <MetaStyled {...props}></MetaStyled>
 
-export { Meta };
+export { Meta, ICardMetaProps }

@@ -5,9 +5,10 @@ import styled from '../../styles/Theme';
 // Types
 import { HorizontalAlignment } from '../Types';
 
-interface IHeaderProps {
+interface ICardHeaderProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * Optional text alignment to `left`, `center` or `right` (default is `left`). 
@@ -15,9 +16,8 @@ interface IHeaderProps {
   align?: HorizontalAlignment;
 }
 
-class HeaderBase extends React.Component<IHeaderProps> {
-  render = () => <span className={this.props.className}>{this.props.children}</span>
-}
+const HeaderBase = (props: ICardHeaderProps) =>
+  <span className={props.className}>{props.children}</span>
 
 const HeaderStyled = styled(HeaderBase)`
   position: relative;
@@ -32,8 +32,6 @@ const HeaderStyled = styled(HeaderBase)`
   }
 `
 
-class Header extends React.Component<IHeaderProps> {
-  render = () => <HeaderStyled {...this.props}></HeaderStyled>
-}
+const Header = (props: ICardHeaderProps) => <HeaderStyled {...props}></HeaderStyled>
 
-export { Header };
+export { Header, ICardHeaderProps }
