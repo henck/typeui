@@ -41,6 +41,7 @@ const Selection = styled(SelectionBase)`
   padding: 2px 20px 2px 8px;
   margin-right: 4px;
   white-space: nowrap;
+  user-select: none;
 
   &>svg {
     position: absolute;
