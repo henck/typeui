@@ -1,5 +1,4 @@
-import { Flex } from './Flex';
-export { Flex };
+export { Flex } from './Flex';
 
 /** 
  * This index.tsx file exists so that you can do

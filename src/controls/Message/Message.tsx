@@ -149,11 +149,9 @@ const MessageStyled = styled(MessageBase).attrs(p => ({
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-message--properties
  */
-class Message extends React.Component<IMessageProps> {
-  public static Header = MessageHeader;
-  public static Content = MessageContent;
+const Message = (props: IMessageProps) => <MessageStyled {...props}/>;
 
-  render = () => <MessageStyled {...this.props}/>
-}
+Message.Header = MessageHeader;
+Message.Content = MessageContent;
 
 export { Message, TMessageType }

@@ -1,2 +1,1 @@
-import { Datum } from './Datum';
-export { Datum };
+export { Datum } from './Datum';

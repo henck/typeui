@@ -1,5 +1,4 @@
-import { Header } from './Header';
-export { Header };
+export { Header } from './Header';
 
 /** 
  * This index.tsx file exists so that you can do

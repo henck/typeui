@@ -1,2 +1,1 @@
-import { Human } from './Human';
-export { Human };
+export { Human } from './Human';

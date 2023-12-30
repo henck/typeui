@@ -1,5 +1,4 @@
-import { Image, ImageStyled } from './Image';
-export { Image, ImageStyled };
+export { Image, ImageStyled } from './Image';
 
 /** 
  * This index.tsx file exists so that you can do

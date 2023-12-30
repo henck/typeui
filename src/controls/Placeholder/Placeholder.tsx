@@ -62,11 +62,6 @@ const PlaceholderStyled = styled(PlaceholderBase)`
   }
 `;
 
-//
-// Placeholder is just a wrapper for styled-components PlaceholderStyled;
-// it allows us to add static class members to the component class.
-// 
-
 /**
  * A Placeholder can contain a Placeholder.Header as well as Placeholder.Paragraph elements. 
  * Any PlaceHolder.Line elements have random lengths by default, unless a length is specified. 
@@ -75,14 +70,11 @@ const PlaceholderStyled = styled(PlaceholderBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-placeholder--properties
  */
-class Placeholder extends React.Component<IPlaceholderProps> {
-  public static Paragraph = PlaceholderParagraph;
-  public static Image = PlaceholderImage;
-  public static Header = PlaceholderHeader;
-  public static Line = PlaceholderLine;
+const Placeholder = (props: IPlaceholderProps) => <PlaceholderStyled {...props}/>;
 
-  render = () =><PlaceholderStyled {...this.props}/>
-}
+Placeholder.Paragraph = PlaceholderParagraph;
+Placeholder.Image = PlaceholderImage;
+Placeholder.Header = PlaceholderHeader;
+Placeholder.Line = PlaceholderLine;
 
-
-export { Placeholder };
+export { Placeholder }

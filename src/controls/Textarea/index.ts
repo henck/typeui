@@ -1,5 +1,4 @@
-import { Textarea, ITextareaProps } from './Textarea';
-export { Textarea, ITextareaProps };
+export { Textarea, ITextareaProps } from './Textarea';
 
 /** 
  * This index.tsx file exists so that you can do

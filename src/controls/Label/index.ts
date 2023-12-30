@@ -1,2 +1,1 @@
-import { Label, LabelStyled } from './Label';
-export { Label, LabelStyled };
+export { Label, LabelStyled } from './Label';

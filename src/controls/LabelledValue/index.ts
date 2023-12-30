@@ -1,2 +1,1 @@
-import { LabelledValue } from './LabelledValue';
-export { LabelledValue };
+export { LabelledValue } from './LabelledValue';

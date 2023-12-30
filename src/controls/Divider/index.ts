@@ -1,5 +1,4 @@
-import { Divider } from './Divider';
-export { Divider };
+export { Divider } from './Divider';
 
 /** 
  * This index.ts file exists so that you can do

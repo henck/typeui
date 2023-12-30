@@ -113,16 +113,14 @@ const TabsStyled = styled(TabsBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-tabs--properties
  */
-class Tabs extends React.PureComponent<ITabsProps> {
-  /** 
-   * A single tab pane. 
-   * 
-   * The Pane label can contain arbitrary content.
-   * To get the content to vertically align properly, a Flex.Quick can help.
-   */
-  public static Pane = Pane;
+const Tabs = (props: ITabsProps) => <TabsStyled {...props}></TabsStyled>;
 
-  render = () => <TabsStyled {...this.props}></TabsStyled>
-}
+/** 
+ * A single tab pane. 
+ * 
+ * The Pane label can contain arbitrary content.
+ * To get the content to vertically align properly, a Flex.Quick can help.
+ */
+Tabs.Pane = Pane;
 
-export { Tabs };
+export { Tabs }

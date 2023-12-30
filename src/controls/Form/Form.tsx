@@ -173,10 +173,9 @@ class Form extends React.Component<IProps, IState> {
   }
 
   render() {
-    let p = this.props;
     return (
       <FormContext.Provider value={this.state.providerValue}>
-        {p.children}
+        {this.props.children}
       </FormContext.Provider>
     );
   }

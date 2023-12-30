@@ -110,10 +110,8 @@ const PaneStyled = styled(PaneBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-pane--properties
  */
-class Pane extends React.Component<IPaneProps> {
-  public static Icon = IconPane;
+const Pane = (props: IPaneProps) => <PaneStyled {...props}/>;
 
-  render = () => <PaneStyled {...this.props}/>
-}
+Pane.Icon = IconPane;
 
-export { Pane };
+export { Pane }

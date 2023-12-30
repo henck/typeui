@@ -1,6 +1,5 @@
-import { Panel } from './Panel';
-import { IconPanel } from './IconPanel';
-export { Panel, IconPanel };
+export { Panel } from './Panel';
+export { IconPanel } from './IconPanel';
 
 /** 
  * This index.ts file exists so that you can do

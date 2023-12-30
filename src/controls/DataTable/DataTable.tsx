@@ -336,17 +336,15 @@ const DataTableStyled = styled(DataTableBase)`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-datatable--properties
  */
-class DataTable extends React.Component<IDataTableProps> {
-  /**
-   * A single column in a DataTable. Its child element must be a function that takes an item 
-   * provided to it by the parent DataTable.
-   * 
-   * @example 
-   * <DataTable.Column weight={2} label="Name" order="name" dir="asc">{(item: MyItem) => item.name}</DataTable.Column>
-   */
-  public static Column = DataColumn;
+const DataTable = (props: IDataTableProps) => <DataTableStyled {...props}></DataTableStyled>;
 
-  render = () => <DataTableStyled {...this.props}></DataTableStyled>
-}
+/**
+ * A single column in a DataTable. Its child element must be a function that takes an item 
+ * provided to it by the parent DataTable.
+ * 
+ * @example 
+ * <DataTable.Column weight={2} label="Name" order="name" dir="asc">{(item: MyItem) => item.name}</DataTable.Column>
+ */
+DataTable.Column = DataColumn;
 
-export { DataTable };
+export { DataTable }

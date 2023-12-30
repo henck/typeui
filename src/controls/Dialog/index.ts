@@ -1,5 +1,4 @@
-import { Dialog } from './Dialog';
-export { Dialog };
+export { Dialog } from './Dialog';
 
 /** 
  * This index.ts file exists so that you can do

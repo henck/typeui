@@ -1,2 +1,1 @@
-import { Markdown } from './Markdown';
-export { Markdown };
+export { Markdown } from './Markdown';

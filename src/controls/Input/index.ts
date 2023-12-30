@@ -1,5 +1,4 @@
-import { Input, IInputProps } from './Input';
-export { Input, IInputProps };
+export { Input, IInputProps } from './Input';
 
 /** 
  * This index.tsx file exists so that you can do

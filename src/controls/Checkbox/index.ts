@@ -1,5 +1,4 @@
-import { Checkbox } from './Checkbox';
-export { Checkbox };
+export { Checkbox } from './Checkbox';
 
 /** 
  * This index.tsx file exists so that you can do

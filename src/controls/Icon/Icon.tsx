@@ -195,4 +195,4 @@ class Icon extends React.Component<IIconProps> {
   render = () =><IconStyled {...this.props}></IconStyled>
 }
 
-export { Icon, IconStyled, IIconProps };
+export { Icon, IconStyled, IIconProps }

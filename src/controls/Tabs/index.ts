@@ -1,5 +1,4 @@
-import { Tabs } from './Tabs';
-export { Tabs };
+export { Tabs } from './Tabs';
 
 /** 
  * This index.tsx file exists so that you can do
