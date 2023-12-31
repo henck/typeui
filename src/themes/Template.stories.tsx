@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Header } from '../controls/Header';
 import { Accordion } from '../controls/Accordion';
 import { Button } from '../controls/Button';
@@ -19,13 +20,15 @@ import { Theme, ThemeProvider } from '../styles/Theme';
 export const Template = (args) =>
   <div>
     <ThemeProvider theme={{...Theme, ...args}}>
-      <div style={{background: args.background, color: args.fontColor, padding: '30px'}}>
+      <div style={{background: args.divBackground, color: args.fontColor, padding: '30px'}}>
+        <Divider section>Headers</Divider>
         <Header size="h1">Header 1</Header>
         <Header size="h2">Header 2</Header>
         <Header size="h3">Header 3</Header>
         <Header size="h4">Header 4</Header>
         <Header size="h5">Header 5</Header>
         <Header size="h6">Header 6</Header>
+        <Divider section>Accordions</Divider>
         <Accordion>
           <Accordion.Tab title="What is a dog?">
             <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
@@ -49,7 +52,8 @@ export const Template = (args) =>
             <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
             <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
           </Accordion.Tab>
-        </Accordion>    
+        </Accordion>
+        <Divider section>Buttons</Divider>
         <Button>Standard</Button>
         <Button primary>Primary</Button>
         <Button secondary>Secondary</Button>
@@ -60,7 +64,7 @@ export const Template = (args) =>
         <Button basic secondary>Secondary</Button>
         <Button basic positive>Positive</Button>
         <Button basic negative>negative</Button>
-        <Divider/>
+        <Divider section>Cards</Divider>
         <Card>
           <Card.Header>
             Card Header
@@ -89,7 +93,7 @@ export const Template = (args) =>
             Card content two.
           </Card.Content>
         </Card>        
-        <Divider/>
+        <Divider section>Checkboxes</Divider>
         <Checkbox label="Checkbox"/>
         <Checkbox label="Disabled" disabled/>
         <Checkbox label="Error" error/>
@@ -117,7 +121,7 @@ export const Template = (args) =>
         <Checkbox checked type="circle" label="Checkbox"/>
         <Checkbox checked type="circle" label="Disabled" disabled/>
         <Checkbox checked type="circle" label="Error" error/>        
-        <Divider/>
+        <Divider section>Inputs & Dropdowns</Divider>
         <Dropdown placeholder="Standard Dropdown" label={(item) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}]}>
           <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
         </Dropdown>
@@ -141,7 +145,7 @@ export const Template = (args) =>
         <Input type="date" error placeholder="Error"/>
         <Divider/>
         <Textarea/>
-        <Divider/>
+        <Divider section>Labels</Divider>
         <Label>Standard</Label>
         <Label>Detail <Label.Detail>detail</Label.Detail></Label>
         <Label basic>Basic</Label>
@@ -164,24 +168,25 @@ export const Template = (args) =>
         <Label size='big'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Big</Label>
         <Label size='huge'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Huge</Label>
         <Label size='massive'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Massive <Icon name="code"/></Label>   
-        <Divider/>
+        <Divider section>Messages</Divider>
         <Message>Message</Message>
         <Message type="info">Info</Message>
         <Message type="warning">Warning</Message>
         <Message type="success">Success</Message>
         <Message type="error">Error</Message>
-        <Divider/>
+        <Divider section>Progress bars</Divider>
         <Progress value={50}/>
         <Progress background value={50}/>
         <Progress bordered value={50}/>
         <Progress numbered value={50}/>
         <Progress raised value={50}/>
         <Progress rectangular value={50}/>
-        <Divider/>
+        <Divider section>Segments</Divider>
         <Segment>Segment</Segment>
         <Segment raised>Raised</Segment>
         <Segment piled>Piled</Segment>
         <Segment stacked>Stacked</Segment>
+        <Divider section>Data table</Divider>
         <div style={{display: 'flex', position: 'relative', height: '400px'}}>
           <DataTable 
             scrollTop={0}
