@@ -53,17 +53,24 @@ export const Template = (args) =>
             <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
           </Accordion.Tab>
         </Accordion>
+        
         <Divider section>Buttons</Divider>
-        <Button>Standard</Button>
-        <Button primary>Primary</Button>
-        <Button secondary>Secondary</Button>
-        <Button positive>Positive</Button>
-        <Button negative>negative</Button>
-        <Button basic>Basic</Button>
-        <Button basic primary>Primary</Button>
-        <Button basic secondary>Secondary</Button>
-        <Button basic positive>Positive</Button>
-        <Button basic negative>negative</Button>
+        <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>
+          <Button>Standard</Button>
+          <Button primary>Primary</Button>
+          <Button secondary>Secondary</Button>
+          <Button positive>Positive</Button>
+          <Button negative>negative</Button>
+        </div>
+        <Divider section>Buttons - Basic</Divider>
+        <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap'}}>          
+          <Button basic>Basic</Button>
+          <Button basic primary>Primary</Button>
+          <Button basic secondary>Secondary</Button>
+          <Button basic positive>Positive</Button>
+          <Button basic negative>negative</Button>
+        </div>
+
         <Divider section>Cards</Divider>
         <Card>
           <Card.Header>
@@ -93,72 +100,84 @@ export const Template = (args) =>
             Card content two.
           </Card.Content>
         </Card>        
-        <Divider section>Checkboxes</Divider>
+        <Divider section>Checkboxes - Checks</Divider>
         <Checkbox label="Checkbox"/>
         <Checkbox label="Disabled" disabled/>
         <Checkbox label="Error" error/>
         <Checkbox checked label="Checkbox"/>
         <Checkbox checked label="Disabled" disabled/>
         <Checkbox checked label="Error" error/>
-        <Divider/>
+        <Divider section>Checkboxes - Toggles</Divider>
         <Checkbox type="toggle" label="Checkbox"/>
         <Checkbox type="toggle" label="Disabled" disabled/>
         <Checkbox type="toggle" label="Error" error/>    
         <Checkbox checked type="toggle" label="Checkbox"/>
         <Checkbox checked type="toggle" label="Disabled" disabled/>
         <Checkbox checked type="toggle" label="Error" error/>    
-        <Divider/>
+        <Divider section>Checkboxes - Sliders</Divider>
         <Checkbox type="slider" label="Checkbox"/>
         <Checkbox type="slider" label="Disabled" disabled/>
         <Checkbox type="slider" label="Error" error/>    
         <Checkbox checked type="slider" label="Checkbox"/>
         <Checkbox checked type="slider" label="Disabled" disabled/>
         <Checkbox checked type="slider" label="Error" error/>    
-        <Divider/>
+        <Divider section>Checkboxes - Radiobuttons</Divider>
         <Checkbox type="circle" label="Checkbox"/>
         <Checkbox type="circle" label="Disabled" disabled/>
         <Checkbox type="circle" label="Error" error/>
         <Checkbox checked type="circle" label="Checkbox"/>
         <Checkbox checked type="circle" label="Disabled" disabled/>
         <Checkbox checked type="circle" label="Error" error/>        
+
         <Divider section>Inputs & Dropdowns</Divider>
-        <Dropdown placeholder="Standard Dropdown" label={(item) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}]}>
-          <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
-        </Dropdown>
-        <Dropdown disabled placeholder="Disabled" label={(item) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}]}>
-          <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
-        </Dropdown>
-        <Dropdown error placeholder="Error" label={(item) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}]}>
-          <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
-        </Dropdown>
+        <div style={{display:'flex', gap: '16px'}}>
+          <Dropdown placeholder="Standard Dropdown" label={(item) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}]}>
+            <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+          </Dropdown>
+          <Dropdown disabled placeholder="Disabled" label={(item) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}]}>
+            <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+          </Dropdown>
+          <Dropdown error placeholder="Error" label={(item) => item.name} data={[{id: 1, name: '.com'}, {id: 2, name:'.net'}, {id: 3, name:'.org'}, {id: 4, name:'.online'}, {id: 5, name:'.xyz'}, {id: 6, name:'.software'}, {id: 7, name:'.io'}, {id: 8, name:'.edu'}, {id: 9, name:'.tech'}]}>
+            <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+          </Dropdown>
+        </div>
         <Divider/>
-        <Input placeholder="Standard Input"/>
-        <Input disabled placeholder="Disabled"/>
-        <Input error placeholder="Error"/>
+        <div style={{display:'flex', gap: '16px'}}>
+          <Input placeholder="Standard Input"/>
+          <Input disabled placeholder="Disabled"/>
+          <Input error placeholder="Error"/>
+        </div>
         <Divider/>
-        <Input type="color" placeholder="Color Input"/>
-        <Input type="color" disabled placeholder="Disabled"/>
-        <Input type="color" error placeholder="Error"/>
+        <div style={{display:'flex', gap: '16px'}}>
+          <Input type="color" placeholder="Color Input"/>
+          <Input type="color" disabled placeholder="Disabled"/>
+          <Input type="color" error placeholder="Error"/>
+        </div>
         <Divider/>
-        <Input type="date" placeholder="Date Input"/>
-        <Input type="date" disabled placeholder="Disabled"/>
-        <Input type="date" error placeholder="Error"/>
+        <div style={{display:'flex', gap: '16px'}}>
+          <Input type="date" placeholder="Date Input"/>
+          <Input type="date" disabled placeholder="Disabled"/>
+          <Input type="date" error placeholder="Error"/>
+        </div>
         <Divider/>
-        <Textarea/>
+        <Textarea placeholder="Text area"/>
+
         <Divider section>Labels</Divider>
+        <div style={{display:'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap'}}>
         <Label>Standard</Label>
-        <Label>Detail <Label.Detail>detail</Label.Detail></Label>
-        <Label basic>Basic</Label>
-        <Label pointing="left">Pointing</Label>
-        <Label pointing="right">Pointing</Label>
-        <Label pointing="top">Pointing</Label>
-        <Label pointing="bottom">Pointing</Label>
-        <Label basic pointing="left">Pointing</Label>
-        <Label basic pointing="right">Pointing</Label>
-        <Label basic pointing="top">Pointing</Label>
-        <Label basic pointing="bottom">Pointing</Label>
-        <Label tag>Tag</Label>
-        <Label basic tag>Tag</Label>
+          <Label>Detail <Label.Detail>detail</Label.Detail></Label>
+          <Label basic>Basic</Label>
+          <Label pointing="left">Pointing</Label>
+          <Label pointing="right">Pointing</Label>
+          <Label pointing="top">Pointing</Label>
+          <Label pointing="bottom">Pointing</Label>
+          <Label basic pointing="left">Pointing</Label>
+          <Label basic pointing="right">Pointing</Label>
+          <Label basic pointing="top">Pointing</Label>
+          <Label basic pointing="bottom">Pointing</Label>
+          <Label tag>Tag</Label>
+          <Label basic tag>Tag</Label>
+        </div>
         <Divider/>
         <Label size='mini'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Mini</Label>
         <Label size='tiny'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Tiny</Label>
@@ -168,24 +187,30 @@ export const Template = (args) =>
         <Label size='big'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Big</Label>
         <Label size='huge'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Huge</Label>
         <Label size='massive'><Image src='https://react.semantic-ui.com/images/avatar/small/joe.jpg' />Massive <Icon name="code"/></Label>   
+        
         <Divider section>Messages</Divider>
         <Message>Message</Message>
         <Message type="info">Info</Message>
         <Message type="warning">Warning</Message>
         <Message type="success">Success</Message>
         <Message type="error">Error</Message>
+        
         <Divider section>Progress bars</Divider>
-        <Progress value={50}/>
-        <Progress background value={50}/>
-        <Progress bordered value={50}/>
-        <Progress numbered value={50}/>
-        <Progress raised value={50}/>
-        <Progress rectangular value={50}/>
+        <div style={{display:'flex', flexDirection: 'column', gap: '8px'}}>
+          <Progress value={25}/>
+          <Progress background value={50}/>
+          <Progress bordered value={75}/>
+          <Progress numbered value={25}/>
+          <Progress raised value={50}/>
+          <Progress rectangular value={75}/>
+        </div>
+        
         <Divider section>Segments</Divider>
         <Segment>Segment</Segment>
         <Segment raised>Raised</Segment>
         <Segment piled>Piled</Segment>
         <Segment stacked>Stacked</Segment>
+
         <Divider section>Data table</Divider>
         <div style={{display: 'flex', position: 'relative', height: '400px'}}>
           <DataTable 
