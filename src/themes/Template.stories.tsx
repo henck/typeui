@@ -15,6 +15,7 @@ import { Message } from '../controls/Message';
 import { Progress } from '../controls/Progress';
 import { Segment } from '../controls/Segment';
 import { Textarea } from '../controls/Textarea';
+import { Placeholder } from '../controls/Placeholder';
 import { Theme, ThemeProvider } from '../styles/Theme';
 
 export const Template = (args) =>
@@ -235,6 +236,20 @@ export const Template = (args) =>
             <DataTable.Column weight={1} label="Sport" order="sport" dir="asc">{(item) => item.sport}</DataTable.Column>
           </DataTable>
         </div>
+
+        <Divider section>Placeholders</Divider>
+        <Placeholder>
+          <Placeholder.Header image>
+            <Placeholder.Line tall />
+            <Placeholder.Line tall />
+          </Placeholder.Header>
+          <Placeholder.Paragraph>
+            <Placeholder.Line />
+            <Placeholder.Line />
+            <Placeholder.Line />
+            <Placeholder.Line />          
+          </Placeholder.Paragraph>
+        </Placeholder>
       </div>
     </ThemeProvider>
   </div>
