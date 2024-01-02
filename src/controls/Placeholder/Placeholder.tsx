@@ -20,17 +20,11 @@ interface IPlaceholderProps {
   fluid?: boolean;
 }
 
-class PlaceholderBase extends React.Component<IPlaceholderProps> {
-  render() {
-    let p = this.props;
-    return (
-      <div className={p.className}>
-        {p.children}
-        <div></div>
-      </div>
-    );
-  }
-}
+const PlaceholderBase = (props: IPlaceholderProps) =>
+  <div className={props.className}>
+    {props.children}
+    <div></div>
+  </div>
 
 // Background animation
 const shimmer = keyframes`
