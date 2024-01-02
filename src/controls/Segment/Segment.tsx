@@ -7,6 +7,7 @@ import { HorizontalAlignment, Float, VerticalDirection } from '../Types';
 
 // Helpers
 import { darken } from '../../helper/darken';
+import { alpha } from '../../helper/alpha';
 
 interface ISegmentProps {
   /** @ignore */
@@ -125,7 +126,7 @@ const SegmentStyled = styled(SegmentBase)`
     padding: 14px;
 
     /* Shadow: only unattached segments have a dropshadow. */
-    ${p => !p.attached && css`box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;`}
+    ${p => !p.attached && css`box-shadow: ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} 0px 1px 2px 0px;`}
 
     /* Attachment and border: */
     border-color: ${p => p.theme.normalColor};
@@ -158,14 +159,14 @@ const SegmentStyled = styled(SegmentBase)`
     `}
 
     /* A raised Segment gets an extra deep shadow. */
-    ${p => p.raised && css`box-shadow: rgba(34, 36, 38, 0.12) 0px 2px 4px 0px, rgba(34, 36, 38, 0.15) 0px 2px 10px 0px;`}
+    ${p => p.raised && css`box-shadow: ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} 0px 2px 10px 0px;`}
 
     /* Secondary, tertiary */
     ${p => p.secondary && css`
-      background: ${darken(0.1, '#fff')};
+      background: ${darken(0.1, p.theme.background)};
     `}
     ${p => p.tertiary && css`
-      background: ${darken(0.2, '#fff')};
+      background: ${darken(0.2, p.theme.background)};
     `}
     ${p => p.color && css`
       background: ${p.color};

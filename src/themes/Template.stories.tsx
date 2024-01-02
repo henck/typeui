@@ -30,7 +30,7 @@ export const Template = (args) =>
         <Header size="h5">Header 5</Header>
         <Header size="h6">Header 6</Header>
         <Divider section>Accordions</Divider>
-        <Accordion>
+        <Accordion raised>
           <Accordion.Tab title="What is a dog?">
             <p>A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
           </Accordion.Tab>
@@ -208,6 +208,8 @@ export const Template = (args) =>
         
         <Divider section>Segments</Divider>
         <Segment>Segment</Segment>
+        <Segment secondary>Secondary</Segment>
+        <Segment tertiary>Tertiary</Segment>
         <Segment raised>Raised</Segment>
         <Segment piled>Piled</Segment>
         <Segment stacked>Stacked</Segment>

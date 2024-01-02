@@ -84,7 +84,7 @@ const AccordionBodyBase = (props: IAccordionBodyProps) => {
       } else {
         collapse();
       }
-    }, 0);
+    }, 10);
   }, [props.active]);
 
   return (
