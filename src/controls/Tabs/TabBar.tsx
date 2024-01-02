@@ -150,4 +150,4 @@ const TabBar = styled(TabBarBase)`
   }
 `
 
-export { TabBar };
+export { TabBar }
