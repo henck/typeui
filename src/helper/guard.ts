@@ -9,4 +9,4 @@ function guard(
   return Math.max(lowerBoundary, Math.min(upperBoundary, value));
 }
 
-export { guard };
+export { guard }

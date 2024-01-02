@@ -56,4 +56,4 @@ class HslColor {
   }
 }
 
-export { HslColor };
+export { HslColor }

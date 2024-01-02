@@ -1,7 +1,11 @@
 import { nameToHex } from './nameToHex';
 import { HslColor } from './HslColor';
 
-export class RgbColor {
+/** 
+ * `RgbColor` encapsulates an RGB color, optionally with an alpha component. 
+ * It offers parsing from and to a HTML color string.
+ */
+class RgbColor {
   red: number;
   blue: number;
   green: number;
@@ -204,3 +208,5 @@ export class RgbColor {
     return this.reduceHexValue(hex);
   }
 }
+
+export { RgbColor }

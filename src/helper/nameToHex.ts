@@ -161,4 +161,4 @@ function nameToHex(color: string): string {
     : color;
 }
 
-export { nameToHex };
+export { nameToHex }
