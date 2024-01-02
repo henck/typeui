@@ -11,6 +11,7 @@ import { PlaceholderLine } from './PlaceholderLine';
 interface IPlaceholderProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
   /** 
    * A fluid placeholder fills the width of its container. 

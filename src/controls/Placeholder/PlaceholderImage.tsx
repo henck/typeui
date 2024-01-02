@@ -12,9 +12,8 @@ interface IPlaceholderImageProps {
   rectangular?: boolean;
 }
 
-class PlaceholderImageBase extends React.Component<IPlaceholderImageProps> {
-  render = () => <div className={this.props.className}></div>
-}
+const PlaceholderImageBase = (props: IPlaceholderImageProps) =>
+  <div className={props.className}></div>
 
 const PlaceholderImageStyled = styled(PlaceholderImageBase)`
   ${p => p.rectangular && css`padding-bottom: 75%;`}
@@ -22,8 +21,7 @@ const PlaceholderImageStyled = styled(PlaceholderImageBase)`
   background: transparent;
 `;
 
-class PlaceholderImage extends React.Component<IPlaceholderImageProps> {
-  render = () => <PlaceholderImageStyled {...this.props}/>
-}
+const PlaceholderImage = (props: IPlaceholderImageProps) =>
+  <PlaceholderImageStyled {...props}/>
 
-export { PlaceholderImage };
+export { PlaceholderImage, IPlaceholderImageProps }

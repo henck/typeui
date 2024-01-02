@@ -4,12 +4,12 @@ import styled from '../../styles/Theme';
 interface IPlaceholderParagraphProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
   children?: React.ReactNode;
 }
 
-class PlaceholderParagraphBase extends React.Component<IPlaceholderParagraphProps> {
-  render = () => <div className={this.props.className}>{this.props.children}</div>
-}
+const PlaceholderParagraphBase = (props: IPlaceholderParagraphProps) =>
+  <div className={props.className}>{props.children}</div>
 
 const PlaceholderParagraphStyled = styled(PlaceholderParagraphBase)`
   position: relative;
@@ -33,8 +33,7 @@ const PlaceholderParagraphStyled = styled(PlaceholderParagraphBase)`
   }
 `;
 
-class PlaceholderParagraph extends React.Component<IPlaceholderParagraphProps> {
-  render = () => <PlaceholderParagraphStyled {...this.props}/>
-}
+const PlaceholderParagraph = (props: IPlaceholderParagraphProps) =>
+  <PlaceholderParagraphStyled {...props}/>
 
-export { PlaceholderParagraph };
+export { PlaceholderParagraph, IPlaceholderParagraphProps }
