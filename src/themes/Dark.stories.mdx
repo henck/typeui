@@ -13,7 +13,8 @@ import { Template } from './Template.stories'
 <Canvas>
   <Story
     name="Dark theme"
-    args={{ divBackground: '#406A8C', background: '#305A7C', fontColor: '#ffffff', normalColor: '#aaaaaa' }}>
+    args={{ divBackground: '#406A8C', background: '#305A7C', fontColor: '#ffffff', normalColor: '#aaaaaa',
+      errorColor:      { color: "#ffffff",  background: "#5c3030", border: "#c18787" }, }}>
     {Template.bind({})}
   </Story>
 </Canvas>

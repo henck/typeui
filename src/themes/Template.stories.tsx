@@ -16,6 +16,7 @@ import { Progress } from '../controls/Progress';
 import { Segment } from '../controls/Segment';
 import { Textarea } from '../controls/Textarea';
 import { Placeholder } from '../controls/Placeholder';
+import { CircularProgress } from '../controls/CircularProgress';
 import { Theme, ThemeProvider } from '../styles/Theme';
 
 export const Template = (args) =>
@@ -161,6 +162,12 @@ export const Template = (args) =>
           <Input type="date" error placeholder="Error"/>
         </div>
         <Divider/>
+        <div style={{display:'flex', gap: '16px'}}>
+          <Input type="time" clock placeholder="Time Input"/>
+          <Input type="time" clock disabled placeholder="Disabled"/>
+          <Input type="time" clock error placeholder="Error"/>
+        </div>
+        <Divider/>
         <Textarea placeholder="Text area"/>
 
         <Divider section>Labels</Divider>
@@ -204,6 +211,13 @@ export const Template = (args) =>
           <Progress numbered value={25}/>
           <Progress raised value={50}/>
           <Progress rectangular value={75}/>
+        </div>
+
+        <Divider section>Circular progress bars</Divider>
+        <div style={{display: 'flex', flexDirection: 'row', gap: '8px'}}>
+          <CircularProgress value={75}/>
+          <CircularProgress background value={75}/>
+          <CircularProgress raised value={75}/>
         </div>
         
         <Divider section>Segments</Divider>
