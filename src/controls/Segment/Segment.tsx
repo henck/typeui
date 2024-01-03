@@ -82,20 +82,22 @@ interface ISegmentProps {
   attached?: boolean | VerticalDirection;
 }
 
-// An :after clearfix isn't possible as Segment uses :before and :after
-// for other purposes.
-const ClearSegment = styled.div` 
-  clear: both;
-`;
-
 const SegmentBase = (props: ISegmentProps) => 
-  // Yes, this needs a double <div>:
   <div className={props.className}>
-    <div>
+    <Body>
       {props.children}
-      <ClearSegment/>
-    </div>
+    </Body>
+    {props.stacked && <Page/>}
+    {props.stacked && props.tall && <TallPage/>}
+    {props.piled && <Pile1/>}
+    {props.piled && <Pile2/>}
   </div>
+
+const Body = styled.div``
+const Page = styled.div``
+const TallPage = styled.div``
+const Pile1 = styled.div``
+const Pile2 = styled.div``
 
 /**
  *  A Segment wraps an area of content.
@@ -107,7 +109,7 @@ const SegmentStyled = styled(SegmentBase)`
    * http://www.independent-software.com/set-stacking-order-of-pseudo-elements-below-parent-element.html
    */
   position: relative;
-  /* z-index: 1; */ /* DISABLED! */
+  z-index: 0; // Needs to begin a stacking order. (not z-index: auto)
 
   /* Margin:
      Attached segments have no margin, except bottom-attached. */
@@ -120,10 +122,11 @@ const SegmentStyled = styled(SegmentBase)`
   /* Compact */
   ${p => p.compact && css`display:table;`}
 
-  & > div {
+  ${Body} {
     position: relative;
     background: ${p => p.theme.background};
     padding: 14px;
+    z-index: 3;
 
     /* Shadow: only unattached segments have a dropshadow. */
     ${p => !p.attached && css`box-shadow: ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} 0px 1px 2px 0px;`}
@@ -161,16 +164,10 @@ const SegmentStyled = styled(SegmentBase)`
     /* A raised Segment gets an extra deep shadow. */
     ${p => p.raised && css`box-shadow: ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} 0px 2px 10px 0px;`}
 
-    /* Secondary, tertiary */
-    ${p => p.secondary && css`
-      background: ${darken(0.1, p.theme.background)};
-    `}
-    ${p => p.tertiary && css`
-      background: ${darken(0.2, p.theme.background)};
-    `}
-    ${p => p.color && css`
-      background: ${p.color};
-    `}
+    /* Secondary, tertiary, custom color */
+    ${p => p.secondary && css`background: ${darken(0.1, p.theme.background)};`}
+    ${p => p.tertiary && css`background: ${darken(0.2, p.theme.background)};`}
+    ${p => p.color && css`background: ${p.color};`}
 
     /* Padded */
     ${p => p.padded && p.padded !== 'very' && css`padding: 21px;`}
@@ -180,68 +177,67 @@ const SegmentStyled = styled(SegmentBase)`
     /* Disabled */
     ${p => p.disabled && css`opacity: 0.45;`}
 
-    /* Text alignment. */
-    ${p => p.align === 'left' && css`text-align:left;`}
+    /* Text alignment */
+    ${p => p.align === 'left'   && css`text-align:left;`}
     ${p => p.align === 'center' && css`text-align:center;`}
-    ${p => p.align === 'right' && css`text-align:right;`}
-    
-    /* Define default styles for :before, :after so as not to repeat them. */
-    &:before, &:after {
-      position: absolute;
-      background: #fff;
-      border: solid 1px rgba(34, 36, 38, 0.15);
-      border-radius: ${p => p.theme.radius}px;
-      box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;
+    ${p => p.align === 'right'  && css`text-align:right;`}
+
+    /* Clearfix */
+    &:after {
+      content: "";
+      clear: both;
+      display: table;    
     }
+  }
 
-    /* 
-     * A stacked segment has a single page beneath it. This is done using 
-     * :before and z-index=-1. For negative z-indices to work, the parent
-     * element must not have a stacking index (no z-index).
-    */
-    ${p => p.stacked && css`&:before {
-      content: '';
-      left: 4px;
-      top: 4px;
-      right: -4px;
-      bottom: -4px;
-      z-index: -1;
-    }`}
+  ${Page}, ${TallPage}, ${Pile1}, ${Pile2} {
+    position: absolute;
+    background: ${p => p.theme.background};
+    border: solid 1px ${p => p.theme.normalColor};
+    border-radius: ${p => p.theme.radius}px;
+    box-shadow: ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} 0px 1px 2px 0px;
+  }
 
-    /* 
-     * A tall stacked segment has a two pages beneath it. This is done using 
-     * :before, :after and z-index=-1. For negative z-indices to work, the 
-     * parent element must not have a stacking index (no z-index).
-     */
-    ${p => p.stacked && p.tall && css`&:after {
-      content: '';
-      left: 7px;
-      top: 7px;
-      right: -7px;
-      bottom: -7px;
-      z-index: -2;
-    }`}
+  /* 
+   * A stacked segment has a single page beneath it. 
+   */  
+  ${Page} {
+    left: 4px;
+    top: 4px;
+    right: -4px;
+    bottom: -4px;
+    z-index: 2;
+  }
 
-    /*
-     * A piled segment has two rotated pages behind it.
-     */
-    ${p => p.piled && css`
-      &:before, &:after {
-        content: '';
-        left: 5px;
-        top: 0;
-        right: -5px;
-        bottom: 0;
-        z-index: -1;
-        transform: rotate(.4deg);
-      }
-      &:after {
-        left: 0;
-        right: 0;
-        z-index: -2;
-        transform: rotate(.8deg);
-      }
-    `}
+  /* 
+   * A tall stacked segment has a two pages beneath it. 
+   */  
+  ${TallPage} {
+    left: 8px;
+    top: 8px;
+    right: -8px;
+    bottom: -8px;
+    z-index: 1;      
+  }  
+
+  /*
+   * A piled segment has two rotated pages behind it.
+   */
+  ${Pile1} {
+    left: 5px;
+    top: 0;
+    right: -5px;
+    bottom: 0;
+    z-index: 2;
+    transform: rotate(.4deg);    
+  }
+  ${Pile2} {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: rotate(.8deg);    
   }
 `
 

@@ -213,6 +213,7 @@ export const Template = (args) =>
         <Segment raised>Raised</Segment>
         <Segment piled>Piled</Segment>
         <Segment stacked>Stacked</Segment>
+        <Segment stacked tall>Stacked tall</Segment>
 
         <Divider section>Data table</Divider>
         <div style={{display: 'flex', position: 'relative', height: '400px'}}>
