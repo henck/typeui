@@ -94,7 +94,7 @@ interface IIconProps {
    onClick?: () => void;
 }
 
-export class IconBase extends React.Component<IIconProps> {
+class IconBase extends React.Component<IIconProps> {
   render() {
     let p = this.props;
     return (
@@ -195,4 +195,4 @@ class Icon extends React.Component<IIconProps> {
   render = () =><IconStyled {...this.props}></IconStyled>
 }
 
-export { Icon, IconStyled, IIconProps }
+export { IconBase, Icon, IconStyled, IIconProps }
