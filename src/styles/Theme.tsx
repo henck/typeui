@@ -50,7 +50,6 @@ export interface IThemeInterface {
   readonly secondaryColor:  string;
   readonly positiveColor:   string;
   readonly negativeColor:   string;
-  readonly altTextColor:    string;
 
   readonly infoColor:       IColorGroup;
   readonly warningColor:    IColorGroup;
@@ -98,7 +97,6 @@ const Theme: IThemeInterface = {
   secondaryColor:  "#1b1c1d",
   positiveColor:   "#21ba45",
   negativeColor:   "#db2828",
-  altTextColor:    "#ffffff",
 
   infoColor:       { color: "rgb(39, 111, 134)", background: "rgb(248, 255, 255)", border: "rgb(169, 213, 222)" },
   warningColor:    { color: "rgb(87, 58, 8)",    background: "rgb(255, 250, 243)", border: "rgb(201, 186, 155)" },

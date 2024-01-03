@@ -15,8 +15,8 @@ const MetaStyled = styled(MetaBase)`
   position: relative;
   display: block;
   padding: 0 14px 0 14px;
-  font-size: 90%;
-  color: #888;
+  font-size: 80%;
+  color: ${p => p.theme.fontColor};
   &:last-child {
     padding-bottom: 12px;
   }  
