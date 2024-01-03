@@ -167,7 +167,7 @@ const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
   ${p => !p.basic && css`
     background-color: ${p.finalColor}
     ${!p.hasColor && css`color: ${lighten(0.2, p.theme.fontColor)};`}
-    ${p.hasColor && css`color: ${p.theme.fontColor}; font-weight: 500;`}
+    ${p.hasColor && css`color: #ffffff; font-weight: 500;`}
   `}
 
   /* Colors, basic: */
