@@ -17,6 +17,7 @@ import { Segment } from '../controls/Segment';
 import { Textarea } from '../controls/Textarea';
 import { Placeholder } from '../controls/Placeholder';
 import { CircularProgress } from '../controls/CircularProgress';
+import { Dropzone } from '../controls/Dropzone';
 import { Theme, ThemeProvider } from '../styles/Theme';
 
 export const Template = (args) =>
@@ -254,6 +255,9 @@ export const Template = (args) =>
             <DataTable.Column weight={1} label="Sport" order="sport" dir="asc">{(item) => item.sport}</DataTable.Column>
           </DataTable>
         </div>
+
+        <Divider>Dropzone</Divider>
+        <Dropzone onAddFiles={() => {}}/>
 
         <Divider section>Placeholders</Divider>
         <Placeholder>
