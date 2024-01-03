@@ -26,7 +26,7 @@ const AccordionBodyBase = (props: IAccordionBodyProps) => {
   //   to allow the AccordionBody to adjust its size when content is added to
   //   it or removed from it.
   const expand = () => {
-    if(bodyRef.current == null) return;
+    if(!bodyRef.current) return;
     if(props.noanimate) {
       bodyRef.current.style.overflowY = "visible";
       bodyRef.current.style.height = "auto"; 
@@ -54,7 +54,7 @@ const AccordionBodyBase = (props: IAccordionBodyProps) => {
   // - First, height is set to scrollHeight.
   // - Then, repeatedly, height is descreased until it reaches 0.
   const collapse = () => {
-    if(bodyRef.current == null) return;
+    if(!bodyRef.current) return;
     if(props.noanimate) {
       bodyRef.current.style.height = "0px";
       bodyRef.current.style.overflowY = "hidden";
