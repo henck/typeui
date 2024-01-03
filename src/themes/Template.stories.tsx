@@ -201,7 +201,8 @@ export const Template = (args) =>
         <Message type="info">Info</Message>
         <Message type="warning">Warning</Message>
         <Message type="success">Success</Message>
-        <Message type="error">Error</Message>
+        <Message type="error" raised attached="top">Error</Message>
+        <Message type="error" raised attached="bottom">Error text</Message>
         
         <Divider section>Progress bars</Divider>
         <div style={{display:'flex', flexDirection: 'column', gap: '8px'}}>
