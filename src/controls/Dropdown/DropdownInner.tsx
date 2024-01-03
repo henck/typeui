@@ -328,4 +328,4 @@ const DropdownInnerStyled = styled(DropdownInnerBase)`
 
 const DropdownInner = (props: IDropdownProps) => <DropdownInnerStyled {...props}/>
 
-export { DropdownInner, IDropdownProps }
+export { DropdownInner }
