@@ -142,6 +142,7 @@ const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
 }))`
   position: relative;
   display: inline-block;
+  user-select: none;
   ${p => p.padded && css`margin: 10px;`}
   /* main circle */
   & > div:nth-child(1) {
