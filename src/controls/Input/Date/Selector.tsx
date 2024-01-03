@@ -11,35 +11,31 @@ import { Day } from './Day';
 
 
 interface ISelectorProps {
+  /** @ignore */
   className?: string;
-  // If true, do not accept future dates (beyond today).
+  /** If true, do not accept future dates (beyond today). */
   nofuture?: boolean;
   value: any;
-  // If true, selector opens above the input.
+  /** If true, selector opens above the input. */
   upward: boolean;
-  // If true, selector opens to the right of the input.
+  /** If true, selector opens to the right of the input. */
   right: boolean;
-  // Callback to call when date is selected, or selector is cancelled.
+  /** Callback to call when date is selected, or selector is cancelled. */
   onSelect: any;
 }
 
-interface ISelectorState {
-  // Running date, to determine which month to show
-  date: Date,
-  // Currently selected date (can be null if no selection yet)
-  selectedDate: Date
-}
-
 const SelectorBase = (props: ISelectorProps) => {
+  // Running date, to determine which month to show.
   // If no value is specified, use today's date.
   const [date, setDate] = React.useState<Date>(props.value ? parseISO(props.value) : new Date(Date.now()));
-  const [selectedDate, setSelectedDate] = React.useState<Date>(props.value ? parseISO(props.value) : null );
+  // Currently selected date (can be null if no selection yet)
+  const [selectedDate, setSelectedDate] = React.useState<Date>(props.value ? parseISO(props.value) : null);
 
   // Add (and remove) document-wide event listener for keydown.
   React.useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);  
+  }, []);
 
   // 
   // Moves current view by specified number of months.
@@ -47,7 +43,7 @@ const SelectorBase = (props: ISelectorProps) => {
   const handleMove = (months: number, e: React.MouseEvent) => {
     e.stopPropagation();
     date.setMonth(date.getMonth() + months);
-    setDate(date);
+    setDate(new Date(date));
   }
 
   const handlePrevYear =  (e: React.MouseEvent) => handleMove(-12, e);
@@ -71,10 +67,10 @@ const SelectorBase = (props: ISelectorProps) => {
   }
 
   // Save today's date.
-  let today = new Date(Date.now());
+  const today = new Date(Date.now());
 
   // Create a date for the first day of the month.
-  let start = new Date(date.getFullYear(), date.getMonth(), 1);
+  const start = new Date(date.getFullYear(), date.getMonth(), 1);
   // Move backwards until it's a Monday.
   while(start.getDay() !== 1) {
     start.setDate(start.getDate() - 1);
@@ -83,7 +79,7 @@ const SelectorBase = (props: ISelectorProps) => {
   // Create a date for the last day of the month.
   let month = date.getMonth() + 1;
   if(month > 12) month = 1;
-  let end = new Date(date.getFullYear(), month, 0);
+  const end = new Date(date.getFullYear(), month, 0);
   // Move forward until it's a Sunday.
   while(end.getDay() !== 0) {
     end.setDate(end.getDate() + 1);
@@ -92,14 +88,14 @@ const SelectorBase = (props: ISelectorProps) => {
   // There should be a total of 6x7 = 42 days. If a month starts 
   // exactly on Sunday we may be a week short. Add days until 
   // there are 42.
-  var timeDiff = Math.abs(end.getTime() - start.getTime());
-  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));     
+  const timeDiff = Math.abs(end.getTime() - start.getTime());
+  const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));     
   for(let i = 0; i < 42 - diffDays; i++) {
     end.setDate(end.getDate() + 1);
   }
 
   // Build array of days.
-  let days = [];
+  const days = [];
   while(start.getTime() < end.getTime()) {
     days.push(<Day 
       key={start.getTime()}
