@@ -251,7 +251,7 @@ const LabelStyled = styled(LabelBase).attrs(p => ({
       position: absolute;
       top: 50%;
       left: -.25em;
-      background: #fff;
+      background: ${p.theme.background};
       width: .5em;
       height: .5em;
       ${!p.basic && css`box-shadow: 0 -1px 1px 0 rgba(0,0,0,.3);`}
