@@ -36,7 +36,7 @@ const DividerStyled = styled(DividerBase)`
   position: relative; // For internal <span> positioning.
   box-sizing: border-box;
   font-weight: 500;
-  background-color: inherit; // Inherit here, so it can be passed on to the span.
+  background-color: ${p => p.theme.background};
 
   // A divider always clears content above it.
   clear: both;
