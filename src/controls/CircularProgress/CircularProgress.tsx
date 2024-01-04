@@ -6,6 +6,7 @@ import { InnerCircle } from './InnerCircle';
 import { Dot } from './Dot';
 import { alpha } from '../../helper/alpha';
 import { darken } from '../../helper/darken';
+import { Value } from './Value';
 
 const DEFAULT_RADIUS = 50;
 const DEFAULT_THICKNESS = 8;
@@ -33,7 +34,7 @@ interface ICircularProgressProps {
    */
   thickness?: number;
   /** 
-   * If set, line gets a grey background. 
+   * If set, line gets a background. 
    * @default false 
    */
   background?: boolean;
@@ -43,7 +44,7 @@ interface ICircularProgressProps {
    */
   rounded?: boolean;
   /** 
-   * If set, line gets edge drop shadow. 
+   * If set, line and text get edge drop shadow. 
    * @default false
    */
   raised?: boolean;
@@ -62,86 +63,79 @@ interface ICircularProgressProps {
    * Use 2 to increase font size 2x.
    */
   fontFactor?: number;
+  /**
+   * Fired when control is clicked. Control is only interactive
+   * if this event handler has a value.
+   */
+  onClick?: () => void;
 }
 
-interface ICircularProgressState {
-  value: number;
-}
+/** Duration of a single animation step, in ms: */
+const ANIMATION_DELAY = 10; 
 
-class CircularProgressBase extends React.Component<ICircularProgressProps, ICircularProgressState> {
+const CircularProgressBase = (props: ICircularProgressProps) => {
   // Animation timer interval.
-  private interval: any;
-  // Animation step size. Larger progress values animate faster so that all animations end at the same time.
-  private step: number; 
+  let intervalID: number;
+  // Current value. Static value if no animation (copied from props.value),
+  // or running value if animation.
+  const [value, setValue] = React.useState<number>(props.animated ? 0 : Math.max(Math.min(100, props.value), 0));
 
-  constructor(props: ICircularProgressProps) {
-    super(props);
-    this.step = props.value / 40;
-    this.state = {
-      value: props.animated ? 0 : Math.max(Math.min(100, props.value), 0)
-    }
-  }
-
-  componentDidMount() {
+  React.useEffect(() => {
     // If circle is animated, start animation timer.
-    if(this.props.animated) {
-      this.interval = setInterval(this.animate, 10);
+    if(props.animated) {
+      intervalID = window.setInterval(animate, ANIMATION_DELAY);
     }
-  }
+    return () => {
+      // Clear animation timer (if any).
+      window.clearInterval(intervalID);
+    }
+  }, []);
 
-  componentWillUnmount() {
-    // Clear animation timer (if any).
-    clearInterval(this.interval);
-  }
+  const animate = () => {
+    // Animation step size. Larger progress values animate faster so that all 
+    // animations end at the same time.
+    const step: number = props.value / 40;     
 
-  animate = () => {
     // Animate by increasing state value, until prop value is reached.
-    if(this.state.value < this.props.value) {
-      this.setState({ value: this.state.value + this.step})
-    } else {
-      // Clear animation timer at end of animation.
-      clearInterval(this.interval);
-    } 
+    setValue(prevValue => {
+      let newValue = Math.max(Math.min(prevValue + step, 100), 0);
+      if(newValue >= props.value) {
+        newValue = props.value;
+        clearInterval(intervalID);
+      }
+      return newValue;
+    });
   }
 
-  render() {
-    let p = this.props;
-    let radius = p.radius ? p.radius :  DEFAULT_RADIUS;
-    let thickness = p.thickness ? p.thickness : DEFAULT_THICKNESS;
-    let value = Math.max(Math.min(this.state.value, 100), 0);
-    let degrees = 360 / 100 * value;
-    let q1 = Math.min(degrees, 95);
-    let q2 = Math.max(0, Math.min(degrees - 90, 95));
-    let q3 = Math.max(0, Math.min(degrees - 180, 95));
-    let q4 = Math.max(0, Math.min(degrees - 270, 95));
+  const radius = props.radius ??  DEFAULT_RADIUS;
+  const thickness = props.thickness ?? DEFAULT_THICKNESS;
+  const degrees = 360 / 100 * value;
+  const q1 = Math.min(degrees, 95);
+  const q2 = Math.max(0, Math.min(degrees - 90, 95));
+  const q3 = Math.max(0, Math.min(degrees - 180, 95));
+  const q4 = Math.max(0, Math.min(degrees - 270, 95));
 
-    // Dot calculations:
-    const middleRadius = radius - thickness / 2;
-    const rad = (360 / 100 * Math.min(100,Math.max(this.state.value, 0)) - 90) * Math.PI/180
+  // Dot calculations:
+  const middleRadius = radius - thickness / 2;
+  const rad = (360 / 100 * Math.min(100,Math.max(value, 0)) - 90) * Math.PI/180
 
-    return (
-      <div className={p.className}>
-        {/* main circle */}
-        <div>
-          <Segment angleOffset={0}   angleBody={q1} color={p.color}/>
-          <Segment angleOffset={90}  angleBody={q2} color={p.color}/>
-          <Segment angleOffset={180} angleBody={q3} color={p.color}/>
-          <Segment angleOffset={270} angleBody={q4} color={p.color}/>
-          <InnerCircle radius={radius - thickness} raised={p.raised}/>
-          <Value>{Math.round(value)}%</Value>
-        </div>
-        {/* If rounded, show rounded dots at start and end of line. */}
-        {p.rounded && <Dot color={p.color} left={radius} top={radius - middleRadius} thickness={thickness} />}
-        {p.rounded && <Dot color={p.color} left={radius + middleRadius * Math.cos(rad)} top={radius + middleRadius * Math.sin(rad)} thickness={thickness} />}
+  return (
+    <div className={props.className} onClick={props.onClick}>
+      {/* main circle */}
+      <div>
+        <Segment angleOffset={0}   angleBody={q1} color={props.color}/>
+        <Segment angleOffset={90}  angleBody={q2} color={props.color}/>
+        <Segment angleOffset={180} angleBody={q3} color={props.color}/>
+        <Segment angleOffset={270} angleBody={q4} color={props.color}/>
+        <InnerCircle radius={radius - thickness} raised={props.raised}/>
+        <Value raised={props.raised} fontFactor={props.fontFactor}>{Math.round(value)}%</Value>
       </div>
-    );
-  }
+      {/* If rounded, show rounded dots at start and end of line. */}
+      {props.rounded && <Dot color={props.color} left={radius} top={radius - middleRadius} thickness={thickness} />}
+      {props.rounded && <Dot color={props.color} left={radius + middleRadius * Math.cos(rad)} top={radius + middleRadius * Math.sin(rad)} thickness={thickness} />}
+    </div>
+  );
 }
-
-/**
- * Numeric value to show in center of control.
- */
-const Value = styled.div``;
 
 const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
   outerRadius: p.radius ? p.radius : DEFAULT_RADIUS,
@@ -153,6 +147,7 @@ const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
   position: relative;
   display: inline-block;
   user-select: none;
+  ${p => p.onClick != null && css`cursor: pointer`};
   ${p => p.padded && css`margin: 10px;`}
   /* main circle */
   & > div:nth-child(1) {
@@ -163,18 +158,6 @@ const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
     border-radius: 50%;
     overflow: hidden;
     ${p => p.raised && css`box-shadow: ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} 0px 0px 2px 2px;`}
-  }
-  ${Value} {
-    position: absolute;
-    font-weight: 500;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    // Font size defaults to 100% of inherited fonts size, but can be affected
-    // by fontFactor, which multiplies it.
-    font-size: ${p => (p.fontFactor ?? 1) * 100}%;
-    // If raised, then font also gets a shadow.
-    ${p => p.raised && css`text-shadow: 1px 1px 2px ${alpha(0.5, darken(0.5, p.theme.normalColor))};`}
   }
 `
 

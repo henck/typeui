@@ -1,5 +1,5 @@
-import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
-import {CircularProgress} from '../CircularProgress';
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { CircularProgress } from '../CircularProgress';
 
 # CircularProgress: Variations
 .
@@ -22,7 +22,7 @@ animate its progress line from 0 to `value`.
 <Canvas>
   <Story
     name="animated"
-    args={{animated: true, value: 50}}>
+    args={{animated: true, value: 50, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -35,7 +35,7 @@ its progress line.
 <Canvas>
   <Story
     name="background"
-    args={{background: true, value: 25}}>
+    args={{background: true, value: 25, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -48,7 +48,7 @@ The color of a `CircularProgress` progress line can be set with the
 <Canvas>
   <Story
     name="color"
-    args={{color: 'green', value: 33}}>
+    args={{color: 'green', value: 33, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -60,7 +60,7 @@ A `padded` `CircularProgress` has some margin around it.
 <Canvas>
   <Story
     name="padded"
-    args={{padded: true, value: 50}}>
+    args={{padded: true, value: 50, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -73,7 +73,7 @@ prop.
 <Canvas>
   <Story
     name="radius"
-    args={{radius: 80, value: 95}}>
+    args={{radius: 80, value: 95, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -86,7 +86,7 @@ outside of its progress line.
 <Canvas>
   <Story
     name="raised"
-    args={{raised: true, value: 45}}>
+    args={{raised: true, value: 45, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -99,7 +99,7 @@ progress line.
 <Canvas>
   <Story
     name="rounded"
-    args={{rounded: true, value: 50}}>
+    args={{rounded: true, value: 50, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -112,8 +112,21 @@ the `thickness` prop.
 <Canvas>
   <Story
     name="thickness"
-    args={{thickness: 12, value: 50}}>
+    args={{thickness: 12, value: 50, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
 
+## fontFactor 
+
+By default, the font size of the text inside the `CircularProgress` is the 
+same as the global font size. `fontFactor` can be used to increase the font
+size by a multiplication factor.
+
+<Canvas>
+  <Story
+    name="fontFactor"
+    args={{value: 50, fontFactor: 1.8, onClick: null}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

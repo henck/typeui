@@ -13,6 +13,11 @@ export const Template = (args) => <CircularProgress {...args}/>
 
 # CircularProgress
 
+A `CircularProgress` shows a percentage value, with a circular line around it.
+Optionally it may be `animated` so that the line grows from 0% to a target 
+value. There are various properties that control the `CircularProgress`'s 
+appearance.
+
 <ArgsTable of={CircularProgress}/>
 
 ## Default CircularProgress
@@ -22,7 +27,7 @@ All properties are optional, except `value`.
 <Canvas>
   <Story
     name="Properties"
-    args={{value: 50}}>
+    args={{value: 50, onClick: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>

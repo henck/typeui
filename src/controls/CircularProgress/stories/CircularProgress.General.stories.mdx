@@ -1,5 +1,5 @@
-import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
-import {CircularProgress} from '../CircularProgress';
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { CircularProgress } from '../CircularProgress';
 
 # CircularProgress: General
 .
@@ -28,8 +28,20 @@ export const ValueTemplate = (args) => <div>
 <Canvas>
   <Story
     name="value"
-    args={{value: 30, padded: true, background: true}}>
+    args={{value: 30,  onClick: null, padded: true, background: true}}>
     {ValueTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## onClick
+
+If an `onClick` event handler is set, then the `CircularProgress` is clickable.
+
+<Canvas>
+  <Story
+    name="onClick"
+    args={{value: 30,  onClick: () => {} }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
