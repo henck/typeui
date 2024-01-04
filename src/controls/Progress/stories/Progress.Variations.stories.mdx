@@ -22,7 +22,7 @@ A `Progress` with the `background` attribute adds a background to the progress b
 <Canvas>
   <Story
     name="background"
-    args={{ background: true, value: 50 }}>
+    args={{ background: true, value: 50, onClick: null }}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -34,7 +34,7 @@ A `bordered` `Progress` adds a border around the progress bar.
 <Canvas>
   <Story
     name="bordered"
-    args={{ bordered: true, value: 75 }}>
+    args={{ bordered: true, value: 75, onClick: null }}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -47,7 +47,7 @@ the `color` attribute.
 <Canvas>
   <Story
     name="color"
-    args={{ color: 'pink', value: 66 }}>
+    args={{ color: 'pink', value: 66, onClick: null }}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -59,7 +59,7 @@ A `numbered` `Progress` shows a percentage value.
 <Canvas>
   <Story
     name="numbered"
-    args={{ numbered: true, value: 45 }}>
+    args={{ numbered: true, value: 45, onClick: null }}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -71,7 +71,7 @@ A `raised` `Progress` adds a drop shadow. This works well with the `background` 
 <Canvas>
   <Story
     name="raised"
-    args={{ raised: true, background: true, value: 70 }}>
+    args={{ raised: true, background: true, value: 70, onClick: null }}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -83,7 +83,7 @@ A `rectangular` `Progress` has sharp corners rather than rounded ones.
 <Canvas>
   <Story
     name="rectangular"
-    args={{ rectangular: true, value: 85 }}>
+    args={{ rectangular: true, value: 85, onClick: null }}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -95,7 +95,19 @@ A `rectangular` `Progress` has sharp corners rather than rounded ones.
 <Canvas>
   <Story
     name="thickness"
-    args={{ thickness: 20, value: 58 }}>
+    args={{ thickness: 20, value: 58, onClick: null }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## padded
+
+A `padded` `Progress` has a margin around it.
+
+<Canvas>
+  <Story
+    name="padded"
+    args={{ padded: true, value: 58, onClick: null }}>
     {Template.bind({})}
   </Story>
 </Canvas>

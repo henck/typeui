@@ -2,6 +2,7 @@ import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
 import { darken } from '../../helper/darken';
+import { alpha } from '../../helper/alpha';
 
 interface IProgressProps {
   /** @ignore */
@@ -36,6 +37,11 @@ interface IProgressProps {
    */
   numbered?: boolean;
   /** 
+   * A padded `Progress` has a margin around it. 
+   * @default false 
+   */
+  padded?: boolean;  
+  /** 
    * Set progress bar thickness in pixels. Defaults to 12. 
    * @default 12
    */
@@ -45,10 +51,15 @@ interface IProgressProps {
    * the color is the theme primary color.
    */
   color?: string;
+  /**
+   * Fired when control is clicked. Control is only interactive
+   * if this event handler has a value.
+   */
+  onClick?: () => void;  
 }
 
 const ProgressBase = (props: IProgressProps) =>
-  <div className={props.className}></div>
+  <div className={props.className} onClick={props.onClick}></div>
 
 const ProgressStyled = styled(ProgressBase).attrs(p => ({
   percentageStr: Math.round(p.value).toString() + '%'
@@ -58,12 +69,15 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
   width: 100%;
   height: ${p => p.thickness ? p.thickness : 12}px;
   margin: 4px 0 4px 0;
+  ${p => p.onClick != null && css`cursor: pointer`};
 
+  ${p => p.padded && css`margin: 10px;`}
   ${p => p.bordered && css`border: solid 1px ${p => darken(0.1, p.theme.normalColor)};`}
   ${p => p.background && css`background: ${p => p.theme.normalColor};`}
   
   /* Raised adds a dropshadow. */
-  ${p => p.raised && css`box-shadow: 1px 1px 2px ${p => p.theme.normalColor};`}
+  // ${p => p.raised && css`box-shadow: 1px 1px 2px ${p => p.theme.normalColor};`}
+  ${p => p.raised && css`box-shadow: 1px 1px 2px 2px ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} ;`}
 
   /* Not-rectangular adds rounding: */
   ${p => !p.rectangular && css`border-radius: ${p => p.theme.radius + 2}px;`}
@@ -106,6 +120,6 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-progress--properties
  */
-const Progress = (props: IProgressProps) => <ProgressStyled {...props}/>
+const Progress = (props: IProgressProps) => <ProgressStyled {...props}/>;
 
 export { Progress, IProgressProps }
