@@ -1,0 +1,46 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+import { Progress } from '../Progress';
+
+# Progress: General
+.
+
+<Meta 
+  title="Controls/Progress/General" 
+  component={Progress}
+  argTypes={{
+    className: { table: { disable: true } }
+  }}
+/>
+
+export const Template = (args) => <Progress {...args}/>
+
+## value
+
+The `value` property is required. This must be a value between `0` and `100`.
+
+export const ValueTemplate = (args) => <div>
+  <Progress {...args}/>
+  <Progress padded color="green" background value={50}/>
+  <Progress padded color="pink" background value={80}/>
+  <Progress padded color="red" background value={100}/>
+</div>
+
+<Canvas>
+  <Story
+    name="value"
+    args={{value: 30,  onClick: null, padded: true, background: true}}>
+    {ValueTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## onClick
+
+If an `onClick` event handler is set, then the `Progress` is clickable.
+
+<Canvas>
+  <Story
+    name="onClick"
+    args={{value: 30,  onClick: () => {} }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
