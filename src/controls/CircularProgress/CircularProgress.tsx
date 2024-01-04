@@ -4,6 +4,8 @@ import styled from '../../styles/Theme';
 import { Segment } from './Segment'
 import { InnerCircle } from './InnerCircle';
 import { Dot } from './Dot';
+import { alpha } from '../../helper/alpha';
+import { darken } from '../../helper/darken';
 
 const DEFAULT_RADIUS = 50;
 const DEFAULT_THICKNESS = 8;
@@ -55,6 +57,11 @@ interface ICircularProgressProps {
    * @default false 
    */
   padded?: boolean;
+  /**
+   * Font size factor compared to inherited font size. Defaults to 1. 
+   * Use 2 to increase font size 2x.
+   */
+  fontFactor?: number;
 }
 
 interface ICircularProgressState {
@@ -123,8 +130,6 @@ class CircularProgressBase extends React.Component<ICircularProgressProps, ICirc
           <InnerCircle radius={radius - thickness} raised={p.raised}/>
           <Value>{Math.round(value)}%</Value>
         </div>
-        {/* underlying dropshadow circle */}
-        <div></div>
         {/* If rounded, show rounded dots at start and end of line. */}
         {p.rounded && <Dot color={p.color} left={radius} top={radius - middleRadius} thickness={thickness} />}
         {p.rounded && <Dot color={p.color} left={radius + middleRadius * Math.cos(rad)} top={radius + middleRadius * Math.sin(rad)} thickness={thickness} />}
@@ -132,6 +137,11 @@ class CircularProgressBase extends React.Component<ICircularProgressProps, ICirc
     );
   }
 }
+
+/**
+ * Numeric value to show in center of control.
+ */
+const Value = styled.div``;
 
 const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
   outerRadius: p.radius ? p.radius : DEFAULT_RADIUS,
@@ -149,35 +159,23 @@ const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
     position: relative;
     width: ${p => p.outerRadius * 2}px;
     height: ${p => p.outerRadius * 2}px;
-    background: ${p => p.background ? '#eee' : 'transparent'};
+    background: ${p => p.background ? p.theme.normalColor : 'transparent'};
     border-radius: 50%;
     overflow: hidden;
+    ${p => p.raised && css`box-shadow: ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} 0px 0px 2px 2px;`}
   }
-  /* underlying circle, 1px smaller than main circle, used to produce dropshadow */
-  & > div:nth-child(2) {
-    z-index: -1;
+  ${Value} {
     position: absolute;
+    font-weight: 500;
     left: 50%;
     top: 50%;
-    width: ${p => p.outerRadius * 2 - 2}px;
-    height: ${p => p.outerRadius * 2 - 2}px;
     transform: translateX(-50%) translateY(-50%);
-    background: transparent;
-    border-radius: 50%;
-    ${p => p.raised && css`box-shadow: rgba(34, 36, 38, 0.15) 0px 0px 2px 2px;`}
+    // Font size defaults to 100% of inherited fonts size, but can be affected
+    // by fontFactor, which multiplies it.
+    font-size: ${p => (p.fontFactor ?? 1) * 100}%;
+    // If raised, then font also gets a shadow.
+    ${p => p.raised && css`text-shadow: 1px 1px 2px ${alpha(0.5, darken(0.5, p.theme.normalColor))};`}
   }
-`
-
-/**
- * Numeric value to show in center of control.
- */
-const Value = styled.div`
-  position: absolute;
-  font-size: 180%;
-  font-weight: 500;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
 `
 
 /**
@@ -190,8 +188,7 @@ const Value = styled.div`
  * 
  * @link https://henck.github.io/typeui/?path=/story/controls-circularprogress--properties
  */
-class CircularProgress extends React.Component<ICircularProgressProps> {
-  render = () => <CircularProgressStyled{...this.props}></CircularProgressStyled>
-}
+const CircularProgress = (props: ICircularProgressProps) =>
+  <CircularProgressStyled{...props}/>
 
-export { CircularProgress };
+export { CircularProgress, ICircularProgressProps }

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
+import { alpha } from '../../helper/alpha';
+import { darken } from '../../helper/darken';
 
 interface IProps {
   /** @ignore */
@@ -21,9 +23,9 @@ const InnerCircle = styled(InnerCircleBase)`
   width: ${p => p.radius * 2}px;
   height: ${p => p.radius * 2}px;
   transform: translateX(-50%) translateY(-50%);
-  background: #fff;
+  background: ${p => p.theme.background};
   border-radius: 50%;
-  ${p => p.raised && css`box-shadow: inset rgba(34, 36, 38, 0.15) 0px 0px 3px 2px`};
+  ${p => p.raised && css`box-shadow: inset ${p => alpha(0.5, darken(0.5, p.theme.normalColor))} 0px 0px 3px 2px;`}
 `
 
 export { InnerCircle }
