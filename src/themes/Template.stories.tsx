@@ -24,6 +24,16 @@ export const Template = (args) =>
   <div>
     <ThemeProvider theme={{...Theme, ...args}}>
       <div style={{background: args.divBackground, color: args.fontColor, padding: '30px'}}>
+        <Divider section>Progress bars</Divider>
+        <div style={{display:'flex', flexDirection: 'column', gap: '8px'}}>
+          <Progress value={25}/>
+          <Progress background value={50}/>
+          <Progress bordered value={75}/>
+          <Progress numbered value={25}/>
+          <Progress raised value={50}/>
+          <Progress rectangular value={75}/>
+        </div>
+
         <Divider section>Headers</Divider>
         <Header size="h1">Header 1</Header>
         <Header size="h2">Header 2</Header>
