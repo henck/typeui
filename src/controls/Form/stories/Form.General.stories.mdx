@@ -41,6 +41,10 @@ Field. When the Form is dirty, so are its fields, and any validation errors are 
 
 For dark backgrounds, fields may set their `contrast` prop to true to use lighter error colors.
 
+Field may be `boxed`, which will wrap their label, control and hint together
+in a box. Clicking the box activates the control inside (focusing or clicking 
+it).
+
 export const types = [{id: 1, name: 'Developer'}, {id: 2, name:'Quality assurance'}];
 
 export const FieldTemplate = (args) =>
@@ -178,6 +182,11 @@ export const UncontrolledTemplate = (args) =>
     hint={<span>Please provide the employee's first name, e.g. <kbd>John</kbd></span>}>
     <Input type="text" placeholder="First name" fluid/>
   </Form.Uncontrolled>
+  <Form.Uncontrolled
+    width={1} label="FIRST NAME (BOXED)" boxed
+    hint={<span>Please provide the employee's first name, e.g. <kbd>John</kbd></span>}>
+    <Input type="text" transparent placeholder="First name" fluid/>
+  </Form.Uncontrolled>  
 </Form>
 
 <Canvas>
