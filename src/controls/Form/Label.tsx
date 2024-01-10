@@ -18,6 +18,10 @@ interface ILabelProps {
    * @default false
    */
   required?: boolean;
+  /**
+   * If true, show no asterisk for required fields.
+   */
+  noStar?: boolean;
 }
 
 const Required = styled.span`
@@ -28,7 +32,7 @@ const Required = styled.span`
 const LabelBase = (props: ILabelProps) =>
   <label className={props.className}>
     {props.children}
-    {props.required && (<Required>*</Required>)}
+    {props.required && !props.noStar == true && <Required>*</Required>}
   </label>
 
 const Label = styled(LabelBase)`

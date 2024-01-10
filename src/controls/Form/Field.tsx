@@ -66,6 +66,10 @@ interface IProps {
    */
   contrast?: boolean;  
   /**
+   * If true, display no asterisk for required fields.
+   */
+  noStar?: boolean;
+  /**
    * If true, field has a boxed appearance. This places a border around the 
    * field, which is clickable and moves focus to the contained control.
    */
@@ -425,7 +429,7 @@ class Field extends React.Component<IProps, IState> {
     return (
       <FieldWrapper boxed={p.boxed} width={p.width} error={hasError}>
         {this.props.label && 
-          <Label inline={this.props.inline} required={!!this.props.required}>
+          <Label inline={this.props.inline} required={!!this.props.required} noStar={p.noStar}>
             {this.props.label}
           </Label>}
         {this.getControl(hasError)}
