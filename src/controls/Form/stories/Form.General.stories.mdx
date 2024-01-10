@@ -42,8 +42,9 @@ Field. When the Form is dirty, so are its fields, and any validation errors are 
 For dark backgrounds, fields may set their `contrast` prop to true to use lighter error colors.
 
 Field may be `boxed`, which will wrap their label, control and hint together
-in a box. Clicking the box activates the control inside (focusing or clicking 
-it).
+in a box. When the box is clicked, the control is programmatically clicked.  
+The box also assumes the control's hover state.  Works best with transparent 
+inputs and inlined dropdowns.
 
 export const types = [{id: 1, name: 'Developer'}, {id: 2, name:'Quality assurance'}];
 
@@ -174,6 +175,11 @@ rules (and thus shows no errors). It also does not provide an onChange
 handler to its control; the calling code must do that.
 
 The field's control is also not provided as a prop, but as a child.
+
+Like the `Field`, `Uncontrolled` may be boxed, which places a box around the 
+label, control and hint. When the box is clicked, the control is 
+programmatically clicked.  The box also assumes the control's hover state.
+Works best with transparent inputs and inlined dropdowns.
 
 export const UncontrolledTemplate = (args) =>
 <Form {...args}>
