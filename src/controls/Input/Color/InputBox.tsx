@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const InputBoxBase = (props: IInputProps & IProps) =>
-  <div tabIndex={0} className={props.className} onKeyDown={props.onKeyDown}>
+  <div tabIndex={0} className={`${props.className} clickable`} onKeyDown={props.onKeyDown}>
     {props.value && typeof props.value === 'string' && (<span style={{background: props.value}}></span>)}
     {props.value && typeof props.value !== 'string' && 'Not a color'}
     {!props.value && props.placeholder}

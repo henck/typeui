@@ -19,7 +19,7 @@ interface IDateInputProps {
 }
 
 const InputBoxBase = (props: IInputProps & IDateInputProps) => 
-  <div tabIndex={0} className={props.className} onKeyDown={props.onKeyDown}>
+  <div tabIndex={0} className={`${props.className} clickable`} onKeyDown={props.onKeyDown}>
     {props.value && format(parseISO(props.value), props.format ? props.format : props.defaultFormat)}
     {!props.value && props.placeholder}
   </div>
