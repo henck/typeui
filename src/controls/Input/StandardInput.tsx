@@ -16,7 +16,7 @@ const StandardInputBase = (props: IInputProps) => {
   }  
 
   return (
-    <input className={props.className}
+    <input className={`${props.className} clickable`}
       value={props.value == null ? '' : props.value} 
       placeholder={props.placeholder} 
       disabled={props.disabled}

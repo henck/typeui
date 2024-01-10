@@ -10,7 +10,9 @@ interface ISelectorProps {
   className?: string;
   /** @ignore */
   children?: React.ReactNode;
+  /** Fired when selector is clicked. */
   onClick: () => void;
+  /** Fired when clear icon is clicked. */
   onClear?: () => void;
   /** Dropdown currently disabled? */
   disabled?: boolean;
@@ -35,7 +37,7 @@ const SelectorBase = (props: ISelectorProps) => {
   }
 
   return (
-    <div className={props.className} onClick={props.onClick}>
+    <div className={`${props.className} clickable`} onClick={props.onClick}>
       <span>
         {props.children}
         {/* Make sure an empty placeholder does occupy some space: */}

@@ -1,12 +1,11 @@
 import * as React from 'react';
-import styled from '../../styles/Theme';
-import { css } from 'styled-components';
 
 // Other controls
 import { Hint } from './Hint';
 import { Error } from './Error';
 import { Label } from './Label';
 import { FormContext, IFormContext } from './FomContext';
+import { FieldWrapper } from './FieldWrapper';
 
 interface ISimpleValidation {
   message: React.ReactNode;
@@ -66,6 +65,11 @@ interface IProps {
    * @default false 
    */
   contrast?: boolean;  
+  /**
+   * If true, field has a boxed appearance. This places a border around the 
+   * field, which is clickable and moves focus to the contained control.
+   */
+  boxed?: boolean;
   /** Control to show in field. */
   control: React.ReactNode;
   /**
@@ -177,13 +181,9 @@ interface IState {
   value: any;
 }
 
-class FieldBase extends React.Component<IProps, IState> {
+class Field extends React.Component<IProps, IState> {
 
   public static contextType = FormContext;
-
-  // Static nodes (contents never change):
-  private labelNode: React.ReactNode;
-  private hintNode: React.ReactNode;
 
   constructor(props: IProps) {
     super(props);
@@ -193,10 +193,6 @@ class FieldBase extends React.Component<IProps, IState> {
       validation: this.getValidation(this.props.value),
       value: this.props.value
     };
-
-    // Create static nodes:
-    this.labelNode = this.getLabel();
-    this.hintNode = this.getHint();
   }
 
   handleChange = (value: any) => {
@@ -244,7 +240,7 @@ class FieldBase extends React.Component<IProps, IState> {
     // Do not perform validation if value did not change.
     if(prevState.value == this.state.value) return;
     // Perform validation on field.
-    let validation = this.getValidation(this.state.value);
+    const validation = this.getValidation(this.state.value);
     // Only notify parent if validation has changed since last validation.
     if(this.state.validation !== validation) {
       this.setState({ validation: validation });
@@ -420,43 +416,24 @@ class FieldBase extends React.Component<IProps, IState> {
     });
   }
 
-  // Get field's label element, if any.
-  private getLabel = () => {
-    if(this.props.label) 
-      return (<Label inline={this.props.inline} required={!!this.props.required}>{this.props.label}</Label>);
-    return null;
-  }  
-
-  private getHint = () => {
-   return (<Hint>{this.props.hint}</Hint>)
-  }
-
   render() {
-    let p = this.props;
-    let validation = this.state.validation;
-    let dirty = (this.context as IFormContext).dirty;
-    let hasError = (!this.state.pristine || dirty) && validation != null;
+    const p = this.props;
+    const validation = this.state.validation;
+    const dirty = (this.context as IFormContext).dirty;
+    const hasError = (!this.state.pristine || dirty) && validation != null;
 
     return (
-      <div className={p.className}>
-        {this.labelNode}
+      <FieldWrapper boxed={p.boxed} width={p.width} error={hasError}>
+        {this.props.label && 
+          <Label inline={this.props.inline} required={!!this.props.required}>
+            {this.props.label}
+          </Label>}
         {this.getControl(hasError)}
-        {hasError && <Error contrast={this.props.contrast}>{validation}</Error>}
-        {!hasError && p.hint && this.hintNode}
-      </div>
-    );
+        {hasError && validation && <Error contrast={this.props.contrast}>{validation}</Error>}
+        {!hasError && p.hint && <Hint>{this.props.hint}</Hint>}
+      </FieldWrapper>
+    )
   }
 }
 
-const FieldStyled = styled(FieldBase)`
-  padding-bottom: 8px;
-  
-  /* Fields may provide their width in relative units to other fields. */
-  ${p => p.width && css `flex: ${p.width}`}
-`;
-
-class Field extends React.Component<IProps, {}> {
-  render = () => <FieldStyled {...this.props}/>
-}
-
-export { Field };
+export { Field }

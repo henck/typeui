@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '../../styles/Theme';
 import { css } from 'styled-components';
+import { lighten } from '../../helper/lighten';
 
 interface ILabelProps {
   /** @ignore */
@@ -35,6 +36,7 @@ const Label = styled(LabelBase)`
   font-weight: 500;
   font-size: 80%;
   margin-right: 1em;
+  color: ${p => lighten(0.5, p.theme.fontColor)};
 
   /* Ordinarily, labels are displayed above the field control: */
   display: block;

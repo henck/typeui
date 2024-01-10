@@ -21,9 +21,9 @@ const ErrorBase = (props: IErrorProps) =>
   <div className={props.className}>{props.children}</div>
 
 const Error = styled(ErrorBase)`
-  color: ${p => p.contrast ? lighten(0.3, p.theme.errorColor.color) : p .theme.errorColor.color};
   font-size: 80%;
   line-height: 1.4em;
+  color: ${p => p.contrast ? lighten(0.3, p.theme.errorColor.color) : p .theme.errorColor.color};
   padding-top: 4px;
   padding-left: 4px;
 `;
