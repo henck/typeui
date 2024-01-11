@@ -76,7 +76,7 @@ const Selector = styled(SelectorBase)`
   /* Inline Dropdowns have no border, but normal Dropdowns do. */
   border:         solid 1px ${p => p.inline ? "transparent" : p.theme.normalColor};
   border-radius:  ${p => p.theme.radius}px;
-  line-height:    19px;
+  line-height:    17px;
   padding:        9px 30px 9px 14px;
   ${p => p.multiple && !p.placeholder && css`padding: 7px 30px 7px 14px;`}
   min-height:     17px;
