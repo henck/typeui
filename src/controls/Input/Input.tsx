@@ -87,7 +87,12 @@ interface IInputProps {
   maxLength?: number;
   /** Optional autocomplete information (see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) */
   autocomplete?: string;
-  
+  /**
+   * Force inputs with popups to always open downwards.
+   * @default false;
+   */
+  alwaysDown?: boolean;
+
   // Events
   /** Listeners are notified whenever the user interacts with the Input. */
   onChange?: (value: any) => void;
@@ -121,7 +126,9 @@ const InputInnerBase = (props: IInputProps) => {
   const handleClick = () => {
     // Disabled input cannot be clicked.
     if(props.disabled) return;
-    setUpward(isInLowerViewport());
+    let below = isInLowerViewport();
+    if(props.alwaysDown) below = false;
+    setUpward(below);
     setRight(isInRightViewport());
     setOpen(true);
   }
@@ -132,7 +139,9 @@ const InputInnerBase = (props: IInputProps) => {
   const handleToggle = () => {
     // A disabled input cannot be clicked.
     if(props.disabled) return;
-    setUpward(isInLowerViewport());
+    let below = isInLowerViewport();
+    if(props.alwaysDown) below = false;
+    setUpward(below);
     setRight(isInRightViewport());
     setOpen(!open);
   }  
