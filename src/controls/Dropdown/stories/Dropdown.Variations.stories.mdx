@@ -51,7 +51,7 @@ export const AlignTemplate = (args) =>
 <Canvas>
   <Story
     name="align"
-    args={{alwaysDown: true, maxItems: 4, data: ages, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{direction: 'down', maxItems: 4, data: ages, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {AlignTemplate.bind({})}
   </Story>
 </Canvas>
@@ -63,7 +63,7 @@ A `clearable` dropdown allows the user to clear the selection.
 <Canvas>
   <Story
     name="clearable"
-    args={{clearable: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{clearable: true, direction: 'down', maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -75,7 +75,7 @@ A `fluid` `Dropdown` fills all available horizontal space.
 <Canvas>
   <Story
     name="fluid"
-    args={{fluid: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{fluid: true, direction: 'down', maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -87,7 +87,7 @@ An `inline` `Dropdown` is useful for a menu bar.
 <Canvas>
   <Story
     name="inline"
-    args={{inline: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{inline: true, direction: 'down', maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -100,7 +100,7 @@ With `maxItems`, you can change this.
 <Canvas>
   <Story
     name="maxItems"
-    args={{alwaysDown: true, maxItems: 8, data: data, placeholder: "Select domain", label: (item) => item.name, onSearch: null}}>
+    args={{direction: 'down', maxItems: 8, data: data, placeholder: "Select domain", label: (item) => item.name, onSearch: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -115,7 +115,7 @@ the `Dropdown` with new items based on the search string.
 <Canvas>
   <Story
     name="onSearch"
-    args={{alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: () => {} }}>
+    args={{direction: 'down', maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: () => {} }}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -142,7 +142,7 @@ export const WeightTemplate = (args) =>
 <Canvas>
   <Story
     name="weight"
-    args={{fluid: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null }}>
+    args={{fluid: true, direction: 'down', maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null }}>
     {WeightTemplate.bind({})}
   </Story>
 </Canvas>

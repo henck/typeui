@@ -1,6 +1,5 @@
 import {ArgsTable, Meta, Canvas, Story} from "@storybook/addon-docs";
 import {Dropdown} from '../Dropdown';
-import {Icon} from '../../Icon';
 import {Form} from '../../Form';
 
 <Meta 
@@ -56,7 +55,7 @@ up in the selector box.
 <Canvas>
   <Story
     name="Properties"
-    args={{ data: domains, onSearch: null, placeholder: "Select domain", maxItems: 4, alwaysDown: true, label: (item) => item.name }}>
+    args={{ data: domains, onSearch: null, placeholder: "Select domain", maxItems: 4, direction: 'down', label: (item) => item.name }}>
     {Template.bind({})}
   </Story>
 </Canvas>

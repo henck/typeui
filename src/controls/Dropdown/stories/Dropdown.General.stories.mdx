@@ -61,7 +61,7 @@ export const ColumnsTemplate = (args) =>
 <Canvas>
   <Story
     name="Columns"
-    args={{data: people, alwaysDown: true, maxItems: 4, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{data: people, direction: 'down', maxItems: 4, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {ColumnsTemplate.bind({})}
   </Story>
 </Canvas>
@@ -74,7 +74,7 @@ selection set by clicking them.
 <Canvas>
   <Story
     name="multiple"
-    args={{multiple: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{multiple: true, direction: 'down', maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -86,7 +86,7 @@ A `disabled` `Dropdown` cannot be interacted with.
 <Canvas>
   <Story
     name="disabled"
-    args={{value: null, disabled: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{value: null, disabled: true, direction: 'down',  maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {NoFormTemplate.bind({})}
   </Story>
 </Canvas>
@@ -103,7 +103,7 @@ export const ErrorTemplate = (args) =>
 <Canvas>
   <Story
     name="error"
-    args={{value: null, error: true, alwaysDown: true, maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{value: null, error: true, direction: 'down', maxItems: 4, data: people, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {NoFormTemplate.bind({})}
   </Story>
 </Canvas>

@@ -44,13 +44,43 @@ const DropdownInnerBase = (props: IDropdownProps) => {
     }
   }  
 
+  const findScrollingParentRecursive = (node: HTMLElement): HTMLElement => {
+    const overflowY = window.getComputedStyle(node).overflowY;
+    if(overflowY == 'scroll' || overflowY == 'auto') return node;
+    if(node.parentElement) return findScrollingParentRecursive(node.parentElement);
+    return null;
+  }
+  // Return my nearest parent that's scrolling (frames are not supported). If
+  // no parent is found, null is returned.
+  const findScrollingParent = () => {
+    return findScrollingParentRecursive(wrapperRef.current.parentElement);
+  }
+
+  // Returns true if the input is in the lower half of its scrolling parent.
+  // (if direction == parent), or in the lower half of the viewport if no 
+  // scrolling parent is found.
+  const isInLowerViewport = (): boolean => {
+    const scrollingParent = findScrollingParent();
+    if(scrollingParent == null || props.direction != 'parent') {
+      return wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
+    } else {
+      const myY =  wrapperRef.current.getBoundingClientRect().top;
+      const containerY = scrollingParent.getBoundingClientRect().top;
+      const containerHeight = scrollingParent.getBoundingClientRect().height;
+      const offset = myY - containerY;
+      return offset > containerHeight / 2;
+    }
+  }  
+
   // Open the dropdown.
   const doOpen = () => {
     // Is the Dropdown below the middle of the viewport?
-    let below = wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
-    if(props.alwaysDown) below = false;
+    const below = isInLowerViewport();
+    // Set opening direction.
+    if(props.direction == 'down') setUpwards(false);
+    else if(props.direction == 'up') setUpwards(true);
+    else setUpwards(below);
     setOpen(true);
-    setUpwards(below);
     // If reset on open is specified, then the search query is reset whenever the
     // dropdown opens or reopens.
     if(props.resetOnOpen) setSearch(null);

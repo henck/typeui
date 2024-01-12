@@ -68,10 +68,13 @@ interface IDropdownProps {
    */
   maxItems?: number;
   /**
-   * Force Dropdown to always open downwards.
-   * @default false;
+   * The Dropdown opening direction can be either fixed
+   * (`up` or `down`), or depend on the nearest scrolling parent: if the Dropdown
+   * is in the top half of the visible section of the parent, then it opens
+   * downward, and vice-versa. If this property is not set, then the opening
+   * direction is determined from the Dropdown position in the viewport.
    */
-  alwaysDown?: boolean;
+  direction?: 'up' | 'down' | 'parent';
 
   // Events
   /** Listeners are notified whenever the user interacts with the input. */

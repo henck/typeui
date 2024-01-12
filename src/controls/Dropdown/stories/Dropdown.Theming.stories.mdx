@@ -48,7 +48,7 @@ export const ColumnsTemplate = (args) =>
 <Canvas>
   <Story
     name="Themed-Columns"
-    args={{data: people, alwaysDown: true, maxItems: 4, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    args={{data: people, direction: 'down', maxItems: 4, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
     {ColumnsTemplate.bind({})}
   </Story>
 </Canvas>

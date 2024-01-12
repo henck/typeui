@@ -25,6 +25,36 @@ export const Template = (args) =>
 export const NoFormTemplate = (args) =>
 <Input {...args}/>
 
+export const ScrollingTemplate = (args) =>
+<div style={{ height: '400px', overflowY: 'auto' }}>
+<Form data={{}} onChange={() => {}} onValidate={() => {}}>
+  <div style={{height: '400px', background: 'grey'}}>400px spacer</div>
+  <Form.Field
+    label="direction"
+    name="name"
+    value={null}
+    control={<Input {...args}/>}
+  />
+  <div style={{height: '400px', background: 'grey'}}>400px spacer</div>
+</Form>
+</div>
+
+## direction
+
+`Input` elements with a dropdown (date, color) open either upwards or downwards.
+By default, this direction is determined from the Input position in the viewport.
+A `direction` may be set. If `up`, then the Input always open upwards. If `down`,
+then the Input always open downwards. If `parent`, then the Input opens in 
+accordance with its position inside its nearest scrolling parent.
+
+<Canvas>
+  <Story
+    name="direction"
+    args={{ placeholder: "direction", direction: 'parent', type: 'date' }}>
+    {ScrollingTemplate.bind({})}
+  </Story>
+</Canvas>
+
 ## clearable
 
 A `clearable` `Input` presents a clickable icon that clears the input's contents. 

@@ -88,10 +88,13 @@ interface IInputProps {
   /** Optional autocomplete information (see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) */
   autocomplete?: string;
   /**
-   * Force inputs with popups to always open downwards.
-   * @default false;
+   * For Input elements with a dropdown, opening direction can be either fixed
+   * (`up` or `down`), or depend on the nearest scrolling parent: if the Input
+   * is in the top half of the visible section of the parent, then it opens
+   * downward, and vice-versa. If this property is not set, then the opening
+   * direction is determined from the Input position in the viewport.
    */
-  alwaysDown?: boolean;
+  direction?: 'up' | 'down' | 'parent';
 
   // Events
   /** Listeners are notified whenever the user interacts with the Input. */
@@ -115,9 +118,33 @@ const InputInnerBase = (props: IInputProps) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Returns true if the input is in the lower half of the viewport.
-  const isInLowerViewport = (): boolean =>
-    wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
+  const findScrollingParentRecursive = (node: HTMLElement): HTMLElement => {
+    const overflowY = window.getComputedStyle(node).overflowY;
+    if(overflowY == 'scroll' || overflowY == 'auto') return node;
+    if(node.parentElement) return findScrollingParentRecursive(node.parentElement);
+    return null;
+  }
+  // Return my nearest parent that's scrolling (frames are not supported). If
+  // no parent is found, null is returned.
+  const findScrollingParent = () => {
+    return findScrollingParentRecursive(wrapperRef.current.parentElement);
+  }
+
+  // Returns true if the input is in the lower half of its scrolling parent.
+  // (if direction == parent), or in the lower half of the viewport if no 
+  // scrolling parent is found.
+  const isInLowerViewport = (): boolean => {
+    const scrollingParent = findScrollingParent();
+    if(scrollingParent == null || props.direction != 'parent') {
+      return wrapperRef.current.getBoundingClientRect().top > window.innerHeight / 2;
+    } else {
+      const myY =  wrapperRef.current.getBoundingClientRect().top;
+      const containerY = scrollingParent.getBoundingClientRect().top;
+      const containerHeight = scrollingParent.getBoundingClientRect().height;
+      const offset = myY - containerY;
+      return offset > containerHeight / 2;
+    }
+  }
 
   // Returns true if the input is to the right of the middle of the viewport.
   const isInRightViewport = (): boolean => 
@@ -126,9 +153,10 @@ const InputInnerBase = (props: IInputProps) => {
   const handleClick = () => {
     // Disabled input cannot be clicked.
     if(props.disabled) return;
-    let below = isInLowerViewport();
-    if(props.alwaysDown) below = false;
-    setUpward(below);
+    // Set opening direction.
+    if(props.direction == 'down') setUpward(false);
+    else if(props.direction == 'up') setUpward(true);
+    else setUpward(isInLowerViewport());
     setRight(isInRightViewport());
     setOpen(true);
   }
@@ -139,9 +167,10 @@ const InputInnerBase = (props: IInputProps) => {
   const handleToggle = () => {
     // A disabled input cannot be clicked.
     if(props.disabled) return;
-    let below = isInLowerViewport();
-    if(props.alwaysDown) below = false;
-    setUpward(below);
+    // Set opening direction.
+    if(props.direction == 'down') setUpward(false);
+    else if(props.direction == 'up') setUpward(true);
+    else setUpward(isInLowerViewport());
     setRight(isInRightViewport());
     setOpen(!open);
   }  
