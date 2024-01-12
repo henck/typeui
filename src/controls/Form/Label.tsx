@@ -30,7 +30,7 @@ const Required = styled.span`
 `
 
 const LabelBase = (props: ILabelProps) =>
-  <label className={props.className}>
+  <label tabIndex={-1} className={props.className}>
     {props.children}
     {props.required && !props.noStar == true && <Required>*</Required>}
   </label>

@@ -177,6 +177,14 @@ interface IProps {
    * <Field ... email={{message: "Must be a valid email address."}}>
    */      
   email?: ISimpleValidation;
+
+  /**
+   * If set, this Field is rendered without any embellishments: no label,
+   * no hint, no wrapper. This is useful for controls that must behave like
+   * a Field (i.e. work with a Form to get their `value` and `onChange` set),
+   * but mustn't look like one.
+   */
+  noWrapper?: boolean;
 }
 
 interface IState {
@@ -425,6 +433,10 @@ class Field extends React.Component<IProps, IState> {
     const validation = this.state.validation;
     const dirty = (this.context as IFormContext).dirty;
     const hasError = (!this.state.pristine || dirty) && validation != null;
+
+    if(p.noWrapper) {
+      return this.getControl(hasError);
+    }
 
     return (
       <FieldWrapper boxed={p.boxed} width={p.width} error={hasError}>
