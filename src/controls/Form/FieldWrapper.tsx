@@ -39,7 +39,8 @@ const FieldWrapperBase = (props: IFieldWrapperProps) => {
 }
 
 const FieldWrapper = styled(FieldWrapperBase)`
-  margin-bottom: 8px;
+  // A bottom margin is only added when the field is not boxed.
+  ${p => !p.boxed && css`margin-bottom: 8px;`}
 
   // Applies only to boxed fields.
   ${p => p.boxed && css`
