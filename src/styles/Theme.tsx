@@ -1,6 +1,5 @@
-import * as React from 'react';
 import * as styledComponents from "styled-components";
-import { Ratio, modularScale } from "../helper/SizeHelper";
+import { Ratio } from "../helper/SizeHelper";
 
 const {
   default: styled,
