@@ -1,11 +1,11 @@
-import { css, createGlobalStyle, GlobalStyleComponent, DefaultTheme } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-const reset = css`
+const StyleReset = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
     v4.0 | 20180602
     License: none (public domain)
   */
-  html, body, div, span, applet, object, iframe,
+    html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
   del, dfn, em, img, ins, kbd, q, s, samp,
@@ -52,11 +52,6 @@ const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
-`
+`;
 
-const StyleReset = createGlobalStyle`
-  ${reset}
-`
-
-export { StyleReset };
-
+export { StyleReset }
