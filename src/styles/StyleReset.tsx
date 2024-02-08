@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { css, createGlobalStyle, GlobalStyleComponent, DefaultTheme } from 'styled-components'
 
-const StyleReset = createGlobalStyle`
+const reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/
     v4.0 | 20180602
     License: none (public domain)
@@ -54,4 +54,8 @@ const StyleReset = createGlobalStyle`
   }
 `;
 
-export { StyleReset }
+const StyleReset = createGlobalStyle`
+  ${reset}
+`
+
+export { StyleReset };

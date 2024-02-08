@@ -1,7 +1,7 @@
 import { Theme } from './Theme'
-import { createGlobalStyle } from 'styled-components'
+import { css, createGlobalStyle, GlobalStyleComponent, DefaultTheme } from 'styled-components'
 
-const StyleBase = createGlobalStyle`
+const base = css`
   @import url(${Theme.fontURL});
   
   body {
@@ -49,4 +49,8 @@ const StyleBase = createGlobalStyle`
   }
 `;
 
-export { StyleBase }
+const StyleBase = createGlobalStyle`
+  ${base}
+`;
+
+export { StyleBase };
