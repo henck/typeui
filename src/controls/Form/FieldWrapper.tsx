@@ -44,6 +44,7 @@ const FieldWrapper = styled(FieldWrapperBase)`
 
   // Applies only to boxed fields.
   ${p => p.boxed && css`
+    position: relative;
     padding-top: 16px;
     padding-bottom: 5px;
     border: solid 2px ${p.theme.normalColor};
@@ -54,10 +55,26 @@ const FieldWrapper = styled(FieldWrapperBase)`
     &:focus-within {
       border-color: ${lighten(0.25, p.theme.primaryColor)};
     }
-    &>*:nth-child(1), &>*:nth-child(3) {
-      padding-left: 14px;
+    /* Label */
+    &>*:nth-child(1) {
+      padding-left: 15px;
       padding-right: 14px;
+      line-height: 12px;
+      font-size: 12px;
+      font-variant: all-small-caps;      
+      opacity: ${p.error ? 0 : 1};
     }
+    /* Hint/error */
+    &>*:nth-child(3) {
+      position: absolute;
+      ${p.error && css`left: 12px;`}
+      ${!p.error && css`right: 12px;`}
+      top: 12px;
+      line-height: 12px;
+      font-size: 12px;
+      font-variant: all-small-caps;            
+    }
+
   `}
 
   // Applies only to boxed fields.
