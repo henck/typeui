@@ -56,6 +56,18 @@ export const AlignTemplate = (args) =>
   </Story>
 </Canvas>
 
+## gap
+
+The `gap` between columns in the body can be adjusted. By default it's `16` pixels.
+
+<Canvas>
+  <Story
+    name="gap"
+    args={{direction: 'down', maxItems: 4, data: ages, gap: 0, placeholder: "Select person", label: (item) => item.name, onSearch: null}}>
+    {AlignTemplate.bind({})}
+  </Story>
+</Canvas>
+
 ## clearable 
 
 A `clearable` dropdown allows the user to clear the selection.

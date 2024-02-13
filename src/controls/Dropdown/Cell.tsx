@@ -15,6 +15,8 @@ interface ICellProps {
   weight?: number;
   /** Text alignment. Defaults to 'left'. */
   align?: Float;  
+  /** Gap between columns. */
+  gap?: number;
 }
 
 const CellBase = (props: ICellProps) =>
@@ -41,7 +43,7 @@ const Cell = styled(CellBase)`
 
   /* Space between cells. */
   &:not(:last-child) {
-    margin-right: 16px;
+    margin-right: ${p => p.gap ?? 16}px;
   }
 `;
 

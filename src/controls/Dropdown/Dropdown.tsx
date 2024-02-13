@@ -47,6 +47,11 @@ interface IDropdownProps {
    */
   inline?: boolean;
   /** 
+   * Gap between columns inside Dropdown body, in pixels.
+   * @default 16
+   */
+  gap?: number;
+  /** 
    * If set, Dropdown is in an error state. 
    * @default false 
    */
