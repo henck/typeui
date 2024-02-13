@@ -96,17 +96,17 @@ export const FieldTemplate = (args) =>
         value={"First name"}
         control={(<Input transparent type="text" placeholder="First name" fluid/>)}/>
       <Form.Field
-        required={{message: "Employee type is required."}}
+        required={{message: "Employee type is required"}}
         width={1} label="TYPE"
         name="employee_type" 
         boxed
         value={null}
         control={
-          <Dropdown clearable inline data={types} placeholder="Type" fluid label={(item) => item.name}>
+          <Dropdown clearable inline onSearch={() => {}} data={types} placeholder="Type" fluid label={(item) => item.name}>
             <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
           </Dropdown>
         }
-        hint="Please select an employee type."/>        
+        hint="Please select an employee type"/>        
       <Form.Field
         required={{message: ""}}
         width={1} label="DATE"
@@ -142,17 +142,17 @@ export const FieldTemplate = (args) =>
       value={"First name"}
       control={(<Input transparent type="text" placeholder="First name" fluid/>)}/>
     <Form.Field
-      required={{message: "Employee type is required."}}
+      required={{message: "Employee type is required"}}
       width={1} label="TYPE"
       name="employee_type" 
       boxed
       value={null}
       control={
-        <Dropdown clearable inline data={types} placeholder="Type" fluid label={(item) => item.name}>
+        <Dropdown clearable inline onSearch={() => {}} data={types} placeholder="Type" fluid label={(item) => item.name}>
           <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
         </Dropdown>
       }
-      hint="Please select an employee type."/>        
+      hint="Please select an employee type"/>        
     </Form>
   </div> 
 </>

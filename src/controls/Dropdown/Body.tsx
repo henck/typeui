@@ -61,12 +61,14 @@ const Body = styled(BodyBase).attrs(p => ({
   position:       absolute;
   z-index:        100;
   box-sizing:     border-box;
-  width:          100%;
   height:         1000px; /* We animate max-height based on child count. */
   overflow-y:     hidden;
+  ${p => !p.inline && css`width: 100%;`}
+  // Inline fill be placed over thick FieldWrapper's border.
+  ${p => p.inline && css`left: -2px; right: -2px;`}
 
   /* Border is grey, unless error. */
-  border:         solid 1px ${p => p.theme.normalColor};
+  border:         solid ${p => p.inline ? 2 : 1}px ${p => p.theme.normalColor};
   border-radius:  ${p => p.theme.radius}px;
 
   /* Background is theme background */
@@ -83,6 +85,11 @@ const Body = styled(BodyBase).attrs(p => ({
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;      
     `}
+    ${p.inline && css`
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom: none;
+    `}
   `}
   ${p => !p.upwards && css`
     top: calc(100% - 1px);
@@ -93,6 +100,11 @@ const Body = styled(BodyBase).attrs(p => ({
       border-top-left-radius: 0px;
       border-top-right-radius: 0px; 
     `}
+    ${p.inline && css`
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-top: none;
+    `}    
   `}
 
   /* Border color, max-height and opacity are transitioned 
@@ -111,9 +123,7 @@ const Body = styled(BodyBase).attrs(p => ({
     transition: opacity ${p => p.theme.transition.duration*3}s ease-in, 
                 max-height ${p => p.theme.transition.duration*3}s ease-in, 
                 border-color ${p => p.theme.transition.duration*3}s ease-in;
-    ${!p.inline && css`
-      border-color: ${p => lighten(0.25, p.theme.primaryColor)};
-    `}
+    border-color: ${p => lighten(0.25, p.theme.primaryColor)};
     opacity: 1;
     max-height: ${p.totalHeight}px;
   `}

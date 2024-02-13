@@ -23,7 +23,7 @@ const Row = styled(RowBase)`
 
   /* Row has a top/bottom border depending on opening direction. */
   ${p => p.upwards && css`
-    border-bottom: solid 1px ${p.theme.normalColor};
+      border-bottom: solid 1px ${p.theme.normalColor};
   `}
   ${p => !p.upwards && css`
     border-top: solid 1px ${p.theme.normalColor};
