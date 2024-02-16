@@ -43,8 +43,8 @@ const SelectorBase = (props: ISelectorProps) => {
         {/* Make sure an empty placeholder does occupy some space: */}
         {props.children == null ? <>&nbsp;</> : ""}
       </span>
-      <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
-      <svg onClick={handleClear}><use xlinkHref={"spritemap.svg#times"}></use></svg>
+      <svg><use xlinkHref={"/spritemap.svg#caret-down"}></use></svg>
+      <svg onClick={handleClear}><use xlinkHref={"/spritemap.svg#times"}></use></svg>
     </div>
   )
 }

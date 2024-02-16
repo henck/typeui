@@ -116,15 +116,15 @@ const SelectorBase = (props: ISelectorProps) => {
     <div className={props.className}>
       <Body>
         <NavBar>
-          <NavButton className="left" onClick={handlePrevYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
-          <NavButton className="left" onClick={handlePrevMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
+          <NavButton className="left" onClick={handlePrevYear}><use xlinkHref={"/spritemap.svg#chevron-double"}></use></NavButton>
+          <NavButton className="left" onClick={handlePrevMonth}><use xlinkHref={"/spritemap.svg#chevron"}></use></NavButton>
           <NavLabel>
             <NavMonth>{date.toLocaleString(undefined, { month: 'long'})}</NavMonth>
             <NavYear>{date.getFullYear()}</NavYear>
           </NavLabel>
-          <NavButton className="right" onClick={handleNextMonth}><use xlinkHref={"spritemap.svg#chevron"}></use></NavButton>
-          <NavButton className="right" onClick={handleNextYear}><use xlinkHref={"spritemap.svg#chevron-double"}></use></NavButton>
-          <NavButton className="right" onClick={handleCancel}><use xlinkHref={"spritemap.svg#times"}></use></NavButton>
+          <NavButton className="right" onClick={handleNextMonth}><use xlinkHref={"/spritemap.svg#chevron"}></use></NavButton>
+          <NavButton className="right" onClick={handleNextYear}><use xlinkHref={"/spritemap.svg#chevron-double"}></use></NavButton>
+          <NavButton className="right" onClick={handleCancel}><use xlinkHref={"/spritemap.svg#times"}></use></NavButton>
         </NavBar>
         <Month>
           {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day, index) => 

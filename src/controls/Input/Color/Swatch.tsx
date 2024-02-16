@@ -14,7 +14,7 @@ const SwatchBase = (props: IProps) =>
   <div className={props.className}>
     <div onClick={props.onClick}></div>
     <svg onClick={props.onToggle}>
-      <use xlinkHref={`spritemap.svg#${props.locked ? 'lock' : 'unlock'}`}></use>
+      <use xlinkHref={`/spritemap.svg#${props.locked ? 'lock' : 'unlock'}`}></use>
     </svg>
   </div>
 

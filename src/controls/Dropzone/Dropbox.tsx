@@ -61,7 +61,7 @@ class DropboxBase extends React.Component<IDropboxProps, {}> {
 
         <div>{p.message ? p.message : "Drop a file here to upload, or click to select."}</div>
         <svg>
-          <use xlinkHref={"spritemap.svg#cloud-upload"}></use>
+          <use xlinkHref={"/spritemap.svg#cloud-upload"}></use>
         </svg>
         <input
           ref={(el:any) => this.inputElement = el}

@@ -24,7 +24,7 @@ interface IAccordionHeaderProps {
 }
 
 const AccordionHeaderBase = (props: IAccordionHeaderProps) => {
-  const svg = <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>
+  const svg = <svg><use xlinkHref={"/spritemap.svg#caret-down"}></use></svg>
   return (
     <div className={props.className} onClick={props.onClick}>
       {(!props.align || props.align === 'left') && svg}

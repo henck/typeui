@@ -34,7 +34,7 @@ interface IHeaderProps {
 }
 
 const HeaderBase = (props: IHeaderProps) => {
-  const svg = <svg><use xlinkHref={"spritemap.svg#caret-down"}></use></svg>;
+  const svg = <svg><use xlinkHref={"/spritemap.svg#caret-down"}></use></svg>;
   return (
     <Ripple type={'div'} className={props.className} onClick={props.onClick}>
       {props.align !== 'right' && svg}

@@ -17,7 +17,7 @@ const ClearBase = (props: IProps) => {
 
   return (
     <svg className={props.className} onClick={handleClick}>
-      <use xlinkHref={"spritemap.svg#times"}></use>
+      <use xlinkHref={"/spritemap.svg#times"}></use>
     </svg>
   )
 }

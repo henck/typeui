@@ -63,7 +63,7 @@ const CheckboxBase = (props: ICheckboxProps) => {
         onChange={handleChange}/>
       <div>
         <svg>
-          <use xlinkHref={"spritemap.svg#check"}></use>
+          <use xlinkHref={"/spritemap.svg#check"}></use>
         </svg>          
       </div>
       <span>{props.label}</span>

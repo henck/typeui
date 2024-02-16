@@ -25,7 +25,7 @@ const SelectionBase = (props: IProps) => {
   return (
     <div className={props.className} onClick={handleClick}>
       {props.children}
-      <svg><use xlinkHref={"spritemap.svg#times"}></use></svg>
+      <svg><use xlinkHref={"/spritemap.svg#times"}></use></svg>
     </div>
   )
 }

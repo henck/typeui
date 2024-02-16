@@ -100,7 +100,7 @@ class IconBase extends React.Component<IIconProps> {
     return (
       <svg className={p.className} onClick={p.onClick} focusable="false">
         {p.title && <title>{p.title}</title>}
-        {p.name && <use xlinkHref={"spritemap.svg#" + p.name}></use>}
+        {p.name && <use xlinkHref={"/spritemap.svg#" + p.name}></use>}
         {p.url && <use xlinkHref={p.url}></use>}
       </svg>
     )
