@@ -56,7 +56,7 @@ const FieldWrapper = styled(FieldWrapperBase)`
       border-color: ${lighten(0.25, p.theme.primaryColor)};
     }
     /* Label */
-    &>*:nth-child(1) {
+    & > *:nth-child(1) {
       padding-left: 15px;
       padding-right: 14px;
       line-height: 12px;
@@ -65,10 +65,9 @@ const FieldWrapper = styled(FieldWrapperBase)`
       font-variant: all-small-caps;      
       opacity: ${p.error ? 0 : 1};
       color: #2C4253;
-
     }
     /* Hint/error */
-    &>*:nth-child(3) {
+    & > *:nth-child(3) {
       position: absolute;
       ${p.error && css`left: 12px;`}
       ${!p.error && css`right: 12px;`}

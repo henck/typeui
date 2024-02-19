@@ -41,6 +41,9 @@ const Label = styled(LabelBase)`
   font-size: 80%;
   margin-right: 1em;
   color: ${p => lighten(0.5, p.theme.fontColor)};
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 
   /* Ordinarily, labels are displayed above the field control: */
   display: block;
