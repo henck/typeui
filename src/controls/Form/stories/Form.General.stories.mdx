@@ -88,6 +88,7 @@ export const FieldTemplate = (args) =>
         value={"First name"}
         control={(<Input type="text" placeholder="First name" fluid/>)}
         hint={<span>Please provide the employee's first name, e.g. <kbd>John</kbd></span>}/>    
+      <div style={{display:'flex'}}>
       <Form.Field
         required={{message: ""}}
         width={1} label="FIRST NAME (NO HINT)"
@@ -114,6 +115,7 @@ export const FieldTemplate = (args) =>
         boxed
         value={null}
         control={(<Input transparent type="date" placeholder="Date" fluid/>)}/>        
+      </div>
       </Form>
     </div>
   </ThemeProvider>

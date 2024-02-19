@@ -61,8 +61,11 @@ const FieldWrapper = styled(FieldWrapperBase)`
       padding-right: 14px;
       line-height: 12px;
       font-size: 12px;
+      font-weight: 700;
       font-variant: all-small-caps;      
       opacity: ${p.error ? 0 : 1};
+      color: #2C4253;
+
     }
     /* Hint/error */
     &>*:nth-child(3) {
@@ -72,9 +75,9 @@ const FieldWrapper = styled(FieldWrapperBase)`
       top: 12px;
       line-height: 12px;
       font-size: 12px;
-      font-variant: all-small-caps;            
+      font-weight: 700;
+      font-variant: all-small-caps;
     }
-
   `}
 
   // Applies only to boxed fields.
