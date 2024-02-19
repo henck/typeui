@@ -15,13 +15,13 @@ interface IRowProps {
 }
 
 const RowBase = (props: IRowProps) => {
-  return (
-    // If row is clickable, wrap in a Ripple:
-    props.onClick ? 
-      <Ripple type='div' className={props.className} style={{top: props.top + 'px'}} onClick={props.onClick}>{props.children}</Ripple>
-    : 
-      <div className={props.className} style={{top: props.top + 'px'}} onClick={props.onClick}>{props.children}</div>
-  );
+  const row = <div className={props.className} style={{top: props.top + 'px'}} onClick={props.onClick}>{props.children}</div>;
+  // If row is clickable, wrap in a Ripple:
+  if(props.onClick) {
+    return <Ripple>{row}</Ripple>
+  } else {
+    return row;
+  }
 }
 
 const RowStyled = styled(RowBase)`

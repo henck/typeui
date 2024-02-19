@@ -2,56 +2,36 @@ import * as React from 'react';
 import { HslColor } from '../../helper/HslColor';
 import { RgbColor } from '../../helper/RgbColor';
 
-interface IRippleProps {
-  /** Element to instantiate */
-  type: string; 
-  /** Element's children, if any */
+interface IProps {
   children?: React.ReactNode;
 }
 
-// Ripple adds "any" to props, thus accepting any prop that 
-// it will forward to the element it creates.
-class Ripple extends React.Component<IRippleProps & any> {
-  private ref: React.RefObject<HTMLElement>;
-  private rippleX: number;
-  private rippleY: number;
-  private animationFrame: number;
-  private animationID: number;
+const Ripple = (props: IProps) => {
+  const ref = React.useRef<HTMLElement>(null);
+  const animationID = React.useRef<number>(null);
 
-  constructor(props: IRippleProps) {
-    super(props);
-    this.ref = React.createRef<HTMLElement>();
-  }
-
-  componentWillUnmount() {
+  React.useEffect(() => {
     // End animation if it is running.
-    this.stopAnimation();
-  }
+    return () => stopAnimation();
+  }, []);
 
-  private handleMouseDown = (e: React.MouseEvent) => {
-    this.stopAnimation();
+  const handleMouseDown = (e: React.MouseEvent) => {
+    stopAnimation();
 
     // Determine (x,y) inside element where mouse was pressed,
     // in percentages.
-    let rect = this.ref.current.getBoundingClientRect();
-    this.rippleX = Math.round((e.nativeEvent.clientX - rect.left) * 100 / rect.width);
-    this.rippleY = Math.round((e.nativeEvent.clientY - rect.top) * 100 / rect.height);
+    const rect = ref.current.getBoundingClientRect();
+    const rippleX = Math.round((e.nativeEvent.clientX - rect.left) * 100 / rect.width);
+    const rippleY = Math.round((e.nativeEvent.clientY - rect.top) * 100 / rect.height);
 
-    // A small timeout is necessary to allow the subcomponent to 
-    // render itself, so that we can pick the current color from it.
-    this.startAnimation();
+    animationID.current = requestAnimationFrame(() => animate(rippleX, rippleY, 0));
   }
 
-  private stopAnimation = () => {
-    this.animationFrame = 0;
-    if(this.animationID) cancelAnimationFrame(this.animationID);
+  const stopAnimation = () => {
+    if(animationID.current) cancelAnimationFrame(animationID.current);
   }
 
-  private startAnimation = () => {
-    this.animationID = requestAnimationFrame(this.animate);
-  }
-
-  private easeInOutQuad = (t: number) => { 
+  const easeInOutQuad = (t: number) => { 
     // The functions below are actually in the range t = [0..2],
     // which is why we multiply t by 2 first.
     t = t * 2;
@@ -60,55 +40,53 @@ class Ripple extends React.Component<IRippleProps & any> {
     return 2 * (t-2) * (t-2);
   }
 
-  private animate = () => {
+  const animate = (rippleX: number, rippleY: number, percentage: number) => {
     // Do not animate after component is destroyed.
-    if(this.ref.current === null) return;
+    if(ref.current === null) return;
 
     // Get the element's original background color.
-    let backgroundColor = getComputedStyle(this.ref.current).backgroundColor;
+    let backgroundColor = getComputedStyle(ref.current).backgroundColor;
     // Store HSL version of background color of ripple's element.
     let backgroundHSL = HslColor.FromRgb(RgbColor.FromString(backgroundColor));
     
     // Calculate lightness increase/decrease from animation frame.
-    let lightDiff = this.easeInOutQuad(this.animationFrame/100) * 0.1;
+    let lightDiff = easeInOutQuad(percentage / 100) * 0.1;
     // If the original element has a lightness of over 50%, then 
     // we ADD the increase, otherwise we subtract it.
     if(backgroundHSL.lightness > 0.5) lightDiff = -lightDiff;
     let light = lightDiff + backgroundHSL.lightness;
     // Build HSL for the lightcolor.
     let lightColor = `hsl(${backgroundHSL.hue}, ${Math.round(backgroundHSL.saturation * 100)}%, ${Math.round(light*100)}%)`;
-    // Calculate ripple size from animation frame.
-    let rippleSize = this.animationFrame;
     // Apply ripple background image.
-    this.ref.current.style.backgroundImage =
+    ref.current.style.backgroundImage =
       `radial-gradient(
-        circle at ${this.rippleX}% ${this.rippleY}%, 
+        circle at ${rippleX}% ${rippleY}%, 
         ${lightColor} 0%, 
-        ${lightColor} ${rippleSize}%, 
+        ${lightColor} ${percentage}%, 
         ${backgroundColor} 
-        ${rippleSize}%, 
+        ${percentage}%, 
         ${backgroundColor})`;
     // Go to next frame.
-    this.animationFrame += 3;
+    percentage += 3;
 
     // Stop animation when we hit a ripple of 100%.
-    if(this.animationFrame <= 100) {
-      requestAnimationFrame(this.animate);
-    } else if(this.animationID) {
-      cancelAnimationFrame(this.animationID);
-      this.animationID = 0;
+    if(percentage <= 100) {
+      requestAnimationFrame(() => animate(rippleX, rippleY, percentage));
+    } else if(animationID.current) {
+      cancelAnimationFrame(animationID.current);
+      animationID.current = 0;
     }
   }
 
-  render() {
-    let p = {
-      ...this.props,
-      ref: this.ref,
-      onMouseDown: this.handleMouseDown
-    }
+  // Render children, given them a ref:
+  const ChildComponentWithRef = React.forwardRef((childProps, ref) => 
+    React.cloneElement(props.children as any, {
+      ...childProps,
+      onMouseDown: handleMouseDown,
+      ref
+    })
+  );
+  return <ChildComponentWithRef ref={ref} />
+}
 
-    return React.createElement((p as any).type, p, p.children);
-  }
-}  
-
-export { Ripple };
+export { Ripple }

@@ -101,10 +101,11 @@ interface IButtonProps {
 // The InnerBase is the actual <button> element (created by a Ripple).
 //
 const ButtonInnerBase = (props: IButtonProps) => {
-  if(props.noripple || props.disabled) {
-    return <button className={props.className}>{props.children}</button>
+  const inner = <button className={props.className}>{props.children}</button>;
+  if(props.noripple) {
+    return inner;
   } else {
-    return <Ripple type="button" className={props.className}>{props.children}</Ripple>
+    return <Ripple>{inner}</Ripple>;
   }
 }
 
