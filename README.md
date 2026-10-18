@@ -4,31 +4,35 @@ Bootstrap getting old hat? SemanticUI too heavy? Prefer React and TypeScript? Ty
 
 ## Installation 
 ```sh
-npm install @independent-software/typeui --save
+npm install @independent-software/typeui
 yarn add @independent-software/typeui
-bower install @independent-software/typeui --save
 ```
 
 TypeUI requires React 19 and styled-components 6, which your app must install itself:
 
 ```sh
-npm install react react-dom styled-components --save
+npm install react react-dom styled-components
 ```
+
+### Icons
+
+TypeUI's icons are served from a single SVG sprite, `spritemap.svg`, which is included in the package. Components load it from the root of your site (`/spritemap.svg`), so copy it into your app's public directory as part of your build:
+
+```sh
+cp node_modules/@independent-software/typeui/spritemap.svg public/
+```
+
+Without it, icons (including those inside controls such as dropdowns and inputs) will not appear.
 
 ## Documentation
 
 Storybook available as [GitHub pages](https://henck.github.io/typeui/).
-
-## Projects
-
-You can see TypeUI in action on [recharts.online](http://recharts.online).
 
 ## Usage
 
 This package has a built-in theme, which must be passed on to any controls your app uses. You can derive new themes from the default theme. The required imports are:
 
 ```jsx
-import * as React from 'react'
 import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 import { Theme } from '@independent-software/typeui/styles/Theme'
@@ -68,22 +72,12 @@ This project was built in TypeScript and comes with TypeScript type definitions,
 
 ## Notes
 
-### Tree shaking
+### Importing components
 
-The ES2015 `import` statements in this package are structured in a way that promotes tree shaking in Webpack. If an application imports only a few components from this library, then (for production builds) Webpack will not include the unused components, which can greatly reduce the size of the application package. 
-
-This `import` statement will import just the `Button` component:
+Each component is imported from its own path, so your app's bundle only includes the components you actually use. For example, this imports just the `Button` component:
 
 ```jsx
-import { Button } from '@independent-software/typeui/controls/button'
+import { Button } from '@independent-software/typeui/controls/Button'
 ```
 
-For tree shaking to work, be sure to set the following in your Webpack config file:
-
-```json
-optimization: {
-  usedExports: true
-}
-```
-
-as well as `mode: 'production'`.
+Paths are case-sensitive: use `controls/Button`, not `controls/button`.
