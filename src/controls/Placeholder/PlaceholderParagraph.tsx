@@ -36,4 +36,4 @@ const PlaceholderParagraphStyled = styled(PlaceholderParagraphBase)`
 const PlaceholderParagraph = (props: IPlaceholderParagraphProps) =>
   <PlaceholderParagraphStyled {...props}/>
 
-export { PlaceholderParagraph, IPlaceholderParagraphProps }
+export { PlaceholderParagraph, type IPlaceholderParagraphProps }

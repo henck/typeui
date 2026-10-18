@@ -1,0 +1,102 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Icon} from '../Icon';
+import {Segment} from '../../Segment';
+import * as IconVariationsStories from './Icon.Variations.stories';
+
+# Icon: Variations
+
+.
+
+<Meta of={IconVariationsStories} />
+
+## bordered
+
+An icon can be `bordered`. The effect can be `inverted`.
+
+<Canvas>
+  <Story of={IconVariationsStories.Bordered} />
+</Canvas>
+
+## circular
+
+An icon can be `circular`. The effect can be `inverted`.
+
+<Canvas>
+  <Story of={IconVariationsStories.Circular} />
+</Canvas>
+
+## color
+
+An icon can have a different `color`.
+
+<Canvas>
+  <Story of={IconVariationsStories.Color} />
+</Canvas>
+
+## cornered
+
+An icon can be `cornered`. The effect can be `inverted`.
+
+<Canvas>
+  <Story of={IconVariationsStories.Cornered} />
+</Canvas>
+
+## flipped
+
+An icon can be `flipped`.
+
+<Canvas>
+  <Story of={IconVariationsStories.Flipped} />
+</Canvas>
+
+## float
+
+An icon can float to the `left` or to the `right`.
+
+<Canvas>
+  <Story of={IconVariationsStories.Float} />
+</Canvas>
+
+## loading
+
+An icon can have a simple `loading` animation.
+
+<Canvas>
+  <Story of={IconVariationsStories.Loading} />
+</Canvas>
+
+## mirrored
+
+An icon can be `mirrored`.
+
+<Canvas>
+  <Story of={IconVariationsStories.Mirrored} />
+</Canvas>
+
+## rotated
+
+An icon can be `rotated` by degrees.
+
+<Canvas>
+  <Story of={IconVariationsStories.Rotated} />
+</Canvas>
+
+## size
+
+Icons can have a different `size`.
+
+Note that icon sizes are in `em` and thus relative to the parent container.
+
+Any icon border will scale its thickness with the icon size.
+
+<Canvas>
+  <Story of={IconVariationsStories.Size} />
+</Canvas>
+
+## title
+
+An icon can have an optional `title`.
+
+<Canvas>
+  <Story of={IconVariationsStories.Title} />
+</Canvas>

@@ -5,6 +5,6 @@ interface IContentProps {
     children?: React.ReactNode;
 }
 declare class Content extends React.Component<IContentProps> {
-    render: () => JSX.Element;
+    render: () => React.JSX.Element;
 }
 export { Content };

@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { Float } from '../Types';
 interface ICellProps {
+    /** @ignore */
     className?: string;
-    children?: React.ReactNode;
+    /** @ignore */
+    children?: (item: any) => React.ReactNode;
     item: any;
     /** Column weight. Defaults to 1. */
     weight?: number;
     /** Text alignment. Defaults to 'left'. */
     align?: Float;
+    /** Gap between columns. */
+    gap?: number;
 }
-declare class CellBase extends React.Component<ICellProps, {}> {
-    render(): JSX.Element;
-}
-declare const Cell: import("styled-components").StyledComponent<typeof CellBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Cell: import("styled-components/dist/types").IStyledComponentBase<"web", ICellProps> & string & Omit<(props: ICellProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Cell };

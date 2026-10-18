@@ -13,6 +13,8 @@ import { Day } from './Day';
 interface ISelectorProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  nodeRef?: React.Ref<HTMLDivElement>;
   /** If true, do not accept future dates (beyond today). */
   nofuture?: boolean;
   value: any;
@@ -113,7 +115,7 @@ const SelectorBase = (props: ISelectorProps) => {
   }
 
   return (
-    <div className={props.className}>
+    <div className={props.className} ref={props.nodeRef}>
       <Body>
         <NavBar>
           <NavButton className="left" onClick={handlePrevYear}><use xlinkHref={"/spritemap.svg#chevron-double"}></use></NavButton>

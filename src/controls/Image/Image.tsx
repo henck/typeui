@@ -213,4 +213,4 @@ const Image = (props: IImageProps) => <ImageStyled {...props}></ImageStyled>;
 Image.Group = ImageGroup;
 
 
-export { Image, IImageProps, ImageStyled }
+export { Image, type IImageProps, ImageStyled }

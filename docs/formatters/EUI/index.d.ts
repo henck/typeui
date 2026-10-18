@@ -1,2 +1,1 @@
-import { EUI } from './EUI';
-export { EUI };
+export { EUI } from './EUI';

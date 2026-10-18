@@ -1,0 +1,17 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Message} from '../Message';
+import * as MessagePropertiesStories from './Message.Properties.stories';
+
+<Meta of={MessagePropertiesStories} />
+
+# Message
+
+Displays an informational message block.
+
+<ArgTypes of={Message} />
+
+## Standard Message
+
+<Canvas>
+  <Story of={MessagePropertiesStories.Properties} />
+</Canvas>

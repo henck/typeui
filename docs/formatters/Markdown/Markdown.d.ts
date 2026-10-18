@@ -13,6 +13,6 @@ declare class Markdown extends React.Component<IMarkdownProps> {
      * ordered or bulleted. react-markdown provides an ordered:boolean.
      */
     private listRenderer;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { Markdown };

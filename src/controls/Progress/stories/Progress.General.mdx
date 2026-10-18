@@ -1,0 +1,25 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { Progress } from '../Progress';
+import * as ProgressGeneralStories from './Progress.General.stories';
+
+# Progress: General
+
+.
+
+<Meta of={ProgressGeneralStories} />
+
+## value
+
+The `value` property is required. This must be a value between `0` and `100`.
+
+<Canvas>
+  <Story of={ProgressGeneralStories.Value} />
+</Canvas>
+
+## onClick
+
+If an `onClick` event handler is set, then the `Progress` is clickable.
+
+<Canvas>
+  <Story of={ProgressGeneralStories.OnClick} />
+</Canvas>

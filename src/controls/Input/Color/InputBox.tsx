@@ -19,7 +19,7 @@ const InputBoxBase = (props: IInputProps & IProps) =>
     {!props.value && props.placeholder}
   </div>
 
-const InputBox = styled(InputBoxBase).attrs(p => ({
+const InputBox = styled(InputBoxBase).attrs<{ iconPos?: string }>(p => ({
   iconPos: !p.iconPosition ? 'left' : p.iconPosition
 }))`
   position: relative;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-declare type TUnit = 'si' | 'binary';
+type TUnit = 'si' | 'binary';
 interface IFilesizeProps {
     /**
      * File size in bytes

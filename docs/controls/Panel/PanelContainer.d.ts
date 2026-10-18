@@ -2,6 +2,8 @@ import * as React from 'react';
 interface IPanelContainerProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
+    nodeRef?: React.Ref<HTMLDivElement>;
     children?: React.ReactNode;
     /** Anchor element to base positioning of body on. */
     anchor: HTMLDivElement;
@@ -18,6 +20,6 @@ declare class PanelContainer extends React.Component<IPanelContainerProps> {
     private offset;
     constructor(props: IPanelContainerProps);
     componentDidMount(): void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { PanelContainer };

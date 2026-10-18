@@ -9,7 +9,7 @@ interface ICellProps {
   /** @ignore */
   className?: string;
   /** @ignore */
-  children?: React.ReactNode;
+  children?: (item: any) => React.ReactNode;
   item: any;
   /** Column weight. Defaults to 1. */
   weight?: number;
@@ -22,7 +22,7 @@ interface ICellProps {
 const CellBase = (props: ICellProps) =>
   // Item function is only called when item is not null.
   <div className={props.className}>
-    {props.item !== null && (props.children as any)(props.item)}
+    {props.item !== null && props.children(props.item)}
   </div>
 
 const Cell = styled(CellBase)`

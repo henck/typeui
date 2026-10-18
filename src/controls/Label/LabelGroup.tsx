@@ -54,4 +54,4 @@ const LabelGroupStyled = styled(LabelGroupBase)`
 
 const LabelGroup = (props: ILabelGroupProps) => <LabelGroupStyled {...props}/>
 
-export { LabelGroup, ILabelGroupProps }
+export { LabelGroup, type ILabelGroupProps }

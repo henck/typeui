@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Float } from '../Types';
 interface IAccordionHeaderProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /** Callback when header clicked. */
     onClick?: () => void;
@@ -12,8 +14,5 @@ interface IAccordionHeaderProps {
     /** Align caret icon to left or right. */
     align?: Float;
 }
-declare class AccordionHeaderBase extends React.Component<IAccordionHeaderProps, {}> {
-    render(): JSX.Element;
-}
-declare const AccordionHeader: import("styled-components").StyledComponent<typeof AccordionHeaderBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const AccordionHeader: import("styled-components/dist/types").IStyledComponentBase<"web", IAccordionHeaderProps> & string & Omit<(props: IAccordionHeaderProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { AccordionHeader };

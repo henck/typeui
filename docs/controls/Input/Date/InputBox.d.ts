@@ -8,10 +8,9 @@ interface IDateInputProps {
      */
     defaultFormat: string;
 }
-declare class InputBoxBase extends React.Component<IInputProps & IDateInputProps, {}> {
-    render(): JSX.Element;
-}
-declare const InputBox: import("styled-components").StyledComponent<typeof InputBoxBase, import("../../../styles/Theme").IThemeInterface, {
-    iconPos: import("../../Types").Float;
-}, "iconPos">;
+declare const InputBox: import("styled-components/dist/types").IStyledComponentBase<"web", Omit<import("styled-components/dist/types").Merged<IInputProps & IDateInputProps, {
+    iconPos?: string;
+}>, "className" | "children" | "onFocus" | "onChange" | "onKeyDown" | "name" | "type" | "direction" | "format" | "disabled" | "value" | "maxLength" | "placeholder" | "transparent" | "icon" | "error" | "fluid" | "iconPosition" | "clearable" | "nofuture" | "hasSeconds" | "is24h" | "clock" | "autocomplete" | "iconPos" | "defaultFormat"> & Partial<Pick<import("styled-components/dist/types").Merged<IInputProps & IDateInputProps, {
+    iconPos?: string;
+}>, "className" | "children" | "onFocus" | "onChange" | "onKeyDown" | "name" | "type" | "direction" | "format" | "disabled" | "value" | "maxLength" | "placeholder" | "transparent" | "icon" | "error" | "fluid" | "iconPosition" | "clearable" | "nofuture" | "hasSeconds" | "is24h" | "clock" | "autocomplete" | "iconPos" | "defaultFormat">>> & string & Omit<(props: IInputProps & IDateInputProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { InputBox };

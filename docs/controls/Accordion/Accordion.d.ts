@@ -4,6 +4,7 @@ import { AccordionTab } from './AccordionTab';
 interface IAccordionProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /** Array of panel indices that are active (open) by default (0-based) */
     active?: number[];
@@ -57,8 +58,8 @@ interface IAccordionProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-accordion--properties
  */
-declare class Accordion extends React.Component<IAccordionProps, {}> {
-    static displayName: string;
+declare const Accordion: {
+    (props: IAccordionProps): React.JSX.Element;
     /**
      * Each accordion tab is an instance of Accordion.Tab.
      *
@@ -67,7 +68,6 @@ declare class Accordion extends React.Component<IAccordionProps, {}> {
      *   <p>A dog is a type of domesticated animal.</p>
      * </Accordion.Tab>
      */
-    static Tab: typeof AccordionTab;
-    render(): JSX.Element;
-}
+    Tab: (props: import("./AccordionTab").IAccordionTabProps) => React.JSX.Element;
+};
 export { Accordion, AccordionTab };

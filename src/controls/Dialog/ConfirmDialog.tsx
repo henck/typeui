@@ -39,4 +39,4 @@ const  ConfirmDialog = (props: IConfirmDialogProps) =>
     </Dialog.Footer>
   </Dialog>
 
-export { ConfirmDialog, IConfirmDialogProps };
+export { ConfirmDialog, type IConfirmDialogProps };

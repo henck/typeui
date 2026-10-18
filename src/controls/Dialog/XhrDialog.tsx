@@ -335,4 +335,4 @@ const XhrDialog = (props: IXhrDialogProps) => {
   );
 }
 
-export { XhrDialog, IXhrDialogProps };
+export { XhrDialog, type IXhrDialogProps };

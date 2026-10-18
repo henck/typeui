@@ -65,6 +65,7 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
   public static Icon = IconPanel;
 
   private panelElement: HTMLDivElement;
+  private containerRef = React.createRef<HTMLDivElement>();
 
   constructor(props: IPanelProps) {
     super(props);
@@ -107,8 +108,8 @@ class Panel extends React.Component<IPanelProps, IPanelState> {
     return (
       <div ref={(el:any) => this.panelElement = el}>
         <ThemeConsumer>
-          {(theme:IThemeInterface) => <CSSTransition in={p.open} timeout={theme.transition.duration*1000*3} appear unmountOnExit classNames="fade">
-            <PanelContainer anchor={this.state.anchor} noanimation={p.noanimation} padded={p.padded} width={p.width}>{p.children}</PanelContainer>
+          {(theme:IThemeInterface) => <CSSTransition nodeRef={this.containerRef} in={p.open} timeout={theme.transition.duration*1000*3} appear unmountOnExit classNames="fade">
+            <PanelContainer nodeRef={this.containerRef} anchor={this.state.anchor} noanimation={p.noanimation} padded={p.padded} width={p.width}>{p.children}</PanelContainer>
           </CSSTransition>}
         </ThemeConsumer>
       </div>

@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{n}from"./iframe-BMOsmv_G.js";import{n as r,t as i}from"./Tabs-I2q8lTMM.js";var a=t({Properties:()=>l,__namedExportsOrder:()=>u,default:()=>c}),o,s,c,l,u;function d(){return(d=e((()=>{r(),o=n(),s=e=>(0,o.jsxs)(i,{...e,children:[(0,o.jsxs)(i.Pane,{label:`One`,children:[(0,o.jsx)(`p`,{children:`Content for first tab.`}),(0,o.jsx)(`p`,{children:`Additional line of content.`})]}),(0,o.jsx)(i.Pane,{label:`Two`,children:`Content for second tab.`}),(0,o.jsx)(i.Pane,{label:`Three`,children:`Content for third tab.`})]}),c={title:`Controls/Tabs`,component:i,subcomponents:{"Tabs.Pane":i.Pane},argTypes:{className:{table:{disable:!0}}}},l={render:s.bind({}),name:`Properties`,args:{}},u=[`Properties`],l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'Properties',
+  args: {}
+}`,...l.parameters?.docs?.source}}}})))()}export{a as n,d as r,l as t};

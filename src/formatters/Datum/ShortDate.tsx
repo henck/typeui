@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { format } from 'date-fns';
+import type { Locale } from 'date-fns';
 
 interface IProps {
   value: Date | string;

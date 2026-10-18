@@ -1,0 +1,24 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Checkbox} from '../Checkbox';
+import {Icon} from '../../Icon';
+import * as CheckboxPropertiesStories from './Checkbox.Properties.stories';
+
+<Meta of={CheckboxPropertiesStories} />
+
+# Checkbox
+
+A Checkbox can be used to create either a HTML checkbox or a HTML radio button.
+
+Note that the property that indicates whether the checkbox is currently checked
+is named `checked`.
+
+<ArgTypes of={Checkbox} />
+
+## Default Checkbox
+
+A standard `Checkbox` appears as a box. The `type` can be changed to three
+alternative displays.
+
+<Canvas>
+  <Story of={CheckboxPropertiesStories.Properties} />
+</Canvas>

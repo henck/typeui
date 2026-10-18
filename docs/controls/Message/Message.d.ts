@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { VerticalDirection, HorizontalAlignment } from '../Types';
-import { MessageHeader } from './MessageHeader';
-import { MessageContent } from './MessageContent';
-declare type TMessageType = 'info' | 'warning' | 'success' | 'error';
+type TMessageType = 'info' | 'warning' | 'success' | 'error';
 interface IMessageProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Setting `icon` will apply layout to the message to a allow a left-align icon.
@@ -49,9 +48,9 @@ interface IMessageProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-message--properties
  */
-declare class Message extends React.Component<IMessageProps> {
-    static Header: typeof MessageHeader;
-    static Content: typeof MessageContent;
-    render: () => JSX.Element;
-}
-export { Message, TMessageType };
+declare const Message: {
+    (props: IMessageProps): React.JSX.Element;
+    Header: (props: import("./MessageHeader").IMessageHeaderProps) => React.JSX.Element;
+    Content: (props: import("./MessageContent").IMessageContentProps) => React.JSX.Element;
+};
+export { Message, type TMessageType };

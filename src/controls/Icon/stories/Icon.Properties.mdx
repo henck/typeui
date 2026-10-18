@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Icon} from '../Icon';
+import * as IconPropertiesStories from './Icon.Properties.stories';
+
+<Meta of={IconPropertiesStories} />
+
+# Icon
+
+Displays an icon.
+
+<ArgTypes of={Icon} />
+
+## Default
+
+A standard icon. The `name` property is used to pick an icon from the built-in
+icons.
+
+<Canvas>
+  <Story of={IconPropertiesStories.Properties} />
+</Canvas>

@@ -1,0 +1,34 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Icon} from '../Icon';
+import * as IconGeneralStories from './Icon.General.stories';
+
+# Icon: General
+
+.
+
+<Meta of={IconGeneralStories} />
+
+## url
+
+An icon with a custom URL. If you want to use an icon from a spritesheet other than the built-in spritesheet,
+you can pass its URL using the `url` attribute (and omit the `name` attribute).
+
+<Canvas>
+  <Story of={IconGeneralStories.Url} />
+</Canvas>
+
+## disabled
+
+An icon can show that it is `disabled`.
+
+<Canvas>
+  <Story of={IconGeneralStories.Disabled} />
+</Canvas>
+
+## onClick
+
+An icon with an `onClick` attribute has a hover transition.
+
+<Canvas>
+  <Story of={IconGeneralStories.OnClick} />
+</Canvas>

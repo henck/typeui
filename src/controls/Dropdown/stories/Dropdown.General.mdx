@@ -1,0 +1,46 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Dropdown} from '../Dropdown';
+import {Form} from '../../Form';
+import {Label} from '../../Label';
+import * as DropdownGeneralStories from './Dropdown.General.stories';
+
+# Dropdown: General
+
+.
+
+<Meta of={DropdownGeneralStories} />
+
+## Columns
+
+A dropdown can show multiple columns. Each `Dropdown.Column` must have
+a single child that is a formatting function for an item, e.g.
+`(item) => item.name`
+
+<Canvas>
+  <Story of={DropdownGeneralStories.Columns} />
+</Canvas>
+
+## multiple
+
+A dropdown can allow `multiple` selection. Items can be removed from the
+selection set by clicking them.
+
+<Canvas>
+  <Story of={DropdownGeneralStories.Multiple} />
+</Canvas>
+
+## disabled
+
+A `disabled` `Dropdown` cannot be interacted with.
+
+<Canvas>
+  <Story of={DropdownGeneralStories.Disabled} />
+</Canvas>
+
+## error
+
+A `Dropdown` can be in an `error` state.
+
+<Canvas>
+  <Story of={DropdownGeneralStories.Error} />
+</Canvas>

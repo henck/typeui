@@ -34,4 +34,4 @@ class ToastService {
   }
 }
 
-export { ToastService, IToastSubscriber };
+export { ToastService, type IToastSubscriber };

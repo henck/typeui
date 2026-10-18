@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { DmsInput } from '../DmsInput';
+import { Form } from '../../../controls/Form';
+import * as DmsInputPropertiesStories from './DmsInput.Properties.stories';
+
+<Meta of={DmsInputPropertiesStories} />
+
+# DmsInput
+
+The `DmsInput` module provides a way to input latitudes or longitudes
+either through degrees, minutes and seconds, or through a floating-point number.
+One format is converted into the other.
+
+<ArgTypes of={DmsInput} />
+
+## Example
+
+<Canvas>
+  <Story of={DmsInputPropertiesStories.Properties} />
+</Canvas>

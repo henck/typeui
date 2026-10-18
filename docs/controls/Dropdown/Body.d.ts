@@ -1,6 +1,8 @@
 import * as React from 'react';
 interface IBodyProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     open: boolean;
     error: boolean;
@@ -15,11 +17,11 @@ interface IBodyProps {
     /** Current search value */
     search?: string;
 }
-declare class BodyBase extends React.Component<IBodyProps, {}> {
-    render(): JSX.Element;
-}
-declare const Body: import("styled-components").StyledComponent<typeof BodyBase, import("../../styles/Theme").IThemeInterface, {
-    totalHeight: number;
-    totalInnerHeight: number;
-}, "totalHeight" | "totalInnerHeight">;
+declare const Body: import("styled-components/dist/types").IStyledComponentBase<"web", Omit<import("styled-components/dist/types").Merged<IBodyProps, {
+    totalHeight?: number;
+    totalInnerHeight?: number;
+}>, "search" | "className" | "children" | "open" | "inline" | "error" | "upwards" | "maxItems" | "onSearch" | "totalHeight" | "totalInnerHeight"> & Partial<Pick<import("styled-components/dist/types").Merged<IBodyProps, {
+    totalHeight?: number;
+    totalInnerHeight?: number;
+}>, "search" | "className" | "children" | "open" | "inline" | "error" | "upwards" | "maxItems" | "onSearch" | "totalHeight" | "totalInnerHeight">>> & string & Omit<(props: IBodyProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Body };

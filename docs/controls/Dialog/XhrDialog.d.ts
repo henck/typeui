@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import * as React from 'react';
 interface IXhrDialogProps {
     /**
      * Is the Dialog currently open?
@@ -18,5 +18,5 @@ interface IXhrDialogProps {
      */
     onRetry?: () => void;
 }
-declare const XhrDialog: (props: IXhrDialogProps) => JSX.Element;
-export { XhrDialog, IXhrDialogProps };
+declare const XhrDialog: (props: IXhrDialogProps) => React.JSX.Element;
+export { XhrDialog, type IXhrDialogProps };

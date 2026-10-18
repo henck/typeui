@@ -1,0 +1,55 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Image} from '../Image';
+import {Label} from '../../Label';
+import {Icon} from '../../Icon';
+import * as ImageGeneralStories from './Image.General.stories';
+
+# Image: General
+
+<Meta of={ImageGeneralStories} />
+
+## alt
+
+An `Image` can take an `alt` property.
+
+<Canvas>
+  <Story of={ImageGeneralStories.Alt} />
+</Canvas>
+
+## title
+
+An `Image` can take a `title` property.
+
+<Canvas>
+  <Story of={ImageGeneralStories.Title} />
+</Canvas>
+
+## disabled
+
+An `Image` can be `disabled`. Note that this is done using a CSS brightness `filter`.
+
+<Canvas>
+  <Story of={ImageGeneralStories.Disabled} />
+</Canvas>
+
+## error
+
+An Image that fails to load shows a grey box the same size as the image size.
+
+An `Image` can have children. These are only shown when the image fails to load. There should be one child potentially containing other children, otherwise they will overlap.
+
+The image in this demo is loaded with a delay of 1000ms (and does not exist.)
+
+<Canvas>
+  <Story of={ImageGeneralStories.Error} />
+</Canvas>
+
+## onClick
+
+An `Image` can have an `onClick` event.
+
+Clickable images get a "hand" cursor.
+
+<Canvas>
+  <Story of={ImageGeneralStories.OnClick} />
+</Canvas>

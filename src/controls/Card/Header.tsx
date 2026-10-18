@@ -34,4 +34,4 @@ const HeaderStyled = styled(HeaderBase)`
 
 const Header = (props: ICardHeaderProps) => <HeaderStyled {...props}></HeaderStyled>
 
-export { Header, ICardHeaderProps }
+export { Header, type ICardHeaderProps }

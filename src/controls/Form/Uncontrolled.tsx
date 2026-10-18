@@ -51,4 +51,4 @@ const Uncontrolled = (props: IProps) => {
   );
 }
 
-export { Uncontrolled, IProps }
+export { Uncontrolled, type IProps }

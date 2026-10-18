@@ -1,6 +1,8 @@
 import * as React from 'react';
 interface IProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     index: number;
     onClick: (index: number) => void;
@@ -15,8 +17,5 @@ interface IProps {
      */
     angleOffset: number;
 }
-declare class Slice extends React.Component<IProps, {}> {
-    static displayName: string;
-    render(): JSX.Element;
-}
-export { Slice };
+declare const Slice: (props: IProps) => React.JSX.Element;
+export { Slice, type IProps };

@@ -137,7 +137,7 @@ const CircularProgressBase = (props: ICircularProgressProps) => {
   );
 }
 
-const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
+const CircularProgressStyled = styled(CircularProgressBase).attrs<{ outerRadius?: number, innerRadius?: number, middleRadius?: number, actualThickness?: number, rad?: number }>(p => ({
   outerRadius: p.radius ? p.radius : DEFAULT_RADIUS,
   innerRadius: (p.radius ? p.radius : DEFAULT_RADIUS) - (p.thickness ? p.thickness : DEFAULT_THICKNESS),
   middleRadius: (p.radius ? p.radius : DEFAULT_RADIUS) - (p.thickness ? p.thickness : DEFAULT_THICKNESS) / 2,
@@ -174,4 +174,4 @@ const CircularProgressStyled = styled(CircularProgressBase).attrs(p => ({
 const CircularProgress = (props: ICircularProgressProps) =>
   <CircularProgressStyled{...props}/>
 
-export { CircularProgress, ICircularProgressProps }
+export { CircularProgress, type ICircularProgressProps }

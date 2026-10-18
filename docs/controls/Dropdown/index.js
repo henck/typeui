@@ -1,2 +1,1 @@
-import { Dropdown } from './Dropdown';
-export { Dropdown };
+export { Dropdown } from './Dropdown';

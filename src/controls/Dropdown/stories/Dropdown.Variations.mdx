@@ -1,0 +1,82 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Dropdown} from '../Dropdown';
+import {Icon} from '../../Icon';
+import {Form} from '../../Form';
+import {Label} from '../../Label';
+import * as DropdownVariationsStories from './Dropdown.Variations.stories';
+
+# Dropdown: Variations
+
+.
+
+<Meta of={DropdownVariationsStories} />
+
+## align
+
+Individual `Dropdown.Column` elements can have their content `align`
+to the `left` or to the `right`.
+
+<Canvas>
+  <Story of={DropdownVariationsStories.Align} />
+</Canvas>
+
+## gap
+
+The `gap` between columns in the body can be adjusted. By default it's `16` pixels.
+
+<Canvas>
+  <Story of={DropdownVariationsStories.Gap} />
+</Canvas>
+
+## clearable
+
+A `clearable` dropdown allows the user to clear the selection.
+
+<Canvas>
+  <Story of={DropdownVariationsStories.Clearable} />
+</Canvas>
+
+## fluid
+
+A `fluid` `Dropdown` fills all available horizontal space.
+
+<Canvas>
+  <Story of={DropdownVariationsStories.Fluid} />
+</Canvas>
+
+## inline
+
+An `inline` `Dropdown` is useful for a menu bar.
+
+<Canvas>
+  <Story of={DropdownVariationsStories.Inline} />
+</Canvas>
+
+## maxItems
+
+The maximum number of items a `Dropdown` shows defaults to 6.
+With `maxItems`, you can change this.
+
+<Canvas>
+  <Story of={DropdownVariationsStories.MaxItems} />
+</Canvas>
+
+## onSearch
+
+If an `onSearch` callback is provided, then the `Dropdown` will have a search box. When the user
+types in the search box, the callback is called with the search string. There is a debounce of 350ms
+in place so the search callback is not called too often. This gives your code an opportunity to provide
+the `Dropdown` with new items based on the search string.
+
+<Canvas>
+  <Story of={DropdownVariationsStories.OnSearch} />
+</Canvas>
+
+## weight
+
+Individual `Dropdown.Column` elements can have a `weight`. The default weight is `1`.
+This is useful to set different relative widths for different columns.
+
+<Canvas>
+  <Story of={DropdownVariationsStories.Weight} />
+</Canvas>

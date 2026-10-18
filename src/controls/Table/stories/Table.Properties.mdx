@@ -1,0 +1,21 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Table} from '../Table';
+import * as TablePropertiesStories from './Table.Properties.stories';
+
+<Meta of={TablePropertiesStories} />
+
+# Table
+
+A `Table` adds some standard styling to Table elements. Ordinary `th`
+and `td` elements are used inside. You must use `thead` and `tbody` for the
+styling to work correctly.
+
+<ArgTypes of={Table} />
+
+## Example
+
+This is a default `Table`.
+
+<Canvas>
+  <Story of={TablePropertiesStories.Properties} />
+</Canvas>

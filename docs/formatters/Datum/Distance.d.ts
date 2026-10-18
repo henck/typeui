@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { Locale } from 'date-fns';
 interface IProps {
     value: Date | string;
     locale?: Locale;
@@ -20,6 +21,6 @@ declare class DistanceDate extends React.Component<IProps, IState> {
     componentDidMount(): void;
     componentWillUnmount(): void;
     update: () => void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { DistanceDate };

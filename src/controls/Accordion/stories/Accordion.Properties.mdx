@@ -1,0 +1,28 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Accordion} from '../Accordion';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Flex} from '../../Flex';
+import {Message} from '../../Message';
+import * as AccordionPropertiesStories from './Accordion.Properties.stories';
+
+<Meta of={AccordionPropertiesStories} />
+
+# Accordion
+
+An `Accordion` is used to group content in panes that can be expanded individually.
+These panes can be styled and animated, and the pane titles can contain any JSX.
+
+By default, an Accordion only allows one pane to be open at any time. A `multiple`
+Accordion allows users to expand multiple panes.
+
+<ArgTypes of={Accordion} />
+
+## Default Accordion
+
+A standard `Accordion`. By default, the Accordion only allows a single tab
+to expand at any given time.
+
+<Canvas>
+  <Story of={AccordionPropertiesStories.Properties} />
+</Canvas>

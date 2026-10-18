@@ -8,6 +8,8 @@ import { IconStyled } from '../Icon/Icon';
 interface IToastProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  nodeRef?: React.Ref<HTMLDivElement>;
   message: React.ReactNode;
   /** 
    * Toast duration in ms. Default is 8000ms 
@@ -48,7 +50,7 @@ class ToastBase extends React.Component<IToastProps> {
   render() {
     let p = this.props;
     return (
-      <div className={p.className} onClick={this.handleClick}>
+      <div className={p.className} ref={p.nodeRef} onClick={this.handleClick}>
         <Icon name="bullhorn" color="#fff"/>
         <div>
           {p.message}

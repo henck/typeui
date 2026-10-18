@@ -48,4 +48,4 @@ const ListContentStyled = styled(ListContentBase)`
 
 const ListContent = (props: IListContentProps) => <ListContentStyled {...props}/>
 
-export { ListContent, IListContentProps }
+export { ListContent, type IListContentProps }

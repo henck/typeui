@@ -1,0 +1,26 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Gravatar} from '../Gravatar';
+import * as GravatarGeneralStories from './Gravatar.General.stories';
+
+# Gravatar: General
+
+.
+
+<Meta of={GravatarGeneralStories} />
+
+## Size
+
+A gravatar may have a `size` prop. If not specified, it uses `avatar` size.
+
+<Canvas>
+  <Story of={GravatarGeneralStories.Size} />
+</Canvas>
+
+## Unknown
+
+If an `email` is not provided, then `Gravatar` will request the default "unknown user"
+image from the gravatar service.
+
+<Canvas>
+  <Story of={GravatarGeneralStories.Unknown} />
+</Canvas>

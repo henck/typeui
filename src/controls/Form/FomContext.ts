@@ -9,4 +9,4 @@ interface IFormContext {
 
 const FormContext = React.createContext<IFormContext | null>(null);
 
-export { IFormContext, FormContext };
+export { type IFormContext, FormContext };

@@ -1,0 +1,18 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Pane} from '../Pane';
+import * as PaneGeneralStories from './Pane.General.stories';
+
+# Pane: General
+
+.
+
+<Meta of={PaneGeneralStories} />
+
+## Pane.Icon
+
+The `Pane.Icon` is a shortcut for a `Pane` that opens when an `Icon` is
+clicked. It is self-closing.
+
+<Canvas>
+  <Story of={PaneGeneralStories.PaneIcon} />
+</Canvas>

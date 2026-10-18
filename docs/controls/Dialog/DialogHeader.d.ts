@@ -4,7 +4,7 @@ interface IDialogHeaderProps {
     children?: React.ReactNode;
 }
 declare const DialogHeader: {
-    (props: IDialogHeaderProps): JSX.Element;
+    (props: IDialogHeaderProps): React.JSX.Element;
     displayName: string;
 };
-export { DialogHeader, IDialogHeaderProps };
+export { DialogHeader, type IDialogHeaderProps };

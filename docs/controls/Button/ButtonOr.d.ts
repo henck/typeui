@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import * as React from 'react';
 import { Size } from '../Types';
 interface IButtonOrProps {
     /** @ignore */
@@ -9,5 +9,5 @@ interface IButtonOrProps {
      */
     size?: Size;
 }
-declare const ButtonOr: (props: IButtonOrProps) => JSX.Element;
-export { ButtonOr, IButtonOrProps };
+declare const ButtonOr: (props: IButtonOrProps) => React.JSX.Element;
+export { ButtonOr, type IButtonOrProps };

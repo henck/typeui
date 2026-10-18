@@ -1,0 +1,102 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Image} from '../Image';
+import {Label} from '../../Label';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import * as ImageVariationsStories from './Image.Variations.stories';
+
+# Image: Variations
+
+<Meta of={ImageVariationsStories} />
+
+## align
+
+An `Image` can specify its vertical alignment using `align` (either `top`, `center` or `bottom`).
+
+<Canvas>
+  <Story of={ImageVariationsStories.Align} />
+</Canvas>
+
+## avatar
+
+An `avatar` image has a fixed size, is circular and appears inline with text. This implies `inline`.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Avatar} />
+</Canvas>
+
+## bordered
+
+An image can be `bordered` to emphasize the edges of white or transparent content.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Bordered} />
+</Canvas>
+
+## centered
+
+An image can appear `centered` in a content block.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Centered} />
+</Canvas>
+
+## circular
+
+An `Image` may appear `circular`.
+
+This only works for square images. Rectangular images will appear elliptical.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Circular} />
+</Canvas>
+
+## float
+
+An image can `float` to the `left` or `right`.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Float} />
+</Canvas>
+
+## fluid
+
+A `fluid` image takes up the width of its container.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Fluid} />
+</Canvas>
+
+## inline
+
+An `inline` image can appear inline in text.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Inline} />
+</Canvas>
+
+## rounded
+
+An `Image` may appear `rounded`.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Rounded} />
+</Canvas>
+
+## size
+
+An image can have a different `size`.
+
+Available sizes are `mini`, `tiny`, `small`, `medium`, `large`, `big`, `huge` and `massive`.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Size} />
+</Canvas>
+
+## spaced
+
+A `spaced` image has extra space around it, either both (default), `left` or `right`.
+
+<Canvas>
+  <Story of={ImageVariationsStories.Spaced} />
+</Canvas>

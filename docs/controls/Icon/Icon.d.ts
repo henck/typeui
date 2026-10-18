@@ -83,14 +83,18 @@ interface IIconProps {
      */
     onClick?: () => void;
 }
-export declare class IconBase extends React.Component<IIconProps> {
-    render(): JSX.Element;
+declare class IconBase extends React.Component<IIconProps> {
+    render(): React.JSX.Element;
 }
-declare const IconStyled: import("styled-components").StyledComponent<typeof IconBase, import("../../styles/Theme").IThemeInterface, {
-    hasBorder: boolean;
-    hasBackground: boolean;
-    emSize: number;
-}, "hasBorder" | "hasBackground" | "emSize">;
+declare const IconStyled: import("styled-components/dist/types").IStyledComponentBase<"web", Omit<import("styled-components/dist/types").Merged<IIconProps & React.RefAttributes<IconBase>, {
+    hasBorder?: boolean;
+    hasBackground?: boolean;
+    emSize?: number;
+}>, "title" | "ref" | "key" | "className" | "color" | "onClick" | "name" | "disabled" | "loading" | "size" | "float" | "bordered" | "circular" | "url" | "flipped" | "mirrored" | "rotated" | "inverted" | "cornered" | "padded" | "hasBorder" | "hasBackground" | "emSize"> & Partial<Pick<import("styled-components/dist/types").Merged<IIconProps & React.RefAttributes<IconBase>, {
+    hasBorder?: boolean;
+    hasBackground?: boolean;
+    emSize?: number;
+}>, "title" | "ref" | "key" | "className" | "color" | "onClick" | "name" | "disabled" | "loading" | "size" | "float" | "bordered" | "circular" | "url" | "flipped" | "mirrored" | "rotated" | "inverted" | "cornered" | "padded" | "hasBorder" | "hasBackground" | "emSize">>> & string & Omit<typeof IconBase, keyof React.Component<any, {}, any>>;
 /**
  * Displays an icon.
  *
@@ -100,6 +104,6 @@ declare class Icon extends React.Component<IIconProps> {
     static defaultProps: {
         isIcon: boolean;
     };
-    render: () => JSX.Element;
+    render: () => React.JSX.Element;
 }
-export { Icon, IconStyled, IIconProps };
+export { IconBase, Icon, IconStyled, type IIconProps };

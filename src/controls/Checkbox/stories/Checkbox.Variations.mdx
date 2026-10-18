@@ -1,0 +1,21 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Checkbox} from '../Checkbox';
+import {Icon} from '../../Icon';
+import * as CheckboxVariationsStories from './Checkbox.Variations.stories';
+
+<Meta of={CheckboxVariationsStories} />
+
+# Checkbox: Variations
+
+.
+
+## type
+
+A `Checkbox` can have a `type` of `check` (default), `toggle`,
+`slider` or `circle`.
+
+For `radio` buttons, `type` will default to `circle` unless overridden.
+
+<Canvas>
+  <Story of={CheckboxVariationsStories.Type} />
+</Canvas>

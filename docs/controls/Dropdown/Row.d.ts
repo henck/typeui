@@ -1,12 +1,11 @@
 import * as React from 'react';
 interface IRowProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     upwards?: boolean;
-    onClick?: any;
+    onClick?: () => void;
 }
-declare class RowBase extends React.Component<IRowProps, {}> {
-    render(): JSX.Element;
-}
-declare const Row: import("styled-components").StyledComponent<typeof RowBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Row: import("styled-components/dist/types").IStyledComponentBase<"web", IRowProps> & string & Omit<(props: IRowProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Row };

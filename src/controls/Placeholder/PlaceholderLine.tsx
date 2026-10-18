@@ -29,7 +29,7 @@ const LineHeight: number = 7;
 /* Extra height for tall line */
 const TallExtra: number = 2;
 
-const PlaceholderLineStyled = styled(PlaceholderLineBase).attrs(p => ({
+const PlaceholderLineStyled = styled(PlaceholderLineBase).attrs<{ lineSpacing?: number, height?: number }>(p => ({
   lineSpacing: LineSpacing,
   height: p.tall ? (LineHeight + TallExtra) : (LineHeight)
 }))`
@@ -81,4 +81,4 @@ const PlaceholderLine = (props: IPlaceholderLineProps) => {
   return <PlaceholderLineStyled {...props} length={length.current}/>;
 }
 
-export { PlaceholderLine, IPlaceholderLineProps }
+export { PlaceholderLine, type IPlaceholderLineProps }

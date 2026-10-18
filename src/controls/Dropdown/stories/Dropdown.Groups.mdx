@@ -1,0 +1,21 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Dropdown} from '../Dropdown';
+import {Icon} from '../../Icon';
+import {Form} from '../../Form';
+import {Label} from '../../Label';
+import {Divider} from '../../Divider';
+import * as DropdownGroupsStories from './Dropdown.Groups.stories';
+
+# Dropdown: Groups
+
+.
+
+<Meta of={DropdownGroupsStories} />
+
+## attached
+
+A `Label` can be attached to the Dropdown.
+
+<Canvas>
+  <Story of={DropdownGroupsStories.Attached} />
+</Canvas>

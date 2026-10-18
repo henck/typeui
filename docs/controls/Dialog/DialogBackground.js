@@ -1,13 +1,31 @@
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-import * as React from 'react';
+import { jsx as _jsx } from "react/jsx-runtime";
 import styled from '../../styles/Theme';
-var DialogBackgroundBase = function (props) {
-    return React.createElement("div", { className: props.className });
-};
-var DialogBackground = styled(DialogBackgroundBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position:    fixed;\n  z-index:     2000;\n  left:        0;\n  top:         0;\n  right:       0;\n  bottom:      0;\n  background:#000;\n  opacity:     0.5;\n\n  /* CSSTransition classes */\n  &.fade-enter {\n    opacity: 0;\n  }\n  &.fade-enter-active {\n    opacity: 0.5;\n    transition: opacity 0.3s ease;\n  }\n  &.fade-exit {\n    opacity: 0.5;\n  }\n  &.fade-exit-active {\n    opacity: 0;\n    transition: opacity 0.3s ease;\n  }  \n"], ["\n  position:    fixed;\n  z-index:     2000;\n  left:        0;\n  top:         0;\n  right:       0;\n  bottom:      0;\n  background:#000;\n  opacity:     0.5;\n\n  /* CSSTransition classes */\n  &.fade-enter {\n    opacity: 0;\n  }\n  &.fade-enter-active {\n    opacity: 0.5;\n    transition: opacity 0.3s ease;\n  }\n  &.fade-exit {\n    opacity: 0.5;\n  }\n  &.fade-exit-active {\n    opacity: 0;\n    transition: opacity 0.3s ease;\n  }  \n"])));
+const DialogBackgroundBase = (props) => _jsx("div", { className: props.className, ref: props.nodeRef });
+const DialogBackground = styled(DialogBackgroundBase) `
+  position:    fixed;
+  z-index:     2000;
+  left:        0;
+  top:         0;
+  right:       0;
+  bottom:      0;
+  background:#000;
+  opacity:     0.5;
+
+  /* CSSTransition classes */
+  &.fade-enter {
+    opacity: 0;
+  }
+  &.fade-enter-active {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  &.fade-exit {
+    opacity: 0.5;
+  }
+  &.fade-exit-active {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }  
+`;
 DialogBackground.displayName = "DialogBackground";
 export { DialogBackground };
-var templateObject_1;

@@ -19,4 +19,4 @@ const LabelDetailStyled = styled(LabelDetailBase)`
 
 const LabelDetail = (props: ILabelDetailProps) => <LabelDetailStyled {...props}/>
 
-export { LabelDetail, ILabelDetailProps }
+export { LabelDetail, type ILabelDetailProps }

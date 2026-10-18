@@ -1,5 +1,5 @@
 import { Theme } from './Theme'
-import { css, createGlobalStyle, GlobalStyleComponent, DefaultTheme } from 'styled-components'
+import { css, createGlobalStyle } from 'styled-components'
 
 const base = css`
   @import url(${Theme.fontURL});

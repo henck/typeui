@@ -1,0 +1,42 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Textarea} from '../Textarea';
+import {Form} from '../../Form';
+import * as TextareaVariationsStories from './Textarea.Variations.stories';
+
+# Textarea: Variations
+
+.
+
+<Meta of={TextareaVariationsStories} />
+
+## fluid
+
+A `fluid` `Textarea` fills all horizontal space available to it.
+
+<Canvas>
+  <Story of={TextareaVariationsStories.Fluid} />
+</Canvas>
+
+## monospaced
+
+A `monospaced` `Textarea` uses a monospaced font.
+
+<Canvas>
+  <Story of={TextareaVariationsStories.Monospaced} />
+</Canvas>
+
+## placeholder
+
+A `Textarea` can have a `placeholder` text value.
+
+<Canvas>
+  <Story of={TextareaVariationsStories.Placeholder} />
+</Canvas>
+
+## transparent
+
+A `Textarea` can be `transparent`, removing its border.
+
+<Canvas>
+  <Story of={TextareaVariationsStories.Transparent} />
+</Canvas>

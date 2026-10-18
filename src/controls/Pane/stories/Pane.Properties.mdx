@@ -1,0 +1,19 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Pane} from '../Pane';
+import * as PanePropertiesStories from './Pane.Properties.stories';
+
+<Meta of={PanePropertiesStories} />
+
+# Pane
+
+A `Pane` slides in from the right side of the viewport when its `open` property is set
+to true. An `onClose` event is triggered when the user clicks outside of the pane or
+when the user clicks the close (cross) icon.
+
+<ArgTypes of={Pane} />
+
+## Standard Pane
+
+<Canvas>
+  <Story of={PanePropertiesStories.Properties} />
+</Canvas>

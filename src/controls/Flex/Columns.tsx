@@ -33,4 +33,4 @@ const Columns = (props: IColumnsProps) => {
   );
 }
 
-export { Columns, IColumnsProps }
+export { Columns, type IColumnsProps }

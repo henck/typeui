@@ -1,0 +1,20 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Message} from '../Message';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Divider} from '../../Divider';
+import * as MessageGroupsStories from './Message.Groups.stories';
+
+# Message: Groups
+
+.
+
+<Meta of={MessageGroupsStories} />
+
+## attached
+
+A `Message` can be `attached` to other content.
+
+<Canvas>
+  <Story of={MessageGroupsStories.Attached} />
+</Canvas>

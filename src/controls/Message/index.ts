@@ -1,2 +1,2 @@
-export { Message, TMessageType } from './Message';
+export { Message, type TMessageType } from './Message';
 

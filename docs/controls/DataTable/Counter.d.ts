@@ -1,6 +1,9 @@
 import * as React from 'react';
 interface ICounterProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
+    nodeRef?: React.Ref<HTMLDivElement>;
     /** Total number of records */
     count: number;
     /** 1-based index of first record shown */
@@ -8,13 +11,5 @@ interface ICounterProps {
     /** 1-based index of last record shown */
     last: number;
 }
-/**
- * Counter works with DataTable to show a label containing
- * the total number of records, and the indices of the first to
- * last record currently being scrolled to.
- */
-declare class CounterBase extends React.Component<ICounterProps, {}> {
-    render(): JSX.Element;
-}
-declare const Counter: import("styled-components").StyledComponent<typeof CounterBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Counter: import("styled-components/dist/types").IStyledComponentBase<"web", ICounterProps> & string & Omit<(props: ICounterProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Counter };

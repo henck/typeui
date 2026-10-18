@@ -27,6 +27,6 @@ interface IProps {
     onChange?: (value: any) => void;
 }
 declare class DmsInput extends React.Component<IProps> {
-    render: () => JSX.Element;
+    render: () => React.JSX.Element;
 }
 export { DmsInput };

@@ -23,7 +23,7 @@ function getRatioValue(ratio) {
 export function modularScale(steps, base, ratio) {
     if (base === 0)
         base = 1;
-    var ratioValue = getRatioValue(ratio);
+    let ratioValue = getRatioValue(ratio);
     return base * Math.pow(ratioValue, steps);
 }
 /**
@@ -32,7 +32,7 @@ export function modularScale(steps, base, ratio) {
  * If size is undefined, 'medium' will be assumed.
  */
 function sizeToScale(size) {
-    var sizeToScale = {
+    const sizeToScale = {
         'mini': -3,
         'tiny': -2,
         'small': -1,

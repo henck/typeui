@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import * as React from 'react';
 interface IProps {
     /** @ignore */
     className?: string;
@@ -13,5 +13,5 @@ interface IProps {
  * The `Mouse` displays a mouse icon. Its buttons and mouse wheel can be
  * highlighted.
  */
-declare const Mouse: (props: IProps) => JSX.Element;
+declare const Mouse: (props: IProps) => React.JSX.Element;
 export { Mouse };

@@ -1,0 +1,17 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { Latitude } from '../GIS';
+import * as LatitudePropertiesStories from './Latitude.Properties.stories';
+
+<Meta of={LatitudePropertiesStories} />
+
+# Latitude
+
+`Latitude` formats a latitude float into degrees, minutes and seconds.
+
+<ArgTypes of={Latitude} />
+
+## Example
+
+<Canvas>
+  <Story of={LatitudePropertiesStories.Properties} />
+</Canvas>

@@ -2,8 +2,8 @@ import * as React from 'react';
 export interface IHeaderContentProps {
     /** ignore */
     className?: string;
+    /** ignore */
     children?: React.ReactNode;
 }
-export declare class HeaderContent extends React.Component<IHeaderContentProps> {
-    render: () => JSX.Element;
-}
+declare const HeaderContent: (props: IHeaderContentProps) => React.JSX.Element;
+export { HeaderContent };

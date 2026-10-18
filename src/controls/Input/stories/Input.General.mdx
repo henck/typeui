@@ -1,0 +1,77 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Input} from '../Input';
+import {Form} from '../../Form';
+import * as InputGeneralStories from './Input.General.stories';
+
+# Input: General
+
+.
+
+<Meta of={InputGeneralStories} />
+
+## direction
+
+`Input` elements with a dropdown (date, color) open either upwards or downwards.
+By default, this direction is determined from the Input position in the viewport.
+A `direction` may be set. If `up`, then the Input always open upwards. If `down`,
+then the Input always open downwards. If `parent`, then the Input opens in
+accordance with its position inside its nearest scrolling parent.
+
+<Canvas>
+  <Story of={InputGeneralStories.Direction} />
+</Canvas>
+
+## clearable
+
+A `clearable` `Input` presents a clickable icon that clears the input's contents.
+The icon only appears when the `Input` has content. The Input must be a
+controlled component for this to work.
+
+<Canvas>
+  <Story of={InputGeneralStories.Clearable} />
+</Canvas>
+
+## color
+
+An input control of type `color` allows color picking.
+
+<Story of={InputGeneralStories.Color} />
+
+## date
+
+An `Input` control of type `date` allows date picking.
+
+*   Use `nofuture` to disallow only future dates.
+*   The `format` attribute controls how time is formatted in the input display (defaults to `HH:mm:ss`).
+
+See https://date-fns.org/v2.21.1/docs/format for formatting.
+
+<Story of={InputGeneralStories.Date} />
+
+## time
+
+An `Input` control of type `time` can show time in 12 or 24 hours, and optionally add a clock face.
+
+*   Hours and minutes are always shown, but seconds are optional and appear only if `seconds` is set.
+*   If the optional property `clock` is given, then a clock face is shown.
+*   The `format` attribute controls how time is formatted in the input display (defaults to `HH:mm:ss`).
+
+See https://date-fns.org/v2.21.1/docs/format for formatting.
+
+<Story of={InputGeneralStories.Time} />
+
+## disabled
+
+An `Input` can be `disabled`. A disabled `Input` cannot be interactive with.
+
+<Canvas>
+  <Story of={InputGeneralStories.Disabled} />
+</Canvas>
+
+## error
+
+An `Input` can be in an `error` state.
+
+<Canvas>
+  <Story of={InputGeneralStories.Error} />
+</Canvas>

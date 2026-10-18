@@ -1,29 +1,4 @@
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
@@ -40,20 +15,21 @@ import { IconStyled } from '../Icon/Icon';
 //
 // The InnerBase is the actual <button> element (created by a Ripple).
 //
-var ButtonInnerBase = function (props) {
-    if (props.noripple || props.disabled) {
-        return React.createElement("button", { className: props.className }, props.children);
+const ButtonInnerBase = (props) => {
+    const inner = _jsx("button", { className: props.className, children: props.children });
+    if (props.noripple) {
+        return inner;
     }
     else {
-        return React.createElement(Ripple, { type: "button", className: props.className }, props.children);
+        return _jsx(Ripple, { children: inner });
     }
 };
-var ButtonInnerStyled = styled(ButtonInnerBase).attrs(function (p) { return ({
+const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
     fontSize: scaleSize(p.size, 1, p.theme.scale.button),
     /* Does the button have any color? */
     hasColor: p.primary || p.secondary || p.positive || p.negative || p.color,
     /* What is the button's color? */
-    finalColor: function (p) {
+    finalColor: (p) => {
         if (p.primary)
             return p.theme.primaryColor;
         if (p.secondary)
@@ -66,40 +42,155 @@ var ButtonInnerStyled = styled(ButtonInnerBase).attrs(function (p) { return ({
             return p.color;
         return p.theme.normalColor;
     }
-}); })(templateObject_22 || (templateObject_22 = __makeTemplateObject(["\n  /* Display */\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n\n  /* Font */\n  font-family: ", ", sans-serif;\n  font-weight: 500;\n  font-size: 1em;\n  white-space: nowrap;\n\n  /* Padding */\n  padding: 0.6875em 1.2em;\n  /* A compact button has reduced padding. */\n  ", "\n  /* A circular/icon button has square padding. */\n  ", " /* circular implies icon */\n\n  /* Border */\n  border: none;\n  border-radius: ", "px;\n\n  /* Circular */\n  ", "\n\n  /* Transitions */\n  transition: opacity ", "s ease, \n              color ", "s ease, \n              border-color ", "s ease, \n              background-color ", "s ease, \n              box-shadow ", "s ease;\n  outline: none;\n\n  /* Cursor */\n  ", "\n  ", "\n\n  /* Size */\n  font-size: ", "em;\n\n  /* Colors, not basic: */\n  ", "\n\n  /* Colors, basic: */\n  ", "\n\n  /* Icon */\n  ", " {\n    /* Icons on basic, uncolored buttons are dark. */\n    ", "\n    /* Icons on basic, colored buttons have the button border color. */\n    ", "\n    /* Icons on uncolored normal buttons are dark. */\n    ", "\n    /* Icons on colored normal buttons have a lighter shade of the\n       background color. */    \n    ", "\n    opacity: 0.8;\n    /* Icon gets margin only for non-icon buttons: */\n    ", "\n  }\n\n  /* All hover effects go here. \n   * (but no hover for disabled buttons) */\n  ", "\n\n  /* Attachment:\n     If something is attached to the button, then remove its border radius. */\n  &:not(:first-child) {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  &:not(:last-child) {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n  }  \n"], ["\n  /* Display */\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n\n  /* Font */\n  font-family: ", ", sans-serif;\n  font-weight: 500;\n  font-size: 1em;\n  white-space: nowrap;\n\n  /* Padding */\n  padding: 0.6875em 1.2em;\n  /* A compact button has reduced padding. */\n  ", "\n  /* A circular/icon button has square padding. */\n  ", " /* circular implies icon */\n\n  /* Border */\n  border: none;\n  border-radius: ", "px;\n\n  /* Circular */\n  ", "\n\n  /* Transitions */\n  transition: opacity ", "s ease, \n              color ", "s ease, \n              border-color ", "s ease, \n              background-color ", "s ease, \n              box-shadow ", "s ease;\n  outline: none;\n\n  /* Cursor */\n  ", "\n  ", "\n\n  /* Size */\n  font-size: ", "em;\n\n  /* Colors, not basic: */\n  ", "\n\n  /* Colors, basic: */\n  ", "\n\n  /* Icon */\n  ", " {\n    /* Icons on basic, uncolored buttons are dark. */\n    ", "\n    /* Icons on basic, colored buttons have the button border color. */\n    ", "\n    /* Icons on uncolored normal buttons are dark. */\n    ", "\n    /* Icons on colored normal buttons have a lighter shade of the\n       background color. */    \n    ", "\n    opacity: 0.8;\n    /* Icon gets margin only for non-icon buttons: */\n    ", "\n  }\n\n  /* All hover effects go here. \n   * (but no hover for disabled buttons) */\n  ", "\n\n  /* Attachment:\n     If something is attached to the button, then remove its border radius. */\n  &:not(:first-child) {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  &:not(:last-child) {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n  }  \n"
-    // ---------------------
-    /*
-     * ButtonBase puts a <div> around ButtonInner so that we
-     * can add attachable components.
-     */
-])), function (p) { return p.theme.fontName; }, function (p) { return p.compact && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["padding: 0.4em 1.0em;"], ["padding: 0.4em 1.0em;"]))); }, function (p) { return (p.icon || p.circular) && css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["padding: 0.6875em;"], ["padding: 0.6875em;"]))); }, function (p) { return p.theme.radius; }, function (p) { return p.circular && css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["border-radius: 50%;"], ["border-radius: 50%;"]))); }, function (p) { return p.theme.transition.duration; }, function (p) { return p.theme.transition.duration; }, function (p) { return p.theme.transition.duration; }, function (p) { return p.theme.transition.duration; }, function (p) { return p.theme.transition.duration; }, function (p) { return p.disabled && css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["cursor: auto;"], ["cursor: auto;"]))); }, function (p) { return !p.disabled && css(templateObject_5 || (templateObject_5 = __makeTemplateObject(["cursor: pointer;"], ["cursor: pointer;"]))); }, function (p) { return p.fontSize; }, function (p) { return !p.basic && css(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n    background-color: ", "\n    ", "\n    ", "\n  "], ["\n    background-color: ", "\n    ", "\n    ", "\n  "])), p.finalColor, !p.hasColor && css(templateObject_6 || (templateObject_6 = __makeTemplateObject(["color: ", ";"], ["color: ", ";"])), lighten(0.2, p.theme.fontColor)), p.hasColor && css(templateObject_7 || (templateObject_7 = __makeTemplateObject(["color: ", "; font-weight: 500;"], ["color: ", "; font-weight: 500;"])), p.theme.altTextColor)); }, function (p) { return p.basic && css(templateObject_11 || (templateObject_11 = __makeTemplateObject(["\n    border-style: solid;\n    border-width: 1px;\n    background-color: ", ";\n    /* Since border occupies 1px, adjust to padding to shrink: */\n    padding: calc(-1px + 0.6875em) calc(-1px + 1.2em);\n    ", "\n    ", "\n  "], ["\n    border-style: solid;\n    border-width: 1px;\n    background-color: ", ";\n    /* Since border occupies 1px, adjust to padding to shrink: */\n    padding: calc(-1px + 0.6875em) calc(-1px + 1.2em);\n    ", "\n    ", "\n  "])), p.theme.background, p.hasColor && css(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n      color: ", ";\n      border-color: ", ";\n    "], ["\n      color: ", ";\n      border-color: ", ";\n    "])), lighten(0.2, p.finalColor(p)), lighten(0.2, p.finalColor(p))), !p.hasColor && css(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n      color: ", "; \n      border-color: ", ";\n    "], ["\n      color: ", "; \n      border-color: ", ";\n    "])), lighten(0.5, p.theme.fontColor), lighten(0.8, p.theme.fontColor))); }, IconStyled, function (p) { return p.basic && p.finalColor(p) === p.theme.normalColor && css(templateObject_12 || (templateObject_12 = __makeTemplateObject(["\n      fill: ", ";\n    "], ["\n      fill: ", ";\n    "])), darken(0.5, p.finalColor(p))); }, function (p) { return p.basic && p.finalColor(p) !== p.theme.normalColor && css(templateObject_13 || (templateObject_13 = __makeTemplateObject(["\n      fill: ", ";\n    "], ["\n      fill: ", ";\n    "])), p.finalColor); }, function (p) { return !p.basic && p.finalColor(p) === p.theme.normalColor && css(templateObject_14 || (templateObject_14 = __makeTemplateObject(["\n      fill: ", ";\n    "], ["\n      fill: ", ";\n    "])), darken(0.5, p.finalColor(p))); }, function (p) { return !p.basic && p.finalColor(p) !== p.theme.normalColor && css(templateObject_15 || (templateObject_15 = __makeTemplateObject(["\n      fill: ", ";\n    "], ["\n      fill: ", ";\n    "])), lighten(0.4, p.finalColor(p))); }, function (p) { return !p.icon && !p.circular && css(templateObject_16 || (templateObject_16 = __makeTemplateObject(["margin-right:4px;"], ["margin-right:4px;"]))); }, function (p) { return !p.disabled && css(templateObject_21 || (templateObject_21 = __makeTemplateObject(["\n    &:hover {\n      ", "\n      ", "\n      ", " {\n        opacity: 1.0;\n      }\n    }\n  "], ["\n    &:hover {\n      ", "\n      ", "\n      ", " {\n        opacity: 1.0;\n      }\n    }\n  "])), !p.basic && css(templateObject_17 || (templateObject_17 = __makeTemplateObject(["\n        background-color: ", ";\n      "], ["\n        background-color: ", ";\n      "])), darken(p.theme.darken, p.finalColor(p))), p.basic && css(templateObject_20 || (templateObject_20 = __makeTemplateObject(["\n        ", "\n        ", "      \n      "], ["\n        ", "\n        ", "      \n      "])), p.hasColor && css(templateObject_18 || (templateObject_18 = __makeTemplateObject(["\n          color: ", "; border-color: ", ";\n        "], ["\n          color: ", "; border-color: ", ";\n        "])), p.finalColor(p), p.finalColor(p)), !p.hasColor && css(templateObject_19 || (templateObject_19 = __makeTemplateObject(["\n          color: ", "; border-color: ", ";\n        "], ["\n          color: ", "; border-color: ", ";\n        "])), lighten(0.2, p.theme.fontColor), lighten(0.6, p.theme.fontColor))), IconStyled); });
+})) `
+  /* Display */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  /* Font */
+  font-family: ${p => p.theme.fontName}, sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  white-space: nowrap;
+
+  /* Padding */
+  padding: 0.6875em 1.2em;
+  /* A compact button has reduced padding. */
+  ${p => p.compact && css `padding: 0.4em 1.0em;`}
+  /* A circular/icon button has square padding. */
+  ${p => (p.icon || p.circular) && css `padding: 0.6875em;`} /* circular implies icon */
+
+  /* Border */
+  border: none;
+  border-radius: ${p => p.theme.radius}px;
+
+  /* Circular */
+  ${p => p.circular && css `border-radius: 50%;`}
+
+  /* Transitions */
+  transition: opacity ${p => p.theme.transition.duration}s ease, 
+              color ${p => p.theme.transition.duration}s ease, 
+              border-color ${p => p.theme.transition.duration}s ease, 
+              background-color ${p => p.theme.transition.duration}s ease, 
+              box-shadow ${p => p.theme.transition.duration}s ease;
+  outline: none;
+
+  /* Cursor */
+  ${p => p.disabled && css `cursor: auto;`}
+  ${p => !p.disabled && css `cursor: pointer;`}
+
+  /* Size */
+  font-size: ${p => p.fontSize}em;
+
+  /* Colors, not basic: */
+  ${p => !p.basic && css `
+    background-color: ${p.finalColor}
+    ${!p.hasColor && css `color: ${lighten(0.2, p.theme.fontColor)};`}
+    ${p.hasColor && css `color: #ffffff; font-weight: 500;`}
+  `}
+
+  /* Colors, basic: */
+  ${p => p.basic && css `
+    border-style: solid;
+    border-width: 1px;
+    background-color: ${p.theme.background};
+    /* Since border occupies 1px, adjust to padding to shrink: */
+    padding: calc(-1px + 0.6875em) calc(-1px + 1.2em);
+    ${p.hasColor && css `
+      color: ${lighten(0.2, p.finalColor(p))};
+      border-color: ${lighten(0.2, p.finalColor(p))};
+    `}
+    ${!p.hasColor && css `
+      color: ${lighten(0.5, p.theme.fontColor)}; 
+      border-color: ${lighten(0.8, p.theme.fontColor)};
+    `}
+  `}
+
+  /* Icon */
+  ${IconStyled} {
+    /* Icons on basic, uncolored buttons are dark. */
+    ${p => p.basic && p.finalColor(p) === p.theme.normalColor && css `
+      fill: ${darken(0.5, p.finalColor(p))};
+    `}
+    /* Icons on basic, colored buttons have the button border color. */
+    ${p => p.basic && p.finalColor(p) !== p.theme.normalColor && css `
+      fill: ${p.finalColor};
+    `}
+    /* Icons on uncolored normal buttons are dark. */
+    ${p => !p.basic && p.finalColor(p) === p.theme.normalColor && css `
+      fill: ${darken(0.5, p.finalColor(p))};
+    `}
+    /* Icons on colored normal buttons have a lighter shade of the
+       background color. */    
+    ${p => !p.basic && p.finalColor(p) !== p.theme.normalColor && css `
+      fill: ${lighten(0.4, p.finalColor(p))};
+    `}
+    opacity: 0.8;
+    /* Icon gets margin only for non-icon buttons: */
+    ${p => !p.icon && !p.circular && css `margin-right:4px;`}
+  }
+
+  /* All hover effects go here. 
+   * (but no hover for disabled buttons) */
+  ${p => !p.disabled && css `
+    &:hover {
+      ${!p.basic && css `
+        background-color: ${darken(p.theme.darken, p.finalColor(p))};
+      `}
+      ${p.basic && css `
+        ${p.hasColor && css `
+          color: ${p.finalColor(p)}; border-color: ${p.finalColor(p)};
+        `}
+        ${!p.hasColor && css `
+          color: ${lighten(0.2, p.theme.fontColor)}; border-color: ${lighten(0.6, p.theme.fontColor)};
+        `}      
+      `}
+      ${IconStyled} {
+        opacity: 1.0;
+      }
+    }
+  `}
+
+  /* Attachment:
+     If something is attached to the button, then remove its border radius. */
+  &:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }  
+`;
 // ---------------------
 /*
  * ButtonBase puts a <div> around ButtonInner so that we
  * can add attachable components.
  */
-var ButtonBase = function (props) {
-    var isAttachedTo = function (c, side) {
-        var attached = c.props.attached;
+const ButtonBase = (props) => {
+    const isAttachedTo = (c, side) => {
+        const attached = c.props.attached;
         return attached === side || (!attached && side === 'left');
     };
     // Return an array of children that are Labels and attached to this
     // Input control.
-    var getAttachables = function (side) {
+    const getAttachables = (side) => {
         return React.Children.toArray(props.children)
-            .filter(function (c) { return React.isValidElement(c) // Is this a React node?
+            .filter(c => React.isValidElement(c) // Is this a React node?
             && c.props.isLabel // Is this a Label?
-            && isAttachedTo(c, side); } // Is it attached to this side?
+            && isAttachedTo(c, side) // Is it attached to this side?
         )
-            .map(function (c, idx) {
-            var attached = c.props.attached;
+            .map((c, idx) => {
+            let attached = c.props.attached;
             if (!attached)
                 attached = 'left'; // Attach to left side by default.
             return React.cloneElement(c, { key: idx, attached: attached });
         });
     };
-    var getNonAttachables = function () {
-        return React.Children.map(props.children, function (child) {
+    const getNonAttachables = () => {
+        return React.Children.map(props.children, (child) => {
             if (!child)
                 return;
             // Only non-labels are passed to ButtonInner.
@@ -112,21 +203,31 @@ var ButtonBase = function (props) {
     // We must pass all props down to ButtonInnerStyled,
     // EXCEPT className, or the parent's classes will 
     // be added to the child.
-    var className = props.className, otherProps = __rest(props, ["className"]);
-    return (React.createElement("div", { className: className, onClick: otherProps.disabled ? null : otherProps.onClick },
-        getAttachables('left'),
-        React.createElement(ButtonInnerStyled, __assign({}, otherProps), getNonAttachables()),
-        getAttachables('right')));
+    const { className, ...otherProps } = props;
+    return (_jsxs("div", { className: className, onClick: otherProps.disabled ? null : otherProps.onClick, children: [getAttachables('left'), _jsx(ButtonInnerStyled, { ...otherProps, children: getNonAttachables() }), getAttachables('right')] }));
 };
-var ButtonStyled = styled(ButtonBase)(templateObject_29 || (templateObject_29 = __makeTemplateObject(["\n  position:    relative;\n  display:     inline-flex;\n  align-items: stretch;\n  /* Floating */\n  ", "\n  ", "    \n  /* Fluid */\n  ", "  \n  /* Buttons in groups have no margin. */\n  ", "\n  /* A disabled button is 50% transparent. */\n  ", "\n  /* Clickable */\n  ", "\n"], ["\n  position:    relative;\n  display:     inline-flex;\n  align-items: stretch;\n  /* Floating */\n  ", "\n  ", "    \n  /* Fluid */\n  ", "  \n  /* Buttons in groups have no margin. */\n  ", "\n  /* A disabled button is 50% transparent. */\n  ", "\n  /* Clickable */\n  ", "\n"])), function (p) { return p.float === 'left' && css(templateObject_23 || (templateObject_23 = __makeTemplateObject(["float:left;"], ["float:left;"]))); }, function (p) { return p.float === 'right' && css(templateObject_24 || (templateObject_24 = __makeTemplateObject(["float:right;"], ["float:right;"]))); }, function (p) { return p.fluid && css(templateObject_25 || (templateObject_25 = __makeTemplateObject(["width: 100%;"], ["width: 100%;"]))); }, function (p) { return !p.grouped && css(templateObject_26 || (templateObject_26 = __makeTemplateObject(["margin: 0 2px;"], ["margin: 0 2px;"]))); }, function (p) { return p.disabled && css(templateObject_27 || (templateObject_27 = __makeTemplateObject(["opacity: 0.5;"], ["opacity: 0.5;"]))); }, function (p) { return p.onClick && !p.disabled && css(templateObject_28 || (templateObject_28 = __makeTemplateObject(["cursor: pointer;"], ["cursor: pointer;"]))); });
+const ButtonStyled = styled(ButtonBase) `
+  position:    relative;
+  display:     inline-flex;
+  align-items: stretch;
+  /* Floating */
+  ${p => p.float === 'left' && css `float:left;`}
+  ${p => p.float === 'right' && css `float:right;`}    
+  /* Fluid */
+  ${p => p.fluid && css `width: 100%;`}  
+  /* Buttons in groups have no margin. */
+  ${p => !p.grouped && css `margin: 0 2px;`}
+  /* A disabled button is 50% transparent. */
+  ${p => p.disabled && css `opacity: 0.5;`}
+  /* Clickable */
+  ${p => p.onClick && !p.disabled && css `cursor: pointer;`}
+`;
 /**
  * A Button can be clicked and styled.
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-button--properties
  */
-var Button = function (props) {
-    return React.createElement(ButtonStyled, __assign({}, props, { disabled: props.disabled }));
-};
+const Button = (props) => _jsx(ButtonStyled, { ...props, disabled: props.disabled });
 /**
  * Button groups can contain conditionals using Button.Or.
  *
@@ -154,4 +255,3 @@ Button.Or = ButtonOr;
  */
 Button.Group = ButtonGroup;
 export { Button };
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17, templateObject_18, templateObject_19, templateObject_20, templateObject_21, templateObject_22, templateObject_23, templateObject_24, templateObject_25, templateObject_26, templateObject_27, templateObject_28, templateObject_29;

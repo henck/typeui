@@ -16,7 +16,7 @@ declare class TabBarBase extends React.Component<ITabBarProps, {}> {
     private startX;
     private setTabRef;
     private setUnderlinerRef;
-    getTabs(): JSX.Element[];
+    getTabs(): React.JSX.Element[];
     handleMouseDown: (e: React.MouseEvent) => void;
     handleMouseMove: (event: MouseEvent) => void;
     handleMouseUp: (event: MouseEvent) => void;
@@ -24,7 +24,7 @@ declare class TabBarBase extends React.Component<ITabBarProps, {}> {
     componentWillUnmount(): void;
     componentDidUpdate(prevProps: ITabBarProps): void;
     private moveUnderliner;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
-declare const TabBar: import("styled-components").StyledComponent<typeof TabBarBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const TabBar: import("styled-components/dist/types").IStyledComponentBase<"web", ITabBarProps & React.RefAttributes<TabBarBase>> & string & Omit<typeof TabBarBase, keyof React.Component<any, {}, any>>;
 export { TabBar };

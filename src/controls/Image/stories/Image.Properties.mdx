@@ -1,0 +1,19 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Image} from '../Image';
+import * as ImagePropertiesStories from './Image.Properties.stories';
+
+<Meta of={ImagePropertiesStories} />
+
+# Image
+
+<ArgTypes of={Image} />
+
+# Standard Image
+
+A standard image takes a required `src` property.
+
+With no size, an image will fill the space available to it.
+
+<Canvas>
+  <Story of={ImagePropertiesStories.Properties} />
+</Canvas>

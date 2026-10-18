@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Size, Direction, Float } from '../Types';
-import { LabelGroup } from './LabelGroup';
-import { LabelDetail } from './LabelDetail';
 interface ILabelProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * A `basic` Label adds a border and does not have a background.
@@ -55,13 +54,13 @@ interface ILabelProps {
      */
     onClick?: () => void;
 }
-declare class LabelBase extends React.Component<ILabelProps> {
-    render: () => JSX.Element;
-}
-declare const LabelStyled: import("styled-components").StyledComponent<typeof LabelBase, import("../../styles/Theme").IThemeInterface, {
-    emSize: number;
-    finalColor: string;
-}, "emSize" | "finalColor">;
+declare const LabelStyled: import("styled-components/dist/types").IStyledComponentBase<"web", Omit<import("styled-components/dist/types").Merged<ILabelProps, {
+    emSize?: number;
+    finalColor?: string;
+}>, "className" | "content" | "color" | "children" | "onClick" | "size" | "attached" | "basic" | "pointing" | "tag" | "emSize" | "positive" | "negative" | "floating" | "finalColor"> & Partial<Pick<import("styled-components/dist/types").Merged<ILabelProps, {
+    emSize?: number;
+    finalColor?: string;
+}>, "className" | "content" | "color" | "children" | "onClick" | "size" | "attached" | "basic" | "pointing" | "tag" | "emSize" | "positive" | "negative" | "floating" | "finalColor">>> & string & Omit<(props: ILabelProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 /**
  * Stylable label.
  *
@@ -76,11 +75,11 @@ declare class Label extends React.Component<ILabelProps> {
      * children can still override them. Goups can pass along basic,
      * color, pointing, size and tag.
      */
-    static Group: typeof LabelGroup;
+    static Group: (props: import("./LabelGroup").ILabelGroupProps) => React.JSX.Element;
     /**
      * A label can contain a Label.Detail inside it.
      */
-    static Detail: typeof LabelDetail;
-    render: () => JSX.Element;
+    static Detail: (props: import("./LabelDetail").ILabelDetailProps) => React.JSX.Element;
+    render: () => React.JSX.Element;
 }
 export { Label, LabelStyled };

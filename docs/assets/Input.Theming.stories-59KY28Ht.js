@@ -1,0 +1,7 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{c as n,s as r,t as i}from"./Theme-DNNvCs1s.js";import{n as a,r as o}from"./iframe-BMOsmv_G.js";import{n as s,t as c}from"./Input-B9plWmXf.js";import{t as l}from"./Form-D4ylMLPW.js";import{t as u}from"./Form-C2IxCm0J.js";var d=t({Theming:()=>h,__namedExportsOrder:()=>g,default:()=>m}),f,p,m,h,g;function _(){return(_=e((()=>{s(),u(),r(),o(),f=a(),p=e=>(0,f.jsx)(`div`,{style:{height:`600px`,padding:`30px`,background:`#406A8C`},children:(0,f.jsx)(n,{theme:{...i,normalColor:`#aaa`,background:`#305A7C`,fontColor:`#fff`},children:(0,f.jsxs)(l,{data:{},onChange:()=>{},onValidate:()=>{},children:[(0,f.jsx)(l.Field,{name:`text`,value:null,control:(0,f.jsx)(c,{type:`text`,placeholder:`Text`,...e})}),(0,f.jsx)(l.Field,{name:`color`,value:null,control:(0,f.jsx)(c,{type:`color`,placeholder:`Color`,...e})}),(0,f.jsx)(l.Field,{name:`date`,value:null,control:(0,f.jsx)(c,{type:`date`,placeholder:`Date`,...e})}),(0,f.jsx)(l.Field,{name:`time`,value:null,control:(0,f.jsx)(c,{type:`time`,clock:!0,placeholder:`Time`,...e})})]})})}),m={title:`Controls/Input/Theming`,component:c,argTypes:{className:{table:{disable:!0}}}},h={render:p.bind({}),name:`theming`,args:{clearable:!0}},g=[`Theming`],h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'theming',
+  args: {
+    clearable: true
+  }
+}`,...h.parameters?.docs?.source}}}})))()}export{h as n,_ as r,d as t};

@@ -18,5 +18,5 @@ interface IAlertDialogProps {
      */
     onClose: () => void;
 }
-declare const AlertDialog: (props: IAlertDialogProps) => JSX.Element;
-export { AlertDialog, IAlertDialogProps };
+declare const AlertDialog: (props: IAlertDialogProps) => React.JSX.Element;
+export { AlertDialog, type IAlertDialogProps };

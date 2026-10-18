@@ -16,7 +16,7 @@ declare class DropboxBase extends React.Component<IDropboxProps, {}> {
     private handleDragOver;
     private handleDragLeave;
     private handleDrop;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
-declare const Dropbox: import("styled-components").StyledComponent<typeof DropboxBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Dropbox: import("styled-components/dist/types").IStyledComponentBase<"web", IDropboxProps & React.RefAttributes<DropboxBase>> & string & Omit<typeof DropboxBase, keyof React.Component<any, {}, any>>;
 export { Dropbox };

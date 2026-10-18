@@ -1,0 +1,73 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {DataTable} from '../DataTable';
+import * as DataTableVariationsStories from './DataTable.Variations.stories';
+
+# DataTable: Variations
+
+.
+
+<Meta of={DataTableVariationsStories} />
+
+## error
+
+A `DataTable` can be in an `error` state. Code can set this state to show
+that data fetching failed. If the `DataTable` has an `onFetch` property, then
+the error message will include a "Retry" button that will call `onFetch`.
+
+<Canvas>
+  <Story of={DataTableVariationsStories.Error} />
+</Canvas>
+
+## errorMessage
+
+A `DataTable` in an `error` state will show a default error message. You
+can override this message by providing the `errorMessage` property.
+
+<Canvas>
+  <Story of={DataTableVariationsStories.ErrorMessage} />
+</Canvas>
+
+## force
+
+Columns marked with `force` always appear, regardless of the available screen space.
+
+<Canvas>
+  <Story of={DataTableVariationsStories.Force} />
+</Canvas>
+
+## grid
+
+A `DataTable` can show vertical grid lines with the `grid` property set.
+
+<Canvas>
+  <Story of={DataTableVariationsStories.Grid} />
+</Canvas>
+
+## loading
+
+A `DataTable` can set the `loading` attribute, which will give
+a visual feedback that indicates that data is being loaded.
+
+<Canvas>
+  <Story of={DataTableVariationsStories.Loading} />
+</Canvas>
+
+## nodata
+
+When there is no data, `DataTable` shows a default message. This message
+can be overridden by setting the `nodata` property.
+
+<Canvas>
+  <Story of={DataTableVariationsStories.Nodata} />
+</Canvas>
+
+## scrollPosition
+
+A `DataTable` can remember its current scroll position, and restore it when the user
+navigates away and returns. When the table scrolls, the current scroll position is
+returned through the `onScroll` event. Calling code can then set the scroll position
+using the `scrollTop` property.
+
+<Canvas>
+  <Story of={DataTableVariationsStories.ScrollPosition} />
+</Canvas>

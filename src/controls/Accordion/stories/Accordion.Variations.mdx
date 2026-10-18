@@ -1,0 +1,45 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Accordion} from '../Accordion';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Flex} from '../../Flex';
+import {Message} from '../../Message';
+import * as AccordionVariationsStories from './Accordion.Variations.stories';
+
+# Accordion: Variations
+
+.
+
+<Meta of={AccordionVariationsStories} />
+
+## align
+
+An Accordion's expand/collapse carets can have an `align` of `left` (default) or `right`.
+
+<Canvas>
+  <Story of={AccordionVariationsStories.Align} />
+</Canvas>
+
+## noanimate
+
+The Accordion's sliding animation can be turned off with `noanimate`.
+
+<Canvas>
+  <Story of={AccordionVariationsStories.Noanimate} />
+</Canvas>
+
+## styled
+
+A `styled` Accordion adds basic formatting.
+
+<Canvas>
+  <Story of={AccordionVariationsStories.Styled} />
+</Canvas>
+
+## raised
+
+A `raised` Accordion (with `styled` set) gets an extra-deep drop shadow.
+
+<Canvas>
+  <Story of={AccordionVariationsStories.Raised} />
+</Canvas>

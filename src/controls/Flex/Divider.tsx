@@ -68,4 +68,4 @@ const DividerStyled = styled(DividerBase)`
 
 const Divider = (props: IDividerProps) => <DividerStyled {...props}/>
 
-export { Divider, IDividerProps }
+export { Divider, type IDividerProps }

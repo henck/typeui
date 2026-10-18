@@ -2,6 +2,7 @@ import * as React from 'react';
 interface IGroupProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Divide field widths evenly.
@@ -9,7 +10,5 @@ interface IGroupProps {
      */
     equal?: boolean;
 }
-declare class Group extends React.Component<IGroupProps> {
-    render: () => JSX.Element;
-}
-export { Group };
+declare const Group: (props: IGroupProps) => React.JSX.Element;
+export { Group, type IGroupProps };

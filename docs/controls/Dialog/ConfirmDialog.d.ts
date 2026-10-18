@@ -20,5 +20,5 @@ interface IConfirmDialogProps {
      */
     onConfirm: () => void;
 }
-declare const ConfirmDialog: (props: IConfirmDialogProps) => JSX.Element;
-export { ConfirmDialog, IConfirmDialogProps };
+declare const ConfirmDialog: (props: IConfirmDialogProps) => React.JSX.Element;
+export { ConfirmDialog, type IConfirmDialogProps };

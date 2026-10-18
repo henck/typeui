@@ -1,5 +1,5 @@
 const path = require('path'),
-      SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
+      SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin').default;
 
 module.exports = {
   mode: 'development',

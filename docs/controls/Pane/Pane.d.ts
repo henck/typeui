@@ -31,8 +31,8 @@ interface IPaneProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-pane--properties
  */
-declare class Pane extends React.Component<IPaneProps> {
-    static Icon: typeof IconPane;
-    render: () => JSX.Element;
-}
+declare const Pane: {
+    (props: IPaneProps): React.JSX.Element;
+    Icon: typeof IconPane;
+};
 export { Pane };

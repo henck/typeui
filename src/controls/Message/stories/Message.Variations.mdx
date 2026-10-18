@@ -1,0 +1,51 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Message} from '../Message';
+import {Icon} from '../../Icon';
+import * as MessageVariationsStories from './Message.Variations.stories';
+
+# Message: Variations
+
+.
+
+<Meta of={MessageVariationsStories} />
+
+## Icon
+
+`Message` text content can `align` to `left`, `center` or `right`.
+
+<Canvas>
+  <Story of={MessageVariationsStories.Align} />
+</Canvas>
+
+## color
+
+A `Message` can have a custom `color`. Note that `type` overrides this.
+
+<Canvas>
+  <Story of={MessageVariationsStories.Color} />
+</Canvas>
+
+## compact
+
+A `compact` `Message` takes up only as much space as its content requires.
+
+<Canvas>
+  <Story of={MessageVariationsStories.Compact} />
+</Canvas>
+
+## raised
+
+A `raised` `Message` has a dropshadow.
+
+<Canvas>
+  <Story of={MessageVariationsStories.Raised} />
+</Canvas>
+
+## type
+
+The `Message` `type` can be `info`, `warning`, `success` or `error`. This will
+override the `color` property.
+
+<Canvas>
+  <Story of={MessageVariationsStories.Type} />
+</Canvas>

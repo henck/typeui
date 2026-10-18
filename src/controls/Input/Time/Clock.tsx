@@ -159,4 +159,4 @@ const Center = styled.div`
   background:     ${p => p.theme.primaryColor};
 `
 
-export { Clock, TMode }
+export { Clock, type TMode }

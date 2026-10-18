@@ -1,0 +1,35 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Flex} from '../Flex';
+import {Box} from '../../Box';
+import {Icon} from '../../Icon';
+import * as FlexVariationsStories from './Flex.Variations.stories';
+
+# Flex: Variations
+
+.
+
+<Meta of={FlexVariationsStories} />
+
+## divided
+
+A `divided` Flex has horizontal dividing lines between rows.
+
+<Canvas>
+  <Story of={FlexVariationsStories.Divided} />
+</Canvas>
+
+## relaxed
+
+A `relaxed` Flex has double the normal gutter space. A `relaxed="very"` Flex has four times the normal gutter space.
+
+<Canvas>
+  <Story of={FlexVariationsStories.Relaxed} />
+</Canvas>
+
+## stackable
+
+A `stackable` Flex stacks its columns when the screen becomes too narrow.
+
+<Canvas>
+  <Story of={FlexVariationsStories.Stackable} />
+</Canvas>

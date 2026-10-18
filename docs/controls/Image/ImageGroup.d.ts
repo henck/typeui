@@ -3,6 +3,8 @@ import { Size } from '../Types';
 interface IImageGroupProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
+    children?: React.ReactNode;
     /**
      * Sets image size: mini, tiny, small, medium (default), large, big, huge or massive.
      */
@@ -24,6 +26,6 @@ interface IImageGroupProps {
     circular?: boolean;
 }
 declare class ImageGroup extends React.Component<IImageGroupProps> {
-    render: () => JSX.Element;
+    render: () => React.JSX.Element;
 }
 export { ImageGroup };

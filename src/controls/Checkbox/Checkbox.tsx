@@ -71,7 +71,7 @@ const CheckboxBase = (props: ICheckboxProps) => {
   );
 }
 
-const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
+const CheckboxStyled = styled(CheckboxBase).attrs<{ borderColor?: string, checkedColor?: string, hoverColor?: string }>(p => ({
   borderColor:      p.error ? p.theme.errorColor.border : p.theme.normalColor,
   checkedColor:     p.error ? p.theme.errorColor.border : p.theme.primaryColor,
   hoverColor:       p.error ? p.theme.errorColor.border : darken(0.1, p.theme.normalColor)
@@ -230,4 +230,4 @@ const CheckboxStyled = styled(CheckboxBase).attrs(p => ({
  */
 const Checkbox = (props: ICheckboxProps) => <CheckboxStyled {...props}></CheckboxStyled>
 
-export { Checkbox, ICheckboxProps }
+export { Checkbox, type ICheckboxProps }

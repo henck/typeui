@@ -2,6 +2,7 @@ import * as React from 'react';
 interface ILabelProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * An inline label floats before its control, not above it.
@@ -13,9 +14,10 @@ interface ILabelProps {
      * @default false
      */
     required?: boolean;
+    /**
+     * If true, show no asterisk for required fields.
+     */
+    noStar?: boolean;
 }
-declare class LabelBase extends React.Component<ILabelProps, {}> {
-    render(): JSX.Element;
-}
-declare const Label: import("styled-components").StyledComponent<typeof LabelBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Label: import("styled-components/dist/types").IStyledComponentBase<"web", ILabelProps> & string & Omit<(props: ILabelProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Label };

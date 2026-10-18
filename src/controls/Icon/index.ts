@@ -1,5 +1,5 @@
-export { Icon, IIconProps, IconStyled } from './Icon';
-export { IconType } from './IconType';
+export { Icon, type IIconProps, IconStyled } from './Icon';
+export { type IconType } from './IconType';
 
 /** 
  * This index.tsx file exists so that you can do

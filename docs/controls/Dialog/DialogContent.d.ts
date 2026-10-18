@@ -12,7 +12,7 @@ interface IDialogContentProps {
     maxHeight?: number;
 }
 declare const DialogContent: {
-    (props: IDialogContentProps): JSX.Element;
+    (props: IDialogContentProps): React.JSX.Element;
     displayName: string;
 };
-export { DialogContent, IDialogContentProps };
+export { DialogContent, type IDialogContentProps };

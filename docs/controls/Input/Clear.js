@@ -1,41 +1,26 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-import * as React from 'react';
+import { jsx as _jsx } from "react/jsx-runtime";
 import styled from '../../styles/Theme';
-var ClearBase = /** @class */ (function (_super) {
-    __extends(ClearBase, _super);
-    function ClearBase() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.handleClick = function (e) {
-            // Stop propagation, or color/date controls will open on click.
-            e.stopPropagation();
-            _this.props.onClick();
-        };
-        _this.render = function () {
-            return React.createElement("svg", { className: _this.props.className, onClick: _this.handleClick },
-                React.createElement("use", { xlinkHref: "spritemap.svg#times" }));
-        };
-        return _this;
-    }
-    return ClearBase;
-}(React.Component));
-var Clear = styled(ClearBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: absolute;\n  z-index: 1;\n  right: 15px;\n  top: 10px;\n  width: 17px;\n  height: 17px;\n  cursor: pointer;\n  fill: #888;\n  &:hover {\n    fill: ", ";\n  }\n"], ["\n  position: absolute;\n  z-index: 1;\n  right: 15px;\n  top: 10px;\n  width: 17px;\n  height: 17px;\n  cursor: pointer;\n  fill: #888;\n  &:hover {\n    fill: ", ";\n  }\n"])), function (p) { return p.theme.fontColor; });
+const ClearBase = (props) => {
+    const handleClick = (e) => {
+        // Stop propagation, or color/date controls will open on click.
+        e.stopPropagation();
+        props.onClick();
+    };
+    return (_jsx("svg", { className: props.className, onClick: handleClick, children: _jsx("use", { xlinkHref: "/spritemap.svg#times" }) }));
+};
+const Clear = styled(ClearBase) `
+  position: absolute;
+  z-index: 1;
+  right: 15px;
+  top: 10px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  transition: opacity ease-in-out 120ms;
+  fill: ${p => p.theme.fontColor};
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+`;
 export { Clear };
-var templateObject_1;

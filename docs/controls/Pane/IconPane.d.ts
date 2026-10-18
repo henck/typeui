@@ -26,6 +26,6 @@ declare class IconPane extends React.Component<IIconPaneProps, IState> {
     constructor(props: IIconPaneProps);
     handleOpenPane: () => void;
     handleClosePane: () => void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { IconPane };

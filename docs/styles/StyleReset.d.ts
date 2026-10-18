@@ -1,3 +1,2 @@
-import { GlobalStyleComponent, DefaultTheme } from 'styled-components';
-declare const StyleReset: GlobalStyleComponent<{}, DefaultTheme>;
+declare const StyleReset: import("react").NamedExoticComponent<import("styled-components").ExecutionProps & object>;
 export { StyleReset };

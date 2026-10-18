@@ -2,6 +2,7 @@ import * as React from 'react';
 interface IDropzoneProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Callback to call when files are dropped in the Dropzone. Multiple files can be uploaded at
@@ -12,9 +13,6 @@ interface IDropzoneProps {
      * Optional translation override for Dropzone message.
      */
     message?: React.ReactNode;
-}
-interface IDropzoneState {
-    hover: boolean;
 }
 /**
  * A `Dropzone` accepts files, either by dragging them into the zone or by clicking the
@@ -28,11 +26,5 @@ interface IDropzoneState {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-dropzone--properties
  */
-declare class Dropzone extends React.Component<IDropzoneProps, IDropzoneState> {
-    constructor(props: IDropzoneProps);
-    private handleAddFiles;
-    private handleDragOver;
-    private handleDragLeave;
-    render(): JSX.Element;
-}
+declare const Dropzone: (props: IDropzoneProps) => React.JSX.Element;
 export { Dropzone };

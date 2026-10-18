@@ -1,3 +1,2 @@
-import { GlobalStyleComponent, DefaultTheme } from 'styled-components';
-declare const StyleBase: GlobalStyleComponent<{}, DefaultTheme>;
+declare const StyleBase: import("react").NamedExoticComponent<import("styled-components").ExecutionProps & object>;
 export { StyleBase };

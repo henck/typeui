@@ -1,0 +1,27 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Divider} from '../Divider';
+import {Icon} from '../../Icon';
+import {Header} from '../../Header';
+import * as DividerGeneralStories from './Divider.General.stories';
+
+# Divider: General
+
+.
+
+<Meta of={DividerGeneralStories} />
+
+## Clearing
+
+A `Divider` always clears floating content above it.
+
+<Canvas>
+  <Story of={DividerGeneralStories.Clearing} />
+</Canvas>
+
+## Content
+
+A `Divider` can have some content.
+
+<Canvas>
+  <Story of={DividerGeneralStories.Content} />
+</Canvas>

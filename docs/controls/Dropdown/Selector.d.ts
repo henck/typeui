@@ -1,8 +1,12 @@
 import * as React from 'react';
 interface ISelectorProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
+    /** Fired when selector is clicked. */
     onClick: () => void;
+    /** Fired when clear icon is clicked. */
     onClear?: () => void;
     /** Dropdown currently disabled? */
     disabled?: boolean;
@@ -19,9 +23,5 @@ interface ISelectorProps {
     /** Multiple selection? This will result in smaller padding to accommodate <Selection> items. */
     multiple?: boolean;
 }
-declare class SelectorBase extends React.Component<ISelectorProps, {}> {
-    private handleClear;
-    render(): JSX.Element;
-}
-declare const Selector: import("styled-components").StyledComponent<typeof SelectorBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Selector: import("styled-components/dist/types").IStyledComponentBase<"web", ISelectorProps> & string & Omit<(props: ISelectorProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Selector };

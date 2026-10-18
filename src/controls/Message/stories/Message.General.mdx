@@ -1,0 +1,27 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Message} from '../Message';
+import {Icon} from '../../Icon';
+import * as MessageGeneralStories from './Message.General.stories';
+
+# Message: General
+
+.
+
+<Meta of={MessageGeneralStories} />
+
+## Icon
+
+A `Message` can contain an `Icon`. Adding the `icon` attribute will apply
+appropriate layout to the message.
+
+<Canvas>
+  <Story of={MessageGeneralStories.IconStory} />
+</Canvas>
+
+## hidden
+
+A `Message` can be `hidden`.
+
+<Canvas>
+  <Story of={MessageGeneralStories.Hidden} />
+</Canvas>

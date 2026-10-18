@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { ISwatch } from './Swatch';
+import { ISwatch } from './ISwatch';
 interface ISelectorProps {
     className?: string;
+    nodeRef?: React.Ref<HTMLDivElement>;
     value: string;
     upward: boolean;
     right: boolean;
@@ -58,7 +59,7 @@ declare class SelectorBase extends React.Component<ISelectorProps, ISelectorStat
     private addSwatch;
     private setColor;
     private handleKeyDown;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
-declare const Selector: import("styled-components").StyledComponent<typeof SelectorBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
+declare const Selector: import("styled-components/dist/types").IStyledComponentBase<"web", ISelectorProps & React.RefAttributes<SelectorBase>> & string & Omit<typeof SelectorBase, keyof React.Component<any, {}, any>>;
 export { Selector };

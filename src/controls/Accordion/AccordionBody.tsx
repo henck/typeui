@@ -32,6 +32,7 @@ const AccordionBodyBase = (props: IAccordionBodyProps) => {
       bodyRef.current.style.height = "auto"; 
     } else {
       requestAnimationFrame(() => {
+        if(!bodyRef.current) return; // Unmounted mid-animation
         bodyRef.current.style.height = "0px";
         expandMore();
       });
@@ -39,6 +40,7 @@ const AccordionBodyBase = (props: IAccordionBodyProps) => {
   }
   const expandMore = () => {
     requestAnimationFrame(() => {
+      if(!bodyRef.current) return; // Unmounted mid-animation
       bodyRef.current.style.height = Math.min(bodyRef.current.scrollHeight, bodyRef.current.clientHeight + 30) + 'px';
       if(bodyRef.current.clientHeight < bodyRef.current.scrollHeight) {
         expandMore();
@@ -60,6 +62,7 @@ const AccordionBodyBase = (props: IAccordionBodyProps) => {
       bodyRef.current.style.overflowY = "hidden";
     } else {
       requestAnimationFrame(() => {
+        if(!bodyRef.current) return; // Unmounted mid-animation
         bodyRef.current.style.height = bodyRef.current.scrollHeight + "px";
         bodyRef.current.style.overflowY = "hidden";
         collapseMore();
@@ -68,6 +71,7 @@ const AccordionBodyBase = (props: IAccordionBodyProps) => {
   }
   const collapseMore = () => {
     requestAnimationFrame(() => {
+      if(!bodyRef.current) return; // Unmounted mid-animation
       bodyRef.current.style.height = Math.max(0, bodyRef.current.clientHeight - 30) + 'px';
       if(bodyRef.current.clientHeight > 0) {
         collapseMore(); 

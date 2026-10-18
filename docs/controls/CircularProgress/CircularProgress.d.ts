@@ -22,7 +22,7 @@ interface ICircularProgressProps {
      */
     thickness?: number;
     /**
-     * If set, line gets a grey background.
+     * If set, line gets a background.
      * @default false
      */
     background?: boolean;
@@ -32,7 +32,7 @@ interface ICircularProgressProps {
      */
     rounded?: boolean;
     /**
-     * If set, line gets edge drop shadow.
+     * If set, line and text get edge drop shadow.
      * @default false
      */
     raised?: boolean;
@@ -46,6 +46,16 @@ interface ICircularProgressProps {
      * @default false
      */
     padded?: boolean;
+    /**
+     * Font size factor compared to inherited font size. Defaults to 1.
+     * Use 2 to increase font size 2x.
+     */
+    fontFactor?: number;
+    /**
+     * Fired when control is clicked. Control is only interactive
+     * if this event handler has a value.
+     */
+    onClick?: () => void;
 }
 /**
  * A CircularProgress shows a circular progress meter that is optionally animated.
@@ -57,7 +67,5 @@ interface ICircularProgressProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-circularprogress--properties
  */
-declare class CircularProgress extends React.Component<ICircularProgressProps> {
-    render: () => JSX.Element;
-}
-export { CircularProgress };
+declare const CircularProgress: (props: ICircularProgressProps) => React.JSX.Element;
+export { CircularProgress, type ICircularProgressProps };

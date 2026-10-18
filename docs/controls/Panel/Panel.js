@@ -1,18 +1,4 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+import { jsx as _jsx } from "react/jsx-runtime";
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeConsumer } from 'styled-components';
@@ -28,60 +14,55 @@ import { IconPanel } from './IconPanel';
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-panel--properties
  */
-var Panel = /** @class */ (function (_super) {
-    __extends(Panel, _super);
-    function Panel(props) {
-        var _this = _super.call(this, props) || this;
+class Panel extends React.Component {
+    constructor(props) {
+        super(props);
+        this.containerRef = React.createRef();
         // Handle document-wide mousedown event by sending a panel close event.
-        _this.handleClickOutside = function (e) {
-            var elem = e.target;
-            if (_this.panelElement && !_this.panelElement.contains(elem) && _this.props.open && _this.props.onClose) {
+        this.handleClickOutside = (e) => {
+            let elem = e.target;
+            if (this.panelElement && !this.panelElement.contains(elem) && this.props.open && this.props.onClose) {
                 // A short timeout prevents the panel reopening immediately when its
                 // trigger element is clicked.
-                setTimeout(function () { return _this.props.onClose(); }, 100);
+                setTimeout(() => this.props.onClose(), 100);
             }
         };
-        _this.handleKeyDown = function (e) {
+        this.handleKeyDown = (e) => {
             if (e.key == 'Escape')
-                _this.props.onClose();
+                this.props.onClose();
         };
-        _this.state = {
+        this.state = {
             anchor: null
         };
-        return _this;
     }
     // Listen for document-wide mousedown/keydown events when component mounts.
-    Panel.prototype.componentDidMount = function () {
+    componentDidMount() {
         this.setState({
             anchor: this.panelElement
         });
         document.addEventListener('mousedown', this.handleClickOutside);
         document.addEventListener('keydown', this.handleKeyDown);
-    };
+    }
     // Clean up document-wide mousedown/keydown events when component unmounts.
-    Panel.prototype.componentWillUnmount = function () {
+    componentWillUnmount() {
         document.removeEventListener('mousedown', this.handleClickOutside);
         document.removeEventListener('keydown', this.handleKeyDown);
-    };
-    Panel.prototype.render = function () {
-        var _this = this;
-        var p = this.props;
-        return (React.createElement("div", { ref: function (el) { return _this.panelElement = el; } },
-            React.createElement(ThemeConsumer, null, function (theme) { return React.createElement(CSSTransition, { in: p.open, timeout: theme.transition.duration * 1000 * 3, appear: true, unmountOnExit: true, classNames: "fade" },
-                React.createElement(PanelContainer, { anchor: _this.state.anchor, noanimation: p.noanimation, padded: p.padded, width: p.width }, p.children)); })));
-    };
-    Panel.Header = Header;
-    Panel.Content = Content;
-    Panel.Footer = Footer;
-    /**
-     * The Panel.Icon component is a shortcut to building a Panel that opens when an
-     * Icon is clicked. Note that the Panel.Icon must still be placed inside a container
-     * that is relatively positioned, and that the only way to close the panel is to click
-     * outside it.
-     *
-     * An icon can be passed as an icon type, or as a collection of icon properties.
-     */
-    Panel.Icon = IconPanel;
-    return Panel;
-}(React.Component));
+    }
+    render() {
+        let p = this.props;
+        return (_jsx("div", { ref: (el) => this.panelElement = el, children: _jsx(ThemeConsumer, { children: (theme) => _jsx(CSSTransition, { nodeRef: this.containerRef, in: p.open, timeout: theme.transition.duration * 1000 * 3, appear: true, unmountOnExit: true, classNames: "fade", children: _jsx(PanelContainer, { nodeRef: this.containerRef, anchor: this.state.anchor, noanimation: p.noanimation, padded: p.padded, width: p.width, children: p.children }) }) }) }));
+    }
+}
+Panel.Header = Header;
+Panel.Content = Content;
+Panel.Footer = Footer;
+/**
+ * The Panel.Icon component is a shortcut to building a Panel that opens when an
+ * Icon is clicked. Note that the Panel.Icon must still be placed inside a container
+ * that is relatively positioned, and that the only way to close the panel is to click
+ * outside it.
+ *
+ * An icon can be passed as an icon type, or as a collection of icon properties.
+ */
+Panel.Icon = IconPanel;
 export { Panel };

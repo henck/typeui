@@ -24,4 +24,4 @@ const MetaStyled = styled(MetaBase)`
 
 const Meta = (props: ICardMetaProps) => <MetaStyled {...props}></MetaStyled>
 
-export { Meta, ICardMetaProps }
+export { Meta, type ICardMetaProps }

@@ -1,0 +1,35 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {DataTable} from '../DataTable';
+import * as DataTableGeneralStories from './DataTable.General.stories';
+
+# DataTable: General
+
+.
+
+<Meta of={DataTableGeneralStories} />
+
+## order
+
+The `DataTable` supports visual elements for row ordering. Calling code
+must provide the `order` attribute (a column name) and optionally
+the `dir` attribute (`asc` or `desc`) for ordering options to appear.
+
+The `DataTable.Column` elements in the DataTable must have `order`
+and `dir` properties set, as well.
+
+Note that `DataTable` is not responsible for the ordering; the calling
+code must listen for the `onOrder` event and provide a new `data` array.
+
+<Canvas>
+  <Story of={DataTableGeneralStories.Order} />
+</Canvas>
+
+## onClick
+
+A `DataTable` takes an `onClick` event handler. When a row is clicked,
+the onClick event is fired with the row's data item. Clickable rows also
+give visual feedback.
+
+<Canvas>
+  <Story of={DataTableGeneralStories.OnClick} />
+</Canvas>

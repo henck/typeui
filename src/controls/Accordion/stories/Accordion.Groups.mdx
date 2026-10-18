@@ -1,0 +1,22 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Accordion} from '../Accordion';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Flex} from '../../Flex';
+import {Message} from '../../Message';
+import * as AccordionGroupsStories from './Accordion.Groups.stories';
+
+# Accordion: Groups
+
+.
+
+<Meta of={AccordionGroupsStories} />
+
+## attached
+
+Accordions can be `attached` to other content like a `Segment` or a `Message`.
+Note that any dropshadows are removed for attached content.
+
+<Canvas>
+  <Story of={AccordionGroupsStories.Attached} />
+</Canvas>

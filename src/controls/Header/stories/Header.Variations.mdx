@@ -1,0 +1,61 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Header} from '../Header';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+import {Segment} from '../../Segment';
+import {Message} from '../../Message';
+import * as HeaderVariationsStories from './Header.Variations.stories';
+
+# Header: Variations
+
+.
+
+<Meta of={HeaderVariationsStories} />
+
+## Align
+
+Header text content can have an `align` of `left`, `center` or `right`.
+
+<Canvas>
+  <Story of={HeaderVariationsStories.Align} />
+</Canvas>
+
+## Block
+
+A `block` header appears as a content block.
+
+<Canvas>
+  <Story of={HeaderVariationsStories.Block} />
+</Canvas>
+
+## Color
+
+A header can have a custom `color`.
+
+<Canvas>
+  <Story of={HeaderVariationsStories.Color} />
+</Canvas>
+
+## Dividing
+
+A `dividing` header separates itself from the content below it with a border.
+
+<Canvas>
+  <Story of={HeaderVariationsStories.Dividing} />
+</Canvas>
+
+## Float
+
+Headers can `float` to the `left` or `right`.
+
+<Canvas>
+  <Story of={HeaderVariationsStories.Float} />
+</Canvas>
+
+## Attached
+
+A header can be `attached` to other content.
+
+<Canvas>
+  <Story of={HeaderVariationsStories.Attached} />
+</Canvas>

@@ -1,3 +1,2 @@
-import { ToastContainer } from './ToastContainer';
-import { ToastService } from './ToastService';
-export { ToastContainer, ToastService };
+export { ToastContainer } from './ToastContainer';
+export { ToastService } from './ToastService';

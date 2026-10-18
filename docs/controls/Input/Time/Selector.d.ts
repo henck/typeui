@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TMode } from './Clock';
 interface ISelectorProps {
     className?: string;
+    nodeRef?: React.Ref<HTMLDivElement>;
     value: any;
     upward: boolean;
     right: boolean;
@@ -35,7 +36,7 @@ declare class SelectorBase extends React.Component<ISelectorProps, ISelectorStat
     private handleClock;
     getClockValue: () => number;
     private handleKeyDown;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
-declare const Selector: import("styled-components").StyledComponent<typeof SelectorBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
+declare const Selector: import("styled-components/dist/types").IStyledComponentBase<"web", ISelectorProps & React.RefAttributes<SelectorBase>> & string & Omit<typeof SelectorBase, keyof React.Component<any, {}, any>>;
 export { Selector };

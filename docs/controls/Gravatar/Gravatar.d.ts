@@ -21,7 +21,5 @@ interface IGravatarProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-gravatar--properties
  */
-declare class Gravatar extends React.Component<IGravatarProps, {}> {
-    render(): JSX.Element;
-}
+declare const Gravatar: (props: IGravatarProps) => React.JSX.Element;
 export { Gravatar };

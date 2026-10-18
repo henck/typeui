@@ -1,0 +1,19 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { EUI } from '../EUI';
+import * as EuiPropertiesStories from './EUI.Properties.stories';
+
+<Meta of={EuiPropertiesStories} />
+
+# EUI
+
+`EUI` formats an extended unique identifier. This formatter can take either a string
+or a number. A number will be converted to a hexadecimal string; a string is presented
+as-is.
+
+<ArgTypes of={EUI} />
+
+## Example
+
+<Canvas>
+  <Story of={EuiPropertiesStories.Properties} />
+</Canvas>

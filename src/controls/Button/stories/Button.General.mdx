@@ -1,0 +1,51 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Button} from '../Button';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Divider} from '../../Divider';
+import {Label} from '../../Label';
+import * as ButtonGeneralStories from './Button.General.stories';
+
+# Button: General
+
+.
+
+<Meta of={ButtonGeneralStories} />
+
+## basic
+
+A `basic` button is less pronounced.
+
+<Canvas>
+  <Story of={ButtonGeneralStories.Basic} />
+</Canvas>
+
+## icon
+
+A `Button` can have an `<Icon>` inside it. The icon will be 80% opaque, and
+100% opaque when the button is hovered. If the `icon` attribute is specified,
+then the button will have no padding. The icon itself can have its own
+attributes.
+
+The icon color will automatically adjust to the button's color.
+
+<Canvas>
+  <Story of={ButtonGeneralStories.IconStory} />
+</Canvas>
+
+## labelled
+
+A `Label` can be `attached` to a button, either `attached=left` or `attached=right`.
+
+<Canvas>
+  <Story of={ButtonGeneralStories.Labelled} />
+</Canvas>
+
+## disabled
+
+A `disabled` button cannot be interacted with. `onClick` event handlers
+registered on it will not fire.
+
+<Canvas>
+  <Story of={ButtonGeneralStories.Disabled} />
+</Canvas>

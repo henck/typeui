@@ -19,6 +19,7 @@ import { Button } from '../../Button/Button';
 
 interface ISelectorProps {
   className?: string;
+  nodeRef?: React.Ref<HTMLDivElement>;
   value: string;
   // If true, selector opens above the input.
   upward: boolean;
@@ -273,7 +274,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     let p = this.props;
 
     return (
-      <div className={p.className}>
+      <div className={p.className} ref={p.nodeRef}>
         <div>
           <div style={{display: 'inline-flex'}}>
             <ColorBox hue={this.state.hue} saturation={this.state.hsv_saturation} brightness={this.state.hsv_brightness} onMouseDown={this.handleColorMouseDown}/>

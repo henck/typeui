@@ -42,4 +42,4 @@ const ContentStyled = styled(ContentBase)`
 
 const Content = (props: ICardContentProps) => <ContentStyled {...props}></ContentStyled>
 
-export { Content, ICardContentProps }
+export { Content, type ICardContentProps }

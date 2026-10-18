@@ -27,7 +27,7 @@ const ClockNumberBase = (props: IProps) =>
  */
 const ClockValue = styled.div``
 
-const ClockNumber = styled(ClockNumberBase).attrs(p => ({
+const ClockNumber = styled(ClockNumberBase).attrs<{ left?: number, top?: number, yFix?: number }>(p => ({
   // Position clock number in the center, then at 40% offset of total clock size
   // (this is in percentage)
   left: 50 + Math.cos((p.degrees-90) * Math.PI/180) * 40,

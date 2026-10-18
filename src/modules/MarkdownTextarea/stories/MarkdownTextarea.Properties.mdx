@@ -1,0 +1,27 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { MarkdownTextarea } from '../MarkdownTextarea';
+import { Form } from '../../../controls/Form';
+import * as MarkdownTextareaPropertiesStories from './MarkdownTextarea.Properties.stories';
+
+<Meta of={MarkdownTextareaPropertiesStories} />
+
+# MarkdownTextarea
+
+The `MarkdownTextarea` module combines a `TextArea` component with a
+`Markdown` formatter to add markdown preview.
+
+<ArgTypes of={MarkdownTextarea} />
+
+## Example
+
+<Canvas>
+  <Story of={MarkdownTextareaPropertiesStories.Properties} />
+</Canvas>
+
+## Translations
+
+The UI elements of the `MarkdownTextarea` can optionally be translated.
+
+<Canvas>
+  <Story of={MarkdownTextareaPropertiesStories.Translations} />
+</Canvas>

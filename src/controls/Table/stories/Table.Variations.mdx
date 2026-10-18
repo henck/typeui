@@ -1,0 +1,34 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Table} from '../Table';
+import * as TableVariationsStories from './Table.Variations.stories';
+
+# Table: Variations
+
+.
+
+<Meta of={TableVariationsStories} />
+
+## striped
+
+A `striped` `Table` adds row striping.
+
+<Canvas>
+  <Story of={TableVariationsStories.Striped} />
+</Canvas>
+
+## transparent
+
+A `transparent` `Table` has no border.
+
+<Canvas>
+  <Story of={TableVariationsStories.Transparent} />
+</Canvas>
+
+## Headerless
+
+A `Table` without a `<thead>` adds a rounded border to the first row. Note that
+for the styling to work, a `<tbody>` element is required.
+
+<Canvas>
+  <Story of={TableVariationsStories.Headerless} />
+</Canvas>

@@ -17,6 +17,6 @@ interface IToastContainerProps {
     verticalOffset?: number;
 }
 declare class ToastContainer extends React.Component<IToastContainerProps> {
-    render: () => JSX.Element;
+    render: () => React.JSX.Element;
 }
 export { ToastContainer };

@@ -2,6 +2,8 @@ import * as React from 'react';
 interface IPanelBodyProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
+    nodeRef?: React.Ref<HTMLDivElement>;
     children?: React.ReactNode;
     /** Is body above the parent element? */
     above: boolean;
@@ -18,7 +20,7 @@ interface IPanelBodyProps {
 }
 declare class PanelBodyBase extends React.Component<IPanelBodyProps, {}> {
     private handleClick;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
-declare const PanelBody: import("styled-components").StyledComponent<typeof PanelBodyBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const PanelBody: import("styled-components/dist/types").IStyledComponentBase<"web", IPanelBodyProps & React.RefAttributes<PanelBodyBase>> & string & Omit<typeof PanelBodyBase, keyof React.Component<any, {}, any>>;
 export { PanelBody };

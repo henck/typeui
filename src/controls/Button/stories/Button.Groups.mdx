@@ -1,0 +1,49 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Button} from '../Button';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Divider} from '../../Divider';
+import {Label} from '../../Label';
+import * as ButtonGroupsStories from './Button.Groups.stories';
+
+<Meta of={ButtonGroupsStories} />
+
+# Button: Groups
+
+The `Button.Group` component serves to group `Button` instances together. They
+can be grouped horizontally or vertically, and a `Button.Or` can further be used
+to separate them.
+
+<ArgTypes of={Button} />
+
+## Attributes
+
+Groups can share attributes like `color`, `size`, `compact`, `basic` and `icon`.
+
+<Canvas>
+  <Story of={ButtonGroupsStories.Attributes} />
+</Canvas>
+
+## Conditionals
+
+Button groups can contain conditionals using `Button.Or`.
+
+<Canvas>
+  <Story of={ButtonGroupsStories.Conditionals} />
+</Canvas>
+
+## Horizontal
+
+Buttons can be grouped horizontally using `Button.Group`.
+
+<Canvas>
+  <Story of={ButtonGroupsStories.Horizontal} />
+</Canvas>
+
+## Vertical
+
+Buttons can be grouped vertically using `Button.Group`, with attribute `vertical`.
+
+<Canvas>
+  <Story of={ButtonGroupsStories.Vertical} />
+</Canvas>

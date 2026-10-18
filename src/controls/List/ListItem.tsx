@@ -169,4 +169,4 @@ const ListItemStyled = styled(ListItemBase)`
 
 const ListItem  = (props: IListItemProps) => <ListItemStyled {...props}/>
 
-export { ListItem, IListItemProps }
+export { ListItem, type IListItemProps }

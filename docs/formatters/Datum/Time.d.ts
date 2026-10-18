@@ -4,6 +4,6 @@ interface IProps {
     seconds?: boolean;
 }
 declare class Time extends React.Component<IProps, {}> {
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { Time };

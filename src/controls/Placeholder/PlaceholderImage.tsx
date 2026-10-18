@@ -24,4 +24,4 @@ const PlaceholderImageStyled = styled(PlaceholderImageBase)`
 const PlaceholderImage = (props: IPlaceholderImageProps) =>
   <PlaceholderImageStyled {...props}/>
 
-export { PlaceholderImage, IPlaceholderImageProps }
+export { PlaceholderImage, type IPlaceholderImageProps }

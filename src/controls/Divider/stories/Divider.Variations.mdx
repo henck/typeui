@@ -1,0 +1,43 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Divider} from '../Divider';
+import {Icon} from '../../Icon';
+import {Header} from '../../Header';
+import * as DividerVariationsStories from './Divider.Variations.stories';
+
+# Divider: Variations
+
+.
+
+<Meta of={DividerVariationsStories} />
+
+## fitted
+
+A `fitted` `Divider` has no space above or below it.
+
+<Canvas>
+  <Story of={DividerVariationsStories.Fitted} />
+</Canvas>
+
+## hidden
+
+A `hidden` `Divider` divides content without creating a dividing line.
+
+<Canvas>
+  <Story of={DividerVariationsStories.Hidden} />
+</Canvas>
+
+## section
+
+A `section` `Divider` creates a greater margin between blocks of content.
+
+<Canvas>
+  <Story of={DividerVariationsStories.Section} />
+</Canvas>
+
+## narrow
+
+A `narrow` `Divider` creates a smaller margin between blocks of content.
+
+<Canvas>
+  <Story of={DividerVariationsStories.Narrow} />
+</Canvas>

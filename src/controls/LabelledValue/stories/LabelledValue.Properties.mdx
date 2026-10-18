@@ -1,0 +1,22 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {LabelledValue} from '../LabelledValue';
+import * as LabelledValuePropertiesStories from './LabelledValue.Properties.stories';
+
+<Meta of={LabelledValuePropertiesStories} />
+
+# LabelledValue
+
+Displays a value with a label above it. A `LabelledValue` is just that: a label and
+a value. It is used for view-only data. There is a very slight color change when the
+mouse hovers over the value.
+
+<ArgTypes of={LabelledValue} />
+
+## Standard LabelledValue
+
+A standard `LabelledValue` is gray, with non-bold text. The `label` property
+is required.
+
+<Canvas>
+  <Story of={LabelledValuePropertiesStories.Properties} />
+</Canvas>

@@ -1,2 +1,1 @@
-import { Gravatar } from './Gravatar';
-export { Gravatar };
+export { Gravatar } from './Gravatar';

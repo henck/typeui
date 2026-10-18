@@ -115,4 +115,4 @@ const TableStyled = styled(TableBase)`
  */
 const Table = (props: ITableProps) => <TableStyled {...props}/>
 
-export { Table, ITableProps }
+export { Table, type ITableProps }

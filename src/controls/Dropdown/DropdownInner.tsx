@@ -268,7 +268,7 @@ const DropdownInnerBase = (props: IDropdownProps) => {
     let count: number = 1;
     return props.data.map((row) => {
       return (<Row key={count++} upwards={upwards} onClick={() => handleClick(row)}>{
-        React.Children.map(props.children, (child:Column) => {
+        React.Children.map(props.children, (child: React.ReactElement<Column["props"]>) => {
           return <Cell item={row} gap={props.gap} weight={child.props.weight} align={child.props.align}>{child.props.children}</Cell>
         })
       }</Row>);

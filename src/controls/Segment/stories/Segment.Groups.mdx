@@ -1,0 +1,18 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Segment} from '../Segment';
+import * as SegmentGroupsStories from './Segment.Groups.stories';
+
+# Segment: Groups
+
+.
+
+<Meta of={SegmentGroupsStories} />
+
+# attached
+
+Segments can be `attached` to other content. Note that all dropshadows are
+removed for attached content.
+
+<Canvas>
+  <Story of={SegmentGroupsStories.Attached} />
+</Canvas>

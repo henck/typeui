@@ -6,7 +6,7 @@ interface IHeadProps {
 }
 declare class HeadBase extends React.Component<IHeadProps, {}> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
-declare const Head: import("styled-components").StyledComponent<typeof HeadBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Head: import("styled-components/dist/types").IStyledComponentBase<"web", IHeadProps & React.RefAttributes<HeadBase>> & string & Omit<typeof HeadBase, keyof React.Component<any, {}, any>>;
 export { Head };

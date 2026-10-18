@@ -32,6 +32,11 @@ interface IProgressProps {
      */
     numbered?: boolean;
     /**
+     * A padded `Progress` has a margin around it.
+     * @default false
+     */
+    padded?: boolean;
+    /**
      * Set progress bar thickness in pixels. Defaults to 12.
      * @default 12
      */
@@ -41,6 +46,11 @@ interface IProgressProps {
      * the color is the theme primary color.
      */
     color?: string;
+    /**
+     * Fired when control is clicked. Control is only interactive
+     * if this event handler has a value.
+     */
+    onClick?: () => void;
 }
 /**
  * The Progress component shows a progress bar, filled to a percentage equal to
@@ -53,7 +63,5 @@ interface IProgressProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-progress--properties
  */
-declare class Progress extends React.Component<IProgressProps> {
-    render: () => JSX.Element;
-}
-export { Progress };
+declare const Progress: (props: IProgressProps) => React.JSX.Element;
+export { Progress, type IProgressProps };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-declare type TMode = 'hour' | 'minute' | 'second';
+type TMode = 'hour' | 'minute' | 'second';
 interface IProps {
     className?: string;
     /**
@@ -34,7 +34,7 @@ declare class ClockBase extends React.Component<IProps, IState> {
     private handleMouseDown;
     private handleMouseUp;
     private handleMouseMove;
-    render: () => JSX.Element;
+    render: () => React.JSX.Element;
 }
-declare const Clock: import("styled-components").StyledComponent<typeof ClockBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
-export { Clock, TMode };
+declare const Clock: import("styled-components/dist/types").IStyledComponentBase<"web", IProps & React.RefAttributes<ClockBase>> & string & Omit<typeof ClockBase, keyof React.Component<any, {}, any>>;
+export { Clock, type TMode };

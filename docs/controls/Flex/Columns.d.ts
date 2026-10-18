@@ -1,12 +1,11 @@
 import * as React from 'react';
 interface IColumnsProps {
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Number of columns to show.
      */
     count: number;
 }
-declare class Columns extends React.Component<IColumnsProps, {}> {
-    render(): JSX.Element;
-}
-export { Columns };
+declare const Columns: (props: IColumnsProps) => React.JSX.Element;
+export { Columns, type IColumnsProps };

@@ -1,23 +1,12 @@
 import * as React from 'react';
 interface IAccordionBodyProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     active?: boolean;
     styled?: boolean;
     noanimate?: boolean;
 }
-interface IState {
-    open: boolean;
-}
-declare class AccordionBodyBase extends React.Component<IAccordionBodyProps, IState> {
-    private bodyElement;
-    constructor(props: IAccordionBodyProps);
-    expand: () => void;
-    expandMore: () => void;
-    collapse: () => void;
-    collapseMore: () => void;
-    componentDidUpdate(prevProps: IAccordionBodyProps): void;
-    render(): JSX.Element;
-}
-declare const AccordionBody: import("styled-components").StyledComponent<typeof AccordionBodyBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const AccordionBody: import("styled-components/dist/types").IStyledComponentBase<"web", IAccordionBodyProps> & string & Omit<(props: IAccordionBodyProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { AccordionBody };

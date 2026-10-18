@@ -10,4 +10,4 @@ interface IProps {
 const ListDescription = (props: IProps) =>
   <div className={props.className}>{props.children}</div>
 
-export { ListDescription, IProps }
+export { ListDescription, type IProps }

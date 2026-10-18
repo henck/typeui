@@ -3,7 +3,7 @@ import { Float } from '../Types';
 interface IColumnProps {
     /** @ignore */
     className?: string;
-    children: (item: any) => void;
+    children: (item: any) => React.ReactNode;
     /**
      * Column weight. Defaults to 1.
      * @default 1

@@ -1,0 +1,52 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Placeholder} from '../Placeholder';
+import {Divider} from '../../Divider';
+import {Flex} from '../../Flex';
+import {Segment} from '../../Segment';
+import * as PlaceholderGeneralStories from './Placeholder.General.stories';
+
+# Placeholder: General
+
+.
+
+<Meta of={PlaceholderGeneralStories} />
+
+## Placeholder.Header
+
+A placeholder can contain a `Placeholder.Header`. If the `image` attribute is specified, then
+the header contains a small image block.
+
+Header lines can optionally have the `tall` attribute to appear taller than paragraph lines.
+
+<Canvas>
+  <Story of={PlaceholderGeneralStories.PlaceholderHeader} />
+</Canvas>
+
+## Placeholder.Image
+
+A placeholder can contain a `Placeholder.Image`.
+
+Using `rectangular` will use a 4:3 aspect ratio. The default aspect ratio is 1:1.
+
+<Canvas>
+  <Story of={PlaceholderGeneralStories.PlaceholderImage} />
+</Canvas>
+
+## Placeholder.Line
+
+A placeholder can contain `Placeholder.Line` of text. A line can be made `tall` to appear slightly taller.
+
+By default, repeated lines will appear varied in length. However, it may be useful to specify an exact `length`
+to make the lines match up with content more effectively. Length values are `short`, `medium`, `long` and `full`.
+
+<Canvas>
+  <Story of={PlaceholderGeneralStories.PlaceholderLine} />
+</Canvas>
+
+## Placeholder.Paragraph
+
+A `Placeholder.Paragraph` is used to group lines together. A margin appears between paragraphs.
+
+<Canvas>
+  <Story of={PlaceholderGeneralStories.PlaceholderParagraph} />
+</Canvas>

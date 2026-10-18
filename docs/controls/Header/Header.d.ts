@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Float, VerticalDirection, HorizontalAlignment } from '../Types';
 import { Subheader } from './Subheader';
-import { HeaderContent } from './HeaderContent';
-export declare type HeaderSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeaderSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export interface IHeaderProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
+    /** Fired when header is clicked. */
     onClick?: () => void;
     /** Header size: one of `h1` through `h6`. */
     size: HeaderSize;
@@ -63,15 +64,15 @@ export interface IHeaderProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-header--properties
  */
-declare class Header extends React.Component<IHeaderProps> {
+declare const Header: {
+    (props: IHeaderProps): React.JSX.Element;
     /**
      * A header may contain a <Subheader>.
      */
-    static Subheader: typeof Subheader;
+    Subheader: typeof Subheader;
     /**
      * Header.Content is used to group header content (allowing for Subheader).
      */
-    static Content: typeof HeaderContent;
-    render: () => JSX.Element;
-}
+    Content: (props: import("./HeaderContent").IHeaderContentProps) => React.JSX.Element;
+};
 export { Header };

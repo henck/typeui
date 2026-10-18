@@ -176,4 +176,4 @@ const Textarea = (props: ITextareaProps) =>
     <TextareaStyled {...props}></TextareaStyled>
   </div>
 
-export { Textarea, ITextareaProps }
+export { Textarea, type ITextareaProps }

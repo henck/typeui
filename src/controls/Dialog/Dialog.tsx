@@ -59,7 +59,8 @@ interface IDialogProps {
  * @link https://henck.github.io/typeui/?path=/story/controls-dialog--properties
  */
 class Dialog extends React.Component<IDialogProps, {}> {
-  private windowElement: HTMLDivElement;
+  private backgroundRef = React.createRef<HTMLDivElement>();
+  private windowRef = React.createRef<HTMLDivElement>();
 
   /**
    * Dialog.Header contains dialog header content.
@@ -111,7 +112,7 @@ class Dialog extends React.Component<IDialogProps, {}> {
   // prop is not set to false.
   handleClickOutside = (event: MouseEvent) => {
     let elem:Element = event.target as Element;
-    if (this.windowElement && !this.windowElement.contains(elem) && this.props.onClose && this.props.canClose !== false) {
+    if (this.windowRef.current && !this.windowRef.current.contains(elem) && this.props.onClose && this.props.canClose !== false) {
       this.props.onClose();
     }
   }  
@@ -126,11 +127,11 @@ class Dialog extends React.Component<IDialogProps, {}> {
     // a Dialog does not appear in the DOM at all.
     return (
       <>
-        <CSSTransition in={p.open} timeout={300} unmountOnExit classNames="fade">          
-          <DialogBackground/>
+        <CSSTransition nodeRef={this.backgroundRef} in={p.open} timeout={300} unmountOnExit classNames="fade">
+          <DialogBackground nodeRef={this.backgroundRef}/>
         </CSSTransition>
-        <CSSTransition in={p.open} timeout={300} unmountOnExit classNames="fade">
-          <DialogWindow width={p.width} windowRef={(el:any) => this.windowElement = el}>
+        <CSSTransition nodeRef={this.windowRef} in={p.open} timeout={300} unmountOnExit classNames="fade">
+          <DialogWindow width={p.width} windowRef={this.windowRef}>
             {p.children}
           </DialogWindow>
         </CSSTransition>

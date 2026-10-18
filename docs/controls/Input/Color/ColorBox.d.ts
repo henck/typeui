@@ -1,5 +1,5 @@
 import * as React from 'react';
-interface IColorBoxProps {
+interface IProps {
     className?: string;
     hue: number;
     saturation: number;
@@ -13,14 +13,5 @@ interface IColorBoxProps {
         height: number;
     }) => void;
 }
-declare class ColorBoxBase extends React.Component<IColorBoxProps, {}> {
-    private canvasRef;
-    constructor(props: IColorBoxProps);
-    drawColorBlock(): void;
-    private handleMouseDown;
-    componentDidMount(): void;
-    componentDidUpdate(): void;
-    render(): JSX.Element;
-}
-declare const ColorBox: import("styled-components").StyledComponent<typeof ColorBoxBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
+declare const ColorBox: import("styled-components/dist/types").IStyledComponentBase<"web", IProps> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { ColorBox };

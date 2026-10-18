@@ -37,4 +37,4 @@ const GroupStyled = styled(GroupBase)`
 
 const Group = (props: IGroupProps) => <GroupStyled {...props}/>
 
-export { Group, IGroupProps }
+export { Group, type IGroupProps }

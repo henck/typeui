@@ -1,6 +1,4 @@
 import * as React from 'react';
 import { IIconProps } from '../Icon/Icon';
-declare class ListIcon extends React.Component<IIconProps> {
-    render: () => JSX.Element;
-}
+declare const ListIcon: (props: IIconProps) => React.JSX.Element;
 export { ListIcon };

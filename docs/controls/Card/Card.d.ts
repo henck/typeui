@@ -1,18 +1,16 @@
 import * as React from 'react';
-import { Content } from './Content';
-import { Header } from './Header';
-import { Meta } from './Meta';
 interface ICardProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
-     * A fluid Card occupies all width available to it.
+     * A `fluid` Card occupies all width available to it.
      * @default false
      */
     fluid?: boolean;
     /**
-     * A raised Card will have an extra-strong dropshadow.
+     * A `raised` Card will have an extra-strong dropshadow.
      * @default false
      */
     raised?: boolean;
@@ -39,13 +37,13 @@ interface ICardProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-card--properties
  */
-declare class Card extends React.Component<ICardProps> {
-    /** A Card can have a Card.Header element. */
-    static Header: typeof Header;
-    /** A Card can have a Card.Meta element. */
-    static Meta: typeof Meta;
-    /** A Card can have any number of Card.Content elements inside it. */
-    static Content: typeof Content;
-    render: () => JSX.Element;
-}
+declare const Card: {
+    (props: ICardProps): React.JSX.Element;
+    /** A `Card` can have a `Card.Header` element. */
+    Header: (props: import("./Header").ICardHeaderProps) => React.JSX.Element;
+    /** A `Card` can have a `Card.Meta` element. */
+    Meta: (props: import("./Meta").ICardMetaProps) => React.JSX.Element;
+    /** A `Card` can have any number of `Card.Content` elements inside it. */
+    Content: (props: import("./Content").ICardContentProps) => React.JSX.Element;
+};
 export { Card };

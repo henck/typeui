@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{n}from"./iframe-BMOsmv_G.js";import{n as r,t as i}from"./Table-BQ2ylUjy.js";var a=t({Properties:()=>l,__namedExportsOrder:()=>u,default:()=>c}),o,s,c,l,u;function d(){return(d=e((()=>{r(),o=n(),s=e=>(0,o.jsxs)(i,{...e,children:[(0,o.jsx)(`thead`,{children:(0,o.jsxs)(`tr`,{children:[(0,o.jsx)(`th`,{children:`Column One`}),(0,o.jsx)(`th`,{children:`Column Two`})]})}),(0,o.jsxs)(`tbody`,{children:[(0,o.jsxs)(`tr`,{children:[(0,o.jsx)(`td`,{children:`Value One`}),(0,o.jsx)(`td`,{children:`Value Two`})]}),(0,o.jsxs)(`tr`,{children:[(0,o.jsx)(`td`,{children:`Value Three`}),(0,o.jsx)(`td`,{children:`Value Four`})]}),(0,o.jsxs)(`tr`,{children:[(0,o.jsx)(`td`,{children:`Value Five`}),(0,o.jsx)(`td`,{children:`Value Six`})]})]})]}),c={title:`Controls/Table`,component:i,argTypes:{className:{table:{disable:!0}}}},l={render:s.bind({}),name:`Properties`,args:{}},u=[`Properties`],l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'Properties',
+  args: {}
+}`,...l.parameters?.docs?.source}}}})))()}export{a as n,d as r,l as t};

@@ -1,13 +1,10 @@
 import * as React from 'react';
-import { ISwatch } from './Swatch';
-interface ISwatchBoxProps {
+import { ISwatch } from './ISwatch';
+interface IProps {
     className?: string;
     swatches: ISwatch[];
     onClick: (idx: number) => void;
     onToggle: (idx: number) => void;
 }
-declare class SwatchBoxBase extends React.Component<ISwatchBoxProps, {}> {
-    render(): JSX.Element;
-}
-declare const SwatchBox: import("styled-components").StyledComponent<typeof SwatchBoxBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
+declare const SwatchBox: import("styled-components/dist/types").IStyledComponentBase<"web", IProps> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { SwatchBox };

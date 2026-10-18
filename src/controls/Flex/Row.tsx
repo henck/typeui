@@ -44,4 +44,4 @@ const RowStyled = styled(RowBase)`
 
 const Row = (props: IRowProps) => <RowStyled {...props}/>
 
-export { Row, IRowProps }
+export { Row, type IRowProps }

@@ -112,7 +112,7 @@ const rotate = keyframes`
   to   { transform: rotate(360deg); }
 `;
 
-const IconStyled = styled(IconBase).attrs(p => ({
+const IconStyled = styled(IconBase).attrs<{ hasBorder?: boolean, hasBackground?: boolean, emSize?: number }>(p => ({
   hasBorder: (p.circular || p.bordered || p.cornered),
   hasBackground: (p.circular || p.bordered || p.cornered) && p.inverted,
   emSize: scaleSize(p.size ? p.size : 'medium', 1, p.theme.scale.icon)
@@ -195,4 +195,4 @@ class Icon extends React.Component<IIconProps> {
   render = () =><IconStyled {...this.props}></IconStyled>
 }
 
-export { IconBase, Icon, IconStyled, IIconProps }
+export { IconBase, Icon, IconStyled, type IIconProps }

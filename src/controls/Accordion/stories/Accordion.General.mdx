@@ -1,0 +1,49 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Accordion} from '../Accordion';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Flex} from '../../Flex';
+import {Message} from '../../Message';
+import * as AccordionGeneralStories from './Accordion.General.stories';
+
+# Accordion: General
+
+.
+
+<Meta of={AccordionGeneralStories} />
+
+## active
+
+The default active tab of an `Accordion` can be specified with the `active`
+property. This is actually an *array* of currently active tabs. The indices
+are 0-based.
+
+<Canvas>
+  <Story of={AccordionGeneralStories.Active} />
+</Canvas>
+
+## multiple
+
+A `multiple` Accordion is non-exclusive and allows multiple tabs to be open at
+the same time.
+
+<Canvas>
+  <Story of={AccordionGeneralStories.Multiple} />
+</Canvas>
+
+## title
+
+The *required* `title` attribute of an `Accordion.Tab` can be any JSX, so it's possible
+to include an icon in the title (or anything else).
+
+<Canvas>
+  <Story of={AccordionGeneralStories.Title} />
+</Canvas>
+
+## hidden
+
+An `Accordion.Tab` can be `hidden`.
+
+<Canvas>
+  <Story of={AccordionGeneralStories.Hidden} />
+</Canvas>

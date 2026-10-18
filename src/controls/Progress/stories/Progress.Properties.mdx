@@ -1,0 +1,22 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Progress} from '../Progress';
+import * as ProgressPropertiesStories from './Progress.Properties.stories';
+
+<Meta of={ProgressPropertiesStories} />
+
+# Progress
+
+The `Progress` component shows a progress bar, filled to a percentage equal to
+`value`. The bar always stretches to fill all horizontal space available to it.
+
+<ArgTypes of={Progress} />
+
+## Example
+
+A default `Progress` shows a transparent bar, filled to `value` percent. It
+will have the primary theme color, unless overridden using the `color`
+property.
+
+<Canvas>
+  <Story of={ProgressPropertiesStories.Properties} />
+</Canvas>

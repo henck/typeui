@@ -1,0 +1,75 @@
+import { ThemeProvider } from 'styled-components';
+import { Theme } from '../../../styles';
+import { Dropdown } from '../Dropdown';
+import { Icon } from '../../Icon';
+import { Form } from '../../Form';
+import { Label } from '../../Label';
+
+const domains = [
+  { id: 1, name: '.com' },
+  { id: 2, name: '.net' },
+  { id: 3, name: '.org' },
+  { id: 4, name: '.online' },
+  { id: 5, name: '.xyz' },
+  { id: 6, name: '.software' },
+  { id: 7, name: '.io' },
+  { id: 8, name: '.edu' },
+  { id: 9, name: '.tech' },
+];
+const people = [
+  { id: 1, name: 'John', relation: 'friend' },
+  { id: 2, name: 'Zachary', relation: 'uncle' },
+  { id: 3, name: 'Deke', relation: 'friend' },
+];
+
+const ColumnsTemplate = (args) => (
+  <div style={{ height: '250px', padding: '30px', background: '#406A8C' }}>
+    <ThemeProvider
+      theme={{ ...Theme, normalColor: '#aaa', background: '#305A7C', fontColor: '#fff' }}
+    >
+      <Form data={{}} onChange={() => {}} onValidate={() => {}}>
+        <Form.Field
+          name="person"
+          value={null}
+          control={
+            <Dropdown {...args}>
+              <Dropdown.Column>{(item) => item.name}</Dropdown.Column>
+              <Dropdown.Column>{(item) => <Label>{item.relation}</Label>}</Dropdown.Column>
+            </Dropdown>
+          }
+        />
+      </Form>
+    </ThemeProvider>
+  </div>
+);
+
+export default {
+  title: 'Controls/Dropdown/Theming',
+  component: Dropdown,
+
+  subcomponents: {
+    'Dropdown.Column': Dropdown.Column,
+  },
+
+  argTypes: {
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+};
+
+export const ThemedColumns = {
+  render: ColumnsTemplate.bind({}),
+  name: 'Themed-Columns',
+
+  args: {
+    data: people,
+    direction: 'down',
+    maxItems: 4,
+    placeholder: 'Select person',
+    label: (item) => item.name,
+    onSearch: null,
+  },
+};

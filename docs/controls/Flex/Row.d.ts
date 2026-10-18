@@ -2,6 +2,7 @@ import * as React from 'react';
 interface IRowProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /** @ignore */
     stackable?: boolean;
@@ -12,7 +13,5 @@ interface IRowProps {
     /** @ignore */
     gutter?: number;
 }
-declare class Row extends React.Component<IRowProps, {}> {
-    render: () => JSX.Element;
-}
-export { Row };
+declare const Row: (props: IRowProps) => React.JSX.Element;
+export { Row, type IRowProps };

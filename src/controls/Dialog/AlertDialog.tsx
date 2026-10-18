@@ -35,4 +35,4 @@ const AlertDialog = (props: IAlertDialogProps) =>
     </Dialog.Footer>
   </Dialog>
 
-export { AlertDialog, IAlertDialogProps };
+export { AlertDialog, type IAlertDialogProps };

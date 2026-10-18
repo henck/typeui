@@ -48,4 +48,4 @@ const ButtonOrStyled = styled(ButtonOrBase)`
 
 const ButtonOr = (props: IButtonOrProps) => <ButtonOrStyled {...props}/>;
 
-export { ButtonOr, IButtonOrProps }
+export { ButtonOr, type IButtonOrProps }

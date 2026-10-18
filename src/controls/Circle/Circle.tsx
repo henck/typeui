@@ -57,7 +57,7 @@ const CircleBase = (props: ICircleProps) => {
   );
 }
 
-const CircleStyled = styled(CircleBase).attrs(p => ({
+const CircleStyled = styled(CircleBase).attrs<{ outerRadius?: number, innerRadius?: number }>(p => ({
   outerRadius: p.radius ? p.radius : DEFAULT_RADIUS,
   innerRadius: p.radius ? p.radius / INNER_RADIUS_RATIO : DEFAULT_RADIUS / INNER_RADIUS_RATIO
 }))`
@@ -87,4 +87,4 @@ const CircleStyled = styled(CircleBase).attrs(p => ({
 
 const Circle = (props: ICircleProps) =><CircleStyled {...props}></CircleStyled>
 
-export { Circle, ICircleProps }
+export { Circle, type ICircleProps }

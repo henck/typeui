@@ -3,4 +3,4 @@ interface ISwatch {
   locked: boolean;
 }
 
-export { ISwatch }
+export { type ISwatch }

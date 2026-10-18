@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Image} from '../Image';
+import {Label} from '../../Label';
+import {Icon} from '../../Icon';
+import * as ImageGroupsStories from './Image.Groups.stories';
+
+# Image: Groups
+
+<Meta of={ImageGroupsStories} />
+
+<ArgTypes of={Image} />
+
+## Image.Group
+
+An `Image.Group` is a group of images can share `size`, `bordered`, `rounded`
+and `circular` attributes. The images are automatically spaced.
+
+<Canvas>
+  <Story of={ImageGroupsStories.ImageGroup} />
+</Canvas>

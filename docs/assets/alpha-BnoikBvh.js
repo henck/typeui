@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{i as t,r as n,s as r}from"./darken-Ccl44O0b.js";function i(e,t){if(e=r(0,1,e),t===`transparent`)return t;let i=n.FromString(t);return i.alpha=e,i.toString()}function a(){return(a=e((()=>{t()})))()}export{a as n,i as t};

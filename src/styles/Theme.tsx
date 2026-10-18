@@ -1,13 +1,27 @@
-import * as styledComponents from "styled-components";
+import baseStyled, { css, createGlobalStyle, keyframes, ThemeProvider } from "styled-components";
+import isPropValid from "@emotion/is-prop-valid";
 import { Ratio } from "../helper/SizeHelper";
 
-const {
-  default: styled,
-  css,
-  createGlobalStyle,
-  keyframes,
-  ThemeProvider
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<IThemeInterface>;
+// styled-components v6 forwards all props to DOM elements. Restore the v4
+// behavior: DOM elements only receive valid HTML attributes, while wrapped
+// React components receive all props.
+const shouldForwardProp = (prop: string, target: unknown) =>
+  typeof target === 'string' ? isPropValid(prop) : true;
+
+const styled = new Proxy(baseStyled, {
+  apply: (target, thisArg, args: Parameters<typeof baseStyled>) =>
+    target(...args).withConfig({ shouldForwardProp }),
+  // styled.div etc. are own function properties; route them through apply.
+  get: (target, prop, receiver) =>
+    typeof prop === 'string' && Object.prototype.hasOwnProperty.call(target, prop) && typeof (target as any)[prop] === 'function'
+      ? (styled as any)(prop)
+      : Reflect.get(target, prop, receiver)
+}) as typeof baseStyled;
+
+// Type styled-components' theme as IThemeInterface:
+declare module "styled-components" {
+  export interface DefaultTheme extends IThemeInterface {}
+}
 
 export interface IScaleGroup {
   button: Ratio;          // ModularScale ratio to use for buttons

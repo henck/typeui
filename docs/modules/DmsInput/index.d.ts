@@ -1,2 +1,1 @@
-import { DmsInput } from './DmsInput';
-export { DmsInput };
+export { DmsInput } from './DmsInput';

@@ -6,6 +6,6 @@ interface IPasswordState {
 declare class Password extends React.Component<IInputProps, IPasswordState> {
     constructor(props: IInputProps);
     handleClick: () => void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { Password };

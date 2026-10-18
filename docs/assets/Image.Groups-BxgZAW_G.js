@@ -1,0 +1,7 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t}from"./iframe-BMOsmv_G.js";import{i as n,r}from"./react-DITjJg24.js";import{c as i,l as a,n as o,r as s,s as c}from"./blocks-CwW7mlwR.js";import{t as l}from"./Icon-DBLdIlUt.js";import{r as u,t as d}from"./Image-DacXjqKR.js";import{t as f}from"./Label-DApBXEp8.js";import{n as p,r as m,t as h}from"./Image.Groups.stories-x6XpQ6zB.js";function g(e){let t={code:`code`,h1:`h1`,h2:`h2`,p:`p`,...n(),...e.components};return(0,v.jsxs)(v.Fragment,{children:[(0,v.jsx)(t.h1,{id:`image-groups`,children:`Image: Groups`}),`
+`,(0,v.jsx)(c,{of:p}),`
+`,(0,v.jsx)(o,{of:d}),`
+`,(0,v.jsx)(t.h2,{id:`imagegroup`,children:`Image.Group`}),`
+`,(0,v.jsxs)(t.p,{children:[`An `,(0,v.jsx)(t.code,{children:`Image.Group`}),` is a group of images can share `,(0,v.jsx)(t.code,{children:`size`}),`, `,(0,v.jsx)(t.code,{children:`bordered`}),`, `,(0,v.jsx)(t.code,{children:`rounded`}),`\r
+and `,(0,v.jsx)(t.code,{children:`circular`}),` attributes. The images are automatically spaced.`]}),`
+`,(0,v.jsx)(s,{children:(0,v.jsx)(i,{of:h})})]})}function _(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,v.jsx)(t,{...e,children:(0,v.jsx)(g,{...e})}):g(e)}var v;function y(){return(y=e((()=>{v=t(),r(),a(),u(),f(),l(),m()})))()}y();export{_ as default};

@@ -1,0 +1,60 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {List} from '../List';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+import * as ListGeneralStories from './List.General.stories';
+
+# List: General
+
+.
+
+<Meta of={ListGeneralStories} />
+
+## Icons
+
+A `List` with icons. Each `List.Item` can contain an `Icon` as well as
+a `List.Content` element.
+
+<Canvas>
+  <Story of={ListGeneralStories.Icons} />
+</Canvas>
+
+## Images
+
+A `List` can contain images. An `Image` element can be placed inside a
+`List.Item` as a sibling of `List.Content`.
+
+<Canvas>
+  <Story of={ListGeneralStories.Images} />
+</Canvas>
+
+## List.Header
+
+A `List` with `List.Header` and `List.Description`, both contained inside
+`List.Content`.
+
+Note the use of the `align` property to align icons vertically.
+
+<Canvas>
+  <Story of={ListGeneralStories.ListHeader} />
+</Canvas>
+
+## Sublists
+
+A `List.Item` can contain another `List`. The sublist will be indented
+automatically. The sublist must *not* be inside `List.Content`.
+
+<Canvas>
+  <Story of={ListGeneralStories.Sublists} />
+</Canvas>
+
+## onClick
+
+`List.Item` can have the `onClick` attribute.
+
+So can `List.Content`, which will prevent clicks from bubbling up to parent
+items.
+
+<Canvas>
+  <Story of={ListGeneralStories.OnClick} />
+</Canvas>

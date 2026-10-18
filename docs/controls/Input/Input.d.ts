@@ -70,6 +70,14 @@ interface IInputProps {
     maxLength?: number;
     /** Optional autocomplete information (see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) */
     autocomplete?: string;
+    /**
+     * For Input elements with a dropdown, opening direction can be either fixed
+     * (`up` or `down`), or depend on the nearest scrolling parent: if the Input
+     * is in the top half of the visible section of the parent, then it opens
+     * downward, and vice-versa. If this property is not set, then the opening
+     * direction is determined from the Input position in the viewport.
+     */
+    direction?: 'up' | 'down' | 'parent';
     /** Listeners are notified whenever the user interacts with the Input. */
     onChange?: (value: any) => void;
     /** Listeners are notified when the Input receives focus. */
@@ -80,7 +88,5 @@ interface IInputProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-input--properties
  */
-declare class Input extends React.Component<IInputProps> {
-    render: () => JSX.Element;
-}
-export { Input, IInputProps };
+declare const Input: (props: IInputProps) => React.JSX.Element;
+export { Input, type IInputProps };

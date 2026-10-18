@@ -8,7 +8,5 @@ interface IPlaceholderImageProps {
      */
     rectangular?: boolean;
 }
-declare class PlaceholderImage extends React.Component<IPlaceholderImageProps> {
-    render: () => JSX.Element;
-}
-export { PlaceholderImage };
+declare const PlaceholderImage: (props: IPlaceholderImageProps) => React.JSX.Element;
+export { PlaceholderImage, type IPlaceholderImageProps };

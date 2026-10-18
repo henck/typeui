@@ -23,4 +23,4 @@ const DialogHeader = (props: IDialogHeaderProps) =>
 
 DialogHeader.displayName = "Dialog.Header" ;
 
-export { DialogHeader, IDialogHeaderProps };
+export { DialogHeader, type IDialogHeaderProps };

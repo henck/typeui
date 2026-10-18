@@ -36,4 +36,4 @@ const QuickStyled = styled(QuickBase)`
 
 const Quick = (props: IQuickProps) => <QuickStyled {...props}/>
 
-export { Quick, IQuickProps }
+export { Quick, type IQuickProps }

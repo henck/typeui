@@ -1,0 +1,34 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Label} from '../Label';
+import {Image} from '../../Image';
+import * as LabelGeneralStories from './Label.General.stories';
+
+# Label: General
+
+.
+
+<Meta of={LabelGeneralStories} />
+
+# Label.Detail
+
+A `Label` can contain a `Label.Detail` inside it.
+
+<Canvas>
+  <Story of={LabelGeneralStories.Properties} />
+</Canvas>
+
+## onClick
+
+A `Label` with an `onClick` event darkens on hover.
+
+<Canvas>
+  <Story of={LabelGeneralStories.OnClick} />
+</Canvas>
+
+## Image
+
+A `Label` can contain an `Image`. Images are sized to match the Label height.
+
+<Canvas>
+  <Story of={LabelGeneralStories.ImageStory} />
+</Canvas>

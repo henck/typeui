@@ -6,4 +6,4 @@ interface IFormContext {
     data?: any;
 }
 declare const FormContext: React.Context<IFormContext>;
-export { IFormContext, FormContext };
+export { type IFormContext, FormContext };

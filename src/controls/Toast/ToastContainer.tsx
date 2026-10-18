@@ -49,7 +49,9 @@ class ToastContainerBase extends React.Component<IToastContainerProps, IToastCon
       let messages = prevState.messages;
       // Remove excess messages:
       while(Object.keys(messages).length >= this.props.maxToasts) {
-        delete messages[Object.keys(messages)[0]];
+        const oldest = Object.keys(messages)[0];
+        delete messages[oldest];
+        delete this.nodeRefs[oldest];
       }
       // Create new message:
       let key = new Date().getTime().toString();
@@ -64,11 +66,16 @@ class ToastContainerBase extends React.Component<IToastContainerProps, IToastCon
     });
   }
 
+  // Each toast needs a ref to its DOM node for its CSSTransition:
+  private nodeRefs: {[key:string]: React.RefObject<HTMLDivElement>} = {};
+  private getNodeRef = (key:string) => this.nodeRefs[key] ??= React.createRef<HTMLDivElement>();
+
   private handleTimeout = (key:string) => {
     // Remove messsage by key:    
     this.setState((prevState) => {
       let messages = prevState.messages;
       delete messages[key];
+      delete this.nodeRefs[key];
       return {
         messages: messages
       }
@@ -81,8 +88,8 @@ class ToastContainerBase extends React.Component<IToastContainerProps, IToastCon
       <div className={p.className}>
         <TransitionGroup>
           {Object.keys(this.state.messages).map((key) => 
-            <CSSTransition key={key} timeout={500} classNames="item">
-              <Toast message={this.state.messages[key].message} duration={this.state.messages[key].duration} onTimeout={() => this.handleTimeout(key)}/>
+            <CSSTransition key={key} nodeRef={this.getNodeRef(key)} timeout={500} classNames="item">
+              <Toast nodeRef={this.getNodeRef(key)} message={this.state.messages[key].message} duration={this.state.messages[key].duration} onTimeout={() => this.handleTimeout(key)}/>
             </CSSTransition>
           )}
         </TransitionGroup>

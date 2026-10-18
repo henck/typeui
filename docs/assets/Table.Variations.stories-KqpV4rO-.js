@@ -1,0 +1,17 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{n}from"./iframe-BMOsmv_G.js";import{t as r}from"./Icon-DBLdIlUt.js";import{t as i}from"./Segment-CJRWtwR9.js";import{t as a}from"./Segment-BBCHNE-P.js";import{t as o}from"./Flex-BXnfVj9e.js";import{t as s}from"./Label-DApBXEp8.js";import{n as c,t as l}from"./Tabs-I2q8lTMM.js";var u=t({Nohiddenrender:()=>h,Scrollable:()=>g,Underlined:()=>_,__namedExportsOrder:()=>v,default:()=>m}),d,f,p,m,h,g,_,v;function y(){return(y=e((()=>{a(),c(),s(),o(),r(),d=n(),f=e=>(0,d.jsxs)(l,{...e,children:[(0,d.jsxs)(l.Pane,{label:`One`,children:[(0,d.jsx)(`p`,{children:`Content for first tab.`}),(0,d.jsx)(`p`,{children:`Additional line of content.`})]}),(0,d.jsx)(l.Pane,{label:`Two`,children:`Content for second tab.`}),(0,d.jsx)(l.Pane,{label:`Three`,children:`Content for third tab.`})]}),p=e=>(0,d.jsxs)(l,{...e,children:[(0,d.jsx)(l.Pane,{label:`One`,children:(0,d.jsx)(i,{children:`Content for first tab.`})}),(0,d.jsx)(l.Pane,{label:`Two`,children:(0,d.jsx)(i,{children:`Content for second tab.`})}),(0,d.jsx)(l.Pane,{label:`Three`,children:(0,d.jsx)(i,{children:`Content for third tab.`})}),(0,d.jsx)(l.Pane,{label:`Four`,children:(0,d.jsx)(i,{children:`Content for fourth tab.`})}),(0,d.jsx)(l.Pane,{label:`Five`,children:(0,d.jsx)(i,{children:`Content for fifth tab.`})}),(0,d.jsx)(l.Pane,{label:`Six`,children:(0,d.jsx)(i,{children:`Content for sixth tab.`})}),(0,d.jsx)(l.Pane,{label:`Seven`,children:(0,d.jsx)(i,{children:`Content for seventh tab.`})}),(0,d.jsx)(l.Pane,{label:`Eight`,children:(0,d.jsx)(i,{children:`Content for eighth tab.`})}),(0,d.jsx)(l.Pane,{label:`Nine`,children:(0,d.jsx)(i,{children:`Content for ninth tab.`})}),(0,d.jsx)(l.Pane,{label:`Ten`,children:(0,d.jsx)(i,{children:`Content for tenth tab.`})}),(0,d.jsx)(l.Pane,{label:`Eleven`,children:(0,d.jsx)(i,{children:`Content for eleventh tab.`})}),(0,d.jsx)(l.Pane,{label:`Twelve`,children:(0,d.jsx)(i,{children:`Content for twelfth tab.`})}),(0,d.jsx)(l.Pane,{label:`Thirteen`,children:(0,d.jsx)(i,{children:`Content for thirteenth tab.`})}),(0,d.jsx)(l.Pane,{label:`Fourteen`,children:(0,d.jsx)(i,{children:`Content for fourteenth tab.`})}),(0,d.jsx)(l.Pane,{label:`Fifteen`,children:(0,d.jsx)(i,{children:`Content for fifteenth tab.`})})]}),m={title:`Controls/Tabs/Variations`,component:l,subcomponents:{"Tabs.Pane":l.Pane},argTypes:{className:{table:{disable:!0}}}},h={render:f.bind({}),name:`nohiddenrender`,args:{nohiddenrender:!0}},g={render:p.bind({}),name:`scrollable`,args:{}},_={render:f.bind({}),name:`underlined`,args:{underlined:!0}},v=[`Nohiddenrender`,`Scrollable`,`Underlined`],h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'nohiddenrender',
+  args: {
+    nohiddenrender: true
+  }
+}`,...h.parameters?.docs?.source}}},g.parameters={...g.parameters,docs:{...g.parameters?.docs,source:{originalSource:`{
+  render: ScrollableTemplate.bind({}),
+  name: 'scrollable',
+  args: {}
+}`,...g.parameters?.docs?.source}}},_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'underlined',
+  args: {
+    underlined: true
+  }
+}`,..._.parameters?.docs?.source}}}})))()}export{y as a,_ as i,g as n,u as r,h as t};

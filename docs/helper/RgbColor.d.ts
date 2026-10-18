@@ -1,5 +1,9 @@
 import { HslColor } from './HslColor';
-export declare class RgbColor {
+/**
+ * `RgbColor` encapsulates an RGB color, optionally with an alpha component.
+ * It offers parsing from and to a HTML color string.
+ */
+declare class RgbColor {
     red: number;
     blue: number;
     green: number;
@@ -36,3 +40,4 @@ export declare class RgbColor {
      */
     toString(): string;
 }
+export { RgbColor };

@@ -1,14 +1,12 @@
 import * as React from 'react';
-interface IDayProps {
+interface IProps {
+    /** @ignore */
     className?: string;
     grey: boolean;
     selected: boolean;
     today: boolean;
     day: number;
-    onClick?: any;
+    onClick?: () => void;
 }
-declare class DayBase extends React.Component<IDayProps, {}> {
-    render(): JSX.Element;
-}
-declare const Day: import("styled-components").StyledComponent<typeof DayBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
+declare const Day: import("styled-components/dist/types").IStyledComponentBase<"web", IProps> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Day };

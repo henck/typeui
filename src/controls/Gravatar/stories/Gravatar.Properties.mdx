@@ -1,0 +1,18 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Gravatar} from '../Gravatar';
+import * as GravatarPropertiesStories from './Gravatar.Properties.stories';
+
+<Meta of={GravatarPropertiesStories} />
+
+# Gravatar
+
+<ArgTypes of={Gravatar} />
+
+## Default
+
+A `Gravatar` shows a generated image based on an email address, as provided by
+the gravatar service.
+
+<Canvas>
+  <Story of={GravatarPropertiesStories.Default} />
+</Canvas>

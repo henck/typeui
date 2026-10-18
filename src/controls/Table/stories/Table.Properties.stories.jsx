@@ -1,0 +1,45 @@
+import { Table } from '../Table';
+
+const Template = (args) => (
+  <Table {...args}>
+    <thead>
+      <tr>
+        <th>Column One</th>
+        <th>Column Two</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Value One</td>
+        <td>Value Two</td>
+      </tr>
+      <tr>
+        <td>Value Three</td>
+        <td>Value Four</td>
+      </tr>
+      <tr>
+        <td>Value Five</td>
+        <td>Value Six</td>
+      </tr>
+    </tbody>
+  </Table>
+);
+
+export default {
+  title: 'Controls/Table',
+  component: Table,
+
+  argTypes: {
+    className: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+};
+
+export const Properties = {
+  render: Template.bind({}),
+  name: 'Properties',
+  args: {},
+};

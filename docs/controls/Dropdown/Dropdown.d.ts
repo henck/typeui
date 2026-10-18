@@ -38,6 +38,11 @@ interface IDropdownProps {
      */
     inline?: boolean;
     /**
+     * Gap between columns inside Dropdown body, in pixels.
+     * @default 16
+     */
+    gap?: number;
+    /**
      * If set, Dropdown is in an error state.
      * @default false
      */
@@ -59,10 +64,13 @@ interface IDropdownProps {
      */
     maxItems?: number;
     /**
-     * Force Dropdown to always open downwards.
-     * @default false;
+     * The Dropdown opening direction can be either fixed
+     * (`up` or `down`), or depend on the nearest scrolling parent: if the Dropdown
+     * is in the top half of the visible section of the parent, then it opens
+     * downward, and vice-versa. If this property is not set, then the opening
+     * direction is determined from the Dropdown position in the viewport.
      */
-    alwaysDown?: boolean;
+    direction?: 'up' | 'down' | 'parent';
     /** Listeners are notified whenever the user interacts with the input. */
     onChange?: (value: any) => void;
     /** If a search callback is provided, then the Dropdown will have a search box. */
@@ -71,11 +79,11 @@ interface IDropdownProps {
     onClose?: () => void;
 }
 /**
- * A Dropdown is a replacement for <select> (select). It opens upwards or downwards
- * depending on its position in the viewport. Its selection and dropdown items
- * are formatted using a formatting function. A Dropdown can also take a
- * search callback, which tells provides its subscriber with a search query
- * in order to provide the Dropdown with new items.
+ * A `Dropdown` is a replacement for `<select>` (select). It opens upwards or
+ * downwards depending on its position in the viewport. Its selection and
+ * dropdown items are formatted using a formatting function. A Dropdown can
+ * also take an `onSearch` callback, which tells provides its subscriber with
+ * a search query in order to provide the `Dropdown` with new items.
  *
  * @example
  * <Dropdown
@@ -88,12 +96,12 @@ interface IDropdownProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-dropdown--properties
  */
-declare class Dropdown extends React.Component<IDropdownProps, {}> {
+declare const Dropdown: {
+    (props: IDropdownProps): React.JSX.Element;
     /**
-     * A Dropdown.Column's child is an item formatter function. A column can optionally take
-     * a weight and an alignment.
+     * A Dropdown.Column's child is an item formatter function. A column can
+     * optionally take a weight and an alignment.
      */
-    static Column: typeof Column;
-    render: () => JSX.Element;
-}
-export { IDropdownProps, Dropdown };
+    Column: typeof Column;
+};
+export { Dropdown, type IDropdownProps };

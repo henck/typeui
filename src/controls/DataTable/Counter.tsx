@@ -5,6 +5,8 @@ import { Number } from '../../formatters/Number';
 interface ICounterProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  nodeRef?: React.Ref<HTMLDivElement>;
   /** Total number of records */
   count: number;
   /** 1-based index of first record shown */
@@ -19,7 +21,7 @@ interface ICounterProps {
  * last record currently being scrolled to.
  */
 const CounterBase = (props: ICounterProps) =>
-  <div className={props.className}>
+  <div className={props.className} ref={props.nodeRef}>
     <span>{props.first}</span>-<span><Number value={Math.min(props.last, props.count)} decimals={0}/></span> of <span><Number value={props.count} decimals={0}/></span> {props.count == 1 && 'record'}{props.count != 1 && 'records'}
   </div>
 

@@ -1,0 +1,12 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{t as n}from"./react-DlPsW1c0.js";import{n as r,r as i}from"./Theme-DNNvCs1s.js";import{n as a}from"./iframe-BMOsmv_G.js";var o,s,c,l,u,d;function f(){return(f=e((()=>{n(),r(),o=a(),s=`#888`,c=`#00EDF0`,l=e=>(0,o.jsxs)(`svg`,{className:e.className,version:`1.1`,xmlns:`http://www.w3.org/2000/svg`,x:`0px`,y:`0px`,viewBox:`0 0 585.2 939`,children:[(0,o.jsx)(`path`,{d:`M282.9,921.4h19.3c144.7,0,262.4-117.7,262.4-262.4V500.3H20.5v158.7C20.5,803.6,138.2,921.4,282.9,921.4z`}),(0,o.jsx)(`path`,{className:`wheel`,d:`M246.9,168.5v157.1c0,24.6,20,44.7,44.7,44.7h2c24.6,0,44.7-20,44.7-44.7V168.5c0-24.6-20-44.7-44.7-44.7h-2	C267,123.8,246.9,143.8,246.9,168.5z`}),(0,o.jsx)(`path`,{className:`right`,d:`M308.6,19.3v73.9c35.1,7,61.6,38,61.6,75.2v157.1c0,37.1-26.5,68.2-61.6,75.2v67.5h256.1V281.7 C564.6,139.1,450.4,22.7,308.6,19.3z`}),(0,o.jsx)(`path`,{className:`left`,d:`M20.5,281.7v186.6h256.1v-67.5c-35.1-7-61.6-38-61.6-75.2V168.5c0-37.1,26.5-68.2,61.6-75.2V19.3 C134.8,22.7,20.5,139.1,20.5,281.7z`})]}),u=i(l)`
+  width:  14px;
+  height: 20px;
+  fill:   ${s};
+  .left  { fill: ${e=>e.left?c:s}}
+  .right { fill: ${e=>e.right?c:s}}
+  .wheel { fill: ${e=>e.wheel?c:s}}
+`,d=e=>(0,o.jsx)(u,{...e}),d.__docgenInfo={description:"The `Mouse` displays a mouse icon. Its buttons and mouse wheel can be\r\nhighlighted.",methods:[],displayName:`Mouse`,props:{className:{required:!1,tsType:{name:`string`},description:`@ignore`},left:{required:!1,tsType:{name:`boolean`},description:`Is left button depressed?`},right:{required:!1,tsType:{name:`boolean`},description:`Is right button depressed?`},wheel:{required:!1,tsType:{name:`boolean`},description:`Is mouse wheel highlighted?`}}}})))()}var p=t({MouseStory:()=>_,__namedExportsOrder:()=>v,default:()=>g}),m,h,g,_,v;function y(){return(y=e((()=>{f(),m=a(),h=e=>(0,m.jsx)(d,{...e}),g={title:`Controls/Mouse/General`,component:d,argTypes:{className:{table:{disable:!0}}}},_={render:h.bind({}),name:`Mouse`,args:{}},v=[`MouseStory`],_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'Mouse',
+  args: {}
+}`,..._.parameters?.docs?.source}}}})))()}export{f as i,p as n,y as r,_ as t};

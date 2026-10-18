@@ -8,7 +8,7 @@ interface IDialogFooterProps {
     align?: 'start' | 'end' | 'space-between';
 }
 declare const DialogFooter: {
-    (props: IDialogFooterProps): JSX.Element;
+    (props: IDialogFooterProps): React.JSX.Element;
     displayName: string;
 };
-export { DialogFooter, IDialogFooterProps };
+export { DialogFooter, type IDialogFooterProps };

@@ -1,5 +1,4 @@
-import { Textarea } from './Textarea';
-export { Textarea };
+export { Textarea } from './Textarea';
 /**
  * This index.tsx file exists so that you can do
  *

@@ -18,4 +18,4 @@ const MessageHeaderStyled = styled(MessageHeaderBase)`
 
 const MessageHeader = (props: IMessageHeaderProps) => <MessageHeaderStyled {...props}/>
 
-export { MessageHeader, IMessageHeaderProps }
+export { MessageHeader, type IMessageHeaderProps }

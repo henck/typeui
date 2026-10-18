@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { Locale } from 'date-fns';
 interface IProps {
     value: Date | string;
     format: string;

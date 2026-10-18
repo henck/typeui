@@ -42,4 +42,4 @@ const PaneStyled = styled(PaneBase)`
 
 const Pane = (props: IPaneProps) => <PaneStyled {...props}/>
 
-export { Pane, IPaneProps }
+export { Pane, type IPaneProps }

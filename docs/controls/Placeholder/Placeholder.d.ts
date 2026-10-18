@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { PlaceholderParagraph } from './PlaceholderParagraph';
-import { PlaceholderImage } from './PlaceholderImage';
-import { PlaceholderHeader } from './PlaceholderHeader';
-import { PlaceholderLine } from './PlaceholderLine';
 interface IPlaceholderProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * A fluid placeholder fills the width of its container.
@@ -21,11 +18,11 @@ interface IPlaceholderProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-placeholder--properties
  */
-declare class Placeholder extends React.Component<IPlaceholderProps> {
-    static Paragraph: typeof PlaceholderParagraph;
-    static Image: typeof PlaceholderImage;
-    static Header: typeof PlaceholderHeader;
-    static Line: typeof PlaceholderLine;
-    render: () => JSX.Element;
-}
+declare const Placeholder: {
+    (props: IPlaceholderProps): React.JSX.Element;
+    Paragraph: (props: import("./PlaceholderParagraph").IPlaceholderParagraphProps) => React.JSX.Element;
+    Image: (props: import("./PlaceholderImage").IPlaceholderImageProps) => React.JSX.Element;
+    Header: (props: import("./PlaceholderHeader").IPlaceholderHeaderProps) => React.JSX.Element;
+    Line: (props: import("./PlaceholderLine").IPlaceholderLineProps) => React.JSX.Element;
+};
 export { Placeholder };

@@ -52,4 +52,4 @@ const AccordionTab = (props: IAccordionTabProps) => {
   return <AccordionTabStyled {...props}/>
 }
 
-export { AccordionTab, IAccordionTabProps }
+export { AccordionTab, type IAccordionTabProps }

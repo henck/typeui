@@ -1,38 +1,35 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-import * as React from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import styled from '../../../styles/Theme';
-var SwatchBase = /** @class */ (function (_super) {
-    __extends(SwatchBase, _super);
-    function SwatchBase(props) {
-        return _super.call(this, props) || this;
+const SwatchBase = (props) => _jsxs("div", { className: props.className, children: [_jsx("div", { onClick: props.onClick }), _jsx("svg", { onClick: props.onToggle, children: _jsx("use", { xlinkHref: `/spritemap.svg#${props.locked ? 'lock' : 'unlock'}` }) })] });
+const Swatch = styled(SwatchBase) `
+  position: relative;
+  display: flex;
+  width: 50px;
+  align-items: center;
+  margin-bottom: 4px;
+
+  & > div {
+    width: 30px;
+    height: 24px;
+    background-color: ${p => p.color};
+    border-radius: ${p => p.theme.radius}px;
+    margin-right: 4px;
+    cursor: pointer;
+    transition: transform ${p => p.theme.transition.duration}s ease;
+    &:hover {
+      transform: scaleX(1.2) scaleY(1.2);
     }
-    SwatchBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className },
-            React.createElement("div", { onClick: this.props.onClick }),
-            React.createElement("svg", { onClick: this.props.onToggle },
-                React.createElement("use", { xlinkHref: "spritemap.svg#".concat(p.locked ? 'lock' : 'unlock') }))));
-    };
-    return SwatchBase;
-}(React.Component));
-var Swatch = styled(SwatchBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n  width: 50px;\n  align-items: center;\n  margin-bottom: 4px;\n\n  & > div {\n    width: 30px;\n    height: 24px;\n    background-color: ", ";\n    border-radius: ", "px;\n    margin-right: 4px;\n    cursor: pointer;\n    transition: transform ", "s ease;\n    &:hover {\n      transform: scaleX(1.2) scaleY(1.2);\n    }\n  }\n\n  svg {\n    fill: ", ";\n    width:  13px;\n    height: 13px;\n    cursor: pointer;\n    transition: transform ", "s ease;\n    &:hover {\n      transform: scaleX(1.2) scaleY(1.2);\n    }\n  }\n"], ["\n  position: relative;\n  display: flex;\n  width: 50px;\n  align-items: center;\n  margin-bottom: 4px;\n\n  & > div {\n    width: 30px;\n    height: 24px;\n    background-color: ", ";\n    border-radius: ", "px;\n    margin-right: 4px;\n    cursor: pointer;\n    transition: transform ", "s ease;\n    &:hover {\n      transform: scaleX(1.2) scaleY(1.2);\n    }\n  }\n\n  svg {\n    fill: ", ";\n    width:  13px;\n    height: 13px;\n    cursor: pointer;\n    transition: transform ", "s ease;\n    &:hover {\n      transform: scaleX(1.2) scaleY(1.2);\n    }\n  }\n"])), function (p) { return p.color; }, function (p) { return p.theme.radius; }, function (p) { return p.theme.transition.duration; }, function (p) { return p.locked ? p.theme.fontColor : p.theme.normalColor; }, function (p) { return p.theme.transition.duration; });
+  }
+
+  svg {
+    fill: ${p => p.locked ? p.theme.fontColor : p.theme.normalColor};
+    width:  13px;
+    height: 13px;
+    cursor: pointer;
+    transition: transform ${p => p.theme.transition.duration}s ease;
+    &:hover {
+      transform: scaleX(1.2) scaleY(1.2);
+    }
+  }
+`;
 export { Swatch };
-var templateObject_1;

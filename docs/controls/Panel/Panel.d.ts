@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { IThemeInterface } from '../../styles/Theme';
 import { Content } from './Content';
 import { Header } from './Header';
 import { IconPanel } from './IconPanel';
@@ -43,7 +42,9 @@ interface IPanelState {
 declare class Panel extends React.Component<IPanelProps, IPanelState> {
     static Header: typeof Header;
     static Content: typeof Content;
-    static Footer: import("styled-components").StyledComponent<"div", IThemeInterface, {}, never>;
+    static Footer: import("styled-components/dist/types").IStyledComponentBase<"web", Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "style"> & {
+        style?: React.CSSProperties | import("styled-components/dist/types").CSSPropertiesWithVars;
+    }> & string;
     /**
      * The Panel.Icon component is a shortcut to building a Panel that opens when an
      * Icon is clicked. Note that the Panel.Icon must still be placed inside a container
@@ -54,11 +55,12 @@ declare class Panel extends React.Component<IPanelProps, IPanelState> {
      */
     static Icon: typeof IconPanel;
     private panelElement;
+    private containerRef;
     constructor(props: IPanelProps);
     componentDidMount(): void;
     componentWillUnmount(): void;
     private handleClickOutside;
     private handleKeyDown;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { Panel };

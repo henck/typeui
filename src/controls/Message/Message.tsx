@@ -62,7 +62,7 @@ interface IMessageProps {
 const MessageBase = (props: IMessageProps) =>
   <div className={props.className}>{props.children}</div>
 
-const MessageStyled = styled(MessageBase).attrs(p => ({
+const MessageStyled = styled(MessageBase).attrs<{ colorSet?: { color: string, border: string, background: string } }>(p => ({
   colorSet:      (p.type === 'info' ? p.theme.infoColor : 
                  (p.type === 'warning' ? p.theme.warningColor :
                  (p.type === 'success' ? p.theme.successColor :
@@ -154,4 +154,4 @@ const Message = (props: IMessageProps) => <MessageStyled {...props}/>;
 Message.Header = MessageHeader;
 Message.Content = MessageContent;
 
-export { Message, TMessageType }
+export { Message, type TMessageType }

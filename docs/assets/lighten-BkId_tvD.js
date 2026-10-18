@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t,t as n}from"./darken-Ccl44O0b.js";function r(e,t){return n(-e,t)}function i(){return(i=e((()=>{t()})))()}export{r as n,i as t};

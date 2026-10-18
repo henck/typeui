@@ -1,0 +1,26 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Input} from '../Input';
+import {Form} from '../../Form';
+import {Label} from '../../Label';
+import {Dropdown} from '../../Dropdown';
+import {Divider} from '../../Divider';
+import {Icon} from '../../Icon';
+import * as InputGroupsStories from './Input.Groups.stories';
+
+# Input: Groups
+
+.
+
+<Meta of={InputGroupsStories} />
+
+## attached
+
+A `Label` can be attached to the `Input`. Labels are passed as children. The `attached`
+attribute is used to determine which side of the input the label is on.
+
+Any `Label` attributes may be used, so labels can be clickable, colored etc. Labels can contain
+any content, as well.
+
+<Canvas>
+  <Story of={InputGroupsStories.Attached} />
+</Canvas>

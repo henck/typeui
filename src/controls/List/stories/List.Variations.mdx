@@ -1,0 +1,71 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {List} from '../List';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+import * as ListVariationsStories from './List.Variations.stories';
+
+# List: Variations
+
+.
+
+<Meta of={ListVariationsStories} />
+
+## animated
+
+A `List` can be `animated` to set the hovered item apart from the list.
+
+<Canvas>
+  <Story of={ListVariationsStories.Animated} />
+</Canvas>
+
+## bulleted
+
+A `bulleted` list marks items with a bullet.
+
+You can provide a bullet style type using `type` (default `disc`).
+
+<Canvas>
+  <Story of={ListVariationsStories.Bulleted} />
+</Canvas>
+
+## horizontal
+
+A `horizontal` `List` lines up its items horizontally.
+
+<Canvas>
+  <Story of={ListVariationsStories.Horizontal} />
+</Canvas>
+
+## ordered
+
+A `List` can be `ordered` with numbers.
+
+<Canvas>
+  <Story of={ListVariationsStories.Ordered} />
+</Canvas>
+
+## relaxed
+
+A `relaxed` `List` adds more negative space around its items. Optionally `relaxed="very"`.
+
+<Canvas>
+  <Story of={ListVariationsStories.Relaxed} />
+</Canvas>
+
+## divided
+
+A `divided` `List` adds a horizontal line between list items.
+
+<Canvas>
+  <Story of={ListVariationsStories.Divided} />
+</Canvas>
+
+## selection
+
+A `selection` list shows a selection rectangle on hover. This works well with `onClick`.
+
+If `divided` then the selection rectangle has no corner radius.
+
+<Canvas>
+  <Story of={ListVariationsStories.Selection} />
+</Canvas>

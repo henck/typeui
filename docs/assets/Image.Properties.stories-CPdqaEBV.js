@@ -1,0 +1,8 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{n}from"./iframe-BMOsmv_G.js";import{r,t as i}from"./Image-DacXjqKR.js";var a=t({Properties:()=>l,__namedExportsOrder:()=>u,default:()=>c}),o,s,c,l,u;function d(){return(d=e((()=>{r(),o=n(),s=e=>(0,o.jsx)(i,{...e}),c={title:`Controls/Image`,subcomponents:{"Image.Group":i.Group},component:i},l={render:s.bind({}),name:`Properties`,args:{onClick:null,src:`http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png`}},u=[`Properties`],l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'Properties',
+  args: {
+    onClick: null,
+    src: 'http://deelay.me/1000/https://react.semantic-ui.com/images/wireframe/image.png'
+  }
+}`,...l.parameters?.docs?.source}}}})))()}export{l as n,d as r,a as t};

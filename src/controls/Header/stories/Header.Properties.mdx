@@ -1,0 +1,21 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Header} from '../Header';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+import {Segment} from '../../Segment';
+import {Message} from '../../Message';
+import * as HeaderPropertiesStories from './Header.Properties.stories';
+
+<Meta of={HeaderPropertiesStories} />
+
+# Header
+
+<ArgTypes of={Header} />
+
+# Standard header
+
+A standard header takes a required `size` property.
+
+<Canvas>
+  <Story of={HeaderPropertiesStories.Properties} />
+</Canvas>

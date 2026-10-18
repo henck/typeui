@@ -1,12 +1,8 @@
 import * as React from 'react';
-import { Row } from './Row';
-import { Column } from './Column';
-import { Divider } from './Divider';
-import { Quick } from './Quick';
-import { Columns } from './Columns';
 interface IFlexProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * A stackable flex stacks when screen gets small.
@@ -55,35 +51,35 @@ interface IFlexProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-flex--properties
  */
-declare class Flex extends React.Component<IFlexProps> {
+declare const Flex: {
+    (props: IFlexProps): React.JSX.Element;
     /**
      * There can be multiple Flex.Row elements, but there is no vertical connection
      * between cells (this is not a grid).
      */
-    static Row: typeof Row;
+    Row: (props: import("./Row").IRowProps) => React.JSX.Element;
     /**
      * The width attribute of Flex.Column can be used to give weight to a column.
      */
-    static Column: typeof Column;
+    Column: (props: import("./Column").IColumnProps) => React.JSX.Element;
     /**
      * A Flex.Divider can be added between two columns. This only works for exactly
      * two columns. The divider automatically becomes horizontal when the screen is
      * narrow enough and the Flex is stackable. An optional text can be placed in the
      * divider element.
      */
-    static Divider: typeof Divider;
+    Divider: (props: import("./Divider").IDividerProps) => React.JSX.Element;
     /**
      * A Flex.Quick is used to vertically-align content in a row, and putting small
      * spacing between items. Optionally, an align prop of center, top or bottom can
      * be provided. The default is center.
      */
-    static Quick: typeof Quick;
+    Quick: (props: import("./Quick").IQuickProps) => React.JSX.Element;
     /**
      * Flex.Columns takes an array of children and builds them into stackable
      * rows that contain exactly count items per row. The final row is filled up
      * with null-elements.
      */
-    static Columns: typeof Columns;
-    render: () => JSX.Element;
-}
+    Columns: (props: import("./Columns").IColumnsProps) => React.JSX.Element;
+};
 export { Flex };

@@ -1,0 +1,25 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Panel} from '../Panel';
+import {Button} from '../../Button';
+import * as PanelPropertiesStories from './Panel.Properties.stories';
+
+<Meta of={PanelPropertiesStories} />
+
+# Panel
+
+A standard `Panel`.
+
+Note that a panel determines its position from the position of its direct parent.
+The parent therefore **must** have `position: relative`.
+
+Extra spacing was given to this story in order to illustrate how a panel will
+appear above or below, or left or right, of its parent based on the screen
+location.
+
+<ArgTypes of={Panel} />
+
+## Standard Panel
+
+<Canvas>
+  <Story of={PanelPropertiesStories.Properties} />
+</Canvas>

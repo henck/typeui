@@ -1,0 +1,6 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t}from"./iframe-BMOsmv_G.js";import{i as n,r}from"./react-DITjJg24.js";import{c as i,l as a,n as o,r as s,s as c}from"./blocks-CwW7mlwR.js";import{t as l}from"./Icon-DBLdIlUt.js";import{t as u}from"./Segment-BBCHNE-P.js";import{t as d}from"./Message-CLNL5ta-.js";import{n as f,t as p}from"./Header-DtdS2sqC.js";import{t as m}from"./Image-DN-frjdC.js";import{n as h,r as g,t as _}from"./Header.Properties.stories-Bx3IkZJx.js";function v(e){let t={code:`code`,h1:`h1`,p:`p`,...n(),...e.components};return(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)(c,{of:_}),`
+`,(0,b.jsx)(t.h1,{id:`header`,children:`Header`}),`
+`,(0,b.jsx)(o,{of:p}),`
+`,(0,b.jsx)(t.h1,{id:`standard-header`,children:`Standard header`}),`
+`,(0,b.jsxs)(t.p,{children:[`A standard header takes a required `,(0,b.jsx)(t.code,{children:`size`}),` property.`]}),`
+`,(0,b.jsx)(s,{children:(0,b.jsx)(i,{of:h})})]})}function y(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,b.jsx)(t,{...e,children:(0,b.jsx)(v,{...e})}):v(e)}var b;function x(){return(x=e((()=>{b=t(),r(),a(),f(),l(),m(),u(),d(),g()})))()}x();export{y as default};

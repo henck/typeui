@@ -1,2 +1,1 @@
-import { Password } from './Password';
-export { Password };
+export { Password } from './Password';

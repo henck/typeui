@@ -2,6 +2,7 @@ import * as React from 'react';
 interface IPlaceholderHeaderProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * If true, header will contain a small image placeholder.
@@ -9,7 +10,5 @@ interface IPlaceholderHeaderProps {
      */
     image?: boolean;
 }
-declare class PlaceholderHeader extends React.Component<IPlaceholderHeaderProps> {
-    render: () => JSX.Element;
-}
-export { PlaceholderHeader };
+declare const PlaceholderHeader: (props: IPlaceholderHeaderProps) => React.JSX.Element;
+export { PlaceholderHeader, type IPlaceholderHeaderProps };

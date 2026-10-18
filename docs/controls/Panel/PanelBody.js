@@ -1,42 +1,120 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
+import { jsx as _jsx } from "react/jsx-runtime";
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
-var PanelBodyBase = /** @class */ (function (_super) {
-    __extends(PanelBodyBase, _super);
-    function PanelBodyBase() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.handleClick = function (e) {
+class PanelBodyBase extends React.Component {
+    constructor() {
+        super(...arguments);
+        this.handleClick = (e) => {
             // Handle all mouse clicks on panel body to prevent them
             // from reaching the parent component (and reopening the panel).
             e.stopPropagation();
         };
-        return _this;
     }
-    PanelBodyBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className, onClick: this.handleClick }, p.children));
-    };
-    return PanelBodyBase;
-}(React.Component));
-var PanelBody = styled(PanelBodyBase)(templateObject_23 || (templateObject_23 = __makeTemplateObject(["\n  /* Document position */\n  position: absolute;\n  z-index:  99;\n\n  /* Undo text alignment set by parent element. */\n  text-align: left;\n\n  /* Undo cursor set by parent element. */\n  cursor: default;\n\n  /* Dimensions */\n  min-width: 200px;\n  ", "\n  ", "\n  margin:    1em 0;\n\n  /* Horizontal positioning */\n  ", "\n  ", "     \n\n  ", "\n  ", "    \n\n  /* Vertical positioning with transition. */\n  ", " \n  ", " \n  ", " \n  ", " \n  transition: opacity ", "s ease-out, \n              top ", "s ease-out, \n              bottom ", "s ease-out, \n              transform ", "s ease-out;\n\n  opacity: 0.01;\n  transform: scaleX(0.01) scaleY(0.01);\n\n  &.fade-enter {\n    opacity: 0.01;\n    transform: scaleX(0.01) scaleY(0.01);\n    ", "\n    ", "\n  }\n\n  /* The enter-done class is key to the panel staying inflated;\n     it would return to its original opacity/transform if this class\n     weren't defined. */\n  &.fade-enter.fade-enter-active, &.fade-enter-done {\n    opacity: 1;\n    transform: scaleX(1) scaleY(1);\n    ", "\n    ", "\n  }\n  &.fade-exit {\n    opacity: 1;\n    transform: scaleX(1) scaleY(1);\n    ", "\n    ", "\n  }\n  &.fade-exit.fade-exit-active {\n    opacity: 0.01;\n    transform: scaleX(0.01) scaleY(0.01);\n    ", "\n    ", "\n  }\n\n  /* Colors */\n  background: #fff;\n  border: solid 1px ", ";\n  border-radius: ", "px;\n  box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;\n\n  /* Arrows */\n  &:before {\n    content: '';\n    position: absolute;\n    width: 0.6em;\n    height: 0.6em;\n    border-style: inherit;\n    border-color: inherit;\n    background: inherit;\n    transform: translateX(-50%) translateY(-50%) rotate(45deg);\n    ", "\n    ", "\n  }\n  /* Pointing to top: */\n  ", "\n  /* Pointing to bottom: */\n  ", "    \n"], ["\n  /* Document position */\n  position: absolute;\n  z-index:  99;\n\n  /* Undo text alignment set by parent element. */\n  text-align: left;\n\n  /* Undo cursor set by parent element. */\n  cursor: default;\n\n  /* Dimensions */\n  min-width: 200px;\n  ", "\n  ", "\n  margin:    1em 0;\n\n  /* Horizontal positioning */\n  ", "\n  ", "     \n\n  ", "\n  ", "    \n\n  /* Vertical positioning with transition. */\n  ", " \n  ", " \n  ", " \n  ", " \n  transition: opacity ", "s ease-out, \n              top ", "s ease-out, \n              bottom ", "s ease-out, \n              transform ", "s ease-out;\n\n  opacity: 0.01;\n  transform: scaleX(0.01) scaleY(0.01);\n\n  &.fade-enter {\n    opacity: 0.01;\n    transform: scaleX(0.01) scaleY(0.01);\n    ", "\n    ", "\n  }\n\n  /* The enter-done class is key to the panel staying inflated;\n     it would return to its original opacity/transform if this class\n     weren't defined. */\n  &.fade-enter.fade-enter-active, &.fade-enter-done {\n    opacity: 1;\n    transform: scaleX(1) scaleY(1);\n    ", "\n    ", "\n  }\n  &.fade-exit {\n    opacity: 1;\n    transform: scaleX(1) scaleY(1);\n    ", "\n    ", "\n  }\n  &.fade-exit.fade-exit-active {\n    opacity: 0.01;\n    transform: scaleX(0.01) scaleY(0.01);\n    ", "\n    ", "\n  }\n\n  /* Colors */\n  background: #fff;\n  border: solid 1px ", ";\n  border-radius: ", "px;\n  box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;\n\n  /* Arrows */\n  &:before {\n    content: '';\n    position: absolute;\n    width: 0.6em;\n    height: 0.6em;\n    border-style: inherit;\n    border-color: inherit;\n    background: inherit;\n    transform: translateX(-50%) translateY(-50%) rotate(45deg);\n    ", "\n    ", "\n  }\n  /* Pointing to top: */\n  ", "\n  /* Pointing to bottom: */\n  ", "    \n"])), function (p) { return p.width && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["width: ", "px;"], ["width: ", "px;"])), p.width); }, function (p) { return p.padded && css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["padding: 16px;"], ["padding: 16px;"]))); }, function (p) { return p.right && css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["left: 0;"], ["left: 0;"]))); }, function (p) { return !p.right && css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["right: 0;"], ["right: 0;"]))); }, function (p) { return p.above && css(templateObject_5 || (templateObject_5 = __makeTemplateObject(["bottom: 100%;"], ["bottom: 100%;"]))); }, function (p) { return !p.above && css(templateObject_6 || (templateObject_6 = __makeTemplateObject(["top: 100%;"], ["top: 100%;"]))); }, function (p) { return p.above && !p.right && css(templateObject_7 || (templateObject_7 = __makeTemplateObject(["transform-origin: right bottom;"], ["transform-origin: right bottom;"]))); }, function (p) { return p.above && p.right && css(templateObject_8 || (templateObject_8 = __makeTemplateObject(["transform-origin: left bottom;"], ["transform-origin: left bottom;"]))); }, function (p) { return !p.above && !p.right && css(templateObject_9 || (templateObject_9 = __makeTemplateObject(["transform-origin: right top;"], ["transform-origin: right top;"]))); }, function (p) { return !p.above && p.right && css(templateObject_10 || (templateObject_10 = __makeTemplateObject(["transform-origin: left top;"], ["transform-origin: left top;"]))); }, function (p) { return p.noanimation ? 0 : p.theme.transition.duration * 3; }, function (p) { return p.noanimation ? 0 : p.theme.transition.duration * 3; }, function (p) { return p.noanimation ? 0 : p.theme.transition.duration * 3; }, function (p) { return p.noanimation ? 0 : p.theme.transition.duration * 3; }, function (p) { return p.above && css(templateObject_11 || (templateObject_11 = __makeTemplateObject(["bottom: 0;"], ["bottom: 0;"]))); }, function (p) { return !p.above && css(templateObject_12 || (templateObject_12 = __makeTemplateObject(["top: 0;"], ["top: 0;"]))); }, function (p) { return p.above && css(templateObject_13 || (templateObject_13 = __makeTemplateObject(["bottom: 100%;"], ["bottom: 100%;"]))); }, function (p) { return !p.above && css(templateObject_14 || (templateObject_14 = __makeTemplateObject(["top: 100%;"], ["top: 100%;"]))); }, function (p) { return p.above && css(templateObject_15 || (templateObject_15 = __makeTemplateObject(["bottom: 100%;"], ["bottom: 100%;"]))); }, function (p) { return !p.above && css(templateObject_16 || (templateObject_16 = __makeTemplateObject(["top: 100%;"], ["top: 100%;"]))); }, function (p) { return p.above && css(templateObject_17 || (templateObject_17 = __makeTemplateObject(["bottom: 0;"], ["bottom: 0;"]))); }, function (p) { return !p.above && css(templateObject_18 || (templateObject_18 = __makeTemplateObject(["top: 0;"], ["top: 0;"]))); }, function (p) { return p.theme.normalColor; }, function (p) { return p.theme.radius; }, function (p) { return !p.right && css(templateObject_19 || (templateObject_19 = __makeTemplateObject(["right: calc(", "px - 0.6em);"], ["right: calc(", "px - 0.6em);"])), p.offset); }, function (p) { return p.right && css(templateObject_20 || (templateObject_20 = __makeTemplateObject(["left: calc(", "px - 0.6em);"], ["left: calc(", "px - 0.6em);"])), p.offset); }, function (p) { return !p.above && css(templateObject_21 || (templateObject_21 = __makeTemplateObject(["\n    &:before {\n      top: -1px;\n      border-width: 1px 0 0 1px;\n    }\n  "], ["\n    &:before {\n      top: -1px;\n      border-width: 1px 0 0 1px;\n    }\n  "]))); }, function (p) { return p.above && css(templateObject_22 || (templateObject_22 = __makeTemplateObject(["\n    &:before {\n      margin-top: 1px;\n      top: 100%;\n      border-width: 0 1px 1px 0;\n    }\n  "], ["\n    &:before {\n      margin-top: 1px;\n      top: 100%;\n      border-width: 0 1px 1px 0;\n    }\n  "]))); });
+    render() {
+        let p = this.props;
+        return (_jsx("div", { className: p.className, ref: p.nodeRef, onClick: this.handleClick, children: p.children }));
+    }
+}
+const PanelBody = styled(PanelBodyBase) `
+  /* Document position */
+  position: absolute;
+  z-index:  99;
+
+  /* Undo text alignment set by parent element. */
+  text-align: left;
+
+  /* Undo cursor set by parent element. */
+  cursor: default;
+
+  /* Dimensions */
+  min-width: 200px;
+  ${p => p.width && css `width: ${p.width}px;`}
+  ${p => p.padded && css `padding: 16px;`}
+  margin:    1em 0;
+
+  /* Horizontal positioning */
+  ${p => p.right && css `left: 0;`}
+  ${p => !p.right && css `right: 0;`}     
+
+  ${p => p.above && css `bottom: 100%;`}
+  ${p => !p.above && css `top: 100%;`}    
+
+  /* Vertical positioning with transition. */
+  ${p => p.above && !p.right && css `transform-origin: right bottom;`} 
+  ${p => p.above && p.right && css `transform-origin: left bottom;`} 
+  ${p => !p.above && !p.right && css `transform-origin: right top;`} 
+  ${p => !p.above && p.right && css `transform-origin: left top;`} 
+  transition: opacity ${p => p.noanimation ? 0 : p.theme.transition.duration * 3}s ease-out, 
+              top ${p => p.noanimation ? 0 : p.theme.transition.duration * 3}s ease-out, 
+              bottom ${p => p.noanimation ? 0 : p.theme.transition.duration * 3}s ease-out, 
+              transform ${p => p.noanimation ? 0 : p.theme.transition.duration * 3}s ease-out;
+
+  opacity: 0.01;
+  transform: scaleX(0.01) scaleY(0.01);
+
+  &.fade-enter {
+    opacity: 0.01;
+    transform: scaleX(0.01) scaleY(0.01);
+    ${p => p.above && css `bottom: 0;`}
+    ${p => !p.above && css `top: 0;`}
+  }
+
+  /* The enter-done class is key to the panel staying inflated;
+     it would return to its original opacity/transform if this class
+     weren't defined. */
+  &.fade-enter.fade-enter-active, &.fade-enter-done {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+    ${p => p.above && css `bottom: 100%;`}
+    ${p => !p.above && css `top: 100%;`}
+  }
+  &.fade-exit {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+    ${p => p.above && css `bottom: 100%;`}
+    ${p => !p.above && css `top: 100%;`}
+  }
+  &.fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transform: scaleX(0.01) scaleY(0.01);
+    ${p => p.above && css `bottom: 0;`}
+    ${p => !p.above && css `top: 0;`}
+  }
+
+  /* Colors */
+  background: #fff;
+  border: solid 1px ${p => p.theme.normalColor};
+  border-radius: ${p => p.theme.radius}px;
+  box-shadow: rgba(34, 36, 38, 0.15) 0px 1px 2px 0px;
+
+  /* Arrows */
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0.6em;
+    height: 0.6em;
+    border-style: inherit;
+    border-color: inherit;
+    background: inherit;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    ${p => !p.right && css `right: calc(${p.offset}px - 0.6em);`}
+    ${p => p.right && css `left: calc(${p.offset}px - 0.6em);`}
+  }
+  /* Pointing to top: */
+  ${p => !p.above && css `
+    &:before {
+      top: -1px;
+      border-width: 1px 0 0 1px;
+    }
+  `}
+  /* Pointing to bottom: */
+  ${p => p.above && css `
+    &:before {
+      margin-top: 1px;
+      top: 100%;
+      border-width: 0 1px 1px 0;
+    }
+  `}    
+`;
 export { PanelBody };
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10, templateObject_11, templateObject_12, templateObject_13, templateObject_14, templateObject_15, templateObject_16, templateObject_17, templateObject_18, templateObject_19, templateObject_20, templateObject_21, templateObject_22, templateObject_23;

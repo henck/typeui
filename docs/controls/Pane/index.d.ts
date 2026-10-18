@@ -1,3 +1,2 @@
-import { Pane } from './Pane';
-import { IconPane } from './IconPane';
-export { Pane, IconPane };
+export { Pane } from './Pane';
+export { IconPane } from './IconPane';

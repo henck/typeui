@@ -36,4 +36,4 @@ const ColumnStyled = styled(ColumnBase)`
 
 const Column = (props: IColumnProps) => <ColumnStyled {...props}/>
 
-export { Column, IColumnProps }
+export { Column, type IColumnProps }

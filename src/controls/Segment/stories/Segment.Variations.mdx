@@ -1,0 +1,84 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Segment} from '../Segment';
+import * as SegmentVariationsStories from './Segment.Variations.stories';
+
+# Segment: Variations
+
+.
+
+<Meta of={SegmentVariationsStories} />
+
+# align
+
+`Segment` text content can `align` to the `left`, `center` or `right`.
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Align} />
+</Canvas>
+
+## compact
+
+A `compact` `Segment` only takes up as much space as necessary.
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Compact} />
+</Canvas>
+
+## Emphasis
+
+A `Segment` can be formatted to appear less noticeable using `secondary` or `tertiary`.
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Emphasis} />
+</Canvas>
+
+## float
+
+A `Segment` can `float` to `left` or `right`. Note that segments themselves
+are self-clearing (there is no `clearing` attribute).
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Float} />
+</Canvas>
+
+## padded
+
+A `Segment` can be `padded`, optionally to `padded="very"`.
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Padded} />
+</Canvas>
+
+## piled
+
+A `piled` `Segment` looks like a pile of pages. It handles negative z-indices
+by adding a parent element to set the stacking order.
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Piled} />
+</Canvas>
+
+## raised
+
+A `Segment` may be formatted to be `raised` above the page.
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Raised} />
+</Canvas>
+
+## stacked
+
+A `stacked` `Segment` shows that it contains multiple pages. It can also be
+`tall stacked`.
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Stacked} />
+</Canvas>
+
+## tight
+
+A `Segment` can be `tight`, reducing its top and bottom padding.
+
+<Canvas>
+  <Story of={SegmentVariationsStories.Tight} />
+</Canvas>

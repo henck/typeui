@@ -1,0 +1,25 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { CircularProgress } from '../CircularProgress';
+import * as CircularProgressGeneralStories from './CircularProgress.General.stories';
+
+# CircularProgress: General
+
+.
+
+<Meta of={CircularProgressGeneralStories} />
+
+## value
+
+The `value` property is required. This must be a value between `0` and `100`.
+
+<Canvas>
+  <Story of={CircularProgressGeneralStories.Value} />
+</Canvas>
+
+## onClick
+
+If an `onClick` event handler is set, then the `CircularProgress` is clickable.
+
+<Canvas>
+  <Story of={CircularProgressGeneralStories.OnClick} />
+</Canvas>

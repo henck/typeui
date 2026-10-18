@@ -3,6 +3,7 @@ import { Size, Direction } from './../Types';
 interface ILabelGroupProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * `basic` Labels add a border and do not have a background.
@@ -27,7 +28,5 @@ interface ILabelGroupProps {
      */
     tag?: boolean;
 }
-declare class LabelGroup extends React.Component<ILabelGroupProps> {
-    render: () => JSX.Element;
-}
-export { LabelGroup };
+declare const LabelGroup: (props: ILabelGroupProps) => React.JSX.Element;
+export { LabelGroup, type ILabelGroupProps };

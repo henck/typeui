@@ -109,7 +109,7 @@ const ButtonInnerBase = (props: IButtonProps) => {
   }
 }
 
-const ButtonInnerStyled = styled(ButtonInnerBase).attrs(p => ({
+const ButtonInnerStyled = styled(ButtonInnerBase).attrs<{ fontSize?: number, hasColor?: string | boolean, finalColor?: (p: any) => string }>(p => ({
   fontSize: scaleSize(p.size, 1, p.theme.scale.button),
   /* Does the button have any color? */
   hasColor: p.primary || p.secondary || p.positive || p.negative || p.color,
@@ -350,4 +350,4 @@ Button.Or = ButtonOr;
  */  
 Button.Group = ButtonGroup;
 
-export { Button, IButtonProps }
+export { Button, type IButtonProps }

@@ -1,5 +1,5 @@
 import { Size } from "../controls/Types";
-export declare type Ratio = 'minorSecond' | 'majorSecond' | 'minorThird' | 'majorThird' | 'perfectFourth' | 'augFourth' | 'perfectFifth' | 'minorSixth' | 'goldenSection' | 'majorSixth' | 'minorSeventh' | 'majorSeventh' | 'octave' | 'majorTenth' | 'majorEleventh' | 'majorTwelfth' | 'doubleOctave';
+export type Ratio = 'minorSecond' | 'majorSecond' | 'minorThird' | 'majorThird' | 'perfectFourth' | 'augFourth' | 'perfectFifth' | 'minorSixth' | 'goldenSection' | 'majorSixth' | 'minorSeventh' | 'majorSeventh' | 'octave' | 'majorTenth' | 'majorEleventh' | 'majorTwelfth' | 'doubleOctave';
 export declare function modularScale(steps: number, base: number, ratio: Ratio): number;
 /**
  * Scale a Size to a local unit.

@@ -156,12 +156,14 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
     this.fetchData(this.bodyElement.scrollTop, this.bodyElement.clientHeight);
   }
 
+  private counterRef = React.createRef<HTMLDivElement>();
+
   private handleRetry = () => {
     if(this.fetch) this.fetch();
   }
 
   private getHeaders() {
-    return React.Children.map(this.props.children, (child:DataColumn) => {
+    return React.Children.map(this.props.children, (child: React.ReactElement<DataColumn["props"]>) => {
       // Is the column removed? This can happen for conditionally-rendered columns.
       if(!child) return null;
       // Is this column orderable? 
@@ -186,7 +188,7 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
       if(!row) continue;
       // Render row:
       rows.push(<Row key={i} top={i * ITEM_HEIGHT} onClick={this.props.onClick ? () => this.handleClick(row) : null}>{
-        React.Children.map(this.props.children, (child:DataColumn) => {
+        React.Children.map(this.props.children, (child: React.ReactElement<DataColumn["props"]>) => {
           // Is the column removed? This can happen for conditionally-rendered columns.
           if(!child) return null;
           return <Cell 
@@ -295,8 +297,8 @@ class DataTableBase<T> extends React.Component<IDataTableProps, IDataTableState>
                 }
                 </>}
             </Body>
-            <CSSTransition in={p.data.length > 0 && this.state.showCounter} timeout={500} unmountOnExit classNames="fade">
-              <Counter count={p.data.length} first={this.state.first} last={this.state.last}/>
+            <CSSTransition nodeRef={this.counterRef} in={p.data.length > 0 && this.state.showCounter} timeout={500} unmountOnExit classNames="fade">
+              <Counter nodeRef={this.counterRef} count={p.data.length} first={this.state.first} last={this.state.last}/>
             </CSSTransition>
           </TableInner>
         </Table>

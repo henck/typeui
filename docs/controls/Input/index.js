@@ -1,5 +1,4 @@
-import { Input } from './Input';
-export { Input };
+export { Input } from './Input';
 /**
  * This index.tsx file exists so that you can do
  *

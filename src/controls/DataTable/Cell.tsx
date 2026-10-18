@@ -9,7 +9,7 @@ interface ICellProps {
   /** @ignore */
   className?: string;
   /** @ignore */
-  children?: React.ReactNode;
+  children?: (item: any) => React.ReactNode;
   item: any;
   /** Column weight. Defaults to 1. */
   weight?: number;
@@ -27,7 +27,7 @@ interface ICellProps {
 
 const CellBase = (props: ICellProps) => 
   <div className={props.className} onClick={props.onClick} onDoubleClick={props.onDoubleClick}>
-    {props.item !== null && (props.children as any)(props.item)}
+    {props.item !== null && props.children(props.item)}
   </div>
 
 const Cell = styled(CellBase)`

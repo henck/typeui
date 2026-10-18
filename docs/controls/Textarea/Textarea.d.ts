@@ -1,8 +1,8 @@
 import * as React from 'react';
 /**
- *  Textarea validates itself using the HTML validation API whenever
- *  its content changes. Listeners can use onValidate to obtain
- *  the resulting ValidityState.
+ * Textarea validates itself using the HTML validation API whenever its
+ * content changes. Listeners can use onValidate to obtain the resulting
+ * ValidityState.
  */
 interface ITextareaProps {
     /** @ignore */
@@ -57,7 +57,5 @@ interface ITextareaProps {
      */
     onChange?: (value: any) => void;
 }
-declare class Textarea extends React.Component<ITextareaProps> {
-    render: () => JSX.Element;
-}
-export { Textarea, ITextareaProps };
+declare const Textarea: (props: ITextareaProps) => React.JSX.Element;
+export { Textarea, type ITextareaProps };

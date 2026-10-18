@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {List} from '../List';
+import * as ListPropertiesStories from './List.Properties.stories';
+
+<Meta of={ListPropertiesStories} />
+
+# List
+
+A `List` shows a list of `List.Item` elements, by default vertically (but a
+horizontal List is possible). List items can have an `Icon` and `Image`.
+
+<ArgTypes of={List} />
+
+## Standard List
+
+A standard `List` has no bullets, icons or images. Its items are `List.Item` elements.
+
+<Canvas>
+  <Story of={ListPropertiesStories.Properties} />
+</Canvas>

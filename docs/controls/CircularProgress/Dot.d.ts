@@ -1,13 +1,11 @@
 import * as React from 'react';
 interface IProps {
+    /** @ignore */
     className?: string;
     left: number;
     top: number;
     thickness: number;
     color?: string;
 }
-declare class DotBase extends React.Component<IProps> {
-    render(): JSX.Element;
-}
-declare const Dot: import("styled-components").StyledComponent<typeof DotBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Dot: import("styled-components/dist/types").IStyledComponentBase<"web", IProps> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Dot };

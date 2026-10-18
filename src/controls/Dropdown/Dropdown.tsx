@@ -174,4 +174,4 @@ const Dropdown = (props: IDropdownProps) =>
  */
 Dropdown.Column = Column;
 
-export { Dropdown, IDropdownProps }
+export { Dropdown, type IDropdownProps }

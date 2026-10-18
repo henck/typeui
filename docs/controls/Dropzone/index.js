@@ -1,2 +1,1 @@
-import { Dropzone } from './Dropzone';
-export { Dropzone };
+export { Dropzone } from './Dropzone';

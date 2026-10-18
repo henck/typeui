@@ -1,2 +1,1 @@
-import { Filesize } from './Filesize';
-export { Filesize };
+export { Filesize } from './Filesize';

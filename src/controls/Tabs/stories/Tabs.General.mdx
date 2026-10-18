@@ -1,0 +1,32 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Tabs} from '../Tabs';
+import {Label} from '../../Label';
+import {Flex} from '../../Flex';
+import {Icon} from '../../Icon';
+import * as TabsGeneralStories from './Tabs.General.stories';
+
+# Tabs: General
+
+.
+
+<Meta of={TabsGeneralStories} />
+
+## active
+
+The initially active tab can be set with the `active` property. It is 0-based.
+
+If `active` is omitted, then the initially active tab is tab 0.
+
+<Canvas>
+  <Story of={TabsGeneralStories.Active} />
+</Canvas>
+
+## label
+
+The Pane `label` can contain arbitrary content.
+
+To get the content to vertically align properly, a `Flex.Quick` can help.
+
+<Canvas>
+  <Story of={TabsGeneralStories.LabelStory} />
+</Canvas>

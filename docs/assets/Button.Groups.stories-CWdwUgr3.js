@@ -1,0 +1,17 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{n}from"./iframe-BMOsmv_G.js";import{t as r}from"./Icon-CbGLNh3A.js";import{t as i}from"./Icon-DBLdIlUt.js";import{t as a}from"./Segment-BBCHNE-P.js";import{n as o,t as s}from"./Button-eI6v9XeX.js";import{t as c}from"./Divider-qVAaeOIw.js";import{t as l}from"./Divider-CDEnhhvW.js";import{t as u}from"./Label-DApBXEp8.js";var d=t({Attributes:()=>v,Conditionals:()=>y,Horizontal:()=>b,Vertical:()=>x,__namedExportsOrder:()=>S,default:()=>_}),f,p,m,h,g,_,v,y,b,x,S;function C(){return(C=e((()=>{o(),i(),a(),l(),u(),f=n(),p=e=>(0,f.jsxs)(`div`,{children:[(0,f.jsxs)(s.Group,{color:`brown`,size:`big`,compact:!0,children:[(0,f.jsx)(s,{children:`One`}),(0,f.jsx)(s,{children:`Two`}),(0,f.jsx)(s,{children:`Three`})]}),(0,f.jsx)(c,{hidden:!0}),(0,f.jsxs)(s.Group,{basic:!0,children:[(0,f.jsx)(s,{children:`One`}),(0,f.jsx)(s,{children:`Two`}),(0,f.jsx)(s,{children:`Three`})]}),(0,f.jsx)(c,{hidden:!0}),(0,f.jsxs)(s.Group,{basic:!0,vertical:!0,color:`brown`,children:[(0,f.jsx)(s,{children:`One`}),(0,f.jsx)(s,{children:`Two`}),(0,f.jsx)(s,{children:`Three`})]})]}),m=e=>(0,f.jsxs)(`div`,{children:[(0,f.jsxs)(s.Group,{children:[(0,f.jsx)(s,{children:`One`}),(0,f.jsx)(s.Or,{}),(0,f.jsx)(s,{positive:!0,children:`Two`})]}),(0,f.jsx)(c,{hidden:!0}),(0,f.jsxs)(s.Group,{children:[(0,f.jsx)(s,{children:`One`}),(0,f.jsx)(s.Or,{}),(0,f.jsx)(s,{children:`Two`}),(0,f.jsx)(s.Or,{}),(0,f.jsx)(s,{children:`Three`})]})]}),h=e=>(0,f.jsxs)(`div`,{children:[(0,f.jsxs)(s.Group,{children:[(0,f.jsx)(s,{children:`One`}),(0,f.jsx)(s,{children:`Two`}),(0,f.jsx)(s,{children:`Three`})]}),(0,f.jsx)(c,{hidden:!0}),(0,f.jsxs)(s.Group,{basic:!0,icon:!0,children:[(0,f.jsx)(s,{children:(0,f.jsx)(r,{name:`code`})}),(0,f.jsx)(s,{children:(0,f.jsx)(r,{name:`exchange`})}),(0,f.jsx)(s,{children:(0,f.jsx)(r,{name:`circle`})})]})]}),g=e=>(0,f.jsx)(`div`,{children:(0,f.jsxs)(s.Group,{vertical:!0,children:[(0,f.jsx)(s,{children:`One`}),(0,f.jsx)(s,{children:`Two`}),(0,f.jsx)(s,{children:`Three`})]})}),_={title:`Controls/Button/Groups`,component:s,subcomponents:{"Button.Group":s.Group,"Button.Or":s.Or},argTypes:{className:{table:{disable:!0}},grouped:{table:{disable:!0}}}},v={render:p.bind({}),name:`Attributes`,args:{}},y={render:m.bind({}),name:`Conditionals`,args:{}},b={render:h.bind({}),name:`Horizontal`,args:{}},x={render:g.bind({}),name:`Vertical`,args:{}},S=[`Attributes`,`Conditionals`,`Horizontal`,`Vertical`],v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
+  render: AttributesTemplate.bind({}),
+  name: 'Attributes',
+  args: {}
+}`,...v.parameters?.docs?.source}}},y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  render: ConditionalTemplate.bind({}),
+  name: 'Conditionals',
+  args: {}
+}`,...y.parameters?.docs?.source}}},b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  render: HorizontalTemplate.bind({}),
+  name: 'Horizontal',
+  args: {}
+}`,...b.parameters?.docs?.source}}},x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:`{
+  render: VerticalTemplate.bind({}),
+  name: 'Vertical',
+  args: {}
+}`,...x.parameters?.docs?.source}}}})))()}export{x as a,b as i,d as n,C as o,y as r,v as t};

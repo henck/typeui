@@ -52,7 +52,7 @@ const SearchBox = styled.div`
 const BodyInner = styled.div`
 `
 
-const Body = styled(BodyBase).attrs(p => ({
+const Body = styled(BodyBase).attrs<{ totalHeight?: number, totalInnerHeight?: number }>(p => ({
   // Height is based on number of children, up to MAX_CHILDREN_VISIBLE, 
   // plus a search box added if specified.
   totalHeight: (Math.min(React.Children.count(p.children), (p.maxItems ? p.maxItems : MAX_CHILDREN_VISIBLE)) + (p.onSearch ? 1 : 0)) * 57 + 1,

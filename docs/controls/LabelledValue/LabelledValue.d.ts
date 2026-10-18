@@ -2,13 +2,14 @@ import * as React from 'react';
 interface IProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
-     * Label to show above value
+     * Label to show above value.
      */
     label: string;
     /**
-     * Optional flex width
+     * Optional flex width.
      */
     width?: number;
     /**
@@ -35,7 +36,5 @@ interface IProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-labelledvalue--properties
  */
-declare class LabelledValue extends React.Component<IProps> {
-    render: () => JSX.Element;
-}
+declare const LabelledValue: (props: IProps) => React.JSX.Element;
 export { LabelledValue };

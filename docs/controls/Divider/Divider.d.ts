@@ -35,5 +35,5 @@ interface IDividerProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-divider--properties
  */
-declare const Divider: (props: IDividerProps) => JSX.Element;
+declare const Divider: (props: IDividerProps) => React.JSX.Element;
 export { Divider };

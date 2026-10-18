@@ -1,0 +1,22 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {CircularProgress} from '../CircularProgress';
+import * as CircularProgressPropertiesStories from './CircularProgress.Properties.stories';
+
+<Meta of={CircularProgressPropertiesStories} />
+
+# CircularProgress
+
+A `CircularProgress` shows a percentage value, with a circular line around it.
+Optionally it may be `animated` so that the line grows from 0% to a target
+value. There are various properties that control the `CircularProgress`'s
+appearance.
+
+<ArgTypes of={CircularProgress} />
+
+## Default CircularProgress
+
+All properties are optional, except `value`.
+
+<Canvas>
+  <Story of={CircularProgressPropertiesStories.Properties} />
+</Canvas>

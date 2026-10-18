@@ -1,0 +1,64 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Input} from '../Input';
+import {Form} from '../../Form';
+import {Flex} from '../../Flex';
+import {Icon} from '../../Icon';
+import * as InputVariationsStories from './Input.Variations.stories';
+
+# Input: Variations
+
+.
+
+<Meta of={InputVariationsStories} />
+
+## fluid
+
+A `fluid` input fills all horizontal space available to it.
+
+<Canvas>
+  <Story of={InputVariationsStories.Fluid} />
+</Canvas>
+
+## icon
+
+An `Input` can be formatted with an `Icon`. This can be done in several ways:
+
+*   By setting the Input's `icon` prop to the icon's name
+*   By adding an `Icon` as a child element to the Input
+*   By passing Icon props into the `icon` property of the Input.
+
+<Canvas>
+  <Story of={InputVariationsStories.IconStory} />
+</Canvas>
+
+## iconPosition
+
+An input's `Icon` can be placed `left` or `right`.
+
+<Canvas>
+  <Story of={InputVariationsStories.IconPosition} />
+</Canvas>
+
+## iconProps
+
+An input with an `icon` property can take `Icon` props rather than just an icon name.
+
+<Canvas>
+  <Story of={InputVariationsStories.IconProps} />
+</Canvas>
+
+## placeholder
+
+An `Input` can have a `placeholder` text value.
+
+<Canvas>
+  <Story of={InputVariationsStories.Placeholder} />
+</Canvas>
+
+## transparent
+
+The border of an `Input` can be removed with the `transparent` property.
+
+<Canvas>
+  <Story of={InputVariationsStories.Transparent} />
+</Canvas>

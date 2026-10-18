@@ -5,6 +5,6 @@ interface IHeaderProps {
     children?: React.ReactNode;
 }
 declare class Header extends React.Component<IHeaderProps> {
-    render: () => JSX.Element;
+    render: () => React.JSX.Element;
 }
 export { Header };

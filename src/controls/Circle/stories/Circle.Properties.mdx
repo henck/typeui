@@ -1,0 +1,14 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Circle} from '../Circle';
+import {Icon} from '../../Icon';
+import * as CirclePropertiesStories from './Circle.Properties.stories';
+
+<Meta of={CirclePropertiesStories} />
+
+# Circle
+
+<ArgTypes of={Circle} />
+
+<Canvas>
+  <Story of={CirclePropertiesStories.Properties} />
+</Canvas>

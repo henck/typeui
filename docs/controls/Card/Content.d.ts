@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { HorizontalAlignment } from '../Types';
-interface IContentProps {
+interface ICardContentProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Optional text alignment to `left`, `center` or `right` (default is `left`).
@@ -14,7 +15,5 @@ interface IContentProps {
      */
     secondary?: boolean;
 }
-declare class Content extends React.Component<IContentProps> {
-    render: () => JSX.Element;
-}
-export { Content };
+declare const Content: (props: ICardContentProps) => React.JSX.Element;
+export { Content, type ICardContentProps };

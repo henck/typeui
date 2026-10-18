@@ -10,4 +10,4 @@ interface IMessageContentProps {
 const MessageContent = (props: IMessageContentProps) =>
   <div className={props.className}>{props.children}</div>
 
-export { MessageContent, IMessageContentProps }
+export { MessageContent, type IMessageContentProps }

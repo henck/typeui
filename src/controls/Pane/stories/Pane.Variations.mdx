@@ -1,0 +1,26 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Pane} from '../Pane';
+import * as PaneVariationsStories from './Pane.Variations.stories';
+
+# Pane: Variations
+
+.
+
+<Meta of={PaneVariationsStories} />
+
+## padded
+
+By default, a `Pane` does not pad its content. The `padded` property adds
+some padding.
+
+<Canvas>
+  <Story of={PaneVariationsStories.Padded} />
+</Canvas>
+
+## width
+
+By default, a `Pane` has a width of 400px. The `width` property overrides this.
+
+<Canvas>
+  <Story of={PaneVariationsStories.Width} />
+</Canvas>

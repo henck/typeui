@@ -19,7 +19,7 @@ declare class ImgBase extends React.Component<IImgProps, {}> {
     onError: () => void;
     componentDidMount(): void;
     componentWillUnmount(): void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
-declare const Img: import("styled-components").StyledComponent<typeof ImgBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Img: import("styled-components/dist/types").IStyledComponentBase<"web", IImgProps & React.RefAttributes<ImgBase>> & string & Omit<typeof ImgBase, keyof React.Component<any, {}, any>>;
 export { Img };

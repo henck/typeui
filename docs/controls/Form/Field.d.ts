@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { IFormContext } from './FomContext';
 interface ISimpleValidation {
     message: React.ReactNode;
 }
@@ -51,6 +52,15 @@ interface IProps {
      * @default false
      */
     contrast?: boolean;
+    /**
+     * If true, display no asterisk for required fields.
+     */
+    noStar?: boolean;
+    /**
+     * If true, field has a boxed appearance. This places a border around the
+     * field, which is clickable and moves focus to the contained control.
+     */
+    boxed?: boolean;
     /** Control to show in field. */
     control: React.ReactNode;
     /**
@@ -142,8 +152,81 @@ interface IProps {
      * <Field ... email={{message: "Must be a valid email address."}}>
      */
     email?: ISimpleValidation;
+    /**
+     * If set, this Field is rendered without any embellishments: no label,
+     * no hint, no wrapper. This is useful for controls that must behave like
+     * a Field (i.e. work with a Form to get their `value` and `onChange` set),
+     * but mustn't look like one.
+     */
+    noWrapper?: boolean;
 }
-declare class Field extends React.Component<IProps, {}> {
-    render: () => JSX.Element;
+interface IState {
+    pristine: boolean;
+    validation: React.ReactNode;
+    value: any;
+}
+declare class Field extends React.Component<IProps, IState> {
+    static contextType: React.Context<IFormContext>;
+    constructor(props: IProps);
+    handleChange: (value: any) => void;
+    componentDidMount(): void;
+    componentWillUnmount(): void;
+    shouldComponentUpdate(nextProps: IProps, nextState: IState): boolean;
+    componentDidUpdate(prevProps: IProps, prevState: IState): void;
+    getValidation(value: any): React.ReactNode;
+    /**
+     * Verify that field has a value.
+     */
+    validateRequired(value: any): boolean;
+    /**
+     * Verify that value is an integer number.
+     */
+    validateInt(value: any): boolean;
+    validateFloat(value: any): boolean;
+    /**
+     * Verify that value has a minimum numerical value.
+     */
+    validateMin(value: any): boolean;
+    /**
+     * Verify that value has a maximum numerical value.
+     */
+    validateMax(value: any): boolean;
+    /**
+     * Verify that value falls in a numerical range (inclusive).
+     */
+    validateBetween(value: any): boolean;
+    /**
+     * Verify that value is a string of minimum length.
+     */
+    validateMinLength(value: any): boolean;
+    /**
+     * Verify that value is a string of maximum length.
+     */
+    validateMaxLength(value: any): boolean;
+    /**
+     * Verify that value is a string of length between minimum and maximum.
+     */
+    validateLengthBetween(value: any): boolean;
+    /**
+     * Verify that value satisfies a pattern.
+     */
+    validatePattern(value: any): boolean;
+    /**
+     * Verify that value does not satisfy a pattern.
+     */
+    validateNotPattern(value: any): boolean;
+    /**
+     * Verify that values is a valid email address.
+     */
+    validateEmail(value: any): boolean;
+    getControl(hasError: boolean): React.DetailedReactHTMLElement<{
+        name: string;
+        onChange: (value: any) => void;
+        value: any;
+        checked: any;
+        error: boolean;
+        disabled: boolean;
+    }, HTMLElement>;
+    render(): React.JSX.Element;
 }
 export { Field };

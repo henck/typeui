@@ -1,0 +1,27 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Placeholder} from '../Placeholder';
+import {Divider} from '../../Divider';
+import {Flex} from '../../Flex';
+import {Segment} from '../../Segment';
+import * as PlaceholderPropertiesStories from './Placeholder.Properties.stories';
+
+<Meta of={PlaceholderPropertiesStories} />
+
+# Placeholder
+
+A `Placeholder` is used to take the place of content that is yet to be loaded
+from a remote server.
+
+A `Placeholder` can contain a `Placeholder.Header` as well as `Placeholder.Paragraph` elements.
+Any `PlaceHolder.Line` elements have random lengths by default, unless a `length` is specified.
+The background animation is done using CSS transforms so that it can be smooth and GPU-accelerated.
+
+<ArgTypes of={Placeholder} />
+
+## Example
+
+A default `Placeholder` element is empty. Header, lines or images must be added to it:
+
+<Canvas>
+  <Story of={PlaceholderPropertiesStories.Properties} />
+</Canvas>

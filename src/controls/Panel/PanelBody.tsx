@@ -5,6 +5,8 @@ import styled from '../../styles/Theme';
 interface IPanelBodyProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  nodeRef?: React.Ref<HTMLDivElement>;
   children?: React.ReactNode;
   /** Is body above the parent element? */
   above: boolean;
@@ -31,7 +33,7 @@ class PanelBodyBase extends React.Component<IPanelBodyProps, {}> {
   render() {
     let p = this.props;
     return (
-      <div className={p.className} onClick={this.handleClick}>
+      <div className={p.className} ref={p.nodeRef} onClick={this.handleClick}>
         {p.children}
       </div>
     );

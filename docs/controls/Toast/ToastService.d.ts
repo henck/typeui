@@ -1,4 +1,3 @@
-/// <reference types="react" />
 interface IToastSubscriber {
     toast: (message: React.ReactNode, duration?: number) => void;
 }
@@ -24,4 +23,4 @@ declare class ToastService {
      */
     static toast(message: React.ReactNode, duration?: number): void;
 }
-export { ToastService, IToastSubscriber };
+export { ToastService, type IToastSubscriber };

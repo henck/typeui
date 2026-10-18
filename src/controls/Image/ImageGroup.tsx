@@ -6,8 +6,10 @@ import { IImageProps } from './Image';
 interface IImageGroupProps {
   /** @ignore */
   className?: string;
-  /** 
-   * Sets image size: mini, tiny, small, medium (default), large, big, huge or massive. 
+  /** @ignore */
+  children?: React.ReactNode;
+  /**
+   * Sets image size: mini, tiny, small, medium (default), large, big, huge or massive.
    */
   size?: Size;  
   /** 

@@ -1,0 +1,23 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { Markdown } from '../Markdown';
+import * as MarkdownPropertiesStories from './Markdown.Properties.stories';
+
+<Meta of={MarkdownPropertiesStories} />
+
+# Markdown
+
+The `Markdown` formatter takes a markdown string (source) and renders
+HTML, with TypeUI components thrown in where necessary.
+
+This formatter requires the following support packages:
+
+*   `ReactMarkdown`
+*   `remarkGfm` (for table support)
+
+<ArgTypes of={Markdown} />
+
+## Example
+
+<Canvas>
+  <Story of={MarkdownPropertiesStories.Properties} />
+</Canvas>

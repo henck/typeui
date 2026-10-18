@@ -1,0 +1,21 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Input} from '../Input';
+import {Form} from '../../Form';
+import { ThemeProvider } from 'styled-components';
+import { Theme } from '../../../styles';
+import * as InputThemingStories from './Input.Theming.stories';
+
+# Input: Theming
+
+.
+
+The `Input` control takes theme information from a `ThemeProvider` that
+surrounds it.
+
+<Meta of={InputThemingStories} />
+
+## Samples
+
+<Canvas>
+  <Story of={InputThemingStories.Theming} />
+</Canvas>

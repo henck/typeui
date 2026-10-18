@@ -1,12 +1,8 @@
 import * as React from 'react';
-interface IClearProps {
+interface IProps {
     /** @ignore */
     className?: string;
     onClick: () => void;
 }
-declare class ClearBase extends React.Component<IClearProps> {
-    handleClick: (e: React.MouseEvent) => void;
-    render: () => JSX.Element;
-}
-declare const Clear: import("styled-components").StyledComponent<typeof ClearBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Clear: import("styled-components/dist/types").IStyledComponentBase<"web", IProps> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Clear };

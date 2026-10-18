@@ -1,18 +1,4 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+import { jsx as _jsx } from "react/jsx-runtime";
 import * as React from 'react';
 // Other controls
 import { Dropbox } from './Dropbox';
@@ -28,29 +14,18 @@ import { Dropbox } from './Dropbox';
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-dropzone--properties
  */
-var Dropzone = /** @class */ (function (_super) {
-    __extends(Dropzone, _super);
-    function Dropzone(props) {
-        var _this = _super.call(this, props) || this;
-        _this.handleAddFiles = function (files) {
-            _this.props.onAddFiles(files);
-            _this.setState({ hover: false });
-        };
-        _this.handleDragOver = function () {
-            _this.setState({ hover: true });
-        };
-        _this.handleDragLeave = function () {
-            _this.setState({ hover: false });
-        };
-        _this.state = {
-            hover: false
-        };
-        return _this;
-    }
-    Dropzone.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(Dropbox, { hover: this.state.hover, message: p.message, onDragover: this.handleDragOver, onDragLeave: this.handleDragLeave, onAddFiles: this.handleAddFiles }));
+const Dropzone = (props) => {
+    const [hover, setHover] = React.useState(false);
+    const handleAddFiles = (files) => {
+        props.onAddFiles(files);
+        setHover(false);
     };
-    return Dropzone;
-}(React.Component));
+    const handleDragOver = () => {
+        setHover(true);
+    };
+    const handleDragLeave = () => {
+        setHover(false);
+    };
+    return (_jsx(Dropbox, { hover: hover, message: props.message, onDragover: handleDragOver, onDragLeave: handleDragLeave, onAddFiles: handleAddFiles }));
+};
 export { Dropzone };

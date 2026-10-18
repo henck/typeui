@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Pane } from './Pane';
 interface ITabsProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Underline the current tab (animated).
@@ -41,14 +41,14 @@ interface ITabsProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-tabs--properties
  */
-declare class Tabs extends React.PureComponent<ITabsProps> {
+declare const Tabs: {
+    (props: ITabsProps): React.JSX.Element;
     /**
      * A single tab pane.
      *
      * The Pane label can contain arbitrary content.
      * To get the content to vertically align properly, a Flex.Quick can help.
      */
-    static Pane: typeof Pane;
-    render: () => JSX.Element;
-}
+    Pane: (props: import("./Pane").IPaneProps) => React.JSX.Element;
+};
 export { Tabs };

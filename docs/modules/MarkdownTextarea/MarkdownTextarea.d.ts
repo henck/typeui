@@ -21,6 +21,6 @@ interface IState {
 declare class MarkdownTextarea extends React.Component<IProps & ITextareaProps, IState> {
     constructor(props: IProps & ITextareaProps);
     private handleTabChange;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { MarkdownTextarea };

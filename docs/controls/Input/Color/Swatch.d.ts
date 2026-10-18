@@ -1,18 +1,11 @@
 import * as React from 'react';
-interface ISwatch {
-    color: string;
-    locked: boolean;
-}
-interface ISwatchProps {
+interface IProps {
+    /** @ignore */
     className?: string;
     color: string;
     locked: boolean;
     onClick: () => void;
     onToggle: () => void;
 }
-declare class SwatchBase extends React.Component<ISwatchProps, {}> {
-    constructor(props: ISwatchProps);
-    render(): JSX.Element;
-}
-declare const Swatch: import("styled-components").StyledComponent<typeof SwatchBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
-export { Swatch, ISwatch };
+declare const Swatch: import("styled-components/dist/types").IStyledComponentBase<"web", IProps> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
+export { Swatch };

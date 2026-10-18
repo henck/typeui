@@ -1,0 +1,7 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t}from"./iframe-BMOsmv_G.js";import{i as n,r}from"./react-DITjJg24.js";import{c as i,l as a,r as o,s}from"./blocks-CwW7mlwR.js";import{n as c}from"./Accordion-BwoAqFGY.js";import{t as l}from"./Icon-DBLdIlUt.js";import{t as u}from"./Segment-BBCHNE-P.js";import{t as d}from"./Flex-BXnfVj9e.js";import{t as f}from"./Message-CLNL5ta-.js";import{n as p,r as m,t as h}from"./Accordion.Groups.stories-Cpem10NW.js";function g(e){let t={code:`code`,h1:`h1`,h2:`h2`,p:`p`,...n(),...e.components};return(0,v.jsxs)(v.Fragment,{children:[(0,v.jsx)(t.h1,{id:`accordion-groups`,children:`Accordion: Groups`}),`
+`,(0,v.jsx)(t.p,{children:`.`}),`
+`,(0,v.jsx)(s,{of:h}),`
+`,(0,v.jsx)(t.h2,{id:`attached`,children:`attached`}),`
+`,(0,v.jsxs)(t.p,{children:[`Accordions can be `,(0,v.jsx)(t.code,{children:`attached`}),` to other content like a `,(0,v.jsx)(t.code,{children:`Segment`}),` or a `,(0,v.jsx)(t.code,{children:`Message`}),`.\r
+Note that any dropshadows are removed for attached content.`]}),`
+`,(0,v.jsx)(o,{children:(0,v.jsx)(i,{of:p})})]})}function _(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,v.jsx)(t,{...e,children:(0,v.jsx)(g,{...e})}):g(e)}var v;function y(){return(y=e((()=>{v=t(),r(),a(),c(),l(),u(),d(),f(),m()})))()}y();export{_ as default};

@@ -1,0 +1,29 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {List} from '../List';
+import {Icon} from '../../Icon';
+import {Image} from '../../Image';
+import {Button} from '../../Button';
+import * as ListGroupsStories from './List.Groups.stories';
+
+# List: Groups
+
+.
+
+<Meta of={ListGroupsStories} />
+
+## List.Content
+
+When there are multiple `List.Content` elements in a list item, then the first
+element occupies maximum space, while the others shrink.
+
+<Canvas>
+  <Story of={ListGroupsStories.ListContent} />
+</Canvas>
+
+## Vertical Alignment
+
+Individual `List.Content` elements may be aligned vertically.
+
+<Canvas>
+  <Story of={ListGroupsStories.VerticalAlignment} />
+</Canvas>

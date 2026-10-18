@@ -1,0 +1,36 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Dropdown} from '../Dropdown';
+import {Form} from '../../Form';
+import * as DropdownPropertiesStories from './Dropdown.Properties.stories';
+
+<Meta of={DropdownPropertiesStories} />
+
+# Dropdown
+
+A Dropdown is a replacement for `<select>`. It opens upwards or downwards
+depending on its position in the viewport. Its selection and dropdown items
+are formatted using a formatting function. A Dropdown can also take a search
+callback, which tells provides its subscriber with a search query in order to
+provide the Dropdown with new items.
+
+<ArgTypes of={Dropdown} />
+
+## Default Dropdown
+
+A simple dropdown. Content is provided through the `data` attribute.
+
+When the user makes a selection, `onChange` is fired with the Dropdown's name and
+the selected value. *The value is an object, not an ID.*
+
+The current selection is formatted using the required `label` function. This function takes an item
+and returns a `React.ReactNode`, e.g. `label={(item:any) => item.name}`.
+
+`Dropdown.Column` is used to format the items in the dropdown list. An item may have more
+than one column. `Dropdown.Column`'s child is a function that formats an item.
+
+Dropdowns must be controlled components in order for the selected value to show
+up in the selector box.
+
+<Canvas>
+  <Story of={DropdownPropertiesStories.Properties} />
+</Canvas>

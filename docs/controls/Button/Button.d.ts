@@ -85,7 +85,7 @@ interface IButtonProps {
  * @link https://henck.github.io/typeui/?path=/story/controls-button--properties
  */
 declare const Button: {
-    (props: IButtonProps): JSX.Element;
+    (props: IButtonProps): React.JSX.Element;
     /**
      * Button groups can contain conditionals using Button.Or.
      *
@@ -98,7 +98,7 @@ declare const Button: {
      *
      * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--group-attributes
      */
-    Or: (props: import("./ButtonOr").IButtonOrProps) => JSX.Element;
+    Or: (props: import("./ButtonOr").IButtonOrProps) => React.JSX.Element;
     /**
      * Buttons can be grouped horizontally or vertically using Button.Group.
      *
@@ -111,6 +111,6 @@ declare const Button: {
      *
      * @link https://henck.github.io/typeui/?path=/story/controls-button-groups--conditional
      */
-    Group: (props: import("./ButtonGroup").IButtonGroupProps) => JSX.Element;
+    Group: (props: import("./ButtonGroup").IButtonGroupProps) => React.JSX.Element;
 };
-export { Button, IButtonProps };
+export { Button, type IButtonProps };

@@ -1,13 +1,9 @@
 import * as React from 'react';
 import { VerticalAlignment, ListStyleType } from '../Types';
-import { ListItem } from './ListItem';
-import { ListIcon } from './ListIcon';
-import { ListContent } from './ListContent';
-import { ListHeader } from './ListHeader';
-import { ListDescription } from './ListDescription';
 interface IListProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Icon and content alignment: `top`, `center` or `bottom`. By default `top`
@@ -56,12 +52,12 @@ interface IListProps {
 /**
  * @link https://henck.github.io/typeui/?path=/story/controls-list--properties
  */
-declare class List extends React.Component<IListProps> {
-    static Item: typeof ListItem;
-    static Icon: typeof ListIcon;
-    static Content: typeof ListContent;
-    static Header: typeof ListHeader;
-    static Description: typeof ListDescription;
-    render: () => JSX.Element;
-}
+declare const List: {
+    (props: IListProps): React.JSX.Element;
+    Item: (props: import("./ListItem").IListItemProps) => React.JSX.Element;
+    Icon: (props: import("..").IIconProps) => React.JSX.Element;
+    Content: (props: import("./ListContent").IListContentProps) => React.JSX.Element;
+    Header: (props: import("./ListHeader").IListHeaderProps) => React.JSX.Element;
+    Description: (props: import("./ListDescription").IProps) => React.JSX.Element;
+};
 export { List };

@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Label} from '../Label';
+import * as LabelPropertiesStories from './Label.Properties.stories';
+
+<Meta of={LabelPropertiesStories} />
+
+# Label
+
+A `Label` is a small box containing information. It can be used by itself,
+or `attached` to other components like `Input`, `Dropdown` and `Button`.
+
+<ArgTypes of={Label} />
+
+## Standard Label
+
+A standard `Label` is gray, with non-bold text.
+
+<Canvas>
+  <Story of={LabelPropertiesStories.Properties} />
+</Canvas>

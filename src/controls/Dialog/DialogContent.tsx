@@ -29,4 +29,4 @@ const DialogContent = (props: IDialogContentProps) =>
 
 DialogContent.displayName = "Dialog.Content";
 
-export { DialogContent, IDialogContentProps };
+export { DialogContent, type IDialogContentProps };

@@ -6,7 +6,7 @@ interface IDialogWindowProps {
   className?: string;
   /** @ignore */
   children?: React.ReactNode;
-  windowRef?: any;
+  windowRef?: React.Ref<HTMLDivElement>;
   width?: number;
 }
 

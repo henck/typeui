@@ -105,6 +105,7 @@ interface IInputProps {
 
 const InputInnerBase = (props: IInputProps) => {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
+  const selectorRef = React.useRef<HTMLDivElement>(null);
   // Selector currently open?
   const [open, setOpen] = React.useState(false);
   // Selector opens upward?
@@ -238,22 +239,22 @@ const InputInnerBase = (props: IInputProps) => {
     {p.type === 'date' && 
       <>
         <DateInputBox {...p} defaultFormat="dd-MM-yyyy" onKeyDown={handleKeyDown}/>
-        <CSSTransition in={open} timeout={300} unmountOnExit classNames="fade">
-          <DateSelector value={p.value} upward={upward} right={right} onSelect={handleSelect} nofuture={p.nofuture}/>
+        <CSSTransition nodeRef={selectorRef} in={open} timeout={300} unmountOnExit classNames="fade">
+          <DateSelector nodeRef={selectorRef} value={p.value} upward={upward} right={right} onSelect={handleSelect} nofuture={p.nofuture}/>
         </CSSTransition>
       </>}
     {p.type === 'time' && 
       <>
         <TimeInputBox {...p} defaultFormat={p.hasSeconds ? "HH:mm:ss" : "HH:mm"} onKeyDown={handleKeyDown}/>
-        <CSSTransition in={open} timeout={300} unmountOnExit classNames="fade">
-          <TimeSelector value={p.value} upward={upward} right={right} onSelect={handleSelect} hasSeconds={p.hasSeconds} is24h={p.is24h} clock={p.clock}/>
+        <CSSTransition nodeRef={selectorRef} in={open} timeout={300} unmountOnExit classNames="fade">
+          <TimeSelector nodeRef={selectorRef} value={p.value} upward={upward} right={right} onSelect={handleSelect} hasSeconds={p.hasSeconds} is24h={p.is24h} clock={p.clock}/>
         </CSSTransition>          
       </>}
     {p.type === 'color' &&
       <>
         <ColorInputBox {...p} onKeyDown={handleKeyDown}/>
-        <CSSTransition in={open} timeout={300} unmountOnExit classNames="fade">
-          <ColorSelector value={p.value} upward={upward} right={right} onSelect={handleSelect}/>
+        <CSSTransition nodeRef={selectorRef} in={open} timeout={300} unmountOnExit classNames="fade">
+          <ColorSelector nodeRef={selectorRef} value={p.value} upward={upward} right={right} onSelect={handleSelect}/>
         </CSSTransition>
       </>}
     {icon}
@@ -360,4 +361,4 @@ const InputStyled = styled(InputBase)`
  */
 const Input = (props: IInputProps) => <InputStyled {...props}/>
 
-export { Input, IInputProps }
+export { Input, type IInputProps }

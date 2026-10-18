@@ -1,2 +1,5 @@
-declare const Footer: import("styled-components").StyledComponent<"div", import("../../styles/Theme").IThemeInterface, {}, never>;
+import * as React from 'react';
+declare const Footer: import("styled-components/dist/types").IStyledComponentBase<"web", Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, "style"> & {
+    style?: React.CSSProperties | import("styled-components/dist/types").CSSPropertiesWithVars;
+}> & string;
 export { Footer };

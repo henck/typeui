@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{n}from"./iframe-BMOsmv_G.js";import{n as r,t as i}from"./Pane-BydoodEc.js";var a=t({PaneIcon:()=>l,__namedExportsOrder:()=>u,default:()=>c}),o,s,c,l,u;function d(){return(d=e((()=>{r(),o=n(),s=e=>(0,o.jsx)(`div`,{style:{position:`relative`,display:`inline-block`},children:(0,o.jsx)(i.Icon,{icon:`layers`,padded:!0,children:(0,o.jsx)(`p`,{children:`This is some pane text.`})})}),c={title:`Controls/Pane/General`,component:i,subcomponents:{},argTypes:{className:{table:{disable:!0}}}},l={render:s.bind({}),name:`Pane.Icon`,args:{}},u=[`PaneIcon`],l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: PaneIconTemplate.bind({}),
+  name: 'Pane.Icon',
+  args: {}
+}`,...l.parameters?.docs?.source}}}})))()}export{a as n,d as r,l as t};

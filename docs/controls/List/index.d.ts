@@ -1,2 +1,1 @@
-import { List } from './List';
-export { List };
+export { List } from './List';

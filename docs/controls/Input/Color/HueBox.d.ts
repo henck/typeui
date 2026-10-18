@@ -1,5 +1,6 @@
 import * as React from 'react';
-interface IHueBoxProps {
+interface IProps {
+    /** @ignore */
     className?: string;
     hue: number;
     onMouseDown: (data: {
@@ -8,13 +9,5 @@ interface IHueBoxProps {
         height: number;
     }) => void;
 }
-declare class HueBoxBase extends React.Component<IHueBoxProps, {}> {
-    private canvasRef;
-    constructor(props: IHueBoxProps);
-    drawBar(): void;
-    private handleMouseDown;
-    componentDidMount(): void;
-    render(): JSX.Element;
-}
-declare const HueBox: import("styled-components").StyledComponent<typeof HueBoxBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
+declare const HueBox: import("styled-components/dist/types").IStyledComponentBase<"web", IProps> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { HueBox };

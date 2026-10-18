@@ -47,4 +47,4 @@ type IconType =
   | 'zoom-plus'
   ;
 
-export { IconType };
+export { type IconType };

@@ -1,6 +1,10 @@
-import * as styledComponents from "styled-components";
+import baseStyled, { css, createGlobalStyle, keyframes, ThemeProvider } from "styled-components";
 import { Ratio } from "../helper/SizeHelper";
-declare const styled: styledComponents.ThemedStyledInterface<IThemeInterface>, css: styledComponents.ThemedCssFunction<IThemeInterface>, createGlobalStyle: <P extends object = {}>(first: TemplateStringsArray | styledComponents.CSSObject | styledComponents.InterpolationFunction<styledComponents.ThemedStyledProps<P, IThemeInterface>>, ...interpolations: styledComponents.Interpolation<styledComponents.ThemedStyledProps<P, IThemeInterface>>[]) => styledComponents.GlobalStyleComponent<P, IThemeInterface>, keyframes: (strings: TemplateStringsArray | styledComponents.CSSKeyframes, ...interpolations: styledComponents.SimpleInterpolation[]) => styledComponents.Keyframes, ThemeProvider: styledComponents.ThemeProviderComponent<IThemeInterface, IThemeInterface>;
+declare const styled: typeof baseStyled;
+declare module "styled-components" {
+    interface DefaultTheme extends IThemeInterface {
+    }
+}
 export interface IScaleGroup {
     button: Ratio;
     icon: Ratio;
@@ -30,7 +34,6 @@ export interface IThemeInterface {
     readonly secondaryColor: string;
     readonly positiveColor: string;
     readonly negativeColor: string;
-    readonly altTextColor: string;
     readonly infoColor: IColorGroup;
     readonly warningColor: IColorGroup;
     readonly successColor: IColorGroup;

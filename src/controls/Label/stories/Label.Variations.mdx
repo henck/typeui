@@ -1,0 +1,80 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Label} from '../Label';
+import {Image} from '../../Image';
+import {Segment} from '../../Segment';
+import {Input} from '../../Input';
+import {Divider} from '../../Divider';
+import * as LabelVariationsStories from './Label.Variations.stories';
+
+# Label: Variations
+
+.
+
+<Meta of={LabelVariationsStories} />
+
+## basic
+
+A `basic` Label has a border and a white background. Hovering labels with `onClick` only affects labels with default color.
+
+<Canvas>
+  <Story of={LabelVariationsStories.Basic} />
+</Canvas>
+
+## color
+
+A label can have a background `color`. If the `color` property is set, then
+the font will turn white and bold.
+
+<Canvas>
+  <Story of={LabelVariationsStories.Color} />
+</Canvas>
+
+## positive
+
+A label can have a `positive` color. If the `positive` property is set, then
+the font will turn white and bold.
+
+<Canvas>
+  <Story of={LabelVariationsStories.Positive} />
+</Canvas>
+
+## negative
+
+A label can have a `negative` color. If the `negative` property is set, then
+the font will turn white and bold.
+
+<Canvas>
+  <Story of={LabelVariationsStories.Negative} />
+</Canvas>
+
+## floating
+
+A label can appear `floating` above another component.
+
+<Canvas>
+  <Story of={LabelVariationsStories.Floating} />
+</Canvas>
+
+## pointing
+
+A label can be `pointing` to `top`, `bottom`, `left` or `right`.
+
+<Canvas>
+  <Story of={LabelVariationsStories.Pointing} />
+</Canvas>
+
+## size
+
+A `Label` can have a `size`.
+
+<Canvas>
+  <Story of={LabelVariationsStories.Size} />
+</Canvas>
+
+## tag
+
+A `Label` can appear as a `tag`. Tagged labels are meant to be placed on the right side of anything they're attached to.
+
+<Canvas>
+  <Story of={LabelVariationsStories.Tag} />
+</Canvas>

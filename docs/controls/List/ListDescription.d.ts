@@ -1,10 +1,9 @@
 import * as React from 'react';
-interface IListDescriptionProps {
+interface IProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
 }
-declare class ListDescription extends React.Component<IListDescriptionProps> {
-    render: () => JSX.Element;
-}
-export { ListDescription };
+declare const ListDescription: (props: IProps) => React.JSX.Element;
+export { ListDescription, type IProps };

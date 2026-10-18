@@ -32,4 +32,4 @@ const DialogFooter = (props: IDialogFooterProps) =>
 
 DialogFooter.displayName = "Dialog.Footer";
 
-export { DialogFooter, IDialogFooterProps };
+export { DialogFooter, type IDialogFooterProps };

@@ -1,2 +1,1 @@
-import { Placeholder } from './Placeholder';
-export { Placeholder };
+export { Placeholder } from './Placeholder';

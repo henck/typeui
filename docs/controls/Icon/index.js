@@ -1,5 +1,4 @@
-import { Icon, IconStyled } from './Icon';
-export { Icon, IconStyled };
+export { Icon, IconStyled } from './Icon';
 /**
  * This index.tsx file exists so that you can do
  *

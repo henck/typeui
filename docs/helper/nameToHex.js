@@ -1,4 +1,4 @@
-var namedColorMap = {
+const namedColorMap = {
     aliceblue: 'f0f8ff',
     antiquewhite: 'faebd7',
     aqua: '00ffff',
@@ -155,9 +155,9 @@ var namedColorMap = {
 function nameToHex(color) {
     if (typeof color !== 'string')
         return color;
-    var normalizedColorName = color.toLowerCase();
+    const normalizedColorName = color.toLowerCase();
     return namedColorMap[normalizedColorName]
-        ? "#".concat(namedColorMap[normalizedColorName])
+        ? `#${namedColorMap[normalizedColorName]}`
         : color;
 }
 export { nameToHex };

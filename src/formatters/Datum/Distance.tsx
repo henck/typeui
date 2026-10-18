@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { format, formatDistanceToNow, formatDistanceToNowStrict } from 'date-fns';
+import type { Locale } from 'date-fns';
 
 interface IProps {
   value: Date | string;

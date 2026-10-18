@@ -12,7 +12,5 @@ interface ICircleProps {
     radius?: number;
     color?: string;
 }
-declare class Circle extends React.Component<ICircleProps> {
-    render: () => JSX.Element;
-}
-export { Circle };
+declare const Circle: (props: ICircleProps) => React.JSX.Element;
+export { Circle, type ICircleProps };

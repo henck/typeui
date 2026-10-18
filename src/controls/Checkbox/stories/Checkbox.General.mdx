@@ -1,0 +1,47 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Checkbox} from '../Checkbox';
+import {Icon} from '../../Icon';
+import {Divider} from '../../Divider';
+import * as CheckboxGeneralStories from './Checkbox.General.stories';
+
+<Meta of={CheckboxGeneralStories} />
+
+# Checkbox: General
+
+.
+
+## Label
+
+A `Checkbox` should (usually) have a `label`. This is not the same as a
+`Form.Field` label. The label is clickable and toggles the checkbox.
+
+<Canvas>
+  <Story of={CheckboxGeneralStories.Label} />
+</Canvas>
+
+## radio
+
+A radio group must provide the `radio` attribute to each of its members,
+and all must have the same `name`, and provide a `value`.
+
+For `radio` buttons, `type` will default to `circle` unless overridden.
+
+<Canvas>
+  <Story of={CheckboxGeneralStories.Radio} />
+</Canvas>
+
+## disabled
+
+A `disabled` `Checkbox` cannot be interacted with.
+
+<Canvas>
+  <Story of={CheckboxGeneralStories.Disabled} />
+</Canvas>
+
+## error
+
+A `Checkbox` can be in an `error` state.
+
+<Canvas>
+  <Story of={CheckboxGeneralStories.Error} />
+</Canvas>

@@ -1,0 +1,74 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Progress} from '../Progress';
+import * as ProgressVariationsStories from './Progress.Variations.stories';
+
+# Progress: Variations
+
+.
+
+<Meta of={ProgressVariationsStories} />
+
+## background
+
+A `Progress` with the `background` attribute adds a background to the progress bar.
+
+<Canvas>
+  <Story of={ProgressVariationsStories.Background} />
+</Canvas>
+
+## bordered
+
+A `bordered` `Progress` adds a border around the progress bar.
+
+<Canvas>
+  <Story of={ProgressVariationsStories.Bordered} />
+</Canvas>
+
+## color
+
+By default, a `Progress` has the primary theme color. You can override this using
+the `color` attribute.
+
+<Canvas>
+  <Story of={ProgressVariationsStories.Color} />
+</Canvas>
+
+## numbered
+
+A `numbered` `Progress` shows a percentage value.
+
+<Canvas>
+  <Story of={ProgressVariationsStories.Numbered} />
+</Canvas>
+
+## raised
+
+A `raised` `Progress` adds a drop shadow. This works well with the `background` attribute.
+
+<Canvas>
+  <Story of={ProgressVariationsStories.Raised} />
+</Canvas>
+
+## rectangular
+
+A `rectangular` `Progress` has sharp corners rather than rounded ones.
+
+<Canvas>
+  <Story of={ProgressVariationsStories.Rectangular} />
+</Canvas>
+
+## thickness
+
+`thickness` can be used to create thicker `Progress` bars.
+
+<Canvas>
+  <Story of={ProgressVariationsStories.Thickness} />
+</Canvas>
+
+## padded
+
+A `padded` `Progress` has a margin around it.
+
+<Canvas>
+  <Story of={ProgressVariationsStories.Padded} />
+</Canvas>

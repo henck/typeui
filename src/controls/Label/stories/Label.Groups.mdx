@@ -1,0 +1,25 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Label} from '../Label';
+import {Image} from '../../Image';
+import {Divider} from '../../Divider';
+import * as LabelGroupsStories from './Label.Groups.stories';
+
+# Label: Groups
+
+.
+
+<Meta of={LabelGroupsStories} />
+
+## Properties of `Label.Group`
+
+<ArgTypes of={Label.Group} />
+
+## Label.Group
+
+A `Label.Group` can pass props to the labels it contains, but children can still override them.
+
+Groups can pass along `basic`, `color`, `pointing`, `size` and `tag`.
+
+<Canvas>
+  <Story of={LabelGroupsStories.LabelGroup} />
+</Canvas>

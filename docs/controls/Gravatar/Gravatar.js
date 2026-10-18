@@ -1,19 +1,4 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-import * as React from 'react';
+import { jsx as _jsx } from "react/jsx-runtime";
 // Helpers
 import { md5 } from '../../helper/md5';
 // Other controls
@@ -26,17 +11,7 @@ import { Image } from '../Image/Image';
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-gravatar--properties
  */
-var Gravatar = /** @class */ (function (_super) {
-    __extends(Gravatar, _super);
-    function Gravatar() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Gravatar.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement(Image, { avatar: !p.size, size: p.size, bordered: true, circular: true, onClick: p.onClick, src: p.email
-                ? "https://www.gravatar.com/avatar/".concat(md5(p.email.toLowerCase().trim()), "?d=mp&r=g")
-                : "https://www.gravatar.com/avatar/?d=mp&r=g&f=y" }));
-    };
-    return Gravatar;
-}(React.Component));
+const Gravatar = (props) => _jsx(Image, { avatar: !props.size, size: props.size, bordered: true, circular: true, onClick: props.onClick, src: props.email
+        ? `https://www.gravatar.com/avatar/${md5(props.email.toLowerCase().trim())}?d=mp&r=g`
+        : `https://www.gravatar.com/avatar/?d=mp&r=g&f=y` });
 export { Gravatar };

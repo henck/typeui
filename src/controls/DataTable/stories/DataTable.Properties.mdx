@@ -1,0 +1,30 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {DataTable} from '../DataTable';
+import * as DataTablePropertiesStories from './DataTable.Properties.stories';
+
+<Meta of={DataTablePropertiesStories} />
+
+# DataTable
+
+<ArgTypes of={DataTable} />
+
+## Default DataTable
+
+A standard `DataTable` must have a `data` property that contains a list
+of items to show.
+
+*Dynamic tables*
+
+While a static table contains all of its data in the `data` property,
+a dynamic table (which is why `DataTable` exists) should provide an array containing
+empty spots for data that is yet to be loaded. The `onFetch` property should be provided
+to fetch segments of data and place them in the array.
+
+*Positioning*
+
+A `DataTable` stretches to fill all vertical space available to it. It expects
+to be placed in a container with `display: flex`.
+
+<Canvas>
+  <Story of={DataTablePropertiesStories.Properties} />
+</Canvas>

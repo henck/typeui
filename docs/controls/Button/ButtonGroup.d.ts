@@ -35,5 +35,5 @@ interface IButtonGroupProps {
     */
     icon?: boolean;
 }
-declare const ButtonGroup: (props: IButtonGroupProps) => JSX.Element;
-export { ButtonGroup, IButtonGroupProps };
+declare const ButtonGroup: (props: IButtonGroupProps) => React.JSX.Element;
+export { ButtonGroup, type IButtonGroupProps };

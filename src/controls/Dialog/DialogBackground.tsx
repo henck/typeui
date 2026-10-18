@@ -4,10 +4,12 @@ import styled from '../../styles/Theme';
 interface IDialogBackgroundProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  nodeRef?: React.Ref<HTMLDivElement>;
 }
 
 const DialogBackgroundBase = (props: IDialogBackgroundProps) => 
-  <div className={props.className}></div>
+  <div className={props.className} ref={props.nodeRef}></div>
 
 const DialogBackground = styled(DialogBackgroundBase)`
   position:    fixed;

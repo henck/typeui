@@ -31,7 +31,7 @@ const SegmentBase = (props: IProps) =>
 // 
 // ==> 90 - angle
 
-const Segment = styled(SegmentBase).attrs(p => ({
+const Segment = styled(SegmentBase).attrs<{ skew?: number }>(p => ({
   skew: (90 - p.angleBody),
 }))`
   position: absolute;

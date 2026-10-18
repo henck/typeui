@@ -1,0 +1,33 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {LabelledValue} from '../LabelledValue';
+import * as LabelledValueVariationsStories from './LabelledValue.Variations.stories';
+
+# LabelledValue: Variations
+
+.
+
+<Meta of={LabelledValueVariationsStories} />
+
+## nobackground
+
+If `nobackground` is set, then the `LabelledValue` has no background color.
+
+<Canvas>
+  <Story of={LabelledValueVariationsStories.Nobackground} />
+</Canvas>
+
+## hint
+
+An optional `hint` can be provided for a `LabelledValue`.
+
+<Canvas>
+  <Story of={LabelledValueVariationsStories.Hint} />
+</Canvas>
+
+## width
+
+The `LabelledValue` flex width can be set with `width`.
+
+<Canvas>
+  <Story of={LabelledValueVariationsStories.Width} />
+</Canvas>

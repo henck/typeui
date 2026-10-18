@@ -3,6 +3,7 @@ import { VerticalAlignment } from '../Types';
 interface IListContentProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Align content item vertically (defaults to `top`).
@@ -13,7 +14,5 @@ interface IListContentProps {
      */
     onClick?: () => void;
 }
-declare class ListContent extends React.Component<IListContentProps> {
-    render: () => JSX.Element;
-}
-export { ListContent };
+declare const ListContent: (props: IListContentProps) => React.JSX.Element;
+export { ListContent, type IListContentProps };

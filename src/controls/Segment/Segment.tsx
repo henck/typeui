@@ -251,4 +251,4 @@ const SegmentStyled = styled(SegmentBase)`
  */
 const Segment = (props: ISegmentProps) => <SegmentStyled {...props}/>
 
-export { Segment, ISegmentProps }
+export { Segment, type ISegmentProps }

@@ -46,48 +46,49 @@ interface IDialogProps {
  * @link https://henck.github.io/typeui/?path=/story/controls-dialog--properties
  */
 declare class Dialog extends React.Component<IDialogProps, {}> {
-    private windowElement;
+    private backgroundRef;
+    private windowRef;
     /**
      * Dialog.Header contains dialog header content.
      */
     static Header: {
-        (props: import("./DialogHeader").IDialogHeaderProps): JSX.Element;
+        (props: import("./DialogHeader").IDialogHeaderProps): React.JSX.Element;
         displayName: string;
     };
     /**
      * Dialog.Content contains main dialog body content.
      */
     static Content: {
-        (props: import("./DialogContent").IDialogContentProps): JSX.Element;
+        (props: import("./DialogContent").IDialogContentProps): React.JSX.Element;
         displayName: string;
     };
     /**
      * Dialog.Footer contains dialog footer content.
      */
     static Footer: {
-        (props: import("./DialogFooter").IDialogFooterProps): JSX.Element;
+        (props: import("./DialogFooter").IDialogFooterProps): React.JSX.Element;
         displayName: string;
     };
     /**
      * The Dialog component offers a pre-built Dialog.Alert type, with an "OK" button.
      * The caller provides a title, and any JSX inside the component is used as dialog content.
      */
-    static Alert: (props: import("./AlertDialog").IAlertDialogProps) => JSX.Element;
+    static Alert: (props: import("./AlertDialog").IAlertDialogProps) => React.JSX.Element;
     /**
      * The Dialog component offers a pre-built Dialog.Confirm type, with a "Yes" and a "No"
      * button. The caller provides a title, and any JSX inside the component is used as dialog
      * content.
      */
-    static Confirm: (props: import("./ConfirmDialog").IConfirmDialogProps) => JSX.Element;
+    static Confirm: (props: import("./ConfirmDialog").IConfirmDialogProps) => React.JSX.Element;
     /**
      * The Dialog component offers a pre-built Dialog.Xhr type, with an "OK" and a "Retry"
      * button. This dialog can be used when an XHR request fails. It takes an error attribute
      * with an Axios response object, and reports it to the user.
      */
-    static Xhr: (props: import("./XhrDialog").IXhrDialogProps) => JSX.Element;
+    static Xhr: (props: import("./XhrDialog").IXhrDialogProps) => React.JSX.Element;
     componentDidMount(): void;
     componentWillUnmount(): void;
     handleClickOutside: (event: MouseEvent) => void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { Dialog };

@@ -1,0 +1,26 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { ThemeProvider } from 'styled-components';
+import { Theme } from '../../../styles';
+import {Dropdown} from '../Dropdown';
+import {Icon} from '../../Icon';
+import {Form} from '../../Form';
+import {Label} from '../../Label';
+import * as DropdownThemingStories from './Dropdown.Theming.stories';
+
+# Dropdown: Theming
+
+.
+The `Dropdown` control takes theme information from a `ThemeProvider` that
+surrounds it.
+
+<Meta of={DropdownThemingStories} />
+
+## Samples
+
+A dropdown can show multiple columns. Each `Dropdown.Column` must have
+a single child that is a formatting function for an item, e.g.
+`(item) => item.name`
+
+<Canvas>
+  <Story of={DropdownThemingStories.ThemedColumns} />
+</Canvas>

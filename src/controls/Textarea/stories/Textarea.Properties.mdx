@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Textarea} from '../Textarea';
+import {Form} from '../../Form';
+import * as TextareaPropertiesStories from './Textarea.Properties.stories';
+
+<Meta of={TextareaPropertiesStories} />
+
+# Textarea
+
+A collection of tabs.
+
+<ArgTypes of={Textarea} />
+
+## Example
+
+This is a default `Textarea` with a `placeholder` text.
+
+<Canvas>
+  <Story of={TextareaPropertiesStories.Properties} />
+</Canvas>

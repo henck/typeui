@@ -1,6 +1,17 @@
-import * as styledComponents from "styled-components";
-var _a = styledComponents, styled = _a.default, css = _a.css, createGlobalStyle = _a.createGlobalStyle, keyframes = _a.keyframes, ThemeProvider = _a.ThemeProvider;
-var Theme = {
+import baseStyled, { css, createGlobalStyle, keyframes, ThemeProvider } from "styled-components";
+import isPropValid from "@emotion/is-prop-valid";
+// styled-components v6 forwards all props to DOM elements. Restore the v4
+// behavior: DOM elements only receive valid HTML attributes, while wrapped
+// React components receive all props.
+const shouldForwardProp = (prop, target) => typeof target === 'string' ? isPropValid(prop) : true;
+const styled = new Proxy(baseStyled, {
+    apply: (target, thisArg, args) => target(...args).withConfig({ shouldForwardProp }),
+    // styled.div etc. are own function properties; route them through apply.
+    get: (target, prop, receiver) => typeof prop === 'string' && Object.prototype.hasOwnProperty.call(target, prop) && typeof target[prop] === 'function'
+        ? styled(prop)
+        : Reflect.get(target, prop, receiver)
+});
+const Theme = {
     background: '#fff',
     // Default font
     fontURL: "https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i&subset=latin",
@@ -24,7 +35,6 @@ var Theme = {
     secondaryColor: "#1b1c1d",
     positiveColor: "#21ba45",
     negativeColor: "#db2828",
-    altTextColor: "#ffffff",
     infoColor: { color: "rgb(39, 111, 134)", background: "rgb(248, 255, 255)", border: "rgb(169, 213, 222)" },
     warningColor: { color: "rgb(87, 58, 8)", background: "rgb(255, 250, 243)", border: "rgb(201, 186, 155)" },
     successColor: { color: "rgb(44, 102, 45)", background: "rgb(252, 255, 245)", border: "rgb(163, 194, 147)" },

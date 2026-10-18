@@ -1,5 +1,5 @@
 import * as React from 'react';
-declare type TLineLength = 'full' | 'long' | 'medium' | 'short';
+type TLineLength = 'full' | 'long' | 'medium' | 'short';
 interface IPlaceholderLineProps {
     /** @ignore */
     className?: string;
@@ -14,9 +14,5 @@ interface IPlaceholderLineProps {
      */
     tall?: boolean;
 }
-declare class PlaceholderLine extends React.Component<IPlaceholderLineProps> {
-    private length;
-    constructor(props: IPlaceholderLineProps);
-    render: () => JSX.Element;
-}
-export { PlaceholderLine };
+declare const PlaceholderLine: (props: IPlaceholderLineProps) => React.JSX.Element;
+export { PlaceholderLine, type IPlaceholderLineProps };

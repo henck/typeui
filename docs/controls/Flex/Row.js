@@ -1,58 +1,24 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
+import { jsx as _jsx } from "react/jsx-runtime";
 import * as React from 'react';
 import { css } from 'styled-components';
 import styled from '../../styles/Theme';
-var RowBase = /** @class */ (function (_super) {
-    __extends(RowBase, _super);
-    function RowBase() {
-        return _super !== null && _super.apply(this, arguments) || this;
+const RowBase = (props) => _jsx("div", { className: props.className, children: React.Children.map(props.children, (child) => child ? React.cloneElement(child, { stackable: props.stackable, gutter: props.gutter }) : null) });
+const RowStyled = styled(RowBase) `
+  display: flex;
+  flex-direction: row;
+  padding: ${p => p.compact ? 0 : (p.gutter * p.theme.gutter)}em 0;
+  &:first-of-type { padding-top: 0; }
+  &:last-of-type { padding-bottom: 0; }    
+  ${p => p.stackable && css `
+    @media (max-width: ${p => p.theme.smallScreen}px) {
+      flex-direction: column;
+    }  
+  `}
+  ${p => p.divided && css `
+    &:not(:last-of-type) {
+      border-bottom: solid 1px ${p => p.theme.normalColor};
     }
-    RowBase.prototype.render = function () {
-        var p = this.props;
-        return (React.createElement("div", { className: p.className }, React.Children.map(p.children, function (child) {
-            return child ? React.cloneElement(child, { stackable: p.stackable, gutter: p.gutter }) : null;
-        })));
-    };
-    return RowBase;
-}(React.Component));
-var RowStyled = styled(RowBase)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: flex;\n  flex-direction: row;\n  padding: ", "em 0;\n  &:first-of-type { padding-top: 0; }\n  &:last-of-type { padding-bottom: 0; }    \n  ", "\n  ", "\n"], ["\n  display: flex;\n  flex-direction: row;\n  padding: ", "em 0;\n  &:first-of-type { padding-top: 0; }\n  &:last-of-type { padding-bottom: 0; }    \n  ", "\n  ", "\n"])), function (p) { return p.compact ? 0 : (p.gutter * p.theme.gutter); }, function (p) { return p.stackable && css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    @media (max-width: ", "px) {\n      flex-direction: column;\n    }  \n  "], ["\n    @media (max-width: ", "px) {\n      flex-direction: column;\n    }  \n  "])), function (p) { return p.theme.smallScreen; }); }, function (p) { return p.divided && css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    &:not(:last-of-type) {\n      border-bottom: solid 1px ", ";\n    }\n  "], ["\n    &:not(:last-of-type) {\n      border-bottom: solid 1px ", ";\n    }\n  "])), function (p) { return p.theme.normalColor; }); });
-var Row = /** @class */ (function (_super) {
-    __extends(Row, _super);
-    function Row() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.render = function () { return React.createElement(RowStyled, __assign({}, _this.props)); };
-        return _this;
-    }
-    return Row;
-}(React.Component));
+  `}
+`;
+const Row = (props) => _jsx(RowStyled, { ...props });
 export { Row };
-var templateObject_1, templateObject_2, templateObject_3;

@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{n}from"./iframe-BMOsmv_G.js";import{t as r}from"./Icon-DBLdIlUt.js";import{t as i}from"./Segment-BBCHNE-P.js";import{n as a,t as o}from"./Button-eI6v9XeX.js";import{t as s}from"./Divider-CDEnhhvW.js";import{t as c}from"./Label-DApBXEp8.js";var l=t({Properties:()=>p,__namedExportsOrder:()=>m,default:()=>f}),u,d,f,p,m;function h(){return(h=e((()=>{a(),r(),i(),s(),c(),u=n(),d=e=>(0,u.jsx)(o,{...e,children:`Button`}),f={title:`Controls/Button`,component:o,argTypes:{className:{table:{disable:!0}},grouped:{table:{disable:!0}}}},p={render:d.bind({}),name:`Properties`,args:{}},m=[`Properties`],p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'Properties',
+  args: {}
+}`,...p.parameters?.docs?.source}}}})))()}export{p as n,h as r,l as t};

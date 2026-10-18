@@ -13,6 +13,7 @@ import { Label } from '../../Label';
 
 interface ISelectorProps {
   className?: string;
+  nodeRef?: React.Ref<HTMLDivElement>;
   value: any;
   // If true, selector opens above the input.
   upward: boolean;
@@ -181,7 +182,7 @@ class SelectorBase extends React.Component<ISelectorProps, ISelectorState> {
     let p = this.props;
 
     return (
-      <div className={p.className}>
+      <div className={p.className} ref={p.nodeRef}>
         <Body ref={(el:any) => this.wrapperElement = el} onKeyDown={this.handleKeyDown}>
           <ControlBar>
             <InputBar>

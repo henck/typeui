@@ -1,0 +1,42 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Tabs} from '../Tabs';
+import {Label} from '../../Label';
+import {Flex} from '../../Flex';
+import {Icon} from '../../Icon';
+import * as TableVariationsStories from './Table.Variations.stories';
+
+# Tabs: Variations
+
+.
+
+<Meta of={TableVariationsStories} />
+
+## nohiddenrender
+
+By default, all panes in `Tabs` are rendered, but all panes are hidden
+except for the active pane. That way, all elements contained in all panes
+are available to parents.
+
+However, for very large forms, the rerendering of the hidden controls may
+take some time. With `nohiddenrender`, hidden panes are not actually rendered.
+
+<Canvas>
+  <Story of={TableVariationsStories.Nohiddenrender} />
+</Canvas>
+
+## scrollable
+
+A very wide `Tabs` collection scrolls automatically (it is draggable using
+mouse drag).
+
+<Canvas>
+  <Story of={TableVariationsStories.Scrollable} />
+</Canvas>
+
+## underlined
+
+A `Tabs` collection can be `underlined`.
+
+<Canvas>
+  <Story of={TableVariationsStories.Underlined} />
+</Canvas>

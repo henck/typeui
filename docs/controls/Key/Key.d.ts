@@ -9,5 +9,5 @@ interface IProps {
  * A `Key` displays a keyboard key. The children are the key description,
  * e.g. "CTRL" or "ALT".
  */
-declare const Key: (props: IProps) => JSX.Element;
+declare const Key: (props: IProps) => React.JSX.Element;
 export { Key };

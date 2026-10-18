@@ -1,0 +1,6 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t}from"./iframe-BMOsmv_G.js";import{i as n,r}from"./react-DITjJg24.js";import{c as i,l as a,r as o,s}from"./blocks-CwW7mlwR.js";import{t as c}from"./Segment-BBCHNE-P.js";import{t as l}from"./Flex-BXnfVj9e.js";import{t as u}from"./Divider-CDEnhhvW.js";import{n as d}from"./Placeholder-DUmzJAaI.js";import{n as f,r as p,t as m}from"./Placeholder.Variations.stories-1mc5IC-x.js";function h(e){let t={code:`code`,h1:`h1`,h2:`h2`,p:`p`,...n(),...e.components};return(0,_.jsxs)(_.Fragment,{children:[(0,_.jsx)(t.h1,{id:`placeholder-variations`,children:`Placeholder: Variations`}),`
+`,(0,_.jsx)(t.p,{children:`.`}),`
+`,(0,_.jsx)(s,{of:f}),`
+`,(0,_.jsx)(t.h2,{id:`fluid`,children:`fluid`}),`
+`,(0,_.jsxs)(t.p,{children:[`A `,(0,_.jsx)(t.code,{children:`fluid`}),` `,(0,_.jsx)(t.code,{children:`Placeholder`}),` fills the width of its container.`]}),`
+`,(0,_.jsx)(o,{children:(0,_.jsx)(i,{of:m})})]})}function g(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,_.jsx)(t,{...e,children:(0,_.jsx)(h,{...e})}):h(e)}var _;function v(){return(v=e((()=>{_=t(),r(),a(),d(),u(),l(),c(),p()})))()}v();export{g as default};

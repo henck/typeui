@@ -14,7 +14,5 @@ interface IQuickProps {
     /** Optional flex gap (as a string, e.g. "8px"). */
     gap?: string;
 }
-declare class Quick extends React.Component<IQuickProps, {}> {
-    render: () => JSX.Element;
-}
-export { Quick };
+declare const Quick: (props: IQuickProps) => React.JSX.Element;
+export { Quick, type IQuickProps };

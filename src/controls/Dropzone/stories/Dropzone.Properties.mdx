@@ -1,0 +1,19 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Dropzone} from '../Dropzone';
+import * as DropzonePropertiesStories from './Dropzone.Properties.stories';
+
+<Meta of={DropzonePropertiesStories} />
+
+# Dropzone
+
+A `Dropzone` accepts files, either by dragging them into the zone or by clicking the
+zone and selection files. Multiple files may be dragged or selected at the same
+time. When files are selected, Dropzone fires `onAddFiles` with a `File[]` argument.
+
+<ArgTypes of={Dropzone} />
+
+## Default Dropzone
+
+<Canvas>
+  <Story of={DropzonePropertiesStories.Properties} />
+</Canvas>

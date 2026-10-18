@@ -1,0 +1,8 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t}from"./iframe-BMOsmv_G.js";import{i as n,r}from"./react-DITjJg24.js";import{c as i,l as a,r as o,s}from"./blocks-CwW7mlwR.js";import{t as c}from"./Icon-DBLdIlUt.js";import{n as l}from"./Checkbox-KYNKCfKG.js";import{n as u,r as d,t as f}from"./Checkbox.Variations.stories-Rd_ltqOT.js";function p(e){let t={code:`code`,h1:`h1`,h2:`h2`,p:`p`,...n(),...e.components};return(0,h.jsxs)(h.Fragment,{children:[(0,h.jsx)(s,{of:f}),`
+`,(0,h.jsx)(t.h1,{id:`checkbox-variations`,children:`Checkbox: Variations`}),`
+`,(0,h.jsx)(t.p,{children:`.`}),`
+`,(0,h.jsx)(t.h2,{id:`type`,children:`type`}),`
+`,(0,h.jsxs)(t.p,{children:[`A `,(0,h.jsx)(t.code,{children:`Checkbox`}),` can have a `,(0,h.jsx)(t.code,{children:`type`}),` of `,(0,h.jsx)(t.code,{children:`check`}),` (default), `,(0,h.jsx)(t.code,{children:`toggle`}),`,\r
+`,(0,h.jsx)(t.code,{children:`slider`}),` or `,(0,h.jsx)(t.code,{children:`circle`}),`.`]}),`
+`,(0,h.jsxs)(t.p,{children:[`For `,(0,h.jsx)(t.code,{children:`radio`}),` buttons, `,(0,h.jsx)(t.code,{children:`type`}),` will default to `,(0,h.jsx)(t.code,{children:`circle`}),` unless overridden.`]}),`
+`,(0,h.jsx)(o,{children:(0,h.jsx)(i,{of:u})})]})}function m(e={}){let{wrapper:t}={...n(),...e.components};return t?(0,h.jsx)(t,{...e,children:(0,h.jsx)(p,{...e})}):p(e)}var h;function g(){return(g=e((()=>{h=t(),r(),a(),l(),c(),d()})))()}g();export{m as default};

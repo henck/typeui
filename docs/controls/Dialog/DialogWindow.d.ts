@@ -4,8 +4,8 @@ interface IDialogWindowProps {
     className?: string;
     /** @ignore */
     children?: React.ReactNode;
-    windowRef?: any;
+    windowRef?: React.Ref<HTMLDivElement>;
     width?: number;
 }
-declare const DialogWindow: import("styled-components").StyledComponent<(props: IDialogWindowProps) => JSX.Element, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const DialogWindow: import("styled-components/dist/types").IStyledComponentBase<"web", IDialogWindowProps> & string & Omit<(props: IDialogWindowProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { DialogWindow };

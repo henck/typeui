@@ -1,5 +1,6 @@
 import * as React from 'react';
 interface IProps {
+    /** @ignore */
     className?: string;
     /**
      * Segment color. Defaults to theme primary color.
@@ -14,10 +15,9 @@ interface IProps {
      */
     angleOffset: number;
 }
-declare class SegmentBase extends React.Component<IProps, {}> {
-    render(): JSX.Element;
-}
-declare const Segment: import("styled-components").StyledComponent<typeof SegmentBase, import("../../styles/Theme").IThemeInterface, {
-    skew: number;
-}, "skew">;
+declare const Segment: import("styled-components/dist/types").IStyledComponentBase<"web", Omit<import("styled-components/dist/types").Merged<IProps, {
+    skew?: number;
+}>, "className" | "color" | "angleBody" | "angleOffset" | "skew"> & Partial<Pick<import("styled-components/dist/types").Merged<IProps, {
+    skew?: number;
+}>, "className" | "color" | "angleBody" | "angleOffset" | "skew">>> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Segment };

@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { HorizontalAlignment } from '../Types';
-interface IHeaderProps {
+interface ICardHeaderProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Optional text alignment to `left`, `center` or `right` (default is `left`).
      */
     align?: HorizontalAlignment;
 }
-declare class Header extends React.Component<IHeaderProps> {
-    render: () => JSX.Element;
-}
-export { Header };
+declare const Header: (props: ICardHeaderProps) => React.JSX.Element;
+export { Header, type ICardHeaderProps };

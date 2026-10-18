@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Card} from '../Card';
+import * as CardPropertiesStories from './Card.Properties.stories';
+
+<Meta of={CardPropertiesStories} />
+
+# Card
+
+A `Card` groups information with an optional header and footer.
+
+<ArgTypes of={Card} />
+
+## Default Card
+
+A default `Card` with a single `Card.Content` element in it. All Card content
+should be placed in `Card.Content`, `Card.Header` and `Card.Meta` elements.
+
+<Canvas>
+  <Story of={CardPropertiesStories.Properties} />
+</Canvas>

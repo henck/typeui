@@ -1,0 +1,21 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Flex} from '../Flex';
+import {Box} from '../../Box';
+import * as FlexPropertiesStories from './Flex.Properties.stories';
+
+<Meta of={FlexPropertiesStories} />
+
+# Flex
+
+A Flex is used to create rows and columns that space equally.
+
+<ArgTypes of={Flex} />
+
+## Default Flex
+
+Note that to obtain a grid-like flex, it's necessary to set `width` on columns.
+Without it, columns will not flex.
+
+<Canvas>
+  <Story of={FlexPropertiesStories.Properties} />
+</Canvas>

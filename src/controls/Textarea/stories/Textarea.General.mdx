@@ -1,0 +1,47 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Textarea} from '../Textarea';
+import {Form} from '../../Form';
+import * as TextareaGeneralStories from './Textarea.General.stories';
+
+# Textarea: General
+
+.
+
+<Meta of={TextareaGeneralStories} />
+
+## minHeight
+
+A textarea can be given a `minHeight` measured in pixels.
+
+Note that this works together with `rows`, whichever yields the greatest height.
+
+<Canvas>
+  <Story of={TextareaGeneralStories.MinHeight} />
+</Canvas>
+
+## rows
+
+A textarea can be given a height measured in `rows`.
+
+Note that this works together with `minHeight`, whichever yields the greatest
+height.
+
+<Canvas>
+  <Story of={TextareaGeneralStories.Rows} />
+</Canvas>
+
+## disabled
+
+A `Textarea` can be `disabled`.
+
+<Canvas>
+  <Story of={TextareaGeneralStories.Disabled} />
+</Canvas>
+
+## error
+
+A `Textarea` can be in an `error` state.
+
+<Canvas>
+  <Story of={TextareaGeneralStories.Error} />
+</Canvas>

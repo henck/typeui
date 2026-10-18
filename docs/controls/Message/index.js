@@ -1,2 +1,1 @@
-import { Message } from './Message';
-export { Message };
+export { Message } from './Message';

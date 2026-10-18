@@ -1,0 +1,34 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Panel} from '../Panel';
+import {Button} from '../../Button';
+import * as PanalVariationsStories from './Panal.Variations.stories';
+
+# Panel: Variations
+
+.
+
+<Meta of={PanalVariationsStories} />
+
+## noanimation
+
+Panel animation can be turned off with `noanimation`.
+
+<Canvas>
+  <Story of={PanalVariationsStories.Noanimation} />
+</Canvas>
+
+## padded
+
+A `padded` `Panel` adds some padding around its contents.
+
+<Canvas>
+  <Story of={PanalVariationsStories.Padded} />
+</Canvas>
+
+## width
+
+A `Panel` has a width of 200px by default. This `width` can be overridden.
+
+<Canvas>
+  <Story of={PanalVariationsStories.Width} />
+</Canvas>

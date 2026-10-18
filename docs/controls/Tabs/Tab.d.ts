@@ -1,14 +1,13 @@
 import * as React from 'react';
 interface ITabProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     active?: boolean;
     underlined?: boolean;
     setRef?: any;
     onClick?: any;
 }
-declare class TabBase extends React.Component<ITabProps, {}> {
-    render(): JSX.Element;
-}
-declare const Tab: import("styled-components").StyledComponent<typeof TabBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Tab: import("styled-components/dist/types").IStyledComponentBase<"web", ITabProps> & string & Omit<(props: ITabProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Tab };

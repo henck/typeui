@@ -70,7 +70,8 @@ interface IDataTableProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-datatable--properties
  */
-declare class DataTable extends React.Component<IDataTableProps> {
+declare const DataTable: {
+    (props: IDataTableProps): React.JSX.Element;
     /**
      * A single column in a DataTable. Its child element must be a function that takes an item
      * provided to it by the parent DataTable.
@@ -78,7 +79,6 @@ declare class DataTable extends React.Component<IDataTableProps> {
      * @example
      * <DataTable.Column weight={2} label="Name" order="name" dir="asc">{(item: MyItem) => item.name}</DataTable.Column>
      */
-    static Column: typeof DataColumn;
-    render: () => JSX.Element;
-}
+    Column: typeof DataColumn;
+};
 export { DataTable };

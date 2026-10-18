@@ -47,7 +47,7 @@ const SliceBase = (props: IProps) =>
 // 
 // ==> 90 - angle
 
-const SliceStyled = styled(SliceBase).attrs(p => ({
+const SliceStyled = styled(SliceBase).attrs<{ skew?: number, rad?: number }>(p => ({
   skew: (90 - p.angleBody),
   rad: (p.angleOffset - 90 + p.angleBody / 2) * Math.PI/180
 }))`
@@ -95,4 +95,4 @@ const SliceStyled = styled(SliceBase).attrs(p => ({
 
 const Slice = (props: IProps) => <SliceStyled {...props}></SliceStyled>
 
-export { Slice, IProps }
+export { Slice, type IProps }

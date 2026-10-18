@@ -1,0 +1,18 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {LabelledValue} from '../LabelledValue';
+import * as LabelledValueGeneralStories from './LabelledValue.General.stories';
+
+# LabelledValue: General
+
+.
+
+<Meta of={LabelledValueGeneralStories} />
+
+## onClick
+
+If an `onClick` event is attached to a `LabelledValue`, then the label has
+a link appearance.
+
+<Canvas>
+  <Story of={LabelledValueGeneralStories.OnClick} />
+</Canvas>

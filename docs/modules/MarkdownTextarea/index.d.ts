@@ -1,2 +1,1 @@
-import { MarkdownTextarea } from './MarkdownTextarea';
-export { MarkdownTextarea };
+export { MarkdownTextarea } from './MarkdownTextarea';

@@ -9,6 +9,12 @@ yarn add @independent-software/typeui
 bower install @independent-software/typeui --save
 ```
 
+TypeUI requires React 19 and styled-components 6, which your app must install itself:
+
+```sh
+npm install react react-dom styled-components --save
+```
+
 ## Documentation
 
 Storybook available as [GitHub pages](https://henck.github.io/typeui/).
@@ -23,7 +29,7 @@ This package has a built-in theme, which must be passed on to any controls your 
 
 ```jsx
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 import { Theme } from '@independent-software/typeui/styles/Theme'
 ```
@@ -33,14 +39,11 @@ This React app uses a single component `Button`:
 ```jsx
 import { Button } from '@independent-software/typeui/controls/Button'
 
-ReactDOM.render(
-  (<React.Fragment>
-    <ThemeProvider theme={Theme}>
-      <Button>Click me!</Button>
-    </ThemeProvider>
-  </React.Fragment>),
-  document.getElementById('root')
-); 
+createRoot(document.getElementById('root')).render(
+  <ThemeProvider theme={Theme}>
+    <Button>Click me!</Button>
+  </ThemeProvider>
+);
 ```
 
 Optionally, you can use the component `<StyleReset/>` to perform a global CSS reset, if your app is not already doing this. In addition, `<StyleBase>` sets up some optional base styles:
@@ -50,15 +53,14 @@ import { StyleReset } from '@independent-software/typeui/styles/StyleReset'
 import { StyleBase } from '@independent-software/typeui/styles/StyleBase'
 import { Button } from '@independent-software/typeui/controls/Button'
 
-ReactDOM.render(
-  (<React.Fragment>
+createRoot(document.getElementById('root')).render(
+  <>
     <StyleReset/>
     <StyleBase/>
     <ThemeProvider theme={Theme}>
       <Button>Click me!</Button>
     </ThemeProvider>
-  </React.Fragment>),
-  document.getElementById('root')
+  </>
 );
 ```
 

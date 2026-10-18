@@ -20,4 +20,4 @@ const ListHeaderStyled = styled(ListHeaderBase)`
 
 const ListHeader = (props: IListHeaderProps) =><ListHeaderStyled {...props}/>
 
-export { ListHeader, IListHeaderProps }
+export { ListHeader, type IListHeaderProps }

@@ -6,6 +6,8 @@ import { PanelBody } from './PanelBody';
 interface IPanelContainerProps {
   /** @ignore */
   className?: string;
+  /** @ignore */
+  nodeRef?: React.Ref<HTMLDivElement>;
   children?: React.ReactNode;
   /** Anchor element to base positioning of body on. */
   anchor: HTMLDivElement;
@@ -45,7 +47,7 @@ class PanelContainer extends React.Component<IPanelContainerProps> {
   render() {
     let p = this.props;
     return (
-      <PanelBody noanimation={this.props.noanimation} className={p.className} above={this.above} right={this.right} offset={this.offset} padded={p.padded} width={p.width}>{p.children}</PanelBody>
+      <PanelBody nodeRef={p.nodeRef} noanimation={this.props.noanimation} className={p.className} above={this.above} right={this.right} offset={this.offset} padded={p.padded} width={p.width}>{p.children}</PanelBody>
     );
   }
 }

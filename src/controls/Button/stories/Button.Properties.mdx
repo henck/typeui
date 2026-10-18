@@ -1,0 +1,25 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Button} from '../Button';
+import {Icon} from '../../Icon';
+import {Segment} from '../../Segment';
+import {Divider} from '../../Divider';
+import {Label} from '../../Label';
+import * as ButtonPropertiesStories from './Button.Properties.stories';
+
+# Button
+
+A `Button` replaces the HTML `<button>` element.
+
+<Meta of={ButtonPropertiesStories} />
+
+<ArgTypes of={Button} />
+
+## Default button
+
+By default, `Button` controls have an ink ripple effect, which can be disabled.
+Buttons can be grouped in a `Button.Group` or presented as options using
+`Button.Or`.
+
+<Canvas>
+  <Story of={ButtonPropertiesStories.Properties} />
+</Canvas>

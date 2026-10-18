@@ -3,6 +3,7 @@ import { Float } from '../Types';
 interface IAccordionTabProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /** Tab title. Can be JSX. */
     title: React.ReactNode;
@@ -19,7 +20,5 @@ interface IAccordionTabProps {
     /** @ignore (Not public) If set, there will be no sliding animations. */
     noanimate?: boolean;
 }
-declare class AccordionTab extends React.Component<IAccordionTabProps, {}> {
-    render(): JSX.Element;
-}
-export { AccordionTab };
+declare const AccordionTab: (props: IAccordionTabProps) => React.JSX.Element;
+export { AccordionTab, type IAccordionTabProps };

@@ -5,5 +5,5 @@ export interface ISubheaderProps {
     children?: React.ReactNode;
 }
 export declare class Subheader extends React.Component<ISubheaderProps> {
-    render: () => JSX.Element;
+    render: () => React.JSX.Element;
 }

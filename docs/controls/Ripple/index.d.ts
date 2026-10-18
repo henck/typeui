@@ -1,2 +1,1 @@
-import { Ripple } from './Ripple';
-export { Ripple };
+export { Ripple } from './Ripple';

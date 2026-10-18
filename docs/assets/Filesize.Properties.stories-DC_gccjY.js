@@ -1,0 +1,10 @@
+import{a as e,n as t,r as n}from"./rolldown-runtime-sJBDdmOt.js";import{t as r}from"./react-DlPsW1c0.js";import{n as i}from"./iframe-BMOsmv_G.js";var a,o;function s(){return(s=t((()=>{a=e(r()),o=class extends a.Component{constructor(...e){super(...e),this.humanFileSize=(e,t)=>{var n=t==`si`?1e3:1024;if(Math.abs(e)<n)return e+` B`;var r=t==`si`?[`kB`,`MB`,`GB`,`TB`,`PB`,`EB`,`ZB`,`YB`]:[`KiB`,`MiB`,`GiB`,`TiB`,`PiB`,`EiB`,`ZiB`,`YiB`],i=-1;do e/=n,++i;while(Math.abs(e)>=n&&i<r.length-1);return e.toFixed(2)+` `+r[i]}}render(){let e=this.props;if(e.value==null)return null;let t=typeof e.value==`string`?parseFloat(e.value):e.value;return this.humanFileSize(t,e.unit?e.unit:`si`)}},o.__docgenInfo={description:`Filesize takes a size prop (in bytes) and renders\r
+a human-readable filesize string.\r
+\r
+E.g. 10000 => 10.0 kB`,methods:[{name:`humanFileSize`,docblock:`Convert bytes to size string (kB, MB, GB etc.)`,modifiers:[],params:[{name:`bytes`,optional:!1,type:{name:`number`}},{name:`unit`,optional:!1,type:{name:`union`,raw:`'si' | 'binary'`,elements:[{name:`literal`,value:`'si'`},{name:`literal`,value:`'binary'`}],alias:`TUnit`}}],returns:null,description:`Convert bytes to size string (kB, MB, GB etc.)`}],displayName:`Filesize`,props:{value:{required:!0,tsType:{name:`union`,raw:`number | string`,elements:[{name:`number`},{name:`string`}]},description:`File size in bytes`},unit:{required:!1,tsType:{name:`union`,raw:`'si' | 'binary'`,elements:[{name:`literal`,value:`'si'`},{name:`literal`,value:`'binary'`}]},description:"Unit type, `si` or `binary` \r\n@default si"}}}})))()}var c=n({Properties:()=>f,__namedExportsOrder:()=>p,default:()=>d}),l,u,d,f,p;function m(){return(m=t((()=>{s(),l=i(),u=e=>(0,l.jsx)(o,{...e}),d={title:`Formatters/Filesize`,component:o,argTypes:{className:{table:{disable:!0}}}},f={render:u.bind({}),name:`Properties`,args:{value:5e4}},p=[`Properties`],f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+  render: Template.bind({}),
+  name: 'Properties',
+  args: {
+    value: 50000
+  }
+}`,...f.parameters?.docs?.source}}}})))()}export{s as a,o as i,f as n,m as r,c as t};

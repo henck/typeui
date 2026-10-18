@@ -1,0 +1,41 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Card} from '../Card';
+import * as CardVariationsStories from './Card.Variations.stories';
+
+# Card: General
+
+.
+
+<Meta of={CardVariationsStories} />
+
+## align
+
+`Card.Content` and `Card.Header` elements can have horizontal alignment.
+
+<Canvas>
+  <Story of={CardVariationsStories.Align} />
+</Canvas>
+
+## fluid
+
+A `fluid` card takes up all the horizontal space available to it.
+
+<Canvas>
+  <Story of={CardVariationsStories.Fluid} />
+</Canvas>
+
+## raised
+
+A `raised` `Card` will have an extra-strong dropshadow.
+
+<Canvas>
+  <Story of={CardVariationsStories.Raised} />
+</Canvas>
+
+## secondary
+
+A `Card.Content` element can be made `secondary` and will have a darker background.
+
+<Canvas>
+  <Story of={CardVariationsStories.Secondary} />
+</Canvas>

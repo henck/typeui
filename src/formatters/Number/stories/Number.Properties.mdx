@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { Number } from '../Number';
+import * as NumberPropertiesStories from './Number.Properties.stories';
+
+<Meta of={NumberPropertiesStories} />
+
+# Number
+
+`Number` formats a number with thousands separators and optional fractional digits. If provided
+with a string, `Number` will convert it to a float first.
+
+E.g. `10000` yields `10,000`
+
+<ArgTypes of={Number} />
+
+## Example
+
+<Canvas>
+  <Story of={NumberPropertiesStories.Properties} />
+</Canvas>

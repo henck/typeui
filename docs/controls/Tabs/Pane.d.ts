@@ -2,6 +2,7 @@ import * as React from 'react';
 interface IPaneProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Tab label. Can be JSX.
@@ -12,7 +13,5 @@ interface IPaneProps {
     /** @ignore */
     nohiddenrender?: boolean;
 }
-declare class Pane extends React.Component<IPaneProps> {
-    render: () => JSX.Element;
-}
-export { Pane };
+declare const Pane: (props: IPaneProps) => React.JSX.Element;
+export { Pane, type IPaneProps };

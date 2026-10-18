@@ -1,5 +1,6 @@
 import * as React from 'react';
-interface IHarmonyBoxProps {
+interface IProps {
+    /** @ignore */
     className?: string;
     type: 'complementary' | 'triadic' | 'tetradic' | 'analogous' | 'neutral' | 'shades' | 'tints';
     hue: number;
@@ -7,12 +8,5 @@ interface IHarmonyBoxProps {
     lightness: number;
     onClick: (color: string) => void;
 }
-declare class HarmonyBoxBase extends React.Component<IHarmonyBoxProps, {}> {
-    private hsl;
-    private colors;
-    private handleClick;
-    private addDegrees;
-    render(): JSX.Element;
-}
-declare const HarmonyBox: import("styled-components").StyledComponent<typeof HarmonyBoxBase, import("../../../styles/Theme").IThemeInterface, {}, never>;
+declare const HarmonyBox: import("styled-components/dist/types").IStyledComponentBase<"web", IProps> & string & Omit<(props: IProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { HarmonyBox };

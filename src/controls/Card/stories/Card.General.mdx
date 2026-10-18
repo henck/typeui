@@ -1,0 +1,33 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { Card } from '../Card';
+import * as CardGeneralStories from './Card.General.stories';
+
+# Card: General
+
+.
+
+<Meta of={CardGeneralStories} />
+
+## Card.Content
+
+A `Card` can have any number of `Card.Content` elements inside it.
+
+<Canvas>
+  <Story of={CardGeneralStories.CardContent} />
+</Canvas>
+
+## Card.Header
+
+A `Card` can have a `Card.Header` element.
+
+<Canvas>
+  <Story of={CardGeneralStories.CardHeader} />
+</Canvas>
+
+## Card.Meta
+
+A `Card` can have a `Card.Meta` element.
+
+<Canvas>
+  <Story of={CardGeneralStories.CardMeta} />
+</Canvas>

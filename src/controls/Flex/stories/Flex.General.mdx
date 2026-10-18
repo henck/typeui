@@ -1,0 +1,60 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Flex} from '../Flex';
+import {Box} from '../../Box';
+import {Icon} from '../../Icon';
+import * as FlexGeneralStories from './Flex.General.stories';
+
+# Flex: General
+
+.
+
+<Meta of={FlexGeneralStories} />
+
+## Column width
+
+The `width` attribute of `Flex.Column` can be used to give weight to a column.
+
+<Canvas>
+  <Story of={FlexGeneralStories.ColumnWidth} />
+</Canvas>
+
+## Flex.Divider
+
+A `Flex.Divider` can be added between two columns. This *only* works for exactly two columns.
+The divider automatically becomes horizontal when the screen is narrow enough and the Flex is `stackable`.
+An optional text can be placed in the divider element.
+
+<Canvas>
+  <Story of={FlexGeneralStories.FlexDivider} />
+</Canvas>
+
+## Flex.Quick
+
+A `Flex.Quick` is used to vertically-align content in a row, and putting small spacing between items.
+Optionally, an `align` prop of `center`, `top` or `bottom` can be provided. The default is `center`.
+
+<Canvas>
+  <Story of={FlexGeneralStories.FlexQuick} />
+</Canvas>
+
+## Flex.Row
+
+There can be multiple `Flex.Row` elements, but there is no vertical connection
+between cells (this is not a grid).
+
+Note that to obtain a grid-like flex, it's necessary to set `width` on columns.
+Without it, columns will not flex.
+
+<Canvas>
+  <Story of={FlexGeneralStories.FlexRow} />
+</Canvas>
+
+## Flex.Columns
+
+Use the `Flex.Columns` shortcut to quickly create multiple columns. Use `count`
+to specify the desired number of columns. The columns will stack automatically
+on a small screen.
+
+<Canvas>
+  <Story of={FlexGeneralStories.FlexColumns} />
+</Canvas>

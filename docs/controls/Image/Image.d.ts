@@ -4,6 +4,7 @@ import { ImageGroup } from './ImageGroup';
 interface IImageProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /** Image source URL. */
     src?: string;
@@ -72,17 +73,7 @@ interface IImageProps {
      */
     onClick?: () => void;
 }
-declare type TImageState = 'loading' | 'loaded' | 'error';
-interface IImageState {
-    readonly state: TImageState;
-}
-declare class ImageBase extends React.Component<IImageProps, IImageState> {
-    readonly state: IImageState;
-    readonly onLoad: () => void;
-    readonly onError: () => void;
-    render(): JSX.Element;
-}
-declare const ImageStyled: import("styled-components").StyledComponent<typeof ImageBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const ImageStyled: import("styled-components/dist/types").IStyledComponentBase<"web", IImageProps> & string & Omit<(props: IImageProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 /**
  * Loads an image.
  *
@@ -102,12 +93,12 @@ declare const ImageStyled: import("styled-components").StyledComponent<typeof Im
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-image--properties
  */
-declare class Image extends React.Component<IImageProps> {
+declare const Image: {
+    (props: IImageProps): React.JSX.Element;
     /**
      * An Image.Group is a group of images can share size, bordered,
      * rounded and circular attributes. The images are automatically spaced.
      */
-    static Group: typeof ImageGroup;
-    render: () => JSX.Element;
-}
-export { Image, IImageProps, ImageStyled };
+    Group: typeof ImageGroup;
+};
+export { Image, type IImageProps, ImageStyled };

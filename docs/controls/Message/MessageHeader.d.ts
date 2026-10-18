@@ -2,9 +2,8 @@ import * as React from 'react';
 interface IMessageHeaderProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
 }
-declare class MessageHeader extends React.Component<IMessageHeaderProps> {
-    render: () => JSX.Element;
-}
-export { MessageHeader };
+declare const MessageHeader: (props: IMessageHeaderProps) => React.JSX.Element;
+export { MessageHeader, type IMessageHeaderProps };

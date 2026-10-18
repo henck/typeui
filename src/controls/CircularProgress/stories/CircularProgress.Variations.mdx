@@ -1,0 +1,90 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { CircularProgress } from '../CircularProgress';
+import * as CircularProgressVariationsStories from './CircularProgress.Variations.stories';
+
+# CircularProgress: Variations
+
+.
+
+<Meta of={CircularProgressVariationsStories} />
+
+## animated
+
+A `CircularProgress` can be `animated`. When it first appears, it will
+animate its progress line from 0 to `value`.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.Animated} />
+</Canvas>
+
+## background
+
+With `background` set, `CircularProgress` will add a gray background to
+its progress line.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.Background} />
+</Canvas>
+
+## color
+
+The color of a `CircularProgress` progress line can be set with the
+`color` prop.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.Color} />
+</Canvas>
+
+## padded
+
+A `padded` `CircularProgress` has some margin around it.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.Padded} />
+</Canvas>
+
+## radius
+
+The radius of a `CircularProgress` circle can be set with the `radius`
+prop.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.Radius} />
+</Canvas>
+
+## raised
+
+A `raised` `CircularProgress` shows a dropshadow on the inside and
+outside of its progress line.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.Raised} />
+</Canvas>
+
+## rounded
+
+A `rounded` `CircularProgress` applies rounding to the ends of its
+progress line.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.Rounded} />
+</Canvas>
+
+## thickness
+
+The thickness of a `CircularProgress` progress line can be set with
+the `thickness` prop.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.Thickness} />
+</Canvas>
+
+## fontFactor
+
+By default, the font size of the text inside the `CircularProgress` is the
+same as the global font size. `fontFactor` can be used to increase the font
+size by a multiplication factor.
+
+<Canvas>
+  <Story of={CircularProgressVariationsStories.FontFactor} />
+</Canvas>

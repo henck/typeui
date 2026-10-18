@@ -1,0 +1,17 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { Loader } from '../Loader';
+import * as LoaderPropertiesStories from './Loader.Properties.stories';
+
+<Meta of={LoaderPropertiesStories} />
+
+# Loader
+
+<ArgTypes of={Loader} />
+
+## Standard Loader
+
+A `Loader` projects a loading animation over the entire screen.
+
+<Canvas>
+  <Story of={LoaderPropertiesStories.Properties} />
+</Canvas>

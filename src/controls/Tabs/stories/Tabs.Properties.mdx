@@ -1,0 +1,23 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Tabs} from '../Tabs';
+import * as TabsPropertiesStories from './Tabs.Properties.stories';
+
+<Meta of={TabsPropertiesStories} />
+
+# Tabs
+
+A collection of tabs.
+
+<ArgTypes of={Tabs} />
+
+## Example
+
+This is a default `Tabs`.
+
+<Canvas>
+  <Story of={TabsPropertiesStories.Properties} />
+</Canvas>
+
+## Events
+
+A tab change can be detected by listening to the `onTabChange` event.

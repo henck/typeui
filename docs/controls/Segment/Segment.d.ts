@@ -3,6 +3,7 @@ import { HorizontalAlignment, Float, VerticalDirection } from '../Types';
 interface ISegmentProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * Segment will have an extra-strong dropshadow if true.
@@ -79,7 +80,5 @@ interface ISegmentProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-segment--properties
  */
-declare class Segment extends React.PureComponent<ISegmentProps> {
-    render: () => JSX.Element;
-}
-export { Segment };
+declare const Segment: (props: ISegmentProps) => React.JSX.Element;
+export { Segment, type ISegmentProps };

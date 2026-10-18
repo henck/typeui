@@ -38,4 +38,4 @@ type ListStyleType =
    
 type CheckboxType = 'check' | 'toggle' | 'slider' | 'circle';
 
-export { Size, HorizontalAlignment, VerticalAlignment, Float,  HorizontalDirection, VerticalDirection, Direction, ListStyleType, ValidityReason, CheckboxType, TDir };
+export { type Size, type HorizontalAlignment, type VerticalAlignment, type Float,  type HorizontalDirection, type VerticalDirection, type Direction, type ListStyleType, type ValidityReason, type CheckboxType, type TDir };

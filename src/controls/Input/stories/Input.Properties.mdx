@@ -1,0 +1,20 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Input} from '../Input';
+import {Form} from '../../Form';
+import * as InputPropertiesStories from './Input.Properties.stories';
+
+<Meta of={InputPropertiesStories} />
+
+# Input
+
+<ArgTypes of={Input} />
+
+# Standard Input
+
+A standard `Input` will have the `text` type. Optionally, it can have a
+`placeholder` property.  An `Input` should be wrapped in a `Form.Field` or
+`Form.Uncontrolled`.
+
+<Canvas>
+  <Story of={InputPropertiesStories.Properties} />
+</Canvas>

@@ -28,7 +28,7 @@ const StandardInputBase = (props: IInputProps) => {
   )
 }
 
-const StandardInput = styled(StandardInputBase).attrs(p => ({
+const StandardInput = styled(StandardInputBase).attrs<{ iconPos?: string, borderColor?: string, highBorderColor?: string }>(p => ({
   iconPos:          !p.iconPosition ? 'left' : p.iconPosition, 
   borderColor:      p.theme.normalColor,
   highBorderColor:  lighten(0.25, p.theme.primaryColor)

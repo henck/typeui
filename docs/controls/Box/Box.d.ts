@@ -10,5 +10,5 @@ interface IBoxProps {
      */
     color?: string;
 }
-declare const Box: (props: IBoxProps) => JSX.Element;
+declare const Box: (props: IBoxProps) => React.JSX.Element;
 export { Box };

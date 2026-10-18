@@ -5,7 +5,7 @@ import { Float, TDir } from '../Types';
 
 interface IDataColumnProps {
   className?: string;
-  children: (item:any) => void;
+  children: (item:any) => React.ReactNode;
   /** Column label. Can be JSX. */
   label: React.ReactNode;
   /** Optional order field. If present, this column can be ordered. */

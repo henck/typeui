@@ -40,7 +40,5 @@ interface ICheckboxProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-checkbox--properties
  */
-declare class Checkbox extends React.Component<ICheckboxProps> {
-    render: () => JSX.Element;
-}
-export { Checkbox };
+declare const Checkbox: (props: ICheckboxProps) => React.JSX.Element;
+export { Checkbox, type ICheckboxProps };

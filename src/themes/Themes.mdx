@@ -1,0 +1,22 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import * as ThemesStories from './Themes.stories';
+
+<Meta of={ThemesStories} />
+
+# Standard theme
+
+<Canvas>
+  <Story of={ThemesStories.StandardTheme} />
+</Canvas>
+
+# Dark theme
+
+<Canvas>
+  <Story of={ThemesStories.DarkTheme} />
+</Canvas>
+
+# Rectangular theme
+
+<Canvas>
+  <Story of={ThemesStories.RectangularTheme} />
+</Canvas>

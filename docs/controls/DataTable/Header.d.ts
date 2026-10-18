@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Float } from '../Types';
 interface IHeaderProps {
+    /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /** Is column orderable? */
     orderable: boolean;
@@ -22,8 +24,5 @@ interface IHeaderProps {
     /** If true, then gridlines are shown. */
     grid?: boolean;
 }
-declare class HeaderBase extends React.Component<IHeaderProps, {}> {
-    render(): JSX.Element;
-}
-declare const Header: import("styled-components").StyledComponent<typeof HeaderBase, import("../../styles/Theme").IThemeInterface, {}, never>;
+declare const Header: import("styled-components/dist/types").IStyledComponentBase<"web", IHeaderProps> & string & Omit<(props: IHeaderProps) => React.JSX.Element, keyof React.Component<any, {}, any>>;
 export { Header };

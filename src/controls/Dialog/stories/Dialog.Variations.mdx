@@ -1,0 +1,40 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Dialog} from '../Dialog'
+import {Button} from '../../Button'
+import * as DialogVariationsStories from './Dialog.Variations.stories';
+
+# Dialog: Variations
+
+.
+
+<Meta of={DialogVariationsStories} />
+
+## width
+
+A `Dialog` has a default width in pixels. On a large screen the width defaults
+to *600* pixels, while on small screen, it defaults to *400* pixels (done through
+a `@media` query). The `width` attribute can be used to override this.
+
+<Canvas>
+  <Story of={DialogVariationsStories.Width} />
+</Canvas>
+
+## Scrolling content
+
+The `Dialog.Content` element will add a vertical scrollbar if the height of
+the content exceeds *70%* of the vertical screen size. The `maxHeight` property
+can be used to customize this by specifying a different percentage.
+
+<Canvas>
+  <Story of={DialogVariationsStories.Scrolling} />
+</Canvas>
+
+## Footer alignment
+
+The `Dialog.Footer` element accepts an optjonal `align` property that behaves
+like Flexbox's `justify-content`, facilitating the placement of buttons in the
+footer. Alignment defaults to the right for all items (`justify-content: end`).
+
+<Canvas>
+  <Story of={DialogVariationsStories.FooterAlignment} />
+</Canvas>

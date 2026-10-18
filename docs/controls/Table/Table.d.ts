@@ -2,6 +2,7 @@ import * as React from 'react';
 interface ITableProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
     /**
      * If set, adds row striping.
@@ -26,7 +27,5 @@ interface ITableProps {
  *
  * @link https://henck.github.io/typeui/?path=/story/controls-table--properties
  */
-declare class Table extends React.PureComponent<ITableProps> {
-    render: () => JSX.Element;
-}
-export { Table };
+declare const Table: (props: ITableProps) => React.JSX.Element;
+export { Table, type ITableProps };

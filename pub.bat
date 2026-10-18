@@ -6,5 +6,5 @@ copy README.md dist
 del dist\main.js
 del dist\index.js
 del dist\index.d.ts
-node node_modules\replace-in-file\bin\cli.js /dist/g "" dist/package.json --isRegex
+call npx --no-install replace-in-file /dist/g "" dist/package.json --isRegex
 

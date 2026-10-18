@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 // Other controls
 import { Dialog } from './Dialog';
 import { Button } from '../Button/Button';
 import { Header } from '../Header/Header';
 import { List } from '../List/List';
-var HttpStatusCodes = {
+const HttpStatusCodes = {
     100: {
         header: "Continue",
         desc: "This interim response indicates that the client should continue the request or ignore the response if the request is already finished."
@@ -258,11 +258,11 @@ var HttpStatusCodes = {
         desc: "Indicates that the client needs to authenticate to gain network access."
     }
 };
-var XhrDialog = function (props) {
-    var getStatusHeader = function () {
+const XhrDialog = (props) => {
+    const getStatusHeader = () => {
         if (props.error.response) {
-            var status_1 = HttpStatusCodes[props.error.response.status];
-            return status_1 ? status_1.header : "Server error";
+            const status = HttpStatusCodes[props.error.response.status];
+            return status ? status.header : "Server error";
         }
         else if (props.error.request) {
             return props.error.message;
@@ -271,10 +271,10 @@ var XhrDialog = function (props) {
             return "Internal error";
         }
     };
-    var getStatusText = function () {
+    const getStatusText = () => {
         if (props.error.response) {
-            var status_2 = HttpStatusCodes[props.error.response.status];
-            return status_2 ? status_2.desc : "An error occurred on the server. Please try again later.";
+            const status = HttpStatusCodes[props.error.response.status];
+            return status ? status.desc : "An error occurred on the server. Please try again later.";
         }
         else if (props.error.request) {
             return "There was a problem communicating with the server. Please try again later.";
@@ -283,22 +283,7 @@ var XhrDialog = function (props) {
             return "There was a problem setting up the request to the server.";
         }
     };
-    return (React.createElement(Dialog, { open: props.open, onClose: props.onClose },
-        React.createElement(Dialog.Header, null, props.error && getStatusHeader()),
-        React.createElement(Dialog.Content, null,
-            props.error && React.createElement("p", null, getStatusText()),
-            props.error && props.error.response && props.error.response.status === 422 && props.error.response.data &&
-                React.createElement(React.Fragment, null,
-                    React.createElement(Header, { size: "h3" }, "Details"),
-                    React.createElement(List, null, Object.keys(props.error.response.data).map(function (key) {
-                        return React.createElement(List.Item, { key: key },
-                            React.createElement("span", { style: { fontWeight: 500 } }, key),
-                            React.createElement(List, null, props.error.response.data[key].map(function (error, index) {
-                                return React.createElement(List.Item, { key: index }, error);
-                            })));
-                    })))),
-        React.createElement(Dialog.Footer, null,
-            props.onRetry && React.createElement(Button, { primary: true, onClick: props.onRetry }, "Retry"),
-            React.createElement(Button, { onClick: props.onClose }, "OK"))));
+    return (_jsxs(Dialog, { open: props.open, onClose: props.onClose, children: [_jsx(Dialog.Header, { children: props.error && getStatusHeader() }), _jsxs(Dialog.Content, { children: [props.error && _jsx("p", { children: getStatusText() }), props.error && props.error.response && props.error.response.status === 422 && props.error.response.data &&
+                        _jsxs(_Fragment, { children: [_jsx(Header, { size: "h3", children: "Details" }), _jsx(List, { children: Object.keys(props.error.response.data).map((key) => _jsxs(List.Item, { children: [_jsx("span", { style: { fontWeight: 500 }, children: key }), _jsx(List, { children: props.error.response.data[key].map((error, index) => _jsx(List.Item, { children: error }, index)) })] }, key)) })] })] }), _jsxs(Dialog.Footer, { children: [props.onRetry && _jsx(Button, { primary: true, onClick: props.onRetry, children: "Retry" }), _jsx(Button, { onClick: props.onClose, children: "OK" })] })] }));
 };
 export { XhrDialog };

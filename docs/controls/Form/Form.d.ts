@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { Field } from './Field';
-import { Group } from './Group';
-import { Uncontrolled } from './Uncontrolled';
 import { IFormContext } from './FomContext';
 interface IProps {
     children?: React.ReactNode;
@@ -63,7 +61,7 @@ declare class Form extends React.Component<IProps, IState> {
      */
     static Field: typeof Field;
     /** Groups several form fields. */
-    static Group: typeof Group;
+    static Group: (props: import("./Group").IGroupProps) => React.JSX.Element;
     /**
      * Components may wish to show a control wrapped in a field, without the overhead of
      * a Form, while still benefiting from Field formatting.
@@ -73,12 +71,12 @@ declare class Form extends React.Component<IProps, IState> {
      * the calling code must do that. The field's control is also not provided as a prop,
      * but as a child.
      */
-    static Uncontrolled: typeof Uncontrolled;
+    static Uncontrolled: (props: import("./Uncontrolled").IProps) => React.JSX.Element;
     private validations;
     constructor(props: IProps);
     componentDidUpdate(prevProps: IProps): void;
     handleChange: (name: string, value: any, forceupdate: boolean) => void;
     handleValidate: (name: string, valid: boolean) => void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export { Form };

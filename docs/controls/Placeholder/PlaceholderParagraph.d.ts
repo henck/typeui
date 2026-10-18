@@ -2,9 +2,8 @@ import * as React from 'react';
 interface IPlaceholderParagraphProps {
     /** @ignore */
     className?: string;
+    /** @ignore */
     children?: React.ReactNode;
 }
-declare class PlaceholderParagraph extends React.Component<IPlaceholderParagraphProps> {
-    render: () => JSX.Element;
-}
-export { PlaceholderParagraph };
+declare const PlaceholderParagraph: (props: IPlaceholderParagraphProps) => React.JSX.Element;
+export { PlaceholderParagraph, type IPlaceholderParagraphProps };

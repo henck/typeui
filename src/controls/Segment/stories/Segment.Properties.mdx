@@ -1,0 +1,17 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import {Segment} from '../Segment';
+import * as SegmentPropertiesStories from './Segment.Properties.stories';
+
+<Meta of={SegmentPropertiesStories} />
+
+# Segment
+
+A `Segment` places a border around some content.
+
+<ArgTypes of={Segment} />
+
+## Example
+
+<Canvas>
+  <Story of={SegmentPropertiesStories.Properties} />
+</Canvas>

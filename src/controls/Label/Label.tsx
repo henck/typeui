@@ -74,7 +74,7 @@ interface ILabelProps {
 const LabelBase = (props: ILabelProps) =>
   <div className={props.className} onClick={props.onClick}>{props.children}{props.content}</div>
 
-const LabelStyled = styled(LabelBase).attrs(p => ({
+const LabelStyled = styled(LabelBase).attrs<{ emSize?: number, finalColor?: string }>(p => ({
   emSize: scaleSize(p.size, 0.86, p.theme.scale.label),
   finalColor: p.positive ? p.theme.positiveColor : (p.negative ? p.theme.negativeColor : p.color)
 }))`

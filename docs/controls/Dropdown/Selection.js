@@ -1,48 +1,61 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-import * as React from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import styled from '../../styles/Theme';
 // Helpers
 import { lighten } from '../../helper/lighten';
-var SelectionBase = /** @class */ (function (_super) {
-    __extends(SelectionBase, _super);
-    function SelectionBase() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        // Handle clicks locally so that they don't propagate
-        // to the Selector, then send them on to the subscriber.
-        _this.handleClick = function (e) {
-            e.stopPropagation();
-            _this.props.onClick();
-        };
-        return _this;
-    }
-    SelectionBase.prototype.render = function () {
-        var p = this.props;
-        // Item function is only called when item is not null.
-        return (React.createElement("div", { className: p.className, onClick: this.handleClick },
-            p.children,
-            React.createElement("svg", null,
-                React.createElement("use", { xlinkHref: "spritemap.svg#times" }))));
+const SelectionBase = (props) => {
+    // Handle clicks locally so that they don't propagate
+    // to the Selector, then send them on to the subscriber.
+    const handleClick = (e) => {
+        e.stopPropagation();
+        props.onClick();
     };
-    return SelectionBase;
-}(React.Component));
-var Selection = styled(SelectionBase)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  align-items: center;\n  box-sizing: border-box;\n  border-radius: ", "px;\n  background: ", ";\n  color: #fff;\n  padding: 2px 20px 2px 8px;\n  margin-right: 4px;\n  white-space: nowrap;\n\n  &>svg {\n    position: absolute;\n    right: 5px;\n    top: 4px;\n    width: 14px;\n    height: 14px;    \n    fill: #eee;\n    transition: fill ", "s ease;\n  }\n\n  transition: background-color ", "s ease;\n  &:hover {\n    background: ", ";\n    &>svg {\n      fill: #fff;\n    }\n  }\n\n  &.item-enter {\n    opacity: 0;\n  }\n  &.item-enter-active {\n    opacity: 1;\n    transition: opacity 300ms ease-in;\n  }\n  &.item-exit {\n    opacity: 1;\n  }\n  &.item-exit-active {\n    opacity: 0;\n    transition: opacity 300ms ease-in;\n  }  \n"], ["\n  position: relative;\n  display: inline-block;\n  align-items: center;\n  box-sizing: border-box;\n  border-radius: ", "px;\n  background: ", ";\n  color: #fff;\n  padding: 2px 20px 2px 8px;\n  margin-right: 4px;\n  white-space: nowrap;\n\n  &>svg {\n    position: absolute;\n    right: 5px;\n    top: 4px;\n    width: 14px;\n    height: 14px;    \n    fill: #eee;\n    transition: fill ", "s ease;\n  }\n\n  transition: background-color ", "s ease;\n  &:hover {\n    background: ", ";\n    &>svg {\n      fill: #fff;\n    }\n  }\n\n  &.item-enter {\n    opacity: 0;\n  }\n  &.item-enter-active {\n    opacity: 1;\n    transition: opacity 300ms ease-in;\n  }\n  &.item-exit {\n    opacity: 1;\n  }\n  &.item-exit-active {\n    opacity: 0;\n    transition: opacity 300ms ease-in;\n  }  \n"])), function (p) { return p.theme.radius; }, function (p) { return p.theme.primaryColor; }, function (p) { return p.theme.transition.duration; }, function (p) { return p.theme.transition.duration; }, function (p) { return lighten(0.1, p.theme.primaryColor); });
+    // Item function is only called when item is not null.
+    return (_jsxs("div", { className: props.className, onClick: handleClick, children: [props.children, _jsx("svg", { children: _jsx("use", { xlinkHref: "/spritemap.svg#times" }) })] }));
+};
+const Selection = styled(SelectionBase) `
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: ${p => p.theme.radius}px;
+  background: ${p => p.theme.primaryColor};
+  color: #fff;
+  padding: 2px 20px 2px 8px;
+  margin-right: 4px;
+  white-space: nowrap;
+  user-select: none;
+
+  &>svg {
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    width: 14px;
+    height: 14px;    
+    fill: #eee;
+    transition: fill ${p => p.theme.transition.duration}s ease;
+  }
+
+  transition: background-color ${p => p.theme.transition.duration}s ease;
+  &:hover {
+    background: ${p => lighten(0.1, p.theme.primaryColor)};
+    &>svg {
+      fill: #fff;
+    }
+  }
+
+  &.item-enter {
+    opacity: 0;
+  }
+  &.item-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+  &.item-exit {
+    opacity: 1;
+  }
+  &.item-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }  
+`;
 export { Selection };
-var templateObject_1;

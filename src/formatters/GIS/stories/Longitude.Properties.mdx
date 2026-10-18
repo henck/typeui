@@ -1,0 +1,17 @@
+import { ArgTypes, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import { Longitude } from '../GIS';
+import * as LongitudePropertiesStories from './Longitude.Properties.stories';
+
+<Meta of={LongitudePropertiesStories} />
+
+# Longitude
+
+`Longitude` formats a longitude float into degrees, minutes and seconds.
+
+<ArgTypes of={Longitude} />
+
+## Example
+
+<Canvas>
+  <Story of={LongitudePropertiesStories.Properties} />
+</Canvas>

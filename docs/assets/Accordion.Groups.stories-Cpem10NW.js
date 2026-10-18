@@ -1,0 +1,10 @@
+import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{n}from"./iframe-BMOsmv_G.js";import{n as r,t as i}from"./Accordion-BwoAqFGY.js";import{t as a}from"./Icon-DBLdIlUt.js";import{t as o}from"./Segment-CJRWtwR9.js";import{t as s}from"./Segment-BBCHNE-P.js";import{t as c}from"./Flex-BXnfVj9e.js";import{t as l}from"./Message-DNmx9_Ix.js";import{t as u}from"./Message-CLNL5ta-.js";var d=t({Attached:()=>h,__namedExportsOrder:()=>g,default:()=>m}),f,p,m,h,g;function _(){return(_=e((()=>{r(),a(),s(),c(),u(),f=n(),p=e=>(0,f.jsxs)(`div`,{children:[(0,f.jsx)(o,{attached:`top`,children:`Information about dogs`}),(0,f.jsxs)(i,{...e,children:[(0,f.jsx)(i.Tab,{title:`What is a dog?`,children:`A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.`}),(0,f.jsx)(i.Tab,{title:`What kinds of dogs are there?`,children:`There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.`}),(0,f.jsx)(i.Tab,{title:`How do you acquire a dog?`,children:`Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters. A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.`})]}),(0,f.jsx)(l,{type:`warning`,attached:`bottom`,children:`End of information.`})]}),m={title:`Controls/Accordion/Groups`,component:i,subcomponents:{"Accordion.Tab":i.Tab}},h={render:p.bind({}),name:`attached`,args:{styled:!0,raised:!0,multiple:!0,attached:!0}},g=[`Attached`],h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  render: AttachedTemplate.bind({}),
+  name: 'attached',
+  args: {
+    styled: true,
+    raised: true,
+    multiple: true,
+    attached: true
+  }
+}`,...h.parameters?.docs?.source}}}})))()}export{h as n,_ as r,d as t};

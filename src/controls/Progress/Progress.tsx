@@ -61,7 +61,7 @@ interface IProgressProps {
 const ProgressBase = (props: IProgressProps) =>
   <div className={props.className} onClick={props.onClick}></div>
 
-const ProgressStyled = styled(ProgressBase).attrs(p => ({
+const ProgressStyled = styled(ProgressBase).attrs<{ percentageStr?: string }>(p => ({
   percentageStr: Math.round(p.value).toString() + '%'
 }))` 
   position: relative; 
@@ -122,4 +122,4 @@ const ProgressStyled = styled(ProgressBase).attrs(p => ({
  */
 const Progress = (props: IProgressProps) => <ProgressStyled {...props}/>;
 
-export { Progress, IProgressProps }
+export { Progress, type IProgressProps }

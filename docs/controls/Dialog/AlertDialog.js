@@ -1,13 +1,6 @@
-import * as React from 'react';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // Other controls
 import { Button } from '../Button/Button';
 import { Dialog } from './Dialog';
-var AlertDialog = function (props) {
-    var _a;
-    return React.createElement(Dialog, { open: props.open, onClose: props.onClose },
-        React.createElement(Dialog.Header, null, (_a = props.title) !== null && _a !== void 0 ? _a : 'Alert'),
-        React.createElement(Dialog.Content, null, props.children),
-        React.createElement(Dialog.Footer, null,
-            React.createElement(Button, { onClick: props.onClose }, "OK")));
-};
+const AlertDialog = (props) => _jsxs(Dialog, { open: props.open, onClose: props.onClose, children: [_jsx(Dialog.Header, { children: props.title ?? 'Alert' }), _jsx(Dialog.Content, { children: props.children }), _jsx(Dialog.Footer, { children: _jsx(Button, { onClick: props.onClose, children: "OK" }) })] });
 export { AlertDialog };

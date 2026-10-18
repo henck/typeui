@@ -54,4 +54,4 @@ const PlaceholderHeaderStyled = styled(PlaceholderHeaderBase)`
 const PlaceholderHeader = (props: IPlaceholderHeaderProps) => 
   <PlaceholderHeaderStyled {...props}/>
 
-export { PlaceholderHeader, IPlaceholderHeaderProps }
+export { PlaceholderHeader, type IPlaceholderHeaderProps }
