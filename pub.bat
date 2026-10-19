@@ -1,10 +1,7 @@
 rem Publish package to NPM, eliminating this /dist directory (publish only its contents)
-rem This is done by copying package.json and README.md to dist, then editing package.json
-rem to remove the /dist prefix.
-copy package.json dist
+rem This is done by copying README.md to dist, then writing a package.json into dist
+rem whose entry points and exports map are relative to dist.
 copy README.md dist
 del dist\main.js
-del dist\index.js
-del dist\index.d.ts
-call npx --no-install replace-in-file /dist/g "" dist/package.json --isRegex
+node scripts\package-dist.js
 

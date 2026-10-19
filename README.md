@@ -74,9 +74,10 @@ This project was built in TypeScript and comes with TypeScript type definitions,
 
 ### Importing components
 
-Each component is imported from its own path, so your app's bundle only includes the components you actually use. For example, this imports just the `Button` component:
+Components can be imported from the package root or from their own path. Either way, your app's bundle only includes the components you actually use:
 
 ```jsx
+import { Button, Theme } from '@independent-software/typeui'
 import { Button } from '@independent-software/typeui/controls/Button'
 ```
 

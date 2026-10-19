@@ -3,7 +3,8 @@ const path = require('path'),
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts',
+  // Webpack only builds the SVG spritemap; the library itself is compiled by tsc.
+  entry: 'data:text/javascript,',
   plugins: [
     new SVGSpritemapPlugin('svg/**/*.svg', {
       sprite: {
